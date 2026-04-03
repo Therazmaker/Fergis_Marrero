@@ -1395,6 +1395,35 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
         </div>
       </div>
 
+      <!-- Panel dual: Carta Natal -->
+      <div id="sdm-carta" style="display:none">
+        <div class="sdm-tag">Carta Natal</div>
+        <h3 class="sdm-title">Carta Natal</h3>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 1</div>
+          <h4 class="compat-name">Carta natal</h4>
+          <p class="sdm-text">Un análisis profundo de tu personalidad, emociones y patrones.
+Aquí entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu energía a tu favor.
+Tu carta no te define… te revela.</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Carta Natal')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+
+        <div class="compat-divider"></div>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 2</div>
+          <h4 class="compat-name">Carta natal infantil</h4>
+          <p class="sdm-text">Para entender el mundo energético, emocional y mental de tu hijo/a.
+Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amor.</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Carta Natal Infantil')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1414,6 +1443,7 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
             <option value="45.00">🌻 Diosa en Guía - $45 USD</option>
             <option value="45.00">🔮 Tarot - $45 USD</option>
             <option value="85.00">🌙 Carta Natal - $85 USD</option>
+            <option value="85.00">👶 Carta Natal Infantil - $85 USD</option>
             <option value="85.00">🌞 Revolución Solar - $85 USD</option>
             <option value="105.00">❤️ Compatibilidad de Pareja - $105 USD</option>
             <option value="105.00">🪐 Sinastría o Carta Compuesta - $105 USD</option>
@@ -1482,6 +1512,7 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
             <option value="150" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 150</option>
             <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
             <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
+            <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
             <option value="300" data-name="Revolución Solar">🌞 Revolución Solar - S/ 300</option>
             <option value="380" data-name="Compatibilidad de Pareja">❤️ Compatibilidad de Pareja - S/ 380</option>
             <option value="380" data-name="Sinastría o Carta Compuesta">🪐 Sinastría o Carta Compuesta - S/ 380</option>
@@ -1731,6 +1762,13 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
         price: '$85 USD · S/ 300',
         match: 'Carta Natal'
       },
+      'Carta Natal Infantil': {
+        tag: 'Carta para infancia',
+        title: 'Carta natal infantil',
+        text: 'Para entender el mundo energético, emocional y mental de tu hijo/a.\n\nTe explico cómo siente, qué necesita y cómo acompañarle con más calma y amor.',
+        price: '$85 USD · S/ 300',
+        match: 'Carta Natal Infantil'
+      },
       'Revolución Solar': {
         tag: 'Tu año, con dirección',
         title: 'Tu año, con dirección',
@@ -1773,10 +1811,16 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
 
       const std    = document.getElementById('sdm-standard');
       const compat = document.getElementById('sdm-compat');
+      const carta  = document.getElementById('sdm-carta');
 
       if (key === 'Compatibilidad') {
         std.style.display    = 'none';
         compat.style.display = 'block';
+        carta.style.display  = 'none';
+      } else if (key === 'Carta Natal') {
+        std.style.display    = 'none';
+        compat.style.display = 'none';
+        carta.style.display  = 'block';
       } else {
         activeMatch = d.match;
         document.getElementById('sdm-tag').textContent   = d.tag;
@@ -1785,6 +1829,7 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
         document.getElementById('sdm-price').textContent = `Precio: ${d.price || ''}`;
         std.style.display    = 'block';
         compat.style.display = 'none';
+        carta.style.display  = 'none';
       }
       document.getElementById('service-overlay').classList.add('active');
     }
