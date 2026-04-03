@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fergis Marrero – Mamá Girasol | Astrología Evolutiva</title>
+  <meta name="description"
+    content="Astrología, tarot y acompañamiento emocional con Fergis Marrero – Mamá Girasol. Un espacio seguro para volver a ti." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════════════════ */
+    :root {
+      /* Paleta principal */
+      --cream: #FAF4E8;
+      --parchment: #F2E8D0;
+      --gold-light: #F5E3A3;
+      --gold: #D4A847;
+      --gold-deep: #A87828;
+      --terracotta: #C85A3A;
+      --terracotta-d: #9E3A1E;
+      --wine: #6B2236;
+      --wine-deep: #420F1E;
+      --ink: #1F0A10;
+
+      /* Tipografía */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      /* Espaciados */
+      --gap: 20px;
+      --radius: 20px;
+      --radius-sm: 12px;
+
+      /* Sombras */
+      --shadow-sm: 0 2px 12px rgba(31, 10, 16, 0.08);
+      --shadow-md: 0 8px 40px rgba(31, 10, 16, 0.12);
+      --shadow-lg: 0 20px 80px rgba(31, 10, 16, 0.18);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BENTO WRAPPER
+    ═══════════════════════════════════════════════════════ */
+    .bento-page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BASE BOX
+    ═══════════════════════════════════════════════════════ */
+    .box {
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Warm box (crema) */
+    .box-warm {
+      background: var(--parchment);
+      border: 1px solid rgba(212, 168, 71, 0.25);
+    }
+
+    /* ── Dark box (fondo rico, tipografía clara) */
+    .box-rich {
+      background: linear-gradient(140deg, var(--terracotta) 0%, var(--wine) 100%);
+      color: var(--cream);
+    }
+
+    /* ── Gold box */
+    .box-gold {
+      background: linear-gradient(135deg, #F0C860 0%, #D4A847 100%);
+      color: var(--wine-deep);
+    }
+
+    /* ── Deep box */
+    .box-deep {
+      background: linear-gradient(140deg, var(--wine-deep) 0%, var(--ink) 100%);
+      color: var(--cream);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO INTRO
+    ═══════════════════════════════════════════════════════ */
+    .hero-box {
+      padding: 72px 64px;
+      text-align: center;
+      background: var(--wine-deep);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-box::before {
+      content: '🌻';
+      position: absolute;
+      font-size: 320px;
+      opacity: 0.04;
+      right: -60px;
+      top: -60px;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 168, 71, 0.4);
+      padding: 6px 18px;
+      border-radius: 99px;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-body {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(250, 244, 232, 0.82);
+      max-width: 620px;
+      margin: 0 auto 12px;
+      line-height: 1.75;
+    }
+
+    .hero-sign {
+      margin-top: 32px;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--gold-light);
+      letter-spacing: 0.3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BENTO GRID (centro)
+    ═══════════════════════════════════════════════════════ */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      min-height: 580px;
+    }
+
+    /* ── CAROUSEL ────────────────────────────────────────── */
+    .carousel-box {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--wine-deep);
+      min-height: 560px;
+    }
+
+    /* El viewport ocupa todo el espacio de la caja y oculta lo que sobresale */
+    .carousel-viewport {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      /* 4 slides, cada uno ocupa el 100% del viewport */
+      width: 400%;
+      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .c-slide {
+      /* 25% del track = 100% del viewport */
+      width: 25%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .c-slide.img-slide {
+      padding: 0;
+      position: relative;
+    }
+
+    .c-slide.img-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    /* Placeholder cuando no hay imagen */
+    .c-slide.img-slide {
+      background: linear-gradient(150deg, #6B2236 0%, #1F0A10 100%);
+    }
+
+    .c-slide.img-slide::after {
+      content: attr(data-label);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
+      padding: 24px;
+      text-align: center;
+      z-index: 0;
+    }
+
+    .c-slide.img-slide img {
+      z-index: 1;
+    }
+
+    .c-slide.text-slide {
+      padding: 52px 44px;
+      background: linear-gradient(150deg, var(--terracotta) 0%, var(--wine-deep) 100%);
+      color: var(--cream);
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .c-slide.text-slide h2 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .c-slide.text-slide h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .c-slide.text-slide p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(250, 244, 232, 0.85);
+      font-weight: 300;
+    }
+
+    /* Dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: background 0.4s, transform 0.4s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ── SERVICES STACK ──────────────────────────────────── */
+    .services-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+
+    .srv-btn {
+      flex: 1;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: left;
+    }
+
+    .srv-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.22s;
+    }
+
+    .srv-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .srv-btn:hover::before {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .srv-btn-rich {
+      background: linear-gradient(120deg, var(--terracotta) 0%, #A83828 100%);
+      color: var(--cream);
+    }
+
+    .srv-btn-wine {
+      background: linear-gradient(120deg, var(--wine) 0%, #531A2C 100%);
+      color: var(--cream);
+    }
+
+    .srv-btn-gold {
+      background: linear-gradient(120deg, #E8B840 0%, var(--gold-deep) 100%);
+      color: var(--wine-deep);
+    }
+
+    .srv-btn-deep {
+      background: linear-gradient(120deg, var(--wine-deep) 0%, var(--ink) 100%);
+      color: var(--cream);
+    }
+
+    .srv-btn-parch {
+      background: var(--parchment);
+      border: 1px solid rgba(212, 168, 71, 0.3);
+      color: var(--ink);
+    }
+
+    .srv-label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .srv-name {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.2px;
+    }
+
+    .srv-sub {
+      font-size: 0.8rem;
+      font-weight: 400;
+      opacity: 0.75;
+      letter-spacing: 0.5px;
+    }
+
+    .srv-arrow {
+      font-size: 1.3rem;
+      opacity: 0.65;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: transform 0.22s;
+    }
+
+    .srv-btn:hover .srv-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BLOG BOX
+    ═══════════════════════════════════════════════════════ */
+    .blog-box {
+      padding: 60px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .box-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .box-rich .box-label {
+      color: var(--gold-light);
+    }
+
+    .box-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--wine-deep);
+    }
+
+    .box-rich .box-heading,
+    .box-deep .box-heading {
+      color: #fff;
+    }
+
+    .box-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--wine);
+      line-height: 1.75;
+    }
+
+    .box-rich .box-body,
+    .box-deep .box-body {
+      color: rgba(250, 244, 232, 0.8);
+    }
+
+    .blog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .blog-tag {
+      background: rgba(212, 168, 71, 0.15);
+      border: 1px solid rgba(212, 168, 71, 0.4);
+      color: var(--gold-deep);
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: background 0.2s;
+      cursor: default;
+    }
+
+    .blog-tag:hover {
+      background: rgba(212, 168, 71, 0.28);
+    }
+
+    .box-rich .blog-tag {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--gold-light);
+    }
+
+    .box-rich .blog-tag:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       COMMUNITY BOX
+    ═══════════════════════════════════════════════════════ */
+    .community-box {
+      padding: 64px;
+      text-align: center;
+    }
+
+    .community-box .box-heading {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .community-box .box-body {
+      color: rgba(250, 244, 232, 0.82);
+      margin-bottom: 36px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Botón principal */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--wine-deep);
+      padding: 16px 42px;
+      border-radius: 99px;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+      box-shadow: 0 4px 20px rgba(212, 168, 71, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 40px rgba(212, 168, 71, 0.45);
+      background: #E8BE55;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SOCIAL / FOOTER BOX
+    ═══════════════════════════════════════════════════════ */
+    .social-box {
+      padding: 36px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .social-brand {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--wine-deep);
+      letter-spacing: -0.2px;
+    }
+
+    .social-brand span {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(212, 168, 71, 0.12);
+      border: 1.5px solid rgba(212, 168, 71, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wine-deep);
+      font-size: 20px;
+      text-decoration: none;
+      transition: background 0.22s, transform 0.22s, border-color 0.22s;
+    }
+
+    .social-link:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MODALS
+    ═══════════════════════════════════════════════════════ */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(31, 10, 16, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-panel {
+      background: var(--cream);
+      width: 90%;
+      max-width: 540px;
+      border-radius: 24px;
+      padding: 48px 44px;
+      position: relative;
+      transform: translateY(28px) scale(0.96);
+      transition: transform 0.38s cubic-bezier(0.34, 1.5, 0.64, 1);
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .overlay.active .modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(107, 34, 54, 0.08);
+      border: none;
+      color: var(--wine);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      z-index: 999;
+    }
+
+    .modal-close:hover {
+      background: rgba(107, 34, 54, 0.15);
+      transform: rotate(90deg);
+    }
+
+    /* Service modal */
+    .sdm-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+    }
+
+    .sdm-title {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--wine-deep);
+      margin-bottom: 20px;
+    }
+
+    .sdm-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--wine);
+      white-space: pre-line;
+      margin-bottom: 28px;
+    }
+
+    /* Opción cards inside Compatibilidad modal */
+    .compat-option {
+      background: var(--parchment);
+      border: 1px solid rgba(212,168,71,0.25);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      margin-bottom: 8px;
+    }
+    .compat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+    .compat-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--wine-deep);
+      margin-bottom: 12px;
+    }
+    .compat-option .sdm-text {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .compat-divider {
+      height: 1px;
+      background: rgba(212,168,71,0.3);
+      margin: 16px 0;
+    }
+
+    /* Booking modal */
+    .bm-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--wine-deep);
+      margin-bottom: 6px;
+    }
+
+    .bm-sub {
+      font-size: 0.9rem;
+      color: var(--wine);
+      opacity: 0.75;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--wine);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(212, 168, 71, 0.3);
+      background: #fff;
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      color: var(--ink);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212, 168, 71, 0.14);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .paypal-wrap {
+      margin-top: 24px;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      border: 1.5px dashed rgba(212, 168, 71, 0.3);
+      text-align: center;
+    }
+
+    .paypal-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--wine);
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FAB WHATSAPP
+    ═══════════════════════════════════════════════════════ */
+    .wa-fab-wrap {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    .wa-bubble {
+      max-width: min(280px, calc(100vw - 40px));
+      background: rgba(255, 251, 242, 0.96);
+      color: var(--wine-deep);
+      border: 1px solid rgba(212, 168, 71, 0.5);
+      border-radius: 18px;
+      padding: 12px 16px;
+      font-size: 0.93rem;
+      line-height: 1.45;
+      box-shadow: 0 12px 28px rgba(31, 10, 16, 0.14);
+      position: relative;
+      opacity: 0;
+      transform: translateY(10px) scale(0.96);
+      transform-origin: bottom right;
+      pointer-events: none;
+      animation: waBubbleCycle 10s ease-in-out infinite;
+    }
+
+    .wa-bubble::after {
+      content: '';
+      position: absolute;
+      right: 24px;
+      bottom: -9px;
+      width: 18px;
+      height: 18px;
+      background: rgba(255, 251, 242, 0.96);
+      border-right: 1px solid rgba(212, 168, 71, 0.5);
+      border-bottom: 1px solid rgba(212, 168, 71, 0.5);
+      transform: rotate(45deg);
+    }
+
+    #fab-wa {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #2ce171 0%, #21bf5d 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.42);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      isolation: isolate;
+    }
+
+    #fab-wa::before {
+      content: '';
+      position: absolute;
+      inset: 50%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #f5d35f 0%, #d79c1c 100%);
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 -31px 0 2px #f3c64d,
+        22px -22px 0 2px #f0bb3d,
+        31px 0 0 2px #f3c64d,
+        22px 22px 0 2px #e5a62f,
+        0 31px 0 2px #f3c64d,
+        -22px 22px 0 2px #f0bb3d,
+        -31px 0 0 2px #f3c64d,
+        -22px -22px 0 2px #e5a62f;
+      z-index: -2;
+    }
+
+    #fab-wa::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 3px solid rgba(107, 34, 54, 0.12);
+      z-index: -1;
+    }
+
+    #fab-wa:hover,
+    .wa-fab-wrap:hover #fab-wa,
+    #fab-wa:focus-visible {
+      transform: scale(1.08);
+      box-shadow: 0 14px 38px rgba(37, 211, 102, 0.5);
+    }
+
+    .wa-fab-wrap:hover .wa-bubble,
+    .wa-fab-wrap:focus-within .wa-bubble {
+      animation-play-state: paused;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .fab-wa-icon {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-box {
+        min-height: 500px;
+      }
+
+      .blog-box {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 48px 36px;
+      }
+
+      .hero-box {
+        padding: 56px 32px;
+      }
+
+      .community-box {
+        padding: 48px 32px;
+      }
+
+      .social-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .bento-page {
+        padding: 16px 16px 60px;
+        gap: 14px;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .c-slide.text-slide {
+        padding: 36px 28px;
+      }
+
+      .c-slide.text-slide h2 {
+        font-size: 2rem;
+      }
+
+      .sdm-title {
+        font-size: 1.9rem;
+      }
+
+      .modal-panel {
+        padding: 36px 28px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes waBubbleCycle {
+      0%, 10%, 100% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+      }
+
+      18%, 58% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-5 {
+      animation-delay: 0.5s;
+    }
+
+    /* SCROLLBAR */
+    ::selection {
+      background: rgba(212, 168, 71, 0.3);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 99px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ▸ WhatsApp FAB -->
+  <div class="wa-fab-wrap">
+    <div class="wa-bubble">También podemos hablar por Whatsapp, hermana girasol.</div>
+    <a id="fab-wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Ir a WhatsApp">
+      <svg class="fab-wa-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor"
+          d="M27.3 15.5c0 6.1-5 11.1-11.1 11.1-2 0-4-.5-5.7-1.6l-6 1.6 1.6-5.8c-1.1-1.8-1.7-3.8-1.7-5.9C4.4 8.8 9.4 3.8 15.5 3.8s11.8 5.6 11.8 11.7Zm-11.8-9C10.2 6.5 6 10.7 6 15.9c0 1.9.6 3.7 1.6 5.2l.4.6-.9 3.2 3.3-.9.5.3c1.4.9 3 1.4 4.6 1.4 5.2 0 9.4-4.2 9.4-9.4S20.7 6.5 15.5 6.5Zm5.2 12c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-2-.9-3.3-2.8-3.4-3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.8-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.6s1.2 3 1.4 3.2c.2.2 2.3 3.5 5.5 4.8 3.2 1.4 3.2.9 3.8.9.6 0 1.8-.8 2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.2-.6-.4Z" />
+      </svg>
+    </a>
+  </div>
+
+  <main class="bento-page">
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ HERO INTRO ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="box hero-box fade-up">
+      <div class="hero-eyebrow">🌻 Astrología · Tarot · Acompañamiento emocional 🌻</div>
+      <h1 class="hero-title fade-up delay-1">No tienes que poder<br>con <em>todo sola</em>.</h1>
+      <p class="hero-body fade-up delay-2">Te acompaño, te sostengo y te ayudo a transitar y a entender lo que estás
+        viviendo. A través del tarot y la astrología, te ofrezco un espacio seguro donde puedes bajar el ruido, ordenar
+        lo que sientes y volver a ti… sin presión y sin juicio.</p>
+      <p class="hero-sign fade-up delay-3">Aquí estoy para eso, hermana girasol 💛</p>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="bento-grid">
+
+      <!-- ► CARRUSEL -->
+      <div class="carousel-box fade-up delay-1">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carousel-track">
+
+            <!-- Slide 1: Foto Fergis -->
+            <div class="c-slide img-slide" data-label="📷 Tu foto aquí">
+              <img src="fotos/Fergis1.jpeg" alt="Foto de Fergis Marrero – Mamá Girasol"
+                onerror="this.style.display='none'">
+            </div>
+
+            <!-- Slide 2: Texto Fergis -->
+            <div class="c-slide text-slide">
+              <h2>Soy Fergis… <em>una espiritual</em></h2>
+              <p>Soy astróloga y tarotista autodidacta que acompaña procesos emocionales con una mirada cálida, cercana
+                y sin juicio.<br><br>No creo en fórmulas mágicas ni en obligarte a "estar bien". Creo en entender lo que
+                sientes, en sostener los procesos y en ayudarte a tomar decisiones con más claridad y
+                conciencia.<br><br>Antes que guía, soy humana. Y desde ahí, te acompaño. 🌻</p>
+            </div>
+
+            <!-- Slide 3: Foto Girasol -->
+            <div class="c-slide img-slide" data-label="📷 Tu segunda foto aquí">
+              <img src="fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
+            </div>
+
+            <!-- Slide 4: Texto Mamá Girasol -->
+            <div class="c-slide text-slide">
+              <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
+              <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera… vive dentro de
+                ti.<br><br>"Mamá Girasol" nace desde ese lugar: no para iluminarte, sino para acompañarte mientras
+                vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves
+                a ver. 🌻</p>
+            </div>
+
+          </div>
+        </div>
+        <!-- Indicadores -->
+        <div class="carousel-dots" id="carousel-dots">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
+          <div class="dot" onclick="goToSlide(3)"></div>
+        </div>
+      </div>
+
+      <!-- ► SERVICIOS -->
+      <div class="services-stack fade-up delay-2">
+
+        <button class="srv-btn srv-btn-rich" onclick="showService('Diosa en Guía')">
+          <div class="srv-label">
+            <span class="srv-name">Diosa en Guía</span>
+            <span class="srv-sub">Acompañamiento continuo</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-wine" onclick="showService('Tarot')">
+          <div class="srv-label">
+            <span class="srv-name">Tarot</span>
+            <span class="srv-sub">Para encontrar claridad</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-gold" onclick="showService('Carta Natal')">
+          <div class="srv-label">
+            <span class="srv-name">Carta Natal</span>
+            <span class="srv-sub">Tu mapa emocional</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-deep" onclick="showService('Revolución Solar')">
+          <div class="srv-label">
+            <span class="srv-name">Revolución Solar</span>
+            <span class="srv-sub">Tu año con dirección</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-rich" onclick="showService('Compatibilidad')">
+          <div class="srv-label">
+            <span class="srv-name">Compatibilidad de Pareja y Vínculos</span>
+            <span class="srv-sub">Tarot + Astrología para vínculos</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-wine" onclick="showService('Tránsitos')">
+          <div class="srv-label">
+            <span class="srv-name">Tránsitos Astrológicos</span>
+            <span class="srv-sub">Cómo influye en ti lo que está pasando en el cielo</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-gold" onclick="showService('Diosas Girasol')">
+          <div class="srv-label">
+            <span class="srv-name">Diosas Girasol</span>
+            <span class="srv-sub">Comunidad por suscripción en WhatsApp</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BLOG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="box box-rich blog-box fade-up">
+      <div>
+        <div class="box-label">Blog</div>
+        <h2 class="box-heading">Para cuando necesitas un respiro</h2>
+        <p class="box-body">Un lugar donde puedes hacer pausa, leer con calma y sentirte acompañada sin tener que
+          explicar demasiado. Ideas, palabras y miradas que quizás te ayuden a ver lo que estás viviendo desde otro
+          ángulo… o simplemente a no sentirte tan sola en eso.</p>
+      </div>
+      <div>
+        <p class="box-body" style="margin-bottom: 20px;">A veces desde lo emocional, a veces desde la astrología y lo
+          espiritual… pero siempre con la intención de acercarte un poquito más a ti.</p>
+        <div class="blog-tags">
+          <span class="blog-tag">🌙 Clima astral</span>
+          <span class="blog-tag">🧠 Emociones y sistema nervioso</span>
+          <span class="blog-tag">💔 Relaciones y vínculos</span>
+          <span class="blog-tag">🔮 Reflexiones</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ COMUNIDAD ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="box box-deep community-box fade-up">
+      <div class="box-label" style="color:var(--gold-light)">Comunidad</div>
+      <h2 class="box-heading">🌻 Entre Diosas 🌻</h2>
+      <p class="box-body">Un espacio donde seguimos este proceso juntas. Reflexiones, guía cercana y acompañamiento más
+        directo para sostenerte en lo que estás viviendo.<br>Si este espacio resonó contigo… hermana girasol, este
+        también es para ti 💛</p>
+      <a href="#" class="btn-primary">👉 Unirme a la comunidad 🌻</a>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA NATAL EXTERNA ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="box box-warm fade-up" style="padding: 64px 32px; text-align: center;">
+      <div class="box-label" style="color:var(--terracotta)">Herramienta Gratuita</div>
+      <h2 class="box-heading">Calcula tu Carta Natal</h2>
+      <p class="box-body" style="margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto;">
+        Ingresa tus datos básicos a continuación. Serás redirigida a nuestro portal aliado donde podrás indicar tu lugar de nacimiento para obtener tu mapa celestial exacto.
+      </p>
+
+      <form id="carta-natal-form" action="https://carta-natal.es/carta.php" method="POST" target="_blank" style="max-width: 540px; margin: 0 auto; text-align: left; background: #fff; padding: 40px; border-radius: var(--radius-sm); border: 1.5px dashed rgba(212, 168, 71, 0.4); box-shadow: var(--shadow-sm);">
+        
+        <div class="form-group">
+          <label>Nombre o Seudónimo (Opcional)</label>
+          <input type="text" name="nombre" placeholder="Ej. Valeria" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de Nacimiento</label>
+            <input type="date" id="cn-date" required />
+            <input type="hidden" name="fecha" id="cn-fecha-real" />
+          </div>
+
+          <div class="form-group">
+            <label>Hora de Nacimiento</label>
+            <input type="time" name="hora" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>País de Nacimiento</label>
+          <select name="Pais" required>
+            <option value="">Selecciona un país...</option>
+            <option value="PE">Perú</option>
+            <option value="ES">España</option>
+            <option value="MX">México</option>
+            <option value="CO">Colombia</option>
+            <option value="AR">Argentina</option>
+            <option value="CL">Chile</option>
+            <option value="US">Estados Unidos</option>
+            <option disabled>──────────</option>
+            <option value='AF'>Afganistán</option><option value='AL'>Albania</option><option value='DE'>Alemania</option><option value='AD'>Andorra</option><option value='AO'>Angola</option><option value='AI'>Anguila</option><option value='AQ'>Antártida</option><option value='AG'>Antigua y Barbuda</option><option value='SA'>Arabia Saudita</option><option value='DZ'>Argelia</option><option value='AR'>Argentina</option><option value='AM'>Armenia</option><option value='AW'>Aruba</option><option value='AU'>Australia</option><option value='AT'>Austria</option><option value='AZ'>Azerbaiyán</option><option value='BH'>Bahréin</option><option value='BD'>Bangladés</option><option value='BB'>Barbados</option><option value='BE'>Bélgica</option><option value='BZ'>Belice</option><option value='BJ'>Benín</option><option value='BM'>Bermudas</option><option value='BY'>Bielorrusia</option><option value='MM'>Birmania</option><option value='BO'>Bolivia</option><option value='BA'>Bosnia y Herzegovina</option><option value='BW'>Botsuana</option><option value='BR'>Brasil</option><option value='BN'>Brunéi</option><option value='BG'>Bulgaria</option><option value='BF'>Burkina Faso</option><option value='BI'>Burundi</option><option value='BT'>Bután</option><option value='CV'>Cabo Verde</option><option value='KH'>Camboya</option><option value='CM'>Camerún</option><option value='CA'>Canadá</option><option value='QA'>Catar</option><option value='TD'>Chad</option><option value='CL'>Chile</option><option value='CN'>China</option><option value='CY'>Chipre</option><option value='VA'>Ciudad del Vaticano</option><option value='CO'>Colombia</option><option value='KM'>Comoras</option><option value='CG'>Congo</option><option value='KP'>Corea del Norte</option><option value='KR'>Corea del Sur</option><option value='CI'>Costa de Marfil</option><option value='CR'>Costa Rica</option><option value='HR'>Croacia</option><option value='CU'>Cuba</option><option value='CW'>Curazao</option><option value='DK'>Dinamarca</option><option value='DM'>Dominica</option><option value='EC'>Ecuador</option><option value='EG'>Egipto</option><option value='SV'>El Salvador</option><option value='AE'>Emiratos Árabes Unidos</option><option value='ER'>Eritrea</option><option value='SK'>Eslovaquia</option><option value='SI'>Eslovenia</option><option value='ES'>España</option><option value='US'>Estados Unidos</option><option value='EE'>Estonia</option><option value='ET'>Etiopía</option><option value='PH'>Filipinas</option><option value='FI'>Finlandia</option><option value='FJ'>Fiyi</option><option value='FR'>Francia</option><option value='GA'>Gabón</option><option value='GM'>Gambia</option><option value='GE'>Georgia</option><option value='GH'>Ghana</option><option value='GI'>Gibraltar</option><option value='GD'>Granada</option><option value='GR'>Grecia</option><option value='GL'>Groenlandia</option><option value='GP'>Guadalupe</option><option value='GU'>Guam</option><option value='GT'>Guatemala</option><option value='GF'>Guayana Francesa</option><option value='GG'>Guernsey</option><option value='GN'>Guinea</option><option value='GQ'>Guinea Ecuatorial</option><option value='GW'>Guinea-Bissau</option><option value='GY'>Guyana</option><option value='HT'>Haití</option><option value='HN'>Honduras</option><option value='HK'>Hong Kong</option><option value='HU'>Hungría</option><option value='IN'>India</option><option value='ID'>Indonesia</option><option value='IQ'>Irak</option><option value='IR'>Irán</option><option value='IE'>Irlanda</option><option value='BV'>Isla Bouvet</option><option value='IM'>Isla de Man</option><option value='CX'>Isla de Navidad</option><option value='NF'>Isla Norfolk</option><option value='IS'>Islandia</option><option value='KY'>Islas Caimán</option><option value='CC'>Islas Cocos</option><option value='CK'>Islas Cook</option><option value='FO'>Islas Feroe</option><option value='GS'>Islas Georgias del Sur y Sandwich del Sur</option><option value='HM'>Islas Heard y McDonald</option><option value='FK'>Islas Malvinas</option><option value='MP'>Islas Marianas del Norte</option><option value='MH'>Islas Marshall</option><option value='PN'>Islas Pitcairn</option><option value='SB'>Islas Salomón</option><option value='TC'>Islas Turcas y Caicos</option><option value='UM'>Islas Ultramarinas de Estados Unidos</option><option value='VG'>Islas Vírgenes Británicas</option><option value='VI'>Islas Vírgenes de los EEUU</option><option value='IL'>Israel</option><option value='IT'>Italia</option><option value='JM'>Jamaica</option><option value='JP'>Japón</option><option value='JE'>Jersey</option><option value='JO'>Jordania</option><option value='KZ'>Kazajistán</option><option value='KE'>Kenia</option><option value='KG'>Kirguistán</option><option value='KI'>Kiribati</option><option value='XK'>Kosovo</option><option value='KW'>Kuwait</option><option value='RE'>La Reunión</option><option value='LA'>Laos</option><option value='BS'>Las Bahamas</option><option value='LS'>Lesoto</option><option value='LV'>Letonia</option><option value='LB'>Líbano</option><option value='LR'>Liberia</option><option value='LY'>Libia</option><option value='LI'>Liechtenstein</option><option value='LT'>Lituania</option><option value='LU'>Luxemburgo</option><option value='MO'>Macao</option><option value='MK'>Macedonia</option><option value='MG'>Madagascar</option><option value='MY'>Malasia</option><option value='MW'>Malaui</option><option value='MV'>Maldivas</option><option value='ML'>Malí</option><option value='MT'>Malta</option><option value='MA'>Marruecos</option><option value='MQ'>Martinica</option><option value='MU'>Mauricio</option><option value='MR'>Mauritania</option><option value='YT'>Mayotte</option><option value='MX'>México</option><option value='FM'>Micronesia</option><option value='MD'>Moldavia</option><option value='MC'>Mónaco</option><option value='MN'>Mongolia</option><option value='ME'>Montenegro</option><option value='MS'>Montserrat</option><option value='MZ'>Mozambique</option><option value='NA'>Namibia</option><option value='NR'>Nauru</option><option value='NP'>Nepal</option><option value='NI'>Nicaragua</option><option value='NE'>Níger</option><option value='NG'>Nigeria</option><option value='NU'>Niue</option><option value='NO'>Noruega</option><option value='NC'>Nueva Caledonia</option><option value='NZ'>Nueva Zelanda</option><option value='OM'>Omán</option><option value='NL'>Países Bajos</option><option value='PK'>Pakistán</option><option value='PW'>Palaos</option><option value='PS'>Palestina</option><option value='PA'>Panamá</option><option value='PG'>Papúa Nueva Guinea</option><option value='PY'>Paraguay</option><option value='PE'>Perú</option><option value='PF'>Polinesia Francesa</option><option value='PL'>Polonia</option><option value='PT'>Portugal</option><option value='PR'>Puerto Rico</option><option value='GB'>Reino Unido</option><option value='CF'>República Centroafricana</option><option value='CZ'>República Checa</option><option value='CD'>República Democrática del Congo</option><option value='DO'>República Dominicana</option><option value='RW'>Ruanda</option><option value='RO'>Rumanía</option><option value='RU'>Rusia</option><option value='EH'>Sahara Occidental</option><option value='MF'>Saint Martin</option><option value='WS'>Samoa</option><option value='AS'>Samoa Americana</option><option value='KN'>San Cristóbal y Nieves</option><option value='SM'>San Marino</option><option value='PM'>San Pedro y Miguelón</option><option value='VC'>San Vicente y las Granadinas</option><option value='SH'>Santa Elena</option><option value='LC'>Santa Lucía</option><option value='ST'>Santo Tomé y Príncipe</option><option value='SN'>Senegal</option><option value='RS'>Serbia</option><option value='SC'>Seychelles</option><option value='SL'>Sierra Leona</option><option value='SG'>Singapur</option><option value='SX'>Sint Maarten</option><option value='SY'>Siria</option><option value='SO'>Somalia</option><option value='LK'>Sri Lanka</option><option value='SZ'>Suazilandia</option><option value='ZA'>Sudáfrica</option><option value='SD'>Sudán</option><option value='SS'>Sudán del Sur</option><option value='SE'>Suecia</option><option value='CH'>Suiza</option><option value='SR'>Surinam</option><option value='SJ'>Svalbard y Jan Mayen</option><option value='TH'>Tailandia</option><option value='TW'>Taiwán</option><option value='TZ'>Tanzania</option><option value='TJ'>Tayikistán</option><option value='IO'>Territorio Británico del Océano Índico</option><option value='TF'>Territorios Australes Franceses</option><option value='TL'>Timor Oriental</option><option value='TG'>Togo</option><option value='TK'>Tokelau</option><option value='TO'>Tonga</option><option value='TT'>Trinidad y Tobago</option><option value='TN'>Túnez</option><option value='TM'>Turkmenia</option><option value='TR'>Turquía</option><option value='TV'>Tuvalu</option><option value='UA'>Ucrania</option><option value='UG'>Uganda</option><option value='UY'>Uruguay</option><option value='UZ'>Uzbekistán</option><option value='VU'>Vanuatu</option><option value='VE'>Venezuela</option><option value='VN'>Vietnam</option><option value='WF'>Wallis y Futuna</option><option value='YE'>Yemen</option><option value='DJ'>Yibuti</option><option value='ZM'>Zambia</option><option value='ZW'>Zimbabue</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top: 24px; margin-bottom: 0;">
+          <input type="hidden" name="ok" value="1" />
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+            ✨ Descubrir mi mapa
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ RRSS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <footer class="box box-warm social-box fade-up">
+      <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+        <div class="social-brand">Fergis Marrero — <span>Mamá Girasol</span></div>
+        <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
+          🍪 Política de Cookies
+        </a>
+        <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
+          🌻 Términos y Condiciones
+        </a>
+        <a href="#" onclick="document.getElementById('reclamaciones-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
+          📖 Libro de Reclamaciones
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/fergismarrero" class="social-link" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@fergismarrero" class="social-link" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.5z"></path>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/" class="social-link" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/people/Fergis-Marrero" class="social-link" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     SERVICE DETAIL MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <!-- SERVICE DETAIL MODAL -->
+  <div class="overlay" id="service-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeService()" aria-label="Cerrar">✕</button>
+
+      <!-- Panel estándar -->
+      <div id="sdm-standard">
+        <div class="sdm-tag" id="sdm-tag">Servicio</div>
+        <h3 class="sdm-title" id="sdm-title">Título</h3>
+        <div class="sdm-text" id="sdm-text">Descripción</div>
+        <div class="sdm-price" id="sdm-price" style="margin:0 0 18px; font-size:1rem; font-weight:700; color:var(--wine-deep);">Precio</div>
+        <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBooking()">
+          👉 Agenda tu sesión 🌻
+        </button>
+      </div>
+
+      <!-- Panel dual: Compatibilidad -->
+      <div id="sdm-compat" style="display:none">
+        <div class="sdm-tag">Compatibilidad de Pareja y Vínculos</div>
+        <h3 class="sdm-title">Compatibilidad de Pareja y Vínculos</h3>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 1</div>
+          <h4 class="compat-name">Tarot + Astrología para vínculos</h4>
+          <p class="sdm-text">Un espacio para entender la dinámica entre tú y otra persona.
+A través del tarot y la astrología, vemos cómo se relacionan, qué los une, qué los desafía y qué está pasando realmente en el vínculo.
+No solo desde lo romántico…
+también puedes explorarlo con madre, padre, hijos, amistades o cualquier relación importante para ti.
+Porque a veces no es que "no funcione"…
+es que no estamos entendiendo lo que el vínculo nos está mostrando.</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Compatibilidad')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+
+        <div class="compat-divider"></div>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 2</div>
+          <h4 class="compat-name">Sinastría / Carta Compuesta</h4>
+          <p class="sdm-text">Un estudio detallado de la conexión entre dos personas a nivel emocional, energético y evolutivo.
+A través de la sinastría y la carta compuesta, analizamos cómo interactúan sus energías, qué vienen a aprender juntos y cuál es el propósito del vínculo.
+Esta sesión es más profunda y te permite entender la relación desde una mirada más completa y consciente.</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Sinastría')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     BOOKING MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="booking-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeBookingModal()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title">Agendar Sesión</h3>
+      <p class="bm-sub">Completa tus datos de nacimiento para generar tu carta. Luego procede al pago seguro.</p>
+
+      <form id="booking-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Servicio a Reservar</label>
+          <select id="bf-service" required>
+            <option value="45.00">🌻 Diosa en Guía - $45 USD</option>
+            <option value="45.00">🔮 Tarot - $45 USD</option>
+            <option value="85.00">🌙 Carta Natal - $85 USD</option>
+            <option value="85.00">🌞 Revolución Solar - $85 USD</option>
+            <option value="105.00">❤️ Compatibilidad de Pareja - $105 USD</option>
+            <option value="105.00">🪐 Sinastría o Carta Compuesta - $105 USD</option>
+            <option value="85.00">🌌 Tránsitos Astrológicos - $85 USD</option>
+            <option value="15.00">🌻 Diosas Girasol - $15 USD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="bf-name" placeholder="Ej. Valeria López" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="bf-date" required />
+          </div>
+          <div class="form-group">
+            <label>Hora exacta</label>
+            <input type="time" id="bf-time" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Lugar de nacimiento</label>
+          <input type="text" id="bf-place" placeholder="Ciudad, País" required />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" id="bf-phone" placeholder="+1 234 567 890" required />
+        </div>
+        
+        <div class="form-group" style="margin-top: 16px;">
+          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+            <input type="checkbox" id="bf-terms" required style="margin-top:2px;">
+            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
+          </label>
+        </div>
+      </form>
+
+      <div class="paypal-wrap">
+        <p class="paypal-label">Pago seguro con PayPal o Tarjeta de crédito</p>
+        <div id="paypal-button-container"></div>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 168, 71, 0.3); padding-top: 24px;">
+        <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--wine-deep);">¿Deseas pagar con Yape? (Solo Perú)</p>
+        <button type="button" class="btn-primary" style="background: #742284; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35);" onclick="openYapeModal()">
+          📲 Haz click aquí
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     YAPE MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="yape-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeYapeModal()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title">Agendar con Yape</h3>
+      <p class="bm-sub">Completa los mismos datos para generar tu carta y realiza pago en Soles.</p>
+
+      <form id="yape-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Servicio a Reservar</label>
+          <select id="yf-service" required>
+            <option value="150" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 150</option>
+            <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
+            <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
+            <option value="300" data-name="Revolución Solar">🌞 Revolución Solar - S/ 300</option>
+            <option value="380" data-name="Compatibilidad de Pareja">❤️ Compatibilidad de Pareja - S/ 380</option>
+            <option value="380" data-name="Sinastría o Carta Compuesta">🪐 Sinastría o Carta Compuesta - S/ 380</option>
+            <option value="300" data-name="Tránsitos Astrológicos">🌌 Tránsitos Astrológicos - S/ 300</option>
+            <option value="30" data-name="Diosas Girasol">🌻 Diosas Girasol - S/ 30</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="yf-name" placeholder="Ej. Valeria López" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="yf-date" required />
+          </div>
+          <div class="form-group">
+            <label>Hora exacta</label>
+            <input type="time" id="yf-time" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Lugar de nacimiento</label>
+          <input type="text" id="yf-place" placeholder="Ciudad, País" required />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" id="yf-phone" placeholder="+51 900 000 000" required />
+        </div>
+        
+        <div class="form-group" style="margin-top: 16px;">
+          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+            <input type="checkbox" id="yf-terms" required style="margin-top:2px;">
+            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
+          </label>
+        </div>
+
+        <div class="paypal-wrap" style="border-color: #742284; margin-top:24px;">
+          <p class="paypal-label" style="color: #742284; margin-bottom:12px;">Realiza el Yapeo por el monto indicado y de una vez envía la captura aquí 👇</p>
+          <button type="button" class="btn-primary" style="background: #25D366; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);" onclick="submitYapeBooking()">
+            💬 Enviar captura por WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LIBRO DE RECLAMACIONES MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="reclamaciones-overlay">
+    <div class="modal-panel" style="max-width: 600px;">
+      <button type="button" class="modal-close" onclick="closeReclamaciones()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size: 1.8rem;">Libro de Reclamaciones</h3>
+      <p class="bm-sub" style="margin-bottom: 24px;">Conforme al Código de Protección y Defensa del Consumidor, contamos con un Libro de Reclamaciones Virtual.</p>
+
+      <form id="reclamaciones-form" onsubmit="submitReclamacion(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombres</label>
+            <input type="text" id="rec-nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" id="rec-apellidos" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Documento</label>
+            <select id="rec-doc-tipo">
+              <option value="DNI">DNI</option>
+              <option value="CE">CE</option>
+              <option value="Pasaporte">Pasaporte</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Número de Documento</label>
+            <input type="number" id="rec-doc-num" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Celular</label>
+            <input type="tel" id="rec-celular" required />
+          </div>
+          <div class="form-group">
+            <label>Correo Electrónico</label>
+            <input type="email" id="rec-correo" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Qué deseas presentar?</label>
+          <select id="rec-tipo" required>
+            <option value="Reclamo">Reclamo (Desacuerdo relacionado al servicio)</option>
+            <option value="Queja">Queja (Malestar por la atención al público)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Detalle de tu solicitud</label>
+          <textarea id="rec-detalle" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:80px;" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Pedido concreto</label>
+          <textarea id="rec-pedido" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:60px;" required></textarea>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--wine); opacity:0.85; margin: 20px 0; line-height:1.5;">
+          <p>El proveedor (Fergis Marrero - Mamá Girasol) deberá dar respuesta a su reclamo o queja dentro del plazo legal aplicable. La formulación del reclamo no excluye la posibilidad de acudir a otras vías de resolución.</p>
+          <label style="display:flex; gap:10px; margin-top:12px; cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px;">
+            <span>Declaro bajo juramento que los datos consignados son verdaderos y acepto las Políticas de Privacidad.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Enviar Solicitud al WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     TERMINOS Y CONDICIONES MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="terminos-overlay">
+    <div class="modal-panel" style="max-width: 650px;">
+      <button type="button" class="modal-close" onclick="closeTerminos()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
+      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
+        <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
+        
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
+        <p style="margin-bottom:16px;">Los servicios ofrecidos corresponden a acompañamientos de carácter astrológico, espiritual y de guía emocional. Están orientados a brindarte claridad, contención y acompañamiento en tu proceso personal.</p>
+        <p style="margin-bottom:24px;">⚠️ Estos servicios no sustituyen la terapia psicológica, psiquiátrica ni médica, sino que pueden complementarla desde un enfoque emocional y espiritual.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 SOBRE LA RESERVA Y EL PAGO</h4>
+        <p style="margin-bottom:24px;">La sesión se considera agendada una vez realizado el pago correspondiente. Al reservar, estás separando un espacio exclusivo destinado para ti. Por ello, agradezco profundamente tu compromiso y respeto por el tiempo acordado.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⏰ PUNTUALIDAD</h4>
+        <p style="margin-bottom:24px;">Se considera un tiempo de espera máximo de 10 minutos desde la hora agendada. Pasado ese tiempo, la sesión se dará por realizada y no podrá ser recuperada.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔁 REPROGRAMACIONES</h4>
+        <p style="margin-bottom:24px;">Si necesitas reprogramar tu sesión, puedes hacerlo con un mínimo de 24 horas de anticipación. Esto permite reorganizar el espacio y ofrecer ese horario a otra persona. Las reprogramaciones están sujetas a disponibilidad dentro de la misma semana.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🚫 POLÍTICA DE NO DEVOLUCIÓN</h4>
+        <p style="margin-bottom:24px;">Todos los servicios realizados y pagos efectuados no son reembolsables. Esto se debe a que cada sesión implica una reserva de tiempo, energía y preparación previa. Agradezco tu comprensión y respeto por este espacio.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌙 SOBRE LOS SERVICIOS</h4>
+        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
+          <li style="margin-bottom:12px;"><strong>🔮 Tarot:</strong> Brinda una guía clara sobre situaciones actuales, decisiones y procesos emocionales. No predice el futuro de forma determinante, sino que orienta desde la energía disponible.</li>
+          <li style="margin-bottom:12px;"><strong>💞 Compatibilidad de vínculos:</strong> Análisis de la dinámica entre dos personas (pareja u otros vínculos). Se trabaja desde tarot y astrología para comprender la relación y sus aprendizajes.</li>
+          <li style="margin-bottom:12px;"><strong>🌙 Carta natal:</strong> Interpretación profunda de tu personalidad, emociones y propósito de vida. Es una herramienta de autoconocimiento e integración personal.</li>
+          <li style="margin-bottom:12px;"><strong>☀️ Revolución solar:</strong> Análisis de tu energía anual. Orienta sobre procesos, cambios y aprendizajes del año, sin carácter predictivo absoluto.</li>
+          <li style="margin-bottom:12px;"><strong>👶 Carta natal infantil:</strong> Guía para comprender la personalidad y necesidades emocionales del niño/a. No reemplaza orientación psicológica o pedagógica.</li>
+          <li style="margin-bottom:12px;"><strong>🧿 Sinastría:</strong> Estudio astrológico de compatibilidad entre dos personas. Permite entender dinámicas, desafíos y potencial del vínculo.</li>
+          <li style="margin-bottom:12px;"><strong>🪐 Carta compuesta:</strong> Análisis de la energía de la relación como unidad. Explora el propósito del vínculo y su evolución.</li>
+          <li style="margin-bottom:12px;"><strong>🌌 Tránsitos astrológicos:</strong> Análisis de los movimientos actuales del cielo y su impacto en tu carta natal. Orienta procesos emocionales y momentos de cambio desde una mirada consciente.</li>
+          <li style="margin-bottom:16px;"><strong>🌻 Diosa en Guía:</strong> Espacio de acompañamiento continuo (sesiones o preguntas). No reemplaza procesos terapéuticos clínicos. Es un soporte emocional y espiritual complementario.</li>
+          <li style="margin-bottom:16px;"><strong>🌻 Diosas Girasol:</strong> Comunidad por suscripción en WhatsApp con guía y contención semanal, audio energético, horóscopo por signo y dos preguntas al mes para orientación. Es un espacio de acompañamiento complementario.</li>
+        </ul>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌿 CONSIDERACIÓN FINAL</h4>
+        <p>Este es un espacio creado con amor, respeto, cuidado y presencia. Mi intención es acompañarte con claridad y contención, pero también es importante que asumas tu proceso personal con responsabilidad y apertura.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     POLÍTICA DE COOKIES MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="cookies-overlay">
+    <div class="modal-panel" style="max-width: 650px;">
+      <button type="button" class="modal-close" onclick="closeCookies()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 POLÍTICA DE COOKIES</h3>
+      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
+        <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
+        
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ ¿Qué son las cookies?</h4>
+        <p style="margin-bottom:16px;">Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas esta página. Su función es ayudarte a tener una experiencia más fluida, recordando ciertas preferencias y permitiendo que todo funcione de manera más armoniosa.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 ¿Para qué usamos cookies?</h4>
+        <p style="margin-bottom:8px;">En este espacio utilizamos cookies para:</p>
+        <ul style="margin-bottom:16px; padding-left:20px; list-style-type:disc;">
+          <li>Mejorar tu experiencia de navegación</li>
+          <li>Entender cómo interactúas con la web</li>
+          <li>Optimizar el contenido y los servicios ofrecidos</li>
+        </ul>
+        <p style="margin-bottom:24px;">Nada invasivo… solo lo necesario para que todo fluya mejor ✨</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌐 Tipos de cookies que podemos utilizar</h4>
+        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
+          <li style="margin-bottom:8px;"><strong>Cookies técnicas:</strong> necesarias para el funcionamiento de la página</li>
+          <li style="margin-bottom:8px;"><strong>Cookies de análisis:</strong> nos ayudan a entender el uso del sitio (por ejemplo, herramientas como Google Analytics)</li>
+          <li style="margin-bottom:8px;"><strong>Cookies de terceros:</strong> pueden provenir de servicios externos integrados en la web</li>
+        </ul>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔒 Sobre tu información</h4>
+        <p style="margin-bottom:24px;">Las cookies no acceden a información personal sensible ni permiten identificarte directamente como persona. Tu privacidad es importante y este espacio busca respetarla en todo momento.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⚙️ Gestión de cookies</h4>
+        <p style="margin-bottom:24px;">Puedes aceptar, rechazar o eliminar las cookies desde la configuración de tu navegador en cualquier momento. Ten en cuenta que desactivarlas podría afectar el funcionamiento de algunas partes del sitio.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌻 Aceptación de cookies</h4>
+        <p style="margin-bottom:24px;">Al navegar en este sitio, aceptas el uso de cookies para mejorar tu experiencia.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💌 Contacto</h4>
+        <p>Si tienes alguna duda sobre esta política, puedes escribirme directamente. Estoy aquí para acompañarte también en esto 💛</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNER DE COOKIES -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:24px; right:24px; max-width:420px; background:var(--warm); border:2px solid rgba(212,168,71,0.25); border-radius:16px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:900;">
+    <h4 style="margin:0 0 10px 0; font-size:1.1rem; color:var(--wine-deep);">Quiero que te sientas cómoda aquí 🌻</h4>
+    <p style="margin:0 0 20px 0; font-size:0.9rem; line-height:1.5; color:var(--wine);">Usamos cookies para que tu experiencia sea más fluida y armoniosa. <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="color:var(--gold); font-weight:600; text-decoration:underline;">Ver política</a></p>
+    <button onclick="acceptCookies()" class="btn-primary" style="width:100%; justify-content:center; padding:12px;">Aceptar ✨</button>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     JAVASCRIPT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    /* ── SERVICIOS DATA ──────────────────────────────────────── */
+    const SERVICES = {
+      'Diosa en Guía': {
+        tag: 'Acompañamiento continuo',
+        title: 'Acompañamiento continuo',
+        text: 'Un espacio para no hacerlo sola.\n\nTe acompaño de forma cercana con sesiones semanales o preguntas durante el mes, para sostenerte, aterrizar lo que sientes y ayudarte a avanzar con claridad.\n\nEsto no es solo guía… es contención real en tu proceso.',
+        price: '$45 USD · S/ 150',
+        match: 'Diosa'
+      },
+      'Tarot': {
+        tag: 'Conecta contigo',
+        title: 'Conecta contigo',
+        text: 'Respuestas claras para lo que hoy te duele o te confunde.\n\nVemos tu situación actual, lo que no estás viendo y hacia dónde se está moviendo la energía… con una mirada profunda, amorosa y sin juicio.',
+        price: '$45 USD · S/ 150',
+        match: 'Tarot'
+      },
+      'Carta Natal': {
+        tag: 'Tu mapa emocional',
+        title: 'Tu mapa emocional',
+        text: 'Un análisis profundo de tu personalidad, emociones y patrones.\n\nAquí entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu energía a tu favor.\n\nTu carta no te define… te revela.',
+        price: '$85 USD · S/ 300',
+        match: 'Carta Natal'
+      },
+      'Revolución Solar': {
+        tag: 'Tu año, con dirección',
+        title: 'Tu año, con dirección',
+        text: 'Una guía para entender qué viene para ti este año.\n\nVemos los temas importantes, aprendizajes y oportunidades, para que dejes de reaccionar a la vida… y empieces a caminarla con intención.',
+        price: '$85 USD · S/ 300',
+        match: 'Revolución'
+      },
+      'Diosas Girasol': {
+        tag: 'Guía y contención semanal',
+        title: 'Comunidad por suscripción en WhatsApp',
+        text: 'Un espacio cercano para sentirte acompañada cada semana.\n\nAquí encuentras un audio semanal donde te cuento sobre la energía de la semana, un horóscopo para cada signo zodiacal y dos preguntas al mes para cuando necesitas dirección.\n\nTambién es un espacio seguro donde puedes encontrar contención y acompañamiento.',
+        price: '$15 USD · S/ 30',
+        match: 'Diosas Girasol'
+      },
+      'Compatibilidad': {
+        tag: 'Vínculos y relaciones',
+        title: 'Compatibilidad desde tarot y astrología',
+        text: 'Una mirada clara y aterrizada sobre la dinámica entre tú y otra persona.\n\nA través del tarot y la astrología, vemos qué está pasando en el vínculo, qué los une, qué los desafía y hacia dónde se está moviendo la energía.\n\nEs una sesión intuitiva y directa, ideal si quieres respuestas claras sobre una situación actual.',
+        match: 'Compatibilidad'
+      },
+      'Sinastría': {
+        tag: 'Análisis profundo del vínculo',
+        title: 'Análisis profundo del vínculo',
+        text: 'Un estudio detallado de la conexión entre dos personas a nivel emocional, energético y evolutivo.\n\nA través de la sinastría y la carta compuesta, analizamos cómo interactúan sus energías, qué vienen a aprender juntos y cuál es el propósito del vínculo.\n\nEsta sesión es más profunda y te permite entender la relación desde una mirada más completa y consciente.',
+        match: 'Sinastría'
+      },
+      'Tránsitos': {
+        tag: 'Movimientos actuales',
+        title: 'Tránsitos Astrológicos',
+        text: 'Para entender los movimientos actuales del cielo y cómo influyen en tu vida.\n\nAnalizamos los tránsitos más importantes según tu carta natal para comprender qué procesos estás atravesando, qué emociones se activan y qué áreas de tu vida están en transformación.\n\nTe acompaño a darle sentido a lo que estás viviendo y a sostenerlo con mayor claridad, conciencia y calma.',
+        match: 'Tránsitos'
+      }
+    };
+
+    let activeMatch = '';
+
+    function showService(key) {
+      const d = SERVICES[key];
+      if (!d) return;
+
+      const std    = document.getElementById('sdm-standard');
+      const compat = document.getElementById('sdm-compat');
+
+      if (key === 'Compatibilidad') {
+        std.style.display    = 'none';
+        compat.style.display = 'block';
+      } else {
+        activeMatch = d.match;
+        document.getElementById('sdm-tag').textContent   = d.tag;
+        document.getElementById('sdm-title').textContent = d.title;
+        document.getElementById('sdm-text').textContent  = d.text;
+        document.getElementById('sdm-price').textContent = `Precio: ${d.price || ''}`;
+        std.style.display    = 'block';
+        compat.style.display = 'none';
+      }
+      document.getElementById('service-overlay').classList.add('active');
+    }
+    function closeService() {
+      document.getElementById('service-overlay').classList.remove('active');
+    }
+    function closeBookingModal() {
+      document.getElementById('booking-overlay').classList.remove('active');
+    }
+    function goToBooking() {
+      closeService();
+      const sel = document.getElementById('bf-service');
+      [...sel.options].forEach(o => {
+        if (o.text.toLowerCase().includes(activeMatch.toLowerCase())) o.selected = true;
+      });
+      document.getElementById('booking-overlay').classList.add('active');
+    }
+    // Usado por los botones del panel dual
+    function goToBookingWith(match) {
+      activeMatch = match;
+      goToBooking();
+    }
+
+    function openYapeModal() {
+      closeBookingModal();
+      const sel = document.getElementById('yf-service');
+      [...sel.options].forEach(o => {
+        if (o.text.toLowerCase().includes(activeMatch.toLowerCase())) o.selected = true;
+      });
+      document.getElementById('yape-overlay').classList.add('active');
+    }
+    
+    function closeYapeModal() {
+      document.getElementById('yape-overlay').classList.remove('active');
+    }
+
+    function submitYapeBooking() {
+      const form = document.getElementById('yape-form');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const sel = document.getElementById('yf-service');
+      const srvName = sel.options[sel.selectedIndex].dataset.name;
+      const srvPrice = sel.options[sel.selectedIndex].value;
+      const name = document.getElementById('yf-name').value;
+      const date = document.getElementById('yf-date').value;
+      const time = document.getElementById('yf-time').value;
+      const place = document.getElementById('yf-place').value;
+      const phone = document.getElementById('yf-phone').value;
+      const msg = `¡Hola Fergis! Quisiera agendar una sesión y de una vez hago el Yapeo 💛\n\nSERVICIO: ${srvName}\nMONTO: S/ ${srvPrice}\nNOMBRE: ${name}\nNACIMIENTO: ${date} a las ${time}\nLUGAR: ${place}\nWHATSAPP: ${phone}\n\nAquí envío mi captura 👇`;
+      closeYapeModal();
+      document.getElementById('yape-form').reset();
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function closeReclamaciones() {
+      document.getElementById('reclamaciones-overlay').classList.remove('active');
+    }
+
+    function closeTerminos() {
+      document.getElementById('terminos-overlay').classList.remove('active');
+    }
+
+    function closeCookies() {
+      document.getElementById('cookies-overlay').classList.remove('active');
+    }
+
+    function submitReclamacion(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('rec-nombre').value;
+      const apel = document.getElementById('rec-apellidos').value;
+      const doc = document.getElementById('rec-doc-tipo').value + ' ' + document.getElementById('rec-doc-num').value;
+      const cel = document.getElementById('rec-celular').value;
+      const correo = document.getElementById('rec-correo').value;
+      const tipo = document.getElementById('rec-tipo').value;
+      const detalle = document.getElementById('rec-detalle').value;
+      const pedido = document.getElementById('rec-pedido').value;
+
+      let text = `*LIBRO DE RECLAMACIONES*\n\n`;
+      text += `*Nombre:* ${nombre} ${apel}\n`;
+      text += `*Doc:* ${doc}\n`;
+      text += `*Celular:* ${cel}\n`;
+      text += `*Correo:* ${correo}\n`;
+      text += `*Solicitud:* ${tipo}\n`;
+      text += `*Detalle:* ${detalle}\n`;
+      text += `*Pedido:* ${pedido}\n`;
+
+      const msg = encodeURIComponent(text);
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${msg}`, '_blank');
+      
+      alert('Tu solicitud ha sido generada. Serás redirigida a WhatsApp para enviarla formalmente.');
+      closeReclamaciones();
+      document.getElementById('reclamaciones-form').reset();
+    }
+
+    /* Cerrar al hacer clic fuera */
+    ['service-overlay', 'booking-overlay', 'yape-overlay', 'reclamaciones-overlay', 'terminos-overlay', 'cookies-overlay'].forEach(id => {
+      document.getElementById(id).addEventListener('click', function (e) {
+        if (e.target === this) this.classList.remove('active');
+      });
+    });
+
+    /* ── CAROUSEL ────────────────────────────────────────────── */
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.dot');
+    let idx = 0, timer;
+
+    function goToSlide(n) {
+      idx = n;
+      track.style.transform = `translateX(-${idx * 25}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function nextSlide() {
+      goToSlide((idx + 1) % 4);
+    }
+
+    function startCarousel() {
+      timer = setInterval(nextSlide, 4800);
+    }
+
+    /* Pausar al hover */
+    document.getElementById('carousel-track').closest('.carousel-box')
+      .addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('carousel-track').closest('.carousel-box')
+      .addEventListener('mouseleave', startCarousel);
+
+    startCarousel();
+
+    /* ── CONFIGURACIÓN & PAYPAL ──────────────────────────────── */
+    let appConfig = {
+      whatsappNumber: '51907671044',
+      whatsappMessage: '¡Hola Fergis! Quisiera agendar una sesión.',
+      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+      paypalCurrency: 'USD'
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('config.json')
+        .then(r => r.json())
+        .then(d => { appConfig = { ...appConfig, ...d }; init(); })
+        .catch(() => init());
+
+      /* Intersection observer para fade-up on scroll */
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-up'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.bento-grid, .blog-box, .community-box, .social-box').forEach(el => io.observe(el));
+
+      /* Banner de Cookies */
+      if (!localStorage.getItem('cookies_accepted')) {
+        setTimeout(() => {
+          const banner = document.getElementById('cookie-banner');
+          if (banner) {
+            banner.style.display = 'block';
+            banner.classList.add('fade-up');
+          }
+        }, 1500);
+      }
+    });
+
+    function acceptCookies() {
+      localStorage.setItem('cookies_accepted', 'true');
+      const banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(10px)';
+        banner.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        setTimeout(() => banner.style.display = 'none', 400);
+      }
+    }
+
+    function init() {
+      document.getElementById('fab-wa').href =
+        `https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(appConfig.whatsappMessage)}`;
+
+      if (!document.getElementById('pp-sdk')) {
+        const s = document.createElement('script');
+        s.id = 'pp-sdk';
+        s.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+        s.onload = renderPayPal;
+        document.body.appendChild(s);
+      }
+    }
+
+    function renderPayPal() {
+      paypal.Buttons({
+        createOrder: (data, actions) => {
+          const form = document.getElementById('booking-form');
+          if (!form.checkValidity()) { form.reportValidity(); return actions.reject(); }
+          return actions.order.create({
+            purchase_units: [{ amount: { value: document.getElementById('bf-service').value } }]
+          });
+        },
+        onApprove: (data, actions) => actions.order.capture().then(det => {
+          const sel = document.getElementById('bf-service');
+          const srv = sel.options[sel.selectedIndex].text;
+          const name = document.getElementById('bf-name').value;
+          const date = document.getElementById('bf-date').value;
+          const time = document.getElementById('bf-time').value;
+          const place = document.getElementById('bf-place').value;
+          const phone = document.getElementById('bf-phone').value;
+          const msg = `¡Hola Fergis! Acabo de hacer el pago 💛 (ID: ${det.id})\n\nSERVICIO: ${srv}\nNOMBRE: ${name}\nNACIMIENTO: ${date} a las ${time}\nLUGAR: ${place}\nWHATSAPP: ${phone}`;
+          alert('¡Pago completado! Serás redirigida a WhatsApp para confirmar.');
+          closeBookingModal();
+          document.getElementById('booking-form').reset();
+          window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        })
+      }).render('#paypal-button-container');
+    }
+
+    /* Interceptar form carta natal para formato de fecha */
+    const cnForm = document.getElementById('carta-natal-form');
+    if (cnForm) {
+      cnForm.addEventListener('submit', function(e) {
+        const d = document.getElementById('cn-date').value;
+        if (d) {
+          const parts = d.split('-');
+          document.getElementById('cn-fecha-real').value = `${parts[2]}-${parts[1]}-${parts[0]}`;
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
