@@ -1,187 +1,565 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Entre Diosas Girasol</title>
   <meta name="description" content="Artículos de astrología, vínculos y reflexión para acompañarte en tu proceso." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --cream: #faf4e8;
-      --sand: #f3e3c6;
-      --gold: #d4a847;
-      --wine: #8a5a5c;
-      --deep: #6d4146;
-      --ink: #3e2a2c;
-      --white: #fff;
-      --radius: 24px;
-      --shadow: 0 18px 50px rgba(61, 36, 38, 0.15);
+      --cream:  #faf5ed;
+      --parchm: #f3e8d2;
+      --gold:   #c9973a;
+      --gold-lt:#e6c07a;
+      --wine:   #7a4a4d;
+      --deep:   #5c3336;
+      --ink:    #2e1c1e;
+      --muted:  #9b7275;
+      --white:  #ffffff;
     }
-
-    * { box-sizing: border-box; }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(160deg, var(--cream), #f8efe2);
+      font-family: "DM Sans", sans-serif;
+      background-color: var(--cream);
       color: var(--ink);
-      line-height: 1.7;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
     }
-
-    .wrap {
-      width: min(980px, 92vw);
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .site-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 48px 0 80px;
+      padding: 0 clamp(20px, 5vw, 60px) 100px;
     }
-
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 22px;
+      border-bottom: 1px solid rgba(92, 51, 54, 0.12);
+      margin-bottom: 60px;
+    }
+    .topbar-logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--deep);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .topbar-logo span { color: var(--gold); }
+    .topbar-back {
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .topbar-back:hover { color: var(--deep); }
     .hero {
-      background: linear-gradient(150deg, #8b545d 0%, #6d4146 70%);
-      color: var(--white);
-      padding: 36px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 56px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(92, 51, 54, 0.1);
+      animation: fadeUp .7s ease both;
     }
-
-    .hero h1 { margin: 0 0 12px; font-size: clamp(1.8rem, 2.8vw, 2.4rem); }
-
-    .hero p { margin: 0; color: rgba(250, 244, 232, 0.9); }
-
-    .topics {
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--deep);
+    }
+    .hero h1 em { font-style: italic; color: var(--wine); }
+    .hero-sub {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 300;
+      max-width: 420px;
+      line-height: 1.65;
+    }
+    .hero-deco {
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 1;
+      opacity: .18;
+      user-select: none;
+      align-self: center;
+    }
+    .filters {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 24px 0 36px;
+      margin-bottom: 52px;
+      animation: fadeUp .7s .1s ease both;
     }
-
-    .topic {
+    .filter-btn {
       display: inline-flex;
-      text-decoration: none;
-      color: var(--deep);
-      border: 1px solid rgba(109, 65, 70, 0.26);
-      background: #fff5e5;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
       border-radius: 999px;
-      padding: 8px 16px;
-      font-weight: 600;
-      font-size: .92rem;
+      border: 1.5px solid rgba(92, 51, 54, 0.2);
+      background: transparent;
+      color: var(--wine);
+      font-family: "DM Sans", sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, color .2s;
     }
-
-    .topic:hover { background: #fbe9c5; }
-
-    .article {
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: var(--cream);
+    }
+    #post-list {
+      display: grid;
+      gap: 20px;
+      animation: fadeUp .7s .15s ease both;
+    }
+    .post-preview {
       background: var(--white);
-      border-radius: var(--radius);
-      padding: clamp(24px, 4vw, 42px);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(138, 90, 92, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(92, 51, 54, 0.08);
+      box-shadow: 0 4px 24px rgba(46, 28, 30, 0.06);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      display: grid;
+      grid-template-columns: auto 1fr;
     }
-
-    .article h2 { margin: 0 0 8px; color: var(--deep); }
-
-    .meta {
-      color: #8a5a5c;
-      font-weight: 600;
-      margin-bottom: 24px;
-      font-size: .95rem;
+    .post-preview:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(46, 28, 30, 0.1);
     }
-
-    .article p { margin: 0 0 16px; }
-
-    .article h3 {
+    .post-preview-accent {
+      width: 6px;
+      background: linear-gradient(180deg, var(--deep), var(--wine));
+    }
+    .post-preview-body { padding: 28px 32px; }
+    .post-preview-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .post-preview-tag {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,151,58,.1);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .post-preview h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 400;
       color: var(--deep);
-      margin: 28px 0 10px;
-      font-size: 1.1rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
     }
-
-    .house-list p { margin-bottom: 12px; }
-
-    .placeholder {
-      margin-top: 22px;
-      border-top: 1px dashed rgba(138, 90, 92, 0.25);
-      padding-top: 22px;
-      color: #705052;
+    .post-preview p {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .post-preview-meta {
+      font-size: .78rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .post-preview-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--wine);
+    }
+    .post-preview-read::after { content: " →"; }
+    #post-single { display: none; }
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      border: none;
+      background: none;
+      padding: 0;
+      transition: color .2s;
+    }
+    .back-to-blog:hover { color: var(--deep); }
+    .post-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(92, 51, 54, 0.08);
+      box-shadow: 0 4px 24px rgba(46, 28, 30, 0.06);
+      animation: fadeUp .5s ease both;
+    }
+    .post-header {
+      background: linear-gradient(135deg, #5c3336 0%, #3d2022 50%, #6b4043 100%);
+      padding: clamp(36px, 5vw, 56px) clamp(28px, 5vw, 56px);
+      position: relative;
+      overflow: hidden;
+    }
+    .post-header::before {
+      content: "";
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,151,58,.25) 0%, transparent 70%);
+    }
+    .post-header-emoji {
+      position: absolute;
+      bottom: -10px; right: 40px;
+      font-size: 120px;
+      opacity: .07;
+      line-height: 1;
+      user-select: none;
+    }
+    .post-tag-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(201,151,58,.2);
+      color: var(--gold-lt);
+      font-size: .76rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .post-header h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .post-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .post-meta {
+      color: rgba(250,245,237,.55);
+      font-size: .84rem;
+      position: relative;
+    }
+    .post-body { padding: clamp(28px, 5vw, 52px); }
+    .post-body .blk-lead {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--wine);
+      line-height: 1.5;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(92,51,54,.1);
+    }
+    .post-body .blk-parrafo {
+      font-size: .97rem;
+      color: #3e2a2c;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .post-body .blk-h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--deep);
+      margin: 40px 0 14px;
+    }
+    .post-body .blk-callout {
+      background: linear-gradient(135deg, #fdf5e8, #f8ead3);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: .94rem;
+      color: var(--deep);
+    }
+    .blk-divisor {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 36px 0;
+      color: rgba(92,51,54,.4);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .blk-divisor::before, .blk-divisor::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(92,51,54,.12);
+    }
+    .blk-cita {
+      background: linear-gradient(135deg, #5c3336, #3d2022);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 36px 0;
+      color: var(--white);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.55;
+      text-align: center;
+      position: relative;
+    }
+    .blk-cita::before {
+      content: "\201C";
+      position: absolute;
+      top: -10px; left: 20px;
+      font-size: 80px;
+      color: var(--gold);
+      opacity: .3;
+      line-height: 1;
+      font-style: normal;
+    }
+    .blk-cita .cita-emoji {
+      margin-top: 14px;
+      font-style: normal;
+      font-size: 1.1rem;
+      opacity: .8;
+    }
+    .house-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+      margin: 20px 0 32px;
+    }
+    .house-item {
+      background: var(--cream);
+      border: 1px solid rgba(92,51,54,.1);
+      border-radius: 14px;
+      padding: 16px 18px;
+      font-size: .88rem;
+      line-height: 1.55;
+      color: var(--ink);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .house-item:hover {
+      border-color: rgba(201,151,58,.4);
+      box-shadow: 0 4px 16px rgba(92,51,54,.08);
+    }
+    .house-item strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--deep);
+      margin-bottom: 4px;
+    }
+    .loading { text-align: center; padding: 60px 20px; color: var(--muted); font-size: .9rem; }
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
+    .empty-state .big { font-size: 3rem; margin-bottom: 16px; }
+    @media (max-width: 600px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-deco { display: none; }
+      .house-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
-  <main class="wrap">
+  <div class="site-wrap">
+    <div class="topbar">
+      <a class="topbar-logo" href="index.html">Entre <span>Diosas</span> Girasol</a>
+      <a class="topbar-back" href="index.html">← Volver al inicio</a>
+    </div>
     <header class="hero">
-      <h1>🌻 Blog Entre Diosas Girasol</h1>
-      <p>Un espacio para leer con calma. Aquí quedarán los artículos para que siempre puedas volver a ellos.</p>
+      <div>
+        <div class="hero-eyebrow">El Blog</div>
+        <h1>Palabras que<br><em>acompañan</em></h1>
+        <p class="hero-sub">Un espacio para leer con calma. Astrología, emociones y reflexiones que siempre puedes volver a releer.</p>
+      </div>
+      <div class="hero-deco" aria-hidden="true">🌻</div>
     </header>
-
-    <nav class="topics" aria-label="Temas del blog">
-      <a class="topic" href="#clima-astral">🌙 Clima astral</a>
-      <a class="topic" href="#emociones">🧠 Emociones y sistema nervioso</a>
-      <a class="topic" href="#relaciones">💔 Relaciones y vínculos</a>
-      <a class="topic" href="#reflexiones">🔮 Reflexiones</a>
+    <nav class="filters" id="filters">
+      <button class="filter-btn active" data-tag="todos">✨ Todos</button>
+      <button class="filter-btn" data-tag="clima-astral">🌙 Clima astral</button>
+      <button class="filter-btn" data-tag="emociones">🧠 Emociones</button>
+      <button class="filter-btn" data-tag="relaciones">💔 Relaciones</button>
+      <button class="filter-btn" data-tag="reflexiones">🔮 Reflexiones</button>
     </nav>
+    <div id="post-list"><div class="loading">Cargando artículos… 🌻</div></div>
+    <div id="post-single"></div>
+  </div>
 
-    <article class="article" id="clima-astral">
-      <h2>Entrada de Blog · Clima astral / relaciones y vínculos</h2>
-      <div class="meta">🌕 Clima Astral: Luna Llena en Libra (2 de abril de 2026)</div>
+  <script>
+    // ─────────────────────────────────────────────────────────────────
+    // LISTA DE POSTS  ← agrega aquí el slug de cada JSON que subas
+    // ─────────────────────────────────────────────────────────────────
+    const POST_FILES = [
+      "luna-llena-libra-2026",
+      // "mercurio-retrogrado-mayo-2026",
+    ];
 
-      <p>Hermana… la Luna Llena en Libra del 2 de abril no vino a decorarte la vida.</p>
-      <p>Vino a mostrarte algo muy claro: 👉 cómo te estabas relacionando contigo… y con los demás.</p>
-      <p>Porque Libra no es solo pareja. Es vínculo. Es equilibrio. Es ese punto medio que muchas veces pierdes por no
-        incomodar… o por no perder.</p>
-      <p>Y con el Sol en Aries, junto a la energía de Saturno y Neptuno activando ese eje… 👉 lo que se movió no fue
-        suave, fue realidad emocional.</p>
+    let allPosts = [];
+    let activeTag = "todos";
 
-      <h3>🌻 ¿Qué se movió realmente?</h3>
-      <p>Se activó una tensión entre lo que querías tú y lo que estabas sosteniendo en tus vínculos.</p>
-      <p>Entre decir lo que sentías o seguir adaptándote para no perder.</p>
-      <p>Y probablemente te diste cuenta de algo incómodo (pero necesario): 👉 no todo lo que estabas sosteniendo… te
-        estaba sosteniendo a ti.</p>
+    async function loadPosts() {
+      const results = await Promise.allSettled(
+        POST_FILES.map(slug => fetch("posts/" + slug + ".json").then(r => r.json()))
+      );
+      allPosts = results
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value)
+        .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+      renderList();
+    }
 
-      <h3 id="relaciones">💛 Si tienes Sol, Luna o Ascendente en Libra…</h3>
-      <p>Esto se sintió más directo. No fue solo una Luna Llena externa… fue un espejo.</p>
-      <p>Puede que hayas sentido incomodidad en relaciones, necesidad de tomar decisiones, o algo dentro de ti diciendo:
-        “esto ya no me hace sentido”.</p>
-      <p>Con Aries activado (tu opuesto complementario), la vida te estuvo empujando a esto: 👉 “deja de mirarte solo a
-        través del otro… y vuelve a ti”.</p>
+    function renderList() {
+      const list = document.getElementById("post-list");
+      const single = document.getElementById("post-single");
+      const filters = document.getElementById("filters");
+      single.style.display = "none";
+      single.innerHTML = "";
+      list.style.display = "grid";
+      filters.style.display = "flex";
 
-      <h3>🌙 ¿Cómo te movió según tu casa?</h3>
-      <div class="house-list">
-        <p>🏠 <strong>Casa 1:</strong> Te viste distinta dentro de tus vínculos. Ya no podías seguir siendo la misma
-          versión para sostener a otros.</p>
-        <p>🏠 <strong>Casa 2:</strong> Se movió tu valor. Cuánto das, cuánto recibes… y qué ya no se siente justo.</p>
-        <p>🏠 <strong>Casa 3:</strong> Conversaciones pendientes. Cosas que quizás ya no querías seguir guardando.</p>
-        <p>🏠 <strong>Casa 4:</strong> Emociones profundas. Historia familiar tocando cómo te vinculas hoy.</p>
-        <p>🏠 <strong>Casa 5:</strong> Amor y validación. Cuestionamientos sobre si realmente te estaban eligiendo.</p>
-        <p>🏠 <strong>Casa 6:</strong> Dinámicas del día a día. Relaciones que empezaron a sentirse pesadas o
-          desgastantes.</p>
-        <p>🏠 <strong>Casa 7:</strong> Relaciones cara a cara. Aquí se vio todo más claro… sin tanto filtro.</p>
-        <p>🏠 <strong>Casa 8:</strong> Apegos. Miedo a soltar incluso sabiendo que algo ya cambió.</p>
-        <p>🏠 <strong>Casa 9:</strong> Creencias. Ideas sobre el amor o la vida que ya no encajaban contigo.</p>
-        <p>🏠 <strong>Casa 10:</strong> Exposición. Cómo tus vínculos están influyendo en tu camino.</p>
-        <p>🏠 <strong>Casa 11:</strong> Amistades. Dónde te sentías parte… y dónde ya no.</p>
-        <p>🏠 <strong>Casa 12:</strong> Inconsciente. Patrones que probablemente empezaste a reconocer.</p>
-      </div>
+      const filtered = activeTag === "todos"
+        ? allPosts
+        : allPosts.filter(p => (p.tags || []).includes(activeTag));
 
-      <h3>🌶️ Lo que dejó Saturno + Neptuno en Aries</h3>
-      <p>Esto no fue casual.</p>
-      <p>Porque: 👉 Saturno trajo realidad y 👉 Neptuno mostró ilusión.</p>
-      <p>Y juntos dejaron algo claro: 👉 “ya no puedes seguir sosteniendo lo que solo existía en tu expectativa”.</p>
+      if (!filtered.length) {
+        list.innerHTML = '<div class="empty-state"><div class="big">🌻</div><p>No hay artículos en esta categoría todavía.</p></div>';
+        return;
+      }
+      list.innerHTML = filtered.map(post => `
+        <div class="post-preview" onclick="showPost('${post.id}')">
+          <div class="post-preview-accent"></div>
+          <div class="post-preview-body">
+            <div class="post-preview-tags">${(post.tagLabels||[]).map(t=>`<span class="post-preview-tag">${t}</span>`).join("")}</div>
+            <h2>${post.emoji||""} ${post.titulo}</h2>
+            <p>${post.resumen||""}</p>
+            <div class="post-preview-meta">
+              <span>${formatFecha(post.fecha)}</span><span>·</span><span>${post.lecturaMin||"?"} min de lectura</span>
+            </div>
+            <div class="post-preview-read">Leer artículo</div>
+          </div>
+        </div>`).join("");
+    }
 
-      <h3 id="reflexiones">🌻 Reflexión</h3>
-      <p>Esta Luna no fue para manifestar… fue para ver.</p>
-      <p>👉 ¿Desde dónde te estabas vinculando? ¿Desde miedo? ¿Desde necesidad? ¿Desde amor propio real?</p>
-      <p>No todo vínculo está hecho para quedarse, pero todos dejan algo.</p>
-      <p>Y esta Luna Llena en Libra… no vino a romper por romper. Vino a equilibrar.</p>
-      <p>Y ese equilibrio… muchas veces empieza cuando algo deja de encajar.</p>
-      <p>Si algo se sigue moviendo en ti después de estos días… 👉 no es que estés exagerando, es que ahora estás viendo
-        más claro.</p>
-      <p>Y eso, aunque incomode un poquito… también es crecimiento 🌻✨</p>
+    function showPost(id) {
+      const post = allPosts.find(p => p.id === id);
+      if (!post) return;
+      document.getElementById("post-list").style.display = "none";
+      document.getElementById("filters").style.display = "none";
+      const single = document.getElementById("post-single");
+      single.style.display = "block";
+      single.innerHTML = `
+        <button class="back-to-blog" onclick="renderList()">← Volver al blog</button>
+        <article class="post-card">
+          <div class="post-header">
+            <div class="post-tag-header">${(post.tagLabels||[]).join(" &nbsp;·&nbsp; ")}</div>
+            <h2>${post.titulo}</h2>
+            <div class="post-meta">${formatFecha(post.fecha)} &nbsp;·&nbsp; ${post.lecturaMin||"?"} min de lectura</div>
+            <div class="post-header-emoji" aria-hidden="true">${post.emoji||"🌻"}</div>
+          </div>
+          <div class="post-body">${renderBloques(post.bloques||[])}</div>
+        </article>`;
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
 
-      <div class="placeholder" id="emociones">
-        <strong>Próximas entradas:</strong> aquí se irán sumando los artículos más antiguos y nuevos por tema, para que
-        puedas navegarlos fácilmente desde esta misma página.
-      </div>
-    </article>
-  </main>
+    function renderBloques(bloques) {
+      return bloques.map(b => {
+        const t = esc(b.texto||"");
+        switch (b.tipo) {
+          case "lead":    return `<p class="blk-lead">${t}</p>`;
+          case "parrafo": return `<p class="blk-parrafo">${t}</p>`;
+          case "h3":      return `<h3 class="blk-h3">${t}</h3>`;
+          case "callout": return `<div class="blk-callout">${t}</div>`;
+          case "divisor": return `<div class="blk-divisor">${t}</div>`;
+          case "cita":    return `<div class="blk-cita">${t}${b.emoji?`<div class="cita-emoji">${b.emoji}</div>`:""}</div>`;
+          case "casas":   return `<div class="house-grid">${(b.items||[]).map(i=>`<div class="house-item"><strong>🏠 ${esc(i.casa)}</strong>${esc(i.texto)}</div>`).join("")}</div>`;
+          default: return "";
+        }
+      }).join("\n");
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    function formatFecha(d) {
+      if (!d) return "";
+      const [y,m,day] = d.split("-");
+      const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+      return `${parseInt(day)} de ${meses[parseInt(m)-1]} de ${y}`;
+    }
+
+    document.getElementById("filters").addEventListener("click", e => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeTag = btn.dataset.tag;
+      renderList();
+    });
+
+    loadPosts();
+  </script>
 </body>
-
 </html>
