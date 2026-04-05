@@ -229,6 +229,50 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tarot-card-item {
+      background: linear-gradient(160deg, #fffbe8 0%, #fff4cc 100%);
+      border: 1px solid #edc96a;
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      animation: fadeIn 500ms ease;
+    }
+
+    .tarot-card-item .card-emoji {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .tarot-card-item .card-position {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a07830;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .tarot-card-item .card-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #5a3d10;
+      line-height: 1.3;
+    }
+
+    .tarot-card-item .card-suit {
+      font-size: 0.75rem;
+      color: #9b7535;
+      margin-top: 3px;
+    }
+
     .history-grid {
       margin-top: 10px;
       display: grid;
@@ -641,6 +685,15 @@
       setStatus('Sesión cerrada. Aquí estaré para ti cuando regreses 🌙', 'ok');
     }
 
+    const CARD_EMOJIS = {
+      "0": "🌟", "I": "🪄", "II": "🌙", "III": "🌸", "IV": "👑",
+      "V": "🔑", "VI": "💞", "VII": "🏆", "VIII": "🦁", "IX": "🏮",
+      "X": "🎡", "XI": "⚖️", "XII": "🙃", "XIII": "🦋", "XIV": "🌊",
+      "XV": "🔥", "XVI": "⚡", "XVII": "⭐", "XVIII": "🌕", "XIX": "☀️",
+      "XX": "📯", "XXI": "🌍",
+      "Copas": "🏆", "Espadas": "⚔️", "Oros": "🪙", "Bastos": "🌿"
+    };
+
     async function askTarot() {
       const question = questionInput.value.trim();
       if (!question) {
@@ -650,6 +703,8 @@
 
       askBtn.disabled = true;
       loadingAsk.classList.add('show');
+      resultCard.classList.remove('show');
+      resultCard.innerHTML = '';
 
       try {
         const data = await api('/ask', {
@@ -661,9 +716,28 @@
         });
 
         const answer = data.answer || data.message || 'No recibimos una respuesta por ahora.';
+        const cards = data.cards || [];
+
+        let cardsHtml = '';
+        if (cards.length) {
+          cardsHtml = `
+            <div class="cards-row">
+              ${cards.map(c => `
+                <div class="tarot-card-item">
+                  <span class="card-emoji">${CARD_EMOJIS[c.suit] || '🔮'}</span>
+                  <div class="card-position">${escapeHtml(c.position)}</div>
+                  <div class="card-name">${escapeHtml(c.name)}</div>
+                  <div class="card-suit">${escapeHtml(c.suit)}</div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
         resultCard.innerHTML = `
+          ${cardsHtml}
           <strong>Tu mensaje del tarot ✨</strong>
-          <p style="margin-top: 8px;">${escapeHtml(answer)}</p>
+          <p style="margin-top: 8px; white-space: pre-line;">${escapeHtml(answer)}</p>
         `;
         resultCard.classList.add('show');
         questionInput.value = '';
