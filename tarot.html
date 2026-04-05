@@ -273,6 +273,27 @@
       margin-top: 3px;
     }
 
+    .animation-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .animation-overlay.show {
+      display: flex;
+      animation: fadeIn 400ms ease;
+    }
+
+    .animation-overlay img {
+      width: min(480px, 90vw);
+      border-radius: 20px;
+    }
+
     .history-grid {
       margin-top: 10px;
       display: grid;
@@ -415,6 +436,10 @@
             <button class="btn btn-primary" data-package="10" id="buy10Btn">👉 Comprar 10 preguntas 🌻</button>
             <button class="btn btn-secondary" data-package="25" id="buy25Btn">👉 Comprar 25 preguntas 🌻</button>
           </div>
+        </div>
+
+        <div class="animation-overlay" id="animationOverlay">
+          <img src="./tarot-animation.gif" alt="Fergis consultando las cartas..." id="animationGif" />
         </div>
 
         <div class="result" id="resultCard"></div>
@@ -706,6 +731,9 @@
       "Copas": "🏆", "Espadas": "⚔️", "Oros": "🪙", "Bastos": "🌿"
     };
 
+    const ANIMATION_DURATION = 10000;
+    const animationOverlay = document.getElementById('animationOverlay');
+
     async function askTarot(mode = 'basic') {
       const question = questionInput.value.trim();
       if (!question) {
@@ -715,19 +743,25 @@
 
       askBasicBtn.disabled = true;
       askPremiumBtn.disabled = true;
-      loadingAsk.classList.add('show');
+      loadingAsk.classList.remove('show');
       resultCard.classList.remove('show');
       resultCard.innerHTML = '';
 
+      const gif = document.getElementById('animationGif');
+      gif.src = '';
+      gif.src = './tarot-animation.gif';
+      animationOverlay.classList.add('show');
+
+      const apiPromise = api('/ask', {
+        method: 'POST',
+        body: JSON.stringify({ user_id: state.user.id, question, mode })
+      });
+      const timerPromise = new Promise(resolve => setTimeout(resolve, ANIMATION_DURATION));
+
       try {
-        const data = await api('/ask', {
-          method: 'POST',
-          body: JSON.stringify({
-            user_id: state.user.id,
-            question,
-            mode
-          })
-        });
+        const [data] = await Promise.all([apiPromise, timerPromise]);
+
+        animationOverlay.classList.remove('show');
 
         const answer = data.answer || data.message || 'No recibimos una respuesta por ahora.';
         const cards = data.cards || [];
@@ -759,9 +793,11 @@
 
         await Promise.all([fetchCredits(), fetchHistory()]);
       } catch (err) {
+        animationOverlay.classList.remove('show');
         setStatus(err.message || 'No pudimos consultar las cartas ahora mismo.', 'error');
       } finally {
-        loadingAsk.classList.remove('show');
+        askBasicBtn.disabled = false;
+        askPremiumBtn.disabled = false;
         await fetchCredits();
       }
     }
