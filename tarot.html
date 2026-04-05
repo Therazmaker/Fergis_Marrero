@@ -390,14 +390,18 @@
       <div class="user-box">
         <div>
           <h2 id="greeting">Hola, hermana girasol 🌻</h2>
-          <div class="counter" id="creditsCounter">🌻 Preguntas disponibles: --</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
+            <div class="counter" id="creditsCounter">🌻 Básicas: --</div>
+            <div class="counter" style="border-color:#c9a0dc;color:#6b3fa0;" id="premiumCounter">✨ Premium: --</div>
+          </div>
         </div>
 
         <div id="askContainer" class="ask-wrap hidden">
           <label for="questionInput"><strong>Tu pregunta de hoy ✨</strong></label>
           <textarea id="questionInput" placeholder="Escribe tu pregunta con confianza, estoy aquí para ti..."></textarea>
           <div class="row">
-            <button class="btn btn-primary" id="askBtn">✨ Consultar al tarot</button>
+            <button class="btn btn-secondary" id="askBasicBtn">🌻 Consultar básico</button>
+            <button class="btn btn-primary" id="askPremiumBtn">✨ Consultar premium</button>
             <div class="loading" id="loadingAsk">
               🔮 Fergis está consultando las cartas para ti...
               <span class="dots"><span>.</span><span>.</span><span>.</span></span>
@@ -478,6 +482,7 @@
     const state = {
       user: null,
       credits: 0,
+      premiumCredits: 0,
       profileName: ''
     };
 
@@ -486,10 +491,12 @@
     const logoutWrap = document.getElementById('logoutWrap');
     const greeting = document.getElementById('greeting');
     const creditsCounter = document.getElementById('creditsCounter');
+    const premiumCounter = document.getElementById('premiumCounter');
     const askContainer = document.getElementById('askContainer');
     const buyContainer = document.getElementById('buyContainer');
     const questionInput = document.getElementById('questionInput');
-    const askBtn = document.getElementById('askBtn');
+    const askBasicBtn = document.getElementById('askBasicBtn');
+    const askPremiumBtn = document.getElementById('askPremiumBtn');
     const loadingAsk = document.getElementById('loadingAsk');
     const resultCard = document.getElementById('resultCard');
     const historyList = document.getElementById('historyList');
@@ -515,10 +522,13 @@
     }
 
     function updateCreditsUI() {
-      creditsCounter.textContent = `🌻 Preguntas disponibles: ${state.credits}`;
-      const hasCredits = Number(state.credits) > 0;
-      askContainer.classList.toggle('hidden', !hasCredits);
-      buyContainer.classList.toggle('hidden', hasCredits);
+      creditsCounter.textContent = `🌻 Básicas: ${state.credits}`;
+      premiumCounter.textContent = `✨ Premium: ${state.premiumCredits}`;
+      const hasAny = Number(state.credits) > 0 || Number(state.premiumCredits) > 0;
+      askContainer.classList.toggle('hidden', !hasAny);
+      buyContainer.classList.toggle('hidden', hasAny);
+      if (askBasicBtn) askBasicBtn.disabled = Number(state.credits) <= 0;
+      if (askPremiumBtn) askPremiumBtn.disabled = Number(state.premiumCredits) <= 0;
     }
 
     function escapeHtml(value = '') {
@@ -550,6 +560,7 @@
       if (!state.user) return;
       const data = await api(`/credits/${state.user.id}`);
       state.credits = Number(data.credits ?? 0);
+      state.premiumCredits = Number(data.premium_credits ?? 0);
       updateCreditsUI();
     }
 
@@ -589,6 +600,7 @@
       state.user = null;
       state.profileName = '';
       state.credits = 0;
+      state.premiumCredits = 0;
       guestSection.classList.remove('hidden');
       userSection.classList.add('hidden');
       logoutWrap.classList.add('hidden');
@@ -694,14 +706,15 @@
       "Copas": "🏆", "Espadas": "⚔️", "Oros": "🪙", "Bastos": "🌿"
     };
 
-    async function askTarot() {
+    async function askTarot(mode = 'basic') {
       const question = questionInput.value.trim();
       if (!question) {
         setStatus('Escribe tu pregunta antes de consultar al tarot ✨', 'warn');
         return;
       }
 
-      askBtn.disabled = true;
+      askBasicBtn.disabled = true;
+      askPremiumBtn.disabled = true;
       loadingAsk.classList.add('show');
       resultCard.classList.remove('show');
       resultCard.innerHTML = '';
@@ -711,12 +724,14 @@
           method: 'POST',
           body: JSON.stringify({
             user_id: state.user.id,
-            question
+            question,
+            mode
           })
         });
 
         const answer = data.answer || data.message || 'No recibimos una respuesta por ahora.';
         const cards = data.cards || [];
+        const isPremium = data.mode === 'premium';
 
         let cardsHtml = '';
         if (cards.length) {
@@ -736,7 +751,7 @@
 
         resultCard.innerHTML = `
           ${cardsHtml}
-          <strong>Tu mensaje del tarot ✨</strong>
+          <strong>${isPremium ? '✨ Tu lectura premium' : '🌻 Tu mensaje del tarot'}</strong>
           <p style="margin-top: 8px; white-space: pre-line;">${escapeHtml(answer)}</p>
         `;
         resultCard.classList.add('show');
@@ -746,8 +761,8 @@
       } catch (err) {
         setStatus(err.message || 'No pudimos consultar las cartas ahora mismo.', 'error');
       } finally {
-        askBtn.disabled = false;
         loadingAsk.classList.remove('show');
+        await fetchCredits();
       }
     }
 
@@ -780,7 +795,8 @@
     document.getElementById('registerBtn').addEventListener('click', registerUser);
     document.getElementById('loginBtn').addEventListener('click', loginUser);
     document.getElementById('logoutBtn').addEventListener('click', logoutUser);
-    askBtn.addEventListener('click', askTarot);
+    askBasicBtn.addEventListener('click', () => askTarot('basic'));
+    askPremiumBtn.addEventListener('click', () => askTarot('premium'));
     document.getElementById('buy10Btn').addEventListener('click', () => startCheckout(10));
     document.getElementById('buy25Btn').addEventListener('click', () => startCheckout(25));
 
