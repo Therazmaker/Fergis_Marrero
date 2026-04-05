@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarot | Fergis Marrero</title>
+  <meta
+    name="description"
+    content="Tarot amoroso y guía espiritual con Fergis. Haz tus preguntas, recibe respuestas cálidas y guarda tu historial de lecturas."
+  />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --card: #fff8e8;
+      --card-2: #fff4d3;
+      --accent: #f2be42;
+      --accent-soft: #ffe6a7;
+      --ink: #4b3b22;
+      --ink-soft: #826c45;
+      --line: #f3d996;
+      --ok: #2d9a67;
+      --warn: #bd6e2c;
+      --danger: #b84343;
+      --shadow: 0 12px 30px rgba(163, 126, 61, 0.13);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top right, #fff4cf 0%, #fffef9 40%, #fffdf8 100%);
+      line-height: 1.6;
+      padding: 28px 16px 48px;
+    }
+
+    .page {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 4vw, 32px);
+    }
+
+    .hero {
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%);
+    }
+
+    .kicker {
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      line-height: 1.2;
+      color: #5a4321;
+    }
+
+    p {
+      color: var(--ink-soft);
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.14s ease, filter 0.14s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.98);
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      transform: none;
+      opacity: 0.65;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%);
+      color: #4f3600;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #6a522e;
+    }
+
+    .status {
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .status.show { display: block; }
+    .status.ok { color: #1f724b; background: #e9fff4; border: 1px solid #bfeeda; }
+    .status.warn { color: #8a4a14; background: #fff5e9; border: 1px solid #ffd4a8; }
+    .status.error { color: #8d2626; background: #ffefef; border: 1px solid #f7b2b2; }
+
+    .hidden { display: none !important; }
+
+    .user-box {
+      display: grid;
+      gap: 18px;
+    }
+
+    .counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fffef7;
+      border: 1px dashed #efcc79;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      color: #7b5a1d;
+      width: fit-content;
+    }
+
+    .ask-wrap {
+      display: grid;
+      gap: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 135px;
+      resize: vertical;
+      border-radius: var(--radius-md);
+      border: 1px solid #f0d696;
+      background: #fffdf6;
+      padding: 14px;
+      font: inherit;
+      color: var(--ink);
+    }
+
+    textarea:focus,
+    input:focus {
+      outline: 2px solid #ffd470;
+      border-color: #ffd470;
+    }
+
+    .result {
+      background: #fffdf7;
+      border: 1px solid #f2d998;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      color: #614b2a;
+      display: none;
+    }
+
+    .result.show {
+      display: block;
+      animation: fadeIn 420ms ease;
+    }
+
+    .loading {
+      display: none;
+      color: #76531f;
+      font-weight: 600;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .loading.show {
+      display: inline-flex;
+    }
+
+    .dots span {
+      animation: blink 1s infinite;
+      opacity: 0.2;
+      margin-right: 2px;
+    }
+
+    .dots span:nth-child(2) { animation-delay: 0.2s; }
+    .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0.2; }
+      40% { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .history-grid {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .history-item {
+      border: 1px solid #f3dc9f;
+      border-radius: var(--radius-sm);
+      background: #fffef8;
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .history-item h4 {
+      font-size: 0.95rem;
+      color: #71521e;
+    }
+
+    .history-item p {
+      font-size: 0.94rem;
+      color: #6b5531;
+    }
+
+    .history-meta {
+      font-size: 0.8rem;
+      color: #9b835b;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(80, 56, 16, 0.28);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+    }
+
+    .overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(460px, 100%);
+      background: #fffdf7;
+      border: 1px solid #f3dba4;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .modal h3 { color: #62461f; }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      font-weight: 600;
+      color: #7e6130;
+      font-size: 0.92rem;
+    }
+
+    .field input {
+      width: 100%;
+      border: 1px solid #efd39a;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      font: inherit;
+      color: #5e4423;
+    }
+
+    .helper {
+      font-size: 0.85rem;
+      color: #8d744f;
+    }
+
+    .top-actions {
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card hero">
+      <span class="kicker">🌻 Espacio de tarot amoroso y guía</span>
+      <h1>Tu consulta íntima con Fergis 🔮</h1>
+      <p>
+        Estoy aquí para ti, hermana girasol 💛. Respira, escribe lo que te inquieta y recibamos juntas el mensaje de las cartas.
+      </p>
+      <div class="row top-actions hidden" id="logoutWrap">
+        <button class="btn btn-secondary" id="logoutBtn">👉 Cerrar sesión 🌻</button>
+      </div>
+    </section>
+
+    <section class="card" id="guestSection">
+      <h2>Bienvenida, hermanita 🌙</h2>
+      <p>
+        Empieza hoy mismo con <strong>10 preguntas gratuitas para empezar tu camino</strong>. Crea tu cuenta y recibe una guía cálida, clara y amorosa.
+      </p>
+      <div class="row" style="margin-top: 14px;">
+        <button class="btn btn-primary" id="openRegisterBtn">👉 Crear cuenta 🌻</button>
+        <button class="btn btn-secondary" id="openLoginBtn">👉 Ya tengo cuenta 🌻</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="userSection">
+      <div class="user-box">
+        <div>
+          <h2 id="greeting">Hola, hermana girasol 🌻</h2>
+          <div class="counter" id="creditsCounter">🌻 Preguntas disponibles: --</div>
+        </div>
+
+        <div id="askContainer" class="ask-wrap hidden">
+          <label for="questionInput"><strong>Tu pregunta de hoy ✨</strong></label>
+          <textarea id="questionInput" placeholder="Escribe tu pregunta con confianza, estoy aquí para ti..."></textarea>
+          <div class="row">
+            <button class="btn btn-primary" id="askBtn">✨ Consultar al tarot</button>
+            <div class="loading" id="loadingAsk">
+              🔮 Fergis está consultando las cartas para ti...
+              <span class="dots"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div id="buyContainer" class="hidden">
+          <p>Te abrazamos fuerte 💛. Ya usaste tus preguntas gratis. Elige tu siguiente paquete para seguir este camino juntas:</p>
+          <div class="row" style="margin-top: 12px;">
+            <button class="btn btn-primary" data-package="10" id="buy10Btn">👉 Comprar 10 preguntas 🌻</button>
+            <button class="btn btn-secondary" data-package="25" id="buy25Btn">👉 Comprar 25 preguntas 🌻</button>
+          </div>
+        </div>
+
+        <div class="result" id="resultCard"></div>
+
+        <div>
+          <h3>Tus lecturas anteriores 🔮</h3>
+          <div class="history-grid" id="historyList"></div>
+          <p class="helper" id="historyEmpty">Aún no tienes lecturas guardadas. Cuando hagas tu primera consulta, aparecerá aquí ✨</p>
+        </div>
+      </div>
+      <div class="status" id="statusBox"></div>
+    </section>
+  </main>
+
+  <div class="overlay" id="registerOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+      <h3 id="registerTitle">Crear cuenta 🌻</h3>
+      <p class="helper">Recibirás tus 10 preguntas gratuitas al registrarte.</p>
+      <div class="field">
+        <label for="registerName">Nombre</label>
+        <input id="registerName" type="text" placeholder="Tu nombre" />
+      </div>
+      <div class="field">
+        <label for="registerEmail">Email</label>
+        <input id="registerEmail" type="email" placeholder="tuemail@ejemplo.com" />
+      </div>
+      <div class="field">
+        <label for="registerPassword">Contraseña</label>
+        <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" id="registerBtn">👉 Registrarme 🌻</button>
+        <button class="btn btn-secondary" data-close="#registerOverlay">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="loginOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <h3 id="loginTitle">Iniciar sesión 🌙</h3>
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" type="email" placeholder="tuemail@ejemplo.com" />
+      </div>
+      <div class="field">
+        <label for="loginPassword">Contraseña</label>
+        <input id="loginPassword" type="password" placeholder="Tu contraseña" />
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" id="loginBtn">👉 Entrar 🌻</button>
+        <button class="btn btn-secondary" data-close="#loginOverlay">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // <!-- IMPORTANTE: reemplaza estas variables antes de subir -->
+    const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
+    const SUPABASE_ANON_KEY = 'TU_SUPABASE_ANON_KEY';
+    const API_URL = 'https://TU-CLOUD-RUN-URL';
+
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const state = {
+      user: null,
+      credits: 0,
+      profileName: ''
+    };
+
+    const guestSection = document.getElementById('guestSection');
+    const userSection = document.getElementById('userSection');
+    const logoutWrap = document.getElementById('logoutWrap');
+    const greeting = document.getElementById('greeting');
+    const creditsCounter = document.getElementById('creditsCounter');
+    const askContainer = document.getElementById('askContainer');
+    const buyContainer = document.getElementById('buyContainer');
+    const questionInput = document.getElementById('questionInput');
+    const askBtn = document.getElementById('askBtn');
+    const loadingAsk = document.getElementById('loadingAsk');
+    const resultCard = document.getElementById('resultCard');
+    const historyList = document.getElementById('historyList');
+    const historyEmpty = document.getElementById('historyEmpty');
+    const statusBox = document.getElementById('statusBox');
+
+    const registerOverlay = document.getElementById('registerOverlay');
+    const loginOverlay = document.getElementById('loginOverlay');
+
+    function setStatus(message, type = 'ok') {
+      statusBox.className = `status show ${type}`;
+      statusBox.textContent = message;
+      clearTimeout(setStatus._timer);
+      setStatus._timer = setTimeout(() => {
+        statusBox.className = 'status';
+        statusBox.textContent = '';
+      }, 4500);
+    }
+
+    function toggleModal(overlay, show) {
+      overlay.classList.toggle('show', show);
+      overlay.setAttribute('aria-hidden', String(!show));
+    }
+
+    function updateCreditsUI() {
+      creditsCounter.textContent = `🌻 Preguntas disponibles: ${state.credits}`;
+      const hasCredits = Number(state.credits) > 0;
+      askContainer.classList.toggle('hidden', !hasCredits);
+      buyContainer.classList.toggle('hidden', hasCredits);
+    }
+
+    function escapeHtml(value = '') {
+      return value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(`${API_URL}${path}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          ...(options.headers || {})
+        },
+        ...options
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data?.message || 'No pudimos completar la solicitud por ahora.');
+      }
+      return data;
+    }
+
+    async function fetchCredits() {
+      if (!state.user) return;
+      const data = await api(`/credits/${state.user.id}`);
+      state.credits = Number(data.credits ?? 0);
+      updateCreditsUI();
+    }
+
+    function formatDate(isoDate) {
+      if (!isoDate) return 'Fecha no disponible';
+      return new Date(isoDate).toLocaleString('es-ES', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      });
+    }
+
+    async function fetchHistory() {
+      if (!state.user) return;
+      const data = await api(`/history/${state.user.id}`);
+      const history = Array.isArray(data) ? data : (data.history || []);
+
+      historyList.innerHTML = '';
+      if (!history.length) {
+        historyEmpty.classList.remove('hidden');
+        return;
+      }
+
+      historyEmpty.classList.add('hidden');
+      history.forEach((item) => {
+        const entry = document.createElement('article');
+        entry.className = 'history-item';
+        entry.innerHTML = `
+          <h4>🌙 Pregunta: ${escapeHtml(item.question || 'Sin pregunta')}</h4>
+          <p>🔮 ${escapeHtml(item.answer || 'Sin respuesta')}</p>
+          <div class="history-meta">${escapeHtml(formatDate(item.created_at))}</div>
+        `;
+        historyList.appendChild(entry);
+      });
+    }
+
+    function renderLoggedOut() {
+      state.user = null;
+      state.profileName = '';
+      state.credits = 0;
+      guestSection.classList.remove('hidden');
+      userSection.classList.add('hidden');
+      logoutWrap.classList.add('hidden');
+      resultCard.classList.remove('show');
+      resultCard.innerHTML = '';
+      historyList.innerHTML = '';
+      historyEmpty.classList.remove('hidden');
+    }
+
+    async function renderLoggedIn(user) {
+      state.user = user;
+      state.profileName = user.user_metadata?.name || user.email?.split('@')[0] || 'hermana';
+      greeting.textContent = `Hola ${state.profileName}, hermana girasol 🌻`;
+
+      guestSection.classList.add('hidden');
+      userSection.classList.remove('hidden');
+      logoutWrap.classList.remove('hidden');
+
+      await Promise.all([fetchCredits(), fetchHistory()]);
+    }
+
+    async function registerUser() {
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+
+      if (!name || !email || password.length < 6) {
+        setStatus('Por favor completa nombre, email y una contraseña de al menos 6 caracteres 💛', 'warn');
+        return;
+      }
+
+      try {
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: {
+            data: { name }
+          }
+        });
+
+        if (error) throw error;
+        const user = data.user;
+        if (!user) throw new Error('No se pudo crear la cuenta en este momento.');
+
+        await api('/register', {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: user.id,
+            name,
+            email,
+            credits: 10
+          })
+        });
+
+        toggleModal(registerOverlay, false);
+        setStatus('¡Cuenta creada! Ya tienes tus 10 preguntas gratuitas ✨', 'ok');
+
+        const { data: sessionData } = await supabaseClient.auth.getSession();
+        const currentUser = sessionData?.session?.user || user;
+        await renderLoggedIn(currentUser);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos completar el registro.', 'error');
+      }
+    }
+
+    async function loginUser() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      if (!email || !password) {
+        setStatus('Completa email y contraseña para entrar 🌻', 'warn');
+        return;
+      }
+
+      try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+
+        toggleModal(loginOverlay, false);
+        setStatus('Qué alegría tenerte aquí de nuevo 💛', 'ok');
+        await renderLoggedIn(data.user);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos iniciar sesión.', 'error');
+      }
+    }
+
+    async function logoutUser() {
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) {
+        setStatus(error.message, 'error');
+        return;
+      }
+      renderLoggedOut();
+      setStatus('Sesión cerrada. Aquí estaré para ti cuando regreses 🌙', 'ok');
+    }
+
+    async function askTarot() {
+      const question = questionInput.value.trim();
+      if (!question) {
+        setStatus('Escribe tu pregunta antes de consultar al tarot ✨', 'warn');
+        return;
+      }
+
+      askBtn.disabled = true;
+      loadingAsk.classList.add('show');
+
+      try {
+        const data = await api('/ask', {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: state.user.id,
+            question
+          })
+        });
+
+        const answer = data.answer || data.message || 'No recibimos una respuesta por ahora.';
+        resultCard.innerHTML = `
+          <strong>Tu mensaje del tarot ✨</strong>
+          <p style="margin-top: 8px;">${escapeHtml(answer)}</p>
+        `;
+        resultCard.classList.add('show');
+        questionInput.value = '';
+
+        await Promise.all([fetchCredits(), fetchHistory()]);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos consultar las cartas ahora mismo.', 'error');
+      } finally {
+        askBtn.disabled = false;
+        loadingAsk.classList.remove('show');
+      }
+    }
+
+    async function startCheckout(creditsPackage) {
+      if (!state.user) {
+        setStatus('Primero inicia sesión para continuar 💛', 'warn');
+        return;
+      }
+
+      try {
+        const data = await api('/create-checkout-session', {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: state.user.id,
+            package: Number(creditsPackage)
+          })
+        });
+
+        if (!data?.url) {
+          throw new Error('No recibimos la URL de pago.');
+        }
+        window.location.href = data.url;
+      } catch (err) {
+        setStatus(err.message || 'No pudimos iniciar la compra.', 'error');
+      }
+    }
+
+    document.getElementById('openRegisterBtn').addEventListener('click', () => toggleModal(registerOverlay, true));
+    document.getElementById('openLoginBtn').addEventListener('click', () => toggleModal(loginOverlay, true));
+    document.getElementById('registerBtn').addEventListener('click', registerUser);
+    document.getElementById('loginBtn').addEventListener('click', loginUser);
+    document.getElementById('logoutBtn').addEventListener('click', logoutUser);
+    askBtn.addEventListener('click', askTarot);
+    document.getElementById('buy10Btn').addEventListener('click', () => startCheckout(10));
+    document.getElementById('buy25Btn').addEventListener('click', () => startCheckout(25));
+
+    document.querySelectorAll('[data-close]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = document.querySelector(btn.dataset.close);
+        if (target) toggleModal(target, false);
+      });
+    });
+
+    [registerOverlay, loginOverlay].forEach((overlay) => {
+      overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) toggleModal(overlay, false);
+      });
+    });
+
+    supabaseClient.auth.onAuthStateChange((_event, session) => {
+      const user = session?.user;
+      if (user) {
+        renderLoggedIn(user).catch((error) => setStatus(error.message, 'error'));
+      } else {
+        renderLoggedOut();
+      }
+    });
+
+    (async function init() {
+      try {
+        const { data, error } = await supabaseClient.auth.getSession();
+        if (error) throw error;
+
+        const user = data?.session?.user;
+        if (user) {
+          await renderLoggedIn(user);
+        } else {
+          renderLoggedOut();
+        }
+      } catch (err) {
+        renderLoggedOut();
+        setStatus('Revisa tus credenciales de Supabase antes de publicar esta página.', 'warn');
+      }
+    })();
+  </script>
+</body>
+</html>
