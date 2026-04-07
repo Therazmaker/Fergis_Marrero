@@ -399,7 +399,7 @@
     <section class="card" id="guestSection">
       <h2>Bienvenida 🌙</h2>
       <p>
-        Empieza hoy mismo con <strong>3 preguntas gratuitas para empezar tu camino</strong>. Crea tu cuenta y recibe una guía cálida, clara y amorosa.
+        Empieza hoy mismo con <strong>3 preguntas gratuitas mensuales para empezar tu camino</strong>. Crea tu cuenta y recibe una guía cálida, clara y amorosa.
       </p>
       <div class="row" style="margin-top: 14px;">
         <button class="btn btn-primary" id="openRegisterBtn">👉 Crear cuenta 🌻</button>
@@ -457,7 +457,7 @@
   <div class="overlay" id="registerOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
       <h3 id="registerTitle">Crear cuenta 🌻</h3>
-      <p class="helper">Recibirás tus 10 preguntas gratuitas al registrarte.</p>
+      <p class="helper">Recibirás tus 3 preguntas gratuitas mensuales al registrarte.</p>
       <div class="field">
         <label for="registerName">Nombre</label>
         <input id="registerName" type="text" placeholder="Tu nombre" />
@@ -470,6 +470,21 @@
         <label for="registerPassword">Contraseña</label>
         <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
       </div>
+      <details class="field" style="background:#fff8ea; border:1px solid #efd39a; border-radius:12px; padding:10px 12px;">
+        <summary style="cursor:pointer; font-weight:700; color:#62461f;">Leer condiciones de uso</summary>
+        <div style="margin-top:10px; font-size:0.9rem; color:#6a522f; line-height:1.55;">
+          <p><strong>Quiero que te sientas acompañada, pero también es importante que respetemos ciertos límites para cuidarnos ambas 💛</strong></p>
+          <p><strong>1. Sobre las preguntas gratuitas</strong><br>Puedes realizar hasta 3 preguntas gratuitas mensualmente.<br>Las preguntas deben ser claras, concretas y relacionadas a tu proceso personal.</p>
+          <p><strong>2. Respeto y tipo de contenido</strong><br>No se aceptan preguntas con lenguaje ofensivo, agresivo o despectivo.<br>No se responderán preguntas que inciten al odio, daño o manipulación hacia otros.<br>No se abordan temas relacionados a sexualidad explícita.<br>No se responden preguntas de tipo médico ni sobre embarazos.</p>
+          <p><strong>3. Alcance de la guía</strong><br>Las respuestas ofrecidas desde el tarot y la astrología son una guía emocional y reflexiva, no sustituyen asesoría profesional (médica, legal, psicológica, etc.).<br>No se garantiza una respuesta exacta o literal sobre el futuro; el enfoque es ayudarte a comprender lo que estás viviendo.</p>
+          <p><strong>4. Uso consciente del servicio</strong><br>Este espacio no está diseñado para generar dependencia ni para consultas repetitivas sobre el mismo tema de forma compulsiva.<br>Me reservo el derecho de no responder preguntas que no respeten estas condiciones.</p>
+          <p><strong>5. Sobre el servicio pago</strong><br>Si deseas profundizar en tu situación, podrás acceder a una sesión completa de tarot o astrología conmigo, donde trabajaremos con mayor profundidad, contención y claridad.</p>
+        </div>
+      </details>
+      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530;">
+        <input id="registerAcceptTerms" type="checkbox" style="margin-top:2px;" />
+        <span>Declaro que soy mayor de 18 años y acepto las condiciones de uso.</span>
+      </label>
       <div class="row">
         <button class="btn btn-primary" id="registerBtn">👉 Registrarme 🌻</button>
         <button class="btn btn-secondary" data-close="#registerOverlay">Cancelar</button>
@@ -651,9 +666,14 @@
       const name = document.getElementById('registerName').value.trim();
       const email = document.getElementById('registerEmail').value.trim();
       const password = document.getElementById('registerPassword').value;
+      const acceptTerms = document.getElementById('registerAcceptTerms').checked;
 
       if (!name || !email || password.length < 6) {
         setStatus('Por favor completa nombre, email y una contraseña de al menos 6 caracteres 💛', 'warn');
+        return;
+      }
+      if (!acceptTerms) {
+        setStatus('Para registrarte debes ser mayor de edad y aceptar las condiciones de uso 💛', 'warn');
         return;
       }
 
@@ -676,12 +696,12 @@
             user_id: user.id,
             name,
             email,
-            credits: 10
+            credits: 3
           })
         });
 
         toggleModal(registerOverlay, false);
-        setStatus('¡Cuenta creada! Ya tienes tus 10 preguntas gratuitas ✨', 'ok');
+        setStatus('¡Cuenta creada! Ya tienes tus 3 preguntas gratuitas mensuales ✨', 'ok');
 
         const { data: sessionData } = await supabaseClient.auth.getSession();
         const currentUser = sessionData?.session?.user || user;
