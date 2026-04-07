@@ -197,8 +197,10 @@
       margin: 0 auto 48px;
       padding: 0 16px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 32px;
+      /* Forzamos 2 columnas iguales para estas dos tarjetas */
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      /* Asegura que ambas tarjetas tengan la misma altura */
       align-items: stretch;
     }
 
@@ -206,21 +208,12 @@
       background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%);
       border: 1px solid #f3d996;
       border-radius: 24px;
-      padding: 32px 36px;
+      padding: 40px;
       position: relative;
       overflow: hidden;
-      min-height: 320px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-    }
-
-    .tarot-card-main {
-      grid-column: 1 / 2;
-    }
-
-    .tarot-card-placeholder {
-      grid-column: 2 / 3;
+      height: 100%;
     }
 
     .tarot-pill {
@@ -241,42 +234,19 @@
     }
 
     .tarot-title {
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
       color: #4b3108;
-      line-height: 1.25;
-      margin: 0 0 10px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      min-height: 3.6rem;
     }
 
     .tarot-copy {
       color: #7a5e34;
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.6;
-      margin: 0 0 18px;
-      max-width: 520px;
-    }
-
-    .tarot-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 22px;
-      font-family: sans-serif;
-    }
-
-    .tarot-feature-label {
-      font-size: 13px;
-      color: #7a5a1e;
-      font-weight: 500;
-    }
-
-    .tarot-chip {
-      background: #fffdf0;
-      border: 1px solid #efd898;
-      border-radius: 999px;
-      padding: 5px 13px;
-      font-size: 13px;
-      color: #7a5a1e;
+      margin-bottom: 24px;
+      flex-grow: 1;
     }
 
     .tarot-cta {
@@ -292,23 +262,13 @@
       padding: 13px 24px;
       text-decoration: none;
       width: fit-content;
-    }
-
-    .tarot-note {
-      display: block;
-      font-size: 12px;
-      color: #9b7c42;
-      margin-top: 10px;
+      align-self: flex-start;
+      margin-top: auto;
     }
 
     @media (max-width: 1024px) {
       .tarot-row {
         grid-template-columns: 1fr;
-      }
-
-      .tarot-card-main,
-      .tarot-card-placeholder {
-        grid-column: auto;
       }
     }
 
@@ -1313,32 +1273,18 @@
 
     <!-- SECCIÓN TAROT IA -->
     <section class="tarot-row fade-up">
-      <article class="tarot-card tarot-card-main">
-        <span class="tarot-pill">✨ Es gratis porque es un regalito para ustedes</span>
-
+      <article class="tarot-card">
+        <div class="tarot-pill">sesión online</div>
         <h2 class="tarot-title">Hazle tus preguntitas al tarot</h2>
-
-        <p class="tarot-copy">Escribe lo que te inquieta y recibe una lectura cálida, clara y amorosa. La energia tiene algo que decirte hoy, hermana girasol.</p>
-
-        <div class="tarot-features">
-          <span class="tarot-feature-label">🌻 Aquí encontrarás:</span>
-          <span class="tarot-chip">🔮 3 preguntas gratis</span>
-          <span class="tarot-chip">🗂️ Historial de preguntas</span>
-        </div>
-
-        <a href="tarot.html" class="tarot-cta">👉 Consultar al tarot 🌻</a>
-        <span class="tarot-note">Te quiero mucho 💛</span>
+        <p class="tarot-copy">Una lectura enfocada en resolver dudas puntuales y darte claridad inmediata sobre situaciones específicas de tu presente.</p>
+        <a href="tarot.html" class="tarot-cta">Agendar sesión</a>
       </article>
 
-      <article class="tarot-card tarot-card-placeholder" aria-label="La Tiendita Girasol próximamente">
-        <span class="tarot-pill">🌻 Novedad próximamente</span>
+      <article class="tarot-card">
+        <div class="tarot-pill">productos místico</div>
         <h2 class="tarot-title">La Tiendita Girasol</h2>
-        <p class="tarot-copy">Muy pronto vas a encontrar este espacio con cositas bonitas para acompañar tu proceso: herramientas, regalitos y más.</p>
-        <div class="tarot-features">
-          <span class="tarot-chip">🛍️ Próximamente</span>
-          <span class="tarot-chip">✨ Diseñado con amor</span>
-        </div>
-        <span class="tarot-note">Estamos preparándola para ti 💛</span>
+        <p class="tarot-copy">Explora nuestra selección de herramientas mágicas, sahumerios y cristales elegidos especialmente para acompañar tu proceso ritual.</p>
+        <a href="#" class="tarot-cta">Ir a la tienda</a>
       </article>
     </section>
 
