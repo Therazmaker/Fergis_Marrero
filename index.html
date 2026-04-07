@@ -192,6 +192,126 @@
       min-height: 580px;
     }
 
+    .tarot-row {
+      max-width: 1060px;
+      margin: 0 auto 48px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .tarot-card {
+      background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%);
+      border: 1px solid #f3d996;
+      border-radius: 24px;
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .tarot-card-main {
+      grid-column: 1 / 2;
+    }
+
+    .tarot-card-placeholder {
+      grid-column: 2 / 3;
+    }
+
+    .tarot-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff3c4;
+      border: 1px solid #f0cc6e;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #7a5514;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .tarot-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      color: #4b3108;
+      line-height: 1.25;
+      margin: 0 0 10px;
+    }
+
+    .tarot-copy {
+      color: #7a5e34;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 18px;
+      max-width: 520px;
+    }
+
+    .tarot-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 22px;
+      font-family: sans-serif;
+    }
+
+    .tarot-feature-label {
+      font-size: 13px;
+      color: #7a5a1e;
+      font-weight: 500;
+    }
+
+    .tarot-chip {
+      background: #fffdf0;
+      border: 1px solid #efd898;
+      border-radius: 999px;
+      padding: 5px 13px;
+      font-size: 13px;
+      color: #7a5a1e;
+    }
+
+    .tarot-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%);
+      color: #4f3600;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 24px;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .tarot-note {
+      display: block;
+      font-size: 12px;
+      color: #9b7c42;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      .tarot-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tarot-card-main,
+      .tarot-card-placeholder {
+        grid-column: auto;
+      }
+    }
+
     /* ── CAROUSEL ────────────────────────────────────────── */
     .carousel-box {
       border-radius: var(--radius);
@@ -1192,31 +1312,34 @@
     </div>
 
     <!-- SECCIÓN TAROT IA -->
-    <section style="max-width: 860px; margin: 0 auto 48px; padding: 0 16px;" class="fade-up">
-      <div style="background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%); border: 1px solid #f3d996; border-radius: 24px; padding: 32px 36px; position: relative; overflow: hidden;">
+    <section class="tarot-row fade-up">
+      <article class="tarot-card tarot-card-main">
+        <span class="tarot-pill">✨ Es gratis porque es un regalito para ustedes</span>
 
-                <span style="display: inline-flex; align-items: center; gap: 6px; background: #fff3c4; border: 1px solid #f0cc6e; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700; color: #7a5514; letter-spacing: 0.06em; text-transform: lowercase; margin-bottom: 12px;">✨ Es gratis porque es un regalito para ustedes</span>
+        <h2 class="tarot-title">Hazle tus preguntitas al tarot</h2>
 
-        <h2 style="font-size: clamp(1.4rem, 2.5vw, 1.9rem); color: #4b3108; line-height: 1.25; margin: 0 0 10px;">Hazle tus preguntitas al tarot </h2>
+        <p class="tarot-copy">Escribe lo que te inquieta y recibe una lectura cálida, clara y amorosa. La energia tiene algo que decirte hoy, hermana girasol.</p>
 
-        <p style="color: #7a5e34; font-size: 1rem; line-height: 1.6; margin: 0 0 18px; max-width: 520px;">Escribe lo que te inquieta y recibe una lectura cálida, clara y amorosa. La energia tiene algo que decirte hoy, hermana girasol.</p>
+        <div class="tarot-features">
+          <span class="tarot-feature-label">🌻 Aquí encontrarás:</span>
+          <span class="tarot-chip">🔮 3 preguntas gratis</span>
+          <span class="tarot-chip">🗂️ Historial de preguntas</span>
+        </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 22px; font-family: sans-serif;">
-  <span style="font-size: 13px; color: #7a5a1e; font-weight: 500;">🌻 Aquí encontrarás:</span>
+        <a href="tarot.html" class="tarot-cta">👉 Consultar al tarot 🌻</a>
+        <span class="tarot-note">Te quiero mucho 💛</span>
+      </article>
 
-  <span style="background: #fffdf0; border: 1px solid #efd898; border-radius: 999px; padding: 5px 13px; font-size: 13px; color: #7a5a1e;">
-    🔮 3 preguntas gratis
-  </span>
-
-  <span style="background: #fffdf0; border: 1px solid #efd898; border-radius: 999px; padding: 5px 13px; font-size: 13px; color: #7a5a1e;">
-    🗂️ Historial de preguntas
-  </span>
-</div>
-
-        <a href="tarot.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%); color: #4f3600; font-weight: 700; font-size: 1rem; border: none; border-radius: 999px; padding: 13px 24px; text-decoration: none;">👉 Consultar al tarot 🌻</a>
-        <span style="display: block; font-size: 12px; color: #9b7c42; margin-top: 10px;">Te quiero mucho 💛</span>
-
-      </div>
+      <article class="tarot-card tarot-card-placeholder" aria-label="La Tiendita Girasol próximamente">
+        <span class="tarot-pill">🌻 Novedad próximamente</span>
+        <h2 class="tarot-title">La Tiendita Girasol</h2>
+        <p class="tarot-copy">Muy pronto vas a encontrar este espacio con cositas bonitas para acompañar tu proceso: herramientas, regalitos y más.</p>
+        <div class="tarot-features">
+          <span class="tarot-chip">🛍️ Próximamente</span>
+          <span class="tarot-chip">✨ Diseñado con amor</span>
+        </div>
+        <span class="tarot-note">Estamos preparándola para ti 💛</span>
+      </article>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BLOG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
