@@ -304,9 +304,135 @@
       margin-top: auto;
     }
 
+    .tiendita-card {
+      background: #4f5f43;
+      border: none;
+      border-radius: 130px;
+      color: #f3f0e6;
+      padding: 42px 48px;
+      min-height: 360px;
+      isolation: isolate;
+    }
+
+    .tiendita-card::before {
+      content: '';
+      position: absolute;
+      inset: -90px -140px auto auto;
+      width: 420px;
+      height: 420px;
+      background:
+        radial-gradient(circle at 65% 55%, rgba(246, 185, 56, 0.2) 0 14%, rgba(246, 185, 56, 0.08) 15% 28%, transparent 29% 100%);
+      filter: blur(1px);
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .tiendita-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.08) 0 14%, transparent 15% 100%);
+      pointer-events: none;
+    }
+
+    .tiendita-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(243, 240, 230, 0.14);
+      border: 1px solid rgba(243, 240, 230, 0.22);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: rgba(243, 240, 230, 0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+
+    .tiendita-pill::before {
+      content: '✦';
+      font-size: 0.78rem;
+      line-height: 1;
+    }
+
+    .tiendita-title {
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: #f3f0e6;
+      line-height: 1.08;
+      margin-bottom: 14px;
+      max-width: 16ch;
+    }
+
+    .tiendita-state {
+      color: rgba(243, 240, 230, 0.82);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .tiendita-accent {
+      width: 56px;
+      height: 4px;
+      border-radius: 999px;
+      background: #f6b938;
+      margin-bottom: 18px;
+    }
+
+    .tiendita-copy {
+      color: rgba(243, 240, 230, 0.72);
+      font-size: 1.02rem;
+      line-height: 1.5;
+      max-width: 30ch;
+      margin-bottom: 0;
+    }
+
+    .tiendita-cta {
+      margin-left: auto;
+      margin-top: auto;
+      background: linear-gradient(92deg, #ffc53d 0%, #f6b938 100%);
+      color: #5a3e08;
+      padding: 18px 30px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      min-width: 188px;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(31, 10, 16, 0.22);
+    }
+
+    .tiendita-cta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.08rem;
+    }
+
+    .tiendita-cta .arrow {
+      font-size: 1.22rem;
+    }
+
     @media (max-width: 1024px) {
       .tarot-row {
         grid-template-columns: 1fr;
+      }
+
+      .tiendita-card {
+        border-radius: 48px;
+        padding: 36px 28px;
+      }
+
+      .tiendita-title {
+        max-width: 100%;
+      }
+
+      .tiendita-cta {
+        margin-left: 0;
+        width: fit-content;
       }
     }
 
@@ -1345,10 +1471,13 @@
         <a href="tarot.html" class="tarot-cta">Agendar sesión</a>
       </article>
 
-      <article class="tarot-card">
-        <h2 class="tarot-title">La Tiendita Girasol</h2>
-        <p class="tarot-copy">Próximamente</p>
-        <a href="#" class="tarot-cta">Ir a la tienda</a>
+      <article class="tarot-card tiendita-card">
+        <div class="tiendita-pill">Suscripción Pro</div>
+        <h2 class="tarot-title tiendita-title">La Tiendita<br>Girasol</h2>
+        <p class="tiendita-state">Próximamente</p>
+        <div class="tiendita-accent"></div>
+        <p class="tarot-copy tiendita-copy">Acceso exclusivo a nuestra colección artesanal de temporada y beneficios preferenciales para amantes de lo natural.</p>
+        <a href="#" class="tarot-cta tiendita-cta"><span>Ir a la tienda <span class="arrow">→</span></span></a>
       </article>
     </section>
 
