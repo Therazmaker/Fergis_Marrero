@@ -391,6 +391,74 @@
     .top-actions {
       margin-left: auto;
     }
+
+    .buy-more-cta {
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px dashed #efcc79;
+      border-radius: 14px;
+      background: #fffdf4;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .buy-more-cta p {
+      color: #6f5630;
+      font-size: 0.93rem;
+    }
+
+    .package-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .package-card {
+      border: 1px solid #edd196;
+      border-radius: 14px;
+      padding: 12px;
+      background: #fffef8;
+      display: grid;
+      gap: 6px;
+    }
+
+    .package-card.active {
+      border-color: #e7b749;
+      box-shadow: 0 0 0 2px #ffe7aa;
+      background: #fff9e8;
+    }
+
+    .package-card h4 {
+      color: #5f4318;
+      font-size: 0.98rem;
+    }
+
+    .package-card p {
+      font-size: 0.86rem;
+      color: #7f6540;
+    }
+
+    .package-meta {
+      font-weight: 700;
+      color: #674714;
+      font-size: 0.92rem;
+    }
+
+    .pay-wrap {
+      margin-top: 8px;
+      border: 1px solid #ecd39a;
+      border-radius: 14px;
+      background: #fffef8;
+      padding: 12px;
+    }
+
+    .pay-wrap p {
+      color: #6b532f;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -438,6 +506,11 @@
               <span class="dots"><span>.</span><span>.</span><span>.</span></span>
             </div>
           </div>
+        </div>
+
+        <div class="buy-more-cta">
+          <p>Si necesitas mas preguntitas, adquierelas aquí 💛</p>
+          <button class="btn btn-primary" id="openQuestionsModalBtn">Si necesitas mas preguntitas, adquierelas aquí.</button>
         </div>
 
         <div id="buyContainer" class="hidden">
@@ -520,6 +593,66 @@
     </div>
   </div>
 
+  <div class="overlay" id="questionsOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="questionsTitle">
+      <h3 id="questionsTitle">Más preguntitas para tu tarot 🌻</h3>
+      <p class="helper">Selecciona tu paquete y paga con PayPal o por Yape, como en la sección de servicios.</p>
+
+      <div class="package-grid" id="questionsPackageGrid">
+        <button class="package-card active" data-package-key="basic-5" type="button">
+          <h4>Básica · 5 preguntas</h4>
+          <p>1 dólar por pregunta.</p>
+          <div class="package-meta">Total: $5.00 USD</div>
+        </button>
+        <button class="package-card" data-package-key="basic-10" type="button">
+          <h4>Básica · 10 preguntas</h4>
+          <p>Paquete con descuento.</p>
+          <div class="package-meta">Total: $8.50 USD</div>
+        </button>
+        <button class="package-card" data-package-key="premium-5" type="button">
+          <h4>Premium · 5 preguntas</h4>
+          <p>3 dólares por pregunta.</p>
+          <div class="package-meta">Total: $15.00 USD</div>
+        </button>
+        <button class="package-card" data-package-key="premium-10" type="button">
+          <h4>Premium · 10 preguntas</h4>
+          <p>Paquete premium con descuento.</p>
+          <div class="package-meta">Total: $23.50 USD</div>
+        </button>
+      </div>
+
+      <div class="pay-wrap">
+        <p id="selectedPackageLabel">Pago seguro con PayPal o tarjeta · Básica 5 preguntas ($5.00)</p>
+        <div id="tarot-paypal-button-container"></div>
+      </div>
+
+      <div class="pay-wrap" style="border-color:#d8b5e8;">
+        <p style="color:#6d2c83;">¿Prefieres pagar con Yape? (Solo Perú)</p>
+        <button class="btn btn-secondary" id="openTarotYapeBtn" style="width:100%; border-color:#8f51a7; color:#6d2c83;">
+          📲 Pagar con Yape
+        </button>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-secondary" data-close="#questionsOverlay">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="tarotYapeOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tarotYapeTitle">
+      <h3 id="tarotYapeTitle">Pago por Yape para preguntitas ✨</h3>
+      <p class="helper">Realiza el Yapeo al número <strong>907671044</strong> a nombre de Fergis Marrero y envía tu captura por WhatsApp.</p>
+      <div class="pay-wrap" style="border-color:#d8b5e8;">
+        <p id="tarotYapeSelectedLabel" style="color:#6d2c83; margin-bottom:0;">Paquete seleccionado: Básica 5 preguntas · $5.00 USD</p>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" id="sendTarotYapeBtn">💬 Enviar captura por WhatsApp</button>
+        <button class="btn btn-secondary" data-close="#tarotYapeOverlay">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     // <!-- IMPORTANTE: reemplaza estas variables antes de subir -->
@@ -555,6 +688,27 @@
 
     const registerOverlay = document.getElementById('registerOverlay');
     const loginOverlay = document.getElementById('loginOverlay');
+    const questionsOverlay = document.getElementById('questionsOverlay');
+    const tarotYapeOverlay = document.getElementById('tarotYapeOverlay');
+    const packageCards = document.querySelectorAll('[data-package-key]');
+    const selectedPackageLabel = document.getElementById('selectedPackageLabel');
+    const tarotYapeSelectedLabel = document.getElementById('tarotYapeSelectedLabel');
+
+    let appConfig = {
+      whatsappNumber: '51907671044',
+      whatsappMessage: '¡Hola Fergis! Quisiera adquerir más preguntitas de tarot.',
+      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+      paypalCurrency: 'USD'
+    };
+
+    const QUESTIONS_PACKAGES = {
+      'basic-5': { label: 'Básica 5 preguntas', amount: '5.00', price: '$5.00 USD' },
+      'basic-10': { label: 'Básica 10 preguntas', amount: '8.50', price: '$8.50 USD' },
+      'premium-5': { label: 'Premium 5 preguntas', amount: '15.00', price: '$15.00 USD' },
+      'premium-10': { label: 'Premium 10 preguntas', amount: '23.50', price: '$23.50 USD' }
+    };
+
+    let selectedPackageKey = 'basic-5';
 
     function setStatus(message, type = 'ok') {
       statusBox.className = `status show ${type}`;
@@ -567,8 +721,74 @@
     }
 
     function toggleModal(overlay, show) {
+      if (!overlay) return;
       overlay.classList.toggle('show', show);
       overlay.setAttribute('aria-hidden', String(!show));
+    }
+
+    function getSelectedPackage() {
+      return QUESTIONS_PACKAGES[selectedPackageKey] || QUESTIONS_PACKAGES['basic-5'];
+    }
+
+    function updateSelectedPackageUI() {
+      const selected = getSelectedPackage();
+      selectedPackageLabel.textContent = `Pago seguro con PayPal o tarjeta · ${selected.label} (${selected.price})`;
+      tarotYapeSelectedLabel.textContent = `Paquete seleccionado: ${selected.label} · ${selected.price}`;
+      packageCards.forEach((card) => {
+        card.classList.toggle('active', card.dataset.packageKey === selectedPackageKey);
+      });
+    }
+
+    function openTarotYape() {
+      toggleModal(questionsOverlay, false);
+      toggleModal(tarotYapeOverlay, true);
+    }
+
+    function sendTarotYapeToWhatsApp() {
+      const selected = getSelectedPackage();
+      const userName = state.profileName || 'Cliente';
+      const userEmail = state.user?.email || 'Sin email';
+      const msg = `¡Hola Fergis! Quiero comprar más preguntitas de tarot 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selected.price}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}\n\nAquí envío mi captura del Yape 👇`;
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+      toggleModal(tarotYapeOverlay, false);
+    }
+
+    function initPaypalForTarotQuestions() {
+      if (window.paypal?.Buttons) {
+        renderTarotPaypal();
+        return;
+      }
+      if (document.getElementById('pp-sdk-tarot')) return;
+      const script = document.createElement('script');
+      script.id = 'pp-sdk-tarot';
+      script.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+      script.onload = renderTarotPaypal;
+      document.body.appendChild(script);
+    }
+
+    function renderTarotPaypal() {
+      const container = document.getElementById('tarot-paypal-button-container');
+      if (!container || container.dataset.rendered === 'true') return;
+
+      paypal.Buttons({
+        createOrder: (_data, actions) => {
+          const selected = getSelectedPackage();
+          return actions.order.create({
+            purchase_units: [{ amount: { value: selected.amount } }]
+          });
+        },
+        onApprove: (_data, actions) => actions.order.capture().then((details) => {
+          const selected = getSelectedPackage();
+          const userName = state.profileName || 'Cliente';
+          const userEmail = state.user?.email || 'Sin email';
+          const msg = `¡Hola Fergis! Acabo de pagar mis preguntitas por PayPal 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selected.price}\nID PAYPAL: ${details.id}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}`;
+          setStatus('¡Pago completado! Te abrimos WhatsApp para confirmar tu compra ✨', 'ok');
+          toggleModal(questionsOverlay, false);
+          window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        })
+      }).render('#tarot-paypal-button-container');
+
+      container.dataset.rendered = 'true';
     }
 
     function updateCreditsUI() {
@@ -858,13 +1078,30 @@
 
     document.getElementById('openRegisterBtn').addEventListener('click', () => toggleModal(registerOverlay, true));
     document.getElementById('openLoginBtn').addEventListener('click', () => toggleModal(loginOverlay, true));
+    document.getElementById('openQuestionsModalBtn').addEventListener('click', () => {
+      if (!state.user) {
+        setStatus('Primero inicia sesión para comprar preguntitas 💛', 'warn');
+        return;
+      }
+      updateSelectedPackageUI();
+      toggleModal(questionsOverlay, true);
+    });
     document.getElementById('registerBtn').addEventListener('click', registerUser);
     document.getElementById('loginBtn').addEventListener('click', loginUser);
     document.getElementById('logoutBtn').addEventListener('click', logoutUser);
+    document.getElementById('openTarotYapeBtn').addEventListener('click', openTarotYape);
+    document.getElementById('sendTarotYapeBtn').addEventListener('click', sendTarotYapeToWhatsApp);
     askBasicBtn.addEventListener('click', () => askTarot('basic'));
     askPremiumBtn.addEventListener('click', () => askTarot('premium'));
     document.getElementById('buy10Btn').addEventListener('click', () => startCheckout(10));
     document.getElementById('buy25Btn').addEventListener('click', () => startCheckout(25));
+
+    packageCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        selectedPackageKey = card.dataset.packageKey;
+        updateSelectedPackageUI();
+      });
+    });
 
     document.querySelectorAll('[data-close]').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -873,7 +1110,7 @@
       });
     });
 
-    [registerOverlay, loginOverlay].forEach((overlay) => {
+    [registerOverlay, loginOverlay, questionsOverlay, tarotYapeOverlay].forEach((overlay) => {
       overlay.addEventListener('click', (event) => {
         if (event.target === overlay) toggleModal(overlay, false);
       });
@@ -890,6 +1127,10 @@
 
     (async function init() {
       try {
+        const cfg = await fetch('config.json').then((res) => res.json()).catch(() => ({}));
+        appConfig = { ...appConfig, ...cfg };
+        initPaypalForTarotQuestions();
+
         const { data, error } = await supabaseClient.auth.getSession();
         if (error) throw error;
 
