@@ -123,6 +123,46 @@
       overflow: hidden;
     }
 
+    .quick-nav {
+      position: sticky;
+      top: 12px;
+      z-index: 200;
+      padding: 14px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(250, 244, 232, 0.88);
+      border: 1px solid rgba(212, 168, 71, 0.35);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(193, 130, 11, 0.35);
+      background: linear-gradient(180deg, #F4C33E 0%, #E8B22A 100%);
+      color: #332300;
+      text-decoration: none;
+      font-size: 0.87rem;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 4px 12px rgba(212, 168, 71, 0.22);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .quick-nav a:hover {
+      background: linear-gradient(180deg, #F7CC4F 0%, #EDB933 100%);
+      border-color: rgba(193, 130, 11, 0.55);
+      box-shadow: 0 8px 18px rgba(212, 168, 71, 0.34);
+      transform: translateY(-1px);
+    }
+
     .hero-box::before {
       content: '🌻';
       position: absolute;
@@ -1015,6 +1055,10 @@
         padding: 56px 32px;
       }
 
+      .quick-nav {
+        top: 8px;
+      }
+
       .community-box {
         padding: 48px 32px;
       }
@@ -1034,6 +1078,18 @@
 
       .hero-title {
         font-size: 2.4rem;
+      }
+
+      .quick-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 12px;
+      }
+
+      .quick-nav a {
+        flex: 0 0 auto;
+        font-size: 0.8rem;
       }
 
       .c-slide.text-slide {
@@ -1151,8 +1207,19 @@
 
   <main class="bento-page">
 
+    <nav class="box box-warm quick-nav fade-up" aria-label="Navegación rápida">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#tarot">Tarot</a>
+      <a href="#blog">Blog</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#carta-natal">Carta natal</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ HERO INTRO ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="box hero-box fade-up">
+    <section id="inicio" class="box hero-box fade-up">
       <div class="hero-eyebrow">🌻 Astrología · Tarot · Acompañamiento emocional 🌻</div>
       <h1 class="hero-title fade-up delay-1">No tienes que poder<br>con <em>todo sola</em>.</h1>
       <p class="hero-body fade-up delay-2">Te acompaño, te sostengo y te ayudo a transitar y a entender lo que estás
@@ -1162,7 +1229,7 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <div class="bento-grid">
+    <div id="servicios" class="bento-grid">
 
       <!-- ► CARRUSEL -->
       <div class="carousel-box fade-up delay-1">
@@ -1272,7 +1339,7 @@
     </div>
 
     <!-- SECCIÓN TAROT IA -->
-    <section class="tarot-row fade-up">
+    <section id="tarot" class="tarot-row fade-up">
       <article class="tarot-card">
         <div class="tarot-pill">sesión online</div>
         <h2 class="tarot-title">Hazle tus preguntitas al tarot</h2>
@@ -1288,7 +1355,7 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BLOG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="box box-rich blog-box fade-up">
+    <section id="blog" class="box box-rich blog-box fade-up">
       <div>
         <div class="box-label">Blog</div>
         <h2 class="box-heading">Para cuando necesitas un respiro</h2>
@@ -1311,7 +1378,7 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ COMUNIDAD ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="box box-deep community-box fade-up">
+    <section id="comunidad" class="box box-deep community-box fade-up">
       <div class="box-label" style="color:var(--gold-light)">Comunidad</div>
       <h2 class="box-heading">🌻 Entre Diosas 🌻</h2>
       <p class="box-body">Un espacio donde seguimos este proceso juntas. Reflexiones, guía cercana y acompañamiento más
@@ -1321,7 +1388,7 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA NATAL EXTERNA ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="box box-warm fade-up" style="padding: 64px 32px; text-align: center;">
+    <section id="carta-natal" class="box box-warm fade-up" style="padding: 64px 32px; text-align: center;">
       <div class="box-label" style="color:var(--terracotta)">Herramienta Gratuita</div>
       <h2 class="box-heading">Calcula tu Carta Natal</h2>
       <p class="box-body" style="margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto;">
@@ -1375,7 +1442,7 @@
 
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="box box-rich fade-up" style="padding: 56px 32px;">
+    <section id="testimonios" class="box box-rich fade-up" style="padding: 56px 32px;">
       <div class="box-label" style="color:var(--gold-light)">Testimonios</div>
       <h2 class="box-heading" style="margin-bottom: 10px;">Lo que dicen después de calcular su Carta Natal</h2>
       <p class="box-body" style="margin-bottom: 30px; max-width: 760px; color:rgba(250,244,232,0.88);">
@@ -1406,7 +1473,7 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ RRSS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <footer class="box box-warm social-box fade-up">
+    <footer id="contacto" class="box box-warm social-box fade-up">
       <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
         <div class="social-brand">Fergis Marrero — <span>Mamá Girasol</span></div>
         <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
