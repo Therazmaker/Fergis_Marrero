@@ -561,7 +561,7 @@
       <div class="field">
         <label for="registerPassword">Contraseña</label>
         <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
-        <a href="#" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
+        <a href="#" id="forgotFromRegisterLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
       </div>
       <details class="field" style="background:#fff8ea; border:1px solid #efd39a; border-radius:12px; padding:10px 12px;">
         <summary style="cursor:pointer; font-weight:700; color:#62461f;">Leer condiciones de uso</summary>
@@ -595,7 +595,7 @@
       <div class="field">
         <label for="loginPassword">Contraseña</label>
         <input id="loginPassword" type="password" placeholder="Tu contraseña" />
-        <a href="#" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
+        <a href="#" id="forgotFromLoginLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
       </div>
       <div class="row">
         <button class="btn btn-primary" id="loginBtn">👉 Entrar 🌻</button>
@@ -664,6 +664,23 @@
     </div>
   </div>
 
+  <section class="card hidden" id="recoverySection">
+    <h2>🔐 Crear nueva contraseña</h2>
+    <p class="helper" id="recoveryEmailHint">Te enviaremos de regreso aquí para finalizar el cambio.</p>
+    <div class="field" style="margin-top: 12px;">
+      <label for="recoveryPassword">Nueva contraseña</label>
+      <input id="recoveryPassword" type="password" placeholder="Mínimo 6 caracteres" />
+    </div>
+    <div class="field">
+      <label for="recoveryPasswordConfirm">Confirmar contraseña</label>
+      <input id="recoveryPasswordConfirm" type="password" placeholder="Repite tu nueva contraseña" />
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" id="saveRecoveryPasswordBtn">Guardar nueva contraseña</button>
+    </div>
+    <div class="status" id="recoveryStatusBox"></div>
+  </section>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     // <!-- IMPORTANTE: reemplaza estas variables antes de subir -->
@@ -682,6 +699,7 @@
 
     const guestSection = document.getElementById('guestSection');
     const userSection = document.getElementById('userSection');
+    const recoverySection = document.getElementById('recoverySection');
     const logoutWrap = document.getElementById('logoutWrap');
     const greeting = document.getElementById('greeting');
     const creditsCounter = document.getElementById('creditsCounter');
@@ -696,6 +714,8 @@
     const historyList = document.getElementById('historyList');
     const historyEmpty = document.getElementById('historyEmpty');
     const statusBox = document.getElementById('statusBox');
+    const recoveryStatusBox = document.getElementById('recoveryStatusBox');
+    const recoveryEmailHint = document.getElementById('recoveryEmailHint');
 
     const registerOverlay = document.getElementById('registerOverlay');
     const loginOverlay = document.getElementById('loginOverlay');
@@ -720,15 +740,110 @@
     };
 
     let selectedPackageKey = 'basic-5';
+    let isRecoveryMode = false;
 
-    function setStatus(message, type = 'ok') {
-      statusBox.className = `status show ${type}`;
-      statusBox.textContent = message;
+    function setStatus(message, type = 'ok', target = statusBox) {
+      if (!target) return;
+      target.className = `status show ${type}`;
+      target.textContent = message;
       clearTimeout(setStatus._timer);
       setStatus._timer = setTimeout(() => {
-        statusBox.className = 'status';
-        statusBox.textContent = '';
+        target.className = 'status';
+        target.textContent = '';
       }, 4500);
+    }
+
+    function getRecoveryRedirectUrl() {
+      return `${window.location.origin}${window.location.pathname}`;
+    }
+
+    function getPasswordResetEmail() {
+      const loginEmail = document.getElementById('loginEmail').value.trim();
+      const registerEmail = document.getElementById('registerEmail').value.trim();
+      const currentUserEmail = state.user?.email?.trim() || '';
+      const typedEmail = loginEmail || registerEmail || currentUserEmail;
+      if (typedEmail) return typedEmail;
+      return window.prompt('Escribe tu correo para enviarte el enlace de recuperación:')?.trim() || '';
+    }
+
+    async function requestPasswordReset() {
+      const email = getPasswordResetEmail();
+      if (!email) {
+        setStatus('Necesitamos tu email para enviarte el enlace de recuperación 💛', 'warn');
+        return;
+      }
+
+      try {
+        const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+          redirectTo: getRecoveryRedirectUrl()
+        });
+        if (error) throw error;
+        toggleModal(registerOverlay, false);
+        toggleModal(loginOverlay, false);
+        setStatus('Listo ✨ Revisa tu correo para abrir el enlace y crear tu nueva contraseña.', 'ok');
+      } catch (err) {
+        setStatus(err.message || 'No pudimos enviar el correo de recuperación.', 'error');
+      }
+    }
+
+    function activateRecoveryMode(userEmail = '') {
+      isRecoveryMode = true;
+      guestSection.classList.add('hidden');
+      userSection.classList.add('hidden');
+      logoutWrap.classList.add('hidden');
+      recoverySection.classList.remove('hidden');
+      recoveryEmailHint.textContent = userEmail
+        ? `Recuperación detectada para ${userEmail}. Crea tu nueva contraseña 💛`
+        : 'Recuperación detectada. Crea tu nueva contraseña para continuar 💛';
+    }
+
+    function deactivateRecoveryMode() {
+      isRecoveryMode = false;
+      recoverySection.classList.add('hidden');
+      document.getElementById('recoveryPassword').value = '';
+      document.getElementById('recoveryPasswordConfirm').value = '';
+    }
+
+    async function saveRecoveredPassword() {
+      const newPassword = document.getElementById('recoveryPassword').value;
+      const confirmPassword = document.getElementById('recoveryPasswordConfirm').value;
+
+      if (newPassword.length < 6) {
+        setStatus('Tu nueva contraseña debe tener al menos 6 caracteres.', 'warn', recoveryStatusBox);
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        setStatus('Las contraseñas no coinciden. Revísalas e inténtalo de nuevo.', 'warn', recoveryStatusBox);
+        return;
+      }
+
+      try {
+        const { error } = await supabaseClient.auth.updateUser({ password: newPassword });
+        if (error) throw error;
+        deactivateRecoveryMode();
+        renderLoggedOut();
+        setStatus('Contraseña actualizada con éxito ✨ Ya puedes iniciar sesión con tu nueva clave.', 'ok');
+        toggleModal(loginOverlay, true);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos actualizar tu contraseña. Intenta de nuevo con un enlace válido.', 'error', recoveryStatusBox);
+      }
+    }
+
+    function handleRecoveryLandingFromUrl() {
+      const url = new URL(window.location.href);
+      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const typeInHash = hashParams.get('type');
+      const typeInQuery = url.searchParams.get('type');
+      const hasRecoveryType = typeInHash === 'recovery' || typeInQuery === 'recovery';
+      const recoveryError = hashParams.get('error_description') || url.searchParams.get('error_description');
+
+      if (recoveryError) {
+        setStatus(`El enlace de recuperación no es válido o ya venció: ${decodeURIComponent(recoveryError)}`, 'error');
+      }
+
+      if (hasRecoveryType) {
+        activateRecoveryMode();
+      }
     }
 
     function toggleModal(overlay, show) {
@@ -878,6 +993,7 @@
     }
 
     function renderLoggedOut() {
+      if (isRecoveryMode) return;
       state.user = null;
       state.profileName = '';
       state.credits = 0;
@@ -889,6 +1005,7 @@
       resultCard.innerHTML = '';
       historyList.innerHTML = '';
       historyEmpty.classList.remove('hidden');
+      recoverySection.classList.add('hidden');
     }
 
     async function renderLoggedIn(user) {
@@ -1099,6 +1216,15 @@
     });
     document.getElementById('registerBtn').addEventListener('click', registerUser);
     document.getElementById('loginBtn').addEventListener('click', loginUser);
+    document.getElementById('forgotFromRegisterLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      requestPasswordReset();
+    });
+    document.getElementById('forgotFromLoginLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      requestPasswordReset();
+    });
+    document.getElementById('saveRecoveryPasswordBtn').addEventListener('click', saveRecoveredPassword);
     document.getElementById('logoutBtn').addEventListener('click', logoutUser);
     document.getElementById('openTarotYapeBtn').addEventListener('click', openTarotYape);
     document.getElementById('sendTarotYapeBtn').addEventListener('click', sendTarotYapeToWhatsApp);
@@ -1127,9 +1253,17 @@
       });
     });
 
-    supabaseClient.auth.onAuthStateChange((_event, session) => {
+    supabaseClient.auth.onAuthStateChange((event, session) => {
       const user = session?.user;
+      if (event === 'PASSWORD_RECOVERY') {
+        activateRecoveryMode(user?.email || '');
+        return;
+      }
       if (user) {
+        if (isRecoveryMode) {
+          activateRecoveryMode(user.email || '');
+          return;
+        }
         renderLoggedIn(user).catch((error) => setStatus(error.message, 'error'));
       } else {
         renderLoggedOut();
@@ -1141,12 +1275,15 @@
         const cfg = await fetch('config.json').then((res) => res.json()).catch(() => ({}));
         appConfig = { ...appConfig, ...cfg };
         initPaypalForTarotQuestions();
+        handleRecoveryLandingFromUrl();
 
         const { data, error } = await supabaseClient.auth.getSession();
         if (error) throw error;
 
         const user = data?.session?.user;
-        if (user) {
+        if (isRecoveryMode) {
+          activateRecoveryMode(user?.email || '');
+        } else if (user) {
           await renderLoggedIn(user);
         } else {
           renderLoggedOut();
