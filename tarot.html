@@ -766,6 +766,10 @@
       return window.prompt('Escribe tu correo para enviarte el enlace de recuperación:')?.trim() || '';
     }
 
+    function showPasswordResetNotice() {
+      window.alert('Te llegará un correo de Supabase, en breve, donde podrás cambiar tu contraseña.');
+    }
+
     async function requestPasswordReset() {
       const email = getPasswordResetEmail();
       if (!email) {
@@ -780,7 +784,8 @@
         if (error) throw error;
         toggleModal(registerOverlay, false);
         toggleModal(loginOverlay, false);
-        setStatus('Listo ✨ Revisa tu correo para abrir el enlace y crear tu nueva contraseña.', 'ok');
+        showPasswordResetNotice();
+        setStatus('Te llegará un correo de Supabase, en breve, donde podrás cambiar tu contraseña.', 'ok');
       } catch (err) {
         setStatus(err.message || 'No pudimos enviar el correo de recuperación.', 'error');
       }
