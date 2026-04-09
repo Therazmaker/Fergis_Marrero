@@ -448,6 +448,28 @@
     }
 
     @media (max-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-box,
+      .blog-box,
+      .community-box,
+      .social-box {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .blog-box {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      .carousel-box {
+        min-height: 470px;
+      }
+
       .tarot-row {
         grid-template-columns: 1fr;
       }
@@ -1199,8 +1221,20 @@
         gap: 14px;
       }
 
+      .hero-box {
+        padding: 44px 24px;
+      }
+
       .hero-title {
         font-size: 2.4rem;
+      }
+
+      .hero-body {
+        font-size: 1.02rem;
+      }
+
+      .carousel-box {
+        min-height: 420px;
       }
 
       .quick-nav {
@@ -1221,6 +1255,55 @@
 
       .c-slide.text-slide h2 {
         font-size: 2rem;
+      }
+
+      .srv-btn {
+        padding: 18px 18px;
+      }
+
+      .srv-name {
+        font-size: 1.25rem;
+      }
+
+      .tarot-card {
+        padding: 28px 22px;
+      }
+
+      .tiendita-card {
+        min-height: 300px;
+      }
+
+      .blog-box,
+      .community-box,
+      .social-box {
+        padding: 34px 22px;
+      }
+
+      #carta-natal {
+        padding: 40px 18px !important;
+      }
+
+      #carta-natal-form {
+        padding: 24px !important;
+      }
+
+      .wa-fab-wrap {
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .wa-bubble {
+        max-width: min(240px, calc(100vw - 28px));
+      }
+
+      #fab-wa {
+        width: 56px;
+        height: 56px;
+      }
+
+      .fab-wa-icon {
+        width: 24px;
+        height: 24px;
       }
 
       .sdm-title {
