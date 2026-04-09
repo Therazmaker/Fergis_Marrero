@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restablecer contraseña | Fergis Marrero</title>
+  <meta name="description" content="Crea una nueva contraseña para tu cuenta de Fergis Marrero." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --card: #fff8e8;
+      --accent: #f2be42;
+      --ink: #4b3b22;
+      --ink-soft: #826c45;
+      --line: #f3d996;
+      --ok: #2d9a67;
+      --danger: #b84343;
+      --shadow: 0 12px 30px rgba(163, 126, 61, 0.13);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top right, #fff4cf 0%, #fffef9 40%, #fffdf8 100%);
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .card {
+      width: min(520px, 100%);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 5vw, 34px);
+      display: grid;
+      gap: 14px;
+    }
+
+    .kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      line-height: 1.2;
+      color: #5a4321;
+    }
+
+    .helper {
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: #694f26;
+    }
+
+    input {
+      width: 100%;
+      border-radius: var(--radius-md);
+      border: 1px solid #f0d696;
+      background: #fffdf6;
+      padding: 12px 14px;
+      font: inherit;
+      color: var(--ink);
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #ffd470;
+      box-shadow: 0 0 0 3px rgba(255, 212, 112, 0.32);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.14s ease, filter 0.14s ease, opacity 0.2s ease;
+      background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%);
+      color: #4f3600;
+    }
+
+    .btn:hover { transform: translateY(-1px); filter: brightness(0.98); }
+    .btn:disabled { cursor: not-allowed; transform: none; opacity: 0.65; }
+
+    .status {
+      display: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 11px 14px;
+      border-radius: 10px;
+      margin-top: 2px;
+    }
+
+    .status.show { display: block; }
+    .status.ok { color: #1f724b; background: #e9fff4; border: 1px solid #bfeeda; }
+    .status.error { color: #8d2626; background: #ffefef; border: 1px solid #f7b2b2; }
+
+    .loading {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      color: #76531f;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .loading.show { display: inline-flex; }
+
+    @media (max-width: 520px) {
+      body { padding: 12px; }
+      .card { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-live="polite">
+    <p class="kicker">Recuperación de cuenta</p>
+    <h1>Crea tu nueva contraseña</h1>
+    <p class="helper" id="helperText">Valida tu enlace y actualiza tu contraseña para volver a entrar.</p>
+
+    <form id="resetForm" novalidate>
+      <div class="field">
+        <label for="password">Nueva contraseña</label>
+        <input id="password" type="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" required minlength="6" />
+      </div>
+
+      <div class="field" style="margin-top: 12px;">
+        <label for="passwordConfirm">Confirmar contraseña</label>
+        <input id="passwordConfirm" type="password" placeholder="Repite tu nueva contraseña" autocomplete="new-password" required minlength="6" />
+      </div>
+
+      <button class="btn" id="submitBtn" type="submit" style="margin-top: 16px; width: 100%;">Restablecer contraseña</button>
+      <div class="loading" id="loadingText" style="margin-top: 10px;">Actualizando contraseña...</div>
+      <div class="status" id="statusBox" role="status"></div>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://byholbvgwimdftfbmmcd.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_KgkSV7zJYwLi_IcFfWlEjQ_sAAcchaE';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const resetForm = document.getElementById('resetForm');
+    const passwordInput = document.getElementById('password');
+    const confirmInput = document.getElementById('passwordConfirm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusBox = document.getElementById('statusBox');
+    const loadingText = document.getElementById('loadingText');
+    const helperText = document.getElementById('helperText');
+
+    let isRecoverySession = false;
+
+    function setStatus(message, type = 'error') {
+      statusBox.className = `status show ${type}`;
+      statusBox.textContent = message;
+    }
+
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      loadingText.classList.toggle('show', isLoading);
+      submitBtn.textContent = isLoading ? 'Actualizando...' : 'Restablecer contraseña';
+    }
+
+    async function detectRecoveryMode() {
+      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const queryParams = new URLSearchParams(window.location.search);
+      const isRecoveryType = hashParams.get('type') === 'recovery' || queryParams.get('type') === 'recovery';
+
+      if (isRecoveryType) {
+        isRecoverySession = true;
+        helperText.textContent = 'Enlace de recuperación detectado. Ingresa tu nueva contraseña.';
+      }
+
+      const { data } = await supabaseClient.auth.getSession();
+      if (data?.session && isRecoveryType) {
+        isRecoverySession = true;
+      }
+
+      if (!isRecoverySession) {
+        setStatus('Este enlace no es válido para recuperación o ya expiró. Solicita uno nuevo.', 'error');
+        submitBtn.disabled = true;
+      }
+    }
+
+    supabaseClient.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        isRecoverySession = true;
+        submitBtn.disabled = false;
+        helperText.textContent = 'Recuperación validada. Ya puedes actualizar tu contraseña ✨';
+      }
+    });
+
+    resetForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusBox.className = 'status';
+      statusBox.textContent = '';
+
+      const password = passwordInput.value.trim();
+      const passwordConfirm = confirmInput.value.trim();
+
+      if (!isRecoverySession) {
+        setStatus('No detectamos una sesión de recuperación válida. Abre el link más reciente de tu correo.', 'error');
+        return;
+      }
+
+      if (password.length < 6) {
+        setStatus('La contraseña debe tener mínimo 6 caracteres.', 'error');
+        return;
+      }
+
+      if (password !== passwordConfirm) {
+        setStatus('Las contraseñas no coinciden. Revísalas e inténtalo de nuevo.', 'error');
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const { error } = await supabaseClient.auth.updateUser({ password });
+        if (error) throw error;
+
+        setStatus('¡Listo! Tu contraseña fue restablecida con éxito. Redirigiendo al login...', 'ok');
+        resetForm.reset();
+
+        setTimeout(() => {
+          window.location.href = '/tarot';
+        }, 1400);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos restablecer tu contraseña. Intenta nuevamente.', 'error');
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    detectRecoveryMode();
+  </script>
+</body>
+</html>
