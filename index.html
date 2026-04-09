@@ -801,6 +801,10 @@
       background: rgba(255, 255, 255, 0.18);
     }
 
+    .blog-mobile {
+      display: none;
+    }
+
     /* ═══════════════════════════════════════════════════════
        COMMUNITY BOX
     ═══════════════════════════════════════════════════════ */
@@ -1279,6 +1283,37 @@
         padding: 34px 22px;
       }
 
+      .blog-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .blog-desktop-only {
+        display: none;
+      }
+
+      .blog-mobile {
+        display: block;
+      }
+
+      .blog-mobile .box-heading {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .blog-mobile .box-body {
+        font-size: 0.96rem;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+
+      .blog-mobile .btn-primary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 14px 20px;
+      }
+
       #carta-natal {
         padding: 40px 18px !important;
       }
@@ -1571,7 +1606,7 @@
           explicar demasiado. Ideas, palabras y miradas que quizás te ayuden a ver lo que estás viviendo desde otro
           ángulo… o simplemente a no sentirte tan sola en eso.</p>
       </div>
-      <div>
+      <div class="blog-desktop-only">
         <p class="box-body" style="margin-bottom: 20px;">A veces desde lo emocional, a veces desde la astrología y lo
           espiritual… pero siempre con la intención de acercarte un poquito más a ti.</p>
         <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary"
@@ -1583,6 +1618,10 @@
           <a class="blog-tag" href="blog.html#emociones" target="_blank" rel="noopener noreferrer">🧠 Emociones y sistema nervioso</a>
           <a class="blog-tag" href="blog.html#reflexiones" target="_blank" rel="noopener noreferrer">💡 Reflexiones</a>
         </div>
+      </div>
+      <div class="blog-mobile">
+        <p class="box-body">Contenido breve para acompañarte con astrología, vínculos y emoción, en palabras simples.</p>
+        <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary">📖 Leer artículos</a>
       </div>
     </section>
 
