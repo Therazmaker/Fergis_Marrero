@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
     rel="stylesheet" />
   <style>
     /* ═══════════════════════════════════════════════════════
@@ -134,7 +134,7 @@
       justify-content: center;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      background: rgba(250, 244, 232, 0.88);
+      background: rgba(201, 212, 177, 0.9);
       border: 1px solid rgba(212, 168, 71, 0.35);
       box-shadow: var(--shadow-sm);
     }
@@ -231,19 +231,19 @@
     }
 
     .tarot-row {
-      margin: 0 0 48px;
+      margin: 0;
       padding: 0;
       display: grid;
       /* Forzamos 2 columnas iguales para estas dos tarjetas */
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: var(--gap);
       /* Asegura que ambas tarjetas tengan la misma altura */
       align-items: stretch;
     }
 
     .tarot-card {
-      background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%);
-      border: 1px solid #f3d996;
+      background: linear-gradient(135deg, #d4af88 0%, #bc8f61 100%);
+      border: 1px solid #a97644;
       border-radius: 24px;
       padding: 40px;
       position: relative;
@@ -257,25 +257,40 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #fff3c4;
-      border: 1px solid #f0cc6e;
+      background: rgba(255, 246, 226, 0.72);
+      border: 1px solid rgba(107, 34, 54, 0.22);
       border-radius: 999px;
-      padding: 5px 12px;
-      font-size: 12px;
+      padding: 5px 14px;
+      font-size: 11px;
       font-weight: 700;
-      color: #7a5514;
-      letter-spacing: 0.06em;
-      text-transform: lowercase;
+      color: var(--wine-deep);
+      letter-spacing: 0.02em;
+      text-transform: none;
       margin-bottom: 12px;
       width: fit-content;
     }
 
     .tarot-title {
+      font-family: var(--font-body);
       font-size: clamp(1.6rem, 2.5vw, 2rem);
+      font-weight: 500;
+      font-style: italic;
       color: #4b3108;
       line-height: 1.2;
       margin-bottom: 16px;
       min-height: 3.6rem;
+    }
+
+    .tarot-title-featured {
+      min-height: auto;
+    }
+
+    .tarot-title-script {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--wine-deep);
     }
 
     .tarot-copy {
@@ -284,6 +299,23 @@
       line-height: 1.6;
       margin-bottom: 24px;
       flex-grow: 1;
+    }
+
+    .tarot-lead {
+      font-size: 1.14rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      flex-grow: 0;
+    }
+
+    .tarot-note {
+      font-size: 0.92rem;
+      opacity: 1;
+      color: rgba(78, 49, 8, 0.74);
+      margin-top: 0;
+      margin-bottom: 24px;
+      flex-grow: 0;
+      line-height: 1.5;
     }
 
     .tarot-cta {
@@ -304,25 +336,30 @@
     }
 
     .tiendita-card {
-      background: #4f5f43;
+      background:
+        linear-gradient(180deg, rgba(47, 58, 34, 0.42) 0%, rgba(36, 45, 25, 0.56) 100%),
+        url('./Fotos/tiendita-girasol-bg.png');
+      background-size: cover;
+      background-position: center;
       border: none;
-      border-radius: 130px;
+      border-radius: 24px;
       color: #f3f0e6;
       padding: 42px 48px;
       min-height: 360px;
       isolation: isolate;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      gap: 0;
+      overflow: hidden;
     }
 
     .tiendita-card::before {
       content: '';
       position: absolute;
-      inset: -90px -140px auto auto;
-      width: 420px;
-      height: 420px;
+      inset: 0;
       background:
-        radial-gradient(circle at 65% 55%, rgba(246, 185, 56, 0.2) 0 14%, rgba(246, 185, 56, 0.08) 15% 28%, transparent 29% 100%);
-      filter: blur(1px);
-      opacity: 0.4;
+        linear-gradient(180deg, rgba(19, 23, 13, 0.08) 0%, rgba(19, 23, 13, 0.16) 100%);
       z-index: -1;
       pointer-events: none;
     }
@@ -332,14 +369,14 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.08) 0 14%, transparent 15% 100%);
+        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.12) 0 14%, transparent 15% 100%),
+        radial-gradient(circle at 85% 18%, rgba(246, 185, 56, 0.12) 0 10%, transparent 11% 100%);
       pointer-events: none;
     }
 
     .tiendita-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       background: rgba(243, 240, 230, 0.14);
       border: 1px solid rgba(243, 240, 230, 0.22);
       border-radius: 999px;
@@ -348,31 +385,47 @@
       font-weight: 700;
       color: rgba(243, 240, 230, 0.9);
       letter-spacing: 0.08em;
-      text-transform: uppercase;
+      text-transform: none;
       width: fit-content;
       margin-bottom: 20px;
+      align-self: flex-start;
     }
 
     .tiendita-pill::before {
-      content: '✦';
-      font-size: 0.78rem;
-      line-height: 1;
+      content: none;
     }
 
     .tiendita-title {
-      font-size: clamp(2rem, 3vw, 3rem);
-      color: #f3f0e6;
-      line-height: 1.08;
-      margin-bottom: 14px;
-      max-width: 16ch;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.95rem, 2.45vw, 2.4rem);
+      font-style: normal;
+      font-weight: 900;
+      color: #fff4cf;
+      line-height: 1;
+      margin-top: 56px;
+      margin-bottom: 0;
+      max-width: none;
+      text-align: center;
+      align-self: center;
+    }
+
+    .tiendita-title-accent {
+      font-style: normal;
+      display: block;
+      font-size: 1.56em;
     }
 
     .tiendita-state {
-      color: rgba(243, 240, 230, 0.82);
-      font-size: 2rem;
-      font-weight: 600;
+      color: rgba(243, 240, 230, 0.78);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.04em;
       line-height: 1.1;
-      margin-bottom: 6px;
+      margin: 0;
+      text-align: center;
+      order: 4;
     }
 
     .tiendita-accent {
@@ -380,7 +433,10 @@
       height: 4px;
       border-radius: 999px;
       background: #f6b938;
-      margin-bottom: 18px;
+      margin-top: auto;
+      margin-bottom: 10px;
+      align-self: center;
+      order: 3;
     }
 
     .tiendita-copy {
@@ -391,42 +447,19 @@
       margin-bottom: 0;
     }
 
-    .tiendita-cta {
-      margin-left: auto;
-      margin-top: auto;
-      background: linear-gradient(92deg, #ffc53d 0%, #f6b938 100%);
-      color: #5a3e08;
-      padding: 18px 30px;
-      font-size: 1.75rem;
-      font-weight: 700;
-      min-width: 188px;
-      justify-content: center;
-      box-shadow: 0 12px 30px rgba(31, 10, 16, 0.22);
-    }
-
-    .tiendita-cta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.08rem;
-    }
-
-    .tiendita-cta .arrow {
-      font-size: 1.22rem;
-    }
-
     @media (max-width: 1024px) {
       .tarot-row {
         grid-template-columns: 1fr;
       }
 
       .tiendita-card {
-        border-radius: 48px;
+        border-radius: 24px;
         padding: 36px 28px;
       }
 
       .tiendita-title {
         max-width: 100%;
+        white-space: normal;
       }
 
       .tiendita-cta {
@@ -1464,19 +1497,18 @@
     <!-- SECCIÓN TAROT IA -->
     <section id="tarot" class="tarot-row fade-up">
       <article class="tarot-card">
-        <div class="tarot-pill">Un regalito de mi, pa ti.</div>
-        <h2 class="tarot-title">Hazle 3 preguntitas al tarot gratis, hermana girasol</h2>
-        <p class="tarot-copy">Lecturas enfocadas en darte claridad y guía.</p>
-        <p class="tarot-copy" style="font-size: 0.8rem; opacity: 0.8;">Si haces uso de tus 3 preguntitas no te preocupes, podrás adquirir más a costos bajitos.</p>        <a href="tarot.html" class="tarot-cta">Entra aquí</a>
+        <div class="tarot-pill">🌻 Un regalito de mí para ti</div>
+        <h2 class="tarot-title tarot-title-featured">Hazle <span class="tarot-title-script">3 preguntitas al tarot gratis</span>, hermana girasol.</h2>
+        <p class="tarot-copy tarot-lead">Lecturas para darte claridad y guía.</p>
+        <p class="tarot-copy tarot-note">Si haces uso de tus 3 preguntitas no te preocupes,<br>podrás adquirir más a costos bajitos.<br>Tus 3 preguntas gratis se renovarán cada mes.</p>        <a href="tarot.html" class="tarot-cta">&#128073; Regístrate aquí</a>
       </article>
 
       <article class="tarot-card tiendita-card">
         <div class="tiendita-pill">Artículos Astrológicos</div>
-        <h2 class="tarot-title tiendita-title">La Tiendita<br>Girasol</h2>
+        <h2 class="tarot-title tiendita-title">La tiendita<span class="tiendita-title-accent">girasol</span></h2>
         <p class="tiendita-state">Próximamente</p>
         <div class="tiendita-accent"></div>
         <p class="tarot-copy tiendita-copy"></p>
-        <a href="#" class="tarot-cta tiendita-cta"><span>Próximamente <span class="arrow">→</span></span></a>
       </article>
     </section>
 
@@ -1495,10 +1527,11 @@
         <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary"
           style="margin-bottom: 20px; display: inline-flex;">📖 Leer artículos en una nueva ventana</a>
         <div class="blog-tags">
-          <a class="blog-tag" href="blog.html#clima-astral" target="_blank" rel="noopener noreferrer">🌙 Clima astral</a>
-          <a class="blog-tag" href="blog.html#emociones" target="_blank" rel="noopener noreferrer">🧠 Emociones y sistema nervioso</a>
+          <a class="blog-tag" href="blog.html#astrologia" target="_blank" rel="noopener noreferrer">🌌 Astrología</a>
+          <a class="blog-tag" href="blog.html#tarot" target="_blank" rel="noopener noreferrer">🔮 Tarot</a>
           <a class="blog-tag" href="blog.html#relaciones" target="_blank" rel="noopener noreferrer">💔 Relaciones y vínculos</a>
-          <a class="blog-tag" href="blog.html#reflexiones" target="_blank" rel="noopener noreferrer">🔮 Reflexiones</a>
+          <a class="blog-tag" href="blog.html#emociones" target="_blank" rel="noopener noreferrer">🧠 Emociones y sistema nervioso</a>
+          <a class="blog-tag" href="blog.html#reflexiones" target="_blank" rel="noopener noreferrer">💡 Reflexiones</a>
         </div>
       </div>
     </section>
