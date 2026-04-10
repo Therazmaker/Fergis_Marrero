@@ -326,6 +326,66 @@
       color: #6b5531;
     }
 
+    .feedback-card {
+      margin-top: 8px;
+      border: 1px solid #f0d696;
+      border-radius: 14px;
+      background: #fff9ea;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .feedback-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #6f5428;
+    }
+
+    .feedback-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feedback-option {
+      border: 1px solid #efd39a;
+      background: #fffef8;
+      color: #6b5531;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .feedback-option:hover {
+      transform: translateY(-1px);
+      border-color: #e4bb5b;
+    }
+
+    .feedback-option.active {
+      border-color: #e0ad36;
+      background: linear-gradient(90deg, #ffe9b4 0%, #ffeec5 100%);
+      color: #5e4319;
+      box-shadow: 0 0 0 2px #ffefc8;
+      transform: scale(1.03);
+    }
+
+    .feedback-comment {
+      min-height: 84px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      background: #fffef8;
+    }
+
+    .feedback-send {
+      width: fit-content;
+      min-width: 190px;
+    }
+
     .history-meta {
       font-size: 0.8rem;
       color: #9b835b;
@@ -973,6 +1033,43 @@
       });
     }
 
+    function createFeedbackCard(item) {
+      const feedback = document.createElement('div');
+      feedback.className = 'feedback-card';
+      feedback.innerHTML = `
+        <div class="feedback-title">🌻 Ayúdanos a mejorar. ¿Qué te pareció tu lectura?</div>
+        <div class="feedback-options" role="group" aria-label="Feedback rápido de lectura">
+          <button class="feedback-option" type="button" data-emoji="👍">👍 Me ayudó</button>
+          <button class="feedback-option" type="button" data-emoji="😐">😐 Más o menos</button>
+          <button class="feedback-option" type="button" data-emoji="👎">👎 No conecté</button>
+        </div>
+        <textarea class="feedback-comment" placeholder="Cuéntanos más (opcional)"></textarea>
+        <button class="btn btn-primary feedback-send" type="button" disabled>Enviar por WhatsApp</button>
+      `;
+
+      const optionButtons = Array.from(feedback.querySelectorAll('.feedback-option'));
+      const commentInput = feedback.querySelector('.feedback-comment');
+      const sendButton = feedback.querySelector('.feedback-send');
+      let selectedEmoji = '';
+
+      optionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          selectedEmoji = button.dataset.emoji || '';
+          optionButtons.forEach((opt) => opt.classList.toggle('active', opt === button));
+          sendButton.disabled = !selectedEmoji;
+        });
+      });
+
+      sendButton.addEventListener('click', () => {
+        if (!selectedEmoji) return;
+        const comment = commentInput.value.trim();
+        const message = `Hola Fergis 🌻 te dejo mi feedback sobre mi lectura:\n\nResultado: ${selectedEmoji}\n\nComentario: ${comment || 'Sin comentario'}\n\nGracias 💛`;
+        window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      });
+
+      return feedback;
+    }
+
     async function fetchHistory() {
       if (!state.user) return;
       const data = await api(`/history/${state.user.id}`);
@@ -993,6 +1090,7 @@
           <p>🔮 ${escapeHtml(item.answer || 'Sin respuesta')}</p>
           <div class="history-meta">${escapeHtml(formatDate(item.created_at))}</div>
         `;
+        entry.appendChild(createFeedbackCard(item));
         historyList.appendChild(entry);
       });
     }
