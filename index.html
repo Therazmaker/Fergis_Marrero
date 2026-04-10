@@ -1391,9 +1391,28 @@
         min-height: 680px;
       }
 
+      /* Solo mobile: primera tarjeta del carrusel hero */
+      .hero-track .hero-card:first-child {
+        background-size: 115%;
+        background-position: center 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Equivalente para la estructura actual del carrusel */
+      .carousel-track .c-slide:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
       .img-slide-fergis img {
-        object-fit: contain;
-        object-position: center top;
+        object-fit: cover;
+        object-position: center 20%;
       }
 
       .c-slide.text-slide {
@@ -1468,7 +1487,7 @@
 
     /* Ajustes exclusivos para la primera tarjeta del carrusel hero */
     .hero-track .hero-card:first-child {
-      background-size: 115%;
+      background-size: 110% auto;
       background-position: center 20%;
       display: flex;
       flex-direction: column;
