@@ -638,6 +638,10 @@
         <input id="registerAcceptTerms" type="checkbox" style="margin-top:2px;" />
         <span>Declaro que soy mayor de 18 años y acepto las condiciones de uso.</span>
       </label>
+      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530; margin-top:8px;">
+        <input id="registerEmailOptIn" type="checkbox" style="margin-top:2px;" />
+        <span>Acepto recibir correos electrónicos con contenido educativo, espiritual y promociones 🌻</span>
+      </label>
       <div class="row">
         <button class="btn btn-primary" id="registerBtn">👉 Registrarme 🌻</button>
         <button class="btn btn-secondary" data-close="#registerOverlay">Cancelar</button>
@@ -1123,11 +1127,28 @@
       await Promise.all([fetchCredits(), fetchHistory()]);
     }
 
+    async function saveEmailConsent(userId, emailOptIn) {
+      const { error } = await supabaseClient.from('profiles').upsert(
+        {
+          id: userId,
+          email_opt_in: Boolean(emailOptIn)
+        },
+        {
+          onConflict: 'id'
+        }
+      );
+
+      if (error) {
+        throw new Error('Tu cuenta se creó, pero no pudimos guardar tu preferencia de correos.');
+      }
+    }
+
     async function registerUser() {
       const name = document.getElementById('registerName').value.trim();
       const email = document.getElementById('registerEmail').value.trim();
       const password = document.getElementById('registerPassword').value;
       const acceptTerms = document.getElementById('registerAcceptTerms').checked;
+      const emailOptIn = document.getElementById('registerEmailOptIn').checked;
 
       if (!name || !email || password.length < 6) {
         setStatus('Por favor completa nombre, email y una contraseña de al menos 6 caracteres 💛', 'warn');
@@ -1151,13 +1172,16 @@
         const user = data.user;
         if (!user) throw new Error('No se pudo crear la cuenta en este momento.');
 
+        await saveEmailConsent(user.id, emailOptIn);
+
         await api('/register', {
           method: 'POST',
           body: JSON.stringify({
             user_id: user.id,
             name,
             email,
-            credits: 3
+            credits: 3,
+            email_opt_in: emailOptIn
           })
         });
 
@@ -1171,6 +1195,13 @@
         setStatus(err.message || 'No pudimos completar el registro.', 'error');
       }
     }
+
+    async function updateEmailConsentPreference(emailOptIn) {
+      if (!state.user?.id) throw new Error('Necesitas iniciar sesión para actualizar esta preferencia.');
+      await saveEmailConsent(state.user.id, emailOptIn);
+    }
+
+    window.updateEmailConsentPreference = updateEmailConsentPreference;
 
     async function loginUser() {
       const email = document.getElementById('loginEmail').value.trim();
