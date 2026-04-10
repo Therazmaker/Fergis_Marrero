@@ -336,23 +336,32 @@
     }
 
     .tiendita-card {
-      background:
-        linear-gradient(180deg, rgba(47, 58, 34, 0.42) 0%, rgba(36, 45, 25, 0.56) 100%),
-        url('./Fotos/tiendita-girasol-bg.png');
-      background-size: cover;
-      background-position: center;
-      border: none;
-      border-radius: 24px;
-      color: #f3f0e6;
-      padding: 42px 48px;
-      min-height: 360px;
-      isolation: isolate;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      gap: 0;
-      overflow: hidden;
-    }
+  /* 1. ACTIVAR FLEXBOX (Esto es lo que faltaba) */
+  display: flex;
+  flex-direction: column; /* Alinea los elementos uno debajo del otro */
+  justify-content: center; /* Centrado vertical */
+  align-items: center;    /* Centrado horizontal */
+  
+  /* 2. FONDO Y ESTILO */
+  background:
+    linear-gradient(180deg, rgba(47, 58, 34, 0.42) 0%, rgba(36, 45, 25, 0.56) 100%),
+    url('./Fotos/tiendita-girasol-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  color: #f3f0e6;
+  
+  /* 3. ESPACIADO */
+  padding: 42px 48px;
+  min-height: 360px;
+  gap: 16px; /* Espacio automático entre el título, el texto y la línea */
+  
+  /* 4. EXTRAS */
+  text-align: center;
+  isolation: isolate;
+  overflow: hidden;
+  border: none;
+}
 
     .tiendita-card::before {
       content: '';
