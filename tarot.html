@@ -1369,20 +1369,7 @@
       }
       return message || 'No pudimos iniciar sesión. Intenta de nuevo 💛';
     }
-function translateAuthError(message) {
-  const errors = {
-    'Invalid login credentials': 'Contraseña incorrecta o email no registrado 💛',
-    'Email not confirmed': 'Debes confirmar tu email antes de entrar 💛',
-    'User not found': 'No encontramos una cuenta con ese email 💛',
-    'Too many requests': 'Demasiados intentos. Espera unos minutos 💛',
-    'Email already registered': 'Este email ya tiene una cuenta 💛',
-    'Password should be at least 6 characters': 'La contraseña debe tener al menos 6 caracteres 💛',
-  };
-  for (const [key, val] of Object.entries(errors)) {
-    if (message && message.toLowerCase().includes(key.toLowerCase())) return val;
-  }
-  return message || 'No pudimos iniciar sesión. Intenta de nuevo 💛';
-}
+
     async function loginUser() {
       const email = document.getElementById('loginEmail').value.trim();
       const password = document.getElementById('loginPassword').value;
