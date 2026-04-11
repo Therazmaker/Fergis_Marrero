@@ -1260,7 +1260,7 @@
     async function renderLoggedIn(user) {
       state.user = user;
       state.profileName = user.user_metadata?.name || user.email?.split('@')[0] || 'hermana';
-      greeting.textContent = `Hola ${state.profileName}, hermana girasol 🌻`;
+      greeting.textContent = `Hola ${state.profileName}`;
 
       guestSection.classList.add('hidden');
       userSection.classList.remove('hidden');
