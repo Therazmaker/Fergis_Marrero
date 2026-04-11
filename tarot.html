@@ -1533,8 +1533,6 @@
     document.getElementById('sendTarotYapeBtn').addEventListener('click', sendTarotYapeToWhatsApp);
     askBasicBtn.addEventListener('click', () => askTarot('basic'));
     askPremiumBtn.addEventListener('click', () => askTarot('premium'));
-    document.getElementById('buy10Btn').addEventListener('click', () => startCheckout(10));
-    document.getElementById('buy25Btn').addEventListener('click', () => startCheckout(25));
 
     packageCards.forEach((card) => {
       card.addEventListener('click', () => {
