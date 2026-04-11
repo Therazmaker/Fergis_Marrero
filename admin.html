@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Fergis Marrero</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --card: #fff8e8;
+      --accent: #f2be42;
+      --ink: #4b3b22;
+      --ink-soft: #826c45;
+      --line: #f3d996;
+      --ok: #2d9a67;
+      --danger: #b84343;
+      --shadow: 0 8px 24px rgba(163,126,61,0.12);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #fffdf8;
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+    }
+    .page { max-width: 1000px; margin: 0 auto; display: grid; gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    h1 { font-size: 1.8rem; color: #5a4321; }
+    h2 { font-size: 1.1rem; color: #5a4321; margin-bottom: 12px; }
+    h3 { font-size: 1rem; color: #6b4f20; margin-bottom: 8px; }
+    .hidden { display: none !important; }
+    .btn {
+      border: 0; border-radius: 999px; padding: 10px 18px;
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      transition: transform 0.12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-primary { background: linear-gradient(90deg,#ffc53d,#f6b938); color: #4f3600; }
+    .btn-secondary { background: #fff; border: 1px solid var(--line); color: #6a522e; }
+    .btn-danger { background: #ffefef; border: 1px solid #f7b2b2; color: #8d2626; }
+    .btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+    input, select {
+      width: 100%; border: 1px solid #f0d696; border-radius: 10px;
+      background: #fffdf6; padding: 9px 12px; font: inherit; color: var(--ink);
+    }
+    input:focus, select:focus { outline: 2px solid #ffd470; border-color: #ffd470; }
+    .field { display: grid; gap: 5px; margin-bottom: 12px; }
+    .field label { font-size: 0.85rem; font-weight: 600; color: #7e6130; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+    .stat-box {
+      background: #fffef0; border: 1px solid #f0d98a; border-radius: 12px;
+      padding: 14px 16px; text-align: center;
+    }
+    .stat-box .number { font-size: 2rem; font-weight: 700; color: #7a5010; }
+    .stat-box .label { font-size: 0.78rem; color: #9b7c42; margin-top: 2px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { text-align: left; padding: 8px 10px; color: #9b7535; font-weight: 600; border-bottom: 1px solid #f3d996; }
+    td { padding: 8px 10px; border-bottom: 1px solid #faecc8; vertical-align: middle; }
+    tr:hover td { background: #fffbee; }
+    .badge {
+      display: inline-block; border-radius: 999px; padding: 2px 10px;
+      font-size: 0.75rem; font-weight: 700;
+    }
+    .badge-basic { background: #e9fff4; color: #1f724b; border: 1px solid #bfeeda; }
+    .badge-premium { background: #f0ebff; color: #5a3d9a; border: 1px solid #c9b8f0; }
+    .history-panel {
+      background: #fffef7; border: 1px solid #f3dc9f; border-radius: 12px;
+      padding: 14px; margin-top: 8px; display: grid; gap: 8px;
+    }
+    .history-entry { border-bottom: 1px solid #faecc8; padding-bottom: 8px; }
+    .history-entry:last-child { border-bottom: none; padding-bottom: 0; }
+    .history-q { font-size: 0.85rem; font-weight: 600; color: #6b4f20; }
+    .history-a { font-size: 0.83rem; color: #826c45; margin-top: 3px; line-height: 1.5; }
+    .history-date { font-size: 0.75rem; color: #b08a50; margin-top: 2px; }
+    .alert { padding: 10px 14px; border-radius: 10px; font-size: 0.88rem; font-weight: 500; margin-top: 8px; }
+    .alert-ok { background: #e9fff4; color: #1f724b; border: 1px solid #bfeeda; }
+    .alert-error { background: #ffefef; color: #8d2626; border: 1px solid #f7b2b2; }
+    .login-wrap { max-width: 380px; margin: 60px auto 0; }
+    .tab-row { display: flex; gap: 8px; margin-bottom: 16px; }
+    .tab {
+      border: 1px solid var(--line); background: #fffef0; border-radius: 999px;
+      padding: 7px 16px; font-size: 0.88rem; font-weight: 600; cursor: pointer; color: #826c45;
+    }
+    .tab.active { background: var(--accent); color: #4f3600; border-color: var(--accent); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LOGIN -->
+  <div id="loginSection" class="login-wrap">
+    <div class="card">
+      <h2>🔮 Panel Admin — Fergis</h2>
+      <p style="color:var(--ink-soft);font-size:0.9rem;margin-bottom:16px;">Acceso restringido</p>
+      <div class="field">
+        <label>Clave de acceso</label>
+        <input type="password" id="adminKeyInput" placeholder="Tu clave secreta" />
+      </div>
+      <button class="btn btn-primary" onclick="doLogin()">👉 Entrar 🌻</button>
+      <div id="loginAlert"></div>
+    </div>
+  </div>
+
+  <!-- PANEL PRINCIPAL -->
+  <div id="mainPanel" class="hidden">
+
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <div>
+        <h1>🌻 Panel Admin</h1>
+        <p style="font-size:0.85rem;color:var(--ink-soft);">Fergis Marrero — Tarot IA</p>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="doLogout()">Cerrar sesión</button>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div class="card">
+      <h2>📊 Resumen</h2>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-box"><div class="number" id="statTotal">—</div><div class="label">Usuarios totales</div></div>
+        <div class="stat-box"><div class="number" id="statHoy">—</div><div class="label">Registros hoy</div></div>
+        <div class="stat-box"><div class="number" id="statBasicas">—</div><div class="label">Créditos básicos</div></div>
+        <div class="stat-box"><div class="number" id="statPremium">—</div><div class="label">Créditos premium</div></div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-row">
+      <button class="tab active" onclick="switchTab('users')">👥 Usuarios</button>
+      <button class="tab" onclick="switchTab('recharge')">💳 Recargar créditos</button>
+    </div>
+
+    <!-- TABLA DE USUARIOS -->
+    <div id="tabUsers" class="card">
+      <div class="row" style="margin-bottom:12px;">
+        <h2 style="margin:0;">Usuarios registrados</h2>
+        <button class="btn btn-secondary btn-sm" onclick="loadUsers()">🔄 Actualizar</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Básicas</th>
+              <th>Premium</th>
+              <th>Registro</th>
+              <th>Lecturas</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable"><tr><td colspan="5" style="color:var(--ink-soft);padding:20px;text-align:center;">Cargando...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- HISTORIAL DE USUARIO (oculto hasta seleccionar) -->
+    <div id="historySection" class="card hidden">
+      <div class="row" style="margin-bottom:12px;">
+        <h2 style="margin:0;">📖 Lecturas de <span id="historyUserEmail"></span></h2>
+        <button class="btn btn-secondary btn-sm" onclick="closeHistory()">✕ Cerrar</button>
+      </div>
+      <div id="historyContent">Cargando...</div>
+    </div>
+
+    <!-- RECARGAR CRÉDITOS -->
+    <div id="tabRecharge" class="card hidden">
+      <h2>💳 Recargar créditos manualmente</h2>
+      <p style="font-size:0.88rem;color:var(--ink-soft);margin-bottom:16px;">Úsalo para confirmar pagos por Yape u otro método manual.</p>
+      <div class="field">
+        <label>Usuario</label>
+        <select id="rechargeUser">
+          <option value="">Selecciona un usuario...</option>
+        </select>
+      </div>
+      <div class="row" style="margin-bottom:12px;">
+        <div class="field" style="flex:1;">
+          <label>Cantidad</label>
+          <input type="number" id="rechargeAmount" value="5" min="1" max="100" />
+        </div>
+        <div class="field" style="flex:1;">
+          <label>Tipo</label>
+          <select id="rechargeMode">
+            <option value="basic">Básicas</option>
+            <option value="premium">Premium</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="doRecharge()">✨ Recargar créditos</button>
+      <div id="rechargeAlert"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const API_URL = 'https://tarot-fergis-api-731735548765.europe-west1.run.app';
+  let adminKey = '';
+  let usersCache = [];
+
+  function doLogin() {
+    const key = document.getElementById('adminKeyInput').value.trim();
+    if (!key) return showAlert('loginAlert', 'Escribe tu clave de acceso', 'error');
+    adminKey = key;
+    document.getElementById('loginSection').classList.add('hidden');
+    document.getElementById('mainPanel').classList.remove('hidden');
+    loadUsers();
+  }
+
+  function doLogout() {
+    adminKey = '';
+    document.getElementById('loginSection').classList.remove('hidden');
+    document.getElementById('mainPanel').classList.add('hidden');
+    document.getElementById('adminKeyInput').value = '';
+  }
+
+  document.getElementById('adminKeyInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  function switchTab(tab) {
+    document.getElementById('tabUsers').classList.toggle('hidden', tab !== 'users');
+    document.getElementById('tabRecharge').classList.toggle('hidden', tab !== 'recharge');
+    document.querySelectorAll('.tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && tab === 'users') || (i === 1 && tab === 'recharge'));
+    });
+    if (tab === 'recharge') populateRechargeSelect();
+  }
+
+  async function adminFetch(path, options = {}) {
+    const res = await fetch(`${API_URL}${path}`, {
+      ...options,
+      headers: { 'Content-Type': 'application/json', 'x-admin-key': adminKey, ...(options.headers || {}) }
+    });
+    if (res.status === 401) { doLogout(); throw new Error('Clave incorrecta'); }
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data?.detail || 'Error en la solicitud');
+    return data;
+  }
+
+  async function loadUsers() {
+    try {
+      const users = await adminFetch('/admin/users');
+      usersCache = users;
+      renderStats(users);
+      renderUsersTable(users);
+    } catch (err) {
+      if (err.message === 'Clave incorrecta') {
+        showAlert('loginAlert', 'Clave incorrecta 💛', 'error');
+        document.getElementById('loginSection').classList.remove('hidden');
+        document.getElementById('mainPanel').classList.add('hidden');
+      }
+    }
+  }
+
+  function renderStats(users) {
+    const today = new Date().toISOString().split('T')[0];
+    const hoy = users.filter(u => u.created_at && u.created_at.startsWith(today)).length;
+    const basicas = users.reduce((s, u) => s + (u.credits || 0), 0);
+    const premium = users.reduce((s, u) => s + (u.premium_credits || 0), 0);
+    document.getElementById('statTotal').textContent = users.length;
+    document.getElementById('statHoy').textContent = hoy;
+    document.getElementById('statBasicas').textContent = basicas;
+    document.getElementById('statPremium').textContent = premium;
+  }
+
+  function renderUsersTable(users) {
+    const tbody = document.getElementById('usersTable');
+    if (!users.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);padding:20px;">No hay usuarios todavía</td></tr>';
+      return;
+    }
+    tbody.innerHTML = users.map(u => `
+      <tr>
+        <td style="font-weight:500;">${escHtml(u.email || '—')}</td>
+        <td><span class="badge badge-basic">${u.credits ?? 0}</span></td>
+        <td><span class="badge badge-premium">${u.premium_credits ?? 0}</span></td>
+        <td style="font-size:0.8rem;color:var(--ink-soft);">${formatDate(u.created_at)}</td>
+        <td><button class="btn btn-secondary btn-sm" onclick="loadHistory('${u.id}','${escHtml(u.email)}')">Ver lecturas</button></td>
+      </tr>
+    `).join('');
+  }
+
+  async function loadHistory(userId, email) {
+    document.getElementById('historySection').classList.remove('hidden');
+    document.getElementById('historyUserEmail').textContent = email;
+    document.getElementById('historyContent').innerHTML = 'Cargando...';
+    document.getElementById('historySection').scrollIntoView({ behavior: 'smooth' });
+
+    try {
+      const history = await adminFetch(`/admin/history/${userId}`);
+      if (!history.length) {
+        document.getElementById('historyContent').innerHTML = '<p style="color:var(--ink-soft);font-size:0.88rem;">Esta persona aún no tiene lecturas guardadas.</p>';
+        return;
+      }
+      document.getElementById('historyContent').innerHTML = `
+        <div class="history-panel">
+          ${history.map(h => `
+            <div class="history-entry">
+              <div class="history-q">🌙 ${escHtml(h.question || 'Sin pregunta')}</div>
+              <div class="history-a">🔮 ${escHtml(h.answer || 'Sin respuesta')}</div>
+              <div class="history-date">${formatDate(h.timestamp?._seconds ? new Date(h.timestamp._seconds * 1000).toISOString() : h.created_at)}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    } catch (err) {
+      document.getElementById('historyContent').innerHTML = `<p style="color:#8d2626;">Error al cargar: ${err.message}</p>`;
+    }
+  }
+
+  function closeHistory() {
+    document.getElementById('historySection').classList.add('hidden');
+  }
+
+  function populateRechargeSelect() {
+    const sel = document.getElementById('rechargeUser');
+    sel.innerHTML = '<option value="">Selecciona un usuario...</option>' +
+      usersCache.map(u => `<option value="${u.id}">${escHtml(u.email)}</option>`).join('');
+  }
+
+  async function doRecharge() {
+    const userId = document.getElementById('rechargeUser').value;
+    const amount = parseInt(document.getElementById('rechargeAmount').value);
+    const mode = document.getElementById('rechargeMode').value;
+
+    if (!userId) return showAlert('rechargeAlert', 'Selecciona un usuario 💛', 'error');
+    if (!amount || amount < 1) return showAlert('rechargeAlert', 'Ingresa una cantidad válida 💛', 'error');
+
+    try {
+      await adminFetch('/admin/recharge', {
+        method: 'POST',
+        body: JSON.stringify({ user_id: userId, amount, mode })
+      });
+      showAlert('rechargeAlert', `✅ ${amount} créditos ${mode === 'premium' ? 'premium' : 'básicos'} recargados correctamente 🌻`, 'ok');
+      await loadUsers();
+      populateRechargeSelect();
+    } catch (err) {
+      showAlert('rechargeAlert', `Error: ${err.message}`, 'error');
+    }
+  }
+
+  function showAlert(id, msg, type) {
+    const el = document.getElementById(id);
+    el.className = `alert alert-${type}`;
+    el.textContent = msg;
+    setTimeout(() => { el.className = ''; el.textContent = ''; }, 5000);
+  }
+
+  function escHtml(v = '') {
+    return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '—';
+    return new Date(iso).toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' });
+  }
+</script>
+</body>
+</html>
