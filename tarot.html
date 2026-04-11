@@ -454,6 +454,25 @@
       color: #5e4423;
     }
 
+    .password-input-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .password-toggle-btn {
+      border: 1px solid #efd39a;
+      border-radius: 10px;
+      background: #fff9ea;
+      color: #6f5530;
+      min-width: 42px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
     .helper {
       font-size: 0.85rem;
       color: #8d744f;
@@ -668,7 +687,10 @@
       </div>
       <div class="field">
         <label for="registerPassword">Contraseña</label>
-        <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
+        <div class="password-input-wrap">
+          <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
+          <button type="button" class="password-toggle-btn" data-toggle-password="registerPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+        </div>
         <a href="#" id="forgotFromRegisterLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
       </div>
       <details class="field" style="background:#fff8ea; border:1px solid #efd39a; border-radius:12px; padding:10px 12px;">
@@ -706,7 +728,10 @@
       </div>
       <div class="field">
         <label for="loginPassword">Contraseña</label>
-        <input id="loginPassword" type="password" placeholder="Tu contraseña" />
+        <div class="password-input-wrap">
+          <input id="loginPassword" type="password" placeholder="Tu contraseña" />
+          <button type="button" class="password-toggle-btn" data-toggle-password="loginPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+        </div>
         <a href="#" id="forgotFromLoginLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
       </div>
       <div class="row">
@@ -811,11 +836,17 @@
     <p class="helper" id="recoveryEmailHint">Te enviaremos de regreso aquí para finalizar el cambio.</p>
     <div class="field" style="margin-top: 12px;">
       <label for="recoveryPassword">Nueva contraseña</label>
-      <input id="recoveryPassword" type="password" placeholder="Mínimo 6 caracteres" />
+      <div class="password-input-wrap">
+        <input id="recoveryPassword" type="password" placeholder="Mínimo 6 caracteres" />
+        <button type="button" class="password-toggle-btn" data-toggle-password="recoveryPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+      </div>
     </div>
     <div class="field">
       <label for="recoveryPasswordConfirm">Confirmar contraseña</label>
-      <input id="recoveryPasswordConfirm" type="password" placeholder="Repite tu nueva contraseña" />
+      <div class="password-input-wrap">
+        <input id="recoveryPasswordConfirm" type="password" placeholder="Repite tu nueva contraseña" />
+        <button type="button" class="password-toggle-btn" data-toggle-password="recoveryPasswordConfirm" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+      </div>
     </div>
     <div class="row">
       <button class="btn btn-primary" id="saveRecoveryPasswordBtn">Guardar nueva contraseña</button>
@@ -933,6 +964,21 @@
 
     function showPasswordResetNotice() {
       window.alert('Te llegará un correo de Supabase, en breve, donde podrás cambiar tu contraseña.');
+    }
+
+    function initPasswordVisibilityToggles() {
+      document.querySelectorAll('[data-toggle-password]').forEach((button) => {
+        const input = document.getElementById(button.dataset.togglePassword);
+        if (!input) return;
+
+        button.addEventListener('click', () => {
+          const shouldShow = input.type === 'password';
+          input.type = shouldShow ? 'text' : 'password';
+          button.textContent = shouldShow ? '🙈' : '👁️';
+          button.setAttribute('aria-label', shouldShow ? 'Ocultar contraseña' : 'Mostrar contraseña');
+          button.setAttribute('aria-pressed', String(shouldShow));
+        });
+      });
     }
 
     async function requestPasswordReset() {
@@ -1529,6 +1575,7 @@
       }
     }
 
+    initPasswordVisibilityToggles();
     document.getElementById('openRegisterBtn').addEventListener('click', () => toggleModal(registerOverlay, true));
     document.getElementById('openLoginBtn').addEventListener('click', () => toggleModal(loginOverlay, true));
     document.getElementById('openQuestionsModalBtn').addEventListener('click', () => {

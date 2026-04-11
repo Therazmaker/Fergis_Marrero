@@ -98,6 +98,25 @@
       box-shadow: 0 0 0 3px rgba(255, 212, 112, 0.32);
     }
 
+    .password-input-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .password-toggle-btn {
+      border: 1px solid #f0d696;
+      border-radius: 12px;
+      background: #fff8ea;
+      color: #6f5530;
+      min-width: 44px;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
     .btn {
       border: 0;
       border-radius: 999px;
@@ -152,12 +171,18 @@
     <form id="resetForm" novalidate>
       <div class="field">
         <label for="password">Nueva contraseña</label>
-        <input id="password" type="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" required minlength="6" />
+        <div class="password-input-wrap">
+          <input id="password" type="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" required minlength="6" />
+          <button type="button" class="password-toggle-btn" data-toggle-password="password" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+        </div>
       </div>
 
       <div class="field" style="margin-top: 12px;">
         <label for="passwordConfirm">Confirmar contraseña</label>
-        <input id="passwordConfirm" type="password" placeholder="Repite tu nueva contraseña" autocomplete="new-password" required minlength="6" />
+        <div class="password-input-wrap">
+          <input id="passwordConfirm" type="password" placeholder="Repite tu nueva contraseña" autocomplete="new-password" required minlength="6" />
+          <button type="button" class="password-toggle-btn" data-toggle-password="passwordConfirm" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+        </div>
       </div>
 
       <button class="btn" id="submitBtn" type="submit" style="margin-top: 16px; width: 100%;">Restablecer contraseña</button>
@@ -181,6 +206,21 @@
     const helperText = document.getElementById('helperText');
 
     let isRecoverySession = false;
+
+    function initPasswordVisibilityToggles() {
+      document.querySelectorAll('[data-toggle-password]').forEach((button) => {
+        const input = document.getElementById(button.dataset.togglePassword);
+        if (!input) return;
+
+        button.addEventListener('click', () => {
+          const shouldShow = input.type === 'password';
+          input.type = shouldShow ? 'text' : 'password';
+          button.textContent = shouldShow ? '🙈' : '👁️';
+          button.setAttribute('aria-label', shouldShow ? 'Ocultar contraseña' : 'Mostrar contraseña');
+          button.setAttribute('aria-pressed', String(shouldShow));
+        });
+      });
+    }
 
     function setStatus(message, type = 'error') {
       statusBox.className = `status show ${type}`;
@@ -263,6 +303,7 @@
       }
     });
 
+    initPasswordVisibilityToggles();
     detectRecoveryMode();
   </script>
 </body>
