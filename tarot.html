@@ -713,6 +713,7 @@
         <button class="btn btn-primary" id="loginBtn">👉 Entrar 🌻</button>
         <button class="btn btn-secondary" data-close="#loginOverlay">Cancelar</button>
       </div>
+      <div class="status" id="loginStatusBox"></div>
     </div>
   </div>
 
@@ -855,6 +856,7 @@
     const historyList = document.getElementById('historyList');
     const historyEmpty = document.getElementById('historyEmpty');
     const statusBox = document.getElementById('statusBox');
+    const loginStatusBox = document.getElementById('loginStatusBox');
     const recoveryStatusBox = document.getElementById('recoveryStatusBox');
     const recoveryEmailHint = document.getElementById('recoveryEmailHint');
 
@@ -902,6 +904,11 @@
 
     function setStatus(message, type = 'ok', target = statusBox) {
       if (!target) return;
+      if (!message) {
+        target.className = 'status';
+        target.textContent = '';
+        return;
+      }
       target.className = `status show ${type}`;
       target.textContent = message;
       clearTimeout(setStatus._timer);
@@ -935,12 +942,14 @@
         return;
       }
 
+
       try {
         const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
           redirectTo: getRecoveryRedirectUrl()
         });
         if (error) throw error;
         toggleModal(registerOverlay, false);
+        setStatus('', 'ok', loginStatusBox || statusBox);
         toggleModal(loginOverlay, false);
         showPasswordResetNotice();
         setStatus('Te llegará un correo de Supabase, en breve, donde podrás cambiar tu contraseña.', 'ok');
@@ -1353,21 +1362,34 @@
 
     window.updateEmailConsentPreference = updateEmailConsentPreference;
 
-    function translateAuthError(message) {
-      const errors = {
-        'Invalid login credentials': 'Contraseña incorrecta o email no registrado 💛',
-        'Email not confirmed': 'Debes confirmar tu email antes de entrar 💛',
-        'User not found': 'No encontramos una cuenta con ese email 💛',
-        'Too many requests': 'Demasiados intentos. Espera unos minutos e intenta de nuevo 💛',
-        'Email already registered': 'Este email ya tiene una cuenta. Prueba iniciando sesión 💛',
-        'Password should be at least 6 characters': 'La contraseña debe tener al menos 6 caracteres 💛',
-        'Unable to validate email address': 'El formato del email no es válido 💛',
+    function translateAuthError(error) {
+      const message = (error?.message || '').toLowerCase();
+      const code = (error?.code || '').toLowerCase();
+
+      const knownMessages = {
+        'invalid login credentials': 'Contraseña incorrecta o email no registrado 💛',
+        'email not confirmed': 'Debes confirmar tu email antes de entrar 💛',
+        'user not found': 'No encontramos una cuenta con ese email 💛',
+        'too many requests': 'Demasiados intentos. Espera unos minutos e intenta de nuevo 💛',
+        'email already registered': 'Este email ya tiene una cuenta. Prueba iniciando sesión 💛',
+        'password should be at least 6 characters': 'La contraseña debe tener al menos 6 caracteres 💛',
+        'unable to validate email address': 'El formato del email no es válido 💛',
         'signup_disabled': 'El registro está deshabilitado temporalmente 💛',
       };
-      for (const [key, val] of Object.entries(errors)) {
-        if (message && message.toLowerCase().includes(key.toLowerCase())) return val;
+
+      for (const [key, val] of Object.entries(knownMessages)) {
+        if (message.includes(key)) return val;
       }
-      return message || 'No pudimos iniciar sesión. Intenta de nuevo 💛';
+
+      const knownCodes = {
+        'invalid_credentials': 'Contraseña incorrecta o email no registrado 💛',
+        'email_not_confirmed': 'Debes confirmar tu email antes de entrar 💛',
+        'too_many_requests': 'Demasiados intentos. Espera unos minutos e intenta de nuevo 💛',
+        'user_not_found': 'No encontramos una cuenta con ese email 💛',
+      };
+
+      if (code && knownCodes[code]) return knownCodes[code];
+      return error?.message || 'No pudimos iniciar sesión. Intenta de nuevo 💛';
     }
 
     async function loginUser() {
@@ -1379,6 +1401,8 @@
         return;
       }
 
+      setStatus('', 'ok', loginStatusBox || statusBox);
+
       try {
         const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
         if (error) throw error;
@@ -1387,7 +1411,7 @@
         setStatus('Qué alegría tenerte aquí de nuevo 💛', 'ok');
         await renderLoggedIn(data.user);
       } catch (err) {
-        setStatus(translateAuthError(err.message), 'error');
+        setStatus(translateAuthError(err), 'error', loginStatusBox || statusBox);
       }
     }
 
