@@ -414,6 +414,7 @@
 
     .modal {
       width: min(460px, 100%);
+      max-height: calc(100dvh - 32px);
       background: #fffdf7;
       border: 1px solid #f3dba4;
       border-radius: var(--radius-lg);
@@ -421,6 +422,7 @@
       padding: 20px;
       display: grid;
       gap: 12px;
+      overflow-y: auto;
       transform: translateY(12px) scale(0.98);
       opacity: 0;
       transition: transform 220ms ease, opacity 220ms ease;
