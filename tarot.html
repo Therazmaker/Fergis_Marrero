@@ -1317,21 +1317,29 @@
         const user = data.user;
         if (!user) throw new Error('No se pudo crear la cuenta en este momento.');
 
-        await saveEmailConsent(user.id, emailOptIn);
-
-        await api('/register', {
-          method: 'POST',
-          body: JSON.stringify({
-            user_id: user.id,
-            name,
-            email,
-            credits: 3,
-            email_opt_in: emailOptIn
-          })
-        });
-
         toggleModal(registerOverlay, false);
         setStatus('¡Cuenta creada! Ya tienes tus 3 preguntas gratuitas mensuales ✨', 'ok');
+
+        try {
+          await saveEmailConsent(user.id, emailOptIn);
+        } catch (consentErr) {
+          setStatus(consentErr.message || 'Tu cuenta se creó, pero no pudimos guardar tu preferencia de correos.', 'warn');
+        }
+
+        try {
+          await api('/register', {
+            method: 'POST',
+            body: JSON.stringify({
+              user_id: user.id,
+              name,
+              email,
+              credits: 3,
+              email_opt_in: emailOptIn
+            })
+          });
+        } catch (registerErr) {
+          setStatus(registerErr.message || 'Tu cuenta se creó, pero no pudimos sincronizar tus datos iniciales.', 'warn');
+        }
 
         const { data: sessionData } = await supabaseClient.auth.getSession();
         const currentUser = sessionData?.session?.user || user;
