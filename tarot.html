@@ -395,15 +395,21 @@
       position: fixed;
       inset: 0;
       background: rgba(80, 56, 16, 0.28);
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1000;
       padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 220ms ease, visibility 220ms ease;
     }
 
     .overlay.show {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .modal {
@@ -415,6 +421,14 @@
       padding: 20px;
       display: grid;
       gap: 12px;
+      transform: translateY(12px) scale(0.98);
+      opacity: 0;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .overlay.show .modal {
+      transform: translateY(0) scale(1);
+      opacity: 1;
     }
 
     .modal h3 { color: #62461f; }
@@ -526,6 +540,39 @@
       font-size: 0.9rem;
       margin-bottom: 8px;
     }
+
+    .btn-danger {
+      background: linear-gradient(90deg, #d65b5b 0%, #b84343 100%);
+      color: #fff8f8;
+      box-shadow: 0 8px 20px rgba(184, 67, 67, 0.22);
+    }
+
+    .account-delete-wrap {
+      margin-top: 8px;
+      border-top: 1px dashed #efcf98;
+      padding-top: 14px;
+    }
+
+    .danger-note {
+      font-size: 0.84rem;
+      color: #94674f;
+      margin-top: 8px;
+    }
+
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #efd39a;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      font: inherit;
+      color: #5e4423;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -600,6 +647,10 @@
           <h3>Tus lecturas anteriores 🔮</h3>
           <div class="history-grid" id="historyList"></div>
           <p class="helper" id="historyEmpty">Aún no tienes lecturas guardadas. Cuando hagas tu primera consulta, aparecerá aquí ✨</p>
+        </div>
+        <div class="account-delete-wrap">
+          <button class="btn btn-danger" id="openDeleteAccountModalBtn">Eliminar mi cuenta</button>
+          <p class="danger-note">Tu cuenta no se elimina automáticamente. Esta acción solo enviará una solicitud por WhatsApp.</p>
         </div>
       </div>
       <div class="status" id="statusBox"></div>
@@ -728,6 +779,35 @@
     </div>
   </div>
 
+  <div class="overlay" id="deleteAccountOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="deleteAccountTitle">
+      <h3 id="deleteAccountTitle">Solicitud de eliminación de cuenta</h3>
+      <p class="helper">Si deseas eliminar tu cuenta, puedes enviarnos esta solicitud. Te acompañaremos en el proceso 💛</p>
+      <div class="field">
+        <label for="deleteAccountEmail">Email</label>
+        <input id="deleteAccountEmail" type="email" readonly />
+      </div>
+      <div class="field">
+        <label for="deleteAccountReason">Motivo (opcional)</label>
+        <select id="deleteAccountReason">
+          <option value="">Selecciona una opción</option>
+          <option>Ya no lo necesito</option>
+          <option>No me sentí cómoda</option>
+          <option>Problemas técnicos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="deleteAccountDetail">Cuéntanos más (opcional)</label>
+        <textarea id="deleteAccountDetail" rows="4" placeholder="Puedes escribir aquí lo que desees compartir..."></textarea>
+      </div>
+      <div class="row">
+        <button class="btn btn-secondary" data-close="#deleteAccountOverlay">Cancelar</button>
+        <button class="btn btn-danger" id="sendDeleteAccountBtn">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
   <section class="card hidden" id="recoverySection">
     <h2>🔐 Crear nueva contraseña</h2>
     <p class="helper" id="recoveryEmailHint">Te enviaremos de regreso aquí para finalizar el cambio.</p>
@@ -785,6 +865,7 @@
     const loginOverlay = document.getElementById('loginOverlay');
     const questionsOverlay = document.getElementById('questionsOverlay');
     const tarotYapeOverlay = document.getElementById('tarotYapeOverlay');
+    const deleteAccountOverlay = document.getElementById('deleteAccountOverlay');
     const packageCards = document.querySelectorAll('[data-package-key]');
     const selectedPackageLabel = document.getElementById('selectedPackageLabel');
     const tarotYapeSelectedLabel = document.getElementById('tarotYapeSelectedLabel');
@@ -805,6 +886,7 @@
 
     let selectedPackageKey = 'basic-5';
     let isRecoveryMode = false;
+    let activeModalCount = 0;
 
     function setStatus(message, type = 'ok', target = statusBox) {
       if (!target) return;
@@ -917,8 +999,25 @@
 
     function toggleModal(overlay, show) {
       if (!overlay) return;
+      if (show) {
+        activeModalCount += 1;
+        overlay.dataset.previousFocus = document.activeElement?.id || '';
+      } else if (overlay.classList.contains('show')) {
+        activeModalCount = Math.max(0, activeModalCount - 1);
+      }
       overlay.classList.toggle('show', show);
       overlay.setAttribute('aria-hidden', String(!show));
+      document.body.classList.toggle('modal-open', activeModalCount > 0);
+
+      if (show) {
+        const firstInput = overlay.querySelector('input, textarea, select, button');
+        firstInput?.focus();
+      } else {
+        const previousId = overlay.dataset.previousFocus;
+        if (previousId) {
+          document.getElementById(previousId)?.focus();
+        }
+      }
     }
 
     function getSelectedPackage() {
@@ -946,6 +1045,33 @@
       const msg = `¡Hola Fergis! Quiero comprar más preguntitas de tarot 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selected.price}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}\n\nAquí envío mi captura del Yape 👇`;
       window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
       toggleModal(tarotYapeOverlay, false);
+    }
+
+    function openDeleteAccountModal() {
+      if (!state.user) {
+        setStatus('Primero inicia sesión para enviar tu solicitud 💛', 'warn');
+        return;
+      }
+      const emailInput = document.getElementById('deleteAccountEmail');
+      const reasonInput = document.getElementById('deleteAccountReason');
+      const detailInput = document.getElementById('deleteAccountDetail');
+      emailInput.value = state.user?.email || '';
+      reasonInput.value = '';
+      detailInput.value = '';
+      toggleModal(deleteAccountOverlay, true);
+    }
+
+    function sendDeleteAccountRequestToWhatsApp() {
+      const email = document.getElementById('deleteAccountEmail').value.trim();
+      const reason = document.getElementById('deleteAccountReason').value.trim() || 'No especificado';
+      const detail = document.getElementById('deleteAccountDetail').value.trim() || 'Sin detalle adicional';
+      if (!email) {
+        setStatus('No encontramos tu email. Inicia sesión nuevamente e inténtalo.', 'warn');
+        return;
+      }
+      const message = `Hola Fergis 🌻 quiero solicitar la eliminación de mi cuenta.\n\nEmail: ${email}\n\nMotivo: ${reason}\n\nDetalle: ${detail}\n\nGracias 💛`;
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      toggleModal(deleteAccountOverlay, false);
     }
 
     function initPaypalForTarotQuestions() {
@@ -1360,6 +1486,8 @@
     });
     document.getElementById('saveRecoveryPasswordBtn').addEventListener('click', saveRecoveredPassword);
     document.getElementById('logoutBtn').addEventListener('click', logoutUser);
+    document.getElementById('openDeleteAccountModalBtn').addEventListener('click', openDeleteAccountModal);
+    document.getElementById('sendDeleteAccountBtn').addEventListener('click', sendDeleteAccountRequestToWhatsApp);
     document.getElementById('openTarotYapeBtn').addEventListener('click', openTarotYape);
     document.getElementById('sendTarotYapeBtn').addEventListener('click', sendTarotYapeToWhatsApp);
     askBasicBtn.addEventListener('click', () => askTarot('basic'));
@@ -1381,10 +1509,18 @@
       });
     });
 
-    [registerOverlay, loginOverlay, questionsOverlay, tarotYapeOverlay].forEach((overlay) => {
+    [registerOverlay, loginOverlay, questionsOverlay, tarotYapeOverlay, deleteAccountOverlay].forEach((overlay) => {
       overlay.addEventListener('click', (event) => {
         if (event.target === overlay) toggleModal(overlay, false);
       });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      [registerOverlay, loginOverlay, questionsOverlay, tarotYapeOverlay, deleteAccountOverlay]
+        .filter((overlay) => overlay.classList.contains('show'))
+        .slice(-1)
+        .forEach((overlay) => toggleModal(overlay, false));
     });
 
     supabaseClient.auth.onAuthStateChange((event, session) => {
