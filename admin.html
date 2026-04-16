@@ -138,24 +138,32 @@
     <!-- GRÁFICO DE ACTIVIDAD Y ÚLTIMOS -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
       <div class="card">
-        <h2>📈 Actividad reciente (Registros)</h2>
+        <h2>📈 Actividad reciente</h2>
         <div style="height: 250px; position: relative;">
           <canvas id="activityChart"></canvas>
         </div>
       </div>
 
       <div class="card">
-        <h2>✨ Últimas personas en unirse</h2>
+        <h2>✨ Actividad de usuarios</h2>
+        <div class="tab-row" style="margin-bottom: 12px; font-size: 0.8rem;">
+          <button id="btnShowLatestUsers" class="tab active" style="padding: 4px 10px;" onclick="toggleLatestView('users')">Nuevos</button>
+          <button id="btnShowLatestQuestions" class="tab" style="padding: 4px 10px;" onclick="toggleLatestView('questions')">Consultas</button>
+        </div>
         <div id="latestUsersList" style="display: grid; gap: 10px;">
           <p style="color:var(--ink-soft);font-size:0.88rem;">Cargando...</p>
+        </div>
+        <div id="latestQuestionsSummary" class="hidden" style="display: grid; gap: 10px;">
+          <p style="color:var(--ink-soft);font-size:0.88rem;">Realiza el <b>Análisis Global</b> para ver las últimas consultas aquí.</p>
         </div>
       </div>
     </div>
 
     <!-- TABS -->
     <div class="tab-row">
-      <button class="tab active" onclick="switchTab('users')">👥 Usuarios</button>
-      <button class="tab" onclick="switchTab('recharge')">💳 Recargar créditos</button>
+      <button class="main-tab tab active" onclick="switchTab('users')">👥 Usuarios</button>
+      <button class="main-tab tab" onclick="switchTab('recharge')">💳 Recargar créditos</button>
+      <button class="main-tab tab" onclick="switchTab('analysis')">🔍 Análisis de Consultas</button>
     </div>
 
     <!-- TABLA DE USUARIOS -->
@@ -216,6 +224,41 @@
       <div id="rechargeAlert"></div>
     </div>
 
+    <!-- ANÁLISIS DE CONSULTAS -->
+    <div id="tabAnalysis" class="card hidden">
+      <h2>🔍 Análisis de lo que preguntan las usuarias</h2>
+      <p style="font-size:0.88rem;color:var(--ink-soft);margin-bottom:16px;">
+        Esta herramienta analiza las preguntas de todos los usuarios para identificar temas recurrentes.
+      </p>
+      <div id="analysisStats" class="row" style="margin-bottom: 20px; display: none;">
+        <div class="badge badge-basic" id="analyzedUsersCount">0 usuarios analizados</div>
+        <div class="badge badge-premium" id="totalQuestionsCount">0 preguntas encontradas</div>
+      </div>
+      <button class="btn btn-primary" id="startAnalysisBtn" onclick="runGlobalAnalysis()">🚀 Iniciar Análisis Global</button>
+
+      <div id="analysisResults" class="hidden" style="margin-top:24px;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <h3>💎 Temas y palabras clave</h3>
+            <table style="background: #fff; border-radius: 12px; border: 1px solid #f3d996;">
+              <thead>
+                <tr>
+                  <th>Palabra / Tema</th>
+                  <th>Frecuencia</th>
+                </tr>
+              </thead>
+              <tbody id="topKeywordsTable"></tbody>
+            </table>
+          </div>
+          <div>
+            <h3>📝 Últimas preguntas globales</h3>
+            <div id="globalQuestionsList" style="max-height: 400px; overflow-y: auto; display: grid; gap: 8px;"></div>
+          </div>
+        </div>
+      </div>
+      <div id="analysisProgress" style="margin-top:16px; font-size: 0.85rem; color: var(--ink-soft);"></div>
+    </div>
+
   </div>
 </div>
 
@@ -223,6 +266,7 @@
   const API_URL = 'https://tarot-fergis-api-731735548765.europe-west1.run.app';
   let adminKey = '';
   let usersCache = [];
+  let questionsCache = [];
   let activityChart = null;
 
   function doLogin() {
@@ -248,8 +292,13 @@
   function switchTab(tab) {
     document.getElementById('tabUsers').classList.toggle('hidden', tab !== 'users');
     document.getElementById('tabRecharge').classList.toggle('hidden', tab !== 'recharge');
-    document.querySelectorAll('.tab').forEach((t, i) => {
-      t.classList.toggle('active', (i === 0 && tab === 'users') || (i === 1 && tab === 'recharge'));
+    document.getElementById('tabAnalysis').classList.toggle('hidden', tab !== 'analysis');
+    document.querySelectorAll('.main-tab').forEach((t, i) => {
+      t.classList.toggle('active',
+        (i === 0 && tab === 'users') ||
+        (i === 1 && tab === 'recharge') ||
+        (i === 2 && tab === 'analysis')
+      );
     });
     if (tab === 'recharge') populateRechargeSelect();
   }
@@ -312,6 +361,17 @@
           tension: 0.3,
           pointBackgroundColor: '#f2be42',
           borderWidth: 2
+        },
+        {
+          label: 'Consultas (Uso)',
+          data: last14Days.map(d => 0), // Placeholder que se llenará con el análisis global
+          borderColor: '#2d9a67',
+          backgroundColor: 'transparent',
+          borderDash: [5, 5],
+          tension: 0.3,
+          pointBackgroundColor: '#2d9a67',
+          borderWidth: 2,
+          hidden: true // Se muestra tras el análisis
         }]
       },
       options: {
@@ -326,6 +386,13 @@
         }
       }
     });
+  }
+
+  function toggleLatestView(view) {
+    document.getElementById('latestUsersList').classList.toggle('hidden', view !== 'users');
+    document.getElementById('latestQuestionsSummary').classList.toggle('hidden', view !== 'questions');
+    document.getElementById('btnShowLatestUsers').classList.toggle('active', view === 'users');
+    document.getElementById('btnShowLatestQuestions').classList.toggle('active', view === 'questions');
   }
 
   function renderLatestUsers(users) {
@@ -413,6 +480,132 @@
     const sel = document.getElementById('rechargeUser');
     sel.innerHTML = '<option value="">Selecciona un usuario...</option>' +
       usersCache.map(u => `<option value="${u.id}">${escHtml(u.email)}</option>`).join('');
+  }
+
+  async function runGlobalAnalysis() {
+    const btn = document.getElementById('startAnalysisBtn');
+    const progress = document.getElementById('analysisProgress');
+    const resultsDiv = document.getElementById('analysisResults');
+    const stats = document.getElementById('analysisStats');
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Analizando...';
+    progress.textContent = 'Iniciando recolección de datos...';
+    resultsDiv.classList.add('hidden');
+    stats.style.display = 'none';
+
+    let allQuestions = [];
+    let processedCount = 0;
+    const batchSize = 10;
+
+    for (let i = 0; i < usersCache.length; i += batchSize) {
+      const batch = usersCache.slice(i, i + batchSize);
+      progress.textContent = `Consultando historiales... (${i + 1}-${Math.min(i + batchSize, usersCache.length)} de ${usersCache.length})`;
+
+      const batchResults = await Promise.all(batch.map(async u => {
+        try {
+          const history = await adminFetch(`/admin/history/${u.id}`);
+          return { email: u.email, history };
+        } catch (e) {
+          console.error(`Error con ${u.email}:`, e);
+          return { email: u.email, history: [] };
+        }
+      }));
+
+      batchResults.forEach(res => {
+        res.history.forEach(h => {
+          if (h.question) allQuestions.push({
+            text: h.question,
+            email: res.email,
+            date: h.timestamp?._seconds ? new Date(h.timestamp._seconds * 1000).toISOString() : h.created_at
+          });
+        });
+        processedCount++;
+      });
+    }
+
+    progress.textContent = 'Procesando temas y palabras clave...';
+
+    // Análisis de palabras
+    const wordFreq = {};
+    const stopWords = new Set(['que', 'de', 'la', 'en', 'el', 'un', 'una', 'y', 'a', 'me', 'mi', 'mis', 'con', 'por', 'para', 'lo', 'si', 'no', 'como', 'sobre', 'tu', 'te', 'es', 'del', 'al', 'o', 'yo', 'se', 'ha', 'las', 'los', 'quisiera', 'quiero', 'saber', 'tengo', 'hay', 'donde', 'cuando', 'quien', 'porque', 'este', 'esta', 'estos', 'estas', 'será', 'ir', 'bien', 'mal', 'pero']);
+
+    allQuestions.forEach(q => {
+      const words = q.text.toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()¿?¡!]/g,"")
+        .split(/\s+/);
+
+      words.forEach(w => {
+        if (w.length > 2 && !stopWords.has(w)) {
+          wordFreq[w] = (wordFreq[w] || 0) + 1;
+        }
+      });
+    });
+
+    const sortedWords = Object.entries(wordFreq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 15);
+
+    // Renderizar tabla
+    document.getElementById('topKeywordsTable').innerHTML = sortedWords.map(([w, f]) => `
+      <tr>
+        <td style="font-weight:600; color:#5a3d10;">${escHtml(w)}</td>
+        <td style="text-align:center;"><span class="badge badge-basic">${f}</span></td>
+      </tr>
+    `).join('');
+
+    // Renderizar lista global (últimas 20)
+    const sortedQuestions = allQuestions
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 20);
+
+    document.getElementById('globalQuestionsList').innerHTML = sortedQuestions.map(q => `
+      <div style="background: #fffef0; border: 1px solid #f0d98a; border-radius: 10px; padding: 10px; font-size: 0.82rem;">
+        <div style="font-weight:700; color:#7a5010; margin-bottom:4px;">${escHtml(q.email)}</div>
+        <div style="color:var(--ink);">${escHtml(q.text)}</div>
+        <div style="font-size:0.7rem; color:var(--ink-soft); margin-top:4px;">${formatDate(q.date)}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('analyzedUsersCount').textContent = `${processedCount} usuarios analizados`;
+    document.getElementById('totalQuestionsCount').textContent = `${allQuestions.length} preguntas encontradas`;
+    questionsCache = allQuestions;
+
+    // Renderizar resumen de últimas preguntas en el panel principal
+    const qList = document.getElementById('latestQuestionsSummary');
+    const latestQ = [...allQuestions]
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 5);
+
+    qList.innerHTML = latestQ.map(q => `
+      <div style="background: #fffef0; border: 1px solid #f0d98a; border-radius: 10px; padding: 10px;">
+        <div style="font-size: 0.8rem; font-weight: 700; color: #5a4321;">${escHtml(q.email)}</div>
+        <div style="font-size: 0.78rem; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${escHtml(q.text)}</div>
+      </div>
+    `).join('');
+
+    // Actualizar gráfico con datos de consultas
+    if (activityChart) {
+      const last14Days = [];
+      for (let i = 13; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        last14Days.push(d.toISOString().split('T')[0]);
+      }
+
+      const qCounts = last14Days.map(date => {
+        return allQuestions.filter(q => q.date && q.date.startsWith(date)).length;
+      });
+      activityChart.data.datasets[1].data = qCounts;
+      activityChart.data.datasets[1].hidden = false;
+      activityChart.update();
+    }
+
+    btn.disabled = false;
+    btn.textContent = '🔄 Volver a Analizar';
+    progress.textContent = 'Análisis completado con éxito.';
+    resultsDiv.classList.remove('hidden');
+    stats.style.display = 'flex';
   }
 
   async function doRecharge() {
