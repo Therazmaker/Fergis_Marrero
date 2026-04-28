@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué necesita tu alma? — Mamá Girasol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6e8;
+    --gold: #d4a017;
+    --gold-light: #f0c84a;
+    --gold-pale: #faecc8;
+    --brown: #2a1a08;
+    --brown-mid: #5c3d1e;
+    --brown-soft: #8b6340;
+    --warm-white: #fffdf7;
+    --text-muted: #9a7a55;
+    --text-body: #3d2610;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Background decoration */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -40%;
+    right: -20%;
+    width: 70vw;
+    height: 70vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,160,23,0.10) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -30%;
+    left: -15%;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .logo-sun {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* Progress */
+  .progress-wrap {
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s ease forwards;
+  }
+  .progress-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    text-align: right;
+  }
+  .progress-track {
+    height: 2px;
+    background: rgba(212,160,23,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Card */
+  .card {
+    background: var(--warm-white);
+    border-radius: 24px;
+    border: 1px solid rgba(212,160,23,0.15);
+    padding: 2.5rem 2rem 2rem;
+    box-shadow: 0 8px 40px rgba(42,26,8,0.06), 0 1px 0 rgba(212,160,23,0.12);
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  /* Slide */
+  .slide { display: none; }
+  .slide.active { display: block; }
+
+  .slide-icon {
+    font-size: 2.6rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    text-align: center;
+  }
+  .slide-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--brown);
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+  }
+  .slide-question em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .slide-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  /* Options */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    position: relative;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    border: 1.5px solid rgba(212,160,23,0.2);
+    background: transparent;
+    color: var(--text-body);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+  .opt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold-pale);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .opt:hover { border-color: var(--gold); }
+  .opt:hover::before { opacity: 0.5; }
+  .opt.selected {
+    border-color: var(--gold);
+    color: var(--brown);
+    background: var(--gold-pale);
+  }
+  .opt span { position: relative; z-index: 1; }
+  .opt-emoji {
+    display: inline-block;
+    width: 22px;
+    margin-right: 4px;
+  }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.75rem;
+  }
+  .btn-back {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+  .btn-back:hover { color: var(--brown-mid); }
+  .btn-back:disabled { opacity: 0.25; cursor: default; }
+
+  .step-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(212,160,23,0.25);
+    transition: all 0.3s;
+  }
+  .dot.active { background: var(--gold); width: 18px; border-radius: 3px; }
+  .dot.done { background: rgba(212,160,23,0.55); }
+
+  /* Result slide */
+  .result-header {
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+  .result-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-pale);
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .result-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--brown);
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+  }
+  .result-title em { font-style: italic; color: var(--gold); }
+  .result-icon-big { font-size: 3rem; display: block; margin-bottom: 0.8rem; }
+
+  .result-message {
+    font-size: 0.92rem;
+    color: var(--text-body);
+    line-height: 1.75;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .result-section {
+    background: var(--gold-pale);
+    border-radius: 16px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--gold);
+  }
+  .result-section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .result-section-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--brown);
+    line-height: 1.6;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 1.05rem;
+    background: linear-gradient(135deg, var(--gold) 0%, #c4900e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.01em;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 20px rgba(212,160,23,0.35);
+  }
+  .cta-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px rgba(212,160,23,0.45);
+  }
+  .cta-sub {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+  }
+
+  .restart-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: transparent;
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .restart-btn:hover { border-color: var(--gold); color: var(--brown-mid); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s ease forwards;
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-enter {
+    animation: slideIn 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .slide-back {
+    animation: slideInBack 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
+  @keyframes slideInBack {
+    from { opacity: 0; transform: translateX(-24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 2rem 1.4rem 1.6rem; }
+    .slide-question { font-size: 1.5rem; }
+    .result-title { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <span class="logo-sun">🌻</span>
+    <span class="brand">Mamá Girasol</span>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-label" id="progress-label">Pregunta 1 de 4</div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <!-- SLIDE 0: Intro -->
+    <div class="slide active" id="slide-0">
+      <span class="slide-icon">✨</span>
+      <h1 class="slide-question">¿Qué necesita<br><em>tu alma</em> ahora mismo?</h1>
+      <p class="slide-sub">Un pequeño test para ayudarte a nombrar lo que estás sintiendo 💛<br>Solo lleva 2 minutos.</p>
+      <div class="options">
+        <button class="opt" onclick="selectOption(0,0,'entender')"><span><span class="opt-emoji">✨</span> Quiero entender qué me está pasando</span></button>
+        <button class="opt" onclick="selectOption(0,1,'acompañada')"><span><span class="opt-emoji">💛</span> Necesito sentirme menos sola</span></button>
+        <button class="opt" onclick="selectOption(0,2,'claridad')"><span><span class="opt-emoji">🌙</span> Busco claridad para tomar una decisión</span></button>
+        <button class="opt" onclick="selectOption(0,3,'identidad')"><span><span class="opt-emoji">🌿</span> Quiero entenderme más a mí misma</span></button>
+      </div>
+    </div>
+
+    <!-- SLIDE 1 -->
+    <div class="slide" id="slide-1">
+      <span class="slide-icon">💭</span>
+      <h2 class="slide-question">¿Cómo describes lo que sientes <em>últimamente</em>?</h2>
+      <p class="slide-sub">No hay respuesta incorrecta, hermana 🌻</p>
+      <div class="options">
+        <button class="opt" onclick="selectOption(1,0,'anestesiada')"><span><span class="opt-emoji">😶</span> Anestesiada. No siento nada con claridad.</span></button>
+        <button class="opt" onclick="selectOption(1,1,'triste')"><span><span class="opt-emoji">😔</span> Triste sin saber muy bien por qué.</span></button>
+        <button class="opt" onclick="selectOption(1,2,'ansiosa')"><span><span class="opt-emoji">😰</span> Ansiosa. Me cuesta parar.</span></button>
+        <button class="opt" onclick="selectOption(1,3,'rabia')"><span><span class="opt-emoji">😤</span> Con rabia o frustración acumulada.</span></button>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" id="slide-2">
+      <span class="slide-icon">🌙</span>
+      <h2 class="slide-question">¿Dónde sientes <em>más peso</em> ahora?</h2>
+      <p class="slide-sub"></p>
+      <div class="options">
+        <button class="opt" onclick="selectOption(2,0,'vinculos')"><span><span class="opt-emoji">💔</span> En mis vínculos y relaciones</span></button>
+        <button class="opt" onclick="selectOption(2,1,'personal')"><span><span class="opt-emoji">🏡</span> En lo personal, mi identidad</span></button>
+        <button class="opt" onclick="selectOption(2,2,'trabajo')"><span><span class="opt-emoji">💼</span> En el trabajo o mi propósito</span></button>
+        <button class="opt" onclick="selectOption(2,3,'todo')"><span><span class="opt-emoji">🌀</span> En todo a la vez, honestamente</span></button>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" id="slide-3">
+      <span class="slide-icon">🔮</span>
+      <h2 class="slide-question">¿Qué te gustaría <em>llevarte</em> de una sesión?</h2>
+      <p class="slide-sub"></p>
+      <div class="options">
+        <button class="opt" onclick="selectOption(3,0,'direccion')"><span><span class="opt-emoji">🧭</span> Claridad y dirección</span></button>
+        <button class="opt" onclick="selectOption(3,1,'escuchada')"><span><span class="opt-emoji">🤗</span> Sentirme escuchada y sostenida</span></button>
+        <button class="opt" onclick="selectOption(3,2,'natal')"><span><span class="opt-emoji">🌟</span> Entender qué dice mi carta natal</span></button>
+        <button class="opt" onclick="selectOption(3,3,'ver')"><span><span class="opt-emoji">💡</span> Ver lo que no estoy viendo</span></button>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Resultado -->
+    <div class="slide" id="slide-4">
+      <div class="result-header">
+        <div class="result-tag">Tu lectura personal</div>
+        <span class="result-icon-big" id="result-icon">🌻</span>
+        <h2 class="result-title" id="result-title">Tu alma está lista<br><em>para ser acompañada</em></h2>
+      </div>
+      <p class="result-message" id="result-message">
+        Llevas cargando más de lo que deberías cargar sola. Lo que sientes tiene nombre, y merece ser sostenido con cuidado y sin juicio. Eso es exactamente lo que hacemos juntas.
+      </p>
+      <div class="result-section">
+        <div class="result-section-label">Lo que te propongo</div>
+        <div class="result-section-text" id="result-service">Una sesión donde puedas bajar el ruido, ordenar lo que sientes y volver a ti 💛</div>
+      </div>
+      <a href="https://fergismarrero.com/#contacto" class="cta-btn" target="_blank">
+        🌻 Agenda tu sesión conmigo
+      </a>
+      <p class="cta-sub">Sin compromiso · Sin presión · Solo tú y yo</p>
+      <button class="restart-btn" onclick="restart()">↩ Volver a empezar</button>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav" id="nav-bar">
+      <button class="btn-back" id="btn-back" onclick="goBack()" disabled>← Anterior</button>
+      <div class="step-dots" id="step-dots"></div>
+      <div style="width:70px"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Con amor, <a href="https://fergismarrero.com" target="_blank">fergismarrero.com</a> 🌻
+  </div>
+
+</div>
+
+<script>
+  const TOTAL = 4;
+  let current = 0;
+  let answers = {};
+
+  const results = {
+    // Combos: basado en respuesta 0 (necesidad principal)
+    entender: {
+      icon: '🔮',
+      title: 'Tu mente busca<br><em>un mapa para entenderse</em>',
+      message: 'Cuando algo no tiene nombre, pesa el doble. Sientes que hay algo que entender, pero no sabes bien por dónde empezar. La astrología y el tarot pueden darte ese mapa interior que llevas buscando.',
+      service: 'Una sesión de carta natal o tarot para darle nombre y dirección a lo que sientes 🌙'
+    },
+    acompañada: {
+      icon: '🌸',
+      title: 'Lo que necesitas es<br><em>sentir que no estás sola</em>',
+      message: 'Hay cosas que se cargan más livianas cuando alguien las sostiene contigo. No para resolverlas por ti, sino para acompañarte mientras las atraviesas. Eso es exactamente lo que hago.',
+      service: 'Diosa en Guía: acompañamiento continuo para que nunca tengas que traversar esto sola 💛'
+    },
+    claridad: {
+      icon: '🧭',
+      title: 'Estás en un cruce<br><em>y necesitas ver con más claridad</em>',
+      message: 'Las decisiones pesan cuando no sabes qué parte de ti escuchar. El tarot y la astrología no deciden por ti, pero sí te ayudan a ver lo que ya sabes dentro, con más calma y certeza.',
+      service: 'Una sesión de tarot o tránsitos astrológicos para ver el panorama completo 🌟'
+    },
+    identidad: {
+      icon: '🌿',
+      title: 'Estás en proceso<br><em>de volverte a conocer</em>',
+      message: 'Hay momentos en la vida donde la persona que eras ya no alcanza para lo que está llegando. Y eso puede sentirse extraño. Tu carta natal es el mapa más honesto de quién eres y hacia dónde vas.',
+      service: 'Una sesión de carta natal para reconectar con tu esencia y tu propósito 🌻'
+    }
+  };
+
+  function buildDots() {
+    const el = document.getElementById('step-dots');
+    el.innerHTML = '';
+    for (let i = 0; i < TOTAL; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i < current ? ' done' : i === current ? ' active' : '');
+      el.appendChild(d);
+    }
+  }
+
+  function updateProgress() {
+    const pct = current === TOTAL ? 100 : (current / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    if (current < TOTAL) {
+      document.getElementById('progress-label').textContent = 'Pregunta ' + (current + 1) + ' de ' + TOTAL;
+    } else {
+      document.getElementById('progress-label').textContent = 'Tu resultado está listo ✨';
+    }
+  }
+
+  function showSlide(n, direction) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active','slide-enter','slide-back'));
+    const slide = document.getElementById('slide-' + n);
+    slide.classList.add('active');
+    slide.classList.add(direction === 'back' ? 'slide-back' : 'slide-enter');
+    document.getElementById('btn-back').disabled = n === 0;
+    document.getElementById('nav-bar').style.display = n === TOTAL ? 'none' : 'flex';
+    buildDots();
+    updateProgress();
+  }
+
+  function selectOption(slideIdx, optIdx, value) {
+    answers[slideIdx] = value;
+    const opts = document.querySelectorAll('#slide-' + slideIdx + ' .opt');
+    opts.forEach(o => o.classList.remove('selected'));
+    opts[optIdx].classList.add('selected');
+    setTimeout(() => {
+      if (slideIdx < TOTAL - 1) {
+        current = slideIdx + 1;
+        showSlide(current, 'forward');
+      } else {
+        showResult();
+      }
+    }, 260);
+  }
+
+  function showResult() {
+    current = TOTAL;
+    const key = answers[0] || 'entender';
+    const r = results[key];
+    document.getElementById('result-icon').textContent = r.icon;
+    document.getElementById('result-title').innerHTML = r.title;
+    document.getElementById('result-message').textContent = r.message;
+    document.getElementById('result-service').textContent = r.service;
+    showSlide(TOTAL, 'forward');
+    document.getElementById('progress-label').textContent = 'Tu resultado está listo ✨';
+    document.getElementById('progress-fill').style.width = '100%';
+  }
+
+  function goBack() {
+    if (current > 0) {
+      current--;
+      showSlide(current, 'back');
+    }
+  }
+
+  function restart() {
+    answers = {};
+    current = 0;
+    document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+    showSlide(0, 'back');
+  }
+
+  buildDots();
+  updateProgress();
+</script>
+</body>
+</html>
