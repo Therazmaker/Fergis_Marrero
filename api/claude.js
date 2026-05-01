@@ -1,5 +1,16 @@
 export default async function handler(req, res) {
-  // Solo permitir POST
+
+  // 🔥 CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // 🔥 Preflight
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // Solo POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }
@@ -11,7 +22,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Falta el mensaje" });
     }
 
-    // Llamada a Claude
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -33,29 +43,25 @@ export default async function handler(req, res) {
       })
     });
 
-    // ⚠️ Leer como texto primero (para evitar errores JSON)
     const rawText = await response.text();
 
     let data;
-
     try {
       data = JSON.parse(rawText);
-    } catch (err) {
+    } catch {
       return res.status(500).json({
         error: "Claude devolvió texto no JSON",
         raw: rawText
       });
     }
 
-    // Manejo de error de Claude
     if (data.error) {
       return res.status(500).json({
-        error: data.error.message || "Error desconocido de Claude",
+        error: data.error.message,
         full: data
       });
     }
 
-    // Extraer respuesta correctamente
     const reply = data.content?.[0]?.text;
 
     return res.status(200).json({
