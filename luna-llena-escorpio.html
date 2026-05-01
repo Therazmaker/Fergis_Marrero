@@ -436,7 +436,7 @@
 
 <script>
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbynVDcR2RjKPt71A_9_aODRt0QtkNHTP_y4n2M1y8_xf4bwXvuoiHoGjP-7G5fIvNrK4g/exec";
-const CLAUDE_URL = "https://api.anthropic.com/v1/messages";
+const CLAUDE_URL = "/api/claude";
 
 let userData = {};
 
@@ -528,21 +528,13 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
     const res = await fetch(CLAUDE_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': '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',
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      body: JSON.stringify({ message: prompt })
     });
 
     const data = await res.json();
-    const text = data.content[0].text.trim();
-    return JSON.parse(text);
+    return JSON.parse(data.reply);
   } catch(e) {
     console.error('Claude error:', e);
     return null;
