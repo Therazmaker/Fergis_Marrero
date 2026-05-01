@@ -552,7 +552,7 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
   console.warn("JSON roto, usando fallback");
 
   // 🧠 fallback: mostrar texto aunque esté roto
- try {
+try {
   return JSON.parse(data.reply);
 
 } catch (parseErr) {
@@ -568,6 +568,13 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
 
   return { energia, mensaje, ritual };
 }
+
+} catch(e) {
+  console.error('Fetch error:', e);
+  return null;
+}
+}
+
 async function guardarEnSheets() {
   try {
     await fetch(SHEETS_URL, {
