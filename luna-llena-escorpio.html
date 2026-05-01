@@ -424,6 +424,10 @@
 
     <hr class="divider">
 
+    <div class="result-block">
+      <p class="result-label">Ritual sugerido esta noche</p>
+      <p class="result-text" id="r-ritual"></p>
+    </div>
 
     <button class="btn btn-ghost" onclick="reiniciar()" style="margin-top:2rem;">Comenzar de nuevo</button>
   </div>
@@ -489,11 +493,21 @@ async function generarLectura() {
     return;
   }
 
-  document.getElementById('r-energia').textContent = lectura.energia;
-  document.getElementById('r-mensaje').textContent = lectura.mensaje;
-  document.getElementById('r-ritual').textContent  = lectura.ritual;
-
   goTo('s4', 2);
+
+  const energiaEl = document.getElementById('r-energia');
+  const mensajeEl = document.getElementById('r-mensaje');
+  const ritualEl  = document.getElementById('r-ritual');
+
+  if (!energiaEl || !mensajeEl || !ritualEl) {
+    console.error("Elementos no encontrados en DOM");
+    return;
+  }
+
+  energiaEl.textContent = lectura.energia;
+  mensajeEl.textContent = lectura.mensaje;
+  ritualEl.textContent  = lectura.ritual;
+
 }
 const CLAUDE_URL = "https://fergis-marrero.vercel.app/api/claude";
 async function llamarClaude(soltar, revelar) {
