@@ -545,34 +545,22 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
       return null;
     }
 
-   try {
+    try {
       return JSON.parse(data.reply);
-
     } catch (parseErr) {
-  console.warn("JSON roto, usando fallback");
-
-  // 🧠 fallback: mostrar texto aunque esté roto
-try {
-  return JSON.parse(data.reply);
-
-} catch (parseErr) {
-  console.warn("JSON roto, reconstruyendo...");
-
-  let text = data.reply
-    .replace(/[\u0000-\u001F]+/g, '')
-    .replace(/\n/g, ' ');
-
-  const energia = text.match(/"energia"\s*:\s*"([^"]+)/)?.[1] || "";
-  const mensaje = text.match(/"mensaje"\s*:\s*"([^"]+)/)?.[1] || "";
-  const ritual  = text.match(/"ritual"\s*:\s*"([^"]+)/)?.[1] || "";
-
-  return { energia, mensaje, ritual };
-}
-
-} catch(e) {
-  console.error('Fetch error:', e);
-  return null;
-}
+      console.warn("JSON roto, reconstruyendo...");
+      let text = data.reply
+        .replace(/[\u0000-\u001F]+/g, '')
+        .replace(/\n/g, ' ');
+      const energia = text.match(/"energia"\s*:\s*"([^"]+)/)?.[1] || "";
+      const mensaje = text.match(/"mensaje"\s*:\s*"([^"]+)/)?.[1] || "";
+      const ritual  = text.match(/"ritual"\s*:\s*"([^"]+)/)?.[1] || "";
+      return { energia, mensaje, ritual };
+    }
+  } catch (e) {
+    console.error('Fetch error:', e);
+    return null;
+  }
 }
 
 async function guardarEnSheets() {
