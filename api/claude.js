@@ -13,19 +13,18 @@ export default async function handler(req, res) {
         "x-api-key": process.env.CLAUDE_API_KEY,
         "anthropic-version": "2023-06-01"
       },
-      body: JSON.stringify({
-        model: "claude-3-haiku",
-        max_tokens: 300,
-        messages: [
-          {
-            role: "user",
-            content: [
-              { type: "text", text: message }
-            ]
-          }
-        ]
-      })
-    });
+     body: JSON.stringify({
+  model: "claude-3-haiku-20240307",
+  max_tokens: 300,
+  messages: [
+    {
+      role: "user",
+      content: [
+        { type: "text", text: message }
+      ]
+    }
+  ]
+})
 
     const data = await response.json();
 
