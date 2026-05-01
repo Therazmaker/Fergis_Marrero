@@ -499,7 +499,7 @@ async function generarLectura() {
 
   goTo('s4', 2);
 }
-
+const CLAUDE_URL = "https://fergis-marrero.vercel.app/api/claude";
 async function llamarClaude(soltar, revelar) {
   const nacimiento = userData.fecha
     ? new Date(userData.fecha + 'T12:00:00').toLocaleDateString('es-PE', { day:'numeric', month:'long', year:'numeric' })
