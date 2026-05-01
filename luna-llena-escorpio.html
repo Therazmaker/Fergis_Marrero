@@ -429,6 +429,16 @@
       <p class="result-text" id="r-ritual"></p>
     </div>
 
+
+    <div class="result-block" style="margin-top:2rem;">
+      <p class="result-label">¿Cómo resonó esta lectura contigo?</p>
+      <textarea id="comentario" rows="3" placeholder="Puedes escribir lo que sentiste..."></textarea>
+
+      <button class="btn btn-ghost" onclick="enviarFeedback()" style="margin-top:1rem;">
+        Enviar comentario
+      </button>
+    </div>
+
     <button class="btn btn-ghost" onclick="reiniciar()" style="margin-top:2rem;">Comenzar de nuevo</button>
   </div>
 
@@ -590,8 +600,42 @@ async function guardarEnSheets() {
   }
 }
 
+async function enviarFeedback() {
+  const comentario = document.getElementById('comentario').value.trim();
+
+  if (!comentario) {
+    alert("Puedes escribir algo antes de enviar 🌙");
+    return;
+  }
+
+  try {
+    await fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: userData.nombre,
+        fecha: userData.fecha,
+        correo: userData.correo,
+        soltar: userData.soltar,
+        revelar: userData.revelar,
+        comentario: comentario,
+        tipo: "feedback"
+      })
+    });
+
+    alert("Gracias por compartir tu experiencia ✨");
+
+    document.getElementById('comentario').value = "";
+
+  } catch (e) {
+    console.warn('Error feedback:', e);
+  }
+}
+
+
 function reiniciar() {
-  ['nombre','fecha','correo','soltar','revelar'].forEach(id => {
+  ['nombre','fecha','correo','soltar','revelar','comentario'].forEach(id => {
     document.getElementById(id).value = '';
   });
   userData = {};
