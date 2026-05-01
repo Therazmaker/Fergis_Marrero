@@ -545,12 +545,19 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
       return null;
     }
 
-    try {
+   try {
       return JSON.parse(data.reply);
+
     } catch (parseErr) {
-      console.error('JSON Parse Error in reply:', parseErr, data.reply);
-      return null;
-    }
+  console.warn("JSON roto, usando fallback");
+
+  // 🧠 fallback: mostrar texto aunque esté roto
+      return {
+        energia: "",
+        mensaje: data.reply,  // 👈 mostramos todo como mensaje
+        ritual: ""
+  };
+  }
   } catch(e) {
     console.error('Fetch error:', e);
     return null;
