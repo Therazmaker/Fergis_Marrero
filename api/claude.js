@@ -1,4 +1,8 @@
 export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método no permitido" });
+  }
+
   try {
     const { message } = req.body;
 
@@ -13,18 +17,29 @@ export default async function handler(req, res) {
         model: "claude-3-haiku-20240307",
         max_tokens: 300,
         messages: [
-          { role: "user", content: message }
+          {
+            role: "user",
+            content: [
+              { type: "text", text: message }
+            ]
+          }
         ]
       })
     });
 
     const data = await response.json();
 
-    // 👇 AGREGA ESTO
-    console.log("CLAUDE RESPONSE:", data);
+    if (data.error) {
+      return res.status(500).json({ error: data.error.message });
+    }
 
-    res.status(200).json(data); // 👈 devuelve TODO
+    const reply = data.content?.[0]?.text;
+
+    res.status(200).json({
+      reply: reply || "Claude respondió vacío 🤔"
+    });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Error interno" });
   }
 }
