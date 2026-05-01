@@ -1,31 +1,25 @@
 export default async function handler(req, res) {
-
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }
 
   try {
-    const body = req.body || {};
-    const prompt = body.prompt;
-
-    if (!prompt) {
-      return res.status(400).json({ error: "No prompt provided" });
-    }
+    const { message } = req.body;
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.API_KEY,
+        "x-api-key": process.env.CLAUDE_API_KEY,
         "anthropic-version": "2023-06-01"
       },
       body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 1000,
+        model: "claude-3-haiku-20240307",
+        max_tokens: 300,
         messages: [
           {
             role: "user",
-            content: prompt
+            content: message
           }
         ]
       })
@@ -33,13 +27,11 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    // 👇 LOG para debug (clave)
-    console.log("Claude response:", data);
+    res.status(200).json({
+      reply: data.content?.[0]?.text || "Sin respuesta"
+    });
 
-    return res.status(200).json(data);
-
-  } catch (err) {
-    console.error("ERROR:", err);
-    return res.status(500).json({ error: "Server crashed", details: err.message });
+  } catch (error) {
+    res.status(500).json({ error: "Error en el servidor" });
   }
 }
