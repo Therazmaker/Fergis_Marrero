@@ -533,10 +533,26 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
       body: JSON.stringify({ message: prompt })
     });
 
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      console.error('API Error:', res.status, res.statusText, errorData);
+      return null;
+    }
+
     const data = await res.json();
-    return JSON.parse(data.reply);
+    if (!data.reply) {
+      console.error('API Error: No reply in response', data);
+      return null;
+    }
+
+    try {
+      return JSON.parse(data.reply);
+    } catch (parseErr) {
+      console.error('JSON Parse Error in reply:', parseErr, data.reply);
+      return null;
+    }
   } catch(e) {
-    console.error('Claude error:', e);
+    console.error('Fetch error:', e);
     return null;
   }
 }
