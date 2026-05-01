@@ -435,6 +435,9 @@
 </div>
 
 <script>
+// PEGA TU API KEY DE ANTHROPIC AQUÍ
+const ANTHROPIC_API_KEY = "Pega tu API aqui";
+
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbynVDcR2RjKPt71A_9_aODRt0QtkNHTP_y4n2M1y8_xf4bwXvuoiHoGjP-7G5fIvNrK4g/exec";
 const CLAUDE_URL = "https://api.anthropic.com/v1/messages";
 
@@ -529,7 +532,7 @@ Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional, co
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': 'TU_API_KEY_AQUI',
+        'x-api-key': ANTHROPIC_API_KEY,
         'anthropic-version': '2023-06-01',
         'anthropic-dangerous-direct-browser-access': 'true'
       },
