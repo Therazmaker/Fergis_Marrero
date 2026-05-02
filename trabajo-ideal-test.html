@@ -497,6 +497,59 @@
     margin-bottom: 1.25rem;
   }
 
+  /* Consent checkbox */
+  .consent-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+    margin-top: 0.25rem;
+    padding: 14px 16px;
+    border: 1px solid rgba(140,115,85,0.18);
+    background: rgba(255,255,255,0.02);
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  .consent-wrap:hover {
+    border-color: rgba(90,125,86,0.35);
+  }
+  .consent-wrap input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    border: 1px solid rgba(140,115,85,0.5);
+    background: transparent;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    margin-top: 3px;
+    position: relative;
+    transition: all 0.2s;
+    border-bottom: 1px solid rgba(140,115,85,0.5);
+    padding: 0;
+  }
+  .consent-wrap input[type=checkbox]:checked {
+    background: rgba(61,92,58,0.5);
+    border-color: var(--green-light);
+  }
+  .consent-wrap input[type=checkbox]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -1px;
+    left: 2px;
+    font-size: 11px;
+    color: var(--green-light);
+  }
+  .consent-text {
+    font-size: 13px;
+    color: var(--pale);
+    line-height: 1.6;
+    opacity: 0.75;
+    font-style: italic;
+    user-select: none;
+  }
+
   /* Note */
   .note {
     font-size: 14px;
@@ -543,6 +596,10 @@
       <label>Correo</label>
       <input type="email" id="correo" placeholder="tu@correo.com">
     </div>
+    <label class="consent-wrap" for="consent-email">
+      <input type="checkbox" id="consent-email">
+      <span class="consent-text">Acepto recibir correos con lecturas, reflexiones astrológicas y contenido sobre mi camino vocacional. Sin spam — solo lo que vale la pena leer.</span>
+    </label>
     <p class="error-msg" id="err1">Por favor completa todos los campos.</p>
     <button class="btn" onclick="goToS2()">Continuar</button>
   </div>
@@ -772,7 +829,7 @@ function goToS2() {
     return;
   }
   err.style.display = 'none';
-  userData = { nombre, fecha, correo };
+  userData = { nombre, fecha, correo, consentEmail: document.getElementById('consent-email').checked };
   goTo('s2', 1);
 }
 
@@ -991,6 +1048,7 @@ async function guardarEnSheets() {
         nombre:  userData.nombre,
         fecha:   userData.fecha,
         correo:  userData.correo,
+        consentEmail: userData.consentEmail,
         casa2:   casas.casa2?.elemento,
         casa6:   casas.casa6?.elemento,
         casa10:  casas.casa10?.elemento,
@@ -1037,6 +1095,8 @@ function reiniciar() {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
+  const consentEl = document.getElementById('consent-email');
+  if (consentEl) consentEl.checked = false;
   casas = { dominante: null, mezcladas: false, casa2: null, casa6: null, casa10: null };
   document.getElementById('mezcladas-panel').style.display = 'none';
   respuestas = {};
