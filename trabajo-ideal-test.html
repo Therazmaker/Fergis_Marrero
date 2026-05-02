@@ -929,16 +929,18 @@ Sus respuestas de autoconocimiento:
 4. Cómo toma decisiones: "${respuestas.q4}"
 5. Cómo mediría su éxito en 10 años: "${respuestas.q5}"
 
-Escríbele una lectura vocacional breve, profunda y directa. Usa su nombre. Sin lenguaje genérico.
+Escríbele una lectura vocacional breve, profunda y directa. Usa su nombre. Sin lenguaje genérico. Cuida que ninguna palabra se repita dentro de la misma oración.
 
 Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional:
 {
-  "energia": "2 oraciones sobre su energía profesional según sus casas",
-  "trabajo": "3 oraciones sobre su trabajo ideal, usando su nombre",
-  "necesitas": "2 oraciones sobre lo que necesita para florecer",
-  "caminos": ["título 1", "título 2", "título 3", "título 4"],
-  "mensaje": "2 oraciones de cierre poéticas y directas"
-}`;
+  "energia": "2 oraciones sobre su energía profesional según sus casas. Sin repetir palabras en la misma oración.",
+  "trabajo": "3 oraciones sobre su trabajo ideal, usando su nombre.",
+  "necesitas": "2 oraciones concretas sobre las condiciones que necesita para rendir.",
+  "caminos": ["Profesión específica", "Profesión específica", "Profesión específica", "Profesión específica"],
+  "mensaje": "2 oraciones de cierre directas y honestas."
+}
+
+IMPORTANTE para caminos: escribe solo el nombre de la profesión o rol, sin explicaciones. Ejemplos válidos: "Directora de arte", "Psicóloga clínica", "Productora audiovisual", "Estratega de marca". Nada de frases largas.`;
 
   try {
     const res = await fetch(CLAUDE_URL, {
