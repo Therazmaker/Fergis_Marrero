@@ -547,96 +547,75 @@
     <button class="btn" onclick="goToS2()">Continuar</button>
   </div>
 
-  <!-- PANTALLA 2: casas astrológicas -->
+  <!-- PANTALLA 2: elemento dominante -->
   <div class="screen" id="s2">
     <p class="section-title">Tus casas profesionales</p>
-    <p class="note">Si ya calculaste tu carta natal, selecciona el elemento de cada casa. Si no la tienes, puedes hacerlo en <em>fergis.com</em> con tu fecha, hora y lugar de nacimiento.</p>
+    <p class="note">En la mayoría de cartas, las casas 2, 6 y 10 comparten el mismo elemento. Selecciona el que corresponde. Si las tuyas están mezcladas, usa la última opción. Puedes calcular tu carta en <em>fergismarrero.com</em>.</p>
 
-    <div class="field">
-      <label>Casa 2 — Recursos y dinero</label>
-      <div class="casa-select" id="casa2-select">
-        <div class="element-grid">
-          <div class="elem-card" onclick="selectCasa('casa2','Fuego','🔥')">
-            <div class="elem-icon">🔥</div>
-            <div class="elem-name">Fuego</div>
-            <div class="elem-signs">Aries · Leo · Sagitario</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa2','Tierra','🌿')">
-            <div class="elem-icon">🌿</div>
-            <div class="elem-name">Tierra</div>
-            <div class="elem-signs">Tauro · Virgo · Capricornio</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa2','Aire','💨')">
-            <div class="elem-icon">💨</div>
-            <div class="elem-name">Aire</div>
-            <div class="elem-signs">Géminis · Libra · Acuario</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa2','Agua','🌊')">
-            <div class="elem-icon">🌊</div>
-            <div class="elem-name">Agua</div>
-            <div class="elem-signs">Cáncer · Escorpio · Piscis</div>
-          </div>
+    <div class="element-grid" id="elemento-select" style="margin-bottom:0.5rem;">
+      <div class="elem-card" onclick="selectElemento('Fuego','🔥',this)">
+        <div class="elem-icon">🔥</div>
+        <div class="elem-name">Fuego</div>
+        <div class="elem-signs">Aries · Leo · Sagitario</div>
+      </div>
+      <div class="elem-card" onclick="selectElemento('Tierra','🌿',this)">
+        <div class="elem-icon">🌿</div>
+        <div class="elem-name">Tierra</div>
+        <div class="elem-signs">Tauro · Virgo · Capricornio</div>
+      </div>
+      <div class="elem-card" onclick="selectElemento('Aire','💨',this)">
+        <div class="elem-icon">💨</div>
+        <div class="elem-name">Aire</div>
+        <div class="elem-signs">Géminis · Libra · Acuario</div>
+      </div>
+      <div class="elem-card" onclick="selectElemento('Agua','🌊',this)">
+        <div class="elem-icon">🌊</div>
+        <div class="elem-name">Agua</div>
+        <div class="elem-signs">Cáncer · Escorpio · Piscis</div>
+      </div>
+      <div class="elem-card full-width" onclick="selectElemento('Mezcladas','✦',this)">
+        <div class="elem-icon">✦</div>
+        <div class="elem-name">Mezcladas</div>
+        <div class="elem-signs">Mis casas están en elementos distintos</div>
+      </div>
+    </div>
+
+    <!-- Panel casas individuales (solo aparece si elige Mezcladas) -->
+    <div id="mezcladas-panel" style="display:none; margin-top:1.5rem;">
+      <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.3em;color:var(--sepia);text-transform:uppercase;margin-bottom:1.25rem;opacity:0.8;">Selecciona cada casa por separado</p>
+
+      <div class="field">
+        <label>Casa 2 — Recursos y dinero</label>
+        <div class="element-grid" id="m-casa2">
+          <div class="elem-card" onclick="selectCasaMix('casa2','Fuego','🔥',this)"><div class="elem-icon">🔥</div><div class="elem-name">Fuego</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa2','Tierra','🌿',this)"><div class="elem-icon">🌿</div><div class="elem-name">Tierra</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa2','Aire','💨',this)"><div class="elem-icon">💨</div><div class="elem-name">Aire</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa2','Agua','🌊',this)"><div class="elem-icon">🌊</div><div class="elem-name">Agua</div></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Casa 6 — Trabajo diario y rutina</label>
+        <div class="element-grid" id="m-casa6">
+          <div class="elem-card" onclick="selectCasaMix('casa6','Fuego','🔥',this)"><div class="elem-icon">🔥</div><div class="elem-name">Fuego</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa6','Tierra','🌿',this)"><div class="elem-icon">🌿</div><div class="elem-name">Tierra</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa6','Aire','💨',this)"><div class="elem-icon">💨</div><div class="elem-name">Aire</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa6','Agua','🌊',this)"><div class="elem-icon">🌊</div><div class="elem-name">Agua</div></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Casa 10 — Vocación pública</label>
+        <div class="element-grid" id="m-casa10">
+          <div class="elem-card" onclick="selectCasaMix('casa10','Fuego','🔥',this)"><div class="elem-icon">🔥</div><div class="elem-name">Fuego</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa10','Tierra','🌿',this)"><div class="elem-icon">🌿</div><div class="elem-name">Tierra</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa10','Aire','💨',this)"><div class="elem-icon">💨</div><div class="elem-name">Aire</div></div>
+          <div class="elem-card" onclick="selectCasaMix('casa10','Agua','🌊',this)"><div class="elem-icon">🌊</div><div class="elem-name">Agua</div></div>
         </div>
       </div>
     </div>
 
-    <div class="field">
-      <label>Casa 6 — Trabajo diario y rutina</label>
-      <div class="casa-select" id="casa6-select">
-        <div class="element-grid">
-          <div class="elem-card" onclick="selectCasa('casa6','Fuego','🔥')">
-            <div class="elem-icon">🔥</div>
-            <div class="elem-name">Fuego</div>
-            <div class="elem-signs">Aries · Leo · Sagitario</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa6','Tierra','🌿')">
-            <div class="elem-icon">🌿</div>
-            <div class="elem-name">Tierra</div>
-            <div class="elem-signs">Tauro · Virgo · Capricornio</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa6','Aire','💨')">
-            <div class="elem-icon">💨</div>
-            <div class="elem-name">Aire</div>
-            <div class="elem-signs">Géminis · Libra · Acuario</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa6','Agua','🌊')">
-            <div class="elem-icon">🌊</div>
-            <div class="elem-name">Agua</div>
-            <div class="elem-signs">Cáncer · Escorpio · Piscis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>Casa 10 — Vocación pública</label>
-      <div class="casa-select" id="casa10-select">
-        <div class="element-grid">
-          <div class="elem-card" onclick="selectCasa('casa10','Fuego','🔥')">
-            <div class="elem-icon">🔥</div>
-            <div class="elem-name">Fuego</div>
-            <div class="elem-signs">Aries · Leo · Sagitario</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa10','Tierra','🌿')">
-            <div class="elem-icon">🌿</div>
-            <div class="elem-name">Tierra</div>
-            <div class="elem-signs">Tauro · Virgo · Capricornio</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa10','Aire','💨')">
-            <div class="elem-icon">💨</div>
-            <div class="elem-name">Aire</div>
-            <div class="elem-signs">Géminis · Libra · Acuario</div>
-          </div>
-          <div class="elem-card" onclick="selectCasa('casa10','Agua','🌊')">
-            <div class="elem-icon">🌊</div>
-            <div class="elem-name">Agua</div>
-            <div class="elem-signs">Cáncer · Escorpio · Piscis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="error-msg" id="err2">Selecciona el elemento de las tres casas para continuar.</p>
+    <p class="error-msg" id="err2">Selecciona tu elemento para continuar.</p>
     <button class="btn" onclick="goToS3()">Continuar</button>
     <button class="btn btn-ghost" onclick="goTo('s1', 0)">← Volver</button>
   </div>
@@ -767,7 +746,7 @@ const SHEETS_URL = "https://script.google.com/macros/s/AKfycbynVDcR2RjKPt71A_9_a
 const CLAUDE_URL = "https://fergis-marrero.vercel.app/api/claude";
 
 let userData = {};
-let casas = { casa2: null, casa6: null, casa10: null };
+let casas = { dominante: null, mezcladas: false, casa2: null, casa6: null, casa10: null };
 let respuestas = {};
 let loadingInterval = null;
 
@@ -799,20 +778,51 @@ function goToS2() {
 
 function goToS3() {
   const err = document.getElementById('err2');
-  if (!casas.casa2 || !casas.casa6 || !casas.casa10) {
+  const isMix = casas.mezcladas;
+
+  if (!casas.dominante) {
     err.style.display = 'block';
+    return;
+  }
+  if (isMix && (!casas.casa2 || !casas.casa6 || !casas.casa10)) {
+    err.style.display = 'block';
+    err.textContent = 'Selecciona el elemento de las tres casas para continuar.';
     return;
   }
   err.style.display = 'none';
   goTo('s3', 2);
 }
 
-// ─── Element selector ─────────────────────────────────────
-function selectCasa(casa, elemento, icon) {
+// ─── Elemento dominante ───────────────────────────────────
+function selectElemento(elemento, icon, card) {
+  document.querySelectorAll('#elemento-select .elem-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+
+  const isMix = elemento === 'Mezcladas';
+  casas.dominante = { elemento, icon };
+  casas.mezcladas = isMix;
+
+  // Mostrar/ocultar panel de casas individuales
+  document.getElementById('mezcladas-panel').style.display = isMix ? 'block' : 'none';
+
+  if (!isMix) {
+    // Rellenar las tres casas automáticamente con el mismo elemento
+    casas.casa2  = { elemento, icon };
+    casas.casa6  = { elemento, icon };
+    casas.casa10 = { elemento, icon };
+  } else {
+    // Resetear las casas individuales
+    casas.casa2 = null;
+    casas.casa6 = null;
+    casas.casa10 = null;
+  }
+}
+
+// ─── Casas individuales (solo para Mezcladas) ─────────────
+function selectCasaMix(casa, elemento, icon, card) {
   casas[casa] = { elemento, icon };
-  const container = document.getElementById(casa + '-select');
-  container.querySelectorAll('.elem-card').forEach(c => c.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
+  document.querySelectorAll('#m-' + casa + ' .elem-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
 }
 
 // ─── Question selector ────────────────────────────────────
@@ -853,9 +863,9 @@ async function generarLectura() {
   goTo('s5', 3);
 
   document.getElementById('r-elemento').textContent =
-    casas.casa2.icon + ' ' + casas.casa2.elemento + '  ·  ' +
-    casas.casa6.icon + ' ' + casas.casa6.elemento + '  ·  ' +
-    casas.casa10.icon + ' ' + casas.casa10.elemento;
+    casas.mezcladas
+      ? `${casas.casa2.icon} ${casas.casa2.elemento}  ·  ${casas.casa6.icon} ${casas.casa6.elemento}  ·  ${casas.casa10.icon} ${casas.casa10.elemento}`
+      : `${casas.dominante.icon} ${casas.dominante.elemento}`;
 
   document.getElementById('r-energia').textContent  = lectura.energia;
   document.getElementById('r-trabajo').textContent  = lectura.trabajo;
@@ -898,6 +908,9 @@ async function llamarClaude() {
   const c2  = casas.casa2.elemento;
   const c6  = casas.casa6.elemento;
   const c10 = casas.casa10.elemento;
+  const mixInfo = casas.mezcladas
+    ? `Las tres casas están en elementos distintos (mezcladas).`
+    : `Las tres casas comparten el elemento ${c2}.`;
 
   const prompt = `Eres una astróloga sabia y profunda especializada en astrología vocacional y profesional.
 
@@ -907,6 +920,7 @@ Sus casas profesionales:
 - Casa 2 (recursos, dinero, seguridad): elemento ${c2}
 - Casa 6 (trabajo diario, rutina, ambiente): elemento ${c6}
 - Casa 10 (vocación pública, reputación): elemento ${c10}
+- ${mixInfo}
 
 Sus respuestas de autoconocimiento:
 1. Espacio de trabajo preferido: "${respuestas.q1}"
@@ -915,15 +929,15 @@ Sus respuestas de autoconocimiento:
 4. Cómo toma decisiones: "${respuestas.q4}"
 5. Cómo mediría su éxito en 10 años: "${respuestas.q5}"
 
-Escríbele una lectura vocacional personalizada. Sé profunda, poética y directa. Usa su nombre. No uses lenguaje genérico. Conecta los elementos de sus casas con sus respuestas de autoconocimiento para dar una lectura única.
+Escríbele una lectura vocacional breve, profunda y directa. Usa su nombre. Sin lenguaje genérico.
 
 Responde ÚNICAMENTE con un JSON válido, sin backticks, sin texto adicional:
 {
-  "energia": "2-3 oraciones sobre cómo la combinación de sus tres casas define su energía profesional única",
-  "trabajo": "4-5 oraciones íntimas dirigidas directamente a la persona, describiendo cómo es su trabajo ideal, usando su nombre, respondiendo a lo que reveló sobre sí misma",
-  "necesitas": "2-3 oraciones sobre las condiciones concretas que necesita para dar lo mejor de sí en el trabajo",
-  "caminos": ["camino 1", "camino 2", "camino 3", "camino 4", "camino 5"],
-  "mensaje": "2-3 oraciones poéticas finales como cierre, motivadoras pero honestas, dirigidas directamente a ella"
+  "energia": "2 oraciones sobre su energía profesional según sus casas",
+  "trabajo": "3 oraciones sobre su trabajo ideal, usando su nombre",
+  "necesitas": "2 oraciones sobre lo que necesita para florecer",
+  "caminos": ["título 1", "título 2", "título 3", "título 4"],
+  "mensaje": "2 oraciones de cierre poéticas y directas"
 }`;
 
   try {
@@ -1021,7 +1035,8 @@ function reiniciar() {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
-  casas = { casa2: null, casa6: null, casa10: null };
+  casas = { dominante: null, mezcladas: false, casa2: null, casa6: null, casa10: null };
+  document.getElementById('mezcladas-panel').style.display = 'none';
   respuestas = {};
   document.querySelectorAll('.elem-card').forEach(c => c.classList.remove('selected'));
   document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
