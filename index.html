@@ -346,7 +346,7 @@
   flex-direction: column; /* Alinea los elementos uno debajo del otro */
   justify-content: center; /* Centrado vertical */
   align-items: center;    /* Centrado horizontal */
-  
+
   /* 2. FONDO Y ESTILO */
   background:
     linear-gradient(180deg, rgba(49, 57, 34, 0.34) 0%, rgba(34, 40, 24, 0.5) 100%),
@@ -355,12 +355,12 @@
   background-position: center;
   border-radius: 24px;
   color: #f3f0e6;
-  
+
   /* 3. ESPACIADO */
   padding: 42px 48px;
   min-height: 360px;
   gap: 16px; /* Espacio automático entre el título, el texto y la línea */
-  
+
   /* 4. EXTRAS */
   text-align: center;
   isolation: isolate;
@@ -1561,76 +1561,88 @@
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ HERO INTRO ━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section id="inicio" class="box hero-box fade-up">
-      <div class="hero-eyebrow">🌻 Astrología · Tarot · Acompañamiento emocional 🌻</div>
-      <h1 class="hero-title fade-up delay-1">No tienes que poder<br>con <em>todo sola</em>.</h1>
-      <p class="hero-body fade-up delay-2">Te acompaño, te sostengo y te ayudo a transitar y a entender lo que estás
-        viviendo. A través del tarot y la astrología, te ofrezco un espacio seguro donde puedes bajar el ruido, ordenar
-        lo que sientes y volver a ti… sin presión y sin juicio.</p>
-      <p class="hero-sign fade-up delay-3">Aquí estoy para eso, hermana girasol 💛</p>
+      <div class="hero-eyebrow">🌻 Acompañamiento emocional para mujeres 🌻</div>
+      <h1 class="hero-title fade-up delay-1">No tienes que poder con <em>todo sola</em>.</h1>
+      <p class="hero-body fade-up delay-2">Te acompaño, te sostengo y te ayudo a transitar y a entender lo que estás viviendo. Te ofrezco un espacio seguro donde puedes bajar el ruido, ordenar lo que sientes y volver a ti. Sin presión y sin juicios.</p>
+      <p class="hero-sign fade-up delay-3">Aquí estoy para ti, hermana girasol 💛</p>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <div id="servicios" class="bento-grid">
+    <!-- ► QUIÉN SOY (CARRUSEL) -->
+    <div class="carousel-box fade-up delay-1">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
 
-      <!-- ► CARRUSEL -->
-      <div class="carousel-box fade-up delay-1">
-        <div class="carousel-viewport">
-          <div class="carousel-track" id="carousel-track">
-
-            <!-- Slide 1: Foto Fergis -->
-            <div class="c-slide img-slide img-slide-fergis" data-label="📷 Tu foto aquí">
-              <picture>
-                <source media="(max-width: 520px)" srcset="Fotos/Fergis1.jpeg">
-                <img src="Fotos/Fergis1.jpeg" alt="Foto de Fergis Marrero – Mamá Girasol"
-                  onerror="this.style.display='none'">
-              </picture>
-            </div>
-
-            <!-- Slide 2: Texto Fergis -->
-            <div class="c-slide text-slide">
-              <h2>Soy Fergis… <em>una espiritual</em></h2>
-              <p>Soy astróloga y tarotista autodidacta que acompaña procesos emocionales con una mirada cálida, cercana
-                y sin juicio.<br><br>No creo en fórmulas mágicas ni en obligarte a "estar bien". Creo en entender lo que
-                sientes, en sostener los procesos y en ayudarte a tomar decisiones con más claridad y
-                conciencia.<br><br>Antes que guía, soy humana. Y desde ahí, te acompaño. 🌻</p>
-            </div>
-
-            <!-- Slide 3: Foto Girasol -->
-            <div class="c-slide img-slide" data-label="📷 Tu segunda foto aquí">
-              <img src="Fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
-            </div>
-
-            <!-- Slide 4: Texto Mamá Girasol -->
-            <div class="c-slide text-slide">
-              <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
-              <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera… vive dentro de
-                ti.<br><br>"Mamá Girasol" nace desde ese lugar: no para iluminarte, sino para acompañarte mientras
-                vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves
-                a ver. 🌻</p>
-            </div>
-
+          <!-- Slide 1: Foto Fergis -->
+          <div class="c-slide img-slide img-slide-fergis" data-label="📷 Tu foto aquí">
+            <picture>
+              <source media="(max-width: 520px)" srcset="Fotos/Fergis1.jpeg">
+              <img src="Fotos/Fergis1.jpeg" alt="Foto de Fergis Marrero – Mamá Girasol"
+                onerror="this.style.display='none'">
+            </picture>
           </div>
-        </div>
-        <!-- Indicadores -->
-        <div class="carousel-dots" id="carousel-dots">
-          <div class="dot active" onclick="goToSlide(0)"></div>
-          <div class="dot" onclick="goToSlide(1)"></div>
-          <div class="dot" onclick="goToSlide(2)"></div>
-          <div class="dot" onclick="goToSlide(3)"></div>
+
+          <!-- Slide 2: Texto Fergis -->
+          <div class="c-slide text-slide">
+            <h2>Soy Fergis… <em>una espiritual</em></h2>
+            <p>Soy Fergis, y tengo una misión muy clara: que ninguna mujer tenga que transitar sus procesos sola.<br><br>Sé lo que es necesitar a alguien que te sostenga sin juzgarte. Que te guíe con empatía y compasión, sin querer tener poder sobre ti. Que respete tus tiempos, tus procesos y lo que sientes.<br><br>Yo lo busqué. Y cuando lo encontré, entendí que era un regalo hermoso tener a esa persona en tu vida. Por eso creé este espacio.<br><br>Acompaño procesos emocionales con una mirada cálida y cercana. No creo en fórmulas mágicas ni en obligarte a "estar bien". Creo en entender lo que sientes, en sostener lo que estás viviendo y en ayudarte a tomar decisiones con más claridad. A tu ritmo, desde tu verdad.<br><br>Antes que guía, soy humana. Y desde ahí te brindo mi presencia. 🌻</p>
+          </div>
+
+          <!-- Slide 3: Foto Girasol -->
+          <div class="c-slide img-slide" data-label="📷 Tu segunda foto aquí">
+            <img src="Fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
+          </div>
+
+          <!-- Slide 4: Texto Mamá Girasol -->
+          <div class="c-slide text-slide">
+            <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
+            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera… vive dentro de ti.<br><br>"Mamá Girasol" nace desde ese lugar: no para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
+          </div>
+
         </div>
       </div>
+      <!-- Indicadores -->
+      <div class="carousel-dots" id="carousel-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+        <div class="dot" onclick="goToSlide(3)"></div>
+      </div>
+    </div>
 
-      <!-- ► SERVICIOS -->
-      <div class="services-stack fade-up delay-2">
+    <!-- SECCIÓN ACOMPAÑAMIENTOS -->
+    <section id="acompanamientos" class="tarot-row fade-up">
+      <!-- DIOSA EN GUÍA -->
+      <article id="diosa-en-guia-section" class="tarot-card">
+        <div class="tarot-pill">Acompañamiento emocional mensual</div>
+        <h2 class="tarot-title">Diosa en Guía</h2>
+        <p class="tarot-copy">A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.<br><br>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.<br><br>Y no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.<br><br>Sesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.</p>
+        <p class="tarot-copy tarot-lead">¿Cómo funciona?</p>
+        <p class="tarot-copy tarot-note">4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
+        <a href="#" class="tarot-cta" onclick="showService('Diosa en Guía'); return false;">👉 Reserva tu lugar 🌻 — $45 USD · S/ 120</a>
+      </article>
 
-        <button class="srv-btn srv-btn-rich" onclick="showService('Diosa en Guía')">
-          <div class="srv-label">
-            <span class="srv-name">Diosa en Guía</span>
-            <span class="srv-sub">Acompañamiento continuo</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
+      <!-- Tu guía en cualquier momento -->
+      <article id="guia-whatsapp-section" class="tarot-card">
+        <div class="tarot-pill">Orientación por audio vía WhatsApp</div>
+        <h2 class="tarot-title">Tu guía en cualquier momento</h2>
+        <p class="tarot-copy">A veces la vida no espera. Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.<br><br>Cada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
+        <p class="tarot-copy tarot-lead">Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente</p>
+        <p class="tarot-copy tarot-note">$45 USD · S/ 120</p>
+        <a href="https://wa.me/51907671044" class="tarot-cta" id="guia-whatsapp">👉 Quiero este acompañamiento 🎧</a>
+      </article>
+    </section>
 
+    <!-- SECCIÓN: Sesiones individuales -->
+    <section id="servicios" class="fade-up" style="padding: 40px 0;">
+      <div class="box box-warm" style="padding: 40px; margin-bottom: 20px;">
+        <h2 class="box-heading">Sesiones individuales</h2>
+        <p class="box-body">A veces necesitas un espacio puntual — un momento para pausar, mirar lo que estás viviendo y entender qué está pasando dentro de ti. Estas sesiones son para eso. Un encuentro contigo misma, acompañado de herramientas como el tarot y la astrología, para ayudarte a ver con más luz lo que sientes y lo que necesitas.</p>
+        <h3 class="sdm-title" style="font-size: 1.5rem; margin-top: 20px;">El tarot y la astrología como herramientas de autoconocimiento</h3>
+        <p class="box-body">No los uso para predecir el futuro. Los uso como lenguajes simbólicos — espejos que te ayudan a ver lo que ya está dentro de ti pero que quizás todavía no has podido nombrar. Tus patrones. Tus miedos. Lo que repites sin darte cuenta. Lo que sientes pero no sabes cómo nombrar. Desde ahí trabajamos juntas.</p>
+      </div>
+
+      <div class="services-stack">
         <button class="srv-btn srv-btn-wine" onclick="showService('Tarot')">
           <div class="srv-label">
             <span class="srv-name">Tarot</span>
@@ -1678,17 +1690,16 @@
           </div>
           <span class="srv-arrow">→</span>
         </button>
-
       </div>
-    </div>
+    </section>
 
-    <!-- SECCIÓN TAROT IA -->
     <section id="tarot" class="tarot-row fade-up">
       <article class="tarot-card tarot-card-featured">
         <div class="tarot-pill">🌻 Un regalito de mí para ti</div>
-        <h2 class="tarot-title tarot-title-featured">Hazle <span class="tarot-title-script">3 preguntitas al tarot gratis</span>, hermana girasol.</h2>
-        <p class="tarot-copy tarot-lead">Lecturas para darte claridad y guía.</p>
-        <p class="tarot-copy tarot-note">Si haces uso de tus 3 preguntitas no te preocupes,<br>podrás adquirir más a costos bajitos.<br>Tus 3 preguntas gratis se renovarán cada mes.</p>        <a href="tarot.html" class="tarot-cta">&#128073; Clic aquí</a>
+        <h2 class="tarot-title tarot-title-featured">🌻 Un regalito de mí para ti</h2>
+        <p class="tarot-copy tarot-lead">A veces solo necesitas una respuesta. Una orientación. Alguien que te ayude a ver con más luz lo que estás viviendo en este momento.</p>
+        <p class="tarot-copy tarot-note">Hazme tus 3 preguntas gratis, hermana girasol. Estoy aquí.<br><br>Tus preguntitas se renuevan de forma mensual.</p>
+        <a href="tarot.html" class="tarot-cta">👉 Clic aquí</a>
       </article>
 
       <article class="tarot-card tiendita-card">
@@ -1746,7 +1757,7 @@
       </p>
 
       <form id="carta-natal-form" action="https://carta-natal.es/carta.php" method="POST" target="_blank" style="max-width: 540px; margin: 0 auto; text-align: left; background: #fff; padding: 40px; border-radius: var(--radius-sm); border: 1.5px dashed rgba(212, 168, 71, 0.4); box-shadow: var(--shadow-sm);">
-        
+
         <div class="form-group">
           <label>Nombre o Seudónimo (Opcional)</label>
           <input type="text" name="nombre" placeholder="Ej. Virginia" />
@@ -1900,17 +1911,12 @@
       <!-- Panel dual: Compatibilidad -->
       <div id="sdm-compat" style="display:none">
         <div class="sdm-tag">Compatibilidad de Pareja y Vínculos</div>
-        <h3 class="sdm-title">Compatibilidad de Pareja y Vínculos</h3>
+        <h3 class="sdm-title">Entendiendo tu vínculo / Compatibilidad</h3>
 
         <div class="compat-option">
           <div class="compat-label">Opción 1</div>
           <h4 class="compat-name">Tarot + Astrología para vínculos</h4>
-          <p class="sdm-text">Un espacio para entender la dinámica entre tú y otra persona.
-A través del tarot y la astrología, vemos cómo se relacionan, qué los une, qué los desafía y qué está pasando realmente en el vínculo.
-No solo desde lo romántico…
-también puedes explorarlo con madre, padre, hijos, amistades o cualquier relación importante para ti.
-Porque a veces no es que "no funcione"…
-es que no estamos entendiendo lo que el vínculo nos está mostrando.
+          <p class="sdm-text">Para comprender la dinámica entre tú y otra persona — pareja, madre, hijo, amistad. Qué los une, qué los desafía y qué está pasando realmente en esa relación.
 <br><br><strong>Duración:</strong> 1 hora
 <br><strong>Modalidad:</strong> Virtual • Google Meet</p>
           <p class="compat-price">Precio: $50 USD · S/ 150</p>
@@ -1924,9 +1930,7 @@ es que no estamos entendiendo lo que el vínculo nos está mostrando.
         <div class="compat-option">
           <div class="compat-label">Opción 2</div>
           <h4 class="compat-name">Sinastría / Carta Compuesta</h4>
-          <p class="sdm-text">Un estudio detallado de la conexión entre dos personas a nivel emocional, energético y evolutivo.
-A través de la sinastría y la carta compuesta, analizamos cómo interactúan sus energías, qué vienen a aprender juntos y cuál es el propósito del vínculo.
-Esta sesión es más profunda y te permite entender la relación desde una mirada más completa y consciente.
+          <p class="sdm-text">Un análisis más detallado de la conexión entre dos personas a nivel emocional y energético. Para entender el propósito del vínculo y lo que vienen a aprender juntos.
 <br><br><strong>Duración:</strong> 2 horas
 <br><strong>Modalidad:</strong> Virtual • Google Meet</p>
           <p class="compat-price">Precio: $110 USD · S/ 380</p>
@@ -1939,14 +1943,12 @@ Esta sesión es más profunda y te permite entender la relación desde una mirad
       <!-- Panel dual: Carta Natal -->
       <div id="sdm-carta" style="display:none">
         <div class="sdm-tag">Carta Natal</div>
-        <h3 class="sdm-title">Carta Natal</h3>
+        <h3 class="sdm-title">Tu mapa personal / Carta natal</h3>
 
         <div class="compat-option">
           <div class="compat-label">Opción 1</div>
           <h4 class="compat-name">Carta natal</h4>
-          <p class="sdm-text">Un análisis profundo de tu personalidad, emociones y patrones.
-Aquí entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu energía a tu favor.
-Tu carta no te define… te revela.
+          <p class="sdm-text">Un análisis profundo de tu personalidad, tus emociones y tus patrones. Entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu propia energía a tu favor.
 <br><br><strong>Duración:</strong> 2 horas
 <br><strong>Modalidad:</strong> Virtual • Google Meet</p>
           <p class="compat-price">Precio: $90 USD · S/ 300</p>
@@ -1987,7 +1989,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div class="form-group">
           <label>Servicio a Reservar</label>
           <select id="bf-service" required>
-            <option value="50.00">🌻 Diosa en Guía - $50 USD</option>
+            <option value="45.00">🌻 Diosa en Guía - $45 USD</option>
             <option value="50.00">🔮 Tarot - $50 USD</option>
             <option value="90.00">🌙 Carta Natal - $90 USD</option>
             <option value="90.00">👶 Carta Natal Infantil - $90 USD</option>
@@ -2020,7 +2022,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
           <label>WhatsApp</label>
           <input type="tel" id="bf-phone" placeholder="+1 234 567 890" required />
         </div>
-        
+
         <div class="form-group" style="margin-top: 16px;">
           <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
             <input type="checkbox" id="bf-terms" required style="margin-top:2px;">
@@ -2056,7 +2058,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div class="form-group">
           <label>Servicio a Reservar</label>
           <select id="yf-service" required>
-            <option value="150" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 150</option>
+            <option value="120" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 120</option>
             <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
             <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
             <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
@@ -2089,7 +2091,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
           <label>WhatsApp</label>
           <input type="tel" id="yf-phone" placeholder="+51 900 000 000" required />
         </div>
-        
+
         <div class="form-group" style="margin-top: 16px;">
           <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
             <input type="checkbox" id="yf-terms" required style="margin-top:2px;">
@@ -2194,7 +2196,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
       <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
       <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
         <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
-        
+
         <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
         <p style="margin-bottom:16px;">Los servicios ofrecidos corresponden a acompañamientos de carácter astrológico, espiritual y de guía emocional. Están orientados a brindarte claridad, contención y acompañamiento en tu proceso personal.</p>
         <p style="margin-bottom:24px;">⚠️ Estos servicios no sustituyen la terapia psicológica, psiquiátrica ni médica, sino que pueden complementarla desde un enfoque emocional y espiritual.</p>
@@ -2240,7 +2242,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
       <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 POLÍTICA DE COOKIES</h3>
       <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
         <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
-        
+
         <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ ¿Qué son las cookies?</h4>
         <p style="margin-bottom:16px;">Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas esta página. Su función es ayudarte a tener una experiencia más fluida, recordando ciertas preferencias y permitiendo que todo funcione de manera más armoniosa.</p>
 
@@ -2289,27 +2291,27 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
     /* ── SERVICIOS DATA ──────────────────────────────────────── */
     const SERVICES = {
       'Diosa en Guía': {
-        tag: 'Acompañamiento continuo',
-        title: 'Acompañamiento continuo',
-        text: 'Un espacio para no hacerlo sola.\n\nTe acompaño de forma cercana con sesiones semanales o preguntas durante el mes, para sostenerte, aterrizar lo que sientes y ayudarte a avanzar con claridad.\n\nEsto no es solo guía… es contención real en tu proceso.',
-        duration: '4 sesiones mensuales de 45 min c/u',
-        modality: 'Virtual • Google Meet',
-        price: '$50 USD · S/ 150',
-        match: 'Diosa'
+        tag: 'Acompañamiento emocional mensual',
+        title: 'Diosa en Guía',
+        text: 'A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.\n\nCada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.\n\nY no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.\n\nSesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.',
+        duration: '4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones',
+        modality: 'Virtual · Se renueva mensualmente',
+        price: '$45 USD · S/ 120',
+        match: 'Diosa en Guía'
       },
       'Tarot': {
-        tag: 'Conecta contigo',
-        title: 'Conecta contigo',
-        text: 'Respuestas claras para lo que hoy te duele o te confunde.\n\nExploramos tu situación actual, lo que no estás viendo y hacia dónde se está moviendo la energía… con una mirada profunda, amorosa y sin juicio.',
+        tag: 'Para cuando necesitas orientación',
+        title: '🌙 Sesión de claridad / Tarot',
+        text: 'Para cuando necesitas orientación sobre una situación específica que estás viviendo — una decisión, una relación, un momento de quiebre. Saldrás con más claridad y con un lugar desde donde moverte.',
         duration: '1 hora',
         modality: 'Virtual • Google Meet',
         price: '$50 USD · S/ 150',
         match: 'Tarot'
       },
       'Carta Natal': {
-        tag: 'Tu mapa emocional',
-        title: 'Tu mapa emocional',
-        text: 'Un análisis profundo de tu personalidad, emociones y patrones.\n\nAquí entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu energía a tu favor.\n\nTu carta no te define… te revela.',
+        tag: 'Tu mapa personal',
+        title: '🌟 Tu mapa personal / Carta natal',
+        text: 'Un análisis profundo de tu personalidad, tus emociones y tus patrones. Entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu propia energía a tu favor.',
         price: '$90 USD · S/ 300',
         match: 'Carta Natal'
       },
@@ -2321,9 +2323,9 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         match: 'Carta Natal Infantil'
       },
       'Revolución Solar': {
-        tag: 'Tu año, con dirección',
-        title: 'Tu año, con dirección',
-        text: 'Una guía para entender qué viene para ti este año.\n\nVemos los temas importantes, aprendizajes y oportunidades, para que dejes de reaccionar a la vida… y empieces a caminarla con intención.',
+        tag: 'Tu año con dirección',
+        title: '☀️ Tu año con dirección / Revolución solar',
+        text: 'Para entender qué viene en este ciclo de tu vida — qué quiere moverse, qué quiere cerrarse y cómo acompañar ese proceso con más conciencia.',
         duration: '2 horas',
         modality: 'Virtual • Google Meet',
         price: '$90 USD · S/ 300',
@@ -2337,21 +2339,21 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         match: 'Diosas Girasol'
       },
       'Compatibilidad': {
-        tag: 'Vínculos y relaciones',
-        title: 'Compatibilidad desde tarot y astrología',
-        text: 'Una mirada clara y aterrizada sobre la dinámica entre tú y otra persona.\n\nA través del tarot y la astrología, vemos qué está pasando en el vínculo, qué los une, qué los desafía y hacia dónde se está moviendo la energía.\n\nEs una sesión intuitiva y directa, ideal si quieres respuestas claras sobre una situación actual.',
+        tag: 'Entendiendo tu vínculo',
+        title: '💞 Entendiendo tu vínculo / Compatibilidad',
+        text: 'Para comprender la dinámica entre tú y otra persona — pareja, madre, hijo, amistad. Qué los une, qué los desafía y qué está pasando realmente en esa relación.',
         match: 'Compatibilidad'
       },
       'Sinastría': {
-        tag: 'Análisis profundo del vínculo',
-        title: 'Análisis profundo del vínculo',
-        text: 'Un estudio detallado de la conexión entre dos personas a nivel emocional, energético y evolutivo.\n\nA través de la sinastría y la carta compuesta, analizamos cómo interactúan sus energías, qué vienen a aprender juntos y cuál es el propósito del vínculo.\n\nEsta sesión es más profunda y te permite entender la relación desde una mirada más completa y consciente.',
+        tag: 'Estudio profundo del vínculo',
+        title: '🔭 Estudio profundo del vínculo / Sinastría',
+        text: 'Un análisis más detallado de la conexión entre dos personas a nivel emocional y energético. Para entender el propósito del vínculo y lo que vienen a aprender juntos.',
         match: 'Sinastría'
       },
       'Tránsitos': {
-        tag: 'Movimientos actuales',
-        title: 'Tránsitos Astrológicos',
-        text: 'Para entender los movimientos actuales del cielo y cómo influyen en tu vida.\n\nAnalizamos los tránsitos más importantes según tu carta natal para comprender qué procesos estás atravesando, qué emociones se activan y qué áreas de tu vida están en transformación.\n\nTe acompaño a darle sentido a lo que estás viviendo y a sostenerlo con mayor claridad, conciencia y calma.',
+        tag: 'Lo que el momento te está diciendo',
+        title: '🌌 Lo que el momento te está diciendo / Tránsitos',
+        text: 'Para entender cómo lo que está pasando en el mundo influye en ti — en tus emociones, tus decisiones y tu proceso personal.',
         duration: '1 hora',
         modality: 'Virtual • Google Meet',
         price: '$80 USD · S/ 250',
@@ -2361,33 +2363,29 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
 
     let activeMatch = '';
 
-    function showService(key) {
-      const d = SERVICES[key];
-      if (!d) return;
+    function showService(name) {
+      const s = SERVICES[name];
+      if (!s) return;
+      activeMatch = s.match || name;
 
-      const std    = document.getElementById('sdm-standard');
-      const compat = document.getElementById('sdm-compat');
-      const carta  = document.getElementById('sdm-carta');
+      const isCompat = name === 'Compatibilidad' || name === 'Sinastría';
+      const isCarta = name === 'Carta Natal' || name === 'Carta Natal Infantil';
 
-      if (key === 'Compatibilidad') {
-        std.style.display    = 'none';
-        compat.style.display = 'block';
-        carta.style.display  = 'none';
-      } else if (key === 'Carta Natal') {
-        std.style.display    = 'none';
-        compat.style.display = 'none';
-        carta.style.display  = 'block';
-      } else {
-        activeMatch = d.match;
-        document.getElementById('sdm-tag').textContent   = d.tag;
-        document.getElementById('sdm-title').textContent = d.title;
-        document.getElementById('sdm-text').textContent  = d.text;
-        document.getElementById('sdm-price').textContent = `Precio: ${d.price || ''}`;
-        document.getElementById('sdm-meta').innerHTML = `${d.duration ? `<strong>Duración:</strong> ${d.duration}<br>` : ''}${d.modality ? `<strong>Modalidad:</strong> ${d.modality}` : ''}`;
-        std.style.display    = 'block';
-        compat.style.display = 'none';
-        carta.style.display  = 'none';
+      document.getElementById('sdm-standard').style.display = (isCompat || isCarta) ? 'none' : 'block';
+      document.getElementById('sdm-compat').style.display = isCompat ? 'block' : 'none';
+      document.getElementById('sdm-carta').style.display = isCarta ? 'block' : 'none';
+
+      if (!isCompat && !isCarta) {
+        document.getElementById('sdm-tag').textContent = s.tag;
+        document.getElementById('sdm-title').textContent = s.title;
+        document.getElementById('sdm-text').textContent = s.text;
+        document.getElementById('sdm-price').textContent = s.price || '';
+        let meta = '';
+        if (s.duration) meta += '<strong>Duración:</strong> ' + s.duration + '<br>';
+        if (s.modality) meta += '<strong>Modalidad:</strong> ' + s.modality;
+        document.getElementById('sdm-meta').innerHTML = meta;
       }
+
       document.getElementById('service-overlay').classList.add('active');
     }
     function closeService() {
@@ -2418,7 +2416,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
       });
       document.getElementById('yape-overlay').classList.add('active');
     }
-    
+
     function closeYapeModal() {
       document.getElementById('yape-overlay').classList.remove('active');
     }
@@ -2475,7 +2473,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
 
       const msg = encodeURIComponent(text);
       window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${msg}`, '_blank');
-      
+
       alert('Tu solicitud ha sido generada. Serás redirigida a WhatsApp para enviarla formalmente.');
       closeReclamaciones();
       document.getElementById('reclamaciones-form').reset();
