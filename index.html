@@ -242,6 +242,92 @@
       align-items: stretch;
     }
 
+    /* ═══════════════════════════════════════════════════════
+       SERVICE CARDS (MODULAR DESIGN)
+    ═══════════════════════════════════════════════════════ */
+    .service-card {
+      background: #c49e74;
+      border-radius: 40px;
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      border: none;
+      overflow: hidden;
+    }
+
+    .service-card__pill {
+      background: #fdfaf3;
+      color: #7a0000;
+      border-radius: 999px;
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: fit-content;
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+      font-weight: 500;
+      font-style: italic;
+      color: #3d2b1f;
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+
+    .service-card__copy {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      color: #3d2b1f;
+      line-height: 1.6;
+    }
+
+    .service-card__copy p {
+      margin-bottom: 1.2em;
+    }
+
+    .service-card__copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-card__footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 24px;
+    }
+
+    .service-card__price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #3d2b1f;
+      opacity: 0.8;
+    }
+
+    .service-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #3d2b1f;
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      width: fit-content;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .service-card__cta:hover {
+      transform: translateY(-2px);
+      background: #2a1d15;
+    }
+
     .tarot-card {
       background: linear-gradient(135deg, #d4af88 0%, #bc8f61 100%);
       border: 1px solid #a97644;
@@ -1303,6 +1389,16 @@
         padding: 28px 22px;
       }
 
+      .service-card {
+        padding: 40px 28px;
+        border-radius: 32px;
+      }
+
+      .service-card__title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
       .tiendita-card {
         min-height: 300px;
       }
@@ -1589,23 +1685,38 @@
     <!-- SECCIÓN ACOMPAÑAMIENTOS -->
     <section id="acompanamientos" class="tarot-row fade-up">
       <!-- DIOSA EN GUÍA -->
-      <article id="diosa-en-guia-section" class="tarot-card">
-        <div class="tarot-pill">Acompañamiento emocional mensual</div>
-        <h2 class="tarot-title">Diosa en Guía</h2>
-        <p class="tarot-copy">A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.<br><br>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.<br><br>Y no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.<br><br>Sesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.</p>
-        <p class="tarot-copy tarot-lead">¿Cómo funciona?</p>
-        <p class="tarot-copy tarot-note">4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
-        <a href="#" class="tarot-cta" onclick="showService('Diosa en Guía'); return false;">👉 Reserva tu lugar 🌻 — $45 USD · S/ 120</a>
+      <article id="diosa-en-guia-section" class="service-card">
+        <div class="service-card__pill">Acompañamiento emocional mensual</div>
+        <h2 class="service-card__title">Diosa en Guía</h2>
+        <div class="service-card__copy">
+          <p>A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.</p>
+          <p>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.</p>
+          <p>Y no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.</p>
+        </div>
+        <div class="service-card__footer">
+          <div class="service-card__price">
+            4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente<br>
+            <strong>$45 USD · S/ 120</strong>
+          </div>
+          <a href="#" class="service-card__cta" onclick="showService('Diosa en Guía'); return false;">👉 Reserva tu lugar 🌻</a>
+        </div>
       </article>
 
       <!-- Tu guía en cualquier momento -->
-      <article id="guia-whatsapp-section" class="tarot-card">
-        <div class="tarot-pill">Orientación por audio vía WhatsApp</div>
-        <h2 class="tarot-title">Tu guía en cualquier momento</h2>
-        <p class="tarot-copy">A veces la vida no espera. Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.<br><br>Cada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
-        <p class="tarot-copy tarot-lead">Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente</p>
-        <p class="tarot-copy tarot-note">$45 USD · S/ 120</p>
-        <a href="https://wa.me/51907671044" class="tarot-cta" id="guia-whatsapp">👉 Quiero este acompañamiento 🎧</a>
+      <article id="guia-whatsapp-section" class="service-card">
+        <div class="service-card__pill">Orientación por audio vía WhatsApp</div>
+        <h2 class="service-card__title">Tu guía en cualquier momento</h2>
+        <div class="service-card__copy">
+          <p>A veces la vida no espera. Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.</p>
+          <p>Cada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
+        </div>
+        <div class="service-card__footer">
+          <div class="service-card__price">
+            Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente<br>
+            <strong>$45 USD · S/ 120</strong>
+          </div>
+          <a href="https://wa.me/51907671044" class="service-card__cta" id="guia-whatsapp">👉 Quiero este acompañamiento 🎧</a>
+        </div>
       </article>
     </section>
 
