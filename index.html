@@ -450,51 +450,11 @@
     }
 
     .tiendita-card {
-  /* 1. ACTIVAR FLEXBOX (Esto es lo que faltaba) */
-  display: flex;
-  flex-direction: column; /* Alinea los elementos uno debajo del otro */
-  justify-content: center; /* Centrado vertical */
-  align-items: center;    /* Centrado horizontal */
-
-  /* 2. FONDO Y ESTILO */
-  background:
-    linear-gradient(180deg, rgba(49, 57, 34, 0.34) 0%, rgba(34, 40, 24, 0.5) 100%),
-    url('./Fotos/tiendita-girasol-bg.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 24px;
-  color: #f3f0e6;
-
-  /* 3. ESPACIADO */
-  padding: 42px 48px;
-  min-height: 360px;
-  gap: 16px; /* Espacio automático entre el título, el texto y la línea */
-
-  /* 4. EXTRAS */
-  text-align: center;
-  isolation: isolate;
-  overflow: hidden;
-  border: none;
-}
-
-    .tiendita-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(16, 20, 11, 0.12) 0%, rgba(16, 20, 11, 0.28) 100%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .tiendita-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.12) 0 14%, transparent 15% 100%),
-        radial-gradient(circle at 85% 18%, rgba(246, 185, 56, 0.12) 0 10%, transparent 11% 100%);
-      pointer-events: none;
+      border-radius: 24px;
+      padding: 0;
+      min-height: 360px;
+      overflow: hidden;
+      border: none;
     }
 
     .tiendita-pill {
@@ -570,6 +530,13 @@
       margin-bottom: 0;
     }
 
+    .tiendita-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     @media (max-width: 1024px) {
       .bento-grid {
         grid-template-columns: 1fr;
@@ -599,7 +566,7 @@
 
       .tiendita-card {
         border-radius: 24px;
-        padding: 36px 28px;
+        padding: 0;
       }
 
       .tiendita-title {
@@ -615,7 +582,6 @@
 
     @media (max-width: 640px) {
       .tiendita-card {
-        justify-content: center;
       }
 
       .tiendita-pill {
@@ -1821,11 +1787,7 @@
       </article>
 
       <article class="tarot-card tiendita-card">
-        <div class="tiendita-pill">Artículos Astrológicos</div>
-        <h2 class="tarot-title tiendita-title">La tiendita<span class="tiendita-title-accent">girasol</span></h2>
-        <p class="tiendita-state">Próximamente</p>
-        <div class="tiendita-accent"></div>
-        <p class="tarot-copy tiendita-copy"></p>
+        <img src="./Fotos/tiendita-girasol-v2.jpg" alt="La tiendita girasol" class="tiendita-image">
       </article>
     </section>
 
