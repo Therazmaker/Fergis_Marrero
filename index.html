@@ -246,20 +246,20 @@
        SERVICE CARDS (MODULAR DESIGN)
     ═══════════════════════════════════════════════════════ */
     .service-card {
-      background: #c49e74;
+      background: #F9F5EE;
       border-radius: 40px;
       padding: 56px 48px;
       display: flex;
       flex-direction: column;
       height: 100%;
       position: relative;
-      border: none;
+      border: 1px solid rgba(61, 43, 31, 0.1);
       overflow: hidden;
     }
 
     .service-card__pill {
-      background: #fdfaf3;
-      color: #7a0000;
+      background: #F5EACC;
+      color: #3d2b1f;
       border-radius: 999px;
       padding: 8px 24px;
       font-size: 0.9rem;
@@ -270,20 +270,31 @@
     }
 
     .service-card__title {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-      font-weight: 500;
+      font-family: 'Carelia W05 Italic', Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 600;
       font-style: italic;
       color: #3d2b1f;
       line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .service-card__quote {
+      font-family: 'Carelia W05 Italic', Georgia, serif;
+      font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      color: #3d2b1f;
       margin-bottom: 32px;
+      line-height: 1.2;
+      opacity: 0.9;
     }
 
     .service-card__copy {
-      font-family: var(--font-body);
+      font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 1.15rem;
       color: #3d2b1f;
       line-height: 1.6;
+      opacity: 0.85;
     }
 
     .service-card__copy p {
@@ -297,35 +308,46 @@
     .service-card__footer {
       margin-top: auto;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 16px;
-      padding-top: 24px;
+      padding-top: 40px;
     }
 
     .service-card__price {
+      width: 100%;
       font-size: 1rem;
       font-weight: 700;
       color: #3d2b1f;
       opacity: 0.8;
+      margin-bottom: 8px;
     }
 
     .service-card__cta {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: #3d2b1f;
+      gap: 12px;
+      background: #3d0000;
       color: #fff;
       padding: 16px 32px;
-      border-radius: 999px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
-      width: fit-content;
       transition: transform 0.2s, background 0.2s;
+    }
+
+    .service-card__cta--secondary {
+      background: transparent;
+      color: #3d2b1f;
+      border: 1px solid rgba(61, 43, 31, 0.2);
     }
 
     .service-card__cta:hover {
       transform: translateY(-2px);
-      background: #2a1d15;
+      background: #2a0000;
+    }
+
+    .service-card__cta--secondary:hover {
+      background: rgba(61, 43, 31, 0.05);
     }
 
     .tarot-card {
@@ -1395,8 +1417,13 @@
       }
 
       .service-card__title {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 20px;
+      }
+
+      .service-card__quote {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
       }
 
       .tiendita-card {
@@ -1688,8 +1715,9 @@
       <article id="diosa-en-guia-section" class="service-card">
         <div class="service-card__pill">Acompañamiento emocional mensual</div>
         <h2 class="service-card__title">Diosa en Guía</h2>
+        <div class="service-card__quote">"A veces no sabes ni por dónde empezar."</div>
         <div class="service-card__copy">
-          <p>A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.</p>
+          <p>Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.</p>
           <p>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.</p>
           <p>Y no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.</p>
         </div>
@@ -1698,7 +1726,8 @@
             4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente<br>
             <strong>$45 USD · S/ 120</strong>
           </div>
-          <a href="#" class="service-card__cta" onclick="showService('Diosa en Guía'); return false;">👉 Reserva tu lugar 🌻</a>
+          <a href="#" class="service-card__cta" onclick="showService('Diosa en Guía'); return false;">Saber más →</a>
+          <a href="#" class="service-card__cta service-card__cta--secondary" onclick="showService('Diosa en Guía'); return false;">Ver metodología</a>
         </div>
       </article>
 
@@ -1706,8 +1735,9 @@
       <article id="guia-whatsapp-section" class="service-card">
         <div class="service-card__pill">Orientación por audio vía WhatsApp</div>
         <h2 class="service-card__title">Tu guía en cualquier momento</h2>
+        <div class="service-card__quote">"A veces la vida no espera."</div>
         <div class="service-card__copy">
-          <p>A veces la vida no espera. Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.</p>
+          <p>Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.</p>
           <p>Cada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
         </div>
         <div class="service-card__footer">
@@ -1715,7 +1745,8 @@
             Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente<br>
             <strong>$45 USD · S/ 120</strong>
           </div>
-          <a href="https://wa.me/51907671044" class="service-card__cta" id="guia-whatsapp">👉 Quiero este acompañamiento 🎧</a>
+          <a href="https://wa.me/51907671044" class="service-card__cta" id="guia-whatsapp">Saber más →</a>
+          <a href="https://wa.me/51907671044" class="service-card__cta service-card__cta--secondary">Hablar por WhatsApp</a>
         </div>
       </article>
     </section>
