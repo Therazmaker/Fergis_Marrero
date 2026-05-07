@@ -37,9 +37,9 @@
       --radius-sm: 12px;
 
       /* Sombras */
-      --shadow-sm: 0 2px 12px rgba(31, 10, 16, 0.08);
-      --shadow-md: 0 8px 40px rgba(31, 10, 16, 0.12);
-      --shadow-lg: 0 20px 80px rgba(31, 10, 16, 0.18);
+      --shadow-sm: 0 2px 12px rgba(80, 45, 22, 0.08);
+      --shadow-md: 0 8px 40px rgba(80, 45, 22, 0.12);
+      --shadow-lg: 0 20px 80px rgba(80, 45, 22, 0.18);
     }
 
     *,
@@ -56,7 +56,7 @@
 
     body {
       font-family: var(--font-body);
-      background: var(--rosa);
+      background: var(--amarillo);
       color: var(--marron);
       line-height: 1.65;
       min-height: 100vh;
@@ -92,7 +92,7 @@
 
     /* ── Dark box (fondo rico, tipografía clara) */
     .box-rich {
-      background: linear-gradient(140deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(140deg, var(--marron) 0%, var(--marron) 100%);
       color: var(--rosa);
     }
 
@@ -104,7 +104,7 @@
 
     /* ── Deep box */
     .box-deep {
-      background: linear-gradient(140deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(140deg, var(--marron) 0%, var(--marron) 100%);
       color: var(--rosa);
     }
 
@@ -114,7 +114,7 @@
     .hero-box {
       padding: 72px 64px;
       text-align: center;
-      background: var(--rojo);
+      background: var(--marron);
       color: var(--rosa);
       position: relative;
       overflow: hidden;
@@ -196,7 +196,7 @@
 
     .hero-title em {
       font-style: italic;
-      color: var(--lila);
+      color: var(--rosa);
     }
 
     .hero-body {
@@ -321,7 +321,7 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: var(--rojo);
+      background: var(--marron);
       color: var(--rosa);
       padding: 16px 32px;
       border-radius: 12px;
@@ -455,13 +455,13 @@
     .tiendita-pill {
       display: inline-flex;
       align-items: center;
-      background: rgba(243, 240, 230, 0.14);
-      border: 1px solid rgba(243, 240, 230, 0.22);
+      background: rgba(255, 221, 85, 0.14);
+      border: 1px solid rgba(255, 221, 85, 0.22);
       border-radius: 999px;
       padding: 7px 14px;
       font-size: 0.76rem;
       font-weight: 700;
-      color: rgba(243, 240, 230, 0.9);
+      color: rgba(255, 221, 85, 0.9);
       letter-spacing: 0.08em;
       text-transform: none;
       width: fit-content;
@@ -594,7 +594,7 @@
       border-radius: var(--radius);
       overflow: hidden;
       position: relative;
-      background: var(--rojo);
+      background: var(--marron);
       min-height: 560px;
     }
 
@@ -641,7 +641,7 @@
 
     /* Placeholder cuando no hay imagen */
     .c-slide.img-slide {
-      background: linear-gradient(150deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(150deg, var(--marron) 0%, var(--marron) 100%);
     }
 
     .c-slide.img-slide::after {
@@ -664,7 +664,7 @@
 
     .c-slide.text-slide {
       padding: 52px 44px;
-      background: linear-gradient(150deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(150deg, var(--marron) 0%, var(--marron) 100%);
       color: var(--rosa);
       text-align: center;
       overflow-y: auto;
@@ -757,12 +757,12 @@
     }
 
     .srv-btn-rich {
-      background: linear-gradient(120deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(120deg, var(--marron) 0%, var(--marron) 100%);
       color: var(--rosa);
     }
 
     .srv-btn-wine {
-      background: linear-gradient(120deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(120deg, var(--marron) 0%, var(--marron) 100%);
       color: var(--rosa);
     }
 
@@ -772,7 +772,7 @@
     }
 
     .srv-btn-deep {
-      background: linear-gradient(120deg, var(--rojo) 0%, var(--marron) 100%);
+      background: linear-gradient(120deg, var(--marron) 0%, var(--marron) 100%);
       color: var(--rosa);
     }
 
@@ -897,7 +897,7 @@
     }
 
     .box-rich .blog-tag:hover {
-      background: var(--rojo);
+      background: var(--marron);
     }
 
     .blog-mobile {
@@ -1254,13 +1254,13 @@
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #A0BA66 0%, #A0BA66 100%);
-      color: #fff;
+      background: linear-gradient(180deg, var(--verde) 0%, var(--verde) 100%);
+      color: var(--amarillo);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.42);
+      box-shadow: 0 10px 30px rgba(160, 186, 102, 0.42);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
       isolation: isolate;
     }
@@ -1291,7 +1291,7 @@
       position: absolute;
       inset: -4px;
       border-radius: 50%;
-      border: 3px solid rgba(107, 34, 54, 0.12);
+      border: 3px solid rgba(82, 0, 0, 0.12);
       z-index: -1;
     }
 
@@ -1299,7 +1299,7 @@
     .wa-fab-wrap:hover #fab-wa,
     #fab-wa:focus-visible {
       transform: scale(1.08);
-      box-shadow: 0 14px 38px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 14px 38px rgba(160, 186, 102, 0.5);
     }
 
     .wa-fab-wrap:hover .wa-bubble,
@@ -1589,7 +1589,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: var(--rojo);
+      background: var(--marron);
       border-radius: 99px;
     }
   </style>
@@ -1621,7 +1621,7 @@
 
   <main class="bento-page">
 
-    <nav class="box quick-nav fade-up" style="background: var(--amarillo); border: 1px solid var(--marron);" aria-label="Navegación rápida">
+    <nav class="box quick-nav fade-up" style="background: var(--rosa); border: 1px solid var(--marron);" aria-label="Navegación rápida">
       <a href="#inicio">Inicio</a>
       <!-- <a href="#servicios">Servicios</a> -->
       <a href="#blog">Blog</a>
@@ -1883,40 +1883,40 @@
     <section id="testimonios" class="box box-rich fade-up" style="padding: 56px 32px;">
       <div class="box-label" style="color:var(--amarillo)">Testimonios</div>
       <h2 class="box-heading" style="margin-bottom: 10px;">Lo que dicen mis chicas sobre sus sesiones</h2>
-      <p class="box-body" style="margin-bottom: 30px; max-width: 760px; color:rgba(250,244,232,0.88);">
+      <p class="box-body" style="margin-bottom: 30px; max-width: 760px; color:rgba(255, 221, 85,0.88);">
         Estos son algunos de los mensajitos que mis consultantes me envían para expresar cómo se<br>sintieron con sus lecturas.
       </p>
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Me sentí muy bien con Fer. Tiene una forma muy linda de contener, de dar paz y de ayudarte a ver todo con más claridad. Salí de la sesión mucho más tranquila.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Me sentí muy bien con Fer. Tiene una forma muy linda de contener, de dar paz y de ayudarte a ver todo con más claridad. Salí de la sesión mucho más tranquila.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Cataleya M.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Fergis me ayudó a entender lo que estaba viviendo sin sentirme juzgada. Su apoyo y su manera de explicarme las cosas me dieron mucha calma y muchísimo soporte emocional.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Fergis me ayudó a entender lo que estaba viviendo sin sentirme juzgada. Su apoyo y su manera de explicarme las cosas me dieron mucha calma y muchísimo soporte emocional.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Camila R.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Con Mamá Girasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Con Mamá Girasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Lucía P.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Gracias por guiarme con tanta calidez. Todo se sintió humano, amoroso y muy claro. Me ayudaste a ordenarme por dentro y a sentirme sostenida de una manera muy bonita.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Gracias por guiarme con tanta calidez. Todo se sintió humano, amoroso y muy claro. Me ayudaste a ordenarme por dentro y a sentirme sostenida de una manera muy bonita.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Daniela S.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Lo que más valoro es la contención que encontré contigo. No sentí solo una lectura, sentí compañía, paz y una presencia muy amorosa que me ayudó a atravesar lo que estaba pasando.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Lo que más valoro es la contención que encontré contigo. No sentí solo una lectura, sentí compañía, paz y una presencia muy amorosa que me ayudó a atravesar lo que estaba pasando.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Valeria T.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Mi sesión de tarot me dio una calma que necesitaba muchísimo. Llegué con ansiedad y me fui con más paz, respuestas claras y la sensación de que todo podía acomodarse dentro de mí.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Mi sesión de tarot me dio una calma que necesitaba muchísimo. Llegué con ansiedad y me fui con más paz, respuestas claras y la sensación de que todo podía acomodarse dentro de mí.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Sofía L.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“La sesión de carta natal me ayudó muchísimo con temas del trabajo y de mi pareja. Todo cobró sentido. Sentí claridad, apoyo y una guía muy amorosa para saber por dónde seguir.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“La sesión de carta natal me ayudó muchísimo con temas del trabajo y de mi pareja. Todo cobró sentido. Sentí claridad, apoyo y una guía muy amorosa para saber por dónde seguir.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Yulimar G.</p>
         </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Diosa en Guía ha sido un regalo para mí. Con tu soporte empecé a mirarme con más amor, a darme más paciencia y a sentirme acompañada en un proceso que antes vivía muy sola.”</p>
+        <article style="background:rgba(255, 221, 85,0.1); border:1px solid rgba(255, 221, 85,0.25); border-radius:14px; padding:18px;">
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(255, 221, 85,0.95);">“Diosa en Guía ha sido un regalo para mí. Con tu soporte empecé a mirarme con más amor, a darme más paciencia y a sentirme acompañada en un proceso que antes vivía muy sola.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Fernanda C.</p>
         </article>
       </div>
@@ -1926,13 +1926,13 @@
     <footer id="contacto" class="box box-warm social-box fade-up">
       <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
         <div class="social-brand">Fergis Marrero — <span>Mamá Girasol</span></div>
-        <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
+        <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--marron); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
           🍪 Política de Cookies
         </a>
-        <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
+        <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--marron); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
           🌻 Términos y Condiciones
         </a>
-        <a href="#" onclick="document.getElementById('reclamaciones-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
+        <a href="#" onclick="document.getElementById('reclamaciones-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--marron); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
           📖 Libro de Reclamaciones
         </a>
       </div>
@@ -1978,8 +1978,8 @@
         <div class="sdm-tag" id="sdm-tag">Servicio</div>
         <h3 class="sdm-title" id="sdm-title">Título</h3>
         <div class="sdm-text" id="sdm-text">Descripción</div>
-        <div id="sdm-meta" style="margin:0 0 18px; font-size:0.92rem; line-height:1.5; color:var(--wine);"></div>
-        <div class="sdm-price" id="sdm-price" style="margin:0 0 18px; font-size:1rem; font-weight:700; color:var(--wine-deep);">Precio</div>
+        <div id="sdm-meta" style="margin:0 0 18px; font-size:0.92rem; line-height:1.5; color:var(--marron);"></div>
+        <div class="sdm-price" id="sdm-price" style="margin:0 0 18px; font-size:1rem; font-weight:700; color:var(--marron);">Precio</div>
         <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBooking()">
           👉 Agenda tu sesión 🌻
         </button>
@@ -2104,7 +2104,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div class="form-group" style="margin-top: 16px;">
           <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
             <input type="checkbox" id="bf-terms" required style="margin-top:2px;">
-            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
+            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--marron); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
           </label>
         </div>
       </form>
@@ -2114,9 +2114,9 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div id="paypal-button-container"></div>
       </div>
 
-      <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 168, 71, 0.3); padding-top: 24px;">
-        <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--wine-deep);">¿Deseas pagar con Yape? (Solo Perú)</p>
-        <button type="button" class="btn-primary" style="background: #CD87DE; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35);" onclick="openYapeModal()">
+      <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(80, 45, 22, 0.3); padding-top: 24px;">
+        <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--marron);">¿Deseas pagar con Yape? (Solo Perú)</p>
+        <button type="button" class="btn-primary" style="background: var(--lila); color: var(--amarillo); width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(205, 135, 222, 0.35);" onclick="openYapeModal()">
           📲 Haz click aquí
         </button>
       </div>
@@ -2174,13 +2174,13 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div class="form-group" style="margin-top: 16px;">
           <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
             <input type="checkbox" id="yf-terms" required style="margin-top:2px;">
-            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
+            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--marron); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
           </label>
         </div>
 
-        <div class="paypal-wrap" style="border-color: #CD87DE; margin-top:24px;">
-          <p class="paypal-label" style="color: #CD87DE; margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás envíar la captura aquí 👇</p>
-          <button type="button" class="btn-primary" style="background: #A0BA66; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);" onclick="submitYapeBooking()">
+        <div class="paypal-wrap" style="border-color: var(--lila); margin-top:24px;">
+          <p class="paypal-label" style="color: var(--lila); margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás envíar la captura aquí 👇</p>
+          <button type="button" class="btn-primary" style="background: var(--verde); color: var(--amarillo); width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(160, 186, 102, 0.35);" onclick="submitYapeBooking()">
             💬 Enviar captura por WhatsApp
           </button>
         </div>
@@ -2245,15 +2245,15 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
 
         <div class="form-group">
           <label>Detalle de tu solicitud</label>
-          <textarea id="rec-detalle" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:80px;" required></textarea>
+          <textarea id="rec-detalle" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(80, 45, 22,0.3); font-family:inherit; min-height:80px;" required></textarea>
         </div>
 
         <div class="form-group">
           <label>Pedido concreto</label>
-          <textarea id="rec-pedido" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:60px;" required></textarea>
+          <textarea id="rec-pedido" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(80, 45, 22,0.3); font-family:inherit; min-height:60px;" required></textarea>
         </div>
 
-        <div style="font-size: 0.8rem; color: var(--wine); opacity:0.85; margin: 20px 0; line-height:1.5;">
+        <div style="font-size: 0.8rem; color: var(--marron); opacity:0.85; margin: 20px 0; line-height:1.5;">
           <p>El proveedor (Fergis Marrero - Mamá Girasol) deberá dar respuesta a su reclamo o queja dentro del plazo legal aplicable. La formulación del reclamo no excluye la posibilidad de acudir a otras vías de resolución.</p>
           <label style="display:flex; gap:10px; margin-top:12px; cursor:pointer;">
             <input type="checkbox" required style="margin-top:2px;">
@@ -2273,26 +2273,26 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
     <div class="modal-panel" style="max-width: 650px;">
       <button type="button" class="modal-close" onclick="closeTerminos()" aria-label="Cerrar">✕</button>
       <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
-      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
+      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--marron); opacity:0.9;">
         <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
         <p style="margin-bottom:16px;">Los servicios ofrecidos corresponden a acompañamientos de carácter astrológico, espiritual y de guía emocional. Están orientados a brindarte claridad, contención y acompañamiento en tu proceso personal.</p>
         <p style="margin-bottom:24px;">⚠️ Estos servicios no sustituyen la terapia psicológica, psiquiátrica ni médica, sino que pueden complementarla desde un enfoque emocional y espiritual.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 SOBRE LA RESERVA Y EL PAGO</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">💛 SOBRE LA RESERVA Y EL PAGO</h4>
         <p style="margin-bottom:24px;">La sesión se considera agendada una vez realizado el pago correspondiente. Al reservar, estás separando un espacio exclusivo destinado para ti. Por ello, agradezco profundamente tu compromiso y respeto por el tiempo acordado.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⏰ PUNTUALIDAD</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">⏰ PUNTUALIDAD</h4>
         <p style="margin-bottom:24px;">Se considera un tiempo de espera máximo de 10 minutos desde la hora agendada. Pasado ese tiempo, la sesión se dará por realizada y no podrá ser recuperada.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔁 REPROGRAMACIONES</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🔁 REPROGRAMACIONES</h4>
         <p style="margin-bottom:24px;">Si necesitas reprogramar tu sesión, puedes hacerlo con un mínimo de 24 horas de anticipación. Esto permite reorganizar el espacio y ofrecer ese horario a otra persona. Las reprogramaciones están sujetas a disponibilidad dentro de la misma semana.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🚫 POLÍTICA DE NO DEVOLUCIÓN</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🚫 POLÍTICA DE NO DEVOLUCIÓN</h4>
         <p style="margin-bottom:24px;">Todos los servicios realizados y pagos efectuados no son reembolsables. Esto se debe a que cada sesión implica una reserva de tiempo, energía y preparación previa. Agradezco tu comprensión y respeto por este espacio.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌙 SOBRE LOS SERVICIOS</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🌙 SOBRE LOS SERVICIOS</h4>
         <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
           <li style="margin-bottom:12px;"><strong>🔮 Tarot:</strong> Brinda una guía clara sobre situaciones actuales, decisiones y procesos emocionales. No predice el futuro de forma determinante, sino que orienta desde la energía disponible.</li>
           <li style="margin-bottom:12px;"><strong>💞 Compatibilidad de vínculos:</strong> Análisis de la dinámica entre dos personas (pareja u otros vínculos). Se trabaja desde tarot y astrología para comprender la relación y sus aprendizajes.</li>
@@ -2306,7 +2306,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
           <li style="margin-bottom:16px;"><strong>🌻 Diosas Girasol:</strong> Comunidad por suscripción en WhatsApp con guía y contención semanal, audio energético, horóscopo por signo y dos preguntas al mes para orientación. Es un espacio de acompañamiento complementario.</li>
         </ul>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌿 CONSIDERACIÓN FINAL</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🌿 CONSIDERACIÓN FINAL</h4>
         <p>Este es un espacio creado con amor, respeto, cuidado y presencia. Mi intención es acompañarte con claridad y contención, pero también es importante que asumas tu proceso personal con responsabilidad y apertura.</p>
       </div>
     </div>
@@ -2319,13 +2319,13 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
     <div class="modal-panel" style="max-width: 650px;">
       <button type="button" class="modal-close" onclick="closeCookies()" aria-label="Cerrar">✕</button>
       <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 POLÍTICA DE COOKIES</h3>
-      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
+      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--marron); opacity:0.9;">
         <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ ¿Qué son las cookies?</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">✨ ¿Qué son las cookies?</h4>
         <p style="margin-bottom:16px;">Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas esta página. Su función es ayudarte a tener una experiencia más fluida, recordando ciertas preferencias y permitiendo que todo funcione de manera más armoniosa.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 ¿Para qué usamos cookies?</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">💛 ¿Para qué usamos cookies?</h4>
         <p style="margin-bottom:8px;">En este espacio utilizamos cookies para:</p>
         <ul style="margin-bottom:16px; padding-left:20px; list-style-type:disc;">
           <li>Mejorar tu experiencia de navegación</li>
@@ -2334,23 +2334,23 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         </ul>
         <p style="margin-bottom:24px;">Nada invasivo… solo lo necesario para que todo fluya mejor ✨</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌐 Tipos de cookies que podemos utilizar</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🌐 Tipos de cookies que podemos utilizar</h4>
         <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
           <li style="margin-bottom:8px;"><strong>Cookies técnicas:</strong> necesarias para el funcionamiento de la página</li>
           <li style="margin-bottom:8px;"><strong>Cookies de análisis:</strong> nos ayudan a entender el uso del sitio (por ejemplo, herramientas como Google Analytics)</li>
           <li style="margin-bottom:8px;"><strong>Cookies de terceros:</strong> pueden provenir de servicios externos integrados en la web</li>
         </ul>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔒 Sobre tu información</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🔒 Sobre tu información</h4>
         <p style="margin-bottom:24px;">Las cookies no acceden a información personal sensible ni permiten identificarte directamente como persona. Tu privacidad es importante y este espacio busca respetarla en todo momento.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⚙️ Gestión de cookies</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">⚙️ Gestión de cookies</h4>
         <p style="margin-bottom:24px;">Puedes aceptar, rechazar o eliminar las cookies desde la configuración de tu navegador en cualquier momento. Ten en cuenta que desactivarlas podría afectar el funcionamiento de algunas partes del sitio.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌻 Aceptación de cookies</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">🌻 Aceptación de cookies</h4>
         <p style="margin-bottom:24px;">Al navegar en este sitio, aceptas el uso de cookies para mejorar tu experiencia.</p>
 
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💌 Contacto</h4>
+        <h4 style="color:var(--marron); margin-bottom:10px;">💌 Contacto</h4>
         <p>Si tienes alguna duda sobre esta política, puedes escribirme directamente. Estoy aquí para acompañarte también en esto 💛</p>
       </div>
     </div>
