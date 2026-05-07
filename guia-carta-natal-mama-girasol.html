@@ -8,17 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --burgundy: #1a0a12;
-    --dark-wine: #2d0f1e;
-    --mid-wine: #3d1428;
-    --gold: #d4a84b;
-    --gold-light: #f0c96a;
-    --gold-dim: #a07830;
-    --cream: #f5efe6;
-    --cream-dark: #e0d4c4;
-    --cherry: #6e1020;
-    --lilac: #c4a8c8;
-    --white: #ffffff;
+    --rojo: #520000;
+    --marron: #502D16;
+    --amarillo: #FFDD55;
+    --verde: #A0BA66;
+    --rosa: #FFAAAA;
+    --lila: #CD87DE;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,8 +21,8 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--burgundy);
-    color: var(--cream);
+    background: var(--rojo);
+    color: var(--rosa);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
@@ -49,7 +44,7 @@
     position: fixed;
     top: 0; left: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+    background: linear-gradient(90deg, var(--marron), var(--amarillo), var(--amarillo));
     width: 0%;
     z-index: 1000;
     transition: width 0.1s;
@@ -64,7 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(180deg, rgba(26,10,18,0.95) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(82, 0, 0, 0.95) 0%, transparent 100%);
     backdrop-filter: blur(8px);
   }
 
@@ -72,7 +67,7 @@
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
     font-size: 1.1rem;
-    color: var(--gold);
+    color: var(--amarillo);
     letter-spacing: 0.02em;
   }
 
@@ -83,7 +78,7 @@
   }
 
   .nav-links a {
-    color: var(--cream-dark);
+    color: var(--amarillo);
     text-decoration: none;
     font-size: 0.72rem;
     letter-spacing: 0.12em;
@@ -91,7 +86,7 @@
     transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--amarillo); }
 
   /* ── SECTIONS ── */
   section {
@@ -104,7 +99,7 @@
 
   /* ── COVER ── */
   #cover {
-    background: var(--dark-wine);
+    background: var(--rojo);
     align-items: center;
     text-align: center;
     overflow: hidden;
@@ -149,10 +144,10 @@
     position: absolute;
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--gold);
+    background: var(--amarillo);
     top: 0; left: 50%;
     margin-left: -3px;
-    box-shadow: 0 0 8px var(--gold);
+    box-shadow: 0 0 8px var(--amarillo);
   }
 
   .cover-content {
@@ -171,7 +166,7 @@
     font-size: 0.65rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold-dim);
+    color: var(--marron);
     margin-bottom: 32px;
   }
 
@@ -180,7 +175,7 @@
     font-size: 0.9rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     margin-bottom: 12px;
   }
 
@@ -189,7 +184,7 @@
     font-style: italic;
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 1.05;
-    color: var(--gold);
+    color: var(--amarillo);
     margin-bottom: 16px;
     text-shadow: 0 0 60px rgba(212,168,75,0.2);
   }
@@ -208,23 +203,23 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold));
+    background: linear-gradient(90deg, transparent, var(--amarillo));
   }
 
   .cover-divider::after {
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--amarillo), transparent);
   }
 
   .cover-glyphs {
     font-size: 1.4rem;
-    color: var(--gold);
+    color: var(--amarillo);
     opacity: 0.7;
     letter-spacing: 8px;
   }
 
   .cover-subtitle {
     font-size: 0.95rem;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     line-height: 1.7;
     max-width: 480px;
     margin: 0 auto 40px;
@@ -234,7 +229,7 @@
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
     font-size: 1.1rem;
-    color: var(--cream);
+    color: var(--rosa);
     opacity: 0.8;
   }
 
@@ -247,7 +242,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: var(--gold-dim);
+    color: var(--marron);
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -258,7 +253,7 @@
     content: '';
     width: 1px;
     height: 40px;
-    background: linear-gradient(180deg, var(--gold-dim), transparent);
+    background: linear-gradient(180deg, var(--marron), transparent);
   }
 
   @keyframes pulse {
@@ -278,7 +273,7 @@
     font-size: 0.62rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--gold-dim);
+    color: var(--marron);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -290,7 +285,7 @@
     flex: 1;
     max-width: 60px;
     height: 1px;
-    background: var(--gold-dim);
+    background: var(--marron);
   }
 
   .section-title {
@@ -299,35 +294,35 @@
     font-size: clamp(2rem, 5vw, 3.2rem);
     line-height: 1.15;
     margin-bottom: 8px;
-    color: var(--cream);
+    color: var(--rosa);
   }
 
   .section-title span {
-    color: var(--gold);
+    color: var(--amarillo);
     display: block;
   }
 
   .gold-rule {
     width: 80px;
     height: 1px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--amarillo), transparent);
     margin: 24px 0;
   }
 
   .body-text {
     font-size: 1rem;
     line-height: 1.85;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     margin-bottom: 20px;
     font-weight: 300;
   }
 
   /* ── PULL QUOTE ── */
   .pull-quote {
-    border-left: 2px solid var(--gold);
+    border-left: 2px solid var(--amarillo);
     padding: 20px 28px;
     margin: 36px 0;
-    background: rgba(212,168,75,0.04);
+    background: rgba(255, 221, 85, 0.04);
     border-radius: 0 8px 8px 0;
   }
 
@@ -335,14 +330,14 @@
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
     font-size: 1.25rem;
-    color: var(--gold-light);
+    color: var(--amarillo);
     line-height: 1.6;
   }
 
   /* ── PLANET SECTIONS ── */
   .planet-section {
-    background: var(--dark-wine);
-    border-top: 1px solid rgba(212,168,75,0.1);
+    background: var(--rojo);
+    border-top: 1px solid rgba(255, 221, 85, 0.1);
   }
 
   .planet-header {
@@ -356,15 +351,15 @@
   .planet-glyph-wrap {
     width: 80px; height: 80px;
     border-radius: 50%;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--amarillo);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: var(--gold);
-    background: var(--mid-wine);
+    color: var(--amarillo);
+    background: var(--marron);
     flex-shrink: 0;
-    box-shadow: 0 0 30px rgba(212,168,75,0.1);
+    box-shadow: 0 0 30px rgba(255, 221, 85, 0.1);
     position: relative;
   }
 
@@ -373,7 +368,7 @@
     position: absolute;
     inset: -6px;
     border-radius: 50%;
-    border: 1px solid rgba(212,168,75,0.2);
+    border: 1px solid rgba(255, 221, 85, 0.2);
   }
 
   /* ── SIGN TABLE ── */
@@ -384,14 +379,14 @@
   }
 
   .sign-table thead tr {
-    border-bottom: 1px solid var(--gold-dim);
+    border-bottom: 1px solid var(--marron);
   }
 
   .sign-table th {
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--amarillo);
     padding: 10px 16px;
     text-align: left;
     font-weight: 500;
@@ -400,7 +395,7 @@
   .sign-table td {
     padding: 12px 16px;
     font-size: 0.9rem;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     vertical-align: top;
     line-height: 1.6;
   }
@@ -410,21 +405,21 @@
   }
 
   .sign-table tr:hover td {
-    background: rgba(212,168,75,0.05);
+    background: rgba(255, 221, 85, 0.05);
   }
 
   .sign-name {
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--amarillo);
     white-space: nowrap;
     font-size: 0.95rem;
   }
 
   /* ── ACTION BOX ── */
   .action-box {
-    background: var(--cherry);
-    border: 1px solid rgba(212,168,75,0.25);
+    background: var(--rojo);
+    border: 1px solid rgba(255, 221, 85, 0.25);
     border-radius: 8px;
     padding: 24px 28px;
     margin-top: 28px;
@@ -437,21 +432,21 @@
     position: absolute;
     top: 0; left: 0;
     right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--amarillo), transparent);
   }
 
   .action-box-label {
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--amarillo);
     margin-bottom: 10px;
     font-weight: 500;
   }
 
   .action-box p {
     font-size: 0.92rem;
-    color: var(--cream);
+    color: var(--rosa);
     line-height: 1.7;
   }
 
@@ -466,21 +461,21 @@
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 0;
-    background: var(--mid-wine);
+    background: var(--marron);
     border-radius: 4px;
     overflow: hidden;
     transition: background 0.2s;
   }
 
-  .transit-row:hover { background: rgba(212,168,75,0.06); }
+  .transit-row:hover { background: rgba(255, 221, 85, 0.06); }
 
   .transit-planet {
     padding: 14px 20px;
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--amarillo);
     font-size: 0.95rem;
-    border-right: 1px solid rgba(212,168,75,0.12);
+    border-right: 1px solid rgba(255, 221, 85, 0.12);
     display: flex;
     align-items: center;
   }
@@ -488,7 +483,7 @@
   .transit-desc {
     padding: 14px 20px;
     font-size: 0.88rem;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     display: flex;
     align-items: center;
     line-height: 1.5;
@@ -496,7 +491,7 @@
 
   /* ── WORKSHEET ── */
   #worksheet {
-    background: var(--dark-wine);
+    background: var(--rojo);
   }
 
   .worksheet-field {
@@ -507,7 +502,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--amarillo);
     margin-bottom: 8px;
     display: block;
   }
@@ -516,9 +511,9 @@
     width: 100%;
     background: rgba(255,255,255,0.04);
     border: none;
-    border-bottom: 1px solid rgba(212,168,75,0.3);
+    border-bottom: 1px solid rgba(255, 221, 85, 0.3);
     padding: 12px 4px;
-    color: var(--cream);
+    color: var(--rosa);
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
     font-size: 1rem;
@@ -527,7 +522,7 @@
   }
 
   .worksheet-input:focus {
-    border-bottom-color: var(--gold);
+    border-bottom-color: var(--amarillo);
   }
 
   .worksheet-input::placeholder {
@@ -543,7 +538,7 @@
 
   /* ── CTA ── */
   #cta {
-    background: var(--dark-wine);
+    background: var(--rojo);
     text-align: center;
     align-items: center;
   }
@@ -554,7 +549,7 @@
 
   .cta-stars {
     font-size: 1rem;
-    color: var(--gold);
+    color: var(--amarillo);
     letter-spacing: 16px;
     margin-bottom: 32px;
     opacity: 0.6;
@@ -565,15 +560,15 @@
     font-style: italic;
     font-size: clamp(2.2rem, 5vw, 3.8rem);
     line-height: 1.2;
-    color: var(--cream);
+    color: var(--rosa);
     margin-bottom: 8px;
   }
 
-  .cta-title em { color: var(--gold); font-style: italic; }
+  .cta-title em { color: var(--amarillo); font-style: italic; }
 
   .cta-text {
     font-size: 1rem;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     max-width: 520px;
     margin: 24px auto 40px;
     line-height: 1.85;
@@ -583,8 +578,8 @@
     display: inline-block;
     padding: 16px 48px;
     background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
+    border: 1px solid var(--amarillo);
+    color: var(--amarillo);
     font-family: 'DM Sans', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
@@ -601,13 +596,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gold);
+    background: var(--amarillo);
     transform: translateY(100%);
     transition: transform 0.3s;
   }
 
   .cta-btn:hover {
-    color: var(--burgundy);
+    color: var(--rojo);
   }
 
   .cta-btn:hover::before {
@@ -626,7 +621,7 @@
 
   .cta-service {
     font-size: 0.78rem;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     letter-spacing: 0.08em;
     display: flex;
     align-items: center;
@@ -635,7 +630,7 @@
 
   .cta-service::before {
     content: '✦';
-    color: var(--gold);
+    color: var(--amarillo);
     font-size: 0.6rem;
   }
 
@@ -644,12 +639,12 @@
     font-family: "Carelia W05 Italic", serif;
     font-style: italic;
     font-size: 1.4rem;
-    color: var(--gold);
+    color: var(--amarillo);
   }
 
   .cta-handle-sub {
     font-size: 0.78rem;
-    color: var(--cream-dark);
+    color: var(--amarillo);
     letter-spacing: 0.08em;
     margin-top: 6px;
   }
@@ -658,13 +653,13 @@
   footer {
     text-align: center;
     padding: 32px 20px;
-    border-top: 1px solid rgba(212,168,75,0.12);
+    border-top: 1px solid rgba(255, 221, 85, 0.12);
     font-size: 0.72rem;
     color: rgba(245,239,230,0.3);
     letter-spacing: 0.06em;
   }
 
-  footer span { color: var(--gold-dim); }
+  footer span { color: var(--marron); }
 
   /* ── REVEAL ANIMATIONS ── */
   .reveal {
@@ -689,7 +684,7 @@
     .section-inner { padding: 80px 24px; }
     .planet-header { grid-template-columns: 1fr; }
     .transit-row { grid-template-columns: 1fr; }
-    .transit-planet { border-right: none; border-bottom: 1px solid rgba(212,168,75,0.12); }
+    .transit-planet { border-right: none; border-bottom: 1px solid rgba(255, 221, 85, 0.12); }
     .worksheet-grid { grid-template-columns: 1fr; }
     .cta-services { flex-direction: column; gap: 12px; align-items: center; }
   }
@@ -743,7 +738,7 @@
 
     <p class="body-text reveal reveal-delay-3">Vivimos en una cultura que nos enseñó que el dinero se gana con esfuerzo ciego, con fórmulas iguales para todas. Pero eso nunca fue verdad para ti, ¿verdad? Lo que funciona para otra persona no siempre te funciona a ti — y tiene una razón cósmica.</p>
 
-    <p class="body-text reveal">Tu carta natal es el mapa único de tu alma. En ella está grabado no solo quién eres, sino <strong style="color:var(--gold-light);font-weight:400">cómo fluye la abundancia hacia ti</strong>: qué talentos son tus puertas de entrada, en qué áreas se expande tu fortuna, cuándo es el momento exacto de actuar.</p>
+    <p class="body-text reveal">Tu carta natal es el mapa único de tu alma. En ella está grabado no solo quién eres, sino <strong style="color:var(--amarillo);font-weight:400">cómo fluye la abundancia hacia ti</strong>: qué talentos son tus puertas de entrada, en qué áreas se expande tu fortuna, cuándo es el momento exacto de actuar.</p>
 
     <div class="pull-quote reveal">
       <p>«El dinero no es aleatorio. Está en tu carta — solo hay que saber leerlo.»</p>
@@ -751,7 +746,7 @@
 
     <p class="body-text reveal">Esta guía no es de manifestación genérica. Es una guía práctica para que aprendas a leer las partes específicas de tu carta que hablan de dinero, trabajo y propósito — y sepas exactamente cómo activarlas.</p>
 
-    <p class="body-text reveal">Los planetas que estudiaremos son tus aliados más poderosos: <strong style="color:var(--gold-light);font-weight:400">Casa 2, Venus, Júpiter y tu Medio Cielo</strong>. Cada uno tiene un lenguaje, y cuando aprendes a hablarlo, la abundancia deja de ser un misterio.</p>
+    <p class="body-text reveal">Los planetas que estudiaremos son tus aliados más poderosos: <strong style="color:var(--amarillo);font-weight:400">Casa 2, Venus, Júpiter y tu Medio Cielo</strong>. Cada uno tiene un lenguaje, y cuando aprendes a hablarlo, la abundancia deja de ser un misterio.</p>
   </div>
 </section>
 
@@ -779,16 +774,16 @@
       <tbody>
         <tr><td class="sign-name">♈ Aries</td><td>Iniciativas propias, freelance, ser la primera en algo nuevo.</td></tr>
         <tr><td class="sign-name">♉ Tauro</td><td>Constancia y calidad. Arte, bienes raíces, lo tangible y sensorial.</td></tr>
-        <tr><td class="sign-name">♊ Géminis</td><td>Comunicación, escritura, enseñanza, dos fuentes de ingreso paralelas.</td></tr>
+        <tr><td class="sign-name">Géminis</td><td>Comunicación, escritura, enseñanza, dos fuentes de ingreso paralelas.</td></tr>
         <tr><td class="sign-name">♋ Cáncer</td><td>Servicios de cuidado, hogar, todo lo emocional y nutritivo.</td></tr>
-        <tr><td class="sign-name">♌ Leo</td><td>Creatividad, liderazgo, escenario propio, marca personal fuerte.</td></tr>
-        <tr><td class="sign-name">♍ Virgo</td><td>Salud, análisis, servicio técnico, perfección en tu oficio.</td></tr>
-        <tr><td class="sign-name">♎ Libra</td><td>Belleza, relaciones, consultoría, equilibrio y estética.</td></tr>
-        <tr><td class="sign-name">♏ Escorpio</td><td>Transformación, psicología, recursos compartidos, inversión.</td></tr>
-        <tr><td class="sign-name">♐ Sagitario</td><td>Enseñanza, expansión global, filosofía, viajes y libertad.</td></tr>
-        <tr><td class="sign-name">♑ Capricornio</td><td>Estructura, empresa, construcción a largo plazo, autoridad.</td></tr>
-        <tr><td class="sign-name">♒ Acuario</td><td>Innovación, comunidad, tecnología, proyectos colectivos.</td></tr>
-        <tr><td class="sign-name">♓ Piscis</td><td>Arte, espiritualidad, sanación, flujo intuitivo e inspirado.</td></tr>
+        <tr><td class="sign-name">Leo</td><td>Creatividad, liderazgo, escenario propio, marca personal fuerte.</td></tr>
+        <tr><td class="sign-name">Virgo</td><td>Salud, análisis, servicio técnico, perfección en tu oficio.</td></tr>
+        <tr><td class="sign-name">Libra</td><td>Belleza, relaciones, consultoría, equilibrio y estética.</td></tr>
+        <tr><td class="sign-name">Escorpio</td><td>Transformación, psicología, recursos compartidos, inversión.</td></tr>
+        <tr><td class="sign-name">Sagitario</td><td>Enseñanza, expansión global, filosofía, viajes y libertad.</td></tr>
+        <tr><td class="sign-name">Capricornio</td><td>Estructura, empresa, construcción a largo plazo, autoridad.</td></tr>
+        <tr><td class="sign-name">Acuario</td><td>Innovación, comunidad, tecnología, proyectos colectivos.</td></tr>
+        <tr><td class="sign-name">Piscis</td><td>Arte, espiritualidad, sanación, flujo intuitivo e inspirado.</td></tr>
       </tbody>
     </table>
 
@@ -811,7 +806,7 @@
       </div>
     </div>
 
-    <p class="body-text reveal">Venus no solo rige el amor — rige el valor, la atracción y lo que consideras hermoso o deseable. Tu Venus por signo revela <strong style="color:var(--gold-light);font-weight:400">cómo atraes dinero de manera natural, sin forzarte</strong>. Es tu magnetismo financiero.</p>
+    <p class="body-text reveal">Venus no solo rige el amor — rige el valor, la atracción y lo que consideras hermoso o deseable. Tu Venus por signo revela <strong style="color:var(--amarillo);font-weight:400">cómo atraes dinero de manera natural, sin forzarte</strong>. Es tu magnetismo financiero.</p>
 
     <table class="sign-table reveal">
       <thead>
@@ -823,16 +818,16 @@
       <tbody>
         <tr><td class="sign-name">♈ Venus en Aries</td><td>Atraes con audacia, velocidad y liderazgo. Sé la pionera.</td></tr>
         <tr><td class="sign-name">♉ Venus en Tauro</td><td>Atraes con belleza real, calidad y experiencias sensoriales.</td></tr>
-        <tr><td class="sign-name">♊ Venus en Géminis</td><td>Atraes con palabras, versatilidad e ideas originales.</td></tr>
+        <tr><td class="sign-name">Venus en Géminis</td><td>Atraes con palabras, versatilidad e ideas originales.</td></tr>
         <tr><td class="sign-name">♋ Venus en Cáncer</td><td>Atraes con ternura, presencia emocional y seguridad.</td></tr>
-        <tr><td class="sign-name">♌ Venus en Leo</td><td>Atraes con carisma, generosidad y presencia magnética.</td></tr>
-        <tr><td class="sign-name">♍ Venus en Virgo</td><td>Atraes con precisión, utilidad y atención al detalle.</td></tr>
-        <tr><td class="sign-name">♎ Venus en Libra</td><td>Atraes con elegancia, armonía y conexión auténtica.</td></tr>
-        <tr><td class="sign-name">♏ Venus en Escorpio</td><td>Atraes con profundidad, magnetismo e intensidad.</td></tr>
-        <tr><td class="sign-name">♐ Venus en Sagitario</td><td>Atraes con entusiasmo, visión expansiva y autenticidad.</td></tr>
-        <tr><td class="sign-name">♑ Venus en Capricornio</td><td>Atraes con responsabilidad, logros tangibles y estructura.</td></tr>
-        <tr><td class="sign-name">♒ Venus en Acuario</td><td>Atraes con originalidad, causa y visión de futuro.</td></tr>
-        <tr><td class="sign-name">♓ Venus en Piscis</td><td>Atraes con compasión, arte y presencia espiritual.</td></tr>
+        <tr><td class="sign-name">Venus en Leo</td><td>Atraes con carisma, generosidad y presencia magnética.</td></tr>
+        <tr><td class="sign-name">Venus en Virgo</td><td>Atraes con precisión, utilidad y atención al detalle.</td></tr>
+        <tr><td class="sign-name">Venus en Libra</td><td>Atraes con elegancia, armonía y conexión auténtica.</td></tr>
+        <tr><td class="sign-name">Venus en Escorpio</td><td>Atraes con profundidad, magnetismo e intensidad.</td></tr>
+        <tr><td class="sign-name">Venus en Sagitario</td><td>Atraes con entusiasmo, visión expansiva y autenticidad.</td></tr>
+        <tr><td class="sign-name">Venus en Capricornio</td><td>Atraes con responsabilidad, logros tangibles y estructura.</td></tr>
+        <tr><td class="sign-name">Venus en Acuario</td><td>Atraes con originalidad, causa y visión de futuro.</td></tr>
+        <tr><td class="sign-name">Venus en Piscis</td><td>Atraes con compasión, arte y presencia espiritual.</td></tr>
       </tbody>
     </table>
 
@@ -911,16 +906,16 @@
       <tbody>
         <tr><td class="sign-name">♈ MC en Aries</td><td>Emprendimiento, liderazgo, ser pionera en tu campo.</td></tr>
         <tr><td class="sign-name">♉ MC en Tauro</td><td>Arte, bienes, construcción sostenible, lujo con propósito.</td></tr>
-        <tr><td class="sign-name">♊ MC en Géminis</td><td>Comunicación, medios, educación, múltiples proyectos.</td></tr>
+        <tr><td class="sign-name">MC en Géminis</td><td>Comunicación, medios, educación, múltiples proyectos.</td></tr>
         <tr><td class="sign-name">♋ MC en Cáncer</td><td>Cuidado, nutrición, hogar, trabajo con familias o mujeres.</td></tr>
-        <tr><td class="sign-name">♌ MC en Leo</td><td>Entretenimiento, creatividad, palco propio, ser la estrella.</td></tr>
-        <tr><td class="sign-name">♍ MC en Virgo</td><td>Salud, análisis, servicio, perfección artesanal.</td></tr>
-        <tr><td class="sign-name">♎ MC en Libra</td><td>Arte, belleza, justicia, relaciones públicas, moda.</td></tr>
-        <tr><td class="sign-name">♏ MC en Escorpio</td><td>Psicología, misterio, transformación, investigación profunda.</td></tr>
-        <tr><td class="sign-name">♐ MC en Sagitario</td><td>Enseñanza, viajes, expansión filosófica y espiritual.</td></tr>
-        <tr><td class="sign-name">♑ MC en Capricornio</td><td>Empresa seria, autoridad reconocida, legado a largo plazo.</td></tr>
-        <tr><td class="sign-name">♒ MC en Acuario</td><td>Innovación social, tecnología, ser referente alternativo.</td></tr>
-        <tr><td class="sign-name">♓ MC en Piscis</td><td>Arte, espiritualidad, sanación, creatividad transcendente.</td></tr>
+        <tr><td class="sign-name">MC en Leo</td><td>Entretenimiento, creatividad, palco propio, ser la estrella.</td></tr>
+        <tr><td class="sign-name">MC en Virgo</td><td>Salud, análisis, servicio, perfección artesanal.</td></tr>
+        <tr><td class="sign-name">MC en Libra</td><td>Arte, belleza, justicia, relaciones públicas, moda.</td></tr>
+        <tr><td class="sign-name">MC en Escorpio</td><td>Psicología, misterio, transformación, investigación profunda.</td></tr>
+        <tr><td class="sign-name">MC en Sagitario</td><td>Enseñanza, viajes, expansión filosófica y espiritual.</td></tr>
+        <tr><td class="sign-name">MC en Capricornio</td><td>Empresa seria, autoridad reconocida, legado a largo plazo.</td></tr>
+        <tr><td class="sign-name">MC en Acuario</td><td>Innovación social, tecnología, ser referente alternativo.</td></tr>
+        <tr><td class="sign-name">MC en Piscis</td><td>Arte, espiritualidad, sanación, creatividad transcendente.</td></tr>
       </tbody>
     </table>
 
@@ -969,7 +964,7 @@
 
     <div class="action-box reveal">
       <p class="action-box-label">✦ Pro Tip</p>
-      <p>Usa apps como <strong style="color:var(--gold-light);font-weight:400">Time Passages</strong> o <strong style="color:var(--gold-light);font-weight:400">Astro.com</strong> para ver tus tránsitos activos. Marca en tu calendario cuando Júpiter o Venus toquen tus casas 2, 8 y 10 — esas son tus ventanas de oro.</p>
+      <p>Usa apps como <strong style="color:var(--amarillo);font-weight:400">Time Passages</strong> o <strong style="color:var(--amarillo);font-weight:400">Astro.com</strong> para ver tus tránsitos activos. Marca en tu calendario cuando Júpiter o Venus toquen tus casas 2, 8 y 10 — esas son tus ventanas de oro.</p>
     </div>
   </div>
 </section>

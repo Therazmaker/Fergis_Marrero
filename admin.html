@@ -8,36 +8,37 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
-      --bg: #fffdf8;
-      --card: #fff8e8;
-      --accent: #f2be42;
-      --ink: #4b3b22;
-      --ink-soft: #826c45;
-      --line: #f3d996;
-      --ok: #2d9a67;
-      --danger: #b84343;
-      --shadow: 0 8px 24px rgba(163,126,61,0.12);
+      --rojo: #520000;
+      --marron: #502D16;
+      --amarillo: #FFDD55;
+      --verde: #A0BA66;
+      --rosa: #FFAAAA;
+      --lila: #CD87DE;
+
+      --ok: var(--verde);
+      --danger: var(--rojo);
+      --shadow: 0 8px 24px rgba(80, 45, 22, 0.12);
       --radius: 16px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "DM Sans", sans-serif;
-      background: #fffdf8;
-      color: var(--ink);
+      background: var(--rosa);
+      color: var(--marron);
       min-height: 100vh;
       padding: 24px 16px 48px;
     }
     .page { max-width: 1000px; margin: 0 auto; display: grid; gap: 16px; }
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
+      background: var(--amarillo);
+      border: 1px solid var(--marron);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 24px;
     }
-    h1 { font-size: 1.8rem; color: #5a4321; }
-    h2 { font-size: 1.1rem; color: #5a4321; margin-bottom: 12px; }
-    h3 { font-size: 1rem; color: #6b4f20; margin-bottom: 8px; }
+    h1 { font-size: 1.8rem; color: var(--rojo); }
+    h2 { font-size: 1.1rem; color: var(--rojo); margin-bottom: 12px; }
+    h3 { font-size: 1rem; color: var(--marron); margin-bottom: 8px; }
     .hidden { display: none !important; }
     .btn {
       border: 0; border-radius: 999px; padding: 10px 18px;
@@ -46,54 +47,54 @@
     }
     .btn:hover { transform: translateY(-1px); }
     .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .btn-primary { background: linear-gradient(90deg,#ffc53d,#f6b938); color: #4f3600; }
-    .btn-secondary { background: #fff; border: 1px solid var(--line); color: #6a522e; }
-    .btn-danger { background: #ffefef; border: 1px solid #f7b2b2; color: #8d2626; }
+    .btn-primary { background: var(--rojo); color: var(--rosa); border: 1px solid var(--marron); }
+    .btn-secondary { background: var(--verde); border: 1px solid var(--marron); color: var(--marron); }
+    .btn-danger { background: var(--rosa); border: 1px solid var(--rojo); color: var(--rojo); }
     .btn-sm { padding: 6px 12px; font-size: 0.82rem; }
     input, select {
-      width: 100%; border: 1px solid #f0d696; border-radius: 10px;
-      background: #fffdf6; padding: 9px 12px; font: inherit; color: var(--ink);
+      width: 100%; border: 1px solid var(--marron); border-radius: 10px;
+      background: var(--rosa); padding: 9px 12px; font: inherit; color: var(--marron);
     }
-    input:focus, select:focus { outline: 2px solid #ffd470; border-color: #ffd470; }
+    input:focus, select:focus { outline: 2px solid var(--lila); border-color: var(--lila); }
     .field { display: grid; gap: 5px; margin-bottom: 12px; }
-    .field label { font-size: 0.85rem; font-weight: 600; color: #7e6130; }
+    .field label { font-size: 0.85rem; font-weight: 600; color: var(--rojo); }
     .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
     .stat-box {
-      background: #fffef0; border: 1px solid #f0d98a; border-radius: 12px;
+      background: var(--verde); border: 1px solid var(--marron); border-radius: 12px;
       padding: 14px 16px; text-align: center;
     }
-    .stat-box .number { font-size: 2rem; font-weight: 700; color: #7a5010; }
-    .stat-box .label { font-size: 0.78rem; color: #9b7c42; margin-top: 2px; }
+    .stat-box .number { font-size: 2rem; font-weight: 700; color: var(--rojo); }
+    .stat-box .label { font-size: 0.78rem; color: var(--marron); margin-top: 2px; }
     table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-    th { text-align: left; padding: 8px 10px; color: #9b7535; font-weight: 600; border-bottom: 1px solid #f3d996; }
-    td { padding: 8px 10px; border-bottom: 1px solid #faecc8; vertical-align: middle; }
-    tr:hover td { background: #fffbee; }
+    th { text-align: left; padding: 8px 10px; color: var(--rojo); font-weight: 600; border-bottom: 1px solid var(--marron); }
+    td { padding: 8px 10px; border-bottom: 1px solid var(--marron); vertical-align: middle; }
+    tr:hover td { background: var(--lila); color: var(--rojo); }
     .badge {
       display: inline-block; border-radius: 999px; padding: 2px 10px;
       font-size: 0.75rem; font-weight: 700;
     }
-    .badge-basic { background: #e9fff4; color: #1f724b; border: 1px solid #bfeeda; }
-    .badge-premium { background: #f0ebff; color: #5a3d9a; border: 1px solid #c9b8f0; }
+    .badge-basic { background: var(--verde); color: var(--rojo); border: 1px solid var(--marron); }
+    .badge-premium { background: var(--lila); color: var(--rojo); border: 1px solid var(--marron); }
     .history-panel {
-      background: #fffef7; border: 1px solid #f3dc9f; border-radius: 12px;
+      background: var(--rosa); border: 1px solid var(--marron); border-radius: 12px;
       padding: 14px; margin-top: 8px; display: grid; gap: 8px;
     }
-    .history-entry { border-bottom: 1px solid #faecc8; padding-bottom: 8px; }
+    .history-entry { border-bottom: 1px solid var(--marron); padding-bottom: 8px; }
     .history-entry:last-child { border-bottom: none; padding-bottom: 0; }
-    .history-q { font-size: 0.85rem; font-weight: 600; color: #6b4f20; }
-    .history-a { font-size: 0.83rem; color: #826c45; margin-top: 3px; line-height: 1.5; }
-    .history-date { font-size: 0.75rem; color: #b08a50; margin-top: 2px; }
+    .history-q { font-size: 0.85rem; font-weight: 600; color: var(--rojo); }
+    .history-a { font-size: 0.83rem; color: var(--marron); margin-top: 3px; line-height: 1.5; }
+    .history-date { font-size: 0.75rem; color: var(--marron); margin-top: 2px; }
     .alert { padding: 10px 14px; border-radius: 10px; font-size: 0.88rem; font-weight: 500; margin-top: 8px; }
-    .alert-ok { background: #e9fff4; color: #1f724b; border: 1px solid #bfeeda; }
-    .alert-error { background: #ffefef; color: #8d2626; border: 1px solid #f7b2b2; }
+    .alert-ok { background: var(--verde); color: var(--rojo); border: 1px solid var(--marron); }
+    .alert-error { background: var(--rosa); color: var(--rojo); border: 1px solid var(--rojo); }
     .login-wrap { max-width: 380px; margin: 60px auto 0; }
     .tab-row { display: flex; gap: 8px; margin-bottom: 16px; }
     .tab {
-      border: 1px solid var(--line); background: #fffef0; border-radius: 999px;
-      padding: 7px 16px; font-size: 0.88rem; font-weight: 600; cursor: pointer; color: #826c45;
+      border: 1px solid var(--marron); background: var(--verde); border-radius: 999px;
+      padding: 7px 16px; font-size: 0.88rem; font-weight: 600; cursor: pointer; color: var(--marron);
     }
-    .tab.active { background: var(--accent); color: #4f3600; border-color: var(--accent); }
+    .tab.active { background: var(--rojo); color: var(--rosa); border-color: var(--marron); }
   </style>
 </head>
 <body>
@@ -103,7 +104,7 @@
   <div id="loginSection" class="login-wrap">
     <div class="card">
       <h2>🔮 Panel Admin — Fergis</h2>
-      <p style="color:var(--ink-soft);font-size:0.9rem;margin-bottom:16px;">Acceso restringido</p>
+      <p style="color:var(--rojo);font-size:0.9rem;margin-bottom:16px;">Acceso restringido</p>
       <div class="field">
         <label>Clave de acceso</label>
         <input type="password" id="adminKeyInput" placeholder="Tu clave secreta" />
@@ -116,10 +117,10 @@
   <!-- PANEL PRINCIPAL -->
   <div id="mainPanel" class="hidden">
 
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px; background: var(--verde);">
       <div>
         <h1>🌻 Panel Admin</h1>
-        <p style="font-size:0.85rem;color:var(--ink-soft);">Fergis Marrero — Tarot IA</p>
+        <p style="font-size:0.85rem;color:var(--marron);">Fergis Marrero — Tarot IA</p>
       </div>
       <button class="btn btn-secondary btn-sm" onclick="doLogout()">Cerrar sesión</button>
     </div>
@@ -147,7 +148,7 @@
       <div class="card">
         <h2>✨ Últimas personas en unirse</h2>
         <div id="latestUsersList" style="display: grid; gap: 10px;">
-          <p style="color:var(--ink-soft);font-size:0.88rem;">Cargando...</p>
+          <p style="color:var(--marron);font-size:0.88rem;">Cargando...</p>
         </div>
       </div>
     </div>
@@ -175,7 +176,7 @@
               <th>Lecturas</th>
             </tr>
           </thead>
-          <tbody id="usersTable"><tr><td colspan="5" style="color:var(--ink-soft);padding:20px;text-align:center;">Cargando...</td></tr></tbody>
+          <tbody id="usersTable"><tr><td colspan="5" style="color:var(--marron);padding:20px;text-align:center;">Cargando...</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -192,7 +193,7 @@
     <!-- RECARGAR CRÉDITOS -->
     <div id="tabRecharge" class="card hidden">
       <h2>💳 Recargar créditos manualmente</h2>
-      <p style="font-size:0.88rem;color:var(--ink-soft);margin-bottom:16px;">Úsalo para confirmar pagos por Yape u otro método manual.</p>
+      <p style="font-size:0.88rem;color:var(--marron);margin-bottom:16px;">Úsalo para confirmar pagos por Yape u otro método manual.</p>
       <div class="field">
         <label>Usuario</label>
         <select id="rechargeUser">
@@ -306,11 +307,11 @@
         datasets: [{
           label: 'Nuevos registros',
           data: counts,
-          borderColor: '#f2be42',
-          backgroundColor: 'rgba(242, 190, 66, 0.1)',
+          borderColor: '#520000',
+          backgroundColor: 'rgba(160, 186, 102, 0.2)',
           fill: true,
           tension: 0.3,
-          pointBackgroundColor: '#f2be42',
+          pointBackgroundColor: '#502D16',
           borderWidth: 2
         }]
       },
@@ -318,8 +319,8 @@
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          y: { beginAtZero: true, ticks: { stepSize: 1, color: '#826c45' }, grid: { color: '#f3d996' } },
-          x: { ticks: { color: '#826c45' }, grid: { display: false } }
+          y: { beginAtZero: true, ticks: { stepSize: 1, color: '#502D16' }, grid: { color: '#FFAAAA' } },
+          x: { ticks: { color: '#502D16' }, grid: { display: false } }
         },
         plugins: {
           legend: { display: false }
@@ -337,14 +338,14 @@
       .slice(0, 5);
 
     if (!latest.length) {
-      list.innerHTML = '<p style="color:var(--ink-soft);font-size:0.88rem;">No hay registros recientes.</p>';
+      list.innerHTML = '<p style="color:var(--marron);font-size:0.88rem;">No hay registros recientes.</p>';
       return;
     }
 
     list.innerHTML = latest.map(u => `
-      <div style="background: #fffef0; border: 1px solid #f0d98a; border-radius: 10px; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-        <div style="font-size: 0.88rem; font-weight: 600; color: #5a4321;">${escHtml(u.email)}</div>
-        <div style="font-size: 0.75rem; color: #9b7c42;">${formatDate(u.created_at)}</div>
+      <div style="background: var(--verde); border: 1px solid var(--marron); border-radius: 10px; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 0.88rem; font-weight: 600; color: var(--rojo);">${escHtml(u.email)}</div>
+        <div style="font-size: 0.75rem; color: var(--marron);">${formatDate(u.created_at)}</div>
       </div>
     `).join('');
   }
@@ -363,7 +364,7 @@
   function renderUsersTable(users) {
     const tbody = document.getElementById('usersTable');
     if (!users.length) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);padding:20px;">No hay usuarios todavía</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--marron);padding:20px;">No hay usuarios todavía</td></tr>';
       return;
     }
     tbody.innerHTML = users.map(u => `
@@ -371,7 +372,7 @@
         <td style="font-weight:500;">${escHtml(u.email || '—')}</td>
         <td><span class="badge badge-basic">${u.credits ?? 0}</span></td>
         <td><span class="badge badge-premium">${u.premium_credits ?? 0}</span></td>
-        <td style="font-size:0.8rem;color:var(--ink-soft);">${formatDate(u.created_at)}</td>
+        <td style="font-size:0.8rem;color:var(--marron);">${formatDate(u.created_at)}</td>
         <td><button class="btn btn-secondary btn-sm" onclick="loadHistory('${u.id}','${escHtml(u.email)}')">Ver lecturas</button></td>
       </tr>
     `).join('');
@@ -386,7 +387,7 @@
     try {
       const history = await adminFetch(`/admin/history/${userId}`);
       if (!history.length) {
-        document.getElementById('historyContent').innerHTML = '<p style="color:var(--ink-soft);font-size:0.88rem;">Esta persona aún no tiene lecturas guardadas.</p>';
+        document.getElementById('historyContent').innerHTML = '<p style="color:var(--marron);font-size:0.88rem;">Esta persona aún no tiene lecturas guardadas.</p>';
         return;
       }
       document.getElementById('historyContent').innerHTML = `
@@ -401,7 +402,7 @@
         </div>
       `;
     } catch (err) {
-      document.getElementById('historyContent').innerHTML = `<p style="color:#8d2626;">Error al cargar: ${err.message}</p>`;
+      document.getElementById('historyContent').innerHTML = `<p style="color:var(--rojo);">Error al cargar: ${err.message}</p>`;
     }
   }
 

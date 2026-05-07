@@ -7,20 +7,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0d0a14;
-    --paper: #f5f0eb;
-    --moon: #c9b99a;
-    --deep: #1a1228;
-    --accent: #7c5c8a;
-    --pale: #e8ddd0;
-    --glow: rgba(201,185,154,0.15);
+    --rojo: #520000;
+    --marron: #502D16;
+    --amarillo: #FFDD55;
+    --verde: #A0BA66;
+    --rosa: #FFAAAA;
+    --lila: #CD87DE;
+
+    --paper: var(--rosa);
+    --moon: var(--amarillo);
+    --deep: var(--rojo);
+    --rojo-page: var(--lila);
+    --pale: var(--amarillo);
+    --glow: rgba(255, 221, 85, 0.15);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--rosa);
+    color: var(--marron);
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 18px;
     line-height: 1.7;
@@ -34,20 +40,21 @@
     position: fixed;
     inset: 0;
     background-image:
-      radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
-      radial-gradient(1px 1px at 35% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 55% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 72% 12%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 88% 28%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 8% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 92% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 25% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 65% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 45% 92%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 78% 88%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 5% 88%, rgba(255,255,255,0.3) 0%, transparent 100%);
+      radial-gradient(1px 1px at 15% 20%, var(--lila) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 8%, var(--amarillo) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 35%, var(--lila) 0%, transparent 100%),
+      radial-gradient(1px 1px at 72% 12%, var(--amarillo) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 28%, var(--lila) 0%, transparent 100%),
+      radial-gradient(1px 1px at 8% 55%, var(--amarillo) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 92% 60%, var(--lila) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 75%, var(--amarillo) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 80%, var(--lila) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 92%, var(--amarillo) 0%, transparent 100%),
+      radial-gradient(1px 1px at 78% 88%, var(--lila) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 88%, var(--amarillo) 0%, transparent 100%);
     pointer-events: none;
     z-index: 0;
+    opacity: 0.4;
   }
 
   .wrap {
@@ -63,18 +70,18 @@
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background: radial-gradient(circle at 38% 35%, #f0e6d0 0%, #c9b99a 45%, #8a6f50 100%);
+    background: radial-gradient(circle at 38% 35%, var(--amarillo) 0%, var(--lila) 45%, var(--marron) 100%);
     box-shadow:
-      0 0 40px rgba(201,185,154,0.4),
-      0 0 80px rgba(201,185,154,0.15),
-      inset -8px -8px 20px rgba(0,0,0,0.3);
+      0 0 40px rgba(255, 221, 85, 0.4),
+      0 0 80px rgba(205, 135, 222, 0.15),
+      inset -8px -8px 20px rgba(82, 0, 0, 0.3);
     margin: 0 auto 1.5rem;
     animation: breathe 6s ease-in-out infinite;
   }
 
   @keyframes breathe {
-    0%, 100% { box-shadow: 0 0 40px rgba(201,185,154,0.4), 0 0 80px rgba(201,185,154,0.15), inset -8px -8px 20px rgba(0,0,0,0.3); }
-    50% { box-shadow: 0 0 60px rgba(201,185,154,0.6), 0 0 120px rgba(201,185,154,0.25), inset -8px -8px 20px rgba(0,0,0,0.3); }
+    0%, 100% { box-shadow: 0 0 40px rgba(255, 221, 85, 0.4), 0 0 80px rgba(205, 135, 222, 0.15), inset -8px -8px 20px rgba(82, 0, 0, 0.3); }
+    50% { box-shadow: 0 0 60px rgba(255, 221, 85, 0.6), 0 0 120px rgba(205, 135, 222, 0.25), inset -8px -8px 20px rgba(82, 0, 0, 0.3); }
   }
 
   header {
@@ -96,7 +103,7 @@
     font-family: 'Cinzel', serif;
     font-size: 28px;
     font-weight: 400;
-    color: var(--paper);
+    color: var(--rojo);
     line-height: 1.3;
     margin-bottom: 0.5rem;
   }
@@ -126,8 +133,8 @@
   }
 
   .step-dot.active {
-    background: var(--moon);
-    box-shadow: 0 0 8px rgba(201,185,154,0.6);
+    background: var(--rojo);
+    box-shadow: 0 0 8px var(--lila);
     width: 24px;
     border-radius: 3px;
   }
@@ -172,21 +179,21 @@
   select,
   textarea {
     width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid rgba(201,185,154,0.25);
+    background: var(--amarillo);
+    border: 0.5px solid var(--marron);
     border-radius: 2px;
     padding: 12px 16px;
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 17px;
-    color: var(--paper);
+    color: var(--marron);
     transition: border-color 0.3s, background 0.3s;
     outline: none;
     -webkit-appearance: none;
   }
 
   input:focus, select:focus, textarea:focus {
-    border-color: rgba(201,185,154,0.6);
-    background: rgba(255,255,255,0.07);
+    border-color: var(--rojo);
+    background: var(--rosa);
   }
 
   input[type=date]::-webkit-calendar-picker-indicator {
@@ -195,17 +202,17 @@
     cursor: pointer;
   }
 
-  select option { background: #1a1228; }
+  select option { background: var(--verde); }
 
   textarea { resize: none; line-height: 1.7; }
 
   /* Intention card */
   .intention {
-    border: 0.5px solid rgba(201,185,154,0.2);
+    border: 0.5px solid var(--marron);
     border-radius: 2px;
     padding: 1.25rem 1.25rem 1rem;
     margin-bottom: 1.25rem;
-    background: rgba(201,185,154,0.03);
+    background: var(--amarillo);
   }
 
   .intention-tag {
@@ -230,10 +237,10 @@
   .btn {
     width: 100%;
     padding: 14px;
-    background: transparent;
-    border: 0.5px solid rgba(201,185,154,0.5);
+    background: var(--rojo);
+    border: 1px solid var(--marron);
     border-radius: 2px;
-    color: var(--moon);
+    color: var(--rosa);
     font-family: 'Cinzel', serif;
     font-size: 12px;
     letter-spacing: 0.25em;
@@ -265,8 +272,8 @@
   }
 
   .btn-ghost {
-    border-color: rgba(201,185,154,0.2);
-    color: rgba(201,185,154,0.5);
+    border-color: var(--rojo);
+    color: var(--rojo);
     margin-top: 1rem;
     font-size: 11px;
   }
@@ -281,8 +288,8 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 0.5px solid rgba(201,185,154,0.3);
-    border-top-color: var(--moon);
+    border: 0.5px solid var(--marron);
+    border-top-color: var(--rojo);
     animation: spin 2s linear infinite;
     margin: 0 auto 1.5rem;
   }
@@ -302,12 +309,15 @@
   /* Result */
   .divider {
     border: none;
-    border-top: 0.5px solid rgba(201,185,154,0.15);
+    border-top: 0.5px solid var(--marron);
     margin: 2rem 0;
   }
 
   .result-block {
     margin-bottom: 1.75rem;
+    background: var(--verde);
+    padding: 1rem;
+    border-radius: 8px;
   }
 
   .result-label {
@@ -322,21 +332,21 @@
 
   .result-text {
     font-size: 17px;
-    color: var(--pale);
+    color: var(--marron);
     line-height: 1.8;
     font-style: italic;
   }
 
   .result-text.main {
     font-size: 19px;
-    color: var(--paper);
-    border-left: 1px solid rgba(201,185,154,0.3);
+    color: var(--rojo);
+    border-left: 1px solid var(--marron);
     padding-left: 1.25rem;
   }
 
   /* Error */
   .error-msg {
-    color: #c97a7a;
+    color: var(--rojo);
     font-size: 14px;
     font-style: italic;
     margin-top: 8px;

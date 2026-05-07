@@ -19,17 +19,13 @@
        DESIGN TOKENS
     ═══════════════════════════════════════════════════════ */
     :root {
-      /* Paleta principal */
-      --cream: #FAF4E8;
-      --parchment: #F2E8D0;
-      --gold-light: #F5E3A3;
-      --gold: #D4A847;
-      --gold-deep: #A87828;
-      --terracotta: #A50E0E;
-      --terracotta-d: #7D0404;
-      --wine: #7A0000;
-      --wine-deep: #520000;
-      --ink: #1F0A10;
+      /* Nueva Paleta */
+      --rojo: #520000;
+      --marron: #502D16;
+      --amarillo: #FFDD55;
+      --verde: #A0BA66;
+      --rosa: #FFAAAA;
+      --lila: #CD87DE;
 
       /* Tipografía */
       --font-display: 'Carelia W05 Italic', Georgia, serif;
@@ -60,8 +56,8 @@
 
     body {
       font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--ink);
+      background: var(--rosa);
+      color: var(--marron);
       line-height: 1.65;
       min-height: 100vh;
       overflow-x: hidden;
@@ -90,26 +86,26 @@
 
     /* ── Warm box (crema) */
     .box-warm {
-      background: var(--parchment);
-      border: 1px solid rgba(212, 168, 71, 0.25);
+      background: var(--amarillo);
+      border: 1px solid var(--marron);
     }
 
     /* ── Dark box (fondo rico, tipografía clara) */
     .box-rich {
-      background: linear-gradient(140deg, var(--terracotta) 0%, var(--wine) 100%);
-      color: var(--cream);
+      background: linear-gradient(140deg, var(--rojo) 0%, var(--marron) 100%);
+      color: var(--rosa);
     }
 
     /* ── Gold box */
     .box-gold {
-      background: linear-gradient(135deg, #F0C860 0%, #D4A847 100%);
-      color: var(--wine-deep);
+      background: linear-gradient(135deg, var(--amarillo) 0%, var(--verde) 100%);
+      color: var(--rojo);
     }
 
     /* ── Deep box */
     .box-deep {
-      background: linear-gradient(140deg, var(--wine-deep) 0%, var(--ink) 100%);
-      color: var(--cream);
+      background: linear-gradient(140deg, var(--rojo) 0%, var(--marron) 100%);
+      color: var(--rosa);
     }
 
     /* ═══════════════════════════════════════════════════════
@@ -118,8 +114,8 @@
     .hero-box {
       padding: 72px 64px;
       text-align: center;
-      background: var(--wine-deep);
-      color: var(--cream);
+      background: var(--rojo);
+      color: var(--rosa);
       position: relative;
       overflow: hidden;
     }
@@ -135,8 +131,8 @@
       justify-content: center;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      background: rgba(201, 212, 177, 0.9);
-      border: 1px solid rgba(212, 168, 71, 0.35);
+      background: var(--verde);
+      border: 1px solid var(--marron);
       box-shadow: var(--shadow-sm);
     }
 
@@ -146,9 +142,9 @@
       justify-content: center;
       padding: 9px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(125, 4, 4, 0.24);
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--wine-deep);
+      border: 1px solid var(--rojo);
+      background: var(--amarillo);
+      color: var(--marron);
       text-decoration: none;
       font-size: 0.87rem;
       font-weight: 600;
@@ -157,8 +153,8 @@
     }
 
     .quick-nav a:hover {
-      background: var(--gold-light);
-      border-color: rgba(168, 120, 40, 0.55);
+      background: var(--lila);
+      border-color: var(--rojo);
       transform: translateY(-1px);
     }
 
@@ -181,8 +177,8 @@
       font-weight: 600;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(212, 168, 71, 0.4);
+      color: var(--amarillo);
+      border: 1px solid var(--amarillo);
       padding: 6px 18px;
       border-radius: 99px;
       margin-bottom: 32px;
@@ -193,20 +189,20 @@
       font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 600;
       line-height: 1.1;
-      color: #fff;
+      color: var(--amarillo);
       margin-bottom: 28px;
       letter-spacing: -0.5px;
     }
 
     .hero-title em {
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--lila);
     }
 
     .hero-body {
       font-size: 1.15rem;
       font-weight: 300;
-      color: rgba(250, 244, 232, 0.82);
+      color: var(--rosa);
       max-width: 620px;
       margin: 0 auto 12px;
       line-height: 1.75;
@@ -217,7 +213,7 @@
       font-family: var(--font-display);
       font-size: 1.35rem;
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--amarillo);
       letter-spacing: 0.3px;
     }
 
@@ -246,20 +242,20 @@
        SERVICE CARDS (MODULAR DESIGN)
     ═══════════════════════════════════════════════════════ */
     .service-card {
-      background: #F9F5EE;
+      background: var(--amarillo);
       border-radius: 40px;
       padding: 56px 48px;
       display: flex;
       flex-direction: column;
       height: 100%;
       position: relative;
-      border: 1px solid rgba(61, 43, 31, 0.1);
+      border: 1px solid var(--marron);
       overflow: hidden;
     }
 
     .service-card__pill {
-      background: #F5EACC;
-      color: #3d2b1f;
+      background: var(--verde);
+      color: var(--marron);
       border-radius: 999px;
       padding: 8px 24px;
       font-size: 0.9rem;
@@ -274,7 +270,7 @@
       font-size: clamp(2.2rem, 4vw, 3.2rem);
       font-weight: 600;
       font-style: italic;
-      color: #3d2b1f;
+      color: var(--rojo);
       line-height: 1.1;
       margin-bottom: 24px;
     }
@@ -283,7 +279,7 @@
       font-family: 'Carelia W05 Italic', Georgia, serif;
       font-size: clamp(1.5rem, 2.5vw, 1.8rem);
       font-style: italic;
-      color: #3d2b1f;
+      color: var(--marron);
       margin-bottom: 32px;
       line-height: 1.2;
       opacity: 0.9;
@@ -292,9 +288,8 @@
     .service-card__copy {
       font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 1.15rem;
-      color: #3d2b1f;
+      color: var(--marron);
       line-height: 1.6;
-      opacity: 0.85;
     }
 
     .service-card__copy p {
@@ -317,7 +312,7 @@
       width: 100%;
       font-size: 1rem;
       font-weight: 700;
-      color: #3d2b1f;
+      color: var(--marron);
       opacity: 0.8;
       margin-bottom: 8px;
     }
@@ -326,8 +321,8 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: #3d0000;
-      color: #fff;
+      background: var(--rojo);
+      color: var(--rosa);
       padding: 16px 32px;
       border-radius: 12px;
       text-decoration: none;
@@ -337,22 +332,22 @@
 
     .service-card__cta--secondary {
       background: transparent;
-      color: #3d2b1f;
-      border: 1px solid rgba(61, 43, 31, 0.2);
+      color: var(--marron);
+      border: 1px solid var(--marron);
     }
 
     .service-card__cta:hover {
       transform: translateY(-2px);
-      background: #2a0000;
+      background: var(--marron);
     }
 
     .service-card__cta--secondary:hover {
-      background: rgba(61, 43, 31, 0.05);
+      background: var(--verde);
     }
 
     .tarot-card {
-      background: linear-gradient(135deg, #d4af88 0%, #bc8f61 100%);
-      border: 1px solid #a97644;
+      background: linear-gradient(135deg, var(--amarillo) 0%, var(--verde) 100%);
+      border: 1px solid var(--marron);
       border-radius: 24px;
       padding: 40px;
       position: relative;
@@ -363,21 +358,21 @@
     }
 
     .tarot-card-featured {
-      background: linear-gradient(180deg, #bc8f61 0%, #d7a598 34%, #E2B4BD 100%);
-      border-color: #c8939e;
+      background: linear-gradient(180deg, var(--lila) 0%, var(--rosa) 100%);
+      border-color: var(--rojo);
     }
 
     .tarot-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 246, 226, 0.72);
-      border: 1px solid rgba(107, 34, 54, 0.22);
+      background: var(--rosa);
+      border: 1px solid var(--rojo);
       border-radius: 999px;
       padding: 5px 14px;
       font-size: 11px;
       font-weight: 700;
-      color: var(--wine-deep);
+      color: var(--rojo);
       letter-spacing: 0.02em;
       text-transform: none;
       margin-bottom: 12px;
@@ -389,7 +384,7 @@
       font-size: clamp(1.6rem, 2.5vw, 2rem);
       font-weight: 500;
       font-style: italic;
-      color: #4b3108;
+      color: var(--marron);
       line-height: 1.2;
       margin-bottom: 16px;
       min-height: 3.6rem;
@@ -404,11 +399,11 @@
       font-style: italic;
       font-weight: 700;
       letter-spacing: -0.03em;
-      color: var(--wine-deep);
+      color: var(--rojo);
     }
 
     .tarot-copy {
-      color: #7a5e34;
+      color: var(--marron);
       font-size: 1.05rem;
       line-height: 1.6;
       margin-bottom: 24px;
@@ -425,7 +420,7 @@
     .tarot-note {
       font-size: 0.92rem;
       opacity: 1;
-      color: rgba(78, 49, 8, 0.74);
+      color: var(--rojo);
       margin-top: 0;
       margin-bottom: 24px;
       flex-grow: 0;
@@ -436,11 +431,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(90deg, #e4ba49 0%, #d9a93a 100%);
-      color: #4f3600;
+      background: var(--amarillo);
+      color: var(--rojo);
       font-weight: 700;
       font-size: 1rem;
-      border: none;
+      border: 1px solid var(--rojo);
       border-radius: 999px;
       padding: 13px 24px;
       text-decoration: none;
@@ -483,7 +478,7 @@
       font-size: clamp(1.95rem, 2.45vw, 2.4rem);
       font-style: normal;
       font-weight: 900;
-      color: #fff4cf;
+      color: var(--amarillo);
       line-height: 1;
       margin-top: 28px;
       margin-bottom: 0;
@@ -499,7 +494,7 @@
     }
 
     .tiendita-state {
-      color: rgba(243, 240, 230, 0.78);
+      color: var(--rosa);
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 300;
@@ -515,7 +510,7 @@
       width: 56px;
       height: 4px;
       border-radius: 999px;
-      background: #a991A7;
+      background: var(--lila);
       margin-top: auto;
       margin-bottom: 10px;
       align-self: center;
@@ -523,7 +518,7 @@
     }
 
     .tiendita-copy {
-      color: rgba(243, 240, 230, 0.72);
+      color: var(--rosa);
       font-size: 1.02rem;
       line-height: 1.5;
       max-width: 30ch;
@@ -599,7 +594,7 @@
       border-radius: var(--radius);
       overflow: hidden;
       position: relative;
-      background: var(--wine-deep);
+      background: var(--rojo);
       min-height: 560px;
     }
 
@@ -646,7 +641,7 @@
 
     /* Placeholder cuando no hay imagen */
     .c-slide.img-slide {
-      background: linear-gradient(150deg, var(--wine) 0%, #1F0A10 100%);
+      background: linear-gradient(150deg, var(--rojo) 0%, var(--marron) 100%);
     }
 
     .c-slide.img-slide::after {
@@ -657,7 +652,7 @@
       align-items: center;
       justify-content: center;
       font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.35);
+      color: var(--rosa);
       padding: 24px;
       text-align: center;
       z-index: 0;
@@ -669,8 +664,8 @@
 
     .c-slide.text-slide {
       padding: 52px 44px;
-      background: linear-gradient(150deg, var(--terracotta) 0%, var(--wine-deep) 100%);
-      color: var(--cream);
+      background: linear-gradient(150deg, var(--rojo) 0%, var(--marron) 100%);
+      color: var(--rosa);
       text-align: center;
       overflow-y: auto;
     }
@@ -681,18 +676,18 @@
       font-weight: 600;
       line-height: 1.15;
       margin-bottom: 20px;
-      color: #fff;
+      color: var(--amarillo);
     }
 
     .c-slide.text-slide h2 em {
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--lila);
     }
 
     .c-slide.text-slide p {
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(250, 244, 232, 0.85);
+      color: var(--rosa);
       font-weight: 300;
     }
 
@@ -711,14 +706,14 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
+      background: var(--verde);
       transition: background 0.4s, transform 0.4s;
       cursor: pointer;
       border: none;
     }
 
     .dot.active {
-      background: var(--gold);
+      background: var(--amarillo);
       transform: scale(1.3);
     }
 
@@ -762,29 +757,29 @@
     }
 
     .srv-btn-rich {
-      background: linear-gradient(120deg, var(--terracotta) 0%, #8E0000 100%);
-      color: var(--cream);
+      background: linear-gradient(120deg, var(--rojo) 0%, var(--marron) 100%);
+      color: var(--rosa);
     }
 
     .srv-btn-wine {
-      background: linear-gradient(120deg, var(--wine) 0%, #640000 100%);
-      color: var(--cream);
+      background: linear-gradient(120deg, var(--rojo) 0%, var(--marron) 100%);
+      color: var(--rosa);
     }
 
     .srv-btn-gold {
-      background: linear-gradient(120deg, #E8B840 0%, var(--gold-deep) 100%);
-      color: var(--wine-deep);
+      background: linear-gradient(120deg, var(--amarillo) 0%, var(--verde) 100%);
+      color: var(--rojo);
     }
 
     .srv-btn-deep {
-      background: linear-gradient(120deg, var(--wine-deep) 0%, var(--ink) 100%);
-      color: var(--cream);
+      background: linear-gradient(120deg, var(--rojo) 0%, var(--marron) 100%);
+      color: var(--rosa);
     }
 
     .srv-btn-parch {
-      background: var(--parchment);
-      border: 1px solid rgba(212, 168, 71, 0.3);
-      color: var(--ink);
+      background: var(--amarillo);
+      border: 1px solid var(--marron);
+      color: var(--marron);
     }
 
     .srv-label {
@@ -837,12 +832,12 @@
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--amarillo);
       margin-bottom: 14px;
     }
 
     .box-rich .box-label {
-      color: var(--gold-light);
+      color: var(--lila);
     }
 
     .box-heading {
@@ -851,24 +846,24 @@
       font-weight: 600;
       line-height: 1.15;
       margin-bottom: 16px;
-      color: var(--wine-deep);
+      color: var(--rojo);
     }
 
     .box-rich .box-heading,
     .box-deep .box-heading {
-      color: #fff;
+      color: var(--amarillo);
     }
 
     .box-body {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--wine);
+      color: var(--marron);
       line-height: 1.75;
     }
 
     .box-rich .box-body,
     .box-deep .box-body {
-      color: rgba(250, 244, 232, 0.8);
+      color: var(--rosa);
     }
 
     .blog-tags {
@@ -879,9 +874,9 @@
     }
 
     .blog-tag {
-      background: rgba(212, 168, 71, 0.15);
-      border: 1px solid rgba(212, 168, 71, 0.4);
-      color: var(--gold-deep);
+      background: var(--amarillo);
+      border: 1px solid var(--rojo);
+      color: var(--rojo);
       padding: 8px 18px;
       border-radius: 99px;
       font-size: 0.88rem;
@@ -892,17 +887,17 @@
     }
 
     .blog-tag:hover {
-      background: rgba(212, 168, 71, 0.28);
+      background: var(--verde);
     }
 
     .box-rich .blog-tag {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-      color: var(--gold-light);
+      background: var(--marron);
+      border-color: var(--rosa);
+      color: var(--rosa);
     }
 
     .box-rich .blog-tag:hover {
-      background: rgba(255, 255, 255, 0.18);
+      background: var(--rojo);
     }
 
     .blog-mobile {
@@ -918,12 +913,12 @@
     }
 
     .community-box .box-heading {
-      color: #fff;
+      color: var(--amarillo);
       margin-bottom: 20px;
     }
 
     .community-box .box-body {
-      color: rgba(250, 244, 232, 0.82);
+      color: var(--rosa);
       margin-bottom: 36px;
       max-width: 580px;
       margin-left: auto;
@@ -935,24 +930,24 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--gold);
-      color: var(--wine-deep);
+      background: var(--amarillo);
+      color: var(--rojo);
       padding: 16px 42px;
       border-radius: 99px;
-      border: none;
+      border: 1px solid var(--rojo);
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
       transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
-      box-shadow: 0 4px 20px rgba(212, 168, 71, 0.35);
+      box-shadow: 0 4px 20px rgba(82, 0, 0, 0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 40px rgba(212, 168, 71, 0.45);
-      background: #E8BE55;
+      box-shadow: 0 10px 40px rgba(82, 0, 0, 0.45);
+      background: var(--verde);
     }
 
     /* ═══════════════════════════════════════════════════════
@@ -971,12 +966,12 @@
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--wine-deep);
+      color: var(--rojo);
       letter-spacing: -0.2px;
     }
 
     .social-brand span {
-      color: var(--terracotta);
+      color: var(--marron);
       font-style: italic;
     }
 
@@ -989,20 +984,20 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: rgba(212, 168, 71, 0.12);
-      border: 1.5px solid rgba(212, 168, 71, 0.35);
+      background: var(--rosa);
+      border: 1.5px solid var(--rojo);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--wine-deep);
+      color: var(--rojo);
       font-size: 20px;
       text-decoration: none;
       transition: background 0.22s, transform 0.22s, border-color 0.22s;
     }
 
     .social-link:hover {
-      background: var(--gold);
-      border-color: var(--gold);
+      background: var(--amarillo);
+      border-color: var(--marron);
       transform: translateY(-3px);
     }
 
@@ -1012,7 +1007,7 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(31, 10, 16, 0.65);
+      background: rgba(80, 45, 22, 0.65);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 9998;
@@ -1030,7 +1025,7 @@
     }
 
     .modal-panel {
-      background: var(--cream);
+      background: var(--rosa);
       width: 90%;
       max-width: 540px;
       border-radius: 24px;
@@ -1054,9 +1049,9 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(107, 34, 54, 0.08);
+      background: var(--verde);
       border: none;
-      color: var(--wine);
+      color: var(--rojo);
       font-size: 18px;
       cursor: pointer;
       display: flex;
@@ -1067,7 +1062,7 @@
     }
 
     .modal-close:hover {
-      background: rgba(107, 34, 54, 0.15);
+      background: var(--amarillo);
       transform: rotate(90deg);
     }
 
@@ -1077,7 +1072,7 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--rojo);
       margin-bottom: 12px;
     }
 
@@ -1086,22 +1081,22 @@
       font-size: 2.4rem;
       font-weight: 600;
       line-height: 1.1;
-      color: var(--wine-deep);
+      color: var(--marron);
       margin-bottom: 20px;
     }
 
     .sdm-text {
       font-size: 1.05rem;
       line-height: 1.75;
-      color: var(--wine);
+      color: var(--marron);
       white-space: pre-line;
       margin-bottom: 28px;
     }
 
     /* Opción cards inside Compatibilidad modal */
     .compat-option {
-      background: var(--parchment);
-      border: 1px solid rgba(212,168,71,0.25);
+      background: var(--amarillo);
+      border: 1px solid var(--marron);
       border-radius: var(--radius-sm);
       padding: 24px;
       margin-bottom: 8px;
@@ -1111,20 +1106,20 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--rojo);
       margin-bottom: 8px;
     }
     .compat-name {
       font-family: var(--font-display);
       font-size: 1.4rem;
       font-weight: 600;
-      color: var(--wine-deep);
+      color: var(--rojo);
       margin-bottom: 12px;
     }
     .compat-price {
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--wine-deep);
+      color: var(--marron);
       margin-bottom: 12px;
     }
     .compat-option .sdm-text {
@@ -1133,7 +1128,7 @@
     }
     .compat-divider {
       height: 1px;
-      background: rgba(212,168,71,0.3);
+      background: var(--marron);
       margin: 16px 0;
     }
 
@@ -1142,13 +1137,13 @@
       font-family: var(--font-display);
       font-size: 2rem;
       font-weight: 600;
-      color: var(--wine-deep);
+      color: var(--rojo);
       margin-bottom: 6px;
     }
 
     .bm-sub {
       font-size: 0.9rem;
-      color: var(--wine);
+      color: var(--marron);
       opacity: 0.75;
       margin-bottom: 28px;
     }
@@ -1161,7 +1156,7 @@
       display: block;
       font-size: 0.88rem;
       font-weight: 600;
-      color: var(--wine);
+      color: var(--marron);
       margin-bottom: 6px;
       letter-spacing: 0.3px;
     }
@@ -1171,19 +1166,19 @@
       width: 100%;
       padding: 13px 16px;
       border-radius: var(--radius-sm);
-      border: 1.5px solid rgba(212, 168, 71, 0.3);
-      background: #fff;
+      border: 1.5px solid var(--marron);
+      background: var(--rosa);
       font-family: var(--font-body);
       font-size: 0.97rem;
-      color: var(--ink);
+      color: var(--marron);
       transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .form-group input:focus,
     .form-group select:focus {
       outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(212, 168, 71, 0.14);
+      border-color: var(--rojo);
+      box-shadow: 0 0 0 4px var(--lila);
     }
 
     .form-row {
@@ -1194,17 +1189,17 @@
 
     .paypal-wrap {
       margin-top: 24px;
-      background: #fff;
+      background: var(--verde);
       border-radius: var(--radius-sm);
       padding: 20px;
-      border: 1.5px dashed rgba(212, 168, 71, 0.3);
+      border: 1.5px dashed var(--marron);
       text-align: center;
     }
 
     .paypal-label {
       font-size: 0.88rem;
       font-weight: 700;
-      color: var(--wine);
+      color: var(--rojo);
       margin-bottom: 12px;
       letter-spacing: 0.3px;
     }
@@ -1225,14 +1220,14 @@
 
     .wa-bubble {
       max-width: min(280px, calc(100vw - 40px));
-      background: rgba(255, 251, 242, 0.96);
-      color: var(--wine-deep);
-      border: 1px solid rgba(212, 168, 71, 0.5);
+      background: var(--amarillo);
+      color: var(--marron);
+      border: 1px solid var(--rojo);
       border-radius: 18px;
       padding: 12px 16px;
       font-size: 0.93rem;
       line-height: 1.45;
-      box-shadow: 0 12px 28px rgba(31, 10, 16, 0.14);
+      box-shadow: 0 12px 28px rgba(80, 45, 22, 0.14);
       position: relative;
       opacity: 0;
       transform: translateY(10px) scale(0.96);
@@ -1248,9 +1243,9 @@
       bottom: -9px;
       width: 18px;
       height: 18px;
-      background: rgba(255, 251, 242, 0.96);
-      border-right: 1px solid rgba(212, 168, 71, 0.5);
-      border-bottom: 1px solid rgba(212, 168, 71, 0.5);
+      background: var(--amarillo);
+      border-right: 1px solid var(--rojo);
+      border-bottom: 1px solid var(--rojo);
       transform: rotate(45deg);
     }
 
@@ -1259,7 +1254,7 @@
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #2ce171 0%, #21bf5d 100%);
+      background: linear-gradient(180deg, #A0BA66 0%, #A0BA66 100%);
       color: #fff;
       display: flex;
       align-items: center;
@@ -1277,17 +1272,17 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #f5d35f 0%, #d79c1c 100%);
+      background: linear-gradient(180deg, var(--amarillo) 0%, var(--verde) 100%);
       transform: translate(-50%, -50%);
       box-shadow:
-        0 -31px 0 2px #f3c64d,
-        22px -22px 0 2px #f0bb3d,
-        31px 0 0 2px #f3c64d,
-        22px 22px 0 2px #e5a62f,
-        0 31px 0 2px #f3c64d,
-        -22px 22px 0 2px #f0bb3d,
-        -31px 0 0 2px #f3c64d,
-        -22px -22px 0 2px #e5a62f;
+        0 -31px 0 2px var(--amarillo),
+        22px -22px 0 2px var(--verde),
+        31px 0 0 2px var(--amarillo),
+        22px 22px 0 2px var(--verde),
+        0 31px 0 2px var(--amarillo),
+        -22px 22px 0 2px var(--verde),
+        -31px 0 0 2px var(--amarillo),
+        -22px -22px 0 2px var(--verde);
       z-index: -2;
     }
 
@@ -1581,7 +1576,8 @@
 
     /* SCROLLBAR */
     ::selection {
-      background: rgba(212, 168, 71, 0.3);
+      background: var(--lila);
+      color: var(--marron);
     }
 
     ::-webkit-scrollbar {
@@ -1589,11 +1585,11 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: var(--cream);
+      background: var(--rosa);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: var(--gold);
+      background: var(--rojo);
       border-radius: 99px;
     }
   </style>
@@ -1625,7 +1621,7 @@
 
   <main class="bento-page">
 
-    <nav class="box box-warm quick-nav fade-up" aria-label="Navegación rápida">
+    <nav class="box quick-nav fade-up" style="background: var(--amarillo); border: 1px solid var(--marron);" aria-label="Navegación rápida">
       <a href="#inicio">Inicio</a>
       <!-- <a href="#servicios">Servicios</a> -->
       <a href="#blog">Blog</a>
@@ -1822,7 +1818,7 @@
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ COMUNIDAD ━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section id="comunidad" class="box box-deep community-box fade-up">
-      <div class="box-label" style="color:var(--gold-light)">Comunidad</div>
+      <div class="box-label" style="color:var(--amarillo)">Comunidad</div>
       <h2 class="box-heading">🌻 Entre Diosas 🌻</h2>
       <p class="box-body">Un espacio donde seguimos este proceso juntas. Reflexiones, guía cercana y acompañamiento más
         directo para sostenerte en lo que estás viviendo.💛</p>
@@ -1830,14 +1826,14 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA NATAL EXTERNA ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="carta-natal" class="box box-warm fade-up" style="padding: 64px 32px; text-align: center;">
-      <div class="box-label" style="color:var(--terracotta)">Herramienta Gratuita</div>
+    <section id="carta-natal" class="box fade-up" style="padding: 64px 32px; text-align: center; background: var(--amarillo); border: 1px solid var(--marron);">
+      <div class="box-label" style="color:var(--rojo)">Herramienta Gratuita</div>
       <h2 class="box-heading">Calcula tu Carta Natal</h2>
       <p class="box-body" style="margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto;">
         Ingresa tus datos básicos a continuación. Serás redirigida a nuestro portal aliado donde podrás indicar tu lugar de nacimiento para obtener tu mapa celestial exacto.
       </p>
 
-      <form id="carta-natal-form" action="https://carta-natal.es/carta.php" method="POST" target="_blank" style="max-width: 540px; margin: 0 auto; text-align: left; background: #fff; padding: 40px; border-radius: var(--radius-sm); border: 1.5px dashed rgba(212, 168, 71, 0.4); box-shadow: var(--shadow-sm);">
+      <form id="carta-natal-form" action="https://carta-natal.es/carta.php" method="POST" target="_blank" style="max-width: 540px; margin: 0 auto; text-align: left; background: var(--rosa); padding: 40px; border-radius: var(--radius-sm); border: 1.5px dashed var(--marron); box-shadow: var(--shadow-sm);">
 
         <div class="form-group">
           <label>Nombre o Seudónimo (Opcional)</label>
@@ -1885,7 +1881,7 @@
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section id="testimonios" class="box box-rich fade-up" style="padding: 56px 32px;">
-      <div class="box-label" style="color:var(--gold-light)">Testimonios</div>
+      <div class="box-label" style="color:var(--amarillo)">Testimonios</div>
       <h2 class="box-heading" style="margin-bottom: 10px;">Lo que dicen mis chicas sobre sus sesiones</h2>
       <p class="box-body" style="margin-bottom: 30px; max-width: 760px; color:rgba(250,244,232,0.88);">
         Estos son algunos de los mensajitos que mis consultantes me envían para expresar cómo se<br>sintieron con sus lecturas.
@@ -1893,35 +1889,35 @@
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Me sentí muy bien con Fer. Tiene una forma muy linda de contener, de dar paz y de ayudarte a ver todo con más claridad. Salí de la sesión mucho más tranquila.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Cataleya M.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Cataleya M.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Fergis me ayudó a entender lo que estaba viviendo sin sentirme juzgada. Su apoyo y su manera de explicarme las cosas me dieron mucha calma y muchísimo soporte emocional.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Camila R.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Camila R.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Con Mamá Girasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Lucía P.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Lucía P.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Gracias por guiarme con tanta calidez. Todo se sintió humano, amoroso y muy claro. Me ayudaste a ordenarme por dentro y a sentirme sostenida de una manera muy bonita.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Daniela S.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Daniela S.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Lo que más valoro es la contención que encontré contigo. No sentí solo una lectura, sentí compañía, paz y una presencia muy amorosa que me ayudó a atravesar lo que estaba pasando.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Valeria T.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Valeria T.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Mi sesión de tarot me dio una calma que necesitaba muchísimo. Llegué con ansiedad y me fui con más paz, respuestas claras y la sensación de que todo podía acomodarse dentro de mí.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Sofía L.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Sofía L.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“La sesión de carta natal me ayudó muchísimo con temas del trabajo y de mi pareja. Todo cobró sentido. Sentí claridad, apoyo y una guía muy amorosa para saber por dónde seguir.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Yulimar G.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Yulimar G.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
           <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Diosa en Guía ha sido un regalo para mí. Con tu soporte empecé a mirarme con más amor, a darme más paciencia y a sentirme acompañada en un proceso que antes vivía muy sola.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Fernanda C.</p>
+          <p style="margin-top:12px; font-weight:600; color:var(--amarillo);">— Fernanda C.</p>
         </article>
       </div>
     </section>
@@ -2120,7 +2116,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
 
       <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 168, 71, 0.3); padding-top: 24px;">
         <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--wine-deep);">¿Deseas pagar con Yape? (Solo Perú)</p>
-        <button type="button" class="btn-primary" style="background: #742284; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35);" onclick="openYapeModal()">
+        <button type="button" class="btn-primary" style="background: #CD87DE; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35);" onclick="openYapeModal()">
           📲 Haz click aquí
         </button>
       </div>
@@ -2182,9 +2178,9 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
           </label>
         </div>
 
-        <div class="paypal-wrap" style="border-color: #742284; margin-top:24px;">
-          <p class="paypal-label" style="color: #742284; margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás envíar la captura aquí 👇</p>
-          <button type="button" class="btn-primary" style="background: #25D366; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);" onclick="submitYapeBooking()">
+        <div class="paypal-wrap" style="border-color: #CD87DE; margin-top:24px;">
+          <p class="paypal-label" style="color: #CD87DE; margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás envíar la captura aquí 👇</p>
+          <button type="button" class="btn-primary" style="background: #A0BA66; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);" onclick="submitYapeBooking()">
             💬 Enviar captura por WhatsApp
           </button>
         </div>
@@ -2361,9 +2357,9 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
   </div>
 
   <!-- BANNER DE COOKIES -->
-  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:24px; right:24px; max-width:420px; background:rgba(255,255,255,0.98); border:2px solid rgba(212,168,71,0.25); border-radius:16px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:900;">
-    <h4 style="margin:0 0 10px 0; font-size:1.1rem; color:var(--wine-deep);">Quiero que te sientas cómoda aquí 🌻</h4>
-    <p style="margin:0 0 20px 0; font-size:0.9rem; line-height:1.5; color:var(--wine);">Usamos cookies para que tu experiencia sea más fluida y armoniosa. <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="color:var(--gold); font-weight:600; text-decoration:underline;">Ver política</a></p>
+    <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:24px; right:24px; max-width:420px; background:var(--amarillo); border:2px solid var(--marron); border-radius:16px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:900;">
+      <h4 style="margin:0 0 10px 0; font-size:1.1rem; color:var(--rojo);">Quiero que te sientas cómoda aquí 🌻</h4>
+      <p style="margin:0 0 20px 0; font-size:0.9rem; line-height:1.5; color:var(--marron);">Usamos cookies para que tu experiencia sea más fluida y armoniosa. <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="color:var(--rojo); font-weight:600; text-decoration:underline;">Ver política</a></p>
     <button onclick="acceptCookies()" class="btn-primary" style="width:100%; justify-content:center; padding:12px;">Aceptar ✨</button>
   </div>
 

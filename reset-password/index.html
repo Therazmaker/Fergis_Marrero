@@ -15,15 +15,16 @@
   />
   <style>
     :root {
-      --bg: #fffdf8;
-      --card: #fff8e8;
-      --accent: #f2be42;
-      --ink: #4b3b22;
-      --ink-soft: #826c45;
-      --line: #f3d996;
-      --ok: #2d9a67;
-      --danger: #b84343;
-      --shadow: 0 12px 30px rgba(163, 126, 61, 0.13);
+      --rojo: #520000;
+      --marron: #502D16;
+      --amarillo: #FFDD55;
+      --verde: #A0BA66;
+      --rosa: #FFAAAA;
+      --lila: #CD87DE;
+
+      --ok: var(--verde);
+      --danger: var(--rojo);
+      --shadow: 0 12px 30px rgba(80, 45, 22, 0.13);
       --radius-lg: 24px;
       --radius-md: 16px;
     }
@@ -33,8 +34,8 @@
     body {
       min-height: 100vh;
       font-family: "DM Sans", system-ui, -apple-system, sans-serif;
-      color: var(--ink);
-      background: radial-gradient(circle at top right, #fff4cf 0%, #fffef9 40%, #fffdf8 100%);
+      color: var(--marron);
+      background: var(--amarillo);
       display: grid;
       place-items: center;
       padding: 18px;
@@ -42,8 +43,8 @@
 
     .card {
       width: min(520px, 100%);
-      background: var(--card);
-      border: 1px solid var(--line);
+      background: var(--rosa);
+      border: 1px solid var(--marron);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       padding: clamp(20px, 5vw, 34px);
@@ -55,7 +56,7 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--ink-soft);
+      color: var(--rojo);
       font-weight: 700;
     }
 
@@ -63,11 +64,11 @@
       font-family: "Carelia W05 Italic", Georgia, serif;
       font-size: clamp(1.8rem, 6vw, 2.4rem);
       line-height: 1.2;
-      color: #5a4321;
+      color: var(--marron);
     }
 
     .helper {
-      color: var(--ink-soft);
+      color: var(--marron);
       font-size: 0.96rem;
     }
 
@@ -79,24 +80,24 @@
     label {
       font-size: 0.93rem;
       font-weight: 600;
-      color: #694f26;
+      color: var(--marron);
     }
 
     input {
       width: 100%;
       border-radius: var(--radius-md);
-      border: 1px solid #f0d696;
-      background: #fffdf6;
+      border: 1px solid var(--marron);
+      background: var(--amarillo);
       padding: 12px 14px;
       font: inherit;
-      color: var(--ink);
+      color: var(--marron);
       transition: border-color 0.18s ease, box-shadow 0.18s ease;
     }
 
     input:focus {
       outline: none;
-      border-color: #ffd470;
-      box-shadow: 0 0 0 3px rgba(255, 212, 112, 0.32);
+      border-color: var(--lila);
+      box-shadow: 0 0 0 3px rgba(205, 135, 222, 0.32);
     }
 
     .password-input-wrap {
@@ -107,10 +108,10 @@
     }
 
     .password-toggle-btn {
-      border: 1px solid #f0d696;
+      border: 1px solid var(--marron);
       border-radius: 12px;
-      background: #fff8ea;
-      color: #6f5530;
+      background: var(--amarillo);
+      color: var(--marron);
       min-width: 44px;
       padding: 10px;
       cursor: pointer;
@@ -126,11 +127,11 @@
       font-size: 0.95rem;
       cursor: pointer;
       transition: transform 0.14s ease, filter 0.14s ease, opacity 0.2s ease;
-      background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%);
-      color: #4f3600;
+      background: var(--rojo);
+      color: var(--rosa);
     }
 
-    .btn:hover { transform: translateY(-1px); filter: brightness(0.98); }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
     .btn:disabled { cursor: not-allowed; transform: none; opacity: 0.65; }
 
     .status {
@@ -143,14 +144,14 @@
     }
 
     .status.show { display: block; }
-    .status.ok { color: #1f724b; background: #e9fff4; border: 1px solid #bfeeda; }
-    .status.error { color: #8d2626; background: #ffefef; border: 1px solid #f7b2b2; }
+    .status.ok { color: var(--marron); background: var(--verde); border: 1px solid var(--marron); }
+    .status.error { color: var(--rosa); background: var(--rojo); border: 1px solid var(--marron); }
 
     .loading {
       display: none;
       align-items: center;
       gap: 8px;
-      color: #76531f;
+      color: var(--marron);
       font-weight: 600;
       font-size: 0.92rem;
     }
