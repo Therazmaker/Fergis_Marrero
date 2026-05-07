@@ -18,19 +18,18 @@
   />
   <style>
     :root {
-      --rojo: #520000;
-      --marron: #502D16;
-      --amarillo: #FFDD55;
-      --verde: #A0BA66;
-      --rosa: #FFAAAA;
-      --lila: #CD87DE;
-
-      --amarillo-2: var(--verde);
-      --rojo-soft: var(--lila);
-      --ok: var(--verde);
-      --warn: var(--amarillo);
-      --danger: var(--rojo);
-      --shadow: 0 12px 30px rgba(82, 0, 0, 0.13);
+      --bg: #fffdf8;
+      --card: #fff8e8;
+      --card-2: #fff4d3;
+      --accent: #f2be42;
+      --accent-soft: #ffe6a7;
+      --ink: #4b3b22;
+      --ink-soft: #826c45;
+      --line: #f3d996;
+      --ok: #2d9a67;
+      --warn: #bd6e2c;
+      --danger: #b84343;
+      --shadow: 0 12px 30px rgba(163, 126, 61, 0.13);
       --radius-lg: 24px;
       --radius-md: 16px;
       --radius-sm: 12px;
@@ -45,8 +44,8 @@
     body {
       min-height: 100vh;
       font-family: "DM Sans", system-ui, -apple-system, sans-serif;
-      color: var(--marron);
-      background: var(--rosa);
+      color: var(--ink);
+      background: radial-gradient(circle at top right, #fff4cf 0%, #fffef9 40%, #fffdf8 100%);
       line-height: 1.6;
       padding: 28px 16px 48px;
     }
@@ -59,8 +58,8 @@
     }
 
     .card {
-      background: var(--amarillo);
-      border: 1px solid var(--marron);
+      background: var(--card);
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       padding: clamp(20px, 4vw, 32px);
@@ -69,21 +68,21 @@
     .hero {
       display: grid;
       gap: 12px;
-      background: linear-gradient(135deg, var(--amarillo) 0%, var(--verde) 100%);
+      background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%);
     }
 
     .kicker {
       font-size: 0.83rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--rojo);
+      color: var(--ink-soft);
       font-weight: 700;
     }
 
     h1 {
       font-size: clamp(1.9rem, 3vw, 2.7rem);
       line-height: 1.2;
-      color: var(--rojo);
+      color: #5a4321;
       font-weight: 500;
     }
 
@@ -94,7 +93,7 @@
     }
 
     p {
-      color: var(--rojo);
+      color: var(--ink-soft);
     }
 
     .row {
@@ -126,14 +125,14 @@
     }
 
     .btn-primary {
-      background: var(--rojo);
-      color: var(--rosa);
+      background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%);
+      color: #4f3600;
     }
 
     .btn-secondary {
-      background: var(--verde);
-      border: 1px solid var(--marron);
-      color: var(--marron);
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #6a522e;
     }
 
     .status {
@@ -146,9 +145,9 @@
     }
 
     .status.show { display: block; }
-    .status.ok { color: #A0BA66; background: #A0BA66; border: 1px solid #A0BA66; }
-    .status.warn { color: #FFDD55; background: #FFDD55; border: 1px solid #FFDD55; }
-    .status.error { color: #520000; background: #FFAAAA; border: 1px solid #FFAAAA; }
+    .status.ok { color: #1f724b; background: #e9fff4; border: 1px solid #bfeeda; }
+    .status.warn { color: #8a4a14; background: #fff5e9; border: 1px solid #ffd4a8; }
+    .status.error { color: #8d2626; background: #ffefef; border: 1px solid #f7b2b2; }
 
     .hidden { display: none !important; }
 
@@ -161,12 +160,12 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--verde);
-      border: 1px dashed var(--rojo);
+      background: #fffef7;
+      border: 1px dashed #efcc79;
       border-radius: 999px;
       padding: 8px 14px;
       font-weight: 700;
-      color: var(--rojo);
+      color: #7b5a1d;
       width: fit-content;
     }
 
@@ -180,25 +179,25 @@
       min-height: 135px;
       resize: vertical;
       border-radius: var(--radius-md);
-      border: 1px solid var(--marron);
-      background: var(--rosa);
+      border: 1px solid #f0d696;
+      background: #fffdf6;
       padding: 14px;
       font: inherit;
-      color: var(--marron);
+      color: var(--ink);
     }
 
     textarea:focus,
     input:focus {
-      outline: 2px solid var(--lila);
-      border-color: var(--lila);
+      outline: 2px solid #ffd470;
+      border-color: #ffd470;
     }
 
     .result {
-      background: var(--verde);
-      border: 1px solid var(--marron);
+      background: #fffdf7;
+      border: 1px solid #f2d998;
       border-radius: var(--radius-md);
       padding: 16px;
-      color: var(--rojo);
+      color: #614b2a;
       display: none;
     }
 
@@ -209,7 +208,7 @@
 
     .loading {
       display: none;
-      color: #502D16;
+      color: #76531f;
       font-weight: 600;
       align-items: center;
       gap: 6px;
@@ -246,8 +245,8 @@
     }
 
     .tarot-card-item {
-      background: linear-gradient(160deg, var(--rosa) 0%, var(--lila) 100%);
-      border: 1px solid var(--rojo);
+      background: linear-gradient(160deg, #fffbe8 0%, #fff4cc 100%);
+      border: 1px solid #edc96a;
       border-radius: 14px;
       padding: 14px 10px;
       text-align: center;
@@ -264,7 +263,7 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #FFDD55;
+      color: #a07830;
       font-weight: 700;
       margin-bottom: 4px;
     }
@@ -272,13 +271,13 @@
     .tarot-card-item .card-name {
       font-size: 0.88rem;
       font-weight: 700;
-      color: #502D16;
+      color: #5a3d10;
       line-height: 1.3;
     }
 
     .tarot-card-item .card-suit {
       font-size: 0.75rem;
-      color: #FFDD55;
+      color: #9b7535;
       margin-top: 3px;
     }
 
@@ -310,9 +309,9 @@
     }
 
     .history-item {
-      border: 1px solid var(--marron);
+      border: 1px solid #f3dc9f;
       border-radius: var(--radius-sm);
-      background: var(--amarillo);
+      background: #fffef8;
       padding: 12px;
       display: grid;
       gap: 6px;
@@ -320,19 +319,19 @@
 
     .history-item h4 {
       font-size: 0.95rem;
-      color: #502D16;
+      color: #71521e;
     }
 
     .history-item p {
       font-size: 0.94rem;
-      color: #502D16;
+      color: #6b5531;
     }
 
     .feedback-card {
       margin-top: 8px;
-      border: 1px solid var(--marron);
+      border: 1px solid #f0d696;
       border-radius: 14px;
-      background: var(--verde);
+      background: #fff9ea;
       padding: 12px;
       display: grid;
       gap: 10px;
@@ -341,7 +340,7 @@
     .feedback-title {
       font-size: 0.92rem;
       font-weight: 600;
-      color: #502D16;
+      color: #6f5428;
     }
 
     .feedback-options {
@@ -351,9 +350,9 @@
     }
 
     .feedback-option {
-      border: 1px solid var(--rojo);
-      background: var(--rosa);
-      color: var(--marron);
+      border: 1px solid #efd39a;
+      background: #fffef8;
+      color: #6b5531;
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 0.86rem;
@@ -364,14 +363,14 @@
 
     .feedback-option:hover {
       transform: translateY(-1px);
-      border-color: #FFDD55;
+      border-color: #e4bb5b;
     }
 
     .feedback-option.active {
-      border-color: var(--rojo);
-      background: var(--lila);
-      color: var(--rojo);
-      box-shadow: 0 0 0 2px var(--amarillo);
+      border-color: #e0ad36;
+      background: linear-gradient(90deg, #ffe9b4 0%, #ffeec5 100%);
+      color: #5e4319;
+      box-shadow: 0 0 0 2px #ffefc8;
       transform: scale(1.03);
     }
 
@@ -380,7 +379,7 @@
       padding: 10px 12px;
       font-size: 0.9rem;
       border-radius: 12px;
-      background: #FFDD55;
+      background: #fffef8;
     }
 
     .feedback-send {
@@ -390,13 +389,13 @@
 
     .history-meta {
       font-size: 0.8rem;
-      color: #FFDD55;
+      color: #9b835b;
     }
 
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(82, 0, 0, 0.4);
+      background: rgba(80, 56, 16, 0.28);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -417,8 +416,8 @@
     .modal {
       width: min(460px, 100%);
       max-height: calc(100dvh - 32px);
-      background: var(--rosa);
-      border: 1px solid var(--marron);
+      background: #fffdf7;
+      border: 1px solid #f3dba4;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       padding: 20px;
@@ -435,7 +434,7 @@
       opacity: 1;
     }
 
-    .modal h3 { color: #502D16; }
+    .modal h3 { color: #62461f; }
 
     .field {
       display: grid;
@@ -444,18 +443,18 @@
 
     .field label {
       font-weight: 600;
-      color: #502D16;
+      color: #7e6130;
       font-size: 0.92rem;
     }
 
     .field input {
       width: 100%;
-      border: 1px solid var(--marron);
+      border: 1px solid #efd39a;
       border-radius: 12px;
-      background: var(--amarillo);
+      background: #fff;
       padding: 10px;
       font: inherit;
-      color: var(--marron);
+      color: #5e4423;
     }
 
     .password-input-wrap {
@@ -466,10 +465,10 @@
     }
 
     .password-toggle-btn {
-      border: 1px solid var(--marron);
+      border: 1px solid #efd39a;
       border-radius: 10px;
-      background: var(--verde);
-      color: var(--rojo);
+      background: #fff9ea;
+      color: #6f5530;
       min-width: 42px;
       padding: 8px 10px;
       cursor: pointer;
@@ -479,13 +478,13 @@
 
     .helper {
       font-size: 0.85rem;
-      color: #502D16;
+      color: #8d744f;
     }
 
     .terms-content {
       margin-top: 10px;
       font-size: 0.9rem;
-      color: #502D16;
+      color: #6a522f;
       line-height: 1.55;
       max-height: 240px;
       overflow-y: auto;
@@ -499,9 +498,9 @@
     .buy-more-cta {
       margin-top: 8px;
       padding: 14px;
-      border: 1px dashed var(--rojo);
+      border: 1px dashed #efcc79;
       border-radius: 14px;
-      background: var(--verde);
+      background: #fffdf4;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -510,7 +509,7 @@
     }
 
     .buy-more-cta p {
-      color: var(--rojo);
+      color: #6f5630;
       font-size: 0.93rem;
     }
 
@@ -520,77 +519,77 @@
     }
 
     .package-card {
-      border: 1px solid var(--marron);
+      border: 1px solid #edd196;
       border-radius: 14px;
       padding: 12px;
-      background: var(--verde);
+      background: #fffef8;
       display: grid;
       gap: 6px;
     }
 
     .package-card.active {
-      border-color: var(--rojo);
-      box-shadow: 0 0 0 2px var(--amarillo);
-      background: var(--amarillo);
+      border-color: #e7b749;
+      box-shadow: 0 0 0 2px #ffe7aa;
+      background: #fff9e8;
     }
 
     .package-card h4 {
-      color: #502D16;
+      color: #5f4318;
       font-size: 0.98rem;
     }
 
     .package-card p {
       font-size: 0.86rem;
-      color: #502D16;
+      color: #7f6540;
     }
 
     .package-meta {
       font-weight: 700;
-      color: var(--rojo);
+      color: #674714;
       font-size: 0.92rem;
     }
 
     .pay-wrap {
       margin-top: 8px;
-      border: 1px solid var(--marron);
+      border: 1px solid #ecd39a;
       border-radius: 14px;
-      background: var(--verde);
+      background: #fffef8;
       padding: 12px;
     }
 
     .pay-wrap p {
-      color: #502D16;
+      color: #6b532f;
       font-size: 0.9rem;
       margin-bottom: 8px;
     }
 
     .btn-danger {
-      background: var(--rojo);
-      color: var(--rosa);
-      box-shadow: 0 8px 20px rgba(82, 0, 0, 0.22);
+      background: linear-gradient(90deg, #d65b5b 0%, #b84343 100%);
+      color: #fff8f8;
+      box-shadow: 0 8px 20px rgba(184, 67, 67, 0.22);
     }
 
     .account-delete-wrap {
       margin-top: 8px;
-      border-top: 1px dashed var(--marron);
+      border-top: 1px dashed #efcf98;
       padding-top: 14px;
     }
 
     .danger-note {
       font-size: 0.84rem;
-      color: var(--marron);
+      color: #94674f;
       margin-top: 8px;
     }
 
     .field select,
     .field textarea {
       width: 100%;
-      border: 1px solid var(--marron);
+      border: 1px solid #efd39a;
       border-radius: 12px;
-      background: var(--rosa);
+      background: #fff;
       padding: 10px;
       font: inherit;
-      color: var(--marron);
+      color: #5e4423;
     }
 
     body.modal-open {
@@ -641,7 +640,7 @@
           <h2 id="greeting">Hola, 🌻</h2>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
             <div class="counter" id="creditsCounter">🌻 Básicas: --</div>
-            <div class="counter" style="border-color:var(--lila);color:var(--rojo);" id="premiumCounter">✨ Premium: --</div>
+            <div class="counter" style="border-color:#c9a0dc;color:#6b3fa0;" id="premiumCounter">✨ Premium: --</div>
           </div>
         </div>
 
@@ -706,10 +705,10 @@
           <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
           <button type="button" class="password-toggle-btn" data-toggle-password="registerPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
         </div>
-        <a href="#" id="forgotFromRegisterLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#502D16; text-decoration:underline;">Olvidé mi contraseña</a>
+        <a href="#" id="forgotFromRegisterLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
       </div>
-      <details class="field" style="background:var(--verde); border:1px solid var(--marron); border-radius:12px; padding:10px 12px;">
-        <summary style="cursor:pointer; font-weight:700; color:#502D16;">Leer condiciones de uso</summary>
+      <details class="field" style="background:#fff8ea; border:1px solid #efd39a; border-radius:12px; padding:10px 12px;">
+        <summary style="cursor:pointer; font-weight:700; color:#62461f;">Leer condiciones de uso</summary>
         <div class="terms-content">
           <p><strong>Quiero que te sientas acompañada, pero también es importante que respetemos ciertos límites para cuidarnos ambas 💛</strong></p>
           <p><strong>1. Sobre las preguntas gratuitas</strong><br>Puedes realizar hasta 3 preguntas gratuitas mensualmente.<br>Las preguntas deben ser claras, concretas y relacionadas a tu proceso personal.</p>
@@ -719,11 +718,11 @@
           <p><strong>5. Sobre el servicio pago</strong><br>Si deseas profundizar en tu situación, podrás acceder a una sesión completa de tarot o astrología conmigo, donde trabajaremos con mayor profundidad, contención y claridad.</p>
         </div>
       </details>
-      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#502D16;">
+      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530;">
         <input id="registerAcceptTerms" type="checkbox" style="margin-top:2px;" />
         <span>Declaro que soy mayor de 18 años y acepto las condiciones de uso.</span>
       </label>
-      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#502D16; margin-top:8px;">
+      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530; margin-top:8px;">
         <input id="registerEmailOptIn" type="checkbox" style="margin-top:2px;" />
         <span>Acepto recibir correos electrónicos con contenido educativo, espiritual y promociones 🌻</span>
       </label>
@@ -747,7 +746,7 @@
           <input id="loginPassword" type="password" placeholder="Tu contraseña" />
           <button type="button" class="password-toggle-btn" data-toggle-password="loginPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
         </div>
-        <a href="#" id="forgotFromLoginLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#502D16; text-decoration:underline;">Olvidé mi contraseña</a>
+        <a href="#" id="forgotFromLoginLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
       </div>
       <div class="row">
         <button class="btn btn-primary" id="loginBtn">👉 Entrar 🌻</button>
@@ -790,9 +789,9 @@
         <div id="tarot-paypal-button-container"></div>
       </div>
 
-      <div class="pay-wrap" style="border-color:var(--lila);">
-        <p style="color:var(--rojo);">¿Prefieres pagar con Yape? (Solo Perú)</p>
-        <button class="btn btn-secondary" id="openTarotYapeBtn" style="width:100%; border-color:var(--rojo); color:var(--rojo);">
+      <div class="pay-wrap" style="border-color:#d8b5e8;">
+        <p style="color:#6d2c83;">¿Prefieres pagar con Yape? (Solo Perú)</p>
+        <button class="btn btn-secondary" id="openTarotYapeBtn" style="width:100%; border-color:#8f51a7; color:#6d2c83;">
           📲 Pagar con Yape
         </button>
       </div>
@@ -807,8 +806,8 @@
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tarotYapeTitle">
       <h3 id="tarotYapeTitle">Pago por Yape para preguntitas ✨</h3>
       <p class="helper">Realiza el Yapeo al número <strong>907671044</strong> a nombre de Fergis Marrero y envía tu captura por WhatsApp.</p>
-      <div class="pay-wrap" style="border-color:var(--lila);">
-        <p id="tarotYapeSelectedLabel" style="color:var(--rojo); margin-bottom:0;">Paquete seleccionado: Básica 5 preguntas · $5.00 USD · S/ 18.50</p>
+      <div class="pay-wrap" style="border-color:#d8b5e8;">
+        <p id="tarotYapeSelectedLabel" style="color:#6d2c83; margin-bottom:0;">Paquete seleccionado: Básica 5 preguntas · $5.00 USD · S/ 18.50</p>
       </div>
       <div class="row">
         <button class="btn btn-primary" id="sendTarotYapeBtn">💬 Enviar captura por WhatsApp</button>
