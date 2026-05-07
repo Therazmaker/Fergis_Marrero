@@ -1692,7 +1692,7 @@
             4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente<br>
             <strong>$45 USD · S/ 120</strong>
           </div>
-          <a href="#" class="service-card__cta" onclick="showService('Diosa en Guía'); return false;">Saber más →</a>
+          <a href="#" class="service-card__cta" onclick="goToBookingWith('Diosa en Guía'); return false;">Comprar</a>
           <a href="#" class="service-card__cta service-card__cta--secondary" onclick="showService('Diosa en Guía'); return false;">Ver metodología</a>
         </div>
       </article>
@@ -1711,7 +1711,7 @@
             Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente<br>
             <strong>$45 USD · S/ 120</strong>
           </div>
-          <a href="https://wa.me/51907671044" class="service-card__cta" id="guia-whatsapp">Saber más →</a>
+          <a href="#" class="service-card__cta" id="guia-whatsapp" onclick="goToBookingWith('Tu guía en cualquier momento'); return false;">Comprar</a>
           <a href="https://wa.me/51907671044" class="service-card__cta service-card__cta--secondary">Hablar por WhatsApp</a>
         </div>
       </article>
@@ -2071,6 +2071,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
           <label>Servicio a Reservar</label>
           <select id="bf-service" required>
             <option value="45.00">🌻 Diosa en Guía - $45 USD</option>
+            <option value="45.00">🌻 Tu guía en cualquier momento - $45 USD</option>
             <option value="50.00">🔮 Tarot - $50 USD</option>
             <option value="90.00">🌙 Carta Natal - $90 USD</option>
             <option value="90.00">👶 Carta Natal Infantil - $90 USD</option>
@@ -2140,6 +2141,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
           <label>Servicio a Reservar</label>
           <select id="yf-service" required>
             <option value="120" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 120</option>
+            <option value="120" data-name="Tu guía en cualquier momento">🌻 Tu guía en cualquier momento - S/ 120</option>
             <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
             <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
             <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
@@ -2379,6 +2381,13 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         modality: 'Virtual · Se renueva mensualmente',
         price: '$45 USD · S/ 120',
         match: 'Diosa en Guía'
+      },
+      'Tu guía en cualquier momento': {
+        tag: 'Orientación por audio vía WhatsApp',
+        title: 'Tu guía en cualquier momento',
+        text: 'Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.\n\nCada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.',
+        price: '$45 USD · S/ 120',
+        match: 'Tu guía en cualquier momento'
       },
       'Tarot': {
         tag: 'Para cuando necesitas orientación',
