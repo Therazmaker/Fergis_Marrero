@@ -246,16 +246,16 @@
        SERVICE CARDS (MODULAR DESIGN)
     ═══════════════════════════════════════════════════════ */
     .service-card {
-      background: #fffdf7;
+      background: #FFFBEE;
       border-radius: 40px;
       padding: 48px 40px;
       display: flex;
       flex-direction: column;
       height: 100%;
       position: relative;
-      border: 1.5px solid rgba(61, 43, 31, 0.18);
+      border: 1.5px solid rgba(180, 140, 60, 0.25);
       overflow: hidden;
-      box-shadow: 0 6px 28px rgba(61, 43, 31, 0.10);
+      box-shadow: 0 6px 28px rgba(61, 43, 31, 0.08);
     }
 
     .service-card__pill {
@@ -364,8 +364,49 @@
     }
 
     .tarot-card-featured {
-      background: linear-gradient(180deg, #bc8f61 0%, #d7a598 34%, #E2B4BD 100%);
-      border-color: #c8939e;
+      background: linear-gradient(135deg, #7a3f52 0%, #a85570 50%, #c47a8a 100%);
+      border-color: rgba(255,255,255,0.15);
+      border-width: 1px;
+    }
+
+    .tarot-card-featured .tarot-pill {
+      background: rgba(255, 240, 220, 0.2);
+      border: 1px solid rgba(255, 230, 200, 0.35);
+      color: #fde8c8;
+      letter-spacing: 0.04em;
+    }
+
+    .tarot-card-featured .tarot-title {
+      color: #fff;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 12px rgba(80,20,40,0.18);
+    }
+
+    .tarot-card-featured .tarot-copy {
+      color: rgba(255, 240, 228, 0.92);
+    }
+
+    .tarot-card-featured .tarot-lead {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tarot-card-featured .tarot-note {
+      color: rgba(255, 235, 215, 0.78);
+      font-size: 0.93rem;
+    }
+
+    .tarot-card-featured .tarot-cta {
+      background: linear-gradient(90deg, #f5c84a 0%, #e6a820 100%);
+      color: #4f2d00;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 16px rgba(200,120,0,0.25);
     }
 
     .tarot-pill {
@@ -672,19 +713,20 @@
       padding: 52px 56px;
       background: linear-gradient(150deg, var(--terracotta) 0%, var(--wine-deep) 100%);
       color: var(--cream);
-      text-align: left;
+      text-align: center;
       overflow-y: auto;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .c-slide.text-slide h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
       font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 24px;
+      line-height: 1.2;
+      margin-bottom: 28px;
       color: #fff;
-      white-space: nowrap;
+      white-space: normal;
+      max-width: 22ch;
     }
 
     .c-slide.text-slide h2 em {
@@ -698,6 +740,10 @@
       color: rgba(250, 244, 232, 0.9);
       font-weight: 300;
       max-width: 52ch;
+    }
+
+    .c-slide.text-slide p + p {
+      margin-top: 16px;
     }
 
     /* Dots */
@@ -1366,7 +1412,7 @@
       }
 
       .c-slide.text-slide h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
 
       .srv-btn {
@@ -1504,7 +1550,7 @@
 
       .c-slide.text-slide {
         padding: 30px 24px 96px;
-        align-items: flex-start;
+        align-items: center;
       }
 
       .c-slide.text-slide h2 {
@@ -1662,13 +1708,18 @@
           <!-- Slide 2: Texto Fergis -->
           <div class="c-slide text-slide">
             <h2>Soy Fergis, <em>pero tú puedes llamarme Mamá Girasol</em></h2>
-            <p>Tengo una misión que se ha ido revelando con el tiempo: que ninguna mujer tenga que transitar sus procesos sola.<br><br> Sé lo que es necesitar sostén en momentos difciles y de nucha oscuridad. Por eso creé este espacio.<br><br> No te ofrezco fórmulas mágicas, sino presencia, escucha, calma y claridad en lo que estás viviendo.<br><br> Te acompaño desde un lugar humano, cálido y sin juicios. 🌻</p>
+            <p>Tengo una misión que se ha ido revelando con el tiempo: que ninguna mujer tenga que transitar sus procesos sola.</p>
+            <p>Sé lo que es necesitar sostén en momentos difíciles y de mucha oscuridad. Por eso creé este espacio.</p>
+            <p>No te ofrezco fórmulas mágicas, sino presencia, escucha, calma y claridad en lo que estás viviendo.</p>
+            <p>Te acompaño desde un lugar humano, cálido y sin juicios. 🌻</p>
           </div>
 
           <!-- Slide 3: Texto Mamá Girasol -->
           <div class="c-slide text-slide">
             <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
-            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera sino que vive dentro de ti.<br><br>"Mamá Girasol" nace desde esa verdad. No para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
+            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera sino que vive dentro de ti.</p>
+            <p>"Mamá Girasol" nace desde esa verdad. No para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.</p>
+            <p>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
           </div>
 
         </div>
@@ -1785,10 +1836,10 @@
 
     <section id="tarot" class="tarot-row fade-up">
       <article class="tarot-card tarot-card-featured">
-        <div class="tarot-pill">🌻 Un regalito de mí para ti</div>
+        <div class="tarot-pill">🌻 3 preguntas gratis al mes</div>
         <h2 class="tarot-title tarot-title-featured">🌻 Un regalito de mí para ti</h2>
         <p class="tarot-copy tarot-lead">A veces solo necesitas una respuesta. Una orientación. Alguien que te ayude a ver con más luz lo que estás viviendo en este momento.</p>
-        <p class="tarot-copy tarot-note">Hazme tus 3 preguntas gratis, hermana girasol. Estoy aquí.<br><br>Tus preguntitas se renuevan de forma mensual.</p>
+        <p class="tarot-copy tarot-note">Cuéntame lo que estás viviendo, hermana girasol. Estoy aquí.<br><br>Tus preguntitas se renuevan de forma mensual.</p>
         <a href="tarot.html" class="tarot-cta">👉 Clic aquí</a>
       </article>
 
