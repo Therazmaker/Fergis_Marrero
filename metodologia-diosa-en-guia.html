@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología de sesiones · Mamá Girasol</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #3E1F0E;
+    --brown-mid: #4E2812;
+    --brown-card: #2E1608;
+    --wine: #6B0F1A;
+    --yellow: #F5C842;
+    --yellow-soft: rgba(245,200,66,0.09);
+    --yellow-border: rgba(245,200,66,0.18);
+    --cream: #FAF6EE;
+    --cream-dim: rgba(250,246,238,0.6);
+    --cream-dimmer: rgba(250,246,238,0.35);
+    --green: #B8C9A3;
+    --lilac: #B8A8D4;
+    --pink: #E8A0A0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--brown);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 95% 5%, rgba(245,200,66,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 5% 90%, rgba(107,15,26,0.2) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 28px 100px;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--yellow-border);
+    margin-bottom: 64px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--yellow);
+  }
+
+  .header-desc {
+    font-size: 15px;
+    color: var(--cream-dim);
+    max-width: 500px;
+    line-height: 1.8;
+  }
+
+  /* INTRO BLOCK */
+  .intro-block {
+    background: var(--yellow-soft);
+    border-left: 3px solid var(--yellow);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    margin-bottom: 64px;
+  }
+
+  .intro-block p {
+    font-size: 15px;
+    color: var(--cream-dim);
+    line-height: 1.85;
+  }
+
+  .intro-block p + p { margin-top: 12px; }
+
+  .intro-block strong { color: var(--yellow); font-weight: 500; }
+
+  /* SECTION */
+  .section { margin-bottom: 72px; }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    opacity: 0.55;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--yellow-border);
+  }
+
+  .section-title em { font-style: italic; color: var(--yellow); }
+
+  /* PILARES */
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .pilar-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--yellow-border);
+    border-radius: 14px;
+    padding: 24px 22px;
+  }
+
+  .pilar-card .num {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--yellow);
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+
+  .pilar-card h4 {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .pilar-card p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    line-height: 1.7;
+  }
+
+  /* SESIONES ARC */
+  .sesiones-arc {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sesion-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 24px;
+    position: relative;
+  }
+
+  .sesion-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 56px;
+    bottom: 0;
+    width: 1px;
+    background: var(--yellow-border);
+  }
+
+  .sesion-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1.5px solid var(--yellow-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    background: var(--brown-mid);
+    position: relative;
+    z-index: 1;
+  }
+
+  .sesion-content {
+    padding: 4px 0 48px;
+  }
+
+  .sesion-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown);
+    background: var(--yellow);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .sesion-content h3 {
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+
+  .sesion-content p {
+    font-size: 14px;
+    color: var(--cream-dim);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .sesion-hace {
+    background: var(--yellow-soft);
+    border: 1px solid var(--yellow-border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+
+  .sesion-hace .hace-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+
+  .sesion-hace ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sesion-hace ul li {
+    font-size: 13px;
+    color: var(--cream-dim);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .sesion-hace ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--yellow);
+    opacity: 0.5;
+    font-size: 11px;
+  }
+
+  /* ESTRUCTURA 45 MIN */
+  .tiempo-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tiempo-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    align-items: start;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--yellow-border);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .tiempo-badge {
+    text-align: center;
+  }
+
+  .tiempo-badge .mins {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--yellow);
+    display: block;
+    line-height: 1;
+  }
+
+  .tiempo-badge .mins-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    opacity: 0.5;
+  }
+
+  .tiempo-info h4 {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .tiempo-info p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    line-height: 1.65;
+  }
+
+  /* HERRAMIENTAS */
+  .herramientas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .herramienta-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .herramienta-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--yellow-soft);
+    border: 1px solid var(--yellow-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .herramienta-item h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 3px;
+  }
+
+  .herramienta-item p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    line-height: 1.65;
+  }
+
+  /* PRINCIPIOS */
+  .principios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .principio-card {
+    border-radius: 12px;
+    padding: 20px 18px;
+    border: 1px solid transparent;
+  }
+
+  .principio-card.c1 { background: rgba(245,200,66,0.07); border-color: rgba(245,200,66,0.2); }
+  .principio-card.c2 { background: rgba(107,15,26,0.2); border-color: rgba(107,15,26,0.35); }
+  .principio-card.c3 { background: rgba(184,168,212,0.08); border-color: rgba(184,168,212,0.2); }
+  .principio-card.c4 { background: rgba(184,200,163,0.07); border-color: rgba(184,200,163,0.2); }
+
+  .principio-card .icon { font-size: 22px; margin-bottom: 10px; display: block; }
+
+  .principio-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .principio-card p {
+    font-size: 12px;
+    color: var(--cream-dim);
+    line-height: 1.65;
+  }
+
+  /* NOTA FINAL */
+  .nota-final {
+    background: var(--yellow-soft);
+    border: 1px solid var(--yellow-border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .nota-final .sun { font-size: 32px; display: block; margin-bottom: 16px; }
+
+  .nota-final p {
+    font-size: 15px;
+    color: var(--cream-dim);
+    line-height: 1.85;
+    font-style: italic;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .nota-final strong { color: var(--yellow); font-style: normal; font-weight: 400; }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--yellow-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--cream-dimmer);
+  }
+
+  .footer em { color: var(--yellow); font-style: italic; }
+
+  @media (max-width: 580px) {
+    .pilares-grid,
+    .principios-grid { grid-template-columns: 1fr; }
+    .sesion-item { grid-template-columns: 44px 1fr; }
+    .sesion-num { width: 44px; height: 44px; font-size: 16px; }
+    .sesion-item:not(:last-child)::after { left: 21px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">Mamá Girasol · Documento interno</div>
+    <h1>Metodología<br><em>Diosa en guía</em></h1>
+    <p class="header-desc">Cómo acompaño a cada mujer a través de un mes de sesiones. No es un protocolo — es una forma de estar.</p>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>Mi acompañamiento parte de una verdad simple: <strong>la cliente sabe más de sí misma de lo que cree.</strong> Mi trabajo no es darle respuestas — es crear el espacio donde ella pueda escucharse a sí misma, quizás por primera vez sin juicio.</p>
+    <p>El formulario de intake me entrega un mapa emocional antes de que nos encontremos. Desde ahí, fluyo con lo que ella trae. <strong>La estructura existe para sostenerme a mí, no para encuadrar a ella.</strong></p>
+  </div>
+
+  <!-- PILARES -->
+  <div class="section">
+    <div class="section-eyebrow">Fundamento</div>
+    <div class="section-title">Los <em>4 pilares</em> del acompañamiento</div>
+    <div class="pilares-grid">
+      <div class="pilar-card">
+        <div class="num">01</div>
+        <h4>Presencia antes que técnica</h4>
+        <p>Lo primero que le ofrezco a la cliente es que alguien esté ahí de verdad. Sin agenda, sin prisa. La conexión genuina es el primer acto terapéutico.</p>
+      </div>
+      <div class="pilar-card">
+        <div class="num">02</div>
+        <h4>Escucha activa y sin juicio</h4>
+        <p>No interrumpo para resolver. Escucho para entender. Las preguntas que hago abren, no dirigen. Ella llega a sus propias conclusiones.</p>
+      </div>
+      <div class="pilar-card">
+        <div class="num">03</div>
+        <h4>Nombrar lo que ella no puede</h4>
+        <p>A veces el mayor regalo es ponerle palabras a algo que la cliente carga sin nombre. Cuando algo se nombra, deja de tener tanto poder.</p>
+      </div>
+      <div class="pilar-card">
+        <div class="num">04</div>
+        <h4>Claridad hacia la acción</h4>
+        <p>Cada sesión termina con algo concreto — una pregunta para llevar, una decisión pequeña, una tarea. No para presionar, sino para que el proceso continúe entre sesiones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARCO DEL MES -->
+  <div class="section">
+    <div class="section-eyebrow">Arco mensual</div>
+    <div class="section-title">Las <em>4 sesiones</em> como un viaje</div>
+    <p style="font-size:14px; color:var(--cream-dim); margin-bottom:36px; line-height:1.8;">Cada pack de 4 sesiones tiene un arco natural. No es rígido — si la cliente llega con algo urgente, vamos ahí. Pero esta es la intención detrás de cada encuentro.</p>
+
+    <div class="sesiones-arc">
+
+      <div class="sesion-item">
+        <div class="sesion-num">1</div>
+        <div class="sesion-content">
+          <div class="sesion-tag">Sesión 1</div>
+          <h3>El primer encuentro — abrir</h3>
+          <p>Llego habiendo leído su perfil emocional del formulario, pero le dejo a ella el primer espacio. ¿Cómo llegás hoy? ¿Qué está pesando más? Esta sesión no busca resolver — busca que ella sienta que fue escuchada de verdad por primera vez en este espacio.</p>
+          <div class="sesion-hace">
+            <div class="hace-label">En esta sesión</div>
+            <ul>
+              <li>Le hago saber que leí su formulario y que me importó lo que compartió</li>
+              <li>Abro con una pregunta simple: ¿cómo estás hoy, de verdad?</li>
+              <li>Identifico el tema central que más la moviliza en este momento</li>
+              <li>Establezco la confianza — que puede llegar como está</li>
+              <li>Cierro con una pregunta para llevar, no con una tarea</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sesion-item">
+        <div class="sesion-num">2</div>
+        <div class="sesion-content">
+          <div class="sesion-tag">Sesión 2</div>
+          <h3>Ir más adentro — explorar</h3>
+          <p>Ya hay confianza. Esta sesión profundiza. ¿Qué hay detrás de lo que contó la semana pasada? ¿Qué patrón aparece? ¿Dónde está la herida real? Acá puedo usar tarot o astrología si resuena con ella y lo pide, como espejo y no como respuesta.</p>
+          <div class="sesion-hace">
+            <div class="hace-label">En esta sesión</div>
+            <ul>
+              <li>Retomo el hilo de la sesión anterior — ¿qué se quedó dando vueltas?</li>
+              <li>Exploro el patrón o la creencia detrás del tema central</li>
+              <li>Hago preguntas que la lleven a verse a sí misma con más claridad</li>
+              <li>Si hay apertura, ofrezco una herramienta (tarot, astrología) como reflejo</li>
+              <li>Cierro con una tarea pequeña y concreta si siente que está lista</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sesion-item">
+        <div class="sesion-num">3</div>
+        <div class="sesion-content">
+          <div class="sesion-tag">Sesión 3</div>
+          <h3>Lo que se mueve — integrar</h3>
+          <p>El proceso ya está activo. Esta sesión puede traer sorpresas — algo que cambió, algo que dolió más de lo esperado, o algo que de repente tiene sentido. Acompaño lo que venga. Si dejamos tarea, revisamos cómo fue. Si algo nuevo apareció, vamos ahí.</p>
+          <div class="sesion-hace">
+            <div class="hace-label">En esta sesión</div>
+            <ul>
+              <li>Abro sin asumir — ¿qué pasó desde la última vez?</li>
+              <li>Reviso la tarea si hubo, sin presión ni juicio por lo que pasó o no pasó</li>
+              <li>Acompaño lo que emerge con presencia, no con soluciones</li>
+              <li>Ayudo a integrar los insights de las sesiones anteriores</li>
+              <li>Identifico si hay algo pendiente para la sesión de cierre</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sesion-item">
+        <div class="sesion-num">4</div>
+        <div class="sesion-content">
+          <div class="sesion-tag">Sesión 4</div>
+          <h3>El cierre — sembrar</h3>
+          <p>No es un final — es un punto de pausa consciente. ¿Qué se movió este mes? ¿Qué se lleva? ¿Qué quiere seguir trabajando? Esta sesión honra el proceso y abre la puerta a seguir si ella lo desea. Sin presión, con amor.</p>
+          <div class="sesion-hace">
+            <div class="hace-label">En esta sesión</div>
+            <ul>
+              <li>Hago una mirada atrás: ¿dónde estabas el mes 1 y dónde estás hoy?</li>
+              <li>Nombro lo que vi en ella durante el proceso — sus fortalezas, su valentía</li>
+              <li>Le pregunto qué se lleva, qué quiere seguir explorando</li>
+              <li>Si hay continuidad, acordamos el enfoque del próximo mes</li>
+              <li>Cierro con un recordatorio: este espacio siempre estará aquí para ella</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTRUCTURA 45 MIN -->
+  <div class="section">
+    <div class="section-eyebrow">Dentro de cada sesión</div>
+    <div class="section-title">Los <em>45 minutos</em></div>
+    <div class="tiempo-blocks">
+      <div class="tiempo-item">
+        <div class="tiempo-badge">
+          <span class="mins">5'</span>
+          <span class="mins-label">apertura</span>
+        </div>
+        <div class="tiempo-info">
+          <h4>Aterrizaje</h4>
+          <p>Una pregunta simple para que llegue al presente. ¿Cómo estás hoy? ¿Qué te trajo hasta acá esta semana? Sin prisa. Este momento crea el contenedor.</p>
+        </div>
+      </div>
+      <div class="tiempo-item">
+        <div class="tiempo-badge">
+          <span class="mins">30'</span>
+          <span class="mins-label">núcleo</span>
+        </div>
+        <div class="tiempo-info">
+          <h4>El corazón de la sesión</h4>
+          <p>Escucha, exploración y presencia. Fluyo con lo que ella trae. Si hay una herramienta que pueda ayudar (tarot, una pregunta de astrología, un ejercicio), la ofrezco aquí — nunca la impongo.</p>
+        </div>
+      </div>
+      <div class="tiempo-item">
+        <div class="tiempo-badge">
+          <span class="mins">10'</span>
+          <span class="mins-label">cierre</span>
+        </div>
+        <div class="tiempo-info">
+          <h4>Claridad y cierre</h4>
+          <p>¿Qué te llevás de hoy? ¿Hay algo que quieras hacer esta semana desde lo que hablamos? Una palabra, una pregunta, una acción pequeña. Que salga con algo concreto entre las manos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERRAMIENTAS -->
+  <div class="section">
+    <div class="section-eyebrow">Caja de herramientas</div>
+    <div class="section-title">Lo que puedo <em>usar</em></div>
+    <p style="font-size:14px; color:var(--cream-dim); margin-bottom:28px; line-height:1.8;">Ninguna de estas herramientas es obligatoria ni se ofrece a todas. Se usan cuando el momento lo pide y la cliente lo recibe.</p>
+    <div class="herramientas-list">
+      <div class="herramienta-item">
+        <div class="herramienta-icon">🎧</div>
+        <div>
+          <h4>Escucha activa y preguntas abiertas</h4>
+          <p>La herramienta principal. Siempre. Preguntas que no tienen respuesta de sí o no — que la hacen mirar adentro. "¿Qué sientes cuando dices eso?" "¿Desde cuándo crees eso de ti?"</p>
+        </div>
+      </div>
+      <div class="herramienta-item">
+        <div class="herramienta-icon">🃏</div>
+        <div>
+          <h4>Tarot como espejo</h4>
+          <p>No para predecir — para reflejar. Una carta puede nombrar algo que ella no puede. Se ofrece como invitación, no como respuesta. Solo cuando hay apertura.</p>
+        </div>
+      </div>
+      <div class="herramienta-item">
+        <div class="herramienta-icon">🌙</div>
+        <div>
+          <h4>Astrología como lenguaje</h4>
+          <p>Marco de autoconocimiento para quienes resuenan con él. Puede ayudar a entender patrones, ciclos o momentos de vida. Nunca se impone y nunca reemplaza la conversación.</p>
+        </div>
+      </div>
+      <div class="herramienta-item">
+        <div class="herramienta-icon">✍️</div>
+        <div>
+          <h4>Tareas entre sesiones</h4>
+          <p>Pequeñas, específicas y elegidas por ella. Puede ser una pregunta para reflexionar, escribir algo, observar un patrón, o hacer un gesto de autocuidado. Nunca obligatorias.</p>
+        </div>
+      </div>
+      <div class="herramienta-item">
+        <div class="herramienta-icon">💬</div>
+        <div>
+          <h4>Tu guía en cualquier momento</h4>
+          <p>Para clientas con este servicio activo: cuando algo pasa entre sesiones, puede escribirme. Respondo por audio. El acompañamiento no espera a la próxima cita.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPIOS -->
+  <div class="section">
+    <div class="section-eyebrow">Lo que nunca olvido</div>
+    <div class="section-title">Mis <em>principios</em> de acompañamiento</div>
+    <div class="principios-grid">
+      <div class="principio-card c1">
+        <span class="icon">🌻</span>
+        <h4>Ella tiene la respuesta</h4>
+        <p>Mi trabajo es crear el espacio, no ser la experta de su vida. Ella sabe más de sí misma de lo que cree.</p>
+      </div>
+      <div class="principio-card c2">
+        <span class="icon">🤍</span>
+        <h4>Sin juicio, siempre</h4>
+        <p>Lo que ella trae — sus miedos, sus contradicciones, sus errores — merece el mismo trato que sus logros.</p>
+      </div>
+      <div class="principio-card c3">
+        <span class="icon">🔒</span>
+        <h4>Privacidad absoluta</h4>
+        <p>Lo que se habla en sesión no sale de ahí. La confianza es el único contenedor que importa.</p>
+      </div>
+      <div class="principio-card c4">
+        <span class="icon">⚕️</span>
+        <h4>No soy terapeuta clínica</h4>
+        <p>Mi acompañamiento no reemplaza procesos psicológicos o psiquiátricos. Cuando lo necesita, lo digo y lo recomiendo con amor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTA FINAL -->
+  <div class="nota-final">
+    <span class="sun">🌻</span>
+    <p>Esta metodología no es un guión — es una <strong>brújula</strong>. Lo que la hace funcionar no es seguirla al pie de la letra, sino llevarla con presencia, con calma y con la certeza de que <strong>ninguna mujer tiene que transitar sus procesos sola.</strong></p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span><em>Fergis · Mamá Girasol</em> — Documento interno</span>
+    <span>fergismarrero.com · Mayo 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
