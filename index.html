@@ -130,7 +130,10 @@
       z-index: 200;
       padding: 14px 16px;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
       gap: 10px;
       justify-content: center;
       backdrop-filter: blur(10px);
@@ -138,6 +141,10 @@
       background: rgba(201, 212, 177, 0.9);
       border: 1px solid rgba(212, 168, 71, 0.35);
       box-shadow: var(--shadow-sm);
+    }
+
+    .quick-nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
     }
 
     .quick-nav a {
@@ -1760,7 +1767,7 @@
       <a href="#comunidad">Comunidad</a>
       <a href="#carta-natal">AstroLovers</a>
       <a href="#testimonios">Testimonio</a>
-      <a href="#contacto">Contactos</a>
+      <a href="#contacto">Contacto</a>
     </nav>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ HERO INTRO ━━━━━━━━━━━━━━━━━━━━━━━ -->
