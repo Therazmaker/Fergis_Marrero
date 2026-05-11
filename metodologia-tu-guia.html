@@ -5,319 +5,313 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Metodología · Tu guía en cualquier momento · Mamá Girasol</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
 <style>
   :root {
-    --brown: #3E1F0E;
-    --brown-mid: #4E2812;
-    --brown-card: #2E1608;
-    --wine: #6B0F1A;
-    --yellow: #F5C842;
-    --yellow-soft: rgba(245,200,66,0.09);
-    --yellow-border: rgba(245,200,66,0.18);
-    --cream: #FAF6EE;
-    --cream-dim: rgba(250,246,238,0.6);
-    --cream-dimmer: rgba(250,246,238,0.35);
-    --green: #B8C9A3;
-    --lilac: #B8A8D4;
-    --pink: #E8A0A0;
+    --cream: #FAF4E8;
+    --parchment: #F2E8D0;
+    --gold: #D4A847;
+    --gold-deep: #A87828;
+    --wine: #7A0000;
+    --ink: #1F0A10;
+    --font-display: 'Carelia W05 Italic', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
+  
   body {
-    background: var(--brown);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
+    background: #FBF5EC;
+    color: #3D2000;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .nav-back {
+    margin-bottom: 2rem;
+  }
+
+  .nav-back a {
+    text-decoration: none;
+    color: var(--gold-deep);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .metodologia-section {
+    padding: 2.5rem;
+    background: #FBF5EC;
+    border-radius: 30px;
+    border: 1px solid #D4A94A55;
+    box-shadow: 0 10px 40px rgba(160, 112, 42, 0.05);
+  }
+
+  .met-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #A0702A;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+  }
+
+  .met-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .met-subtitle {
+    font-size: 16px;
+    color: #6A4A28;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .met-divider {
+    height: 1px;
+    background: #D4A94A55;
+    margin-bottom: 2rem;
+  }
+
+  .met-intro-box {
+    background: #5C3D0A11;
+    border-left: 4px solid #A0702A;
+    border-radius: 0 16px 16px 0;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 15px;
+    color: #4A2800;
     line-height: 1.75;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 95% 5%, rgba(245,200,66,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 60% at 5% 90%, rgba(107,15,26,0.2) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+  .met-intro-box strong {
+    color: #7A4A00;
+    font-weight: 600;
   }
 
-  .page {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 28px 100px;
-  }
-
-  .header {
-    padding: 72px 0 56px;
-    border-bottom: 1px solid var(--yellow-border);
-    margin-bottom: 64px;
-  }
-
-  .eyebrow {
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--yellow);
-    opacity: 0.6;
-    margin-bottom: 16px;
-  }
-
-  .header h1 {
-    font-size: clamp(32px, 6vw, 52px);
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-
-  .header h1 em {
+  .met-section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
     font-style: italic;
-    color: var(--yellow);
+    color: #3D2000;
+    margin: 2.5rem 0 1rem;
   }
 
-  .header-desc {
-    font-size: 15px;
-    color: var(--cream-dim);
-    max-width: 500px;
-    line-height: 1.8;
+  .met-section-title em {
+    font-style: italic;
+    color: #A0702A;
   }
-
-  .intro-block {
-    background: var(--yellow-soft);
-    border-left: 3px solid var(--yellow);
-    border-radius: 0 12px 12px 0;
-    padding: 28px 32px;
-    margin-bottom: 64px;
-  }
-
-  .intro-block p {
-    font-size: 15px;
-    color: var(--cream-dim);
-    line-height: 1.85;
-  }
-
-  .intro-block p + p { margin-top: 12px; }
-  .intro-block strong { color: var(--yellow); font-weight: 500; }
-
-  .section { margin-bottom: 72px; }
-
-  .section-eyebrow {
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--yellow);
-    opacity: 0.55;
-    margin-bottom: 8px;
-  }
-
-  .section-title {
-    font-size: clamp(22px, 3.5vw, 30px);
-    font-weight: 300;
-    color: var(--cream);
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--yellow-border);
-  }
-
-  .section-title em { font-style: italic; color: var(--yellow); }
 
   .pilares-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
   .pilar-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--yellow-border);
-    border-radius: 14px;
-    padding: 24px 22px;
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+    transition: transform 0.2s;
   }
 
-  .pilar-card .num {
+  .pilar-num {
     font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--yellow);
-    opacity: 0.5;
-    margin-bottom: 10px;
+    color: #A0702A;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
   }
 
-  .pilar-card h4 {
-    font-size: 16px;
-    font-weight: 400;
+  .pilar-title {
+    font-family: var(--font-display);
     font-style: italic;
-    color: var(--cream);
-    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #4A2800;
+    margin: 0 0 8px;
   }
 
-  .pilar-card p {
-    font-size: 13px;
-    color: var(--cream-dim);
-    line-height: 1.7;
+  .pilar-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .response-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--yellow-border);
-    border-radius: 14px;
-    padding: 28px 32px;
-    margin-bottom: 1.25rem;
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
   }
 
   .response-row {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 32px 1fr;
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 1.25rem;
   }
 
   .response-row:last-child { margin-bottom: 0; }
 
   .resp-icon {
     font-size: 24px;
-    color: var(--yellow);
-    flex-shrink: 0;
+    color: #A0702A;
     margin-top: 2px;
   }
 
   .resp-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--yellow);
+    font-size: 13px;
+    font-weight: 600;
+    color: #A0702A;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0 0 4px;
+    letter-spacing: 0.08em;
+    margin: 0 0 2px;
   }
 
   .resp-text {
-    font-size: 14px;
-    color: var(--cream-dim);
-    line-height: 1.65;
+    font-size: 14.5px;
+    color: #4A2800;
+    line-height: 1.6;
     margin: 0;
   }
 
   .principios-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .principio-card {
-    border-radius: 12px;
-    padding: 20px 18px;
-    border: 1px solid transparent;
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
   }
 
-  .principio-card.c1 { background: rgba(245,200,66,0.07); border-color: rgba(245,200,66,0.2); }
-  .principio-card.c2 { background: rgba(107,15,26,0.2); border-color: rgba(107,15,26,0.35); }
-  .principio-card.c3 { background: rgba(184,168,212,0.08); border-color: rgba(184,168,212,0.2); }
-  .principio-card.c4 { background: rgba(184,200,163,0.07); border-color: rgba(184,200,163,0.2); }
-
-  .principio-card .icon { font-size: 22px; margin-bottom: 10px; display: block; }
-
-  .principio-card h4 {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 6px;
-  }
-
-  .principio-card p {
-    font-size: 12px;
-    color: var(--cream-dim);
-    line-height: 1.65;
-  }
-
-  .nota-final {
-    background: var(--yellow-soft);
-    border: 1px solid var(--yellow-border);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    margin-top: 16px;
-  }
-
-  .nota-final .sun { font-size: 32px; display: block; margin-bottom: 16px; }
-
-  .nota-final p {
+  .principio-title {
     font-size: 15px;
-    color: var(--cream-dim);
-    line-height: 1.85;
+    font-weight: 600;
+    color: #3D2000;
+    margin: 0 0 6px;
+  }
+
+  .principio-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .met-cierre {
+    text-align: center;
+    background: #7A2828;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .met-cierre-icon {
+    font-size: 32px;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-cierre-text {
+    font-family: var(--font-display);
     font-style: italic;
-    max-width: 480px;
-    margin: 0 auto;
+    font-size: 17px;
+    color: #FDF4F2;
+    line-height: 1.7;
+    margin: 0;
   }
 
-  .nota-final strong { color: var(--yellow); font-style: normal; font-weight: 400; }
-
-  .footer {
-    margin-top: 80px;
-    padding-top: 32px;
-    border-top: 1px solid var(--yellow-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: var(--cream-dimmer);
+  .met-cierre-text strong {
+    color: #F5C070;
+    font-weight: 700;
   }
 
-  .footer em { color: var(--yellow); font-style: italic; }
-
-  @media (max-width: 580px) {
-    .pilares-grid,
-    .principios-grid { grid-template-columns: 1fr; }
-    .footer { flex-direction: column; gap: 8px; text-align: center; }
+  @media (max-width: 640px) {
+    .pilares-grid, .principios-grid {
+      grid-template-columns: 1fr;
+    }
+    .metodologia-section {
+      padding: 1.5rem;
+    }
+    .met-title {
+      font-size: 2.2rem;
+    }
   }
 </style>
 </head>
 <body>
-<div class="page">
-
-  <div class="header">
-    <div class="eyebrow">Fergis Marrero · Mamá Girasol</div>
-    <h1>Tu guía en cualquier<br><em>momento</em></h1>
-    <p class="header-desc">Cómo acompaño cada pregunta que llega. No es una respuesta rápida — es presencia cuando más la necesitas.</p>
+<div class="container">
+  <div class="nav-back">
+    <a href="index.html">← Volver al inicio</a>
   </div>
 
-  <div class="intro-block">
-    <p>Mi acompañamiento parte de una verdad simple: <strong>lo que sientes tiene sentido, aunque todavía no lo tenga para ti.</strong> Mi trabajo no es darte respuestas — es ayudarte a escuchar lo que ya sabes, pero que el ruido de la vida no te deja oír.</p>
-  </div>
+  <div class="metodologia-section">
+    <span class="met-tag">Metodología</span>
+    <h2 class="met-title">Tu guía en cualquier <em>momento</em></h2>
+    <p class="met-subtitle">Cómo acompaño cada pregunta que llega. No es una respuesta rápida — es presencia cuando más la necesitas.</p>
+    <div class="met-divider"></div>
 
-  <div class="section">
-    <div class="section-eyebrow">Fundamento</div>
-    <div class="section-title">Los <em>4 pilares</em> de cada respuesta</div>
+    <div class="met-intro-box">
+      Mi acompañamiento parte de una verdad simple: <strong>lo que sientes tiene sentido, aunque todavía no lo tenga para ti.</strong> Mi trabajo no es darte respuestas — es ayudarte a escuchar lo que ya sabes, pero que el ruido de la vida no te deja oír.
+    </div>
+
+    <h3 class="met-section-title">Los <em>4 pilares</em> de cada respuesta</h3>
     <div class="pilares-grid">
       <div class="pilar-card">
-        <div class="num">01</div>
-        <h4>Escucha antes que solución</h4>
-        <p>Escucho tu pregunta con atención completa antes de responder. No busco ser rápida — busco ser real contigo.</p>
+        <p class="pilar-num">01</p>
+        <h4 class="pilar-title">Escucha antes que solución</h4>
+        <p class="pilar-body">Escucho tu pregunta con atención completa antes de responder. No busco ser rápida — busco ser real contigo.</p>
       </div>
       <div class="pilar-card">
-        <div class="num">02</div>
-        <h4>Presencia, no protocolo</h4>
-        <p>No tengo un guión. Fluyo con lo que traes. Cada audio es para ti, no una respuesta genérica.</p>
+        <p class="pilar-num">02</p>
+        <h4 class="pilar-title">Presencia, no protocolo</h4>
+        <p class="pilar-body">No tengo un guión. Fluyo con lo que traes. Cada audio es para ti, no una respuesta genérica.</p>
       </div>
       <div class="pilar-card">
-        <div class="num">03</div>
-        <h4>Claridad sin juicio</h4>
-        <p>Lo que traes — tus miedos, tus contradicciones — merece el mismo trato que tus logros. Aquí no hay respuestas incorrectas.</p>
+        <p class="pilar-num">03</p>
+        <h4 class="pilar-title">Claridad sin juicio</h4>
+        <p class="pilar-body">Lo que traes — tus miedos, tus contradicciones — merece el mismo trato que tus logros. Aquí no hay respuestas incorrectas.</p>
       </div>
       <div class="pilar-card">
-        <div class="num">04</div>
-        <h4>Un punto de apoyo, no de dependencia</h4>
-        <p>Te oriento para que puedas moverte sola. Mi meta es que cada audio te deje más enraizada, no más necesitada.</p>
+        <p class="pilar-num">04</p>
+        <h4 class="pilar-title">Un punto de apoyo, no de dependencia</h4>
+        <p class="pilar-body">Te oriento para que puedas moverte sola. Mi meta es que cada audio te deje más enraizada, no más necesitada.</p>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="section-eyebrow">Proceso</div>
-    <div class="section-title">¿Cómo <em>funciona</em>?</div>
+    <h3 class="met-section-title">¿Cómo <em>funciona</em>?</h3>
     <div class="response-box">
       <div class="response-row">
         <span class="resp-icon">💬</span>
@@ -341,45 +335,32 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="section-eyebrow">Lo que nunca olvido</div>
-    <div class="section-title">Mis <em>principios</em> de acompañamiento</div>
+    <h3 class="met-section-title">Lo que <em>nunca olvido</em></h3>
     <div class="principios-grid">
-      <div class="principio-card c1">
-        <span class="icon">🌻</span>
-        <h4>Ella tiene la respuesta</h4>
-        <p>Mi trabajo es crear el espacio, no ser la experta de tu vida. Tú ya sabes más de ti misma de lo que crees.</p>
+      <div class="principio-card">
+        <h4 class="principio-title">Ella tiene la respuesta</h4>
+        <p class="principio-body">Mi trabajo es crear el espacio, no ser la experta de tu vida. Tú ya sabes más de ti misma de lo que crees.</p>
       </div>
-      <div class="principio-card c2">
-        <span class="icon">🤍</span>
-        <h4>Sin juicio, siempre</h4>
-        <p>Lo que traes merece el mismo trato que tus logros. Tus contradicciones son parte del proceso.</p>
+      <div class="principio-card">
+        <h4 class="principio-title">Sin juicio, siempre</h4>
+        <p class="principio-body">Lo que traes merece el mismo trato que tus logros. Tus contradicciones son parte del proceso.</p>
       </div>
-      <div class="principio-card c3">
-        <span class="icon">🔒</span>
-        <h4>Privacidad absoluta</h4>
-        <p>Lo que compartimos aquí no sale de aquí. La confianza es el único contenedor que importa.</p>
+      <div class="principio-card">
+        <h4 class="principio-title">Privacidad absoluta</h4>
+        <p class="principio-body">Lo que compartimos aquí no sale de aquí. La confianza es el único contenedor que importa.</p>
       </div>
-      <div class="principio-card c4">
-        <span class="icon">⚕️</span>
-        <h4>No soy terapeuta clínica</h4>
-        <p>Mi acompañamiento no reemplaza procesos psicológicos. Cuando lo necesitas, te lo digo y te lo recomiendo con amor.</p>
+      <div class="principio-card">
+        <h4 class="principio-title">No soy terapeuta clínica</h4>
+        <p class="principio-body">Mi acompañamiento no reemplaza procesos psicológicos. Cuando lo necesitas, te lo digo y te lo recomiendo con amor.</p>
       </div>
     </div>
-  </div>
 
-  <div class="nota-final">
-    <span class="sun">🌻</span>
-    <p>Esta metodología no es un guión — es una <strong>brújula</strong>. Lo que la hace funcionar no es seguirla al pie de la letra, sino llevarla con presencia y con la certeza de que <strong>ninguna mujer tiene que transitar sus procesos sola.</strong></p>
+    <div class="met-cierre">
+      <span class="met-cierre-icon">🌻</span>
+      <p class="met-cierre-text">Esta metodología no es un guión — es una <strong>brújula</strong>. Lo que la hace funcionar no es seguirla al pie de la letra, sino llevarla con presencia y con la certeza de que <strong>ninguna mujer tiene que transitar sus procesos sola.</strong></p>
+    </div>
   </div>
-
-  <div class="footer">
-    <span><em>Fergis · Mamá Girasol</em></span>
-    <span>fergismarrero.com</span>
-  </div>
-
 </div>
 </body>
 </html>
