@@ -245,109 +245,179 @@
     /* ═══════════════════════════════════════════════════════
        SERVICE CARDS (MODULAR DESIGN)
     ═══════════════════════════════════════════════════════ */
-    .service-card {
-      background: #FFFBEE;
+    /* ═══════════════════════════════════════════════════════
+       NEW SERVICE CARDS DESIGN
+    ═══════════════════════════════════════════════════════ */
+    .card {
       border-radius: 40px;
       padding: 48px 40px;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      gap: 1.25rem;
       position: relative;
-      border: 1.5px solid rgba(180, 140, 60, 0.25);
       overflow: hidden;
+      height: 100%;
+      border: 1.5px solid rgba(180, 140, 60, 0.25);
       box-shadow: 0 6px 28px rgba(61, 43, 31, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .service-card__pill {
-      background: #F5EACC;
-      color: #3d2b1f;
-      border-radius: 999px;
-      padding: 8px 24px;
-      font-size: 0.9rem;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(61, 43, 31, 0.12);
+    }
+
+    .card-mantequilla {
+      background: #FFFBEE;
+      border-color: #D4A94A44;
+    }
+
+    .card-vino {
+      background: #FDF4F2;
+      border-color: #8B3A3A44;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 40px;
       width: fit-content;
-      margin-bottom: 32px;
-      line-height: 1;
+      margin-bottom: 0.5rem;
     }
 
-    .service-card__title {
-      font-family: 'Carelia W05 Italic', Georgia, serif;
-      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    .tag-mantequilla {
+      background: #F5EACC;
+      color: #7A5A10;
+      border: 1px solid #D4A94A33;
+    }
+
+    .tag-vino {
+      background: #EEDBD6;
+      color: #6B2020;
+      border: 1px solid #8B3A3A33;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-style: italic;
       font-weight: 600;
-      font-style: italic;
-      color: #3d2b1f;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
       line-height: 1.1;
-      margin-bottom: 20px;
+      margin: 0;
     }
 
-    .service-card__quote {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    .title-mantequilla { color: #3d2b1f; }
+    .title-vino { color: #3d0000; }
+
+    .card-hook {
+      font-family: var(--font-display);
       font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
       color: #3d2b1f;
-      margin-bottom: 28px;
+      margin: 0;
+      opacity: 0.85;
       line-height: 1.3;
-      opacity: 0.85;
     }
 
-    .service-card__copy {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 1rem;
-      color: #3d2b1f;
+    .card-body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
       line-height: 1.65;
+      color: #3d2b1f;
+      margin: 0;
       opacity: 0.85;
     }
 
-    .service-card__copy p {
-      margin-bottom: 1.2em;
+    .card-body-vino {
+      color: #3d0000;
     }
 
-    .service-card__copy p:last-child {
-      margin-bottom: 0;
+    .divider {
+      height: 1px;
+      background: rgba(180, 140, 60, 0.2);
+      margin: 0.75rem 0;
     }
 
-    .service-card__footer {
-      margin-top: auto;
+    .divider-vino {
+      background: rgba(122, 0, 0, 0.15);
+    }
+
+    .card-meta {
+      font-size: 0.95rem;
+      color: #3d2b1f;
+      line-height: 1.6;
+      margin: 0;
+      opacity: 0.75;
+    }
+
+    .card-meta-vino {
+      color: #3d0000;
+    }
+
+    .card-price {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #3d2b1f;
+      margin: 0;
+    }
+
+    .card-price-vino {
+      color: #3d0000;
+    }
+
+    .buttons-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      padding-top: 40px;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 1.5rem;
     }
 
-    .service-card__price {
-      width: 100%;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #3d2b1f;
-      opacity: 0.8;
-      margin-bottom: 8px;
-    }
-
-    .service-card__cta {
+    .btn-new {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: #3d0000;
-      color: #fff;
+      justify-content: center;
       padding: 16px 32px;
       border-radius: 12px;
-      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 1rem;
       font-weight: 700;
-      transition: transform 0.2s, background 0.2s;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
     }
 
-    .service-card__cta--secondary {
+    .btn-new:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-mant {
+      background: #A0702A;
+      color: #fff;
+    }
+
+    .btn-mant:hover { background: #8a6024; }
+
+    .btn-vino-primary {
+      background: #3d0000;
+      color: #fff;
+    }
+
+    .btn-vino-primary:hover { background: #2a0000; }
+
+    .btn-secondary-new {
       background: transparent;
       color: #3d2b1f;
       border: 1px solid rgba(61, 43, 31, 0.2);
     }
 
-    .service-card__cta:hover {
-      transform: translateY(-2px);
-      background: #2a0000;
-    }
-
-    .service-card__cta--secondary:hover {
+    .btn-secondary-new:hover {
       background: rgba(61, 43, 31, 0.05);
     }
 
@@ -1735,41 +1805,38 @@
     <!-- SECCIÓN ACOMPAÑAMIENTOS -->
     <section id="acompanamientos" class="tarot-row fade-up">
       <!-- DIOSA EN GUÍA -->
-      <article id="diosa-en-guia-section" class="service-card">
-        <div class="service-card__pill">Acompañamiento emocional mensual</div>
-        <h2 class="service-card__title">Diosa en guía</h2>
-        <div class="service-card__quote">A veces no sabes ni por dónde empezar...</div>
-        <div class="service-card__copy">
+      <article id="diosa-en-guia-section" class="card card-mantequilla">
+        <span class="tag tag-mantequilla">Acompañamiento emocional mensual</span>
+        <h2 class="card-title title-mantequilla">Diosa en guía</h2>
+        <p class="card-hook">A veces no sabes ni por dónde empezar...</p>
+        <div class="card-body">
           <p>Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.</p>
           <p>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.</p>
-          <p>Y no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.</p>
         </div>
-        <div class="service-card__footer">
-          <div class="service-card__price">
-            4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente<br>
-            <strong>$45 USD · S/ 120</strong>
-          </div>
-          <a href="#" class="service-card__cta" onclick="goToBookingWith('Diosa en Guía'); return false;">Comprar</a>
-          <a href="metodologia-diosa-en-guia.html" class="service-card__cta service-card__cta--secondary">Ver metodología</a>
+        <div class="divider"></div>
+        <p class="card-meta">4 sesiones al mes · 45 min cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
+        <p class="card-price">$45 USD · S/ 120</p>
+        <div class="buttons-row">
+          <a href="#" class="btn-new btn-mant" onclick="goToBookingWith('Diosa en Guía'); return false;">Quiero empezar</a>
+          <a href="metodologia-diosa-en-guia.html" class="btn-new btn-secondary-new">Ver metodología</a>
         </div>
       </article>
 
       <!-- Tu guía en cualquier momento -->
-      <article id="guia-whatsapp-section" class="service-card">
-        <div class="service-card__pill">Orientación por audio vía WhatsApp</div>
-        <h2 class="service-card__title">Tu guía en cualquier momento</h2>
-        <div class="service-card__quote">A veces la vida no espera...</div>
-        <div class="service-card__copy">
-          <p>Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible. No la próxima semana en una sesión agendada. Y para eso existe esto.</p>
-          <p>Cada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
+      <article id="guia-whatsapp-section" class="card card-vino">
+        <span class="tag tag-vino">Orientación por audio vía WhatsApp</span>
+        <h2 class="card-title title-vino">Tu guía en cualquier momento</h2>
+        <p class="card-hook">A veces la vida no espera...</p>
+        <div class="card-body card-body-vino">
+          <p>Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible. No la próxima semana en una sesión agendada. Para eso existe esto.</p>
+          <p>Cada mes tienes 10 preguntas respondidas por audio, con orientación desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
         </div>
-        <div class="service-card__footer">
-          <div class="service-card__price">
-            Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente<br>
-            <strong>$45 USD · S/ 120</strong>
-          </div>
-          <a href="#" class="service-card__cta" id="guia-whatsapp" onclick="goToBookingWith('Tu guía en cualquier momento'); return false;">Comprar</a>
-          <a href="https://wa.me/51907671044" class="service-card__cta service-card__cta--secondary">Hablar por WhatsApp</a>
+        <div class="divider divider-vino"></div>
+        <p class="card-meta card-meta-vino">Tiempo de respuesta: lo antes posible · máx 24 horas · Se renueva mensualmente</p>
+        <p class="card-price card-price-vino">$45 USD · S/ 120</p>
+        <div class="buttons-row">
+          <a href="#" class="btn-new btn-vino-primary" id="guia-whatsapp" onclick="goToBookingWith('Tu guía en cualquier momento'); return false;">Quiero empezar</a>
+          <a href="https://wa.me/51907671044" class="btn-new btn-secondary-new">Hablar por WhatsApp</a>
         </div>
       </article>
     </section>
