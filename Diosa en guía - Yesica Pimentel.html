@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diosa en Guía — Yesica Pimentel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --butter: #F5E6C8;
+    --butter-dark: #E8D0A0;
+    --butter-deep: #D4B882;
+    --brown: #5C3D2E;
+    --brown-mid: #8B5E3C;
+    --brown-light: #A67C52;
+    --brown-pale: #C4A882;
+    --cream: #FBF5E8;
+    --warm-white: #FFFDF5;
+    --gold: #C8963C;
+    --gold-light: #E8B84B;
+    --text: #3A2518;
+    --text-soft: #6B4A35;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(251, 245, 232, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--butter-deep);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--brown);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--brown); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 100px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 65% 55% at 85% 15%, rgba(200, 150, 60, 0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 50% at 15% 85%, rgba(92, 61, 46, 0.09) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 40% at 50% 50%, rgba(245, 230, 200, 0.5) 0%, transparent 80%),
+      var(--cream);
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 150, 60, 0.12);
+    top: -150px; right: -150px;
+    animation: slowRotate 35s linear infinite;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    border: 1px solid rgba(92, 61, 46, 0.08);
+    bottom: 30px; left: -100px;
+    animation: slowRotate 22s linear infinite reverse;
+  }
+
+  @keyframes slowRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 720px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin-bottom: 28px;
+    padding: 8px 22px;
+    border: 1px solid var(--butter-deep);
+    border-radius: 100px;
+    background: rgba(245, 230, 200, 0.5);
+    animation: fadeUp 1.2s 0.2s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(54px, 8.5vw, 100px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: var(--brown);
+    margin-bottom: 20px;
+    animation: fadeUp 1.2s 0.4s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-soft);
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+    margin-bottom: 44px;
+    animation: fadeUp 1.2s 0.6s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    animation: fadeUp 1.2s 0.8s ease both;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 2s 1.5s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 48px; position: relative; }
+
+  .section-inner { max-width: 900px; margin: 0 auto; }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 400;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* CARTA */
+  .carta {
+    background: var(--warm-white);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    padding: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--brown-light));
+  }
+
+  .carta p {
+    font-size: 17px;
+    line-height: 2.1;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+  }
+
+  .carta p:last-child { margin-bottom: 0; }
+
+  .carta-firma {
+    margin-top: 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--brown);
+  }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    padding: 40px 32px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(92, 61, 46, 0.1);
+  }
+
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .card-text {
+    font-size: 14px;
+    line-height: 1.95;
+    color: var(--text-soft);
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 64px 0;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: var(--butter-deep); }
+  .divider-mark { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+  /* PREGUNTAS (dark section) */
+  .preguntas-section { background: var(--brown); color: var(--butter); }
+  .preguntas-section .section-title { color: var(--butter); }
+  .preguntas-section .section-number { color: var(--brown-pale); }
+
+  .preguntas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .pregunta-group h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+  }
+
+  .pregunta-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+    align-items: flex-start;
+  }
+
+  .pregunta-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+
+  .pregunta-item p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: rgba(245, 230, 200, 0.82);
+  }
+
+  /* AFIRMACIONES */
+  .afirmaciones { background: linear-gradient(135deg, var(--butter) 0%, var(--warm-white) 100%); }
+
+  .afirmaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--butter-deep);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .afirmacion-item {
+    background: var(--warm-white);
+    padding: 34px 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--brown);
+    line-height: 1.65;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .afirmacion-item:hover { background: var(--butter); }
+
+  .afirmacion-item::before {
+    content: '"';
+    position: absolute;
+    top: 10px; left: 14px;
+    font-size: 52px;
+    color: var(--butter-deep);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+
+  /* EJERCICIOS */
+  .ejercicios-list {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ejercicio {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    border-bottom: 1px solid var(--butter-deep);
+    padding: 40px 0;
+    transition: background 0.3s;
+  }
+
+  .ejercicio:first-child { border-top: 1px solid var(--butter-deep); }
+
+  .ejercicio:hover .ejercicio-content {
+    padding-left: 8px;
+    transition: padding 0.3s ease;
+  }
+
+  .ejercicio-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--brown-pale);
+    padding-top: 4px;
+  }
+
+  .ejercicio-content { transition: padding 0.3s ease; }
+
+  .ejercicio-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 12px;
+  }
+
+  .ejercicio-text {
+    font-size: 15px;
+    line-height: 1.95;
+    color: var(--text-soft);
+    max-width: 600px;
+  }
+
+  .ejercicio-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    border: 1px solid var(--butter-deep);
+    border-radius: 100px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+  }
+
+  /* REGULACIÓN NERVIOSA - special cards */
+  .regulacion-section { background: var(--butter); }
+
+  .reg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .reg-card {
+    background: var(--warm-white);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s;
+  }
+
+  .reg-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--brown-light));
+  }
+
+  .reg-card:hover {
+    box-shadow: 0 20px 40px rgba(92, 61, 46, 0.1);
+  }
+
+  .reg-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-style: italic;
+    color: var(--butter-deep);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .reg-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: var(--brown);
+    margin-bottom: 14px;
+  }
+
+  .reg-card-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  /* AUTONOMÍA */
+  .autonomia-section { background: var(--warm-white); }
+
+  .autonomia-bloques {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .autonomia-bloque {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid var(--butter-deep);
+  }
+
+  .autonomia-bloque:last-child { border-bottom: none; }
+
+  .autonomia-label {
+    background: var(--butter);
+    padding: 36px 32px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--butter-deep);
+  }
+
+  .autonomia-label-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--brown);
+    line-height: 1.4;
+  }
+
+  .autonomia-content-box {
+    padding: 36px 40px;
+    background: var(--warm-white);
+  }
+
+  .autonomia-content-box p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  /* RUTINA */
+  .rutina-section { background: var(--cream); }
+
+  .rutina-steps {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .rutina-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    border-bottom: 1px solid var(--butter-deep);
+  }
+
+  .rutina-step:last-child { border-bottom: none; }
+
+  .rutina-num-box {
+    background: var(--butter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold);
+    border-right: 1px solid var(--butter-deep);
+  }
+
+  .rutina-content { padding: 32px 36px; }
+
+  .rutina-step-time {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-bottom: 8px;
+  }
+
+  .rutina-step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .rutina-step-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  /* QUOTE GRANDE */
+  .completitud-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3.5vw, 38px);
+    font-style: italic;
+    color: var(--brown);
+    line-height: 1.45;
+    border-left: 3px solid var(--gold);
+    padding-left: 40px;
+    margin: 48px 0;
+  }
+
+  .completitud-text {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+    max-width: 700px;
+  }
+
+  /* CIERRE */
+  .cierre {
+    background: var(--brown);
+    padding: 120px 48px;
+  }
+
+  .cierre-tag {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-bottom: 40px;
+  }
+
+  .cierre-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 400;
+    color: var(--butter);
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+
+  .cierre-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .cierre-text {
+    font-size: 17px;
+    line-height: 2;
+    color: rgba(245, 230, 200, 0.75);
+    margin-bottom: 24px;
+    max-width: 660px;
+  }
+
+  .cierre-firma {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(245, 230, 200, 0.15);
+  }
+
+  .cierre-firma p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold-light);
+  }
+
+  .cierre-firma span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-top: 10px;
+  }
+
+  /* COMPLETITUD SECTION */
+  .completitud-section {
+    background: linear-gradient(160deg, var(--butter) 0%, var(--cream) 60%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .completitud-section::before {
+    content: '✦';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 380px;
+    color: var(--butter-deep);
+    opacity: 0.25;
+    line-height: 1;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius: 3px; }
+
+  /* NOTA INTERNA */
+  .nota-box {
+    background: var(--butter);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    padding: 48px 56px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nota-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--gold-light), var(--brown-light));
+  }
+
+  .nota-box p {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--brown);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .carta { padding: 36px 28px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .preguntas-grid { grid-template-columns: 1fr; }
+    .afirmaciones-grid { grid-template-columns: 1fr; }
+    .reg-grid { grid-template-columns: 1fr; }
+    .ejercicio { grid-template-columns: 44px 1fr; }
+    .rutina-step { grid-template-columns: 60px 1fr; }
+    .autonomia-bloque { grid-template-columns: 1fr; }
+    .autonomia-label { border-right: none; border-bottom: 1px solid var(--butter-deep); }
+    .hero { padding: 100px 24px 80px; }
+    .completitud-section::before { font-size: 180px; }
+    .cierre { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Mamá Girasol</div>
+  <ul class="nav-links">
+    <li><a href="#quien">Quién eres</a></li>
+    <li><a href="#transito">El tránsito</a></li>
+    <li><a href="#autonomia">Autonomía</a></li>
+    <li><a href="#regulacion">Regulación</a></li>
+    <li><a href="#ejercicios">Ejercicios</a></li>
+    <li><a href="#afirmaciones">Afirmaciones</a></li>
+    <li><a href="#rutina">Rutina</a></li>
+  </ul>
+</nav>
+
+<!-- HERO — PORTADA -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Guía personalizada · Mamá Girasol</span>
+    <h1 class="hero-title">Diosa<br>en <em>Guía</em></h1>
+    <p class="hero-subtitle">porque el proceso de evolucionar<br>también se puede transitar de forma bonita</p>
+    <p class="hero-name">Para Yesica Pimentel</p>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- BIENVENIDA -->
+<section style="background: var(--warm-white);">
+  <div class="section-inner">
+    <span class="section-number reveal">— Bienvenida</span>
+    <div class="carta reveal reveal-delay-1">
+      <p>Yesica,</p>
+      <p>Esta guía fue hecha para ti. No para decirte lo que tienes que hacer, sino para ofrecerte un espacio donde puedas respirar, reconocerte y recordar que sigues ahí, entera, debajo de todo lo que se está moviendo.</p>
+      <p>Estás atravesando un tiempo que pide mucho de ti. Un tiempo donde varias cosas terminaron o cambiaron al mismo tiempo, y el cuerpo y la mente necesitan tiempo para procesar, para soltar, para reacomodarse. Eso es válido. No estás exagerando. Estás sintiendo lo que hay que sentir.</p>
+      <p>Lo que encontrarás aquí son herramientas para calmarte cuando el ruido interno sea mucho, preguntas para conocerte mejor, ejercicios para anclarte en tu cuerpo, y palabras que te recuerden lo que a veces olvidamos cuando estamos en medio del torbellino: que tienes el poder de elegirte a ti misma.</p>
+      <p>No tienes que hacer todo a la vez. Esta guía es tuya. Vuelve a ella cuando la necesites.</p>
+      <div class="carta-firma">Con amor, Mamá Girasol</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉN ERES -->
+<section id="quien">
+  <div class="section-inner">
+    <span class="section-number reveal">— 01</span>
+    <h2 class="section-title reveal">Lo que vive<br>en <em>ti</em></h2>
+
+    <div class="cards-grid">
+      <div class="card reveal reveal-delay-1">
+        <span class="card-icon">🌬️</span>
+        <h3 class="card-title">Una mente que viaja lejos</h3>
+        <p class="card-text">Tienes una cabeza que piensa mucho, que imagina escenarios, que analiza, que anticipa. Eso no es un defecto. Es tu forma de entender el mundo. Pero a veces esa mente tan activa te lleva a lugares que no existen todavía, y eso agota. El reto no es dejar de pensar. Es aprender a que el cuerpo también hable.</p>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <span class="card-icon">🌿</span>
+        <h3 class="card-title">Un corazón que cuida</h3>
+        <p class="card-text">Tienes una sensibilidad enorme hacia los demás. Sientes cuando algo incomoda a alguien. Quieres que todos estén bien. Eso es hermoso. Y también puede ser una trampa si siempre te colocas de última. La pregunta no es si cuidas a otros. Es si también te cuidas a ti.</p>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <span class="card-icon">✦</span>
+        <h3 class="card-title">Una mujer en proceso</h3>
+        <p class="card-text">Estás aprendiendo algo que casi nadie te enseñó: que tus necesidades importan igual que las de los demás. Que decir lo que quieres no es egoísmo. Que puedes existir sin pedir permiso. Ese aprendizaje toma tiempo. Y ya estás en él.</p>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-mark"></div><div class="divider-line"></div></div>
+
+    <blockquote class="completitud-quote reveal">
+      No tienes que ganarte el espacio que ocupas.<br>Naciste mereciéndolo.
+    </blockquote>
+
+    <p class="completitud-text reveal reveal-delay-1">Hay algo que pasa cuando crecemos priorizando la comodidad de otros sobre la nuestra: el cuerpo aprende a achicarse. Aprende a esperar. Aprende a preguntar si "está bien" antes de moverse. Pero eso no es quien eres. Es solo lo que aprendiste. Y lo que se aprende, se puede desaprender.</p>
+    <p class="completitud-text reveal reveal-delay-2">Lo que estás haciendo ahora, solo el hecho de reconocer que hay algo que quieres cambiar, ya es un acto de amor propio profundo.</p>
+  </div>
+</section>
+
+<!-- LO QUE SE ESTÁ MOVIENDO -->
+<section id="transito" class="preguntas-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 02</span>
+    <h2 class="section-title reveal">Lo que se está<br><em style="color: var(--gold-light);">moviendo</em></h2>
+    <p style="font-size: 15px; line-height: 1.9; color: rgba(245,230,200,0.75); max-width: 620px; margin-bottom: 48px;" class="reveal reveal-delay-1">Estás transitando por más de una pérdida al mismo tiempo. No hay un solo duelo. Hay capas. Y el cuerpo, cuando carga con varias cosas a la vez, lo expresa de muchas formas: cansancio, hiperactividad mental, dificultad para dormir, necesidad de moverse o de no moverse. Todo eso tiene sentido. Estas preguntas no son para que las respondas ya. Son para que las lleves contigo.</p>
+
+    <div class="preguntas-grid">
+      <div class="pregunta-group reveal reveal-delay-1">
+        <h3>Lo que termina</h3>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué parte de mí también terminó con lo que se fue?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué aprendí sobre lo que necesito, y qué aprendí sobre lo que ya no acepto?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Hay algo que nunca me permití decir, y que todavía quiero decir?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué le diría hoy, con amor, a la versión de mí que vivió eso?</p>
+        </div>
+      </div>
+
+      <div class="pregunta-group reveal reveal-delay-2">
+        <h3>Lo que se ausenta</h3>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué es lo que más extraño, y qué me dice eso sobre lo que necesito?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Cómo quiero honrar lo que se fue, sin quedarme detenida en ello?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué parte de mí fue formada por ese amor, y cómo quiero seguir llevándola?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué necesita mi cuerpo en este momento de duelo, y se lo estoy dando?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nota-box" style="background: rgba(245,230,200,0.08); border-color: rgba(245,230,200,0.15); margin-top: 56px;">
+      <p style="color: rgba(245,230,200,0.8);">El duelo no tiene un orden ni un tiempo establecido. No hay un "ya debería haberlo superado". Hay un proceso que se respeta, que se siente, que a veces da un paso atrás antes de dar dos hacia adelante. Permítete estar donde estás.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUTONOMÍA -->
+<section id="autonomia" class="autonomia-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 03</span>
+    <h2 class="section-title reveal">Autonomía y<br><em>dependencia</em></h2>
+    <p class="completitud-text reveal">Toda persona existe en un espectro entre la conexión con otros y la conexión consigo misma. Ninguno de los dos extremos es ideal. Lo que buscamos es un punto donde te sientas enraizada en ti, y desde ahí puedas relacionarte sin perderte.</p>
+
+    <div class="autonomia-bloques reveal reveal-delay-1">
+      <div class="autonomia-bloque">
+        <div class="autonomia-label">
+          <span class="autonomia-label-text">La dependencia emocional</span>
+        </div>
+        <div class="autonomia-content-box">
+          <p>No es un defecto de carácter. Es un patrón aprendido. Cuando desde pequeños aprendemos que el amor se gana portándonos bien, no incomodando, siendo complacientes, la mente aprende a leer el humor de los demás antes que el propio. A priorizar la paz del ambiente sobre la paz interna. Reconocer ese patrón no es para castigarte. Es para que empieces a verlo cuando aparece, y puedas hacer algo diferente.</p>
+        </div>
+      </div>
+      <div class="autonomia-bloque">
+        <div class="autonomia-label">
+          <span class="autonomia-label-text">El miedo a incomodar</span>
+        </div>
+        <div class="autonomia-content-box">
+          <p>Preferir incomodarte tú antes de incomodar a alguien más tiene un costo enorme: vas acumulando lo que no dijiste, lo que no pediste, lo que no elegiste. Y ese peso cansa. La buena noticia es que la incomodidad que siente el otro cuando le dices que no no es tu responsabilidad. Puedes ser amable y también ser honesta. Las dos cosas coexisten.</p>
+        </div>
+      </div>
+      <div class="autonomia-bloque">
+        <div class="autonomia-label">
+          <span class="autonomia-label-text">Tomar decisiones propias</span>
+        </div>
+        <div class="autonomia-content-box">
+          <p>Decidir por ti misma no significa no considerar a los demás. Significa que tus necesidades entran en la ecuación. Que antes de preguntar qué quieren los otros, te preguntas qué quieres tú. Empezar por decisiones pequeñas ayuda: qué quiero comer hoy, qué necesito esta tarde, cómo me quiero sentir esta semana. El músculo de la autodecisión se entrena.</p>
+        </div>
+      </div>
+      <div class="autonomia-bloque">
+        <div class="autonomia-label">
+          <span class="autonomia-label-text">Los límites como acto de amor</span>
+        </div>
+        <div class="autonomia-content-box">
+          <p>Un límite no es un muro. Es una puerta con llave que tú controlas. Poner un límite no es rechazar a alguien. Es decirle a esa persona cómo puedes estar presente de verdad, sin resentimiento, sin pérdida. Y también es decirte a ti misma: me cuido. Me respeto. Elijo mis condiciones. Eso no es egoísmo. Es la base de cualquier vínculo sano.</p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="completitud-quote reveal" style="margin-top: 56px;">
+      Elegirte a ti no significa abandonar a los demás.<br>Significa que también eres parte de los que cuidas.
+    </blockquote>
+  </div>
+</section>
+
+<!-- REGULACIÓN DEL SISTEMA NERVIOSO -->
+<section id="regulacion" class="regulacion-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 04</span>
+    <h2 class="section-title reveal">Calmar el<br><em>sistema</em></h2>
+    <p class="completitud-text reveal">Cuando la mente está en modo de alerta constante, el sistema nervioso trabaja de más. No es que no puedas dejar de pensar por falta de voluntad. Es que tu cuerpo está en un estado que necesita señales de seguridad. Estas prácticas le hablan directo a ese sistema. No requieren creer en nada. Solo requieren que las hagas.</p>
+
+    <div class="reg-grid">
+      <div class="reg-card reveal reveal-delay-1">
+        <div class="reg-card-num">01</div>
+        <h3 class="reg-card-title">Respiración 4-6 (la más rápida)</h3>
+        <p class="reg-card-text">Inhala por la nariz contando hasta 4. Exhala por la boca contando hasta 6. La exhalación más larga activa el nervio vago y le dice al sistema nervioso que no hay peligro. Hazlo 5 veces. Se puede hacer en cualquier lugar, en cualquier momento.</p>
+      </div>
+      <div class="reg-card reveal reveal-delay-2">
+        <div class="reg-card-num">02</div>
+        <h3 class="reg-card-title">Sacudir el cuerpo</h3>
+        <p class="reg-card-text">Literalmente: párate y sacúdete. Manos, brazos, piernas, hombros. 60 segundos. Los animales hacen esto de forma instintiva después de un momento de tensión. Suelta la energía atrapada. No hace falta música ni ropa especial. Solo moverte sin propósito, libre.</p>
+      </div>
+      <div class="reg-card reveal reveal-delay-1">
+        <div class="reg-card-num">03</div>
+        <h3 class="reg-card-title">El método 5-4-3-2-1 (para el sobrepensar)</h3>
+        <p class="reg-card-text">Nombra en voz alta o por escrito: 5 cosas que ves, 4 que puedes tocar, 3 que escuchas, 2 que puedes oler, 1 que puedes saborear. Esto lleva la atención al presente de forma inmediata. Es el interruptor más efectivo cuando los pensamientos giran sin parar.</p>
+      </div>
+      <div class="reg-card reveal reveal-delay-2">
+        <div class="reg-card-num">04</div>
+        <h3 class="reg-card-title">Temperatura (el reset físico)</h3>
+        <p class="reg-card-text">Agua fría en las muñecas, el cuello o la cara. O sostenerte algo tibio entre las manos. El cambio de temperatura genera una respuesta inmediata en el sistema nervioso autónomo. Es un ancla física, rápida, sin necesidad de pensar nada.</p>
+      </div>
+      <div class="reg-card reveal reveal-delay-1">
+        <div class="reg-card-num">05</div>
+        <h3 class="reg-card-title">Movimiento sin objetivo</h3>
+        <p class="reg-card-text">Camina sin destino 10 minutos. Sin teléfono. Sin audífonos. Solo mira lo que te rodea. El movimiento rítmico (caminar, nadar, balancearse) regula el sistema nervioso de forma natural. No hace falta que sea una rutina. Solo es estar en tu cuerpo, moviéndote.</p>
+      </div>
+      <div class="reg-card reveal reveal-delay-2">
+        <div class="reg-card-num">06</div>
+        <h3 class="reg-card-title">La mano en el pecho</h3>
+        <p class="reg-card-text">Coloca una mano en el centro del pecho. Siente tu propio calor. Respira despacio. Di internamente: "Estoy aquí. Estoy a salvo. Esto va a pasar." El contacto propio activa los mismos circuitos del sistema nervioso que el contacto con alguien que te cuida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EJERCICIOS -->
+<section id="ejercicios" style="background: var(--warm-white);">
+  <div class="section-inner">
+    <span class="section-number reveal">— 05</span>
+    <h2 class="section-title reveal">Ejercicios para<br><em>ti</em></h2>
+
+    <div class="ejercicios-list">
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">01</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico · escritura</span>
+          <h3 class="ejercicio-title">El diario de lo que sí quiero 🌿</h3>
+          <p class="ejercicio-text">Una vez a la semana, escribe 5 cosas que quieres. No lo que "deberías" querer. No lo que haría feliz a alguien más. Lo que tú, Yesica, quieres. Pueden ser cosas pequeñas. Pueden ser grandes. El acto de nombrarlo ya es un entrenamiento de autonomía.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">02</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico · cuerpo</span>
+          <h3 class="ejercicio-title">Baile libre (sin testigos) 🌿</h3>
+          <p class="ejercicio-text">Pon una canción que te guste, la que sea, y muévete sin ninguna instrucción. Sin coreografía. Sin que nadie te vea. Solo tú y tu cuerpo, soltando lo que hay. Cinco minutos son suficientes. Esto no es ejercicio. Es permiso.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">03</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico · decisión</span>
+          <h3 class="ejercicio-title">La práctica del pequeño no 🌿</h3>
+          <p class="ejercicio-text">Esta semana, di "no" a algo pequeño. No porque debas. Porque quieres practicar que tienes ese poder. No tiene que ser algo importante. Puede ser declinar una invitación, cambiar de opinión sobre algo trivial, o simplemente elegir diferente. Cada pequeño no es un músculo que se fortalece.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">04</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Interior · meditación</span>
+          <h3 class="ejercicio-title">La conversación con lo que se fue 🌙</h3>
+          <p class="ejercicio-text">En un momento de calma, cierra los ojos y visualiza algo o alguien que ya no está. No para retenarlo. Solo para decirle lo que no pudiste decir. Puede ser gratitud, puede ser tristeza, puede ser enojo. Todo tiene lugar. Y después, desde ese mismo espacio, dite a ti misma: "Me quedo conmigo."</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">05</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Interior · escritura</span>
+          <h3 class="ejercicio-title">La carta desde la calma 🌙</h3>
+          <p class="ejercicio-text">Imagina que ya pasaron seis meses. Estás más tranquila. Las cosas se asentaron. Desde ese lugar, escríbete una carta. ¿Qué te diría esa versión de ti? ¿Qué no querría que olvidaras de este momento? ¿Qué te pediría que no soltaras?</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">06</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Interior · reflexión</span>
+          <h3 class="ejercicio-title">¿Qué necesito realmente? 🌙</h3>
+          <p class="ejercicio-text">Cuando sientas una emoción fuerte (ansiedad, tristeza, enojo), detente y pregúntate: "¿Qué necesito realmente en este momento?" No lo que crees que deberías sentir. No lo que aliviaría la situación para otros. Lo que tú, en este instante, genuinamente necesitas. Escríbelo. Y si puedes, dátelo.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">07</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Interior · observación</span>
+          <h3 class="ejercicio-title">El mapa de tus sí y tus no 🌙</h3>
+          <p class="ejercicio-text">Dibuja o escribe dos columnas: "Lo que me da energía" y "Lo que me la quita." Sin filtro. Sin racionalizar. Incluye personas, situaciones, hábitos, palabras, ambientes. No para juzgar nada. Para verte con más claridad. Para saber dónde quieres poner más o menos de ti.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AFIRMACIONES -->
+<section id="afirmaciones" class="afirmaciones">
+  <div class="section-inner">
+    <span class="section-number reveal">— 06</span>
+    <h2 class="section-title reveal">Afirmaciones<br><em>para Yesica</em></h2>
+    <p class="completitud-text reveal">Léelas en voz alta, despacio. De preferencia frente al espejo. No tienes que creerlas del todo todavía. Solo déjalas pasar por ti.</p>
+
+    <div class="afirmaciones-grid reveal reveal-delay-1">
+      <div class="afirmacion-item">Mis necesidades tienen el mismo valor que las de los demás.</div>
+      <div class="afirmacion-item">Puedo incomodar a alguien y seguir siendo una persona buena.</div>
+      <div class="afirmacion-item">El duelo que cargo es prueba de lo que fui capaz de amar.</div>
+      <div class="afirmacion-item">No tengo que estar bien todo el tiempo para ser merecedora de amor.</div>
+      <div class="afirmacion-item">Puedo sentir sin que eso me desborde. Tengo herramientas.</div>
+      <div class="afirmacion-item">Estoy aprendiendo a elegirme. Eso ya es suficiente.</div>
+      <div class="afirmacion-item">Lo que se fue me dejó algo. Lo que viene me encuentra diferente.</div>
+      <div class="afirmacion-item">Mi mente activa es un don. Estoy aprendiendo también a descansar.</div>
+      <div class="afirmacion-item">Decir lo que pienso no me hace difícil. Me hace auténtica.</div>
+      <div class="afirmacion-item">Me permito transitar este tiempo sin prisa ni juicio.</div>
+      <div class="afirmacion-item">Soy mi propia base. Aunque todo se mueva, yo puedo sostenerme.</div>
+      <div class="afirmacion-item">Hoy elijo estar de mi parte.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RUTINA -->
+<section id="rutina" class="rutina-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 07</span>
+    <h2 class="section-title reveal">Rutina de<br><em>autoconexión</em></h2>
+    <p class="completitud-text reveal">10 a 15 minutos. Mañana o noche. No tienes que hacer todo. Elige lo que funciona para ti hoy.</p>
+
+    <div class="rutina-steps reveal reveal-delay-1">
+      <div class="rutina-step">
+        <div class="rutina-num-box">1</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">2 minutos</div>
+          <h3 class="rutina-step-title">Llega a tu cuerpo</h3>
+          <p class="rutina-step-text">Antes de revisar el teléfono, antes de hablar con alguien: cinco respiraciones lentas. Inhala 4, exhala 6. Solo eso. Es el momento en que le avisas a tu sistema nervioso que estás presente.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">2</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">1 minuto</div>
+          <h3 class="rutina-step-title">Una pregunta honesta</h3>
+          <p class="rutina-step-text">¿Cómo estoy hoy, de verdad? No lo que esperas sentir. Lo que sientes. Puedes escribirlo, decirlo en voz alta, o solo notarlo. Sin arreglarlo. Solo nombrarlo.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">3</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">1 minuto</div>
+          <h3 class="rutina-step-title">Elige una afirmación</h3>
+          <p class="rutina-step-text">La que más necesites hoy. No la que suene mejor. La que más necesites. Dila tres veces. Si puedes, en voz alta.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">4</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">5 minutos</div>
+          <h3 class="rutina-step-title">Muévete o escribe</h3>
+          <p class="rutina-step-text">Si hay energía: sacúdete, camina, pon música y muévete. Si el día pide quietud: escribe sin filtro lo que hay en tu mente, sin releerlo. Las dos cosas sueltan lo que estaba atrapado.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">5</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">1 minuto</div>
+          <h3 class="rutina-step-title">Una intención para el día</h3>
+          <p class="rutina-step-text">No una meta. Una intención. "Hoy voy a notarme." "Hoy voy a responder desde la calma." "Hoy voy a hacer una cosa que quiero yo." Simple. Tuya. Llévala.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nota-box reveal" style="margin-top: 40px;">
+      <p>Para los días difíciles: no tienes que hacer todo. En los días que cueste, elige solo una cosa. Una respiración. Una afirmación. La mano en el pecho. Eso también cuenta. Eso también es amor propio. No hay una forma correcta de atravesar esto. Solo hay la forma que puedes hoy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AMOR PROPIO -->
+<section class="completitud-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 08 · Para llevarte</span>
+    <h2 class="section-title reveal">Lo que significa<br><em>elegirte</em></h2>
+
+    <blockquote class="completitud-quote reveal">
+      El amor propio no es un estado que se alcanza.<br>Es una decisión que se renueva, cada día, en cada elección pequeña.
+    </blockquote>
+
+    <p class="completitud-text reveal">Elegirte no es ignorar lo que sientes. Es sentirlo y aun así decidir cuidarte. Es estar en medio del duelo y darte agua. Es estar agotada y irte a dormir sin culpa. Es tener miedo de incomodar y hacerlo igual, porque lo que necesitas importa.</p>
+    <p class="completitud-text reveal reveal-delay-1">No tienes que estar perfectamente bien para merecer ternura. No tienes que haber "superado" algo para avanzar. No tienes que elegirte siempre de forma grandiosa. A veces elegirte es solo no abandonarte cuando es difícil.</p>
+    <p class="completitud-text reveal reveal-delay-2">Eso es lo que estás haciendo. Aunque no lo parezca. Aunque el camino se sienta largo. Estás aquí. Eso ya es mucho.</p>
+
+    <div class="divider reveal"><div class="divider-line"></div><div class="divider-mark"></div><div class="divider-line"></div></div>
+
+    <h3 class="section-title reveal" style="font-size: clamp(22px, 3.5vw, 36px);">Preguntas para llevarte</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 0;" class="reveal reveal-delay-1">
+      <div style="background: var(--warm-white); border: 1px solid var(--butter-deep); border-radius: 4px; padding: 36px 32px;">
+        <div class="pregunta-item" style="margin-bottom: 20px;"><div class="pregunta-dot" style="background: var(--gold);"></div><p style="color: var(--text-soft); font-size: 15px; line-height: 1.85;">¿Qué necesito en este momento que aún no me he dado?</p></div>
+        <div class="pregunta-item" style="margin-bottom: 20px;"><div class="pregunta-dot" style="background: var(--gold);"></div><p style="color: var(--text-soft); font-size: 15px; line-height: 1.85;">¿Cuándo fue la última vez que tomé una decisión completamente mía?</p></div>
+        <div class="pregunta-item"><div class="pregunta-dot" style="background: var(--gold);"></div><p style="color: var(--text-soft); font-size: 15px; line-height: 1.85;">¿Cómo quiero sentirme al final de esta semana?</p></div>
+      </div>
+      <div style="background: var(--warm-white); border: 1px solid var(--butter-deep); border-radius: 4px; padding: 36px 32px;">
+        <div class="pregunta-item" style="margin-bottom: 20px;"><div class="pregunta-dot" style="background: var(--gold);"></div><p style="color: var(--text-soft); font-size: 15px; line-height: 1.85;">¿Qué le diría a alguien que amo si estuviera pasando por lo que yo estoy pasando?</p></div>
+        <div class="pregunta-item" style="margin-bottom: 20px;"><div class="pregunta-dot" style="background: var(--gold);"></div><p style="color: var(--text-soft); font-size: 15px; line-height: 1.85;">¿Hay algo que estoy cargando que podría soltar hoy, aunque sea un poco?</p></div>
+        <div class="pregunta-item"><div class="pregunta-dot" style="background: var(--gold);"></div><p style="color: var(--text-soft); font-size: 15px; line-height: 1.85;">¿Qué quiero que sea diferente en seis meses, y qué pequeño paso puedo dar hoy?</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="cierre">
+  <div class="section-inner">
+    <span class="cierre-tag">— Todo esto ya está en ti</span>
+    <h2 class="cierre-title">Eres tu propio<br><em>hogar.</em></h2>
+
+    <p class="cierre-text">Yesica, esta guía no te da nada que no tengas. Solo te recuerda lo que ya eres cuando te permites verte sin el ruido de lo que otros necesitan de ti.</p>
+    <p class="cierre-text">Estás en un momento que pide mucho. Duelos que procesar, un vínculo nuevo que navegar, y al mismo tiempo el trabajo profundo de aprender a elegirte. Eso no es poco. De hecho, es enorme.</p>
+    <p class="cierre-text">No tienes que tenerlo todo resuelto para avanzar. No tienes que dejar de sentir para estar bien. Lo que sí puedes hacer es seguir apareciendo para ti misma. Todos los días. En los pequeños momentos. En las decisiones que parecen menores. Ahí también vives tú.</p>
+    <p class="cierre-text">Y cuando sea difícil, vuelve aquí. Vuelve a respirar. Vuelve a ponerte la mano en el pecho. Vuelve a recordarte que mereces el mismo cuidado que tan generosamente le das a los demás.</p>
+
+    <div class="cierre-firma">
+      <p>Con amor y presencia,</p>
+      <span>Fergis Marrero · Mamá Girasol</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      heroBg.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    }
+  });
+</script>
+</body>
+</html>
