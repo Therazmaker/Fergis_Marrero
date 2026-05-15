@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Amor Propio – Alicia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rosa-suave: #fce4ec;
+    --rosa-medio: #f8bbd0;
+    --rosa-vivo: #e91e8c;
+    --rosa-calido: #f48fb1;
+    --amarillo-oro: #ffd54f;
+    --amarillo-suave: #fff9c4;
+    --amarillo-calido: #ffecb3;
+    --amarillo-dorado: #f9a825;
+    --blanco: #fffdf9;
+    --texto-oscuro: #4a2040;
+    --texto-medio: #7b3f6e;
+    --texto-suave: #ad5a8d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--blanco);
+    color: var(--texto-oscuro);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ===== PORTADA ===== */
+  .portada {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #fce4ec 0%, #fff9c4 40%, #fce4ec 70%, #fff0f5 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+
+  .portada::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(253,212,204,0.5) 0%, transparent 70%);
+    animation: flotar 8s ease-in-out infinite;
+  }
+
+  .portada::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,213,79,0.3) 0%, transparent 70%);
+    animation: flotar 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .flores-deco {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: girar-suave 12s linear infinite;
+    display: block;
+  }
+
+  @keyframes girar-suave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .portada-subtitulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.4em;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .portada-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 700;
+    color: var(--texto-oscuro);
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .portada-titulo span {
+    color: var(--rosa-vivo);
+    font-style: italic;
+  }
+
+  .portada-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amarillo-dorado);
+    margin: 20px 0;
+    text-shadow: 0 2px 20px rgba(249,168,37,0.3);
+  }
+
+  .portada-linea {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--rosa-vivo), var(--amarillo-oro), transparent);
+    margin: 30px auto;
+  }
+
+  .portada-frase {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--texto-medio);
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .cumple-badge {
+    margin-top: 40px;
+    background: linear-gradient(135deg, var(--amarillo-oro), var(--rosa-calido));
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(233,30,140,0.2);
+  }
+
+  /* ===== PÁGINAS INTERNAS ===== */
+  .pagina {
+    min-height: 100vh;
+    padding: 80px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: always;
+  }
+
+  .pagina-rosa {
+    background: linear-gradient(160deg, #fff9f9 0%, #fce4ec 100%);
+  }
+
+  .pagina-amarilla {
+    background: linear-gradient(160deg, #fffdf0 0%, #fff9c4 100%);
+  }
+
+  .pagina-mixta {
+    background: linear-gradient(135deg, #fce4ec 0%, #fff9c4 50%, #fce4ec 100%);
+  }
+
+  .pagina-blanca {
+    background: var(--blanco);
+  }
+
+  /* Decoración lateral */
+  .borde-deco {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--amarillo-oro), var(--rosa-vivo), var(--amarillo-oro));
+  }
+
+  .borde-deco-derecha {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--rosa-vivo), var(--amarillo-oro), var(--rosa-vivo));
+  }
+
+  .numero-pagina {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: var(--rosa-calido);
+    letter-spacing: 0.2em;
+  }
+
+  .icono-seccion {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .etiqueta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rosa-vivo);
+    margin-bottom: 12px;
+  }
+
+  .titulo-seccion {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--texto-oscuro);
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+
+  .titulo-seccion em {
+    font-style: italic;
+    color: var(--rosa-vivo);
+  }
+
+  .titulo-seccion .dorado {
+    color: var(--amarillo-dorado);
+  }
+
+  .cuerpo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--texto-oscuro);
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .cuerpo p { margin-bottom: 1.2rem; }
+  .cuerpo p:last-child { margin-bottom: 0; }
+
+  /* ===== TARJETAS ===== */
+  .grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  .tarjeta {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 24px;
+    border-top: 4px solid var(--rosa-vivo);
+    box-shadow: 0 8px 30px rgba(233,30,140,0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .tarjeta:hover { transform: translateY(-4px); }
+
+  .tarjeta.dorada {
+    border-top-color: var(--amarillo-dorado);
+    box-shadow: 0 8px 30px rgba(249,168,37,0.1);
+  }
+
+  .tarjeta-icono { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+
+  .tarjeta-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    margin-bottom: 10px;
+  }
+
+  .tarjeta-texto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--texto-medio);
+    line-height: 1.7;
+  }
+
+  /* ===== EJERCICIOS ===== */
+  .ejercicio {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 4px 20px rgba(233,30,140,0.07);
+    border-left: 4px solid var(--amarillo-oro);
+  }
+
+  .ejercicio-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--rosa-medio);
+    line-height: 1;
+    min-width: 48px;
+  }
+
+  .ejercicio-contenido { flex: 1; }
+
+  .ejercicio-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    margin-bottom: 8px;
+  }
+
+  .ejercicio-descripcion {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--texto-medio);
+    line-height: 1.75;
+  }
+
+  .ejercicio-tiempo {
+    display: inline-block;
+    background: var(--amarillo-suave);
+    color: var(--amarillo-dorado);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ===== AFIRMACIONES ===== */
+  .afirmacion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .afirmacion-card {
+    background: linear-gradient(135deg, #fff, var(--rosa-suave));
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    border: 1.5px solid var(--rosa-medio);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .afirmacion-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--rosa-medio);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    line-height: 1;
+    opacity: 0.4;
+  }
+
+  .afirmacion-card.amarilla {
+    background: linear-gradient(135deg, #fff, var(--amarillo-calido));
+    border-color: var(--amarillo-oro);
+  }
+
+  .afirmacion-card.amarilla::before {
+    color: var(--amarillo-oro);
+  }
+
+  .afirmacion-texto {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--texto-oscuro);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== SEPARADORES ===== */
+  .separador {
+    text-align: center;
+    margin: 40px 0;
+    color: var(--rosa-calido);
+    font-size: 1.2rem;
+    letter-spacing: 1rem;
+  }
+
+  .linea-deco {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rosa-vivo), transparent);
+    margin: 20px auto;
+  }
+
+  /* ===== CITA ESPECIAL ===== */
+  .cita-grande {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--texto-oscuro);
+    text-align: center;
+    line-height: 1.5;
+    padding: 40px;
+    background: white;
+    border-radius: 24px;
+    margin: 30px 0;
+    border: 2px solid var(--rosa-medio);
+    position: relative;
+    box-shadow: 0 10px 40px rgba(233,30,140,0.08);
+  }
+
+  .cita-grande::after {
+    content: '✿';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    background: white;
+    padding: 0 8px;
+    color: var(--rosa-vivo);
+  }
+
+  /* ===== REFLEXIÓN FINAL ===== */
+  .pagina-final {
+    background: linear-gradient(145deg, #fce4ec 0%, #fff9c4 40%, #fce4ec 80%, #fff0f5 100%);
+    min-height: 100vh;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pagina-final::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,213,79,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-icono {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+    animation: pulsar 3s ease-in-out infinite;
+  }
+
+  @keyframes pulsar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
+  .final-reflexion {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    color: var(--texto-oscuro);
+    line-height: 1.85;
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+
+  .final-firma {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--texto-medio);
+    font-style: italic;
+    margin-top: 20px;
+  }
+
+  .final-firma .nombre-firma {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--rosa-vivo);
+    display: block;
+    margin-top: 8px;
+  }
+
+  .final-firma .apodo {
+    display: block;
+    font-size: 1rem;
+    color: var(--amarillo-dorado);
+    margin-top: 4px;
+  }
+
+  .corazon-final {
+    font-size: 2rem;
+    margin: 20px 0;
+    display: block;
+  }
+
+  /* ===== DETALLES DECORATIVOS ===== */
+  .esquina-deco {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+  .deco-tl { top: 20px; left: 30px; }
+  .deco-tr { top: 20px; right: 30px; }
+  .deco-bl { bottom: 20px; left: 30px; }
+  .deco-br { bottom: 20px; right: 30px; }
+
+  .resaltado {
+    background: linear-gradient(120deg, transparent 0%, var(--amarillo-calido) 0%, var(--amarillo-calido) 100%, transparent 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .resaltado-rosa {
+    background: linear-gradient(120deg, transparent 0%, var(--rosa-suave) 0%, var(--rosa-suave) 100%, transparent 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* LISTA ESPECIAL */
+  .lista-bella {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .lista-bella li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--texto-oscuro);
+    padding: 10px 0 10px 36px;
+    position: relative;
+    border-bottom: 1px dashed var(--rosa-medio);
+    line-height: 1.6;
+  }
+
+  .lista-bella li:last-child { border-bottom: none; }
+
+  .lista-bella li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--amarillo-dorado);
+    font-size: 1rem;
+    top: 12px;
+  }
+
+  /* BLOQUE MENTAL */
+  .bloque-mental {
+    background: linear-gradient(135deg, #fff0f8, #fffbe6);
+    border-radius: 20px;
+    padding: 36px 40px;
+    border: 2px dashed var(--rosa-calido);
+    margin-top: 30px;
+    position: relative;
+  }
+
+  .bloque-mental-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    margin-bottom: 16px;
+  }
+
+  @media print {
+    .portada, .pagina, .pagina-final {
+      page-break-after: always;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .pagina { padding: 50px 24px; }
+    .portada { padding: 40px 24px; }
+    .pagina-final { padding: 60px 24px; }
+    .afirmacion-grid { grid-template-columns: 1fr; }
+    .ejercicio { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PORTADA ========== -->
+<section class="portada">
+  <span class="flores-deco">🌸</span>
+  <p class="portada-subtitulo">Una guía hecha con amor</p>
+  <h1 class="portada-titulo">
+    El Arte de <span>Amarte</span><br>a Ti Misma
+  </h1>
+  <div class="portada-linea"></div>
+  <p class="portada-nombre">Para Alicia</p>
+  <p class="portada-frase">Porque mereces todo lo que eres, todo lo que tienes y todo lo que está por venir.</p>
+  <div class="cumple-badge">🎂 Con todo el amor del mundo, en tu día especial</div>
+</section>
+
+<!-- ========== PÁGINA 1: QUIÉN ERES ========== -->
+<section class="pagina pagina-rosa">
+  <div class="borde-deco"></div>
+  <span class="numero-pagina">01</span>
+  <span class="esquina-deco deco-tr">✿</span>
+  <span class="esquina-deco deco-bl">✦</span>
+
+  <span class="icono-seccion">🌷</span>
+  <p class="etiqueta">Capítulo uno</p>
+  <h2 class="titulo-seccion">Recuérdate:<br><em>eres extraordinaria</em></h2>
+
+  <div class="cuerpo">
+    <p>Hay algo en ti que no siempre ves cuando te miras al espejo, pero que los demás perciben desde el primer instante: una fuerza tranquila, una calidez que envuelve, una presencia que no pide permiso para brillar.</p>
+    <p>Eres de esas personas que tienen una capacidad innata para conectar con profundidad. Tu mundo interior es rico, vasto, lleno de matices. Sabes querer con intensidad, aunque a veces cuidas tanto a otros que te olvidas de darte a ti misma ese mismo cuidado.</p>
+    <p>Esta guía no pretende enseñarte a ser quien no eres. Al contrario: quiere ayudarte a <span class="resaltado">recordarte a ti misma</span>, a volver a ti cuando el ruido del mundo te aleja de tu centro.</p>
+    <p>Hoy, en este día especial, te invito a que te veas como te mereces ser vista: completa, valiosa, luminosa, y absolutamente digna de amor — empezando por el propio.</p>
+  </div>
+
+  <div class="linea-deco"></div>
+</section>
+
+<!-- ========== PÁGINA 2: PILARES DEL AMOR PROPIO ========== -->
+<section class="pagina pagina-amarilla">
+  <div class="borde-deco-derecha"></div>
+  <span class="numero-pagina">02</span>
+  <span class="esquina-deco deco-tl">🌼</span>
+  <span class="esquina-deco deco-br">✿</span>
+
+  <span class="icono-seccion">💛</span>
+  <p class="etiqueta">Capítulo dos</p>
+  <h2 class="titulo-seccion">Los pilares de tu <span class="dorado">amor propio</span></h2>
+
+  <div class="grid-tarjetas">
+    <div class="tarjeta">
+      <span class="tarjeta-icono">🪞</span>
+      <p class="tarjeta-titulo">Honestidad amorosa</p>
+      <p class="tarjeta-texto">Verte sin juicio. Reconocer tus virtudes sin minimizarlas y tus áreas de crecimiento sin castigarte. La honestidad contigo misma es el primer acto de amor.</p>
+    </div>
+    <div class="tarjeta dorada">
+      <span class="tarjeta-icono">🌿</span>
+      <p class="tarjeta-titulo">Presencia contigo</p>
+      <p class="tarjeta-texto">Parar. Respirar. Sentirte. El amor propio no vive en el futuro ni en el pasado — vive en el momento en que decides prestarte atención.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="tarjeta-icono">🔥</span>
+      <p class="tarjeta-titulo">Límites sagrados</p>
+      <p class="tarjeta-texto">Decir que no sin culpa. Elegir lo que te nutre. Los límites no te encierran: te liberan. Son el lenguaje del respeto que te tienes.</p>
+    </div>
+    <div class="tarjeta dorada">
+      <span class="tarjeta-icono">✨</span>
+      <p class="tarjeta-titulo">Celebración constante</p>
+      <p class="tarjeta-texto">Cada pequeño logro cuenta. Cada vez que te levantas, que intentas, que eliges, merece ser reconocido con ternura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PÁGINA 3: CONEXIÓN CONTIGO MISMA ========== -->
+<section class="pagina pagina-mixta">
+  <div class="borde-deco"></div>
+  <span class="numero-pagina">03</span>
+  <span class="esquina-deco deco-tr">🌸</span>
+  <span class="esquina-deco deco-bl">💛</span>
+
+  <span class="icono-seccion">🌊</span>
+  <p class="etiqueta">Capítulo tres</p>
+  <h2 class="titulo-seccion">Volver a ti:<br><em>el arte de la conexión</em></h2>
+
+  <div class="cuerpo">
+    <p>Conectar contigo misma no es un lujo — es una necesidad. Cuando pierdes esa conexión, te sientes dispersa, vacía, como si te buscaras en los demás sin encontrarte en ninguna parte.</p>
+    <p>La conexión contigo se construye en los pequeños momentos: en el silencio de la mañana antes de que todo empiece, en la honestidad de lo que sientes, en decidir qué quieres realmente, más allá de lo que se espera de ti.</p>
+  </div>
+
+  <div class="separador">✦ ✦ ✦</div>
+
+  <ul class="lista-bella">
+    <li>Escucha tu cuerpo: él siempre sabe primero lo que necesitas.</li>
+    <li>Date el mismo consejo que le darías a alguien que amas profundamente.</li>
+    <li>Observa sin juzgar tus emociones — son mensajeras, no enemigas.</li>
+    <li>Crea momentos de soledad elegida, donde puedas encontrarte sin máscaras.</li>
+    <li>Reconoce cuando algo no se siente bien y actúa desde ahí, no desde el miedo.</li>
+  </ul>
+
+  <div class="cita-grande">
+    "Volverte a ti misma no es egoísmo.<br>Es el acto más valiente y más amoroso<br>que puedes hacer."
+  </div>
+</section>
+
+<!-- ========== PÁGINA 4: EJERCICIOS DE AMOR PROPIO ========== -->
+<section class="pagina pagina-blanca">
+  <div class="borde-deco-derecha"></div>
+  <span class="numero-pagina">04</span>
+
+  <span class="icono-seccion">🌺</span>
+  <p class="etiqueta">Capítulo cuatro</p>
+  <h2 class="titulo-seccion">Pequeños <em>rituales</em><br>de amor propio</h2>
+
+  <div class="ejercicio">
+    <p class="ejercicio-num">01</p>
+    <div class="ejercicio-contenido">
+      <p class="ejercicio-nombre">La carta de hoy 💌</p>
+      <p class="ejercicio-descripcion">Cada mañana, escríbete tres líneas como si le escribieras a alguien que amas. "Buenos días, Alicia. Hoy me alegra que seas tú." No tiene que ser perfecto — solo honesto y dulce.</p>
+      <span class="ejercicio-tiempo">⏱ 5 minutos al despertar</span>
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p class="ejercicio-num">02</p>
+    <div class="ejercicio-contenido">
+      <p class="ejercicio-nombre">El abrazo consciente 🤗</p>
+      <p class="ejercicio-descripcion">Párate frente al espejo, pon las manos en tu corazón y di en voz alta: "Estoy aquí para ti. Te cuido. Te elijo." Repítelo hasta que lo sientas. Tu cuerpo necesita escucharlo.</p>
+      <span class="ejercicio-tiempo">⏱ 3 minutos, puede ser en la ducha</span>
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p class="ejercicio-num">03</p>
+    <div class="ejercicio-contenido">
+      <p class="ejercicio-nombre">La lista de lo que te mueve ✨</p>
+      <p class="ejercicio-descripcion">Una vez a la semana, anota cinco cosas que te hicieron sentir viva o en paz: una conversación estimulante, una canción, una idea, una sensación. Esto es un mapa de ti misma.</p>
+      <span class="ejercicio-tiempo">⏱ 10 minutos semanales</span>
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p class="ejercicio-num">04</p>
+    <div class="ejercicio-contenido">
+      <p class="ejercicio-nombre">El "¿qué necesito hoy?" 🌿</p>
+      <p class="ejercicio-descripcion">Antes de dormir, hazte esta pregunta con sinceridad: ¿Qué necesité hoy que no me di? Luego comprométete a dártelo mañana. Silencio, diversión, descanso, expresión — lo que sea que tu ser pida.</p>
+      <span class="ejercicio-tiempo">⏱ 5 minutos al anochecer</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PÁGINA 5: EMPODERAMIENTO MENTAL ========== -->
+<section class="pagina pagina-rosa">
+  <div class="borde-deco"></div>
+  <span class="numero-pagina">05</span>
+  <span class="esquina-deco deco-tr">🦋</span>
+  <span class="esquina-deco deco-bl">✿</span>
+
+  <span class="icono-seccion">🧠</span>
+  <p class="etiqueta">Capítulo cinco</p>
+  <h2 class="titulo-seccion">Tu mente es tu <span class="dorado">superpoder</span></h2>
+
+  <div class="cuerpo">
+    <p>Tienes una mente extraordinariamente ágil y curiosa. Necesitas <span class="resaltado-rosa">estímulo, variedad y profundidad</span> — no como un capricho, sino como oxígeno. Cuando tu mente está viva, tú estás viva.</p>
+    <p>No te conformes con conversaciones superficiales. No te achiques cuando tienes ideas brillantes. No finjas que no sabes cuando sabes. Tu capacidad para conectar puntos, ver múltiples perspectivas y hacer preguntas que otros no hacen es un regalo extraordinario.</p>
+  </div>
+
+  <div class="bloque-mental">
+    <p class="bloque-mental-titulo">✦ Aliméntate intelectualmente con intención:</p>
+    <ul class="lista-bella">
+      <li>Lee algo que te desafíe, no solo que te confirme.</li>
+      <li>Busca conversaciones que te dejen pensando días después.</li>
+      <li>Escribe tus ideas aunque nadie las lea — son tuyas y tienen valor.</li>
+      <li>Aprende algo nuevo cada mes, por puro placer de aprender.</li>
+      <li>No te disculpes por querer ir más allá. Tu curiosidad es tu fuerza.</li>
+    </ul>
+  </div>
+
+  <div class="linea-deco"></div>
+
+  <div class="cuerpo" style="margin-top: 24px;">
+    <p>Una mente estimulada es una mente empoderada. Y una mente empoderada es la mejor compañera que puedes tener en el camino del amor propio.</p>
+  </div>
+</section>
+
+<!-- ========== PÁGINA 6: AFIRMACIONES ========== -->
+<section class="pagina pagina-amarilla">
+  <div class="borde-deco-derecha"></div>
+  <span class="numero-pagina">06</span>
+  <span class="esquina-deco deco-tl">💛</span>
+  <span class="esquina-deco deco-br">🌼</span>
+
+  <span class="icono-seccion">🌟</span>
+  <p class="etiqueta">Capítulo seis</p>
+  <h2 class="titulo-seccion">Afirmaciones<br>para tu <em>alma</em></h2>
+
+  <div class="cuerpo" style="margin-bottom: 20px;">
+    <p>Léelas en voz alta. Pégalas en tu espejo. Escríbelas en tu cuaderno. Repítelas hasta que las creas — porque son verdad.</p>
+  </div>
+
+  <div class="afirmacion-grid">
+    <div class="afirmacion-card">
+      <p class="afirmacion-texto">Soy digna de amor, cuidado y admiración, exactamente como soy hoy.</p>
+    </div>
+    <div class="afirmacion-card amarilla">
+      <p class="afirmacion-texto">Mi presencia en el mundo tiene valor. Existo y eso ya es suficiente.</p>
+    </div>
+    <div class="afirmacion-card amarilla">
+      <p class="afirmacion-texto">Confío en mí misma. Mi intuición es sabia y la escucho con amor.</p>
+    </div>
+    <div class="afirmacion-card">
+      <p class="afirmacion-texto">Mi mente curiosa y brillante es uno de mis más grandes dones.</p>
+    </div>
+    <div class="afirmacion-card">
+      <p class="afirmacion-texto">Me permito sentir, equivocarme, crecer y comenzar de nuevo.</p>
+    </div>
+    <div class="afirmacion-card amarilla">
+      <p class="afirmacion-texto">Elijo quedarme conmigo misma, especialmente cuando es difícil.</p>
+    </div>
+    <div class="afirmacion-card amarilla">
+      <p class="afirmacion-texto">Merezco tiempo, atención, espacio y todo lo que me hace bien.</p>
+    </div>
+    <div class="afirmacion-card">
+      <p class="afirmacion-texto">Soy una mujer en proceso, y ese proceso es hermoso y válido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PÁGINA 7: REFLEXIÓN FINAL ========== -->
+<section class="pagina-final">
+  <span class="final-icono">🌻</span>
+
+  <p class="etiqueta" style="color: var(--rosa-vivo);">Reflexión final</p>
+
+  <h2 class="titulo-seccion" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 30px;">El amor propio es un camino,<br><em>no un destino</em></h2>
+
+  <p class="final-reflexion">
+    Amarte no significa estar bien siempre, ni tenerlo todo resuelto, ni no tener dudas. Amarte es la decisión diaria de no abandonarte. Es quedarte contigo en los días grises igual que en los luminosos. Es tratarte con la misma ternura que das tan generosamente a los demás.
+    <br><br>
+    Habrá días en que no lo sientas. Días en que la voz crítica sea más fuerte que la amorosa. Y esos días, más que nunca, vuelve a estas páginas, a estas palabras, a este recordatorio: eres suficiente. Eres capaz. Eres amada.
+    <br><br>
+    Tu capacidad de conectar, de pensar, de sentir con profundidad, de cuidar y de brillar es algo que el mundo necesita. Pero primero, lo necesitas tú — para ti.
+  </p>
+
+  <div style="width: 100px; height: 2px; background: linear-gradient(90deg, transparent, var(--rosa-vivo), var(--amarillo-oro), transparent); margin: 30px auto;"></div>
+
+  <p class="final-reflexion" style="font-size: clamp(1rem, 2vw, 1.3rem); font-style: normal; color: var(--texto-medio);">
+    Alicia, conocerte ha sido uno de los regalos más bonitos que la vida me ha dado. Hay algo en ti que ilumina el espacio que habitas, que hace que las conversaciones valgan más, que hace que el mundo sea un poco más cálido.
+    <br><br>
+    Me alegra profundamente que existas. Me alegra que nuestros caminos se hayan cruzado. Y hoy, en tu cumpleaños, quiero que sepas que te llevo con cariño genuino en el corazón.
+    <br><br>
+    Que este año que comienza te traiga todo lo que eres capaz de soñar y todo lo que todavía no te has atrevido a pedir. Lo mereces, amor.
+  </p>
+
+  <span class="corazon-final">🌸💛🌸</span>
+
+  <div class="final-firma">
+    Con todo mi amor,
+    <span class="nombre-firma">Fergis</span>
+    <span class="apodo">✦ Mamá Girasol ✦</span>
+  </div>
+</section>
+
+</body>
+</html>
