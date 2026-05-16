@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autocuidado sin culpa — Semana del cuidado 🌻</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #FDF6EC;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    color: #3A2800;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .email-wrapper {
+    max-width: 620px;
+    margin: 0 auto;
+    background-color: #FFFDF8;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background-color: #FFF4D6;
+    text-align: center;
+    padding: 52px 40px 44px;
+    border-bottom: 1.5px solid #F5D98E;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, #F5A62340 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, #F5A62328 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C8860A;
+    background: #FFF0CC;
+    border: 1px solid #F5D98E;
+    border-radius: 30px;
+    padding: 5px 18px;
+    margin-bottom: 20px;
+  }
+
+  .hero-sunflower {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #6B3F00;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #C8860A;
+  }
+
+  .hero-line {
+    width: 48px;
+    height: 2px;
+    background: #F5A623;
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+  .hero-intro {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5C3A00;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-wrap {
+    padding: 40px 40px 0;
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C8860A;
+    font-weight: 500;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #F5D98E;
+  }
+
+  /* ── TIPOS GRID ── */
+  .tipos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 40px 40px;
+  }
+
+  .tipo-card {
+    background: #FFFDF8;
+    border: 1px solid #F5D98E;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .tipo-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .tipo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6B3F00;
+    margin-bottom: 4px;
+  }
+
+  .tipo-desc {
+    font-size: 12.5px;
+    color: #8B6200;
+    line-height: 1.55;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #F5D98E 30%, #F5D98E 70%, transparent);
+    margin: 0 40px;
+  }
+
+  /* ── DAYS ── */
+  .days-wrap {
+    padding: 40px 40px 0;
+  }
+
+  .day-card {
+    border-left: 3px solid #F5A623;
+    background: #FFFDF8;
+    border-radius: 0 12px 12px 0;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    border-top: 1px solid #F5D98E;
+    border-right: 1px solid #F5D98E;
+    border-bottom: 1px solid #F5D98E;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .day-emoji {
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    background: #FFF4D6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid #F5D98E;
+  }
+
+  .day-meta { flex: 1; }
+
+  .day-tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #C8860A;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #6B3F00;
+    margin: 0;
+  }
+
+  .day-text {
+    font-size: 13.5px;
+    color: #5C3A00;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .day-mantra {
+    background: #FFF4D6;
+    border-left: 2px solid #F5A623;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #6B3F00;
+    line-height: 1.6;
+  }
+
+  /* ── QUOTE ── */
+  .quote-wrap {
+    padding: 40px;
+    text-align: center;
+  }
+
+  .quote-box {
+    background: #FFF4D6;
+    border: 1px solid #F5D98E;
+    border-radius: 16px;
+    padding: 36px 40px;
+    position: relative;
+  }
+
+  .quote-marks {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: #F5D98E;
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #6B3F00;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .quote-attr {
+    font-size: 12px;
+    color: #C8860A;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── CTA ── */
+  .cta-wrap {
+    background: #FFF4D6;
+    border-top: 1.5px solid #F5D98E;
+    border-bottom: 1.5px solid #F5D98E;
+    padding: 44px 40px;
+    text-align: center;
+  }
+
+  .cta-sun {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #6B3F00;
+    margin-bottom: 14px;
+    line-height: 1.35;
+  }
+
+  .cta-text {
+    font-size: 14px;
+    color: #5C3A00;
+    line-height: 1.8;
+    max-width: 440px;
+    margin: 0 auto 28px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .service-card {
+    background: #FFFDF8;
+    border: 1px solid #F5D98E;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: left;
+  }
+
+  .service-icon {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #6B3F00;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 12px;
+    color: #8B6200;
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #F5A623;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 14px 36px;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-bottom: 14px;
+  }
+
+  .cta-sub {
+    font-size: 12px;
+    color: #C8860A;
+  }
+
+  .cta-sub a {
+    color: #C8860A;
+    text-decoration: underline;
+  }
+
+  /* ── FIRMA ── */
+  .firma-wrap {
+    padding: 40px;
+    text-align: center;
+  }
+
+  .firma-line {
+    width: 40px;
+    height: 1.5px;
+    background: #F5D98E;
+    margin: 0 auto 24px;
+  }
+
+  .firma-text {
+    font-size: 14.5px;
+    color: #5C3A00;
+    line-height: 1.9;
+    margin-bottom: 6px;
+  }
+
+  .firma-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #6B3F00;
+    margin-bottom: 4px;
+  }
+
+  .firma-web {
+    font-size: 12px;
+    color: #C8860A;
+  }
+
+  .firma-web a {
+    color: #C8860A;
+    text-decoration: none;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #FFF4D6;
+    border-top: 1px solid #F5D98E;
+    padding: 20px 40px;
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 11px;
+    color: #B8860A;
+    line-height: 1.6;
+  }
+
+  .footer a {
+    color: #B8860A;
+    text-decoration: underline;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .hero { padding: 40px 24px 36px; }
+    .hero h1 { font-size: 28px; }
+    .section-wrap, .days-wrap { padding: 32px 24px 0; }
+    .tipos-grid { padding: 0 24px 32px; }
+    .quote-wrap, .firma-wrap { padding: 32px 24px; }
+    .cta-wrap { padding: 36px 24px; }
+    .footer { padding: 18px 24px; }
+    .divider { margin: 0 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .tipos-grid { grid-template-columns: 1fr 1fr; }
+    .quote-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-badge">Semana del cuidado</span>
+    <span class="hero-sunflower">🌻</span>
+    <h1>Autocuidado<br><em>sin culpa</em></h1>
+    <div class="hero-line"></div>
+    <p class="hero-intro">
+      Cuidarte no es un lujo. No es egoísmo.<br>
+      No es algo que te tengas que ganar.<br><br>
+      Es el acto más honesto que puedes hacer<br>
+      por ti y por las personas que amas.<br><br>
+      Esta semana te invito a recordarlo,<br>
+      poquito a poco, un día a la vez.<br>
+      <em style="font-style:italic; color:#C8860A;">Sin presión. Sin perfección. Con amor.</em>
+    </p>
+  </div>
+
+  <!-- TIPOS -->
+  <div class="section-wrap">
+    <p class="section-label">¿Qué es el autocuidado, de verdad?</p>
+  </div>
+  <div class="tipos-grid">
+    <div class="tipo-card">
+      <span class="tipo-icon">🧘</span>
+      <p class="tipo-title">Físico</p>
+      <p class="tipo-desc">Descansar, mover el cuerpo, comer con intención y ternura</p>
+    </div>
+    <div class="tipo-card">
+      <span class="tipo-icon">💛</span>
+      <p class="tipo-title">Emocional</p>
+      <p class="tipo-desc">Sentir sin juzgarte, poner límites, buscar apoyo cuando lo necesitas</p>
+    </div>
+    <div class="tipo-card">
+      <span class="tipo-icon">🔇</span>
+      <p class="tipo-title">Mental</p>
+      <p class="tipo-desc">Bajar el ruido interno, desconectarte, proteger tu paz activamente</p>
+    </div>
+    <div class="tipo-card">
+      <span class="tipo-icon">✨</span>
+      <p class="tipo-title">Espiritual</p>
+      <p class="tipo-desc">Volverte a ti, reconectar con lo que te da sentido y te centra</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DÍAS -->
+  <div class="days-wrap">
+    <p class="section-label">Tu guía día a día</p>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-emoji">🌱</div>
+        <div class="day-meta">
+          <span class="day-tag">Lunes</span>
+          <p class="day-title">Nota cómo estás</p>
+        </div>
+      </div>
+      <p class="day-text">Antes de hacer nada por nadie, detente un momento. Respira. Pregúntate honestamente: ¿cómo estoy hoy? No para arreglarlo. Solo para reconocerlo.</p>
+      <div class="day-mantra">"Hoy me doy permiso de sentir lo que sea que estoy sintiendo, sin necesitar cambiarlo."</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-emoji">💧</div>
+        <div class="day-meta">
+          <span class="day-tag">Martes</span>
+          <p class="day-title">Cuida tu cuerpo con ternura</p>
+        </div>
+      </div>
+      <p class="day-text">Elige un gesto pequeño para tu cuerpo hoy. Tomar agua con calma, darte una ducha que disfrutas, estirarte cinco minutos. No como obligación, sino como caricia.</p>
+      <div class="day-mantra">"Mi cuerpo me lleva a todas partes. Hoy le doy las gracias con un pequeño gesto."</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-emoji">📵</div>
+        <div class="day-meta">
+          <span class="day-tag">Miércoles</span>
+          <p class="day-title">Pon un límite hoy</p>
+        </div>
+      </div>
+      <p class="day-text">Decir que no, desconectarte una hora, no responder de inmediato. Un límite no te hace mala persona — te hace una persona que se respeta.</p>
+      <div class="day-mantra">"Poner límites no es rechazar a otros. Es elegirme a mí."</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-emoji">🎧</div>
+        <div class="day-meta">
+          <span class="day-tag">Jueves</span>
+          <p class="day-title">Haz algo solo para ti</p>
+        </div>
+      </div>
+      <p class="day-text">Algo que no sirva para nada más que hacerte sentir bien. Escuchar esa canción, salir a caminar sin destino, leer esas páginas que tienes pendientes.</p>
+      <div class="day-mantra">"Tengo derecho a disfrutar sin justificarlo."</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-emoji">🌙</div>
+        <div class="day-meta">
+          <span class="day-tag">Viernes</span>
+          <p class="day-title">Suelta la culpa</p>
+        </div>
+      </div>
+      <p class="day-text">¿Hubo un día que no pudo ser? ¿Una intención que se quedó en intención? Está bien. El autocuidado no es una lista de tareas. Es una práctica que empieza de nuevo cada vez que lo eliges.</p>
+      <div class="day-mantra">"No fallé. Simplemente soy humana. Mañana vuelvo a empezar."</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-emoji">🫂</div>
+        <div class="day-meta">
+          <span class="day-tag">Sábado</span>
+          <p class="day-title">Conéctate con alguien que te nutre</p>
+        </div>
+      </div>
+      <p class="day-text">Una llamada, un mensaje de corazón, un abrazo. El autocuidado también vive en el vínculo. No tienes que atravesar todo sola.</p>
+      <div class="day-mantra">"Pedir y recibir también es cuidarme."</div>
+    </div>
+
+    <div class="day-card" style="margin-bottom: 0;">
+      <div class="day-header">
+        <div class="day-emoji">🌻</div>
+        <div class="day-meta">
+          <span class="day-tag">Domingo</span>
+          <p class="day-title">Celebra que estás aquí</p>
+        </div>
+      </div>
+      <p class="day-text">No por lo que hiciste esta semana. Sino por el hecho de que estás aquí, intentando. Eso ya es mucho. Eso ya eres tú cuidándote.</p>
+      <div class="day-mantra">"Estoy aquí. Y con eso es suficiente."</div>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-wrap">
+    <div class="quote-box">
+      <span class="quote-marks">"</span>
+      <p class="quote-text">Cuidarme no me hace egoísta.<br>Me hace entera.<br>Y desde ahí, puedo dar de verdad.</p>
+      <p class="quote-attr">— Mamá Girasol 🌻</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <span class="cta-sun">💛</span>
+    <h2 class="cta-title">¿Sientes que quieres ir<br>más profundo?</h2>
+    <p class="cta-text">Si esta guía te tocó por dentro y sientes que necesitas más que una semana — un espacio continuo, personalizado y solo para ti — estoy aquí para acompañarte.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🌻</span>
+        <p class="service-name">Diosa en Guía</p>
+        <p class="service-desc">4 sesiones al mes de acompañamiento emocional continuo. Un espacio solo para ti, cada semana.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎙️</span>
+        <p class="service-name">Tu Guía en Cualquier Momento</p>
+        <p class="service-desc">10 preguntas al mes respondidas por audio en WhatsApp, cuando lo necesites y sin horarios.</p>
+      </div>
+    </div>
+
+    <a href="https://fergismarrero.com/#acompanamientos" class="cta-btn">Quiero empezar 🌻</a>
+    <br>
+    <span class="cta-sub">¿Tienes dudas? Escríbeme por <a href="https://wa.me/">WhatsApp</a> y conversamos.</span>
+  </div>
+
+  <!-- FIRMA -->
+  <div class="firma-wrap">
+    <div class="firma-line"></div>
+    <p class="firma-text">Con amor,</p>
+    <p class="firma-name">Fergis • Mamá Girasol 🌻</p>
+    <p class="firma-web"><a href="https://fergismarrero.com">fergismarrero.com</a></p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Recibiste este correo porque formas parte de la comunidad Mamá Girasol.<br>
+    Si no deseas seguir recibiéndolo, puedes <a href="#">cancelar tu suscripción</a> en cualquier momento.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
