@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarot | Fergis Marrero</title>
+  <title>Acompañamiento emocional | Fergis Marrero</title>
   <meta
     name="description"
-    content="Tarot amoroso y guía espiritual con Fergis. Haz tus preguntas, recibe respuestas cálidas y guarda tu historial de lecturas."
+    content="Un espacio cálido y seguro para ser escuchada. Fergis te acompaña en lo que estás viviendo, sin juicios, con presencia real."
   />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -611,10 +611,10 @@
 <body>
   <main class="page">
     <section class="card hero">
-      <span class="kicker">🌻 Espacio de tarot</span>
-      <h1>Tu consulta al tarot con <span class="title-accent">Mamá Girasol</span></h1>
+      <span class="kicker">🌻 Espacio de acompañamiento</span>
+      <h1>Cuéntame, <span class="title-accent">estoy aquí para ti</span></h1>
       <p>
-        Por aquí estoy virtualmente para ti. Respira, escribe lo que te inquieta y recibamos juntas el mensaje de las cartas. 💛
+        Este es un espacio tuyo. Respira, escribe lo que estás viviendo y te acompaño desde el corazón. 💛
       </p>
       <div class="row top-actions hidden" id="logoutWrap">
         <button class="btn btn-secondary" id="logoutBtn">👉 Cerrar sesión 🌻</button>
@@ -624,9 +624,9 @@
     <section class="card" id="guestSection">
       <h2>👋 Bienvenida, hermana girasol</h2>
       <div style="margin-top: 10px; display: grid; gap: 8px;">
-        <p style="margin: 0;">Regístrate creando una cuenta y recibe respuestas claras y cálidas. Si ya te registraste, solo debes ingresar a tu cuenta y podrás acceder a tu historial cuando lo desees.</p>
-        <p style="margin: 0;"><strong>Si ya consumiste tus 3 preguntas, puedes adquirir más por un precio asequible.</strong></p>
-        <p style="margin: 0;"><em>Tus 3 preguntas gratis se renovarán de forma mensual.</em></p>
+        <p style="margin: 0;">Crea tu cuenta y tendrás un espacio seguro donde ser escuchada, acompañada y vista. Si ya tienes cuenta, entra y cuéntame lo que estás viviendo.</p>
+        <p style="margin: 0;"><strong>Si ya usaste tus 3 conversaciones gratuitas, puedes adquirir más por un precio asequible.</strong></p>
+        <p style="margin: 0;"><em>Tus 3 conversaciones gratis se renuevan cada mes.</em></p>
       </div>
       <div class="row" style="margin-top: 14px;">
         <button class="btn btn-primary" id="openRegisterBtn">👉 Crear cuenta 🌻</button>
@@ -645,13 +645,13 @@
         </div>
 
         <div id="askContainer" class="ask-wrap hidden">
-          <label for="questionInput"><strong>Tu pregunta de hoy ✨</strong></label>
-          <textarea id="questionInput" placeholder="Escribe tu pregunta con confianza, estoy aquí para ti..."></textarea>
+          <label for="questionInput"><strong>¿Qué estás viviendo hoy? ✨</strong></label>
+          <textarea id="questionInput" placeholder="Cuéntame con confianza, estoy aquí para ti..."></textarea>
           <div class="row">
-            <button class="btn btn-secondary" id="askBasicBtn">🌻 Consultar básico</button>
-            <button class="btn btn-primary" id="askPremiumBtn">✨ Consultar premium</button>
+            <button class="btn btn-secondary" id="askBasicBtn">🌻 Contarle a Fergis</button>
+            <button class="btn btn-primary" id="askPremiumBtn">✨ Acompañamiento profundo</button>
             <div class="loading" id="loadingAsk">
-              🔮 Fergis está consultando las cartas para ti...
+              🌻 Fergis está leyendo tu corazón...
               <span class="dots"><span>.</span><span>.</span><span>.</span></span>
             </div>
           </div>
@@ -659,11 +659,11 @@
 
         <div class="buy-more-cta">
          
-          <button class="btn btn-primary" id="openQuestionsModalBtn">Si necesitas más preguntitas, adquierelas aquí.</button>
+          <button class="btn btn-primary" id="openQuestionsModalBtn">Si necesitas más conversaciones, adquierelas aquí.</button>
         </div>
 
         <div id="buyContainer" class="hidden">
-          <p>Te abrazamos fuerte 💛. Ya usaste tus preguntas gratis. Elige tu siguiente paquete para seguir este camino juntas:</p>
+          <p>Te abrazamos fuerte 💛. Ya usaste tus conversaciones gratis. Elige tu siguiente paquete para seguir acompañadas:</p>
          
         </div>
 
@@ -674,9 +674,9 @@
         <div class="result" id="resultCard"></div>
 
         <div>
-          <h3>Tus lecturas anteriores 🔮</h3>
+          <h3>Tus conversaciones anteriores 🌻</h3>
           <div class="history-grid" id="historyList"></div>
-          <p class="helper" id="historyEmpty">Aún no tienes lecturas guardadas. Cuando hagas tu primera consulta, aparecerá aquí ✨</p>
+          <p class="helper" id="historyEmpty">Aún no tienes conversaciones guardadas. Cuando compartas algo, aparecerá aquí ✨</p>
         </div>
         <div class="account-delete-wrap">
           <button class="btn btn-danger" id="openDeleteAccountModalBtn">Eliminar mi cuenta</button>
@@ -690,7 +690,7 @@
   <div class="overlay" id="registerOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
       <h3 id="registerTitle">Crear cuenta 🌻</h3>
-      <p class="helper">Recibirás tus 3 preguntas gratuitas mensuales al registrarte.</p>
+      <p class="helper">Recibirás tus 3 conversaciones gratuitas mensuales al registrarte.</p>
       <div class="field">
         <label for="registerName">Nombre</label>
         <input id="registerName" type="text" placeholder="Tu nombre" />
@@ -713,9 +713,9 @@
           <p><strong>Quiero que te sientas acompañada, pero también es importante que respetemos ciertos límites para cuidarnos ambas 💛</strong></p>
           <p><strong>1. Sobre las preguntas gratuitas</strong><br>Puedes realizar hasta 3 preguntas gratuitas mensualmente.<br>Las preguntas deben ser claras, concretas y relacionadas a tu proceso personal.</p>
           <p><strong>2. Respeto y tipo de contenido</strong><br>No se aceptan preguntas con lenguaje ofensivo, agresivo o despectivo.<br>No se responderán preguntas que inciten al odio, daño o manipulación hacia otros.<br>No se abordan temas relacionados a sexualidad explícita.<br>No se responden preguntas de tipo médico ni sobre embarazos.</p>
-          <p><strong>3. Alcance de la guía</strong><br>Las respuestas ofrecidas desde el tarot y la astrología son una guía emocional y reflexiva, no sustituyen asesoría profesional (médica, legal, psicológica, etc.).<br>No se garantiza una respuesta exacta o literal sobre el futuro; el enfoque es ayudarte a comprender lo que estás viviendo.</p>
-          <p><strong>4. Uso consciente del servicio</strong><br>Este espacio no está diseñado para generar dependencia ni para consultas repetitivas sobre el mismo tema de forma compulsiva.<br>Me reservo el derecho de no responder preguntas que no respeten estas condiciones.</p>
-          <p><strong>5. Sobre el servicio pago</strong><br>Si deseas profundizar en tu situación, podrás acceder a una sesión completa de tarot o astrología conmigo, donde trabajaremos con mayor profundidad, contención y claridad.</p>
+          <p><strong>3. Alcance del acompañamiento</strong><br>Las respuestas de Fergis son un espacio de escucha emocional y acompañamiento, no sustituyen asesoría profesional (médica, legal, psicológica, etc.).<br>Este espacio no es terapia ni diagnóstico; el enfoque es acompañarte y ayudarte a sentirte menos sola en lo que estás viviendo.</p>
+          <p><strong>4. Uso consciente del servicio</strong><br>Este espacio no está diseñado para generar dependencia ni para consultas repetitivas sobre el mismo tema de forma compulsiva.<br>Me reservo el derecho de no responder mensajes que no respeten estas condiciones.</p>
+          <p><strong>5. Sobre el servicio pago</strong><br>Si deseas un acompañamiento más profundo y continuo, podrás acceder a un paquete de conversaciones premium donde trabajaremos con mayor presencia, profundidad y claridad.</p>
         </div>
       </details>
       <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530;">
@@ -724,7 +724,7 @@
       </label>
       <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530; margin-top:8px;">
         <input id="registerEmailOptIn" type="checkbox" style="margin-top:2px;" />
-        <span>Acepto recibir correos electrónicos con contenido educativo, espiritual y promociones 🌻</span>
+        <span>Acepto recibir correos electrónicos con contenido de acompañamiento, bienestar emocional y promociones 🌻</span>
       </label>
       <div class="row">
         <button class="btn btn-primary" id="registerBtn">👉 Registrarme 🌻</button>
@@ -758,23 +758,23 @@
 
   <div class="overlay" id="questionsOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="questionsTitle">
-      <h3 id="questionsTitle">Más preguntitas para tu tarot 🌻</h3>
+      <h3 id="questionsTitle">Más conversaciones con Fergis 🌻</h3>
       <p class="helper">Selecciona tu paquete y paga con PayPal o por Yape, como en la sección de servicios.</p>
 
       <div class="package-grid" id="questionsPackageGrid">
         <button class="package-card active" data-package-key="basic-5" type="button">
-          <h4>Básica · 5 preguntas</h4>
-          <p>1 dólar por pregunta (aprox. S/ 3.70).</p>
+          <h4>Básica · 5 conversaciones</h4>
+          <p>1 dólar por conversación (aprox. S/ 3.70).</p>
           <div class="package-meta">Total: $5.00 USD · S/ 18.50</div>
         </button>
         <button class="package-card" data-package-key="basic-10" type="button">
-          <h4>Básica · 10 preguntas</h4>
+          <h4>Básica · 10 conversaciones</h4>
           <p>Paquete con descuento.</p>
           <div class="package-meta">Total: $8.50 USD · S/ 31.45</div>
         </button>
         <button class="package-card" data-package-key="premium-5" type="button">
-          <h4>Premium · 5 preguntas</h4>
-          <p>3 dólares por pregunta (aprox. S/ 11.10).</p>
+          <h4>Premium · 5 conversaciones</h4>
+          <p>3 dólares por conversación (aprox. S/ 11.10).</p>
           <div class="package-meta">Total: $15.00 USD · S/ 55.50</div>
         </button>
         <button class="package-card" data-package-key="premium-10" type="button">
@@ -916,7 +916,7 @@
 
     let appConfig = {
       whatsappNumber: '51907671044',
-      whatsappMessage: '¡Hola Fergis! Quisiera adquerir más preguntitas de tarot.',
+      whatsappMessage: '¡Hola Fergis! Quisiera adquirir más conversaciones de acompañamiento.',
       paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
       paypalCurrency: 'USD'
     };
@@ -1126,7 +1126,7 @@
       const userName = state.profileName || 'Cliente';
       const userEmail = state.user?.email || 'Sin email';
       const selectedPrice = formatDualCurrencyPrice(Number(selected.amount || 0));
-      const msg = `¡Hola Fergis! Quiero comprar más preguntitas de tarot 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selectedPrice}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}\n\nAquí envío mi captura del Yape 👇`;
+      const msg = `¡Hola Fergis! Quiero comprar más conversaciones de acompañamiento 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selectedPrice}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}\n\nAquí envío mi captura del Yape 👇`;
       window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
       toggleModal(tarotYapeOverlay, false);
     }
@@ -1252,8 +1252,8 @@
       const feedback = document.createElement('div');
       feedback.className = 'feedback-card';
       feedback.innerHTML = `
-        <div class="feedback-title">🌻 Ayúdanos a mejorar. ¿Qué te pareció tu lectura?</div>
-        <div class="feedback-options" role="group" aria-label="Feedback rápido de lectura">
+        <div class="feedback-title">🌻 Ayúdanos a mejorar. ¿Cómo te sentiste con esta conversación?</div>
+        <div class="feedback-options" role="group" aria-label="Feedback rápido">
           <button class="feedback-option" type="button" data-emoji="👍">👍 Me ayudó</button>
           <button class="feedback-option" type="button" data-emoji="😐">😐 Más o menos</button>
           <button class="feedback-option" type="button" data-emoji="👎">👎 No conecté</button>
@@ -1278,7 +1278,7 @@
       sendButton.addEventListener('click', () => {
         if (!selectedEmoji) return;
         const comment = commentInput.value.trim();
-        const message = `Hola Fergis 🌻 te dejo mi feedback sobre mi lectura:\n\nResultado: ${selectedEmoji}\n\nComentario: ${comment || 'Sin comentario'}\n\nGracias 💛`;
+        const message = `Hola Fergis 🌻 te dejo mi feedback sobre nuestra conversación:\n\nResultado: ${selectedEmoji}\n\nComentario: ${comment || 'Sin comentario'}\n\nGracias 💛`;
         window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
       });
 
@@ -1301,8 +1301,8 @@
         const entry = document.createElement('article');
         entry.className = 'history-item';
         entry.innerHTML = `
-          <h4>🌙 Pregunta: ${escapeHtml(item.question || 'Sin pregunta')}</h4>
-          <p>🔮 ${escapeHtml(item.answer || 'Sin respuesta')}</p>
+          <h4>🌻 Lo que compartiste: ${escapeHtml(item.question || 'Sin mensaje')}</h4>
+          <p>💛 ${escapeHtml(item.answer || 'Sin respuesta')}</p>
           <div class="history-meta">${escapeHtml(formatDate(item.created_at))}</div>
         `;
         entry.appendChild(createFeedbackCard(item));
@@ -1384,7 +1384,7 @@
         if (!user) throw new Error('No se pudo crear la cuenta en este momento.');
 
         toggleModal(registerOverlay, false);
-        setStatus('¡Cuenta creada! Ya tienes tus 3 preguntas gratuitas mensuales ✨', 'ok');
+        setStatus('¡Cuenta creada! Ya tienes tus 3 conversaciones gratuitas mensuales ✨', 'ok');
 
         try {
           await saveEmailConsent(user.id, emailOptIn);
@@ -1500,7 +1500,7 @@
     async function askTarot(mode = 'basic') {
       const question = questionInput.value.trim();
       if (!question) {
-        setStatus('Escribe tu pregunta antes de consultar al tarot ✨', 'warn');
+        setStatus('Escribe lo que estás viviendo antes de continuar ✨', 'warn');
         return;
       }
 
@@ -1548,7 +1548,7 @@
 
         resultCard.innerHTML = `
           ${cardsHtml}
-          <strong>${isPremium ? '✨ Tu lectura premium' : '🌻 Tu mensaje del tarot'}</strong>
+          <strong>${isPremium ? '✨ Tu acompañamiento profundo' : '🌻 Fergis te responde'}</strong>
           <p style="margin-top: 8px; white-space: pre-line;">${escapeHtml(answer)}</p>
         `;
         resultCard.classList.add('show');
@@ -1557,7 +1557,7 @@
         await Promise.all([fetchCredits(), fetchHistory()]);
       } catch (err) {
         animationOverlay.classList.remove('show');
-        setStatus(err.message || 'No pudimos consultar las cartas ahora mismo.', 'error');
+        setStatus(err.message || 'No pudimos conectar ahora mismo. Inténtalo de nuevo.', 'error');
       } finally {
         askBasicBtn.disabled = false;
         askPremiumBtn.disabled = false;
