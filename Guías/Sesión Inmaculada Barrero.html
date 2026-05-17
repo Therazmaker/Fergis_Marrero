@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión · Inmaculada · Amor Propio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --vino: #3E1F0E;
+  --vino2: #5C2A14;
+  --vino-luz: #7a3a1e;
+  --dorado: #C8A84B;
+  --dorado2: #F5C842;
+  --crema: #FDF6E3;
+  --crema2: #F2E5C0;
+  --crema3: #E8D49A;
+  --texto: #2A1408;
+  --muted: #9B7A5A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--vino);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--crema);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ───── PORTADA ───── */
+#portada {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--vino);
+}
+
+.fondo-estrella {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.estrella {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--dorado);
+  border-radius: 50%;
+  opacity: 0;
+  animation: parpadeo var(--dur, 3s) var(--del, 0s) infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.5); }
+}
+
+.sol-icon {
+  font-size: 4rem;
+  animation: flotar 4s ease-in-out infinite;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 24px rgba(245,200,66,0.45));
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.portada-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.portada-titulo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--crema);
+  margin-bottom: 0.5rem;
+}
+
+.portada-titulo span { color: var(--dorado2); }
+
+.portada-nombre {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.2rem 0 2rem;
+}
+
+.linea-dorada {
+  width: 48px; height: 1px;
+  background: var(--dorado);
+  margin: 0 auto 2rem;
+  opacity: 0.6;
+}
+
+.portada-frase {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(253,246,227,0.65);
+  max-width: 340px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.btn-comenzar {
+  background: var(--dorado);
+  color: var(--vino);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 24px rgba(200,168,75,0.35);
+}
+
+.btn-comenzar:hover {
+  background: var(--dorado2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245,200,66,0.4);
+}
+
+/* ───── APP (oculto hasta click) ───── */
+#app { display: none; min-height: 100vh; }
+
+/* ───── BARRA PROGRESO TOP ───── */
+.barra-top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 0.9rem 1.5rem;
+  background: rgba(62,31,14,0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(200,168,75,0.2);
+}
+
+.barra-logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--dorado);
+  white-space: nowrap;
+}
+
+.barra-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(200,168,75,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  background: var(--dorado);
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(.4,0,.2,1);
+  width: 0%;
+}
+
+.barra-paso {
+  font-size: 0.7rem;
+  color: var(--muted);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+/* ───── ESCENA ───── */
+.escena {
+  display: none;
+  min-height: 100vh;
+  padding: 5rem 1.5rem 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.escena.activa {
+  display: flex;
+}
+
+/* ───── NÚMERO / ETIQUETA ───── */
+.escena-num {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+/* ───── PREGUNTA ───── */
+.pregunta {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+  color: var(--crema);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.pregunta-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* ───── OPCIONES ───── */
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.opcion {
+  background: rgba(253,246,227,0.06);
+  border: 1.5px solid rgba(200,168,75,0.2);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--crema);
+  line-height: 1.5;
+  position: relative;
+  overflow: hidden;
+}
+
+.opcion::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--dorado);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.opcion:hover {
+  border-color: var(--dorado);
+  transform: translateX(4px);
+}
+
+.opcion.seleccionada {
+  background: var(--dorado);
+  border-color: var(--dorado2);
+  color: var(--vino);
+  font-weight: 600;
+  transform: translateX(6px);
+  box-shadow: 0 4px 20px rgba(200,168,75,0.3);
+}
+
+.opcion.seleccionada .opcion-letra {
+  background: var(--vino);
+  color: var(--dorado);
+}
+
+.opcion-letra {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(200,168,75,0.15);
+  color: var(--dorado);
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+/* ───── RESULTADO / INSIGHT ───── */
+.resultado-box {
+  display: none;
+  margin-top: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: slideUp 0.4s cubic-bezier(.4,0,.2,1) both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.resultado-header {
+  background: var(--dorado);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resultado-header-icon { font-size: 1rem; }
+
+.resultado-header-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vino);
+}
+
+.resultado-cuerpo {
+  background: rgba(200,168,75,0.1);
+  border: 1.5px solid rgba(200,168,75,0.25);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  padding: 1.25rem 1.5rem;
+}
+
+.resultado-titulo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--dorado2);
+  margin-bottom: 0.6rem;
+}
+
+.resultado-texto {
+  font-size: 0.9rem;
+  color: rgba(253,246,227,0.85);
+  line-height: 1.75;
+}
+
+.resultado-pregunta-reflexion {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(200,168,75,0.2);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--crema2);
+  line-height: 1.6;
+}
+
+.resultado-pregunta-reflexion::before {
+  content: '✦ Para reflexionar: ';
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* ───── BOTÓN SIGUIENTE ───── */
+.btn-sig {
+  display: none;
+  background: transparent;
+  border: 1.5px solid var(--dorado);
+  color: var(--dorado);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.22s ease;
+  align-self: flex-end;
+}
+
+.btn-sig:hover {
+  background: var(--dorado);
+  color: var(--vino);
+  box-shadow: 0 4px 16px rgba(200,168,75,0.3);
+}
+
+/* ───── ESCENA FINAL ───── */
+.final-wrap {
+  text-align: center;
+}
+
+.final-sol { font-size: 3rem; margin-bottom: 1.5rem; animation: flotar 4s ease-in-out infinite; }
+
+.final-titulo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--crema);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.final-titulo span { color: var(--dorado2); }
+
+.mantra-grande {
+  background: rgba(200,168,75,0.12);
+  border: 1.5px solid rgba(200,168,75,0.3);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  margin: 1.5rem 0;
+}
+
+.mantra-grande p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
+  color: var(--crema);
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+}
+
+.mantra-grande small {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dorado);
+}
+
+.cierre-perfil {
+  text-align: left;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cierre-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(253,246,227,0.05);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--dorado);
+}
+
+.cierre-item-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+.cierre-item-texto {
+  font-size: 0.88rem;
+  color: rgba(253,246,227,0.85);
+  line-height: 1.6;
+}
+
+.firma {
+  margin-top: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.btn-reiniciar {
+  background: var(--dorado);
+  color: var(--vino);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.22s;
+}
+
+.btn-reiniciar:hover {
+  background: var(--dorado2);
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ PORTADA ══════════ -->
+<div id="portada">
+  <div class="fondo-estrella" id="estrellas"></div>
+  <div class="sol-icon">🌻</div>
+  <div class="portada-eyebrow">Sesión de acompañamiento · Mamá Girasol</div>
+  <h1 class="portada-titulo">Amarte sin<br><span>condiciones</span></h1>
+  <div class="portada-nombre">Para Inmaculada</div>
+  <div class="linea-dorada"></div>
+  <p class="portada-frase">"¿Y si la persona más importante en tu vida fueras tú?"</p>
+  <button class="btn-comenzar" onclick="comenzar()">Comenzar sesión ✦</button>
+</div>
+
+<!-- ══════════ APP ══════════ -->
+<div id="app">
+
+  <!-- BARRA TOP -->
+  <div class="barra-top">
+    <div class="barra-logo">Mamá Girasol</div>
+    <div class="barra-track"><div class="barra-fill" id="barraFill"></div></div>
+    <div class="barra-paso" id="barraPaso">1 / 6</div>
+  </div>
+
+  <!-- ── ESCENA 1 ── -->
+  <div class="escena" id="e1">
+    <div class="escena-num">Escena 1 de 6 · Punto de partida</div>
+    <h2 class="pregunta">"¿Cómo te hablas cuando cometes un error?"</h2>
+    <p class="pregunta-sub">Piensa en la última vez que algo no salió como esperabas.</p>
+    <div class="opciones">
+      <div class="opcion" onclick="elegir(1,'a')">
+        <span class="opcion-letra">A</span>
+        Me lo digo fuerte y claro: "¿cómo pude fallar en eso?"
+      </div>
+      <div class="opcion" onclick="elegir(1,'b')">
+        <span class="opcion-letra">B</span>
+        Lo analizo mucho tiempo hasta encontrar qué hice mal
+      </div>
+      <div class="opcion" onclick="elegir(1,'c')">
+        <span class="opcion-letra">C</span>
+        Me lo perdono rápido, pero sigo pensando en ello por dentro
+      </div>
+      <div class="opcion" onclick="elegir(1,'d')">
+        <span class="opcion-letra">D</span>
+        Me doy espacio, aprendo y sigo adelante sin mucho drama
+      </div>
+    </div>
+    <div class="resultado-box" id="r1">
+      <div class="resultado-header">
+        <span class="resultado-header-icon">✦</span>
+        <span class="resultado-header-label">Tu patrón revelado</span>
+      </div>
+      <div class="resultado-cuerpo" id="rc1"></div>
+    </div>
+    <button class="btn-sig" id="sig1" onclick="siguiente(2)">Siguiente →</button>
+  </div>
+
+  <!-- ── ESCENA 2 ── -->
+  <div class="escena" id="e2">
+    <div class="escena-num">Escena 2 de 6 · El espejo</div>
+    <h2 class="pregunta">"Alguien que amas comete el mismo error que tú. ¿Qué le dices?"</h2>
+    <p class="pregunta-sub">Sin pensar demasiado. La respuesta instintiva.</p>
+    <div class="opciones">
+      <div class="opcion" onclick="elegir(2,'a')">
+        <span class="opcion-letra">A</span>
+        Le señalo claramente qué falló para que aprenda
+      </div>
+      <div class="opcion" onclick="elegir(2,'b')">
+        <span class="opcion-letra">B</span>
+        Le doy mucho espacio, la abrazo, le digo que está bien
+      </div>
+      <div class="opcion" onclick="elegir(2,'c')">
+        <span class="opcion-letra">C</span>
+        Le ayudo a analizar qué pasó, pero con mucha calma
+      </div>
+      <div class="opcion" onclick="elegir(2,'d')">
+        <span class="opcion-letra">D</span>
+        Depende de quién sea — con algunos soy más dura que con otros
+      </div>
+    </div>
+    <div class="resultado-box" id="r2">
+      <div class="resultado-header">
+        <span class="resultado-header-icon">✦</span>
+        <span class="resultado-header-label">El contraste</span>
+      </div>
+      <div class="resultado-cuerpo" id="rc2"></div>
+    </div>
+    <button class="btn-sig" id="sig2" onclick="siguiente(3)">Siguiente →</button>
+  </div>
+
+  <!-- ── ESCENA 3 ── -->
+  <div class="escena" id="e3">
+    <div class="escena-num">Escena 3 de 6 · El cuerpo habla</div>
+    <h2 class="pregunta">"¿Cuándo sientes más claramente que te estás exigiendo demasiado?"</h2>
+    <p class="pregunta-sub">No lo que piensas — lo que sientes en el cuerpo.</p>
+    <div class="opciones">
+      <div class="opcion" onclick="elegir(3,'a')">
+        <span class="opcion-letra">A</span>
+        Cuando no puedo desconectarme aunque quiera
+      </div>
+      <div class="opcion" onclick="elegir(3,'b')">
+        <span class="opcion-letra">B</span>
+        Cuando me siento agotada pero sigo igual
+      </div>
+      <div class="opcion" onclick="elegir(3,'c')">
+        <span class="opcion-letra">C</span>
+        Cuando cumplo todo pero no me siento satisfecha
+      </div>
+      <div class="opcion" onclick="elegir(3,'d')">
+        <span class="opcion-letra">D</span>
+        Cuando me enojo conmigo antes de entender qué pasó
+      </div>
+    </div>
+    <div class="resultado-box" id="r3">
+      <div class="resultado-header">
+        <span class="resultado-header-icon">✦</span>
+        <span class="resultado-header-label">Lo que esto dice de ti</span>
+      </div>
+      <div class="resultado-cuerpo" id="rc3"></div>
+    </div>
+    <button class="btn-sig" id="sig3" onclick="siguiente(4)">Siguiente →</button>
+  </div>
+
+  <!-- ── ESCENA 4 ── -->
+  <div class="escena" id="e4">
+    <div class="escena-num">Escena 4 de 6 · El amor como moneda</div>
+    <h2 class="pregunta">"¿Cuándo sientes que mereces más amor — o más cuidado?"</h2>
+    <p class="pregunta-sub">¿Qué tiene que pasar para que te "permitas" recibirlo?</p>
+    <div class="opciones">
+      <div class="opcion" onclick="elegir(4,'a')">
+        <span class="opcion-letra">A</span>
+        Cuando hice algo bien o logré algo importante
+      </div>
+      <div class="opcion" onclick="elegir(4,'b')">
+        <span class="opcion-letra">B</span>
+        Cuando cuido bien a las personas que amo
+      </div>
+      <div class="opcion" onclick="elegir(4,'c')">
+        <span class="opcion-letra">C</span>
+        Cuando estoy en un buen momento emocional
+      </div>
+      <div class="opcion" onclick="elegir(4,'d')">
+        <span class="opcion-letra">D</span>
+        Casi siempre me cuesta un poco recibirlo, sin importar la razón
+      </div>
+    </div>
+    <div class="resultado-box" id="r4">
+      <div class="resultado-header">
+        <span class="resultado-header-icon">✦</span>
+        <span class="resultado-header-label">Tu relación con recibir</span>
+      </div>
+      <div class="resultado-cuerpo" id="rc4"></div>
+    </div>
+    <button class="btn-sig" id="sig4" onclick="siguiente(5)">Siguiente →</button>
+  </div>
+
+  <!-- ── ESCENA 5 ── -->
+  <div class="escena" id="e5">
+    <div class="escena-num">Escena 5 de 6 · La voz interna</div>
+    <h2 class="pregunta">"Si tu voz interna tuviera un personaje, ¿cuál sería?"</h2>
+    <p class="pregunta-sub">Juguemos un momento. ¿Quién vive dentro de ti?</p>
+    <div class="opciones">
+      <div class="opcion" onclick="elegir(5,'a')">
+        <span class="opcion-letra">A</span>
+        Una jefa exigente que nunca da el día libre 🧑‍💼
+      </div>
+      <div class="opcion" onclick="elegir(5,'b')">
+        <span class="opcion-letra">B</span>
+        Una maestra que siempre encuentra el error en la tarea 📋
+      </div>
+      <div class="opcion" onclick="elegir(5,'c')">
+        <span class="opcion-letra">C</span>
+        Una madre que cuida a todos menos a sí misma 🌿
+      </div>
+      <div class="opcion" onclick="elegir(5,'d')">
+        <span class="opcion-letra">D</span>
+        Un guardián que protege pero a veces encierra 🔐
+      </div>
+    </div>
+    <div class="resultado-box" id="r5">
+      <div class="resultado-header">
+        <span class="resultado-header-icon">✦</span>
+        <span class="resultado-header-label">Tu voz interna tiene nombre</span>
+      </div>
+      <div class="resultado-cuerpo" id="rc5"></div>
+    </div>
+    <button class="btn-sig" id="sig5" onclick="siguiente(6)">Siguiente →</button>
+  </div>
+
+  <!-- ── ESCENA 6 ── -->
+  <div class="escena" id="e6">
+    <div class="escena-num">Escena 6 de 6 · El nuevo trato</div>
+    <h2 class="pregunta">"¿Qué es lo primero que cambiarías en cómo te tratas?"</h2>
+    <p class="pregunta-sub">No lo más grande. Lo más honesto.</p>
+    <div class="opciones">
+      <div class="opcion" onclick="elegir(6,'a')">
+        <span class="opcion-letra">A</span>
+        Hablarme más suave cuando me equivoco
+      </div>
+      <div class="opcion" onclick="elegir(6,'b')">
+        <span class="opcion-letra">B</span>
+        Descansar sin culpa antes de terminar todo
+      </div>
+      <div class="opcion" onclick="elegir(6,'c')">
+        <span class="opcion-letra">C</span>
+        Aceptar que me cuiden sin sentir que debo devolverlo
+      </div>
+      <div class="opcion" onclick="elegir(6,'d')">
+        <span class="opcion-letra">D</span>
+        Celebrarme cuando hago algo bien, sin minimizarlo
+      </div>
+    </div>
+    <div class="resultado-box" id="r6">
+      <div class="resultado-header">
+        <span class="resultado-header-icon">✦</span>
+        <span class="resultado-header-label">Tu compromiso de esta semana</span>
+      </div>
+      <div class="resultado-cuerpo" id="rc6"></div>
+    </div>
+    <button class="btn-sig" id="sig6" onclick="siguiente(7)">Ver mi perfil completo →</button>
+  </div>
+
+  <!-- ── ESCENA FINAL ── -->
+  <div class="escena" id="e7">
+    <div class="final-wrap">
+      <div class="final-sol">🌻</div>
+      <h2 class="final-titulo">Tu retrato de<br><span>amor propio</span></h2>
+
+      <div class="mantra-grande">
+        <p id="mantra-final">"No tengo que ganarme mi propio amor. Ya es mío, desde siempre."</p>
+        <small>Tu mantra de esta semana</small>
+      </div>
+
+      <div class="cierre-perfil" id="cierre-items"></div>
+
+      <p class="firma">Con amor — Mamá Girasol 🌻</p>
+      <button class="btn-reiniciar" onclick="reiniciar()">Volver al inicio</button>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<script>
+// ─── DATOS ───────────────────────────────────────────────
+const datos = {
+  1: {
+    a: {
+      titulo: "La voz del juez interno",
+      texto: "Cuando cometes un error, hay una voz muy directa que se activa antes que cualquier otra emoción. Es rápida, clara y un poco dura. Esa voz cree que si no te exige, no mejoras — pero confunde rigor con crueldad.",
+      reflexion: "¿Le hablarías igual a alguien a quien amas mucho?"
+    },
+    b: {
+      titulo: "El análisis infinito",
+      texto: "Tu forma de procesar los errores es muy profunda — casi arqueológica. Desenterras cada capa hasta encontrar la raíz. Eso habla de inteligencia emocional genuina, pero a veces el análisis se convierte en otra forma de castigarte.",
+      reflexion: "¿En qué momento el análisis deja de servir y empieza a doler?"
+    },
+    c: {
+      titulo: "El perdón de boca, no de corazón",
+      texto: "Tienes la capacidad de perdonarte racionalmente — es algo hermoso. Pero hay algo que sigue dando vueltas por dentro. Es como cerrar una puerta que no termina de cerrar. El cuerpo siente lo que la mente ya dijo que está bien.",
+      reflexion: "¿Qué necesitaría pasar para que ese perdón también llegue adentro?"
+    },
+    d: {
+      titulo: "Una relación madura contigo misma",
+      texto: "Hay en ti una capacidad de resiliencia emocional que ya aprendiste a cultivar. Los errores no te definen — los usas como información. Es una forma de amor propio muy sólida. La pregunta es: ¿siempre es así, o hay errores que todavía te cuestan más?",
+      reflexion: "¿Con qué tipos de errores todavía eres menos generosa contigo?"
+    }
+  },
+  2: {
+    a: {
+      titulo: "El doble rasero",
+      texto: "Hay una diferencia notable entre cómo corriges a otros y cómo te corriges a ti. Con los demás vas directo porque crees en su crecimiento. Contigo vas directo porque dudas de tu suficiencia. No es lo mismo.",
+      reflexion: "¿Qué dice eso sobre cómo te ves a ti misma comparado con cómo ves a quienes amas?"
+    },
+    b: {
+      titulo: "Lo que le das a otros no te lo das a ti",
+      texto: "Tienes una generosidad emocional enorme con las personas que quieres. Espacio, calma, afecto incondicional. Eso habla de tu capacidad de amar profundamente. Pero esa misma generosidad, ¿con qué frecuencia la diriges hacia dentro?",
+      reflexion: "¿Cuándo fue la última vez que te diste ese mismo abrazo a ti misma?"
+    },
+    c: {
+      titulo: "Eres una guía compasiva — para otros",
+      texto: "Cuando alguien que amas falla, tú encuentras el equilibrio perfecto: análisis y ternura. Sabes exactamente qué necesita. El reto es que esa misma sabiduría rara vez la aplicas cuando la persona que falla eres tú.",
+      reflexion: "¿Qué te impide guiarte con la misma compasión que guías a otros?"
+    },
+    d: {
+      titulo: "La jerarquía invisible del cuidado",
+      texto: "Es interesante — hay personas con quienes eres más generosa que con otras. Y sueles estar al final de esa lista, o simplemente no estar. No porque no importes, sino porque aprendiste que cuidarte viene después de todo lo demás.",
+      reflexion: "¿Quién ocupa el primer lugar en tu lista de cuidado — y cómo llegas tú a esa lista?"
+    }
+  },
+  3: {
+    a: {
+      titulo: "La mente que no sabe parar",
+      texto: "Tu señal de alarma no es el cansancio — es la incapacidad de soltar. Cuando tu mente sigue trabajando aunque hayas 'terminado', eso no es productividad: es tu sistema de protección activado. Descansar te parece menos seguro que seguir.",
+      reflexion: "¿Qué temes que pasaría si de verdad te detuvieras?"
+    },
+    b: {
+      titulo: "El cuerpo que obedece al control",
+      texto: "Tu cuerpo te habla — y tú lo escuchas, pero lo convences de seguir igual. Hay algo que te dice 'ya basta' y algo más fuerte que dice 'todavía no'. La exigencia a veces suena más fuerte que el propio cuerpo.",
+      reflexion: "¿Qué o quién te estás intentando demostrar algo cuando sigues aunque estás agotada?"
+    },
+    c: {
+      titulo: "El éxito que no llena",
+      texto: "Cumples todo. Metes un tachito mental a cada cosa. Y aun así, hay una sensación de que algo falta. Eso no es un problema de logros — es que la meta que te pusiste no tiene final real. La exigencia no te deja llegar.",
+      reflexion: "¿Cuándo sería suficiente? ¿Existe ese momento para ti?"
+    },
+    d: {
+      titulo: "La emoción que se adelanta",
+      texto: "Tu sistema de autoexigencia actúa antes de que puedas entender qué pasó. La ira hacia ti misma llega primero, como un reflejo aprendido. La comprensión viene después — si llega. Eso es agotador y habla de mucho tiempo cargando un estándar muy alto.",
+      reflexion: "¿Desde cuándo ese enojo contigo llega tan rápido?"
+    }
+  },
+  4: {
+    a: {
+      titulo: "El amor como premio al mérito",
+      texto: "Hay una creencia muy arraigada en ti: el amor y el cuidado se merecen, no se reciben gratis. Cuando logras algo, sientes que tienes 'derecho' a recibirlo. Pero el amor propio real no pide factura — existe antes de cualquier logro.",
+      reflexion: "¿Qué pasaría si te lo dieras simplemente porque existes?"
+    },
+    b: {
+      titulo: "El amor como intercambio",
+      texto: "Mereces cuidado cuando cuidas. Tienes que dar para poder recibir. Esa economía emocional es muy común en personas que aman profundamente — pero también las deja agotadas. El amor no es un trueque.",
+      reflexion: "¿Qué sientes cuando recibes algo sin haberlo 'ganado' con cuidado primero?"
+    },
+    c: {
+      titulo: "El amor condicionado al estado emocional",
+      texto: "Solo te permites recibir amor cuando estás bien — como si los momentos difíciles no merecieran igual ternura. Pero es exactamente en esos momentos cuando más necesitas recibirte con compasión.",
+      reflexion: "¿Qué harías diferente si te trataras como tratas a alguien que sufre?"
+    },
+    d: {
+      titulo: "Recibir como territorio desconocido",
+      texto: "No es que no quieras recibirlo — es que no sabes bien cómo. Recibir love, cuidado o atención activa algo incómodo en ti. Quizás porque aprendiste que tus necesidades eran demasiado, o que era mejor no necesitar.",
+      reflexion: "¿Qué es lo más difícil de simplemente recibir sin hacer nada a cambio?"
+    }
+  },
+  5: {
+    a: {
+      titulo: "La Jefa Interna",
+      texto: "Tiene estándares altísimos, agenda llena y no entiende de 'no puedo más'. Cree que si afloja, todo se derrumba. Es brillante y poderosa — pero necesita aprender que descansar también es liderar.",
+      reflexion: "¿Qué le dirías a esa jefa si fueras su jefa?"
+    },
+    b: {
+      titulo: "La Maestra Interna",
+      texto: "Siempre revisa el trabajo. Siempre hay algo que mejorar. Te ha llevado muy lejos — pero a veces también te tiene atrapada en la revisión infinita, sin poder entregar lo que ya está bien.",
+      reflexion: "¿En qué punto la maestra te impide celebrar lo que ya lograste?"
+    },
+    c: {
+      titulo: "La Madre que no se cuida a sí misma",
+      texto: "Cuida a todos con una entrega enorme, pero se pone al final de la lista. Cree que su amor se mide por cuánto da. Tiene una capacidad de amar que es extraordinaria — y necesita urgentemente dirigirla también hacia dentro.",
+      reflexion: "¿Qué le dirías a esa madre si fuera tu hija y se olvidara de sí misma así?"
+    },
+    d: {
+      titulo: "El Guardián Interno",
+      texto: "Protege con intensidad. Observa todo, anticipa el peligro, controla el entorno emocional. Es profundo y leal — pero a veces, al protegerte tanto, también te encierra. La seguridad que busca está dentro, no en el control.",
+      reflexion: "¿De qué te está protegiendo ese guardián que ya no necesita protección?"
+    }
+  },
+  6: {
+    a: {
+      titulo: "El regalo del lenguaje suave",
+      texto: "Las palabras que te dices no son solo palabras — son el ambiente en el que vives. Cambiar ese tono, aunque sea una vez al día, puede cambiar cómo te sientes contigo misma desde adentro. No es debilidad. Es inteligencia emocional.",
+      reflexion: "Esta semana: cuando escuches esa voz dura, pregúntate ¿cómo le hablaría a alguien que amo?"
+    },
+    b: {
+      titulo: "El descanso como acto de amor propio",
+      texto: "Descansar antes de terminar todo no es rendición — es señal de que te importas. No tienes que ganarte el descanso. Existe para ti aunque la lista no esté completa.",
+      reflexion: "Esta semana: date un descanso que no hayas 'ganado' todavía. Observa qué sientes."
+    },
+    c: {
+      titulo: "Recibir es también amar",
+      texto: "Cuando permites que te cuiden sin devolver de inmediato, no estás siendo egoísta — le estás dando a alguien la alegría de cuidarte. Recibirte es un acto de amor mutuo.",
+      reflexion: "Esta semana: recibe algo sin disculparte ni compensarlo. Solo di 'gracias'."
+    },
+    d: {
+      titulo: "Celebrarte es un acto radical",
+      texto: "Las personas que se exigen mucho rara vez se celebran. Minimizan, quitan mérito, o ya están pensando en lo siguiente. Pero celebrarte le enseña a tu sistema nervioso que el amor no solo viene del esfuerzo — también del reconocimiento.",
+      reflexion: "Esta semana: di en voz alta una cosa que hiciste bien. Solo una. Sin 'pero'."
+    }
+  }
+};
+
+const mantras = {
+  a: '"Mi valor no cambia según mis errores. Ya soy suficiente."',
+  b: '"Puedo recibir amor sin tener que ganarlo primero."',
+  c: '"Mis emociones merecen espacio — incluyendo las que siento por mí misma."',
+  d: '"Cuidarme no es egoísmo. Es la base desde la que cuido a todos."'
+};
+
+// ─── ESTADO ──────────────────────────────────────────────
+let respuestas = {};
+let escenaActual = 1;
+const totalEscenas = 6;
+
+// ─── FUNCIONES ───────────────────────────────────────────
+function crearEstrellas() {
+  const cont = document.getElementById('estrellas');
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('div');
+    s.className = 'estrella';
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--del:${Math.random()*4}s;`;
+    cont.appendChild(s);
+  }
+}
+
+function comenzar() {
+  document.getElementById('portada').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  mostrarEscena(1);
+}
+
+function mostrarEscena(n) {
+  document.querySelectorAll('.escena').forEach(e => e.classList.remove('activa'));
+  const el = document.getElementById('e' + n);
+  if (el) el.classList.add('activa');
+  actualizarBarra(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function actualizarBarra(n) {
+  const total = totalEscenas;
+  const pct = n > total ? 100 : Math.round(((n - 1) / total) * 100);
+  document.getElementById('barraFill').style.width = pct + '%';
+  document.getElementById('barraPaso').textContent = n > total ? 'Listo ✦' : n + ' / ' + total;
+}
+
+function elegir(escena, letra) {
+  // Reset opciones
+  const opciones = document.querySelectorAll('#e' + escena + ' .opcion');
+  opciones.forEach(o => o.classList.remove('seleccionada'));
+  
+  // Marcar elegida
+  event.currentTarget.classList.add('seleccionada');
+  respuestas[escena] = letra;
+
+  // Mostrar resultado
+  const rBox = document.getElementById('r' + escena);
+  const rCuerpo = document.getElementById('rc' + escena);
+  const d = datos[escena][letra];
+  
+  rCuerpo.innerHTML = `
+    <div class="resultado-titulo">${d.titulo}</div>
+    <div class="resultado-texto">${d.texto}</div>
+    <div class="resultado-pregunta-reflexion">${d.reflexion}</div>
+  `;
+  
+  rBox.style.display = 'block';
+  
+  // Mostrar botón siguiente
+  const sig = document.getElementById('sig' + escena);
+  sig.style.display = 'inline-block';
+
+  // Scroll suave al resultado
+  setTimeout(() => {
+    rBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 200);
+}
+
+function siguiente(n) {
+  escenaActual = n;
+  if (n === 7) {
+    mostrarFinal();
+  } else {
+    mostrarEscena(n);
+  }
+}
+
+function mostrarFinal() {
+  document.querySelectorAll('.escena').forEach(e => e.classList.remove('activa'));
+  document.getElementById('e7').classList.add('activa');
+  actualizarBarra(7);
+
+  // Mantra según respuesta de escena 4 (relación con recibir)
+  const r4 = respuestas[4] || 'd';
+  document.getElementById('mantra-final').textContent = mantras[r4] || mantras['d'];
+
+  // Cierre personalizado
+  const items = [];
+
+  const nombresVoz = { a: 'tu Jefa Interna', b: 'tu Maestra Interna', c: 'tu Madre Interna', d: 'tu Guardián Interno' };
+  const voz = nombresVoz[respuestas[5]] || 'tu voz interna';
+  items.push({ icon: '🔍', texto: `Reconociste a <strong>${voz}</strong> — y eso ya es un acto de amor propio. Lo que nombramos, lo podemos transformar.` });
+
+  const compromisos = {
+    a: 'hablarme con más suavidad cuando me equivoco',
+    b: 'descansar sin tener que ganarme ese descanso primero',
+    c: 'recibir sin compensar — solo decir gracias',
+    d: 'celebrarme en voz alta, sin minimizar'
+  };
+  const comp = compromisos[respuestas[6]] || 'tratarme con más cuidado esta semana';
+  items.push({ icon: '🌱', texto: `Tu compromiso de esta semana: <em>${comp}</em>. Un paso pequeño, pero muy real.` });
+
+  items.push({ icon: '💛', texto: 'No viniste aquí a cambiar quien eres. Viniste a recordar que ya eres suficiente — exactamente como estás hoy.' });
+
+  const cont = document.getElementById('cierre-items');
+  cont.innerHTML = items.map(i => `
+    <div class="cierre-item">
+      <span class="cierre-item-icon">${i.icon}</span>
+      <div class="cierre-item-texto">${i.texto}</div>
+    </div>
+  `).join('');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function reiniciar() {
+  respuestas = {};
+  escenaActual = 1;
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('portada').style.display = 'flex';
+  document.querySelectorAll('.opcion').forEach(o => o.classList.remove('seleccionada'));
+  document.querySelectorAll('.resultado-box').forEach(r => r.style.display = 'none');
+  document.querySelectorAll('.btn-sig').forEach(b => b.style.display = 'none');
+}
+
+// ─── INIT ────────────────────────────────────────────────
+crearEstrellas();
+</script>
+</body>
+</html>
