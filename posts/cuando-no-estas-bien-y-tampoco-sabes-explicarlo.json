@@ -1,0 +1,20 @@
+{
+  "id": "cuando-no-estas-bien-y-tampoco-sabes-explicarlo",
+  "titulo": "Cuando no estás bien y tampoco sabes explicarlo",
+  "fecha": "2026-05-26",
+  "emoji": "🌿",
+  "tags": ["bienestar-emocional", "reflexiones"],
+  "tagLabels": ["🌿 Bienestar emocional", "💭 Reflexiones"],
+  "resumen": "No necesitas una razón visible para sentirte mal. Aprende a validar tu sentir sin exigirte explicaciones.",
+  "lecturaMin": 4,
+  "bloques": [
+    { "tipo": "lead", "texto": "No hay una pelea grande. No hubo una pérdida concreta. Y aun así, te despiertas con ese peso. Ese cansancio que no se va con dormir." },
+    { "tipo": "callout", "texto": "No necesitas una tragedia para merecer acompañamiento. El dolor que no tiene nombre también es real." },
+    { "tipo": "h3", "texto": "🌿 La trampa de necesitar una explicación" },
+    { "tipo": "parrafo", "texto": "Vivimos en una cultura que exige justificación para el malestar. Pero las emociones no siempre llegan con etiqueta. A veces se acumulan despacio, en silencio." },
+    { "tipo": "h3", "texto": "🌿 Lo que sí puedes hacer" },
+    { "tipo": "parrafo", "texto": "A veces el primer gesto es el más simple: parar. Respirar. Preguntarte '¿qué necesito ahora mismo?' abre un camino hacia el cuidado." },
+    { "tipo": "divisor", "texto": "Valida tu sentir" },
+    { "tipo": "cita", "texto": "Si hoy no estás bien, eso es suficiente razón para darte un momento. No tienes que justificarlo para merecer cuidado.", "emoji": "🌻 ✨" }
+  ]
+}
