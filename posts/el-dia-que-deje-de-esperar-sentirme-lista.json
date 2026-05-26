@@ -1,0 +1,20 @@
+{
+  "id": "el-dia-que-deje-de-esperar-sentirme-lista",
+  "titulo": "El día que dejé de esperar sentirme lista",
+  "fecha": "2026-05-26",
+  "emoji": "🔮",
+  "tags": ["reflexiones", "autoconocimiento"],
+  "tagLabels": ["💭 Reflexiones", "🌙 Autoconocimiento"],
+  "resumen": "La preparación perfecta no existe. Sanar no es un proceso que empieza cuando termina el caos; empieza en el medio de él.",
+  "lecturaMin": 4,
+  "bloques": [
+    { "tipo": "lead", "texto": "Durante mucho tiempo esperé ese momento. El momento en que me sintiera estable, con energía, con claridad. Entonces sí, pensaba, empezaría." },
+    { "tipo": "callout", "texto": "La preparación perfecta para sanar no existe. Lo que existe es el momento en que decides empezar, aunque todo esté roto todavía." },
+    { "tipo": "h3", "texto": "🔮 La crisis como punto de partida" },
+    { "tipo": "parrafo", "texto": "Cuando la ilusión de control cae, queda algo debajo que vale la pena mirar. No porque el dolor sea maestro, sino porque te ves de una manera más real." },
+    { "tipo": "h3", "texto": "🔮 Sanar en el caos" },
+    { "tipo": "parrafo", "texto": "No necesitas tener todo claro. No necesitas sentirte fuerte. Solo necesitas estar dispuesta a mirarte, aunque lo que veas no te guste todavía." },
+    { "tipo": "divisor", "texto": "Comenzar hoy" },
+    { "tipo": "cita", "texto": "El día que dejé de esperar sentirme lista no fue un día especial. Solo fue el día que me cansé de postergarme.", "emoji": "🌻 ✨" }
+  ]
+}
