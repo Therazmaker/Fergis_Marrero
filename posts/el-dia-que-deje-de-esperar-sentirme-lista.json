@@ -1,20 +1,36 @@
 {
-  "id": "el-dia-que-deje-de-esperar-sentirme-lista",
-  "titulo": "El día que dejé de esperar sentirme lista",
-  "fecha": "2026-05-26",
-  "emoji": "🔮",
-  "tags": ["reflexiones", "autoconocimiento"],
-  "tagLabels": ["💭 Reflexiones", "🌙 Autoconocimiento"],
-  "resumen": "La preparación perfecta no existe. Sanar no es un proceso que empieza cuando termina el caos; empieza en el medio de él.",
-  "lecturaMin": 4,
-  "bloques": [
-    { "tipo": "lead", "texto": "Durante mucho tiempo esperé ese momento. El momento en que me sintiera estable, con energía, con claridad. Entonces sí, pensaba, empezaría." },
-    { "tipo": "callout", "texto": "La preparación perfecta para sanar no existe. Lo que existe es el momento en que decides empezar, aunque todo esté roto todavía." },
-    { "tipo": "h3", "texto": "🔮 La crisis como punto de partida" },
-    { "tipo": "parrafo", "texto": "Cuando la ilusión de control cae, queda algo debajo que vale la pena mirar. No porque el dolor sea maestro, sino porque te ves de una manera más real." },
-    { "tipo": "h3", "texto": "🔮 Sanar en el caos" },
-    { "tipo": "parrafo", "texto": "No necesitas tener todo claro. No necesitas sentirte fuerte. Solo necesitas estar dispuesta a mirarte, aunque lo que veas no te guste todavía." },
-    { "tipo": "divisor", "texto": "Comenzar hoy" },
-    { "tipo": "cita", "texto": "El día que dejé de esperar sentirme lista no fue un día especial. Solo fue el día que me cansé de postergarme.", "emoji": "🌻 ✨" }
+  "categories": ["Bienestar emocional", "Reflexiones"],
+  "title": "El día que dejé de esperar sentirme lista para empezar a sanar",
+  "pull_quote": "La preparación perfecta para sanar no existe. Lo que existe es el momento en que decides empezar, aunque todo esté roto todavía.",
+  "intro": [
+    "Durante mucho tiempo esperé ese momento. El momento en que me sintiera estable, descansada, con energía, con claridad. El momento en que las cosas estuvieran un poco más en orden y yo estuviera un poco más entera. Entonces sí, pensaba, entonces empezaría.",
+    "Ese momento nunca llegó. O llegaba, y yo encontraba otra razón para seguir esperando."
+  ],
+  "sections": [
+    {
+      "id": "trampa-cuando-este-lista",
+      "title": "La trampa de \"cuando esté lista\"",
+      "paragraphs": [
+        "Hay algo que nadie te dice: la sensación de estar lista raramente aparece antes de empezar. Aparece, si aparece, en el camino. Después de dar el primer paso con miedo. Después de equivocarte. Después de seguir de todas formas.",
+        "Esperar sentirte lista puede ser una forma honesta de protegerte. De no exponerte antes de tiempo. Pero también puede convertirse, sin que te des cuenta, en una forma de quedarte quieta para siempre."
+      ]
+    },
+    {
+      "id": "crisis-punto-de-partida",
+      "title": "La crisis como punto de partida",
+      "paragraphs": [
+        "No voy a decirte que la crisis es un regalo. No siempre lo es. A veces simplemente duele, y ya. Pero sí puedo decirte que hay algo en los momentos de quiebre que rompe también la ilusión de control. Esa sensación de que si cuidas todo lo suficiente, nada te va a tocar.",
+        "Cuando esa ilusión cae, a veces queda algo debajo que vale la pena mirar. No porque el dolor sea maestro, sino porque cuando ya no tienes energía para mantener la fachada, te ves de una manera diferente. Más real. Más tuya."
+      ]
+    },
+    {
+      "id": "no-estar-bien-para-empezar",
+      "title": "No se trata de estar bien para empezar",
+      "paragraphs": [
+        "Sanar no es un proceso que empieza cuando termina el caos. Para muchas mujeres, empieza justo en el medio de él. Con lágrimas. Con preguntas sin respuesta. Con la única certeza de que algo tiene que cambiar, aunque no sepan todavía el qué ni el cómo.",
+        "Eso es suficiente para comenzar. No necesitas tener todo claro. No necesitas sentirte fuerte. Solo necesitas estar dispuesta a mirarte, aunque lo que veas no te guste todavía.",
+        "El día que dejé de esperar sentirme lista no fue un día especial. No hubo claridad repentina ni epifanía. Solo cansancio de seguir postergándome. Y a veces, con eso alcanza."
+      ]
+    }
   ]
 }
