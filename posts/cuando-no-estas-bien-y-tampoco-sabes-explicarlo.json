@@ -1,20 +1,36 @@
 {
-  "id": "cuando-no-estas-bien-y-tampoco-sabes-explicarlo",
-  "titulo": "Cuando no estás bien y tampoco sabes explicarlo",
-  "fecha": "2026-05-26",
-  "emoji": "🌿",
-  "tags": ["bienestar-emocional", "reflexiones"],
-  "tagLabels": ["🌿 Bienestar emocional", "💭 Reflexiones"],
-  "resumen": "No necesitas una razón visible para sentirte mal. Aprende a validar tu sentir sin exigirte explicaciones.",
-  "lecturaMin": 4,
-  "bloques": [
-    { "tipo": "lead", "texto": "No hay una pelea grande. No hubo una pérdida concreta. Y aun así, te despiertas con ese peso. Ese cansancio que no se va con dormir." },
-    { "tipo": "callout", "texto": "No necesitas una tragedia para merecer acompañamiento. El dolor que no tiene nombre también es real." },
-    { "tipo": "h3", "texto": "🌿 La trampa de necesitar una explicación" },
-    { "tipo": "parrafo", "texto": "Vivimos en una cultura que exige justificación para el malestar. Pero las emociones no siempre llegan con etiqueta. A veces se acumulan despacio, en silencio." },
-    { "tipo": "h3", "texto": "🌿 Lo que sí puedes hacer" },
-    { "tipo": "parrafo", "texto": "A veces el primer gesto es el más simple: parar. Respirar. Preguntarte '¿qué necesito ahora mismo?' abre un camino hacia el cuidado." },
-    { "tipo": "divisor", "texto": "Valida tu sentir" },
-    { "tipo": "cita", "texto": "Si hoy no estás bien, eso es suficiente razón para darte un momento. No tienes que justificarlo para merecer cuidado.", "emoji": "🌻 ✨" }
+  "categories": ["Patrones y creencias", "Bienestar emocional"],
+  "title": "Cuando no estás bien y tampoco sabes explicarlo",
+  "pull_quote": "No necesitas una tragedia para merecer acompañamiento. El dolor que no tiene nombre también es real.",
+  "intro": [
+    "No hay una pelea grande. No hubo una pérdida concreta. Nadie murió, nada se rompió de manera visible. Y aun así, te despiertas con ese peso. Ese cansancio que no se va con dormir. Esa sensación de que algo no está bien, aunque no puedas señalarlo con el dedo.",
+    "Y entonces llega la segunda capa: la culpa de no tener "razones suficientes" para sentirte así."
+  ],
+  "sections": [
+    {
+      "id": "trampa-explicacion",
+      "title": "La trampa de necesitar una explicación",
+      "paragraphs": [
+        "Vivimos en una cultura que exige justificación para el malestar. Si estás triste, ¿por qué? Si estás agotada, ¿de qué? Como si el cuerpo y el alma solo pudieran hablar cuando tienen pruebas suficientes para presentar.",
+        "Pero las emociones no siempre llegan con etiqueta. A veces se acumulan despacio, en silencio, durante meses. Y un día simplemente estás ahí: sin poder con todo, sin saber desde cuándo, sin saber bien por qué."
+      ]
+    },
+    {
+      "id": "que-puedes-hacer",
+      "title": "Lo que sí puedes hacer cuando no sabes qué sientes",
+      "paragraphs": [
+        "No hace falta entenderlo todo para empezar a cuidarte. A veces el primer gesto es el más simple: parar. Respirar. No exigirte funcionar al mismo ritmo cuando algo por dentro está pidiendo calma.",
+        "Preguntarte no "¿por qué estoy así?" sino "¿qué necesito ahora mismo?" puede abrir un camino diferente. No hacia la explicación, sino hacia el cuidado."
+      ]
+    },
+    {
+      "id": "no-es-debilidad",
+      "title": "Esto no es debilidad",
+      "paragraphs": [
+        "Sentirte así no significa que estás rota ni que algo está permanentemente mal contigo. Significa que eres humana. Que tu sistema interno está hablando, aunque todavía no encuentres las palabras para traducirlo.",
+        "Y a veces, la única respuesta que se necesita en este momento es esta: no tienes que explicarlo para que sea válido. No tienes que justificarlo para merecer cuidado.",
+        "Si hoy no estás bien, eso es suficiente razón para darte un momento. No para resolverlo todo. Solo para estar contigo, sin exigencias y sin prisa."
+      ]
+    }
   ]
 }
