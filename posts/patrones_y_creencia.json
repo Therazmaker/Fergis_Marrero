@@ -1,0 +1,26 @@
+{
+"id": "por-que-sigues-eligiendo-lo-que-te-duele",
+"titulo": "¿Por qué sigues eligiendo lo que te duele?",
+"fecha": "2026-05-26",
+"emoji": "🌻",
+"tags": ["emociones", "relaciones", "reflexiones"],
+"tagLabels": ["emociones", "relaciones", "reflexiones"],
+"resumen": "Entender por qué repetimos patrones de dolor no es falta de inteligencia, sino una búsqueda de lo familiar. Descubre cómo empezar a observar para transformar.",
+"lecturaMin": 5,
+"bloques": [
+{ "tipo": "lead", "texto": "Hay una pregunta que muchas mujeres se hacen en silencio, casi con vergüenza: ¿por qué sigo aquí? ¿Por qué vuelvo a lo mismo? ¿Por qué elijo, una y otra vez, lo que termina lastimándome?" },
+{ "tipo": "parrafo", "texto": "No es falta de inteligencia. No es debilidad. Y definitivamente no es casualidad." },
+{ "tipo": "callout", "texto": "Elegimos lo conocido, no porque sea bueno, sino porque es familiar. Y lo familiar se siente, por momentos, como hogar." },
+{ "tipo": "h3", "texto": "🌻 El cerebro busca lo que ya conoce" },
+{ "tipo": "parrafo", "texto": "Desde pequeñas, aprendemos a relacionarnos con el mundo a través de las personas que nos crían. Si el amor que recibiste fue inconsistente, a veces presente y a veces lejano, tu sistema nervioso aprendió que eso es lo que se siente amar. No porque lo hayas decidido. Sino porque fue lo primero que registró." },
+{ "tipo": "parrafo", "texto": "Entonces cuando aparece algo diferente, algo estable y tranquilo, a veces se siente raro. Aburrido, incluso. Y cuando aparece lo conocido, aunque duela, hay algo en ti que lo reconoce. Que lo llama hogar." },
+{ "tipo": "h3", "texto": "🌻 No es que lo busques conscientemente" },
+{ "tipo": "parrafo", "texto": "Nadie se despierta pensando "hoy voy a elegir lo que me hace daño". Estos patrones no operan desde la mente consciente. Viven en el cuerpo, en la forma en que te tensas o te relajas frente a alguien, en lo que sientes cuando alguien es demasiado amable o demasiado distante." },
+{ "tipo": "parrafo", "texto": "Son respuestas automáticas. Aprendidas. Y eso, lejos de ser una condena, es una buena noticia: lo que se aprende, puede reaprenderse." },
+{ "tipo": "h3", "texto": "🌻 Entonces, ¿qué puedes hacer?" },
+{ "tipo": "parrafo", "texto": "El primer paso no es dejar de elegir mal. El primer paso es observar. Observar qué situaciones, personas o vínculos despiertan en ti una sensación de urgencia, de necesidad, de "no puedo perder esto". Esa urgencia suele ser una pista." },
+{ "tipo": "parrafo", "texto": "No para huir. Sino para preguntarte: ¿esto me acerca a quien quiero ser, o me lleva de regreso a lo que ya conozco?" },
+{ "tipo": "divisor", "texto": "Sanación consciente" },
+{ "tipo": "cita", "texto": "Sanar los patrones no sucede de un día para el otro. Pero empieza en el momento en que decides mirarte con honestidad, sin juzgarte. Solo con la curiosidad de entender de dónde vienes y hacia dónde quieres ir.", "emoji": "🌻 ✨" }
+]
+}
