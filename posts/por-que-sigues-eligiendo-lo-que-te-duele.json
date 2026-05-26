@@ -1,0 +1,21 @@
+{
+  "id": "por-que-sigues-eligiendo-lo-que-te-duele",
+  "titulo": "¿Por qué sigues eligiendo lo que te duele?",
+  "fecha": "2026-05-26",
+  "emoji": "🌻",
+  "tags": ["patrones-creencias", "relaciones-vinculos"],
+  "tagLabels": ["✨ Patrones y creencias", "💞 Relaciones y vínculos"],
+  "resumen": "Entender por qué repetimos patrones de dolor no es falta de inteligencia, sino una búsqueda de lo familiar.",
+  "lecturaMin": 5,
+  "bloques": [
+    { "tipo": "lead", "texto": "Hay una pregunta que muchas mujeres se hacen en silencio, casi con vergüenza: ¿por qué sigo aquí? ¿Por qué vuelvo a lo mismo? ¿Por qué elijo, una y otra vez, lo que termina lastimándome?" },
+    { "tipo": "parrafo", "texto": "No es falta de inteligencia. No es debilidad. Y definitivamente no es casualidad." },
+    { "tipo": "callout", "texto": "Elegimos lo conocido, no porque sea bueno, sino porque es familiar. Y lo familiar se siente, por momentos, como hogar." },
+    { "tipo": "h3", "texto": "🌻 El cerebro busca lo que ya conoce" },
+    { "tipo": "parrafo", "texto": "Desde pequeñas, aprendemos a relacionarnos con el mundo a través de las personas que nos crían. Si el amor que recibiste fue inconsistente, tu sistema nervioso aprendió que eso es lo que se siente amar." },
+    { "tipo": "h3", "texto": "🌻 Entonces, ¿qué puedes hacer?" },
+    { "tipo": "parrafo", "texto": "El primer paso no es dejar de elegir mal. El primer paso es observar qué situaciones despiertan en ti una sensación de urgencia. No para huir, sino para preguntarte: ¿esto me acerca a quien quiero ser?" },
+    { "tipo": "divisor", "texto": "Sanación consciente" },
+    { "tipo": "cita", "texto": "Sanar los patrones no sucede de un día para el otro. Pero empieza en el momento en que decides mirarte con honestidad, sin juzgarte.", "emoji": "🌻 ✨" }
+  ]
+}
