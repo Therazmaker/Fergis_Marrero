@@ -2031,8 +2031,19 @@
       <h2 class="box-heading" style="margin-bottom: 8px;">¿Cuál es tu herida emocional?</h2>
       <p class="box-body" style="margin-bottom: 32px; max-width: 560px;">8 preguntas para identificar el patrón que más te pesa — y desde dónde empezar a trabajarlo.</p>
 
+      <!-- Portada -->
+      <div id="herida-cover">
+        <div style="text-align:center; padding: 16px 0 8px;">
+          <p style="font-size:2.8rem; margin-bottom:16px; line-height:1;">🌻</p>
+          <h3 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.6rem,3vw,2.2rem); color:var(--wine-deep); margin:0 0 16px; line-height:1.15;">¿Cuál es la herida que más carga llevas?</h3>
+          <p style="font-size:1rem; color:var(--wine); line-height:1.7; max-width:480px; margin:0 auto 12px;">8 preguntas para identificar el patrón emocional que más se repite en tu vida — y desde dónde empezar a trabajarlo.</p>
+          <p style="font-size:0.88rem; color:var(--gold-deep); margin-bottom:32px;">Responde con lo primero que sientas. No hay respuestas incorrectas.</p>
+          <button onclick="hStart()" style="background:#3D2B1F; color:#FAF4E8; padding:16px 36px; border-radius:10px; border:none; font-family:var(--font-body); font-size:1rem; font-weight:600; cursor:pointer; transition:background 0.2s;">Comenzar el test →</button>
+        </div>
+      </div>
+
       <!-- Quiz -->
-      <div id="herida-quiz">
+      <div id="herida-quiz" style="display:none;">
         <div style="height:4px; background:rgba(212,168,71,0.2); border-radius:99px; margin-bottom:2rem;">
           <div id="h-progress" style="height:100%; background:var(--gold); border-radius:99px; transition:width 0.4s ease; width:0%;"></div>
         </div>
@@ -2042,7 +2053,7 @@
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem;">
           <button id="h-back" onclick="hBack()" style="padding:10px 22px; border-radius:var(--radius-sm); border:1px solid rgba(61,43,31,0.2); background:transparent; color:var(--ink); cursor:pointer; font-family:var(--font-body); font-size:0.9rem;" disabled>← Anterior</button>
           <span id="h-count" style="font-size:13px; color:var(--gold-deep);"></span>
-          <button id="h-next" onclick="hNext()" style="padding:10px 24px; border-radius:var(--radius-sm); background:#3D2B1F; color:#FAF4E8; border:none; cursor:pointer; font-family:var(--font-body); font-size:0.9rem; font-weight:600;" disabled>Siguiente →</button>
+          <div style="width:90px;"></div>
         </div>
       </div>
 
@@ -2133,6 +2144,12 @@
       let cur = 0;
       let ans = Array(QS.length).fill(null);
 
+      window.hStart = function() {
+        document.getElementById('herida-cover').style.display = 'none';
+        document.getElementById('herida-quiz').style.display = 'block';
+        render();
+      };
+
       function render() {
         const q = QS[cur];
         document.getElementById('h-qlabel').textContent = 'Pregunta ' + (cur+1) + ' de ' + QS.length;
@@ -2146,21 +2163,19 @@
           const btn = document.createElement('button');
           btn.className = 'h-opt' + (ans[cur] === i ? ' h-sel' : '');
           btn.textContent = o.text;
-          btn.onclick = () => { ans[cur] = i; render(); };
+          btn.onclick = () => {
+            ans[cur] = i;
+            render();
+            setTimeout(() => {
+              if (cur < QS.length - 1) { cur++; render(); }
+              else showResult();
+            }, 340);
+          };
           cont.appendChild(btn);
         });
 
         document.getElementById('h-back').disabled = cur === 0;
-        const nb = document.getElementById('h-next');
-        nb.disabled = ans[cur] === null;
-        nb.textContent = cur === QS.length - 1 ? 'Ver mi resultado →' : 'Siguiente →';
       }
-
-      window.hNext = function() {
-        if (ans[cur] === null) return;
-        if (cur < QS.length - 1) { cur++; render(); }
-        else showResult();
-      };
 
       window.hBack = function() {
         if (cur > 0) { cur--; render(); }
@@ -2415,6 +2430,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
             <option value="45.00">🌻 Diosa en Guía - $45 USD</option>
             <option value="45.00">🌻 Tu guía en cualquier momento - $45 USD</option>
             <option value="25.00">🌻 Guías personalizadas - $25 USD</option>
+            <!--
             <option value="50.00">🔮 Tarot - $50 USD</option>
             <option value="90.00">🌙 Carta Natal - $90 USD</option>
             <option value="90.00">👶 Carta Natal Infantil - $90 USD</option>
@@ -2423,6 +2439,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
             <option value="110.00">🪐 Sinastría o Carta Compuesta - $110 USD</option>
             <option value="80.00">🌌 Tránsitos Astrológicos - $80 USD</option>
             <option value="20.00">🌻 Diosas Girasol - $20 USD</option>
+            -->
           </select>
         </div>
         <div class="form-group">
@@ -2486,6 +2503,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
             <option value="120" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 120</option>
             <option value="120" data-name="Tu guía en cualquier momento">🌻 Tu guía en cualquier momento - S/ 120</option>
             <option value="80" data-name="Guías personalizadas">🌻 Guías personalizadas - S/ 80</option>
+            <!--
             <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
             <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
             <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
@@ -2494,6 +2512,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
             <option value="380" data-name="Sinastría o Carta Compuesta">🪐 Sinastría o Carta Compuesta - S/ 380</option>
             <option value="250" data-name="Tránsitos Astrológicos">🌌 Tránsitos Astrológicos - S/ 250</option>
             <option value="30" data-name="Diosas Girasol">🌻 Diosas Girasol - S/ 30</option>
+            -->
           </select>
         </div>
         <div class="form-group">
