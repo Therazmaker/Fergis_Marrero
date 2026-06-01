@@ -576,7 +576,7 @@
     .tiendita-card {
       border-radius: 24px;
       padding: 0;
-      min-height: 360px;
+      min-height: auto;
       overflow: hidden;
       border: none;
     }
@@ -1526,7 +1526,7 @@
       }
 
       .tiendita-card {
-        min-height: 300px;
+        min-height: auto;
       }
 
       .blog-box,
@@ -2013,7 +2013,7 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TAROT + TIENDITA ━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section id="tarot" class="tarot-row fade-up">
 
-      <!-- IZQUIERDA: Card "Un regalito de mí para ti" -->
+      <!-- IZQUIERDA: Card "Un regalito de mí para ti" (Oculto temporalmente)
       <article class="tarot-card tarot-card-featured">
         <div class="tarot-pill">3 preguntas gratis al mes</div>
         <h2 class="tarot-title tarot-title-featured" style="white-space: nowrap;">Un regalito de mí para ti</h2>
@@ -2022,10 +2022,11 @@
         <p class="tarot-copy tarot-note" style="margin-top: 8px;">Tus preguntitas se renuevan de forma mensual.</p>
         <a href="tarot.html" class="tarot-cta" style="margin-top: 20px;">Haz tus preguntas aquí</a>
       </article>
+      -->
 
-      <!-- DERECHA: Imagen La Tiendita Girasol (reemplaza el card morado) -->
-      <article class="tiendita-card" style="display: flex; min-height: 320px;">
-        <img src="./Fotos/La%20tiendita%20girasol.png" alt="La tiendita girasol - Próximamente" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24px;">
+      <!-- DERECHA: Imagen La Tiendita Girasol -->
+      <article class="tiendita-card" style="display: block; grid-column: 1 / -1;">
+        <img src="./Fotos/La%20tiendita%20girasol.png" alt="La tiendita girasol - Próximamente" style="width: 100%; height: auto; display: block; border-radius: 24px;">
       </article>
 
     </section>
@@ -2384,7 +2385,7 @@
 
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="testimonios" class="box fade-up" style="padding: 64px 32px; background: #FBF5EC; border-color: #F2E8D0;">
+    <section id="testimonios" class="box fade-up" style="padding: 64px 32px; background: #EAD5B5; border-color: #D6BD96;">
       <div class="box-label" style="color:var(--gold-deep)">Testimonios</div>
       <h2 class="box-heading" style="margin-bottom: 15px; color: var(--wine-deep); font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic;">Lo que dicen mis chicas sobre sus sesiones</h2>
       <p class="box-body" style="margin-bottom: 40px; max-width: 760px; color: #5C4033; font-size: 1.1rem;">
@@ -2451,7 +2452,7 @@
       color: #FAF4E8;
     ">
       <h2 style="font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #F5C070; line-height: 1.2; margin-bottom: 2rem;">
-        Lo que aprendiste de niña sigue dirigiendo tu vida.
+        Lo que aprendiste de niña sigue dirigiendo tu vida
       </h2>
       <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
         Si llegaste hasta aquí es porque algo en ti te trajo.
