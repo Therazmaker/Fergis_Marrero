@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología · Diosa en guía · Mamá Girasol</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+<style>
+  :root {
+    --cream: #FAF4E8;
+    --parchment: #F2E8D0;
+    --gold: #D4A847;
+    --gold-deep: #A87828;
+    --wine: #7A0000;
+    --ink: #1F0A10;
+    --font-display: 'Carelia W05 Italic', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #FBF5EC;
+    color: #3D2000;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .nav-back {
+    margin-bottom: 2rem;
+  }
+
+  .nav-back a {
+    text-decoration: none;
+    color: var(--gold-deep);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .metodologia-section {
+    padding: 2.5rem;
+    background: #FBF5EC;
+    border-radius: 30px;
+    border: 1px solid #D4A94A55;
+    box-shadow: 0 10px 40px rgba(160, 112, 42, 0.05);
+  }
+
+  .met-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #A0702A;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+    text-align: center;
+    width: 100%;
+  }
+
+  .met-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .met-subtitle {
+    font-size: 16px;
+    color: #6A4A28;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .met-divider {
+    height: 1px;
+    background: #D4A94A55;
+    margin-bottom: 2rem;
+  }
+
+  .met-intro-box {
+    background: #5C3D0A11;
+    border-left: 4px solid #A0702A;
+    border-radius: 0 16px 16px 0;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 15px;
+    color: #4A2800;
+    line-height: 1.75;
+  }
+
+  .met-intro-box strong {
+    color: #7A4A00;
+    font-weight: 600;
+  }
+
+  .met-section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .met-section-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .pilar-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .pilar-num {
+    font-size: 11px;
+    color: #A0702A;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .pilar-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 700;
+    color: #4A2800;
+    margin: 0 0 8px;
+  }
+
+  .pilar-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .arco-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .arco-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .arco-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #A0702A;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .arco-content h4 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3D2000;
+    margin-bottom: 4px;
+  }
+
+  .arco-content p {
+    font-size: 14.5px;
+    color: #6A4A28;
+    line-height: 1.6;
+  }
+
+  .tiempo-box {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .tiempo-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+    margin-bottom: 1.25rem;
+  }
+
+  .tiempo-row:last-child { margin-bottom: 0; }
+
+  .tiempo-val {
+    font-size: 20px;
+    font-weight: 700;
+    color: #A0702A;
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .tiempo-text h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #A0702A;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  .tiempo-text p {
+    font-size: 14px;
+    color: #4A2800;
+    line-height: 1.6;
+  }
+
+  .principios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .principio-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .principio-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3D2000;
+    margin: 0 0 6px;
+  }
+
+  .principio-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .met-cierre {
+    text-align: center;
+    background: #7A2828;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .met-cierre-icon {
+    font-size: 32px;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-cierre-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    color: #FDF4F2;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .met-cierre-text strong {
+    color: #F5C070;
+    font-weight: 700;
+  }
+
+  @media (max-width: 640px) {
+    .pilares-grid, .principios-grid {
+      grid-template-columns: 1fr;
+    }
+    .metodologia-section {
+      padding: 1.5rem;
+    }
+    .met-title {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="nav-back">
+    <a href="index.html">← Volver al inicio</a>
+  </div>
+
+    <div class="metodologia-section">
+    <span class="met-tag">Metodología</span>
+    <h2 class="met-title">Diosa en <em>guía</em></h2>
+    <p class="met-subtitle">Cómo acompaño a cada mujer a través de un mes de sesiones. No es un protocolo — es una forma de estar.</p>
+    <div class="met-divider"></div>
+
+    <div class="met-intro-box">
+      <p style="margin-bottom: 1rem;">Mi acompañamiento parte de una verdad simple:</p>
+      <p style="margin-bottom: 1rem;">Muchas mujeres han pasado años escuchando lo que otros esperan de ellas, pero muy poco tiempo escuchándose a sí mismas.</p>
+      <p style="margin-bottom: 1rem;">Por eso, antes que herramientas, consejos o interpretaciones, ofrezco algo más sencillo y más difícil de encontrar: <strong>presencia.</strong></p>
+      <p style="margin-bottom: 1rem;">Diosa en Guía es un espacio donde puedes explorar lo que estás viviendo sin sentir que tienes que explicarte, justificarte o demostrar nada.</p>
+      <p style="margin-bottom: 1rem;">Mi trabajo no consiste en decirte quién eres. Consiste en ayudarte a comprender los patrones que has aprendido a lo largo de tu vida, reconocer cómo influyen en tu presente y descubrir nuevas formas de relacionarte contigo misma y con los demás.</p>
+      <p>La estructura existe para sostener el proceso, no para encasillarte. Cada mujer tiene su propio ritmo, su propia historia y su propia manera de avanzar.</p>
+    </div>
+
+    <h3 class="met-section-title">Los <em>4 pilares</em> del acompañamiento</h3>
+    <div class="pilares-grid">
+      <div class="pilar-card">
+        <p class="pilar-num">01</p>
+        <h4 class="pilar-title">Presencia antes que soluciones</h4>
+        <p class="pilar-body">No creo que las personas necesiten ser arregladas. Creo que necesitan espacios donde puedan sentirse vistas. La conexión genuina es la base de todo el proceso.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">02</p>
+        <h4 class="pilar-title">Escucha activa y sin juicio</h4>
+        <p class="pilar-body">No escucho para responder. Escucho para comprender. No parto de etiquetas, diagnósticos ni conclusiones apresuradas. Las preguntas que hago buscan ayudarte a mirar más profundo, no a llevarte hacia una respuesta predeterminada.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">03</p>
+        <h4 class="pilar-title">Comprensión de patrones</h4>
+        <p class="pilar-body">Muchas veces el sufrimiento no viene solamente de lo que está ocurriendo hoy. También viene de formas de pensar, sentir y relacionarse que aprendimos hace años y que siguen funcionando en automático. Juntas observamos esos patrones.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">04</p>
+        <h4 class="pilar-title">Claridad para avanzar</h4>
+        <p class="pilar-body">Toda comprensión necesita encontrar un lugar en la vida real. Por eso cada sesión busca dejar algo concreto: una reflexión, una pregunta, una práctica, una decisión. Un paso pequeño que permita continuar el proceso entre encuentros.</p>
+      </div>
+    </div>
+
+    <h3 class="met-section-title">El <em>arco mensual</em> de 4 sesiones</h3>
+    <div class="arco-list">
+      <div class="arco-item">
+        <div class="arco-num">1</div>
+        <div class="arco-content">
+          <h4>Observar</h4>
+          <p>Comenzamos por el presente. ¿Qué está pasando? ¿Qué duele? ¿Qué pesa? ¿Qué te trajo hasta aquí? La prioridad es que te sientas escuchada y comprendida.</p>
+        </div>
+      </div>
+      <div class="arco-item">
+        <div class="arco-num">2</div>
+        <div class="arco-content">
+          <h4>Descubrir</h4>
+          <p>Exploramos lo que hay debajo de la situación. ¿Qué patrón aparece? ¿Qué necesidad está intentando ser atendida? ¿Qué dinámica parece repetirse? Aquí comenzamos a conectar puntos.</p>
+        </div>
+      </div>
+      <div class="arco-item">
+        <div class="arco-num">3</div>
+        <div class="arco-content">
+          <h4>Comprender e integrar</h4>
+          <p>Profundizamos en los aprendizajes que sostienen esos patrones. No para buscar culpables ni quedar atrapadas en el pasado, sino para entender cómo han influido en tu manera de relacionarte.</p>
+        </div>
+      </div>
+      <div class="arco-item">
+        <div class="arco-num">4</div>
+        <div class="arco-content">
+          <h4>Sembrar</h4>
+          <p>Cerramos el ciclo integrando lo descubierto. ¿Qué te llevas? ¿Qué cambió? ¿Qué quieres seguir construyendo? No es un final. Es el inicio de una nueva forma de relacionarte contigo misma.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="met-section-title">Dentro de cada sesión (<em>45 min</em>)</h3>
+    <div class="tiempo-box">
+      <div class="tiempo-row">
+        <span class="tiempo-val">5'</span>
+        <div class="tiempo-text">
+          <h4>Llegar</h4>
+          <p>Un espacio para aterrizar y conectar con el presente.</p>
+        </div>
+      </div>
+      <div class="tiempo-row">
+        <span class="tiempo-val">30'</span>
+        <div class="tiempo-text">
+          <h4>Explorar</h4>
+          <p>Escucha, reflexión, observación de patrones y comprensión emocional. La sesión sigue lo que necesites traer ese día.</p>
+        </div>
+      </div>
+      <div class="tiempo-row">
+        <span class="tiempo-val">10'</span>
+        <div class="tiempo-text">
+          <h4>Integrar</h4>
+          <p>Identificamos los principales hallazgos de la sesión y definimos una reflexión, práctica o acción para acompañarte hasta el próximo encuentro.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="met-section-title"><em>Herramientas</em> de acompañamiento</h3>
+    <div class="principios-grid" style="margin-bottom: 2.5rem;">
+      <div class="principio-card">
+        <h4 class="principio-title">Formulario de Exploración Personal</h4>
+        <p class="principio-body">Me permite comprender mejor tu contexto y tu momento actual antes de comenzar.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Acompañamiento entre sesiones</h4>
+        <p class="principio-body">No tienes que sostener sola todo lo que emerge durante el proceso.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Ejercicios y prácticas personalizadas</h4>
+        <p class="principio-body">Propuestas adaptadas a tus necesidades y objetivos.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Recursos personalizados</h4>
+        <p class="principio-body">Guías, ejercicios, materiales visuales, reflexiones o herramientas creadas específicamente para apoyar tu proceso.</p>
+      </div>
+    </div>
+
+    <h3 class="met-section-title">Mis <em>principios</em> de acompañamiento</h3>
+    <div class="principios-grid">
+      <div class="principio-card">
+        <h4 class="principio-title">Tú eres la experta en tu vida</h4>
+        <p class="principio-body">No vengo a decirte quién eres. Vengo a ayudarte a escucharte mejor.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Sin juicio, siempre</h4>
+        <p class="principio-body">Tus emociones, decisiones, contradicciones y errores son bienvenidos en este espacio.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Confidencialidad absoluta</h4>
+        <p class="principio-body">Todo lo compartido durante el proceso permanece dentro de él.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Acompañamiento, no terapia</h4>
+        <p class="principio-body">Mi trabajo no sustituye la atención profesional. Cuando considero que alguien podría beneficiarse de apoyo especializado, lo recomiendo con cuidado.</p>
+      </div>
+    </div>
+
+    <div class="met-cierre">
+      <span class="met-cierre-icon">🌻</span>
+      <p class="met-cierre-text">Esta metodología no busca cambiar quién eres.<br>Busca ayudarte a comprender qué aprendiste, qué sigues cargando y qué deseas conservar o transformar a partir de hoy.<br><br><strong>Porque ninguna mujer debería tener que atravesar sus procesos sola.</strong></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

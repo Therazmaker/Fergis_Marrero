@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología · Guías Personalizadas · Mamá Girasol</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+<style>
+  :root {
+    --cream: #FAF4E8;
+    --parchment: #F2E8D0;
+    --gold: #D4A847;
+    --gold-deep: #A87828;
+    --wine: #7A0000;
+    --ink: #1F0A10;
+    --font-display: 'Carelia W05 Italic', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #FBF5EC;
+    color: #3D2000;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .nav-back {
+    margin-bottom: 2rem;
+  }
+
+  .nav-back a {
+    text-decoration: none;
+    color: var(--gold-deep);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .metodologia-section {
+    padding: 2.5rem;
+    background: #FBF5EC;
+    border-radius: 30px;
+    border: 1px solid #D4A94A55;
+    box-shadow: 0 10px 40px rgba(160, 112, 42, 0.05);
+  }
+
+  .met-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #A0702A;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+  }
+
+  .met-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .met-subtitle {
+    font-size: 16px;
+    color: #6A4A28;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .met-divider {
+    height: 1px;
+    background: #D4A94A55;
+    margin-bottom: 2rem;
+  }
+
+  .met-intro-box {
+    background: #5C3D0A11;
+    border-left: 4px solid #A0702A;
+    border-radius: 0 16px 16px 0;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 15px;
+    color: #4A2800;
+    line-height: 1.75;
+  }
+
+  .met-intro-box p {
+    margin-bottom: 12px;
+  }
+  .met-intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .met-intro-box strong {
+    color: #7A4A00;
+    font-weight: 600;
+  }
+
+  .met-section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .met-section-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .pilar-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+    transition: transform 0.2s;
+  }
+
+  .pilar-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .pilar-num {
+    font-size: 11px;
+    color: #A0702A;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .pilar-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 700;
+    color: #4A2800;
+    margin: 0 0 8px;
+  }
+
+  .pilar-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .pilar-list {
+    list-style: none;
+    margin: 8px 0;
+    padding: 0;
+  }
+  .pilar-list li {
+    font-size: 14px;
+    color: #6A4A28;
+    margin-bottom: 4px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .pilar-list li::before {
+    content: "🌻";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 12px;
+  }
+
+  .principios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .principio-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .principio-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3D2000;
+    margin: 0 0 6px;
+  }
+
+  .principio-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .met-cierre {
+    text-align: center;
+    background: #2D5A47;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .met-cierre-icon {
+    font-size: 32px;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-cierre-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    color: #FDF4F2;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .met-cierre-text strong {
+    color: #F5C070;
+    font-weight: 700;
+  }
+
+  @media (max-width: 640px) {
+    .pilares-grid, .principios-grid {
+      grid-template-columns: 1fr;
+    }
+    .metodologia-section {
+      padding: 1.5rem;
+    }
+    .met-title {
+      font-size: 2.2rem;
+    }
+    .pilar-card.full-width {
+      grid-column: auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="nav-back">
+    <a href="index.html">← Volver al inicio</a>
+  </div>
+
+  <div class="metodologia-section">
+    <span class="met-tag">Metodología</span>
+    <h2 class="met-title">Guías <em>Personalizadas</em></h2>
+    <p class="met-subtitle">Comprender tu historia para transformar tu presente</p>
+    <div class="met-divider"></div>
+
+    <div class="met-intro-box">
+      <p>Las Guías Personalizadas Mamá Girasol son una experiencia de autoconocimiento diseñada para ayudarte a comprender los patrones emocionales que influyen en tu vida actual y la forma en que te relacionas contigo misma y con los demás.</p>
+      <p>No buscan etiquetarte.<br>No buscan diagnosticarte.<br><strong>Buscan ayudarte a entender tu historia con mayor claridad y compasión.</strong></p>
+    </div>
+
+    <h3 class="met-section-title">El <em>proceso</em> de creación paso a paso</h3>
+    <div class="pilares-grid">
+      <div class="pilar-card">
+        <p class="pilar-num">01</p>
+        <h4 class="pilar-title">Exploración</h4>
+        <p class="pilar-body">Todo comienza con un Formulario de Exploración Personal. A través de tus respuestas, compartes tu situación actual, los desafíos que enfrentas, los patrones que observas en tu vida y aquellos aspectos de tu historia que consideras importantes.</p>
+        <p class="pilar-body" style="margin-top:8px;">También puedes complementar la información mediante un audio personal.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">02</p>
+        <h4 class="pilar-title">Observación de patrones</h4>
+        <p class="pilar-body">Analizo cuidadosamente toda la información para identificar:</p>
+        <ul class="pilar-list">
+          <li>Patrones emocionales repetitivos</li>
+          <li>Creencias aprendidas sobre ti misma</li>
+          <li>Formas de adaptación desarrolladas a lo largo de tu vida</li>
+          <li>Necesidades emocionales que podrían estar buscando atención</li>
+          <li>Recursos y fortalezas presentes en tu historia</li>
+        </ul>
+        <p class="pilar-body" style="margin-top:8px;">El objetivo no es encontrar qué está "mal". Es comprender qué aprendiste y cómo eso sigue influyendo en tu presente.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">03</p>
+        <h4 class="pilar-title">Construcción de tu guía</h4>
+        <p class="pilar-body">A partir de este análisis elaboro una guía completamente personalizada en formato HTML. Cada guía es única y se construye alrededor de tu historia, tus experiencias y el momento que estás atravesando.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">04</p>
+        <h4 class="pilar-title">Claridad e integración</h4>
+        <p class="pilar-body">Tu guía puede incluir:</p>
+        <ul class="pilar-list" style="margin-bottom:0;">
+          <li>Lo que observo en tu historia</li>
+          <li>Patrones que podrían estar influyendo en tu presente</li>
+          <li>Aprendizajes que marcaron tu forma de relacionarte contigo misma y con los demás</li>
+          <li>Reflexiones personalizadas</li>
+          <li>Ejercicios de autoconocimiento</li>
+          <li>Herramientas prácticas para la vida cotidiana</li>
+          <li>Preguntas para profundizar tu proceso</li>
+          <li>Propuestas de integración y crecimiento personal</li>
+        </ul>
+      </div>
+      <div class="pilar-card full-width">
+        <p class="pilar-num">05</p>
+        <h4 class="pilar-title">Un recurso al que puedes volver</h4>
+        <p class="pilar-body">La guía está diseñada para acompañarte más allá de una sola lectura. Puedes volver a ella cada vez que necesites recordar lo que has descubierto sobre ti misma, observar tus avances o reencontrarte con aquello que hoy necesita atención.</p>
+      </div>
+    </div>
+
+    <h3 class="met-section-title">Mis <em>principios</em></h3>
+    <div class="principios-grid">
+      <div class="principio-card">
+        <h4 class="principio-title">Sin etiquetas</h4>
+        <p class="principio-body">No reduzco tu historia a una categoría, una herida o un diagnóstico.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Sin juicio</h4>
+        <p class="principio-body">Tu historia merece comprensión antes que crítica.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Tu historia tiene sentido</h4>
+        <p class="principio-body">Incluso aquello que hoy te limita probablemente surgió intentando protegerte en algún momento.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Tú sigues teniendo la última palabra</h4>
+        <p class="principio-body">Las reflexiones contenidas en la guía no buscan definir quién eres, sino ofrecer nuevas perspectivas para que puedas comprenderte mejor.</p>
+      </div>
+    </div>
+
+    <div class="met-cierre">
+      <span class="met-cierre-icon">🌻</span>
+      <p class="met-cierre-text">Porque muchas veces el cambio comienza cuando dejamos de preguntarnos qué nos pasa y empezamos a preguntarnos <strong>qué aprendimos.</strong></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
