@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entre Diosas – Mis Girasoles 🌻</title>
+<style>
+@font-face {
+  font-family: 'Carelia';
+  src: url('Carelia-Italic.ttf') format('truetype');
+  
+}
+@font-face {
+  font-family: 'DMSans';
+  src: url('DMSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+:root {
+  --gold: #C9963A;
+  --deep: #1A1007;
+  --cream: #FAF3E0;
+  --warm: #F5E6C8;
+  --amber: #E8A830;
+  --green: #4A6741;
+  --rust: #C05A2A;
+  --text: #2D1E0A;
+  --muted: #7A6045;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'DMSans', Georgia, serif;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 80%, rgba(201,150,58,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(74,103,65,0.12) 0%, transparent 60%);
+}
+
+.sunflower-deco {
+  position: absolute;
+  font-style: normal;
+  opacity: 0.07;
+  animation: floatSun 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.s1 { top: 5%; left: 5%; font-size: 7rem; animation-delay: 0s; }
+.s2 { top: 15%; right: 8%; font-size: 4rem; animation-delay: 1.5s; }
+.s3 { bottom: 10%; left: 12%; font-size: 6rem; animation-delay: 3s; }
+.s4 { bottom: 20%; right: 5%; font-size: 5rem; animation-delay: 0.8s; }
+.s5 { top: 50%; left: 2%; font-size: 3rem; animation-delay: 2s; }
+.s6 { top: 40%; right: 2%; font-size: 3.5rem; animation-delay: 4s; }
+
+@keyframes floatSun {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(5deg); }
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+  position: relative;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero h1 {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  color: var(--warm);
+  line-height: 1.05;
+  position: relative;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero h1 span { color: var(--amber); }
+
+.hero-subtitle {
+  margin-top: 28px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #C4A96E;
+  max-width: 560px;
+  line-height: 1.7;
+  position: relative;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.hero-line {
+  width: 60px;
+  height: 2px;
+  background: var(--amber);
+  margin: 36px auto 0;
+  animation: fadeUp 0.8s 0.6s ease both;
+  position: relative;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* INTRO */
+.section-intro {
+  background: var(--warm);
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+}
+.section-intro::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.lead {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--rust);
+  max-width: 700px;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+}
+.lead-body {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* SECTIONS */
+.section { padding: 80px 24px; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-label-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+.section-label-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.section-title {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.section-title .emoji { font-style: normal; }
+.section-desc {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 56px;
+  line-height: 1.75;
+}
+
+/* CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 36px 28px;
+  border: 1.5px solid rgba(201,150,58,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--card-accent, var(--gold));
+}
+.card-emoji { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+.card-title {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: 1.35rem;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.card-origin {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--card-accent, var(--gold));
+  margin-bottom: 14px;
+}
+.card-body { font-size: 0.95rem; line-height: 1.75; color: var(--muted); }
+.card-body strong { color: var(--text); font-weight: 600; }
+
+.card-gold { --card-accent: #C9963A; }
+.card-green { --card-accent: #4A6741; }
+.card-rust  { --card-accent: #C05A2A; }
+.card-teal  { --card-accent: #3A7F7A; }
+.card-plum  { --card-accent: #7A4A7A; }
+.card-navy  { --card-accent: #2A4A7A; }
+
+/* DARK SECTION */
+.section-dark { background: var(--deep); padding: 80px 24px; }
+.section-dark .section-title { color: var(--warm); }
+.section-dark .section-desc  { color: #C4A96E; }
+
+.steps-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.step { display: flex; gap: 24px; align-items: flex-start; }
+.step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(201,150,58,0.15);
+  border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: 1.3rem;
+  color: var(--amber);
+  flex-shrink: 0;
+}
+.step-content h3 {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: 1.25rem;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.step-content p { font-size: 0.97rem; line-height: 1.75; color: #C4A96E; }
+
+/* QUOTE */
+.quote-section {
+  background: var(--green);
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.quote-section::before,
+.quote-section::after {
+  content: '🌻';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.08;
+}
+.quote-section::before { top: -20px; left: -20px; }
+.quote-section::after  { bottom: -20px; right: -20px; }
+
+blockquote {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  color: var(--cream);
+  max-width: 760px;
+  margin: 0 auto 24px;
+  line-height: 1.45;
+}
+.quote-attr {
+  font-size: 0.9rem;
+  color: rgba(250,243,224,0.6);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* REFLECTION */
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.reflection-card {
+  background: var(--warm);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(201,150,58,0.2);
+  transition: background 0.3s;
+}
+.reflection-card:hover { background: #EDD9A3; }
+.reflection-emoji { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+.reflection-q {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer { background: var(--deep); padding: 60px 24px 40px; text-align: center; }
+.footer-logo {
+  font-family: 'Carelia', Georgia, serif;
+  
+  font-size: 2.2rem;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.footer-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.footer-suns { font-size: 1.8rem; letter-spacing: 8px; opacity: 0.4; }
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.divider { text-align: center; padding: 20px; font-size: 1.4rem; letter-spacing: 12px; opacity: 0.3; color: var(--gold); }
+
+@media (max-width: 600px) {
+  .step { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <span class="sunflower-deco s1">🌻</span>
+  <span class="sunflower-deco s2">🌻</span>
+  <span class="sunflower-deco s3">🌻</span>
+  <span class="sunflower-deco s4">🌻</span>
+  <span class="sunflower-deco s5">🌻</span>
+  <span class="sunflower-deco s6">🌻</span>
+  <p class="hero-eyebrow">✨ Entre Diosas · Mis Girasoles ✨</p>
+  <h1>Los patrones que<br><span>aprendimos</span><br>en casa</h1>
+  <p class="hero-subtitle">Todo lo que vimos, escuchamos y absorbimos de mamá y papá se convirtió en el mapa invisible con el que navegamos la vida adulta. 🗺️</p>
+  <div class="hero-line"></div>
+</section>
+
+<section class="section-intro">
+  <p class="lead reveal">"Antes de ser quien eres hoy, fuiste la niña que observaba todo… y aprendía." 🌱</p>
+  <p class="lead-body reveal">Nuestro cerebro infantil es una esponja. No aprendimos solo con palabras — aprendimos con lo que <em>vimos hacer</em>, con lo que <em>sentimos en el cuerpo</em>, y con los silencios que nadie explicó. Esos aprendizajes se convirtieron en patrones que hoy se activan automáticamente: en el amor, el trabajo, la amistad, y cómo nos tratamos a nosotras mismas.</p>
+</section>
+
+<section class="section" style="background: var(--cream);">
+  <div class="section-label reveal">
+    <div class="section-label-line"></div>
+    <span class="section-label-text">Patrones frecuentes</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title reveal"><span class="emoji">🔁</span> Los patrones que llevamos con nosotras</h2>
+  <p class="section-desc reveal">Estos son algunos de los patrones más comunes que se forman en la infancia y que afloran con fuerza en la adultez.</p>
+  <div class="cards-grid">
+    <div class="card card-gold reveal">
+      <span class="card-emoji">😶</span>
+      <div class="card-origin">🏠 Se aprende cuando los adultos ignoran tus emociones</div>
+      <h3 class="card-title">Dificultad para expresar lo que siento</h3>
+      <p class="card-body">Si de pequeña escuchaste <strong>"no llores por eso"</strong> o notaste que mostrar emociones traía consecuencias negativas, es probable que de adulta te cueste nombrar lo que sientes, o que lo minimices. A veces esto se ve como <strong>"ser fuerte"</strong>, pero por dentro hay mucho sin decir.</p>
+    </div>
+    <div class="card card-rust reveal">
+      <span class="card-emoji">🫶</span>
+      <div class="card-origin">🏠 Se aprende cuando el amor estuvo condicionado al rendimiento</div>
+      <h3 class="card-title">Necesito ser perfecta para merecer amor</h3>
+      <p class="card-body">Cuando el afecto llegaba solo con buenas notas o buen comportamiento, la niña aprende que <strong>el amor hay que ganárselo</strong>. De adulta, esto puede traducirse en autoexigencia extrema, miedo al fracaso, o la sensación de que si "bajas la guardia", te dejarán de querer.</p>
+    </div>
+    <div class="card card-green reveal">
+      <span class="card-emoji">🫥</span>
+      <div class="card-origin">🏠 Se aprende cuando tus necesidades eran invisibles o molestas</div>
+      <h3 class="card-title">Me cuesta poner límites y pedir ayuda</h3>
+      <p class="card-body">Si tus necesidades interrumpían a los adultos o "eran demasiado", aprendes que <strong>necesitar es una carga</strong>. De adulta, puedes volverte hiperindependiente, no pedir ayuda aunque la necesites, y sentir culpa cada vez que dices que no.</p>
+    </div>
+    <div class="card card-teal reveal">
+      <span class="card-emoji">😰</span>
+      <div class="card-origin">🏠 Se aprende cuando el ambiente en casa era impredecible</div>
+      <h3 class="card-title">Estoy siempre en alerta</h3>
+      <p class="card-body">Crecer en un hogar con discusiones frecuentes o inestabilidad emocional entrena al sistema nervioso para estar <strong>siempre "en guardia"</strong>. De adulta, puedes ser hipervigilante, leer el estado de ánimo de todos antes de entrar a una habitación, o sentirte intranquila incluso cuando todo está bien.</p>
+    </div>
+    <div class="card card-plum reveal">
+      <span class="card-emoji">🫂</span>
+      <div class="card-origin">🏠 Se aprende cuando observaste cómo se relacionaban mamá y papá</div>
+      <h3 class="card-title">Mis modelos de amor y relaciones</h3>
+      <p class="card-body">La primera relación afectiva que observamos fue la de nuestros cuidadores. <strong>Su forma de amarse, pelear, callarse o respetarse</strong> se grabó como "así es el amor". De adultas, tendemos a reproducir esos patrones… o a huir de ellos. Pero igual bailamos con esa música.</p>
+    </div>
+    <div class="card card-navy reveal">
+      <span class="card-emoji">🌪️</span>
+      <div class="card-origin">🏠 Se aprende cuando tuviste que cuidar emocionalmente a los adultos</div>
+      <h3 class="card-title">Cuidar de todos antes que de mí</h3>
+      <p class="card-body">Algunas niñas aprenden muy temprano a <strong>regular las emociones de mamá o papá</strong>. De adulta, esto se vuelve un patrón de hipercuidado hacia los demás, con muy poca energía o permiso para cuidarse a una misma.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">🌻 🌻 🌻</div>
+
+<section class="section" style="background: var(--warm);">
+  <div class="section-label reveal">
+    <div class="section-label-line"></div>
+    <span class="section-label-text">Cómo los vemos en acción</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title reveal"><span class="emoji">🪞</span> ¿Dónde aparecen estos patrones?</h2>
+  <p class="section-desc reveal">Los patrones no se quedan en el pasado. Se cuelan en nuestra vida cotidiana de formas muy concretas.</p>
+  <div class="cards-grid">
+    <div class="card card-gold reveal">
+      <span class="card-emoji">💑</span>
+      <h3 class="card-title">En el amor y las relaciones</h3>
+      <p class="card-body">Elegir parejas que repiten dinámicas familiares. Confundir intensidad con amor. Tener miedo al abandono. Ceder siempre para no perder a alguien. Desconfiar cuando todo va bien.</p>
+    </div>
+    <div class="card card-green reveal">
+      <span class="card-emoji">💼</span>
+      <h3 class="card-title">En el trabajo y los logros</h3>
+      <p class="card-body">Trabajar en exceso para sentirse valiosa. Síndrome de la impostora. Dificultad para recibir reconocimiento. Sabotearse justo cuando algo va bien. Necesitar aprobación constante.</p>
+    </div>
+    <div class="card card-rust reveal">
+      <span class="card-emoji">💬</span>
+      <h3 class="card-title">En la comunicación</h3>
+      <p class="card-body">Dificultad para decir "no". Pedir perdón por existir. Guardarse opiniones para evitar conflictos. Explotar de forma desproporcionada porque nunca se dijo nada a tiempo.</p>
+    </div>
+    <div class="card card-teal reveal">
+      <span class="card-emoji">🫀</span>
+      <h3 class="card-title">En la relación con una misma</h3>
+      <p class="card-body">Hablarme con dureza ("soy un desastre"). Sentir que no soy suficiente. Descuidar el cuerpo. Posponer el autocuidado. Sentir culpa cuando disfruto o descanso.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <blockquote class="reveal">"No eres lo que te pasó. Eres lo que decides hacer con lo que te pasó."</blockquote>
+  <p class="quote-attr reveal">— Reflexión para Mis Girasoles 🌻</p>
+</section>
+
+<section class="section-dark">
+  <div class="section-label" style="max-width:720px; margin:0 auto 48px;">
+    <div class="section-label-line" style="background:var(--gold);"></div>
+    <span class="section-label-text" style="color:var(--gold);">El camino hacia adelante</span>
+    <div class="section-label-line" style="background:var(--gold);"></div>
+  </div>
+  <h2 class="section-title reveal">🌱 ¿Qué podemos hacer con esto?</h2>
+  <p class="section-desc reveal">Reconocer un patrón no significa culpar a nadie. Significa <strong style="color:var(--amber)">darte el poder de elegir diferente</strong>.</p>
+  <div class="steps-list">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>🔍 Nombrar sin juzgar</h3>
+        <p>El primer paso es ver el patrón con curiosidad, no con vergüenza. "Ah, esto lo aprendí allá. Tiene sentido que lo haya desarrollado." La comprensión abre una puerta que la autocrítica cierra.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>🧘‍♀️ Hacer pausa antes de reaccionar</h3>
+        <p>Los patrones viven en el cuerpo y se activan rápido. Aprender a hacer una pausa — respirar, sentir qué está pasando — crea un espacio entre el estímulo y la respuesta. Ahí vive la libertad.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>💛 Darle a la niña interior lo que necesitó</h3>
+        <p>Muchos patrones son formas de protección que la niña creó para sobrevivir. Hoy puedes hablarle con ternura: "Ya estás a salvo. Yo te cuido." Esa re-parentalización transforma desde adentro.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>🌻 Buscar apoyo y comunidad</h3>
+        <p>Sanar no es un deporte individual. Una terapeuta, un grupo de confianza, estas conversaciones entre diosas… todo suma. Nos vemos, nos reconocemos, y juntas recordamos quiénes somos.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>🔄 Celebrar cada pequeño cambio</h3>
+        <p>Reescribir patrones de años toma tiempo. Cada vez que eliges diferente — que dices no, que te permites descansar, que pides ayuda — es un acto de valentía enorme. Celébralo. En serio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--cream);">
+  <div class="section-label reveal">
+    <div class="section-label-line"></div>
+    <span class="section-label-text">Para llevar al corazón</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title reveal"><span class="emoji">✍️</span> Preguntas para reflexionar</h2>
+  <p class="section-desc reveal">Puedes llevar estas preguntas a tu diario, a la conversación en grupo, o simplemente dejarlas reposar. No hay respuestas correctas.</p>
+  <div class="reflection-grid">
+    <div class="reflection-card reveal">
+      <span class="reflection-emoji">🪻</span>
+      <p class="reflection-q">¿Qué mensaje recibí de pequeña sobre lo que valía mi opinión?</p>
+    </div>
+    <div class="reflection-card reveal">
+      <span class="reflection-emoji">💛</span>
+      <p class="reflection-q">¿Cómo expresaban el amor las personas que me criaron? ¿Me llegaba?</p>
+    </div>
+    <div class="reflection-card reveal">
+      <span class="reflection-emoji">🌊</span>
+      <p class="reflection-q">¿Qué emociones "no se podían sentir" en mi casa? ¿Las sigo reprimiendo?</p>
+    </div>
+    <div class="reflection-card reveal">
+      <span class="reflection-emoji">🌱</span>
+      <p class="reflection-q">¿Qué patrón en mí quisiera sanar o transformar con más amor?</p>
+    </div>
+    <div class="reflection-card reveal">
+      <span class="reflection-emoji">🌻</span>
+      <p class="reflection-q">¿Qué cosa hermosa también aprendí en casa y quiero seguir llevando?</p>
+    </div>
+    <div class="reflection-card reveal">
+      <span class="reflection-emoji">🕊️</span>
+      <p class="reflection-q">¿Qué le diría hoy a la niña que fui, con toda la ternura que merezco?</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-logo">Entre Diosas</p>
+  <p class="footer-sub">Mis Girasoles 🌻 · Creciendo juntas</p>
+  <p class="footer-suns">🌻 🌻 🌻 🌻 🌻</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      const siblings = el.target.parentElement.querySelectorAll('.reveal:not(.visible)');
+      siblings.forEach((s, i) => { s.style.transitionDelay = (i * 0.08) + 's'; });
+      el.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
