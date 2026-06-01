@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acompañamiento emocional | Fergis Marrero</title>
+  <meta
+    name="description"
+    content="Un espacio cálido y seguro para ser escuchada. Fergis te acompaña en lo que estás viviendo, sin juicios, con presencia real."
+  />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --card: #fff8e8;
+      --card-2: #fff4d3;
+      --accent: #f2be42;
+      --accent-soft: #ffe6a7;
+      --ink: #4b3b22;
+      --ink-soft: #826c45;
+      --line: #f3d996;
+      --ok: #2d9a67;
+      --warn: #bd6e2c;
+      --danger: #b84343;
+      --shadow: 0 12px 30px rgba(163, 126, 61, 0.13);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top right, #fff4cf 0%, #fffef9 40%, #fffdf8 100%);
+      line-height: 1.6;
+      padding: 28px 16px 48px;
+    }
+
+    .page {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 4vw, 32px);
+    }
+
+    .hero {
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(135deg, #fff8e8 0%, #fff2c8 100%);
+    }
+
+    .kicker {
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      line-height: 1.2;
+      color: #5a4321;
+      font-weight: 500;
+    }
+
+    .title-accent {
+      font-family: "Carelia W05 Italic", Georgia, serif;
+      font-style: italic;
+      font-weight: 900;
+    }
+
+    p {
+      color: var(--ink-soft);
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.14s ease, filter 0.14s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.98);
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      transform: none;
+      opacity: 0.65;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #ffc53d 0%, #f6b938 100%);
+      color: #4f3600;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #6a522e;
+    }
+
+    .status {
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .status.show { display: block; }
+    .status.ok { color: #1f724b; background: #e9fff4; border: 1px solid #bfeeda; }
+    .status.warn { color: #8a4a14; background: #fff5e9; border: 1px solid #ffd4a8; }
+    .status.error { color: #8d2626; background: #ffefef; border: 1px solid #f7b2b2; }
+
+    .hidden { display: none !important; }
+
+    .user-box {
+      display: grid;
+      gap: 18px;
+    }
+
+    .counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fffef7;
+      border: 1px dashed #efcc79;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      color: #7b5a1d;
+      width: fit-content;
+    }
+
+    .ask-wrap {
+      display: grid;
+      gap: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 135px;
+      resize: vertical;
+      border-radius: var(--radius-md);
+      border: 1px solid #f0d696;
+      background: #fffdf6;
+      padding: 14px;
+      font: inherit;
+      color: var(--ink);
+    }
+
+    textarea:focus,
+    input:focus {
+      outline: 2px solid #ffd470;
+      border-color: #ffd470;
+    }
+
+    .result {
+      background: #fffdf7;
+      border: 1px solid #f2d998;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      color: #614b2a;
+      display: none;
+    }
+
+    .result.show {
+      display: block;
+      animation: fadeIn 420ms ease;
+    }
+
+    .loading {
+      display: none;
+      color: #76531f;
+      font-weight: 600;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .loading.show {
+      display: inline-flex;
+    }
+
+    .dots span {
+      animation: blink 1s infinite;
+      opacity: 0.2;
+      margin-right: 2px;
+    }
+
+    .dots span:nth-child(2) { animation-delay: 0.2s; }
+    .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0.2; }
+      40% { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tarot-card-item {
+      background: linear-gradient(160deg, #fffbe8 0%, #fff4cc 100%);
+      border: 1px solid #edc96a;
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      animation: fadeIn 500ms ease;
+    }
+
+    .tarot-card-item .card-emoji {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .tarot-card-item .card-position {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a07830;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .tarot-card-item .card-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #5a3d10;
+      line-height: 1.3;
+    }
+
+    .tarot-card-item .card-suit {
+      font-size: 0.75rem;
+      color: #9b7535;
+      margin-top: 3px;
+    }
+
+    .animation-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .animation-overlay.show {
+      display: flex;
+      animation: fadeIn 400ms ease;
+    }
+
+    .animation-overlay img {
+      width: min(480px, 90vw);
+      border-radius: 20px;
+    }
+
+    .history-grid {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .history-item {
+      border: 1px solid #f3dc9f;
+      border-radius: var(--radius-sm);
+      background: #fffef8;
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .history-item h4 {
+      font-size: 0.95rem;
+      color: #71521e;
+    }
+
+    .history-item p {
+      font-size: 0.94rem;
+      color: #6b5531;
+    }
+
+    .feedback-card {
+      margin-top: 8px;
+      border: 1px solid #f0d696;
+      border-radius: 14px;
+      background: #fff9ea;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .feedback-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #6f5428;
+    }
+
+    .feedback-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feedback-option {
+      border: 1px solid #efd39a;
+      background: #fffef8;
+      color: #6b5531;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .feedback-option:hover {
+      transform: translateY(-1px);
+      border-color: #e4bb5b;
+    }
+
+    .feedback-option.active {
+      border-color: #e0ad36;
+      background: linear-gradient(90deg, #ffe9b4 0%, #ffeec5 100%);
+      color: #5e4319;
+      box-shadow: 0 0 0 2px #ffefc8;
+      transform: scale(1.03);
+    }
+
+    .feedback-comment {
+      min-height: 84px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      background: #fffef8;
+    }
+
+    .feedback-send {
+      width: fit-content;
+      min-width: 190px;
+    }
+
+    .history-meta {
+      font-size: 0.8rem;
+      color: #9b835b;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(80, 56, 16, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 220ms ease, visibility 220ms ease;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal {
+      width: min(460px, 100%);
+      max-height: calc(100dvh - 32px);
+      background: #fffdf7;
+      border: 1px solid #f3dba4;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      overflow-y: auto;
+      transform: translateY(12px) scale(0.98);
+      opacity: 0;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .overlay.show .modal {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .modal h3 { color: #62461f; }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      font-weight: 600;
+      color: #7e6130;
+      font-size: 0.92rem;
+    }
+
+    .field input {
+      width: 100%;
+      border: 1px solid #efd39a;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      font: inherit;
+      color: #5e4423;
+    }
+
+    .password-input-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .password-toggle-btn {
+      border: 1px solid #efd39a;
+      border-radius: 10px;
+      background: #fff9ea;
+      color: #6f5530;
+      min-width: 42px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .helper {
+      font-size: 0.85rem;
+      color: #8d744f;
+    }
+
+    .terms-content {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #6a522f;
+      line-height: 1.55;
+      max-height: 240px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .top-actions {
+      margin-left: auto;
+    }
+
+    .buy-more-cta {
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px dashed #efcc79;
+      border-radius: 14px;
+      background: #fffdf4;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .buy-more-cta p {
+      color: #6f5630;
+      font-size: 0.93rem;
+    }
+
+    .package-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .package-card {
+      border: 1px solid #edd196;
+      border-radius: 14px;
+      padding: 12px;
+      background: #fffef8;
+      display: grid;
+      gap: 6px;
+    }
+
+    .package-card.active {
+      border-color: #e7b749;
+      box-shadow: 0 0 0 2px #ffe7aa;
+      background: #fff9e8;
+    }
+
+    .package-card h4 {
+      color: #5f4318;
+      font-size: 0.98rem;
+    }
+
+    .package-card p {
+      font-size: 0.86rem;
+      color: #7f6540;
+    }
+
+    .package-meta {
+      font-weight: 700;
+      color: #674714;
+      font-size: 0.92rem;
+    }
+
+    .pay-wrap {
+      margin-top: 8px;
+      border: 1px solid #ecd39a;
+      border-radius: 14px;
+      background: #fffef8;
+      padding: 12px;
+    }
+
+    .pay-wrap p {
+      color: #6b532f;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .btn-danger {
+      background: linear-gradient(90deg, #d65b5b 0%, #b84343 100%);
+      color: #fff8f8;
+      box-shadow: 0 8px 20px rgba(184, 67, 67, 0.22);
+    }
+
+    .account-delete-wrap {
+      margin-top: 8px;
+      border-top: 1px dashed #efcf98;
+      padding-top: 14px;
+    }
+
+    .danger-note {
+      font-size: 0.84rem;
+      color: #94674f;
+      margin-top: 8px;
+    }
+
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #efd39a;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      font: inherit;
+      color: #5e4423;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXNGBZK96C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VXNGBZK96C');
+  </script>
+
+</head>
+<body>
+  <main class="page">
+    <section class="card hero">
+      <span class="kicker">🌻 Espacio de acompañamiento</span>
+      <h1>Cuéntame, <span class="title-accent">estoy aquí para ti</span></h1>
+      <p>
+        Este es un espacio tuyo. Respira, escribe lo que estás viviendo y te acompaño desde el corazón. 💛
+      </p>
+      <div class="row top-actions hidden" id="logoutWrap">
+        <button class="btn btn-secondary" id="logoutBtn">👉 Cerrar sesión 🌻</button>
+      </div>
+    </section>
+
+    <section class="card" id="guestSection">
+      <h2>👋 Bienvenida, hermana girasol</h2>
+      <div style="margin-top: 10px; display: grid; gap: 8px;">
+        <p style="margin: 0;">Crea tu cuenta y tendrás un espacio seguro donde ser escuchada, acompañada y vista. Si ya tienes cuenta, entra y cuéntame lo que estás viviendo.</p>
+        <p style="margin: 0;"><strong>Si ya usaste tus 3 conversaciones gratuitas, puedes adquirir más por un precio asequible.</strong></p>
+        <p style="margin: 0;"><em>Tus 3 conversaciones gratis se renuevan cada mes.</em></p>
+      </div>
+      <div class="row" style="margin-top: 14px;">
+        <button class="btn btn-primary" id="openRegisterBtn">👉 Crear cuenta 🌻</button>
+        <button class="btn btn-secondary" id="openLoginBtn">👉 Ya tengo cuenta 🌻</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="userSection">
+      <div class="user-box">
+        <div>
+          <h2 id="greeting">Hola, 🌻</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
+            <div class="counter" id="creditsCounter">🌻 Básicas: --</div>
+            <div class="counter" style="border-color:#c9a0dc;color:#6b3fa0;" id="premiumCounter">✨ Premium: --</div>
+          </div>
+        </div>
+
+        <div id="askContainer" class="ask-wrap hidden">
+          <label for="questionInput"><strong>¿Qué estás viviendo hoy? ✨</strong></label>
+          <textarea id="questionInput" placeholder="Cuéntame con confianza, estoy aquí para ti..."></textarea>
+          <div class="row">
+            <button class="btn btn-secondary" id="askBasicBtn">🌻 Contarle a Fergis</button>
+            <button class="btn btn-primary" id="askPremiumBtn">✨ Acompañamiento profundo</button>
+            <div class="loading" id="loadingAsk">
+              🌻 Fergis está leyendo tu corazón...
+              <span class="dots"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="buy-more-cta">
+         
+          <button class="btn btn-primary" id="openQuestionsModalBtn">Si necesitas más conversaciones, adquierelas aquí.</button>
+        </div>
+
+        <div id="buyContainer" class="hidden">
+          <p>Te abrazamos fuerte 💛. Ya usaste tus conversaciones gratis. Elige tu siguiente paquete para seguir acompañadas:</p>
+         
+        </div>
+
+        <div class="animation-overlay" id="animationOverlay">
+          <img src="./tarot-animation.gif" alt="Fergis consultando las cartas..." id="animationGif" />
+        </div>
+
+        <div class="result" id="resultCard"></div>
+
+        <div>
+          <h3>Tus conversaciones anteriores 🌻</h3>
+          <div class="history-grid" id="historyList"></div>
+          <p class="helper" id="historyEmpty">Aún no tienes conversaciones guardadas. Cuando compartas algo, aparecerá aquí ✨</p>
+        </div>
+        <div class="account-delete-wrap">
+          <button class="btn btn-danger" id="openDeleteAccountModalBtn">Eliminar mi cuenta</button>
+          <p class="danger-note">Tu cuenta no se elimina automáticamente. Esta acción solo enviará una solicitud por WhatsApp.</p>
+        </div>
+      </div>
+      <div class="status" id="statusBox"></div>
+    </section>
+  </main>
+
+  <div class="overlay" id="registerOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+      <h3 id="registerTitle">Crear cuenta 🌻</h3>
+      <p class="helper">Recibirás tus 3 conversaciones gratuitas mensuales al registrarte.</p>
+      <div class="field">
+        <label for="registerName">Nombre</label>
+        <input id="registerName" type="text" placeholder="Tu nombre" />
+      </div>
+      <div class="field">
+        <label for="registerEmail">Email</label>
+        <input id="registerEmail" type="email" placeholder="tuemail@ejemplo.com" />
+      </div>
+      <div class="field">
+        <label for="registerPassword">Contraseña</label>
+        <div class="password-input-wrap">
+          <input id="registerPassword" type="password" placeholder="Mínimo 6 caracteres" />
+          <button type="button" class="password-toggle-btn" data-toggle-password="registerPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+        </div>
+        <a href="#" id="forgotFromRegisterLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
+      </div>
+      <details class="field" style="background:#fff8ea; border:1px solid #efd39a; border-radius:12px; padding:10px 12px;">
+        <summary style="cursor:pointer; font-weight:700; color:#62461f;">Leer condiciones de uso</summary>
+        <div class="terms-content">
+          <p><strong>Quiero que te sientas acompañada, pero también es importante que respetemos ciertos límites para cuidarnos ambas 💛</strong></p>
+          <p><strong>1. Sobre las preguntas gratuitas</strong><br>Puedes realizar hasta 3 preguntas gratuitas mensualmente.<br>Las preguntas deben ser claras, concretas y relacionadas a tu proceso personal.</p>
+          <p><strong>2. Respeto y tipo de contenido</strong><br>No se aceptan preguntas con lenguaje ofensivo, agresivo o despectivo.<br>No se responderán preguntas que inciten al odio, daño o manipulación hacia otros.<br>No se abordan temas relacionados a sexualidad explícita.<br>No se responden preguntas de tipo médico ni sobre embarazos.</p>
+          <p><strong>3. Alcance del acompañamiento</strong><br>Las respuestas de Fergis son un espacio de escucha emocional y acompañamiento, no sustituyen asesoría profesional (médica, legal, psicológica, etc.).<br>Este espacio no es terapia ni diagnóstico; el enfoque es acompañarte y ayudarte a sentirte menos sola en lo que estás viviendo.</p>
+          <p><strong>4. Uso consciente del servicio</strong><br>Este espacio no está diseñado para generar dependencia ni para consultas repetitivas sobre el mismo tema de forma compulsiva.<br>Me reservo el derecho de no responder mensajes que no respeten estas condiciones.</p>
+          <p><strong>5. Sobre el servicio pago</strong><br>Si deseas un acompañamiento más profundo y continuo, podrás acceder a un paquete de conversaciones premium donde trabajaremos con mayor presencia, profundidad y claridad.</p>
+        </div>
+      </details>
+      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530;">
+        <input id="registerAcceptTerms" type="checkbox" style="margin-top:2px;" />
+        <span>Declaro que soy mayor de 18 años y acepto las condiciones de uso.</span>
+      </label>
+      <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.88rem; color:#6f5530; margin-top:8px;">
+        <input id="registerEmailOptIn" type="checkbox" style="margin-top:2px;" />
+        <span>Acepto recibir correos electrónicos con contenido de acompañamiento, bienestar emocional y promociones 🌻</span>
+      </label>
+      <div class="row">
+        <button class="btn btn-primary" id="registerBtn">👉 Registrarme 🌻</button>
+        <button class="btn btn-secondary" data-close="#registerOverlay">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="loginOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <h3 id="loginTitle">Iniciar sesión 🌙</h3>
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" type="email" placeholder="tuemail@ejemplo.com" />
+      </div>
+      <div class="field">
+        <label for="loginPassword">Contraseña</label>
+        <div class="password-input-wrap">
+          <input id="loginPassword" type="password" placeholder="Tu contraseña" />
+          <button type="button" class="password-toggle-btn" data-toggle-password="loginPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+        </div>
+        <a href="#" id="forgotFromLoginLink" style="display:inline-block; margin-top:8px; font-size:0.88rem; color:#6f5530; text-decoration:underline;">Olvidé mi contraseña</a>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" id="loginBtn">👉 Entrar 🌻</button>
+        <button class="btn btn-secondary" data-close="#loginOverlay">Cancelar</button>
+      </div>
+      <div class="status" id="loginStatusBox"></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="questionsOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="questionsTitle">
+      <h3 id="questionsTitle">Más conversaciones con Fergis 🌻</h3>
+      <p class="helper">Selecciona tu paquete y paga con PayPal o por Yape, como en la sección de servicios.</p>
+
+      <div class="package-grid" id="questionsPackageGrid">
+        <button class="package-card active" data-package-key="basic-5" type="button">
+          <h4>Básica · 5 conversaciones</h4>
+          <p>1 dólar por conversación (aprox. S/ 3.70).</p>
+          <div class="package-meta">Total: $5.00 USD · S/ 18.50</div>
+        </button>
+        <button class="package-card" data-package-key="basic-10" type="button">
+          <h4>Básica · 10 conversaciones</h4>
+          <p>Paquete con descuento.</p>
+          <div class="package-meta">Total: $8.50 USD · S/ 31.45</div>
+        </button>
+        <button class="package-card" data-package-key="premium-5" type="button">
+          <h4>Premium · 5 conversaciones</h4>
+          <p>3 dólares por conversación (aprox. S/ 11.10).</p>
+          <div class="package-meta">Total: $15.00 USD · S/ 55.50</div>
+        </button>
+        <button class="package-card" data-package-key="premium-10" type="button">
+          <h4>Premium · 10 preguntas</h4>
+          <p>Paquete premium con descuento.</p>
+          <div class="package-meta">Total: $23.50 USD · S/ 86.95</div>
+        </button>
+      </div>
+
+      <div class="pay-wrap">
+        <p id="selectedPackageLabel">Pago seguro con PayPal o tarjeta · Básica 5 preguntas ($5.00 USD · S/ 18.50)</p>
+        <div id="tarot-paypal-button-container"></div>
+      </div>
+
+      <div class="pay-wrap" style="border-color:#d8b5e8;">
+        <p style="color:#6d2c83;">¿Prefieres pagar con Yape? (Solo Perú)</p>
+        <button class="btn btn-secondary" id="openTarotYapeBtn" style="width:100%; border-color:#8f51a7; color:#6d2c83;">
+          📲 Pagar con Yape
+        </button>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-secondary" data-close="#questionsOverlay">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="tarotYapeOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tarotYapeTitle">
+      <h3 id="tarotYapeTitle">Pago por Yape para preguntitas ✨</h3>
+      <p class="helper">Realiza el Yapeo al número <strong>907671044</strong> a nombre de Fergis Marrero y envía tu captura por WhatsApp.</p>
+      <div class="pay-wrap" style="border-color:#d8b5e8;">
+        <p id="tarotYapeSelectedLabel" style="color:#6d2c83; margin-bottom:0;">Paquete seleccionado: Básica 5 preguntas · $5.00 USD · S/ 18.50</p>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" id="sendTarotYapeBtn">💬 Enviar captura por WhatsApp</button>
+        <button class="btn btn-secondary" data-close="#tarotYapeOverlay">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="deleteAccountOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="deleteAccountTitle">
+      <h3 id="deleteAccountTitle">Solicitud de eliminación de cuenta</h3>
+      <p class="helper">Si deseas eliminar tu cuenta, puedes enviarnos esta solicitud. Te acompañaremos en el proceso 💛</p>
+      <div class="field">
+        <label for="deleteAccountEmail">Email</label>
+        <input id="deleteAccountEmail" type="email" readonly />
+      </div>
+      <div class="field">
+        <label for="deleteAccountReason">Motivo (opcional)</label>
+        <select id="deleteAccountReason">
+          <option value="">Selecciona una opción</option>
+          <option>Ya no lo necesito</option>
+          <option>No me sentí cómoda</option>
+          <option>Problemas técnicos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="deleteAccountDetail">Cuéntanos más (opcional)</label>
+        <textarea id="deleteAccountDetail" rows="4" placeholder="Puedes escribir aquí lo que desees compartir..."></textarea>
+      </div>
+      <div class="row">
+        <button class="btn btn-secondary" data-close="#deleteAccountOverlay">Cancelar</button>
+        <button class="btn btn-danger" id="sendDeleteAccountBtn">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="card hidden" id="recoverySection">
+    <h2>🔐 Crear nueva contraseña</h2>
+    <p class="helper" id="recoveryEmailHint">Te enviaremos de regreso aquí para finalizar el cambio.</p>
+    <div class="field" style="margin-top: 12px;">
+      <label for="recoveryPassword">Nueva contraseña</label>
+      <div class="password-input-wrap">
+        <input id="recoveryPassword" type="password" placeholder="Mínimo 6 caracteres" />
+        <button type="button" class="password-toggle-btn" data-toggle-password="recoveryPassword" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="recoveryPasswordConfirm">Confirmar contraseña</label>
+      <div class="password-input-wrap">
+        <input id="recoveryPasswordConfirm" type="password" placeholder="Repite tu nueva contraseña" />
+        <button type="button" class="password-toggle-btn" data-toggle-password="recoveryPasswordConfirm" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" id="saveRecoveryPasswordBtn">Guardar nueva contraseña</button>
+    </div>
+    <div class="status" id="recoveryStatusBox"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // <!-- IMPORTANTE: reemplaza estas variables antes de subir -->
+    const SUPABASE_URL = 'https://byholbvgwimdftfbmmcd.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_KgkSV7zJYwLi_IcFfWlEjQ_sAAcchaE';
+    const API_URL = 'https://tarot-fergis-api-731735548765.europe-west1.run.app';
+
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const state = {
+      user: null,
+      credits: 0,
+      premiumCredits: 0,
+      profileName: ''
+    };
+
+    const guestSection = document.getElementById('guestSection');
+    const userSection = document.getElementById('userSection');
+    const recoverySection = document.getElementById('recoverySection');
+    const logoutWrap = document.getElementById('logoutWrap');
+    const greeting = document.getElementById('greeting');
+    const creditsCounter = document.getElementById('creditsCounter');
+    const premiumCounter = document.getElementById('premiumCounter');
+    const askContainer = document.getElementById('askContainer');
+    const buyContainer = document.getElementById('buyContainer');
+    const questionInput = document.getElementById('questionInput');
+    const askBasicBtn = document.getElementById('askBasicBtn');
+    const askPremiumBtn = document.getElementById('askPremiumBtn');
+    const loadingAsk = document.getElementById('loadingAsk');
+    const resultCard = document.getElementById('resultCard');
+    const historyList = document.getElementById('historyList');
+    const historyEmpty = document.getElementById('historyEmpty');
+    const statusBox = document.getElementById('statusBox');
+    const loginStatusBox = document.getElementById('loginStatusBox');
+    const recoveryStatusBox = document.getElementById('recoveryStatusBox');
+    const recoveryEmailHint = document.getElementById('recoveryEmailHint');
+
+    const registerOverlay = document.getElementById('registerOverlay');
+    const loginOverlay = document.getElementById('loginOverlay');
+    const questionsOverlay = document.getElementById('questionsOverlay');
+    const tarotYapeOverlay = document.getElementById('tarotYapeOverlay');
+    const deleteAccountOverlay = document.getElementById('deleteAccountOverlay');
+    const packageCards = document.querySelectorAll('[data-package-key]');
+    const selectedPackageLabel = document.getElementById('selectedPackageLabel');
+    const tarotYapeSelectedLabel = document.getElementById('tarotYapeSelectedLabel');
+
+    let appConfig = {
+      whatsappNumber: '51907671044',
+      whatsappMessage: '¡Hola Fergis! Quisiera adquirir más conversaciones de acompañamiento.',
+      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+      paypalCurrency: 'USD'
+    };
+
+    const USD_TO_PEN_RATE = 3.70;
+
+    function formatUsd(amount) {
+      return `$${amount.toFixed(2)} USD`;
+    }
+
+    function formatPen(amount) {
+      return `S/ ${amount.toFixed(2)}`;
+    }
+
+    function formatDualCurrencyPrice(amountUsd) {
+      const amountPen = amountUsd * USD_TO_PEN_RATE;
+      return `${formatUsd(amountUsd)} · ${formatPen(amountPen)}`;
+    }
+
+    const QUESTIONS_PACKAGES = {
+      'basic-5': { label: 'Básica 5 preguntas', amount: '5.00' },
+      'basic-10': { label: 'Básica 10 preguntas', amount: '8.50' },
+      'premium-5': { label: 'Premium 5 preguntas', amount: '15.00' },
+      'premium-10': { label: 'Premium 10 preguntas', amount: '23.50' }
+    };
+
+    let selectedPackageKey = 'basic-5';
+    let isRecoveryMode = false;
+    let activeModalCount = 0;
+
+    function setStatus(message, type = 'ok', target = statusBox) {
+      if (!target) return;
+      if (!message) {
+        target.className = 'status';
+        target.textContent = '';
+        return;
+      }
+      target.className = `status show ${type}`;
+      target.textContent = message;
+      clearTimeout(setStatus._timer);
+      setStatus._timer = setTimeout(() => {
+        target.className = 'status';
+        target.textContent = '';
+      }, 4500);
+    }
+
+    function getRecoveryRedirectUrl() {
+      return `${window.location.origin}/reset-password`;
+    }
+
+    function getPasswordResetEmail() {
+      const loginEmail = document.getElementById('loginEmail').value.trim();
+      const registerEmail = document.getElementById('registerEmail').value.trim();
+      const currentUserEmail = state.user?.email?.trim() || '';
+      const typedEmail = loginEmail || registerEmail || currentUserEmail;
+      if (typedEmail) return typedEmail;
+      return window.prompt('Escribe tu correo para enviarte el enlace de recuperación:')?.trim() || '';
+    }
+
+    function showPasswordResetNotice() {
+      window.alert('Te llegará un correo de Supabase, en breve, donde podrás cambiar tu contraseña.');
+    }
+
+    function initPasswordVisibilityToggles() {
+      document.querySelectorAll('[data-toggle-password]').forEach((button) => {
+        const input = document.getElementById(button.dataset.togglePassword);
+        if (!input) return;
+
+        button.addEventListener('click', () => {
+          const shouldShow = input.type === 'password';
+          input.type = shouldShow ? 'text' : 'password';
+          button.textContent = shouldShow ? '🙈' : '👁️';
+          button.setAttribute('aria-label', shouldShow ? 'Ocultar contraseña' : 'Mostrar contraseña');
+          button.setAttribute('aria-pressed', String(shouldShow));
+        });
+      });
+    }
+
+    async function requestPasswordReset() {
+      const email = getPasswordResetEmail();
+      if (!email) {
+        setStatus('Necesitamos tu email para enviarte el enlace de recuperación 💛', 'warn');
+        return;
+      }
+
+
+      try {
+        const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+          redirectTo: getRecoveryRedirectUrl()
+        });
+        if (error) throw error;
+        toggleModal(registerOverlay, false);
+        setStatus('', 'ok', loginStatusBox || statusBox);
+        toggleModal(loginOverlay, false);
+        showPasswordResetNotice();
+        setStatus('Te llegará un correo de Supabase, en breve, donde podrás cambiar tu contraseña.', 'ok');
+      } catch (err) {
+        setStatus(err.message || 'No pudimos enviar el correo de recuperación.', 'error');
+      }
+    }
+
+    function activateRecoveryMode(userEmail = '') {
+      isRecoveryMode = true;
+      guestSection.classList.add('hidden');
+      userSection.classList.add('hidden');
+      logoutWrap.classList.add('hidden');
+      recoverySection.classList.remove('hidden');
+      recoveryEmailHint.textContent = userEmail
+        ? `Recuperación detectada para ${userEmail}. Crea tu nueva contraseña 💛`
+        : 'Recuperación detectada. Crea tu nueva contraseña para continuar 💛';
+    }
+
+    function deactivateRecoveryMode() {
+      isRecoveryMode = false;
+      recoverySection.classList.add('hidden');
+      document.getElementById('recoveryPassword').value = '';
+      document.getElementById('recoveryPasswordConfirm').value = '';
+    }
+
+    async function saveRecoveredPassword() {
+      const newPassword = document.getElementById('recoveryPassword').value;
+      const confirmPassword = document.getElementById('recoveryPasswordConfirm').value;
+
+      if (newPassword.length < 6) {
+        setStatus('Tu nueva contraseña debe tener al menos 6 caracteres.', 'warn', recoveryStatusBox);
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        setStatus('Las contraseñas no coinciden. Revísalas e inténtalo de nuevo.', 'warn', recoveryStatusBox);
+        return;
+      }
+
+      try {
+        const { error } = await supabaseClient.auth.updateUser({ password: newPassword });
+        if (error) throw error;
+        deactivateRecoveryMode();
+        renderLoggedOut();
+        setStatus('Contraseña actualizada con éxito ✨ Ya puedes iniciar sesión con tu nueva clave.', 'ok');
+        toggleModal(loginOverlay, true);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos actualizar tu contraseña. Intenta de nuevo con un enlace válido.', 'error', recoveryStatusBox);
+      }
+    }
+
+    function handleRecoveryLandingFromUrl() {
+      const url = new URL(window.location.href);
+      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const typeInHash = hashParams.get('type');
+      const typeInQuery = url.searchParams.get('type');
+      const hasRecoveryType = typeInHash === 'recovery' || typeInQuery === 'recovery';
+      const recoveryError = hashParams.get('error_description') || url.searchParams.get('error_description');
+
+      if (recoveryError) {
+        setStatus(`El enlace de recuperación no es válido o ya venció: ${decodeURIComponent(recoveryError)}`, 'error');
+      }
+
+      if (hasRecoveryType) {
+        activateRecoveryMode();
+      }
+    }
+
+    function toggleModal(overlay, show) {
+      if (!overlay) return;
+      if (show) {
+        activeModalCount += 1;
+        overlay.dataset.previousFocus = document.activeElement?.id || '';
+      } else if (overlay.classList.contains('show')) {
+        activeModalCount = Math.max(0, activeModalCount - 1);
+      }
+      overlay.classList.toggle('show', show);
+      overlay.setAttribute('aria-hidden', String(!show));
+      document.body.classList.toggle('modal-open', activeModalCount > 0);
+
+      if (show) {
+        const firstInput = overlay.querySelector('input, textarea, select, button');
+        firstInput?.focus();
+      } else {
+        const previousId = overlay.dataset.previousFocus;
+        if (previousId) {
+          document.getElementById(previousId)?.focus();
+        }
+      }
+    }
+
+    function getSelectedPackage() {
+      return QUESTIONS_PACKAGES[selectedPackageKey] || QUESTIONS_PACKAGES['basic-5'];
+    }
+
+    function updateSelectedPackageUI() {
+      const selected = getSelectedPackage();
+      const selectedAmount = Number(selected.amount || 0);
+      const selectedPrice = formatDualCurrencyPrice(selectedAmount);
+      selectedPackageLabel.textContent = `Pago seguro con PayPal o tarjeta · ${selected.label} (${selectedPrice})`;
+      tarotYapeSelectedLabel.textContent = `Paquete seleccionado: ${selected.label} · ${selectedPrice}`;
+      packageCards.forEach((card) => {
+        card.classList.toggle('active', card.dataset.packageKey === selectedPackageKey);
+      });
+    }
+
+    function openTarotYape() {
+      toggleModal(questionsOverlay, false);
+      toggleModal(tarotYapeOverlay, true);
+    }
+
+    function sendTarotYapeToWhatsApp() {
+      const selected = getSelectedPackage();
+      const userName = state.profileName || 'Cliente';
+      const userEmail = state.user?.email || 'Sin email';
+      const selectedPrice = formatDualCurrencyPrice(Number(selected.amount || 0));
+      const msg = `¡Hola Fergis! Quiero comprar más conversaciones de acompañamiento 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selectedPrice}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}\n\nAquí envío mi captura del Yape 👇`;
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+      toggleModal(tarotYapeOverlay, false);
+    }
+
+    function openDeleteAccountModal() {
+      if (!state.user) {
+        setStatus('Primero inicia sesión para enviar tu solicitud 💛', 'warn');
+        return;
+      }
+      const emailInput = document.getElementById('deleteAccountEmail');
+      const reasonInput = document.getElementById('deleteAccountReason');
+      const detailInput = document.getElementById('deleteAccountDetail');
+      emailInput.value = state.user?.email || '';
+      reasonInput.value = '';
+      detailInput.value = '';
+      toggleModal(deleteAccountOverlay, true);
+    }
+
+    function sendDeleteAccountRequestToWhatsApp() {
+      const email = document.getElementById('deleteAccountEmail').value.trim();
+      const reason = document.getElementById('deleteAccountReason').value.trim() || 'No especificado';
+      const detail = document.getElementById('deleteAccountDetail').value.trim() || 'Sin detalle adicional';
+      if (!email) {
+        setStatus('No encontramos tu email. Inicia sesión nuevamente e inténtalo.', 'warn');
+        return;
+      }
+      const message = `Hola Fergis 🌻 quiero solicitar la eliminación de mi cuenta.\n\nEmail: ${email}\n\nMotivo: ${reason}\n\nDetalle: ${detail}\n\nGracias 💛`;
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      toggleModal(deleteAccountOverlay, false);
+    }
+
+    function initPaypalForTarotQuestions() {
+      if (window.paypal?.Buttons) {
+        renderTarotPaypal();
+        return;
+      }
+      if (document.getElementById('pp-sdk-tarot')) return;
+      const script = document.createElement('script');
+      script.id = 'pp-sdk-tarot';
+      script.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+      script.onload = renderTarotPaypal;
+      document.body.appendChild(script);
+    }
+
+    function renderTarotPaypal() {
+      const container = document.getElementById('tarot-paypal-button-container');
+      if (!container || container.dataset.rendered === 'true') return;
+
+      paypal.Buttons({
+        createOrder: (_data, actions) => {
+          const selected = getSelectedPackage();
+          return actions.order.create({
+            purchase_units: [{ amount: { value: selected.amount } }]
+          });
+        },
+        onApprove: (_data, actions) => actions.order.capture().then((details) => {
+          const selected = getSelectedPackage();
+          const userName = state.profileName || 'Cliente';
+          const userEmail = state.user?.email || 'Sin email';
+          const selectedPrice = formatDualCurrencyPrice(Number(selected.amount || 0));
+          const msg = `¡Hola Fergis! Acabo de pagar mis preguntitas por PayPal 💛\n\nPAQUETE: ${selected.label}\nMONTO: ${selectedPrice}\nID PAYPAL: ${details.id}\nCLIENTE: ${userName}\nEMAIL: ${userEmail}`;
+          setStatus('¡Pago completado! Te abrimos WhatsApp para confirmar tu compra ✨', 'ok');
+          toggleModal(questionsOverlay, false);
+          window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        })
+      }).render('#tarot-paypal-button-container');
+
+      container.dataset.rendered = 'true';
+    }
+
+    function updateCreditsUI() {
+      creditsCounter.textContent = `🌻 Básicas: ${state.credits}`;
+      premiumCounter.textContent = `✨ Premium: ${state.premiumCredits}`;
+      const hasAny = Number(state.credits) > 0 || Number(state.premiumCredits) > 0;
+      askContainer.classList.toggle('hidden', !hasAny);
+      buyContainer.classList.toggle('hidden', hasAny);
+      if (askBasicBtn) askBasicBtn.disabled = Number(state.credits) <= 0;
+      if (askPremiumBtn) askPremiumBtn.disabled = Number(state.premiumCredits) <= 0;
+    }
+
+    function escapeHtml(value = '') {
+      return value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(`${API_URL}${path}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          ...(options.headers || {})
+        },
+        ...options
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data?.message || 'No pudimos completar la solicitud por ahora.');
+      }
+      return data;
+    }
+
+    async function fetchCredits() {
+      if (!state.user) return;
+      const data = await api(`/credits/${state.user.id}`);
+      state.credits = Number(data.credits ?? 0);
+      state.premiumCredits = Number(data.premium_credits ?? 0);
+      updateCreditsUI();
+    }
+
+    function formatDate(isoDate) {
+      if (!isoDate) return 'Fecha no disponible';
+      return new Date(isoDate).toLocaleString('es-ES', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      });
+    }
+
+    function createFeedbackCard(item) {
+      const feedback = document.createElement('div');
+      feedback.className = 'feedback-card';
+      feedback.innerHTML = `
+        <div class="feedback-title">🌻 Ayúdanos a mejorar. ¿Cómo te sentiste con esta conversación?</div>
+        <div class="feedback-options" role="group" aria-label="Feedback rápido">
+          <button class="feedback-option" type="button" data-emoji="👍">👍 Me ayudó</button>
+          <button class="feedback-option" type="button" data-emoji="😐">😐 Más o menos</button>
+          <button class="feedback-option" type="button" data-emoji="👎">👎 No conecté</button>
+        </div>
+        <textarea class="feedback-comment" placeholder="Cuéntanos más (opcional)"></textarea>
+        <button class="btn btn-primary feedback-send" type="button" disabled>Enviar por WhatsApp</button>
+      `;
+
+      const optionButtons = Array.from(feedback.querySelectorAll('.feedback-option'));
+      const commentInput = feedback.querySelector('.feedback-comment');
+      const sendButton = feedback.querySelector('.feedback-send');
+      let selectedEmoji = '';
+
+      optionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          selectedEmoji = button.dataset.emoji || '';
+          optionButtons.forEach((opt) => opt.classList.toggle('active', opt === button));
+          sendButton.disabled = !selectedEmoji;
+        });
+      });
+
+      sendButton.addEventListener('click', () => {
+        if (!selectedEmoji) return;
+        const comment = commentInput.value.trim();
+        const message = `Hola Fergis 🌻 te dejo mi feedback sobre nuestra conversación:\n\nResultado: ${selectedEmoji}\n\nComentario: ${comment || 'Sin comentario'}\n\nGracias 💛`;
+        window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      });
+
+      return feedback;
+    }
+
+    async function fetchHistory() {
+      if (!state.user) return;
+      const data = await api(`/history/${state.user.id}`);
+      const history = Array.isArray(data) ? data : (data.history || []);
+
+      historyList.innerHTML = '';
+      if (!history.length) {
+        historyEmpty.classList.remove('hidden');
+        return;
+      }
+
+      historyEmpty.classList.add('hidden');
+      history.forEach((item) => {
+        const entry = document.createElement('article');
+        entry.className = 'history-item';
+        entry.innerHTML = `
+          <h4>🌻 Lo que compartiste: ${escapeHtml(item.question || 'Sin mensaje')}</h4>
+          <p>💛 ${escapeHtml(item.answer || 'Sin respuesta')}</p>
+          <div class="history-meta">${escapeHtml(formatDate(item.created_at))}</div>
+        `;
+        entry.appendChild(createFeedbackCard(item));
+        historyList.appendChild(entry);
+      });
+    }
+
+    function renderLoggedOut() {
+      if (isRecoveryMode) return;
+      state.user = null;
+      state.profileName = '';
+      state.credits = 0;
+      state.premiumCredits = 0;
+      guestSection.classList.remove('hidden');
+      userSection.classList.add('hidden');
+      logoutWrap.classList.add('hidden');
+      resultCard.classList.remove('show');
+      resultCard.innerHTML = '';
+      historyList.innerHTML = '';
+      historyEmpty.classList.remove('hidden');
+      recoverySection.classList.add('hidden');
+    }
+
+    async function renderLoggedIn(user) {
+      state.user = user;
+      state.profileName = user.user_metadata?.name || user.email?.split('@')[0] || 'hermana';
+      greeting.textContent = `Hola ${state.profileName}`;
+
+      guestSection.classList.add('hidden');
+      userSection.classList.remove('hidden');
+      logoutWrap.classList.remove('hidden');
+
+      await Promise.all([fetchCredits(), fetchHistory()]);
+    }
+
+    async function saveEmailConsent(userId, emailOptIn) {
+      const { error } = await supabaseClient.from('profiles').upsert(
+        {
+          id: userId,
+          email_opt_in: Boolean(emailOptIn)
+        },
+        {
+          onConflict: 'id'
+        }
+      );
+
+      if (error) {
+        throw new Error('Tu cuenta se creó, pero no pudimos guardar tu preferencia de correos.');
+      }
+    }
+
+    async function registerUser() {
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+      const acceptTerms = document.getElementById('registerAcceptTerms').checked;
+      const emailOptIn = document.getElementById('registerEmailOptIn').checked;
+
+      if (!name || !email || password.length < 6) {
+        setStatus('Por favor completa nombre, email y una contraseña de al menos 6 caracteres 💛', 'warn');
+        return;
+      }
+      if (!acceptTerms) {
+        setStatus('Para registrarte debes ser mayor de edad y aceptar las condiciones de uso 💛', 'warn');
+        return;
+      }
+
+      try {
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: {
+            data: { name }
+          }
+        });
+
+        if (error) throw error;
+        const user = data.user;
+        if (!user) throw new Error('No se pudo crear la cuenta en este momento.');
+
+        toggleModal(registerOverlay, false);
+        setStatus('¡Cuenta creada! Ya tienes tus 3 conversaciones gratuitas mensuales ✨', 'ok');
+
+        try {
+          await saveEmailConsent(user.id, emailOptIn);
+        } catch (consentErr) {
+          setStatus(consentErr.message || 'Tu cuenta se creó, pero no pudimos guardar tu preferencia de correos.', 'warn');
+        }
+
+        try {
+          await api('/register', {
+            method: 'POST',
+            body: JSON.stringify({
+              user_id: user.id,
+              name,
+              email,
+              credits: 3,
+              email_opt_in: emailOptIn
+            })
+          });
+        } catch (registerErr) {
+          setStatus(registerErr.message || 'Tu cuenta se creó, pero no pudimos sincronizar tus datos iniciales.', 'warn');
+        }
+
+        const { data: sessionData } = await supabaseClient.auth.getSession();
+        const currentUser = sessionData?.session?.user || user;
+        await renderLoggedIn(currentUser);
+      } catch (err) {
+        setStatus(err.message || 'No pudimos completar el registro.', 'error');
+      }
+    }
+
+    async function updateEmailConsentPreference(emailOptIn) {
+      if (!state.user?.id) throw new Error('Necesitas iniciar sesión para actualizar esta preferencia.');
+      await saveEmailConsent(state.user.id, emailOptIn);
+    }
+
+    window.updateEmailConsentPreference = updateEmailConsentPreference;
+
+    function translateAuthError(error) {
+      const message = (error?.message || '').toLowerCase();
+      const code = (error?.code || '').toLowerCase();
+
+      const knownMessages = {
+        'invalid login credentials': 'Contraseña incorrecta o email no registrado 💛',
+        'email not confirmed': 'Debes confirmar tu email antes de entrar 💛',
+        'user not found': 'No encontramos una cuenta con ese email 💛',
+        'too many requests': 'Demasiados intentos. Espera unos minutos e intenta de nuevo 💛',
+        'email already registered': 'Este email ya tiene una cuenta. Prueba iniciando sesión 💛',
+        'password should be at least 6 characters': 'La contraseña debe tener al menos 6 caracteres 💛',
+        'unable to validate email address': 'El formato del email no es válido 💛',
+        'signup_disabled': 'El registro está deshabilitado temporalmente 💛',
+      };
+
+      for (const [key, val] of Object.entries(knownMessages)) {
+        if (message.includes(key)) return val;
+      }
+
+      const knownCodes = {
+        'invalid_credentials': 'Contraseña incorrecta o email no registrado 💛',
+        'email_not_confirmed': 'Debes confirmar tu email antes de entrar 💛',
+        'too_many_requests': 'Demasiados intentos. Espera unos minutos e intenta de nuevo 💛',
+        'user_not_found': 'No encontramos una cuenta con ese email 💛',
+      };
+
+      if (code && knownCodes[code]) return knownCodes[code];
+      return error?.message || 'No pudimos iniciar sesión. Intenta de nuevo 💛';
+    }
+
+    async function loginUser() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      if (!email || !password) {
+        setStatus('Completa email y contraseña para entrar 🌻', 'warn');
+        return;
+      }
+
+      setStatus('', 'ok', loginStatusBox || statusBox);
+
+      try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+
+        toggleModal(loginOverlay, false);
+        setStatus('Qué alegría tenerte aquí de nuevo 💛', 'ok');
+        await renderLoggedIn(data.user);
+      } catch (err) {
+        setStatus(translateAuthError(err), 'error', loginStatusBox || statusBox);
+      }
+    }
+
+    async function logoutUser() {
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) {
+        setStatus(error.message, 'error');
+        return;
+      }
+      renderLoggedOut();
+      setStatus('Sesión cerrada. Aquí estaré para ti cuando regreses 🌙', 'ok');
+    }
+
+    const CARD_EMOJIS = {
+      "0": "🌟", "I": "🪄", "II": "🌙", "III": "🌸", "IV": "👑",
+      "V": "🔑", "VI": "💞", "VII": "🏆", "VIII": "🦁", "IX": "🏮",
+      "X": "🎡", "XI": "⚖️", "XII": "🙃", "XIII": "🦋", "XIV": "🌊",
+      "XV": "🔥", "XVI": "⚡", "XVII": "⭐", "XVIII": "🌕", "XIX": "☀️",
+      "XX": "📯", "XXI": "🌍",
+      "Copas": "🏆", "Espadas": "⚔️", "Oros": "🪙", "Bastos": "🌿"
+    };
+
+    const ANIMATION_DURATION = 10000;
+    const animationOverlay = document.getElementById('animationOverlay');
+
+    async function askTarot(mode = 'basic') {
+      const question = questionInput.value.trim();
+      if (!question) {
+        setStatus('Escribe lo que estás viviendo antes de continuar ✨', 'warn');
+        return;
+      }
+
+      askBasicBtn.disabled = true;
+      askPremiumBtn.disabled = true;
+      loadingAsk.classList.remove('show');
+      resultCard.classList.remove('show');
+      resultCard.innerHTML = '';
+
+      const gif = document.getElementById('animationGif');
+      gif.src = '';
+      gif.src = './tarot-animation.gif';
+      animationOverlay.classList.add('show');
+
+      const apiPromise = api('/ask', {
+        method: 'POST',
+        body: JSON.stringify({ user_id: state.user.id, question, mode })
+      });
+      const timerPromise = new Promise(resolve => setTimeout(resolve, ANIMATION_DURATION));
+
+      try {
+        const [data] = await Promise.all([apiPromise, timerPromise]);
+
+        animationOverlay.classList.remove('show');
+
+        const answer = data.answer || data.message || 'No recibimos una respuesta por ahora.';
+        const cards = data.cards || [];
+        const isPremium = data.mode === 'premium';
+
+        let cardsHtml = '';
+        if (cards.length) {
+          cardsHtml = `
+            <div class="cards-row">
+              ${cards.map(c => `
+                <div class="tarot-card-item">
+                  <span class="card-emoji">${CARD_EMOJIS[c.suit] || '🔮'}</span>
+                  <div class="card-position">${escapeHtml(c.position)}</div>
+                  <div class="card-name">${escapeHtml(c.name)}</div>
+                  <div class="card-suit">${escapeHtml(c.suit)}</div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        resultCard.innerHTML = `
+          ${cardsHtml}
+          <strong>${isPremium ? '✨ Tu acompañamiento profundo' : '🌻 Fergis te responde'}</strong>
+          <p style="margin-top: 8px; white-space: pre-line;">${escapeHtml(answer)}</p>
+        `;
+        resultCard.classList.add('show');
+        questionInput.value = '';
+
+        await Promise.all([fetchCredits(), fetchHistory()]);
+      } catch (err) {
+        animationOverlay.classList.remove('show');
+        setStatus(err.message || 'No pudimos conectar ahora mismo. Inténtalo de nuevo.', 'error');
+      } finally {
+        askBasicBtn.disabled = false;
+        askPremiumBtn.disabled = false;
+        await fetchCredits();
+      }
+    }
+
+    async function startCheckout(creditsPackage) {
+      if (!state.user) {
+        setStatus('Primero inicia sesión para continuar 💛', 'warn');
+        return;
+      }
+
+      try {
+        const data = await api('/create-checkout-session', {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: state.user.id,
+            package: Number(creditsPackage)
+          })
+        });
+
+        if (!data?.url) {
+          throw new Error('No recibimos la URL de pago.');
+        }
+        window.location.href = data.url;
+      } catch (err) {
+        setStatus(err.message || 'No pudimos iniciar la compra.', 'error');
+      }
+    }
+
+    initPasswordVisibilityToggles();
+    document.getElementById('openRegisterBtn').addEventListener('click', () => toggleModal(registerOverlay, true));
+    document.getElementById('openLoginBtn').addEventListener('click', () => toggleModal(loginOverlay, true));
+    document.getElementById('openQuestionsModalBtn').addEventListener('click', () => {
+      if (!state.user) {
+        setStatus('Primero inicia sesión para comprar preguntitas 💛', 'warn');
+        return;
+      }
+      updateSelectedPackageUI();
+      toggleModal(questionsOverlay, true);
+    });
+    document.getElementById('registerBtn').addEventListener('click', registerUser);
+    document.getElementById('loginBtn').addEventListener('click', loginUser);
+    document.getElementById('forgotFromRegisterLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      requestPasswordReset();
+    });
+    document.getElementById('forgotFromLoginLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      requestPasswordReset();
+    });
+    document.getElementById('saveRecoveryPasswordBtn').addEventListener('click', saveRecoveredPassword);
+    document.getElementById('logoutBtn').addEventListener('click', logoutUser);
+    document.getElementById('openDeleteAccountModalBtn').addEventListener('click', openDeleteAccountModal);
+    document.getElementById('sendDeleteAccountBtn').addEventListener('click', sendDeleteAccountRequestToWhatsApp);
+    document.getElementById('openTarotYapeBtn').addEventListener('click', openTarotYape);
+    document.getElementById('sendTarotYapeBtn').addEventListener('click', sendTarotYapeToWhatsApp);
+    askBasicBtn.addEventListener('click', () => askTarot('basic'));
+    askPremiumBtn.addEventListener('click', () => askTarot('premium'));
+
+    packageCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        selectedPackageKey = card.dataset.packageKey;
+        updateSelectedPackageUI();
+      });
+    });
+
+    document.querySelectorAll('[data-close]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = document.querySelector(btn.dataset.close);
+        if (target) toggleModal(target, false);
+      });
+    });
+
+    [registerOverlay, loginOverlay, questionsOverlay, tarotYapeOverlay, deleteAccountOverlay].forEach((overlay) => {
+      overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) toggleModal(overlay, false);
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      [registerOverlay, loginOverlay, questionsOverlay, tarotYapeOverlay, deleteAccountOverlay]
+        .filter((overlay) => overlay.classList.contains('show'))
+        .slice(-1)
+        .forEach((overlay) => toggleModal(overlay, false));
+    });
+
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+      const user = session?.user;
+      if (event === 'PASSWORD_RECOVERY') {
+        activateRecoveryMode(user?.email || '');
+        return;
+      }
+      if (user) {
+        if (isRecoveryMode) {
+          activateRecoveryMode(user.email || '');
+          return;
+        }
+        renderLoggedIn(user).catch((error) => setStatus(error.message, 'error'));
+      } else {
+        renderLoggedOut();
+      }
+    });
+
+    (async function init() {
+      try {
+        const cfg = await fetch('config.json').then((res) => res.json()).catch(() => ({}));
+        appConfig = { ...appConfig, ...cfg };
+        initPaypalForTarotQuestions();
+        handleRecoveryLandingFromUrl();
+
+        const { data, error } = await supabaseClient.auth.getSession();
+        if (error) throw error;
+
+        const user = data?.session?.user;
+        if (isRecoveryMode) {
+          activateRecoveryMode(user?.email || '');
+        } else if (user) {
+          await renderLoggedIn(user);
+        } else {
+          renderLoggedOut();
+        }
+      } catch (err) {
+        renderLoggedOut();
+        setStatus('Revisa tus credenciales de Supabase antes de publicar esta página.', 'warn');
+      }
+    })();
+  </script>
+</body>
+</html>

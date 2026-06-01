@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diosa en Guía — Inmaculada</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --butter: #F5E6C8;
+    --butter-dark: #E8D0A0;
+    --butter-deep: #D4B882;
+    --brown: #5C3D2E;
+    --brown-mid: #8B5E3C;
+    --brown-light: #A67C52;
+    --brown-pale: #C4A882;
+    --cream: #FBF5E8;
+    --warm-white: #FFFDF5;
+    --gold: #C8963C;
+    --gold-light: #E8B84B;
+    --text: #3A2518;
+    --text-soft: #6B4A35;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(251, 245, 232, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--butter-deep);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: var(--brown);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--brown); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 20%, rgba(200, 150, 60, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(92, 61, 46, 0.08) 0%, transparent 60%),
+      var(--cream);
+  }
+
+  /* Floating circles */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 150, 60, 0.15);
+    top: -100px; right: -100px;
+    animation: slowRotate 30s linear infinite;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(92, 61, 46, 0.1);
+    bottom: 50px; left: -80px;
+    animation: slowRotate 20s linear infinite reverse;
+  }
+
+  @keyframes slowRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 700px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin-bottom: 24px;
+    padding: 8px 20px;
+    border: 1px solid var(--butter-deep);
+    border-radius: 100px;
+    background: rgba(245, 230, 200, 0.5);
+    animation: fadeUp 1.2s 0.2s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: var(--brown);
+    margin-bottom: 16px;
+    animation: fadeUp 1.2s 0.4s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-soft);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    animation: fadeUp 1.2s 0.6s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    animation: fadeUp 1.2s 0.8s ease both;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 2s 1.5s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); transform-origin: top; }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 48px;
+    position: relative;
+  }
+
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 400;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* CARTA */
+  .carta {
+    background: var(--warm-white);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    padding: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--brown-light));
+  }
+
+  .carta p {
+    font-size: 17px;
+    line-height: 2;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+  }
+
+  .carta p:last-child { margin-bottom: 0; }
+
+  .carta-firma {
+    margin-top: 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--brown);
+  }
+
+  /* QUIÉN ERES - CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    padding: 40px 32px;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(92, 61, 46, 0.12);
+  }
+
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .card-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  /* PREGUNTAS */
+  .preguntas-section {
+    background: var(--brown);
+    color: var(--butter);
+  }
+
+  .preguntas-section .section-title {
+    color: var(--butter);
+  }
+
+  .preguntas-section .section-number {
+    color: var(--brown-pale);
+  }
+
+  .preguntas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .pregunta-group h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+  }
+
+  .pregunta-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .pregunta-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .pregunta-item p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(245, 230, 200, 0.8);
+  }
+
+  /* AFIRMACIONES */
+  .afirmaciones {
+    background: linear-gradient(135deg, var(--butter) 0%, var(--warm-white) 100%);
+  }
+
+  .afirmaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--butter-deep);
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .afirmacion-item {
+    background: var(--warm-white);
+    padding: 32px 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--brown);
+    line-height: 1.6;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .afirmacion-item:hover {
+    background: var(--butter);
+  }
+
+  .afirmacion-item::before {
+    content: '"';
+    position: absolute;
+    top: 12px; left: 16px;
+    font-size: 48px;
+    color: var(--butter-deep);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+
+  /* EJERCICIOS */
+  .ejercicios-list {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ejercicio {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--butter-deep);
+    padding: 40px 0;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .ejercicio:first-child { border-top: 1px solid var(--butter-deep); }
+
+  .ejercicio:hover .ejercicio-content {
+    padding-left: 8px;
+    transition: padding 0.3s ease;
+  }
+
+  .ejercicio-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--brown-pale);
+    padding-top: 4px;
+  }
+
+  .ejercicio-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 12px;
+  }
+
+  .ejercicio-content {
+    transition: padding 0.3s ease;
+  }
+
+  .ejercicio-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-soft);
+    max-width: 600px;
+  }
+
+  .ejercicio-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    border: 1px solid var(--butter-deep);
+    border-radius: 100px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+  }
+
+  /* RUTINA */
+  .rutina-section {
+    background: var(--warm-white);
+  }
+
+  .rutina-steps {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--butter-deep);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .rutina-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--butter-deep);
+    transition: background 0.3s;
+  }
+
+  .rutina-step:last-child { border-bottom: none; }
+
+  .rutina-step:hover { background: var(--butter); }
+
+  .rutina-num-box {
+    background: var(--brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--butter);
+    flex-shrink: 0;
+  }
+
+  .rutina-content {
+    padding: 32px 40px;
+  }
+
+  .rutina-step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+
+  .rutina-step-time {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .rutina-step-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  /* CIERRE */
+  .cierre {
+    background: var(--brown);
+    text-align: center;
+    padding: 120px 48px;
+  }
+
+  .cierre .section-inner {
+    max-width: 680px;
+  }
+
+  .cierre-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-bottom: 40px;
+  }
+
+  .cierre-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--butter);
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+
+  .cierre-text {
+    font-size: 17px;
+    line-height: 2;
+    color: rgba(245, 230, 200, 0.75);
+    margin-bottom: 24px;
+  }
+
+  .cierre-firma {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(245, 230, 200, 0.2);
+  }
+
+  .cierre-firma p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold-light);
+  }
+
+  .cierre-firma span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-pale);
+    margin-top: 8px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 64px 0;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--butter-deep);
+  }
+
+  .divider-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* SUNFLOWER DECO */
+  .sunflower-deco {
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.04;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* COMPLETITUD HIGHLIGHT */
+  .completitud-section {
+    background: linear-gradient(160deg, var(--butter) 0%, var(--cream) 60%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .completitud-section::before {
+    content: '✦';
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 400px;
+    color: var(--butter-deep);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .completitud-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 40px);
+    font-style: italic;
+    color: var(--brown);
+    line-height: 1.4;
+    border-left: 3px solid var(--gold);
+    padding-left: 40px;
+    margin: 48px 0;
+  }
+
+  .completitud-text {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+    max-width: 680px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius: 3px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 24px; }
+    .carta { padding: 40px 28px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .preguntas-grid { grid-template-columns: 1fr; }
+    .afirmaciones-grid { grid-template-columns: 1fr; }
+    .ejercicio { grid-template-columns: 40px 1fr; }
+    .rutina-step { grid-template-columns: 56px 1fr; }
+    .rutina-content { padding: 24px 20px; }
+    .hero { padding: 100px 24px 60px; }
+    .completitud-section::before { font-size: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Mamá Girasol</div>
+  <ul class="nav-links">
+    <li><a href="#quien">Quién eres</a></li>
+    <li><a href="#vinculo">El vínculo</a></li>
+    <li><a href="#completitud">Completitud</a></li>
+    <li><a href="#ejercicios">Ejercicios</a></li>
+    <li><a href="#afirmaciones">Afirmaciones</a></li>
+    <li><a href="#rutina">Rutina</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Recursos personalizados</span>
+    <h1 class="hero-title">Diosa<br>en <em>Guía</em></h1>
+    <p class="hero-subtitle">porque el proceso de evolucionar<br>también se puede transitar de forma bonita</p>
+    <p class="hero-name">Para Inmaculada Barrero</p>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- BIENVENIDA -->
+<section style="background: var(--warm-white);">
+  <div class="section-inner">
+    <span class="section-number reveal">— Bienvenida</span>
+    <div class="carta reveal reveal-delay-1">
+      <p>Inmaculada,</p>
+      <p>Esta guía fue creada para ti. No como un manual de instrucciones, sino como un espacio que te recuerde lo que ya sabes pero a veces olvidas: que eres completa. Que no estás en espera de convertirte en algo. Ya lo eres.</p>
+      <p>Lo que encontrarás aquí son herramientas, preguntas y pequeños rituales para que puedas acompañarte a ti misma en los momentos en que más lo necesitas. Para que no dependas de nada externo para sostenerte, sino que aprendas a ser tu propio refugio.</p>
+      <p>No tienes que hacerlo todo perfecto. Solo tienes que seguir moviéndote.</p>
+      <div class="carta-firma">Con amor, Mamá Girasol</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉN ERES -->
+<section id="quien">
+  <div class="section-inner">
+    <span class="section-number reveal">— 01</span>
+    <h2 class="section-title reveal">Quién <em>eres</em> tú</h2>
+    <div class="cards-grid">
+      <div class="card reveal reveal-delay-1">
+        <span class="card-icon">🌊</span>
+        <h3 class="card-title">El agua que sientes por dentro</h3>
+        <p class="card-text">Percibes con una sensibilidad fina y poética. A veces esa misma sensibilidad hace que el dolor también entre más hondo. Pero no es que estés rota. Es que sientes más. Esa profundidad no es tu debilidad. Es tu poder.</p>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <span class="card-icon">🌿</span>
+        <h3 class="card-title">La mujer que amas construir</h3>
+        <p class="card-text">Tienes conciencia. Sabes quién eres, sabes lo que vales. El amor propio no es una llegada. Es una práctica. Y tú ya la estás practicando, con cada elección, cada día.</p>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <span class="card-icon">✦</span>
+        <h3 class="card-title">La mujer que anhela</h3>
+        <p class="card-text">Tienes un corazón que ama con estructura, con lealtad, con profundidad. Anhelar no te hace incompleta. Te hace humana. Y ese anhelo es una brújula que te dice qué valoras.</p>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-mark"></div><div class="divider-line"></div></div>
+
+    <h3 class="section-title reveal" style="font-size: clamp(24px, 4vw, 40px);">Tu cuerpo merece <em>ternura</em></h3>
+    <p class="completitud-text reveal">Más allá del ejercicio y la rutina, está la mirada. Cómo lo miras cuando estás sola. Cómo hablas de él cuando nadie escucha. Qué sientes cuando te ves en el espejo sin el contexto del esfuerzo.</p>
+    <p class="completitud-text reveal reveal-delay-1">El cuerpo no tiene que ser perfecto para merecer amor. Tú no tienes que ser perfecta para merecer amor.</p>
+  </div>
+</section>
+
+<!-- PREGUNTAS CUERPO Y VÍNCULO -->
+<section id="vinculo" class="preguntas-section">
+  <div class="section-inner">
+    <span class="section-number reveal" style="color: var(--brown-pale);">— 02 / 03</span>
+    <h2 class="section-title reveal" style="color: var(--butter);">Preguntas para <em style="color: var(--gold-light);">reflexionar</em></h2>
+    <div class="preguntas-grid">
+      <div class="pregunta-group reveal reveal-delay-1">
+        <h3>Tu cuerpo</h3>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué parte de mi cuerpo todavía no he aprendido a mirar con ternura?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Cuándo fue la última vez que le agradecí a mi cuerpo por todo lo que hace?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Cuándo busco algo externo para calmar algo interno, qué emoción hay detrás?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Cómo sería tratarme con la misma gentileza que le daría a alguien que amo?</p>
+        </div>
+      </div>
+      <div class="pregunta-group reveal reveal-delay-2">
+        <h3>El vínculo que te enseñó algo</h3>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué me decía mi cuerpo cuando las señales no cuadraban, y qué hice con eso?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué aprendí sobre lo que necesito en una relación?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué me cuesta soltar cuando alguien me da poco pero tampoco se va del todo?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot"></div>
+          <p>¿Qué le diría hoy a la versión de mí que vivió eso?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLETITUD -->
+<section id="completitud" class="completitud-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 04 · La más importante</span>
+    <h2 class="section-title reveal">No estás esperando.<br><em>Estás viviendo.</em></h2>
+
+    <blockquote class="completitud-quote reveal">
+      Tú ya estás completa. El amor que buscas afuera es una extensión de lo que ya eres, no el ingrediente que te falta para serlo.
+    </blockquote>
+
+    <p class="completitud-text reveal">Hay un relato muy extendido que dice que la vida comienza cuando llega la pareja, cuando se completa "eso" que falta. Ese relato, aunque bienintencionado, es una trampa. Te ubica siempre en el futuro. Siempre a punto de empezar. Siempre en sala de espera.</p>
+    <p class="completitud-text reveal reveal-delay-1">Pero tú no estás en una sala de espera. Estás en tu vida. Ahora mismo. Y esta etapa tiene valor. Tiene aprendizajes. Tiene belleza. Tiene a una mujer que se está conociendo, que se está construyendo, que se está eligiendo.</p>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-mark"></div><div class="divider-line"></div></div>
+
+    <div class="preguntas-grid" style="margin-top: 0;">
+      <div class="pregunta-group reveal">
+        <h3 style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--gold); margin-bottom: 20px;">Para llevar contigo</h3>
+        <div class="pregunta-item">
+          <div class="pregunta-dot" style="background: var(--brown-light);"></div>
+          <p style="color: var(--text-soft);">¿Qué creo, en el fondo, que una relación me daría que yo no puedo darme?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot" style="background: var(--brown-light);"></div>
+          <p style="color: var(--text-soft);">¿Qué significa para mí "estar completa"?</p>
+        </div>
+      </div>
+      <div class="pregunta-group reveal reveal-delay-1">
+        <h3 style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--gold); margin-bottom: 20px;">&nbsp;</h3>
+        <div class="pregunta-item">
+          <div class="pregunta-dot" style="background: var(--brown-light);"></div>
+          <p style="color: var(--text-soft);">¿Si supiera que el amor llegará en el momento justo, cómo viviría este tiempo?</p>
+        </div>
+        <div class="pregunta-item">
+          <div class="pregunta-dot" style="background: var(--brown-light);"></div>
+          <p style="color: var(--text-soft);">¿Qué versión de mí quiero que encuentre ese amor?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EJERCICIOS -->
+<section id="ejercicios">
+  <div class="section-inner">
+    <span class="section-number reveal">— 05</span>
+    <h2 class="section-title reveal">Ejercicios de <em>amor propio</em></h2>
+    <div class="ejercicios-list">
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">01</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico</span>
+          <h3 class="ejercicio-title">El espejo sin juicio 🌿</h3>
+          <p class="ejercicio-text">2 minutos frente al espejo sin buscar nada. Solo mira. Sin evaluar. Cuando aparezca una crítica, di: "Te veo." No tienes que estar de acuerdo todavía. Solo ver.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">02</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico</span>
+          <h3 class="ejercicio-title">La lista de lo que sí 🌿</h3>
+          <p class="ejercicio-text">Cuando te sientas pequeña, escribe 5 cosas que hiciste bien hoy. No tienen que ser grandes. Pueden ser: me levanté, me moví, tomé agua, respondí con calma, elegí bien.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">03</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico</span>
+          <h3 class="ejercicio-title">El movimiento como acto de amor 🌿</h3>
+          <p class="ejercicio-text">Antes de empezar tu rutina física, di en voz alta o en silencio: "Esto lo hago porque me quiero, no para arreglarme." Cambia el propósito. Cambia la energía.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">04</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Práctico</span>
+          <h3 class="ejercicio-title">La pausa de tres minutos 🌿</h3>
+          <p class="ejercicio-text">Cuando sientas que algo interno busca llenarse de afuera, haz una pausa. Respira. Pregúntate: ¿qué estoy sintiendo realmente? No para prohibirte nada. Solo para elegir desde un lugar más consciente.</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">05</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Interior</span>
+          <h3 class="ejercicio-title">La carta desde el futuro 🌙</h3>
+          <p class="ejercicio-text">Imagina que pasaron 5 años. La versión de ti que ya atravesó todo esto te escribe. ¿Qué te diría? ¿Qué te pediría que no olvidaras? ¿Qué te celebraría?</p>
+        </div>
+      </div>
+
+      <div class="ejercicio reveal">
+        <span class="ejercicio-num">06</span>
+        <div class="ejercicio-content">
+          <span class="ejercicio-tag">Interior</span>
+          <h3 class="ejercicio-title">La conversación con tu niña interior 🌙</h3>
+          <p class="ejercicio-text">Cuando algo duele mucho, pregúntate: ¿qué necesita la versión más pequeña de mí en este momento? A veces solo necesita que le digas que todo va a estar bien. Díselo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AFIRMACIONES -->
+<section id="afirmaciones" class="afirmaciones">
+  <div class="section-inner">
+    <span class="section-number reveal">— 06</span>
+    <h2 class="section-title reveal">Afirmaciones</h2>
+    <p class="completitud-text reveal" style="margin-bottom: 0;">Para leer en voz alta, con calma, de preferencia frente al espejo. Sin prisa. Sintiéndolas.</p>
+    <div class="afirmaciones-grid reveal reveal-delay-1">
+      <div class="afirmacion-item">Soy completa, ahora mismo, tal como estoy.</div>
+      <div class="afirmacion-item">Mi sensibilidad no es una carga. Es mi forma de entender el mundo.</div>
+      <div class="afirmacion-item">Merezco amor claro, presente y sin dudas.</div>
+      <div class="afirmacion-item">Cuido mi cuerpo porque lo amo. Y lo amo aunque no siempre lo entienda.</div>
+      <div class="afirmacion-item">No estoy esperando. Estoy viviendo.</div>
+      <div class="afirmacion-item">Puedo sostenerme a mí misma. Soy mi propio refugio.</div>
+      <div class="afirmacion-item">Lo que no pudo quedarse no era para mí. Y eso está bien.</div>
+      <div class="afirmacion-item">Soy la relación más importante de mi vida.</div>
+      <div class="afirmacion-item">Mis límites son un acto de amor, no de rechazo.</div>
+      <div class="afirmacion-item">Me permito sentir sin que eso me defina.</div>
+      <div class="afirmacion-item">El amor que merezco existe y está en camino.</div>
+      <div class="afirmacion-item">Hoy elijo tratarme bien.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RUTINA -->
+<section id="rutina" class="rutina-section">
+  <div class="section-inner">
+    <span class="section-number reveal">— 07</span>
+    <h2 class="section-title reveal">Rutina de <em>reconexión</em></h2>
+    <p class="completitud-text reveal">10–15 minutos. Mañana o noche. Lo que funcione para ti.</p>
+    <div class="rutina-steps reveal reveal-delay-1">
+      <div class="rutina-step">
+        <div class="rutina-num-box">1</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">2 minutos</div>
+          <h3 class="rutina-step-title">Respira</h3>
+          <p class="rutina-step-text">Cinco respiraciones profundas. Inhala por la nariz contando hasta 4, exhala por la boca contando hasta 6. Solo eso. Llegar a ti misma.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">2</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">1 minuto</div>
+          <h3 class="rutina-step-title">Elige una afirmación</h3>
+          <p class="rutina-step-text">La que más necesites hoy. No la que suene mejor. La que más necesites. Léela tres veces, en voz alta si puedes.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">3</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">3 minutos</div>
+          <h3 class="rutina-step-title">Revisa cómo estás</h3>
+          <p class="rutina-step-text">Pregúntate: ¿Cómo estoy hoy, honestamente? Escríbelo donde sea. O solo siéntelo. Sin juicio. Sin arreglarlo.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">4</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">3–5 minutos</div>
+          <h3 class="rutina-step-title">Muévete</h3>
+          <p class="rutina-step-text">Estírate, camina, sacúdete. Aunque sea dos minutos. Tu cuerpo agradece ser habitado conscientemente.</p>
+        </div>
+      </div>
+      <div class="rutina-step">
+        <div class="rutina-num-box">5</div>
+        <div class="rutina-content">
+          <div class="rutina-step-time">1 minuto</div>
+          <h3 class="rutina-step-title">Cierra con intención</h3>
+          <p class="rutina-step-text">Di: "Hoy voy a tratarme bien." O elige tu propia frase. Simple. Tuya. Y llévala contigo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="carta reveal" style="margin-top: 40px; background: var(--butter);">
+      <p style="font-style: italic; color: var(--brown);">Para los días difíciles: no tienes que hacer todo. En los días que cueste, elige solo una cosa. Una respiración. Una afirmación. Una pausa. Eso también cuenta. Eso también es amor propio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="cierre">
+  <div class="section-inner">
+    <span class="cierre-tag">— Todo esto ya está en ti</span>
+    <h2 class="cierre-title">Esa mujer eres tú.<br>Y eso es enorme.</h2>
+    <p class="cierre-text">Inmaculada, esta guía no te da nada que no tengas. Solo te recuerda lo que ya eres cuando te permites verlo.</p>
+    <p class="cierre-text">No hay una versión perfecta de este proceso. No hay una línea de llegada donde ya no duela nada. Lo que sí hay, es una mujer que decidió acompañarse. Que está aprendiendo a ser su propio hogar.</p>
+    <p class="cierre-text">Que cuando algo duele, en lugar de huir de ella misma, elige quedarse.</p>
+    <div class="cierre-firma">
+      <p>Con amor y presencia,</p>
+      <span>Fergis Marrero · Mamá Girasol</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer para reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Sunflower parallax en hero
+  const hero = document.querySelector('.hero');
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      heroBg.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamá Girasol — Formulario de Intake</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #3E1F0E;
+    --surface: #4e2a14;
+    --surface2: #5c3219;
+    --gold: #F5C842;
+    --gold-light: #fad96a;
+    --gold-dark: #c9a128;
+    --text: #fdf3e3;
+    --text-muted: #d4b896;
+    --text-dim: #a07a56;
+    --border: rgba(245, 200, 66, 0.2);
+    --border-active: rgba(245, 200, 66, 0.6);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    background: linear-gradient(180deg, #2a1208 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sunflower-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.75rem;
+    animation: sway 4s ease-in-out infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  /* Greeting card */
+  .greeting {
+    max-width: 620px;
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .greeting::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .greeting p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .greeting p:last-child {
+    margin-bottom: 0;
+  }
+
+  .greeting .signature {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+
+  /* Form wrapper */
+  .form-wrapper {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-title span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  /* Field groups */
+  .field-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  input[type="tel"] {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+  }
+
+  input:focus {
+    border-color: var(--border-active);
+    background: #6b3c20;
+  }
+
+  input::placeholder {
+    color: var(--text-dim);
+    opacity: 0.7;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7) sepia(1) hue-rotate(10deg) saturate(2);
+    cursor: pointer;
+  }
+
+  /* Question cards */
+  .question-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.25rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .question-text {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Radio options */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: all 0.15s;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .option-label:hover {
+    background: var(--surface2);
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .option-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    accent-color: var(--gold);
+    margin-top: 2px;
+    cursor: pointer;
+  }
+
+  .option-label.selected {
+    background: rgba(245, 200, 66, 0.08);
+    border-color: rgba(245, 200, 66, 0.4);
+    color: var(--text);
+  }
+
+  .option-label.selected .option-text {
+    color: var(--gold-light);
+  }
+
+  /* Category label */
+  .category-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 500;
+    margin: 1.75rem 0 0.75rem;
+  }
+
+  .category-label:first-child {
+    margin-top: 0;
+  }
+
+  /* Pre-submit text */
+  .pre-submit {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 1rem;
+    margin: 2rem 0 1.5rem;
+    line-height: 1.6;
+  }
+
+  /* Submit button */
+  .btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: var(--gold);
+    color: #2a1208;
+    border: none;
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+  }
+
+  .btn-submit:hover {
+    background: var(--gold-light);
+  }
+
+  .btn-submit:active {
+    transform: scale(0.98);
+  }
+
+  .btn-submit svg {
+    width: 22px;
+    height: 22px;
+    fill: #2a1208;
+    flex-shrink: 0;
+  }
+
+  /* Validation */
+  .error-banner {
+    background: rgba(200, 60, 40, 0.15);
+    border: 1px solid rgba(200, 60, 40, 0.4);
+    border-radius: var(--radius-sm);
+    color: #f9a090;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    display: none;
+  }
+
+  .error-banner.show { display: block; }
+
+  /* Confirmation screen */
+  #confirmation {
+    display: none;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  #confirmation.show {
+    display: flex;
+  }
+
+  #main-form.hidden {
+    display: none;
+  }
+
+  .confirm-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: bloom 0.6s ease-out;
+  }
+
+  @keyframes bloom {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .confirm-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .confirm-msg {
+    color: var(--text-muted);
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.8;
+  }
+
+  .confirm-signature {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+
+  .confirm-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .confirm-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<!-- CONFIRMATION SCREEN -->
+<div id="confirmation">
+  <div class="confirm-card">
+    <div class="confirm-icon">🌻</div>
+    <h2 class="confirm-title">Hola, Girasol</h2>
+    <p class="confirm-msg">
+      Lo recibí. Gracias por confiarme esto — voy a leerlo con el cuidado que merece y pronto estarás sabiendo de mí.
+    </p>
+    <p class="confirm-signature">Con amor,<br>Fergis • Mamá Girasol</p>
+  </div>
+</div>
+
+<!-- MAIN FORM -->
+<div id="main-form">
+
+  <div class="header">
+    <span class="sunflower-icon">🌻</span>
+    <div class="brand">Mamá Girasol</div>
+    <h1>Antes de encontrarnos</h1>
+  </div>
+
+  <div class="form-wrapper">
+
+    <!-- Greeting -->
+    <div class="greeting">
+      <p>Hola, me alegra que estés aquí.</p>
+      <p>Este espacio es tuyo. No hay respuestas correctas ni incorrectas — solo las tuyas. Tómate el tiempo que necesites y responde desde lo que sientes, no desde lo que crees que debería ser.</p>
+      <p>Lo que compartas aquí es completamente privado. Solo yo lo leeré, con cuidado y sin juicios.</p>
+      <p class="signature">— Fergis</p>
+    </div>
+
+    <!-- Error banner -->
+    <div class="error-banner" id="error-banner">
+      Por favor completa todos los campos antes de enviar. 💛
+    </div>
+
+    <form id="intake-form" novalidate>
+
+      <!-- DATOS PERSONALES -->
+      <div class="section">
+        <div class="section-title">Datos personales <span>• Para conocerte</span></div>
+
+        <div class="field-group">
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="fecha_nac">Fecha de nacimiento</label>
+            <input type="date" id="fecha_nac" name="fecha_nac" required>
+          </div>
+          <div class="field-group">
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" placeholder="Ej: 32" min="16" max="99" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="lugar_nac">Lugar de nacimiento</label>
+            <input type="text" id="lugar_nac" name="lugar_nac" placeholder="Ciudad, País" required>
+          </div>
+          <div class="field-group">
+            <label for="residencia">Lugar de residencia</label>
+            <input type="text" id="residencia" name="residencia" placeholder="Ciudad, País" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+51 900 000 000" required>
+          </div>
+          <div class="field-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREGUNTAS -->
+      <div class="section">
+        <div class="section-title">Preguntas <span>• Responde desde lo que sientes</span></div>
+
+        <!-- IDENTIDAD Y PROPÓSITO -->
+        <div class="category-label">Identidad y propósito</div>
+
+        <div class="question-card">
+          <p class="question-text">¿Cómo te describirías a ti misma?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q1" value="Soy intensa y apasionada" required><span class="option-text">Soy intensa y apasionada</span></label>
+            <label class="option-label"><input type="radio" name="q1" value="Soy tranquila y reflexiva"><span class="option-text">Soy tranquila y reflexiva</span></label>
+            <label class="option-label"><input type="radio" name="q1" value="Soy adaptable y cambiante"><span class="option-text">Soy adaptable y cambiante</span></label>
+            <label class="option-label"><input type="radio" name="q1" value="Soy práctica y enfocada"><span class="option-text">Soy práctica y enfocada</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué es lo que más te pesa en este momento?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q2" value="Sentir que no estoy siendo quien quiero ser" required><span class="option-text">Sentir que no estoy siendo quien quiero ser</span></label>
+            <label class="option-label"><input type="radio" name="q2" value="No saber qué quiero realmente"><span class="option-text">No saber qué quiero realmente</span></label>
+            <label class="option-label"><input type="radio" name="q2" value="Saber lo que quiero pero no poder lograrlo"><span class="option-text">Saber lo que quiero pero no poder lograrlo</span></label>
+            <label class="option-label"><input type="radio" name="q2" value="Sentir que me perdí en el camino"><span class="option-text">Sentir que me perdí en el camino</span></label>
+          </div>
+        </div>
+
+        <!-- MUNDO EMOCIONAL -->
+        <div class="category-label">Mundo emocional interno</div>
+
+        <div class="question-card">
+          <p class="question-text">Cuando algo te duele, ¿qué haces primero?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q3" value="Me encierro y lo proceso sola" required><span class="option-text">Me encierro y lo proceso sola</span></label>
+            <label class="option-label"><input type="radio" name="q3" value="Busco a alguien con quien hablar"><span class="option-text">Busco a alguien con quien hablar</span></label>
+            <label class="option-label"><input type="radio" name="q3" value="Me distraigo con otras cosas"><span class="option-text">Me distraigo con otras cosas</span></label>
+            <label class="option-label"><input type="radio" name="q3" value="Lo ignoro hasta que exploto"><span class="option-text">Lo ignoro hasta que exploto</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué necesitas para sentirte segura emocionalmente?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q4" value="Tiempo y espacio para mí" required><span class="option-text">Tiempo y espacio para mí</span></label>
+            <label class="option-label"><input type="radio" name="q4" value="Saber que tengo a alguien en quien confiar"><span class="option-text">Saber que tengo a alguien en quien confiar</span></label>
+            <label class="option-label"><input type="radio" name="q4" value="Tener claridad sobre lo que viene"><span class="option-text">Tener claridad sobre lo que viene</span></label>
+            <label class="option-label"><input type="radio" name="q4" value="Sentir que tengo el control de mi vida"><span class="option-text">Sentir que tengo el control de mi vida</span></label>
+          </div>
+        </div>
+
+        <!-- VÍNCULOS -->
+        <div class="category-label">Vínculos y amor</div>
+
+        <div class="question-card">
+          <p class="question-text">Cuando alguien te importa mucho, ¿cómo sueles comportarte?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q5" value="Me entrego completamente, a veces demasiado" required><span class="option-text">Me entrego completamente, a veces demasiado</span></label>
+            <label class="option-label"><input type="radio" name="q5" value="Me acerco pero con cuidado, no me gusta depender"><span class="option-text">Me acerco pero con cuidado, no me gusta depender</span></label>
+            <label class="option-label"><input type="radio" name="q5" value="Me alejo sin querer, me cuesta recibir"><span class="option-text">Me alejo sin querer, me cuesta recibir</span></label>
+            <label class="option-label"><input type="radio" name="q5" value="Me vuelvo muy protectora de esa persona"><span class="option-text">Me vuelvo muy protectora de esa persona</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Hay un patrón que se repite en tus relaciones?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q6" value="Termino cuidando a todos menos a mí" required><span class="option-text">Termino cuidando a todos menos a mí</span></label>
+            <label class="option-label"><input type="radio" name="q6" value="Elijo personas que no pueden darme lo que necesito"><span class="option-text">Elijo personas que no pueden darme lo que necesito</span></label>
+            <label class="option-label"><input type="radio" name="q6" value="Me cierro cuando alguien se acerca demasiado"><span class="option-text">Me cierro cuando alguien se acerca demasiado</span></label>
+            <label class="option-label"><input type="radio" name="q6" value="Siento que nunca soy suficiente para los demás"><span class="option-text">Siento que nunca soy suficiente para los demás</span></label>
+          </div>
+        </div>
+
+        <!-- COMUNICACIÓN -->
+        <div class="category-label">Comunicación y pensamiento</div>
+
+        <div class="question-card">
+          <p class="question-text">¿Te resulta fácil expresar lo que sientes?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q7" value="No, me quedo con todo adentro" required><span class="option-text">No, me quedo con todo adentro</span></label>
+            <label class="option-label"><input type="radio" name="q7" value="Solo cuando confío mucho en la persona"><span class="option-text">Solo cuando confío mucho en la persona</span></label>
+            <label class="option-label"><input type="radio" name="q7" value="A veces sí, pero después me arrepiento de haber hablado"><span class="option-text">A veces sí, pero después me arrepiento de haber hablado</span></label>
+            <label class="option-label"><input type="radio" name="q7" value="Sí, soy bastante abierta"><span class="option-text">Sí, soy bastante abierta</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">Cuando tienes que tomar una decisión difícil, ¿qué haces?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q8" value="Analizo todo hasta el cansancio" required><span class="option-text">Analizo todo hasta el cansancio</span></label>
+            <label class="option-label"><input type="radio" name="q8" value="Espero a sentir que algo me dice qué hacer"><span class="option-text">Espero a sentir que algo me dice qué hacer</span></label>
+            <label class="option-label"><input type="radio" name="q8" value="Le pregunto a alguien de confianza"><span class="option-text">Le pregunto a alguien de confianza</span></label>
+            <label class="option-label"><input type="radio" name="q8" value="Actúo y después veo qué pasa"><span class="option-text">Actúo y después veo qué pasa</span></label>
+          </div>
+        </div>
+
+        <!-- ACCIÓN -->
+        <div class="category-label">Acción y energía</div>
+
+        <div class="question-card">
+          <p class="question-text">Cuando algo te molesta o te parece injusto, ¿cómo reaccionas?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q9" value="Me guardo todo para no generar conflicto" required><span class="option-text">Me guardo todo para no generar conflicto</span></label>
+            <label class="option-label"><input type="radio" name="q9" value="Lo digo directamente, aunque incomode"><span class="option-text">Lo digo directamente, aunque incomode</span></label>
+            <label class="option-label"><input type="radio" name="q9" value="Exploto en el momento equivocado"><span class="option-text">Exploto en el momento equivocado</span></label>
+            <label class="option-label"><input type="radio" name="q9" value="Me alejo sin explicar por qué"><span class="option-text">Me alejo sin explicar por qué</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué te cuesta más?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q10" value="Empezar — me paralizo antes de comenzar" required><span class="option-text">Empezar — me paralizo antes de comenzar</span></label>
+            <label class="option-label"><input type="radio" name="q10" value="Terminar — pierdo el impulso a mitad de camino"><span class="option-text">Terminar — pierdo el impulso a mitad de camino</span></label>
+            <label class="option-label"><input type="radio" name="q10" value="Mantener — comienzo bien pero no sostengo"><span class="option-text">Mantener — comienzo bien pero no sostengo</span></label>
+            <label class="option-label"><input type="radio" name="q10" value="Decidir — no sé por dónde ir"><span class="option-text">Decidir — no sé por dónde ir</span></label>
+          </div>
+        </div>
+
+        <!-- EXPANSIÓN -->
+        <div class="category-label">Expansión y creencias</div>
+
+        <div class="question-card">
+          <p class="question-text">¿En qué área sientes que tienes potencial pero algo te frena?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q11" value="En mi vida profesional o proyectos propios" required><span class="option-text">En mi vida profesional o proyectos propios</span></label>
+            <label class="option-label"><input type="radio" name="q11" value="En mis relaciones y vínculos"><span class="option-text">En mis relaciones y vínculos</span></label>
+            <label class="option-label"><input type="radio" name="q11" value="En conocerme y quererme a mí misma"><span class="option-text">En conocerme y quererme a mí misma</span></label>
+            <label class="option-label"><input type="radio" name="q11" value="En mi bienestar físico y emocional"><span class="option-text">En mi bienestar físico y emocional</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué creencia quisieras dejar de cargar?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q12" value='"No soy suficiente"' required><span class="option-text">"No soy suficiente"</span></label>
+            <label class="option-label"><input type="radio" name="q12" value='"No merezco lo que quiero"'><span class="option-text">"No merezco lo que quiero"</span></label>
+            <label class="option-label"><input type="radio" name="q12" value='"Si pido demasiado, me van a abandonar"'><span class="option-text">"Si pido demasiado, me van a abandonar"</span></label>
+            <label class="option-label"><input type="radio" name="q12" value='"Para que me quieran tengo que ser perfecta"'><span class="option-text">"Para que me quieran tengo que ser perfecta"</span></label>
+          </div>
+        </div>
+
+        <!-- HERIDAS -->
+        <div class="category-label">Heridas y límites</div>
+
+        <div class="question-card">
+          <p class="question-text">¿En qué eres más dura contigo misma?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q13" value="En mis errores — no me los perdono fácilmente" required><span class="option-text">En mis errores — no me los perdono fácilmente</span></label>
+            <label class="option-label"><input type="radio" name="q13" value="En mi cuerpo y apariencia"><span class="option-text">En mi cuerpo y apariencia</span></label>
+            <label class="option-label"><input type="radio" name="q13" value="En mis logros — nunca siento que es suficiente"><span class="option-text">En mis logros — nunca siento que es suficiente</span></label>
+            <label class="option-label"><input type="radio" name="q13" value="En mis emociones — me juzgo por sentir lo que siento"><span class="option-text">En mis emociones — me juzgo por sentir lo que siento</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué tan fácil te resulta pedir ayuda?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q14" value="Muy difícil, prefiero resolverlo sola" required><span class="option-text">Muy difícil, prefiero resolverlo sola</span></label>
+            <label class="option-label"><input type="radio" name="q14" value="Solo pido ayuda cuando ya no puedo más"><span class="option-text">Solo pido ayuda cuando ya no puedo más</span></label>
+            <label class="option-label"><input type="radio" name="q14" value="Me cuesta pero lo intento"><span class="option-text">Me cuesta pero lo intento</span></label>
+            <label class="option-label"><input type="radio" name="q14" value="Me resulta natural, no tengo problema"><span class="option-text">Me resulta natural, no tengo problema</span></label>
+          </div>
+        </div>
+
+        <!-- TRANSFORMACIÓN -->
+        <div class="category-label">Transformación</div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué está cambiando en tu vida ahora mismo?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q15" value="Algo en mí que ya no quiero seguir siendo" required><span class="option-text">Algo en mí que ya no quiero seguir siendo</span></label>
+            <label class="option-label"><input type="radio" name="q15" value="Una relación o vínculo importante"><span class="option-text">Una relación o vínculo importante</span></label>
+            <label class="option-label"><input type="radio" name="q15" value="Mi camino profesional o propósito"><span class="option-text">Mi camino profesional o propósito</span></label>
+            <label class="option-label"><input type="radio" name="q15" value="Mi relación conmigo misma"><span class="option-text">Mi relación conmigo misma</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Hay algo que sabes que tienes que soltar?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q16" value="Una relación o persona" required><span class="option-text">Una relación o persona</span></label>
+            <label class="option-label"><input type="radio" name="q16" value="Una versión de mí que ya no me sirve"><span class="option-text">Una versión de mí que ya no me sirve</span></label>
+            <label class="option-label"><input type="radio" name="q16" value="Una forma de pensar o una creencia"><span class="option-text">Una forma de pensar o una creencia</span></label>
+            <label class="option-label"><input type="radio" name="q16" value="Un miedo que me paraliza hace tiempo"><span class="option-text">Un miedo que me paraliza hace tiempo</span></label>
+          </div>
+        </div>
+
+        <!-- CIERRE -->
+        <div class="category-label">Cierre</div>
+
+        <div class="question-card">
+          <p class="question-text">¿Qué te trajo hasta aquí?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q17" value="Estoy en un momento de quiebre y necesito apoyo" required><span class="option-text">Estoy en un momento de quiebre y necesito apoyo</span></label>
+            <label class="option-label"><input type="radio" name="q17" value="Siento que algo tiene que cambiar pero no sé qué"><span class="option-text">Siento que algo tiene que cambiar pero no sé qué</span></label>
+            <label class="option-label"><input type="radio" name="q17" value="Quiero conocerme mejor y trabajar en mí"><span class="option-text">Quiero conocerme mejor y trabajar en mí</span></label>
+            <label class="option-label"><input type="radio" name="q17" value="Alguien me recomendó este espacio"><span class="option-text">Alguien me recomendó este espacio</span></label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-text">¿Hay algo que quieras que sepa antes de nuestra primera sesión?</p>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q18" value="Que tengo miedo de abrirme pero quiero intentarlo" required><span class="option-text">Que tengo miedo de abrirme pero quiero intentarlo</span></label>
+            <label class="option-label"><input type="radio" name="q18" value="Que vengo de experiencias donde no me sentí escuchada"><span class="option-text">Que vengo de experiencias donde no me sentí escuchada</span></label>
+            <label class="option-label"><input type="radio" name="q18" value="Que estoy lista y con muchas ganas de empezar"><span class="option-text">Que estoy lista y con muchas ganas de empezar</span></label>
+            <label class="option-label"><input type="radio" name="q18" value="Que todavía no estoy segura, pero aquí estoy"><span class="option-text">Que todavía no estoy segura, pero aquí estoy</span></label>
+          </div>
+        </div>
+
+      </div><!-- /section -->
+
+      <!-- Pre-submit text -->
+      <p class="pre-submit">
+        Gracias por tomarte este momento contigo misma.<br>Eso ya dice mucho de ti.
+      </p>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn-submit">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.535 5.876L0 24l6.283-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.874 9.874 0 01-5.032-1.378l-.36-.214-3.732.895.946-3.617-.235-.372A9.848 9.848 0 012.118 12C2.118 6.538 6.538 2.118 12 2.118S21.882 6.538 21.882 12 17.462 21.882 12 21.882z"/></svg>
+        Enviar mis respuestas
+      </button>
+
+    </form>
+  </div>
+</div><!-- /main-form -->
+
+<script>
+  // Highlight selected radio options
+  document.querySelectorAll('.option-label input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const name = radio.name;
+      document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+        r.closest('.option-label').classList.remove('selected');
+      });
+      radio.closest('.option-label').classList.add('selected');
+    });
+  });
+
+  // Build WhatsApp message from form data
+  document.getElementById('intake-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const errorBanner = document.getElementById('error-banner');
+
+    // Validate personal fields
+    const textFields = ['nombre', 'fecha_nac', 'edad', 'lugar_nac', 'residencia', 'telefono', 'correo'];
+    let valid = true;
+
+    textFields.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) valid = false;
+    });
+
+    // Validate radios
+    const radios = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13','q14','q15','q16','q17','q18'];
+    radios.forEach(name => {
+      if (!form.querySelector(`input[name="${name}"]:checked`)) valid = false;
+    });
+
+    if (!valid) {
+      errorBanner.classList.add('show');
+      errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    errorBanner.classList.remove('show');
+
+    // Collect data
+    const get = id => document.getElementById(id).value.trim();
+    const getR = name => {
+      const checked = form.querySelector(`input[name="${name}"]:checked`);
+      return checked ? checked.value : '—';
+    };
+
+    const nombre = get('nombre');
+    const fechaNac = get('fecha_nac');
+    const edad = get('edad');
+    const lugarNac = get('lugar_nac');
+    const residencia = get('residencia');
+    const telefono = get('telefono');
+    const correo = get('correo');
+
+    // Build WA message
+    const msg = [
+      `🌻 *FORMULARIO DE INTAKE — MAMÁ GIRASOL*`,
+      ``,
+      `*DATOS PERSONALES*`,
+      `• Nombre: ${nombre}`,
+      `• Fecha de nacimiento: ${fechaNac}`,
+      `• Edad: ${edad}`,
+      `• Lugar de nacimiento: ${lugarNac}`,
+      `• Lugar de residencia: ${residencia}`,
+      `• Teléfono: ${telefono}`,
+      `• Correo: ${correo}`,
+      ``,
+      `*PERFIL EMOCIONAL — ${nombre}*`,
+      ``,
+      `*Identidad*`,
+      `Se describe como: ${getR('q1')}`,
+      `Lo que más le pesa: ${getR('q2')}`,
+      ``,
+      `*Mundo emocional*`,
+      `Cuando duele: ${getR('q3')}`,
+      `Para sentirse segura: ${getR('q4')}`,
+      ``,
+      `*Vínculos*`,
+      `Cuando alguien le importa: ${getR('q5')}`,
+      `Patrón que se repite: ${getR('q6')}`,
+      ``,
+      `*Comunicación*`,
+      `Expresar lo que siente: ${getR('q7')}`,
+      `Para decidir: ${getR('q8')}`,
+      ``,
+      `*Acción*`,
+      `Ante el conflicto: ${getR('q9')}`,
+      `Le cuesta más: ${getR('q10')}`,
+      ``,
+      `*Expansión*`,
+      `Área donde se frena: ${getR('q11')}`,
+      `Creencia que quiere soltar: ${getR('q12')}`,
+      ``,
+      `*Heridas*`,
+      `Más dura consigo en: ${getR('q13')}`,
+      `Pedir ayuda: ${getR('q14')}`,
+      ``,
+      `*Transformación*`,
+      `Qué está cambiando: ${getR('q15')}`,
+      `Qué necesita soltar: ${getR('q16')}`,
+      ``,
+      `*Cierre*`,
+      `Qué la trajo: ${getR('q17')}`,
+      `Antes de la sesión: ${getR('q18')}`,
+    ].join('\n');
+
+    const waUrl = `https://wa.me/51907671044?text=${encodeURIComponent(msg)}`;
+
+    // Show confirmation screen
+    document.getElementById('main-form').classList.add('hidden');
+    document.getElementById('confirmation').classList.add('show');
+
+    // Open WhatsApp
+    window.open(waUrl, '_blank');
+  });
+</script>
+</body>
+</html>

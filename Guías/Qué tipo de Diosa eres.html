@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué tipo de Diosa eres hoy? ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amarillo: #F5C842;
+    --amarillo-claro: #FDF6E3;
+    --amarillo-suave: #FAE89A;
+    --rojo: #C0392B;
+    --rojo-suave: #F5A58C;
+    --rojo-claro: #FDE8E4;
+    --verde: #2E7D5E;
+    --verde-suave: #A8D5BB;
+    --verde-claro: #E6F5EE;
+    --azul: #2980B9;
+    --azul-suave: #A3C4E0;
+    --azul-claro: #E8F4FD;
+    --vino: #3E1F0E;
+    --crema: #FDF6E3;
+    --texto: #2C1810;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--crema);
+    color: var(--texto);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .fondo-patron {
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(245,200,66,0.18) 0%, transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(192,57,43,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(46,125,94,0.15) 0%, transparent 45%),
+      radial-gradient(circle at 20% 80%, rgba(41,128,185,0.12) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* PANTALLAS */
+  .pantalla {
+    display: none;
+    animation: aparecer 0.6s ease forwards;
+  }
+  .pantalla.activa { display: block; }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* BIENVENIDA */
+  .bienvenida-emoji {
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    display: block;
+    animation: flotar 3s ease-in-out infinite;
+  }
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .titulo-bienvenida {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--vino);
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .subtitulo-bienvenida {
+    font-size: 1.05rem;
+    text-align: center;
+    color: #5C3325;
+    line-height: 1.75;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .tarjeta-bienvenida {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem 2rem 2.5rem;
+    border: 1.5px solid rgba(245,200,66,0.4);
+    box-shadow: 0 4px 32px rgba(62,31,14,0.07);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .emojis-fila {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .texto-tarjeta {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--vino);
+    line-height: 1.7;
+  }
+
+  /* BOTONES */
+  .btn-principal {
+    display: block;
+    width: 100%;
+    background: var(--amarillo);
+    color: var(--vino);
+    border: none;
+    border-radius: 100px;
+    padding: 1rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.01em;
+    box-shadow: 0 2px 16px rgba(245,200,66,0.35);
+  }
+  .btn-principal:hover {
+    background: #E8B830;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(245,200,66,0.45);
+  }
+
+  /* QUIZ */
+  .progreso-barra {
+    background: rgba(62,31,14,0.08);
+    border-radius: 100px;
+    height: 6px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .progreso-fill {
+    background: linear-gradient(90deg, var(--amarillo), var(--rojo-suave));
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.5s ease;
+  }
+
+  .numero-pregunta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--rojo);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .texto-pregunta {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--vino);
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+
+  .opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .opcion {
+    background: white;
+    border: 1.5px solid rgba(62,31,14,0.1);
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 0.97rem;
+    color: var(--texto);
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+  .opcion:hover {
+    border-color: var(--amarillo);
+    background: var(--amarillo-claro);
+    transform: translateX(4px);
+  }
+  .opcion.seleccionada {
+    border-color: var(--amarillo);
+    background: var(--amarillo-suave);
+    font-weight: 500;
+  }
+  .opcion-emoji {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  /* RESULTADO */
+  .resultado-cabeza {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .resultado-emoji-grande {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: flotar 3s ease-in-out infinite;
+  }
+  .resultado-etiqueta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 0.4rem;
+  }
+  .resultado-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--vino);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .tarjeta-resultado {
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1.5px solid;
+  }
+  .tarjeta-resultado p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--texto);
+  }
+  .tarjeta-resultado .resultado-frase {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  /* COLORES POR ARQUETIPO */
+  .luna { background: var(--azul-claro); border-color: var(--azul-suave); }
+  .luna .resultado-frase { color: var(--azul); }
+  .llama { background: var(--rojo-claro); border-color: var(--rojo-suave); }
+  .llama .resultado-frase { color: var(--rojo); }
+  .oceano { background: var(--verde-claro); border-color: var(--verde-suave); }
+  .oceano .resultado-frase { color: var(--verde); }
+  .raiz { background: var(--amarillo-claro); border-color: var(--amarillo); }
+  .raiz .resultado-frase { color: #8B6914; }
+
+  /* INVITACIÓN */
+  .tarjeta-invitacion {
+    background: var(--vino);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .invitacion-emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .invitacion-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--amarillo);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .invitacion-texto {
+    font-size: 0.97rem;
+    color: rgba(253,246,227,0.85);
+    line-height: 1.75;
+    margin-bottom: 1.75rem;
+  }
+  .btn-invitacion {
+    display: inline-block;
+    background: var(--amarillo);
+    color: var(--vino);
+    border: none;
+    border-radius: 100px;
+    padding: 0.9rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-invitacion:hover {
+    background: #E8B830;
+    transform: translateY(-2px);
+  }
+
+  .btn-repetir {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: var(--vino);
+    border: 1.5px solid rgba(62,31,14,0.2);
+    border-radius: 100px;
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-repetir:hover {
+    background: rgba(62,31,14,0.05);
+    border-color: rgba(62,31,14,0.35);
+  }
+
+  .firma {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: rgba(62,31,14,0.45);
+  }
+  .firma span {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(62,31,14,0.6);
+  }
+
+  @media (max-width: 480px) {
+    .titulo-bienvenida { font-size: 2.2rem; }
+    .texto-pregunta { font-size: 1.4rem; }
+    .resultado-titulo { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="fondo-patron"></div>
+
+<div class="container">
+
+  <!-- PANTALLA 1: BIENVENIDA -->
+  <div class="pantalla activa" id="pantalla-bienvenida">
+    <span class="bienvenida-emoji">🌻</span>
+    <h1 class="titulo-bienvenida">¿Qué tipo de Diosa eres hoy?</h1>
+    <p class="subtitulo-bienvenida">
+      Tu alma ya sabe quién eres.<br>Hoy, vamos a jugar para recordarlo juntas ✨
+    </p>
+
+    <div class="tarjeta-bienvenida">
+      <div class="emojis-fila">🌙 🔥 🌊 🌿</div>
+      <p class="texto-tarjeta">
+        "No existe una sola forma de ser mujer.<br>
+        Existe la tuya, y es exactamente la que el mundo necesita."
+      </p>
+    </div>
+
+    <p style="text-align:center; font-size:0.9rem; color:#8B5E3C; margin-bottom:1.25rem;">
+      5 preguntas cortitas 💛 Sin respuestas correctas 💛 Solo tú siendo tú
+    </p>
+
+    <button class="btn-principal" onclick="irAPantalla('pantalla-quiz')">
+      Descubrir mi arquetipo ✨
+    </button>
+
+    <div class="firma" style="margin-top:1.5rem;">con amor, <span>Fergis · Mamá Girasol</span> 🌻</div>
+  </div>
+
+  <!-- PANTALLA 2: QUIZ -->
+  <div class="pantalla" id="pantalla-quiz">
+    <div class="progreso-barra">
+      <div class="progreso-fill" id="progreso-fill" style="width:20%"></div>
+    </div>
+
+    <p class="numero-pregunta" id="numero-pregunta">Pregunta 1 de 5 🌸</p>
+    <h2 class="texto-pregunta" id="texto-pregunta"></h2>
+
+    <div class="opciones" id="opciones"></div>
+
+    <button class="btn-principal" id="btn-siguiente" onclick="siguientePregunta()" style="opacity:0.35; pointer-events:none;">
+      Siguiente ✨
+    </button>
+  </div>
+
+  <!-- PANTALLA 3 + 4: RESULTADO E INVITACIÓN -->
+  <div class="pantalla" id="pantalla-resultado">
+    <div class="resultado-cabeza">
+      <span class="resultado-emoji-grande" id="resultado-emoji"></span>
+      <p class="resultado-etiqueta">Tu arquetipo es</p>
+      <h2 class="resultado-titulo" id="resultado-titulo"></h2>
+    </div>
+
+    <div class="tarjeta-resultado" id="tarjeta-resultado">
+      <span class="resultado-frase" id="resultado-frase"></span>
+      <p id="resultado-descripcion"></p>
+    </div>
+
+    <!-- INVITACIÓN A SERVICIOS -->
+    <div class="tarjeta-invitacion">
+      <span class="invitacion-emoji">💛</span>
+      <h3 class="invitacion-titulo" id="invitacion-titulo"></h3>
+      <p class="invitacion-texto" id="invitacion-texto"></p>
+      <a href="https://fergismarrero.com" class="btn-invitacion">
+        Quiero mi sesión de acompañamiento 🌻
+      </a>
+    </div>
+
+    <button class="btn-repetir" onclick="reiniciar()">
+      🔄 Volver a hacer el quiz
+    </button>
+
+    <div class="firma">con amor, <span>Fergis · Mamá Girasol</span> 🌻</div>
+  </div>
+
+</div>
+
+<script>
+const preguntas = [
+  {
+    texto: "Es domingo por la mañana y no tienes nada que hacer. ¿Qué haces? ☁️",
+    opciones: [
+      { emoji: "🌙", texto: "Me quedo en cama escuchando mis pensamientos en silencio", arquetipo: "luna" },
+      { emoji: "🔥", texto: "Pongo música alta y muevo el cuerpo sin ninguna razón", arquetipo: "llama" },
+      { emoji: "🌊", texto: "Llamo a alguien que quiero sin ningún motivo especial", arquetipo: "oceano" },
+      { emoji: "🌿", texto: "Salgo a caminar sola y me reconecto conmigo", arquetipo: "raiz" },
+    ]
+  },
+  {
+    texto: "Cuando algo te duele, lo primero que aparece es... 💭",
+    opciones: [
+      { emoji: "🌙", texto: "Un silencio muy hondo que necesito respetar", arquetipo: "luna" },
+      { emoji: "🔥", texto: "Una emoción intensa que quiero soltar YA", arquetipo: "llama" },
+      { emoji: "🌊", texto: "Las ganas de contárselo a alguien que me entienda", arquetipo: "oceano" },
+      { emoji: "🌿", texto: "La necesidad de entender qué pasó antes de sentir", arquetipo: "raiz" },
+    ]
+  },
+  {
+    texto: "Tu manera de cuidarte cuando estás agotada es... 🫶",
+    opciones: [
+      { emoji: "🌙", texto: "Desaparecer un ratito del mundo sin explicaciones", arquetipo: "luna" },
+      { emoji: "🔥", texto: "Llorar, gritar o liberar lo que sea que me pesa", arquetipo: "llama" },
+      { emoji: "🌊", texto: "Que alguien cercano esté conmigo, aunque sea en silencio", arquetipo: "oceano" },
+      { emoji: "🌿", texto: "Volver a mi rutina, a lo que me ancla y me da orden", arquetipo: "raiz" },
+    ]
+  },
+  {
+    texto: "¿Cuál es tu superpoder emocional? ✨",
+    opciones: [
+      { emoji: "🌙", texto: "Leer lo que nadie dice en voz alta", arquetipo: "luna" },
+      { emoji: "🔥", texto: "Sentir todo sin pretender que no está pasando", arquetipo: "llama" },
+      { emoji: "🌊", texto: "Hacer que las personas se sientan vistas y sostenidas", arquetipo: "oceano" },
+      { emoji: "🌿", texto: "Mantener la calma cuando todo a mi alrededor se mueve", arquetipo: "raiz" },
+    ]
+  },
+  {
+    texto: "¿Qué es lo que más necesitas en este momento de tu vida? 🌸",
+    opciones: [
+      { emoji: "🌙", texto: "Espacio para conocerme sin prisa ni presión", arquetipo: "luna" },
+      { emoji: "🔥", texto: "Soltar lo que cargo desde hace demasiado tiempo", arquetipo: "llama" },
+      { emoji: "🌊", texto: "Sentirme verdaderamente acompañada y recibida", arquetipo: "oceano" },
+      { emoji: "🌿", texto: "Encontrar tierra firme dentro de mí misma", arquetipo: "raiz" },
+    ]
+  }
+];
+
+const arquetipos = {
+  luna: {
+    emoji: "🌙",
+    nombre: "Diosa Luna",
+    clase: "luna",
+    frase: "Tu mundo interior es un universo entero.",
+    descripcion: "Eres introspectiva, perceptiva y profunda. Necesitas silencio para procesar lo que sientes, y eso no está mal — es tu manera de honrarte. Tu reto a veces es no quedarte tan adentro que te olvides de salir a recibir también. 🌙✨",
+    invitacionTitulo: "Tu luna merece ser vista, no solo sentida.",
+    invitacionTexto: "En las sesiones de acompañamiento emocional creamos ese espacio seguro donde tu mundo interior puede salir sin tener que explicarse ni justificarse. No tienes que procesar sola. 🌙💛"
+  },
+  llama: {
+    emoji: "🔥",
+    nombre: "Diosa Llama",
+    clase: "llama",
+    frase: "Lo que sientes con intensidad es tu mayor fortaleza.",
+    descripcion: "Sientes todo con una intensidad que asusta a algunos y que es, en realidad, un don enorme. Tu emoción es información, no un defecto. A veces solo necesitas un lugar donde procesarla sin que nadie la apague. 🔥💛",
+    invitacionTitulo: "Tu llama no necesita apagarse. Necesita espacio.",
+    invitacionTexto: "En las sesiones de acompañamiento emocional acompañamos lo que sientes sin juzgarlo, sin reducirlo, sin pedirte que seas menos de lo que eres. 🔥💛"
+  },
+  oceano: {
+    emoji: "🌊",
+    nombre: "Diosa Océano",
+    clase: "oceano",
+    frase: "Das mucho. ¿Cuándo recibes tú?",
+    descripcion: "Eres refugio, eres calor, eres el abrazo que las personas buscan. Contienes a otros con una generosidad inmensa. Pero a veces, en medio de tanto dar, te quedas sin preguntarte quién te contiene a ti. 🌊💚",
+    invitacionTitulo: "Las Diosas Océano también merecen ser sostenidas.",
+    invitacionTexto: "En las sesiones de acompañamiento emocional, por fin puedes ser tú quien recibe el espacio, la atención y el cuidado. Sin tener que darlo todo primero. 🌊💛"
+  },
+  raiz: {
+    emoji: "🌿",
+    nombre: "Diosa Raíz",
+    clase: "raiz",
+    frase: "Eres calma. Pero debajo de la tierra también hay movimiento.",
+    descripcion: "Eres ancla, eres estructura, eres la que sostiene cuando todo se tambalea. Tu fortaleza es real y hermosa. Pero a veces esa calma esconde lo que todavía no has podido procesar. Y eso también merece atención. 🌿💛",
+    invitacionTitulo: "Tu raíz también necesita ser vista.",
+    invitacionTexto: "En las sesiones de acompañamiento emocional exploramos juntas lo que vive debajo de tu calma, con suavidad y sin prisa. Porque ser fuerte no significa cargarlo todo sola. 🌿💛"
+  }
+};
+
+let preguntaActual = 0;
+let respuestas = [];
+let seleccionActual = null;
+
+function irAPantalla(id) {
+  document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
+  const pan = document.getElementById(id);
+  pan.classList.add('activa');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderPregunta() {
+  const p = preguntas[preguntaActual];
+  document.getElementById('numero-pregunta').textContent = `Pregunta ${preguntaActual + 1} de 5 🌸`;
+  document.getElementById('texto-pregunta').textContent = p.texto;
+  document.getElementById('progreso-fill').style.width = `${((preguntaActual + 1) / 5) * 100}%`;
+
+  const cont = document.getElementById('opciones');
+  cont.innerHTML = '';
+  seleccionActual = null;
+  actualizarBoton();
+
+  p.opciones.forEach((op, i) => {
+    const div = document.createElement('div');
+    div.className = 'opcion';
+    div.innerHTML = `<span class="opcion-emoji">${op.emoji}</span><span>${op.texto}</span>`;
+    div.onclick = () => seleccionar(i, op.arquetipo);
+    cont.appendChild(div);
+  });
+}
+
+function seleccionar(idx, arquetipo) {
+  document.querySelectorAll('.opcion').forEach((el, i) => {
+    el.classList.toggle('seleccionada', i === idx);
+  });
+  seleccionActual = arquetipo;
+  actualizarBoton();
+}
+
+function actualizarBoton() {
+  const btn = document.getElementById('btn-siguiente');
+  if (seleccionActual) {
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+  } else {
+    btn.style.opacity = '0.35';
+    btn.style.pointerEvents = 'none';
+  }
+}
+
+function siguientePregunta() {
+  if (!seleccionActual) return;
+  respuestas.push(seleccionActual);
+  preguntaActual++;
+
+  if (preguntaActual < preguntas.length) {
+    renderPregunta();
+  } else {
+    mostrarResultado();
+  }
+}
+
+function mostrarResultado() {
+  const conteo = { luna: 0, llama: 0, oceano: 0, raiz: 0 };
+  respuestas.forEach(r => conteo[r]++);
+  const ganador = Object.entries(conteo).sort((a,b) => b[1]-a[1])[0][0];
+  const arq = arquetipos[ganador];
+
+  document.getElementById('resultado-emoji').textContent = arq.emoji;
+  document.getElementById('resultado-titulo').textContent = arq.nombre;
+  document.getElementById('tarjeta-resultado').className = `tarjeta-resultado ${arq.clase}`;
+  document.getElementById('resultado-frase').textContent = arq.frase;
+  document.getElementById('resultado-descripcion').textContent = arq.descripcion;
+  document.getElementById('invitacion-titulo').textContent = arq.invitacionTitulo;
+  document.getElementById('invitacion-texto').textContent = arq.invitacionTexto;
+
+  irAPantalla('pantalla-resultado');
+}
+
+function reiniciar() {
+  preguntaActual = 0;
+  respuestas = [];
+  seleccionActual = null;
+  renderPregunta();
+  irAPantalla('pantalla-quiz');
+}
+
+renderPregunta();
+</script>
+</body>
+</html>
