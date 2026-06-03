@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Helper</title>
+<style>
+body { margin:0; padding:20px; background:#111; color:#f0ece4; font-family:sans-serif; }
+h1 { color:#f5c842; font-size:1.3rem; margin-bottom:4px; }
+p.sub { color:#666; font-size:0.8rem; margin-bottom:20px; }
+.box { background:#1c1c1c; border:1px solid #333; border-radius:12px; padding:16px; margin-bottom:14px; }
+.box.active { border-color:#f5c842; }
+.box.done { border-color:#4a9e4a; }
+.lbl { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:#555; margin-bottom:8px; }
+#qtext { min-height:50px; font-size:0.95rem; color:#555; line-height:1.6; }
+#atext { min-height:70px; font-size:1.05rem; color:#555; line-height:1.7; }
+.green { color:#90d890; font-weight:600; }
+.white { color:#f0ece4; }
+.btns { display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+#mainBtn { background:#f5c842; color:#111; border:none; border-radius:40px; padding:13px 24px; font-size:0.92rem; font-weight:700; cursor:pointer; min-width:175px; }
+#mainBtn.rec { background:#e05555; color:#fff; }
+#clearBtn { background:transparent; color:#666; border:1px solid #444; border-radius:40px; padding:13px 16px; font-size:0.88rem; cursor:pointer; }
+#status { font-size:0.8rem; min-height:18px; color:#f5c842; margin-bottom:10px; }
+.err { color:#e05555 !important; }
+.ok { color:#6cbe6c !important; }
+</style>
+</head>
+<body>
+
+<h1>🎙️ Interview Helper</h1>
+<p class="sub">Graba la pregunta → espera → lee la respuesta</p>
+
+<div class="box" id="boxQ">
+  <div class="lbl">📥 Pregunta detectada</div>
+  <div id="qtext">Esperando audio...</div>
+</div>
+
+<div class="box" id="boxA">
+  <div class="lbl">✅ Respuesta — léela en voz alta</div>
+  <div id="atext">La respuesta aparecerá aquí.</div>
+</div>
+
+<div class="btns">
+  <button id="mainBtn" onclick="toggle()">🎙️ Grabar pregunta</button>
+  <button id="clearBtn" onclick="limpiar()">Limpiar</button>
+</div>
+
+<div id="status"></div>
+
+<script>
+var rec = null;
+var listening = false;
+var finalText = "";
+
+function status(msg, cls) {
+  var el = document.getElementById("status");
+  el.textContent = msg;
+  el.className = cls || "";
+}
+
+function toggle() {
+  if (listening) parar();
+  else grabar();
+}
+
+function grabar() {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    status("⚠️ Este navegador no soporta voz. Usa Chrome en Android.", "err");
+    return;
+  }
+
+  finalText = "";
+  document.getElementById("qtext").textContent = "Escuchando...";
+  document.getElementById("qtext").className = "white";
+  document.getElementById("boxQ").className = "box active";
+
+  rec = new SR();
+  rec.lang = "en-US";
+  rec.continuous = true;
+  rec.interimResults = true;
+
+  rec.onresult = function(e) {
+    var interim = "", final = "";
+    for (var i = 0; i < e.results.length; i++) {
+      if (e.results[i].isFinal) final += e.results[i][0].transcript + " ";
+      else interim += e.results[i][0].transcript;
+    }
+    finalText = final;
+    document.getElementById("qtext").textContent = final || interim || "Escuchando...";
+  };
+
+  rec.onerror = function(e) {
+    status("Error: " + e.error, "err");
+    listening = false;
+    document.getElementById("mainBtn").textContent = "🎙️ Grabar pregunta";
+    document.getElementById("mainBtn").className = "";
+    document.getElementById("boxQ").className = "box";
+  };
+
+  rec.onend = function() {
+    if (listening) {
+      try { rec.start(); } catch(e2) {}
+    }
+  };
+
+  try {
+    rec.start();
+    listening = true;
+    document.getElementById("mainBtn").textContent = "⏹ Parar y responder";
+    document.getElementById("mainBtn").className = "rec";
+    status("🔴 Escuchando...");
+  } catch(e) {
+    status("Error al iniciar: " + e.message, "err");
+  }
+}
+
+function parar() {
+  listening = false;
+  if (rec) {
+    rec.onend = null;
+    try { rec.stop(); } catch(e) {}
+    rec = null;
+  }
+  document.getElementById("mainBtn").textContent = "🎙️ Grabar pregunta";
+  document.getElementById("mainBtn").className = "";
+  document.getElementById("boxQ").className = "box";
+  status("");
+
+  var q = finalText.trim();
+  if (q) responder(q);
+  else status("No se detectó texto. Intenta de nuevo.", "err");
+}
+
+function responder(pregunta) {
+  var box = document.getElementById("atext");
+  box.textContent = "Generando respuesta...";
+  box.className = "";
+  document.getElementById("boxA").className = "box";
+  status("Pensando...");
+
+  fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1000,
+      system: "You are a job interview coach. Carlos is taking a B2-level English job interview and gets nervous. When given an interview question, write a READY-TO-READ-ALOUD answer in English at B2 level. Rules: write in first person as if Carlos is speaking, 3 to 5 sentences, natural B2 English, NO explanations or labels, just the answer ready to be spoken.",
+      messages: [{ role: "user", content: "Interview question: \"" + pregunta + "\"\n\nWrite Carlos's answer." }]
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.content && data.content[0] && data.content[0].text) {
+      box.textContent = data.content[0].text.trim();
+      box.className = "green";
+      document.getElementById("boxA").className = "box done";
+      status("✅ Léela en voz alta", "ok");
+    } else {
+      box.textContent = "No llegó respuesta. Intenta de nuevo.";
+      status("Error. Intenta de nuevo.", "err");
+    }
+  })
+  .catch(function(err) {
+    box.textContent = "Error de conexión.";
+    status("Error: " + err.message, "err");
+  });
+}
+
+function limpiar() {
+  finalText = "";
+  document.getElementById("qtext").textContent = "Esperando audio...";
+  document.getElementById("qtext").className = "";
+  document.getElementById("atext").textContent = "La respuesta aparecerá aquí.";
+  document.getElementById("atext").className = "";
+  document.getElementById("boxQ").className = "box";
+  document.getElementById("boxA").className = "box";
+  status("");
+}
+</script>
+</body>
+</html>
