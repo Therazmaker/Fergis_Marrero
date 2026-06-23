@@ -1,0 +1,24 @@
+{
+  "id": "por-que-sigues-eligiendo-lo-que-te-duele",
+  "titulo": "¿Por qué sigues eligiendo lo que te duele?",
+  "fecha": "2026-05-26",
+  "emoji": "💔",
+  "tags": ["emociones", "relaciones"],
+  "tagLabels": ["🧠 Emociones", "💔 Relaciones"],
+  "resumen": "No es falta de inteligencia ni debilidad. Elegimos lo conocido porque es familiar, y lo familiar se siente, por momentos, como hogar.",
+  "lecturaMin": 4,
+  "bloques": [
+    { "tipo": "lead", "texto": "Hay una pregunta que muchas mujeres se hacen en silencio, casi con vergüenza: ¿por qué sigo aquí? ¿Por qué vuelvo a lo mismo? ¿Por qué elijo, una y otra vez, lo que termina lastimándome?" },
+    { "tipo": "callout", "texto": "Elegimos lo conocido, no porque sea bueno, sino porque es familiar. Y lo familiar se siente, por momentos, como hogar." },
+    { "tipo": "h3", "texto": "🧠 El cerebro busca lo que ya conoce" },
+    { "tipo": "parrafo", "texto": "Desde pequeñas, aprendemos a relacionarnos con el mundo a través de las personas que nos crían. Si el amor que recibiste fue inconsistente, tu sistema nervioso aprendió que eso es lo que se siente amar. No porque lo hayas decidido, sino porque fue lo primero que registró." },
+    { "tipo": "parrafo", "texto": "Entonces cuando aparece algo estable y tranquilo, a veces se siente raro. Aburrido, incluso. Y cuando aparece lo conocido, aunque duela, hay algo en ti que lo reconoce. Que lo llama hogar." },
+    { "tipo": "h3", "texto": "🧠 No es que lo busques conscientemente" },
+    { "tipo": "parrafo", "texto": "Nadie se despierta pensando 'hoy voy a elegir lo que me hace daño'. Estos patrones viven en el cuerpo, en la forma en que te tensas o te relajas frente a alguien. Son respuestas automáticas. Aprendidas." },
+    { "tipo": "callout", "texto": "Lo que se aprende, puede reaprenderse." },
+    { "tipo": "h3", "texto": "🧠 Entonces, ¿qué puedes hacer?" },
+    { "tipo": "parrafo", "texto": "El primer paso no es dejar de elegir mal. El primer paso es observar. Observar qué situaciones o vínculos despiertan en ti una sensación de urgencia, de 'no puedo perder esto'. Esa urgencia suele ser una pista." },
+    { "tipo": "divisor", "texto": "Observar para entender" },
+    { "tipo": "cita", "texto": "Sanar los patrones empieza en el momento en que decides mirarte con honestidad, sin juzgarte. Solo con la curiosidad de entender de dónde vienes y hacia dónde quieres ir.", "emoji": "💔 🌻" }
+  ]
+}

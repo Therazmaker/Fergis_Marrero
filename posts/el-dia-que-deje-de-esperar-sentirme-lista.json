@@ -1,0 +1,24 @@
+{
+  "id": "el-dia-que-deje-de-esperar-sentirme-lista-para-sanar",
+  "titulo": "El día que dejé de esperar sentirme lista para empezar a sanar",
+  "fecha": "2026-05-26",
+  "emoji": "🔮",
+  "tags": ["emociones", "reflexiones"],
+  "tagLabels": ["🧠 Emociones", "🔮 Reflexiones"],
+  "resumen": "La preparación perfecta para sanar no existe. Lo que existe es el momento en que decides empezar, aunque todo esté roto todavía.",
+  "lecturaMin": 4,
+  "bloques": [
+    { "tipo": "lead", "texto": "Durante mucho tiempo esperé ese momento. El momento en que me sintiera estable, descansada, con energía, con claridad. Entonces sí, pensaba, entonces empezaría. Ese momento nunca llegó." },
+    { "tipo": "callout", "texto": "La preparación perfecta para sanar no existe. Lo que existe es el momento en que decides empezar, aunque todo esté roto todavía." },
+    { "tipo": "h3", "texto": "🔮 La trampa de 'cuando esté lista'" },
+    { "tipo": "parrafo", "texto": "La sensación de estar lista raramente aparece antes de empezar. Aparece, si aparece, en el camino. Después de dar el primer paso con miedo. Después de equivocarte. Después de seguir de todas formas." },
+    { "tipo": "parrafo", "texto": "Esperar sentirte lista puede convertirse, sin que te des cuenta, en una forma de quedarte quieta para siempre." },
+    { "tipo": "h3", "texto": "🔮 La crisis como punto de partida" },
+    { "tipo": "parrafo", "texto": "No voy a decirte que la crisis es un regalo. No siempre lo es. Pero hay algo en los momentos de quiebre que rompe también la ilusión de control. Cuando esa ilusión cae, te ves de una manera diferente. Más real. Más tuya." },
+    { "tipo": "h3", "texto": "🔮 No se trata de estar bien para empezar" },
+    { "tipo": "parrafo", "texto": "Sanar no es un proceso que empieza cuando termina el caos. Para muchas mujeres, empieza justo en el medio de él. Con lágrimas. Con preguntas sin respuesta. Con la única certeza de que algo tiene que cambiar." },
+    { "tipo": "callout", "texto": "No necesitas tener todo claro. No necesitas sentirte fuerte. Solo necesitas estar dispuesta a mirarte, aunque lo que veas no te guste todavía." },
+    { "tipo": "divisor", "texto": "Comenzar hoy" },
+    { "tipo": "cita", "texto": "El día que dejé de esperar sentirme lista no fue un día especial. No hubo epifanía. Solo cansancio de seguir postergándome. Y a veces, con eso alcanza.", "emoji": "🌻 ✨" }
+  ]
+}

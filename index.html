@@ -576,7 +576,7 @@
     .tiendita-card {
       border-radius: 24px;
       padding: 0;
-      min-height: 360px;
+      min-height: auto;
       overflow: hidden;
       border: none;
     }
@@ -792,23 +792,24 @@
     }
 
     .c-slide.text-slide {
-      padding: 52px 56px;
+      padding: 36px 48px 40px;
       background: linear-gradient(150deg, var(--terracotta) 0%, var(--wine-deep) 100%);
       color: var(--cream);
       text-align: center;
       overflow-y: auto;
       align-items: center;
+      justify-content: safe center;
     }
 
     .c-slide.text-slide h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
       font-weight: 600;
       line-height: 1.2;
-      margin-bottom: 28px;
+      margin-bottom: 18px;
       color: #fff;
       white-space: normal;
-      max-width: 22ch;
+      max-width: 26ch;
     }
 
     .c-slide.text-slide h2 em {
@@ -817,15 +818,16 @@
     }
 
     .c-slide.text-slide p {
-      font-size: 1rem;
-      line-height: 1.85;
+      font-size: 0.88rem;
+      line-height: 1.65;
       color: rgba(250, 244, 232, 0.9);
       font-weight: 300;
-      max-width: 52ch;
+      max-width: 120ch;
+      margin: 0 auto;
     }
 
     .c-slide.text-slide p + p {
-      margin-top: 16px;
+      margin-top: 10px;
     }
 
     /* Dots */
@@ -1525,7 +1527,7 @@
       }
 
       .tiendita-card {
-        min-height: 300px;
+        min-height: auto;
       }
 
       .blog-box,
@@ -1763,11 +1765,11 @@
       <a href="#inicio">Inicio</a>
       <a href="#quien-soy">Quién soy</a>
       <a href="#acompanamientos">Servicios</a>
-      <a href="#tarot">Preguntas gratis</a>
       <a href="https://mamagirasol.com/tienda" target="_blank">Tienda</a>
+      <a href="#comunidad">Blog</a>
       <a href="#comunidad">Comunidad</a>
-      <a href="#carta-natal">AstroLovers</a>
-      <a href="#testimonios">Testimonio</a>
+      <a href="#test-herida">Test de patrones</a>
+      <a href="#testimonios">Testimonios</a>
       <a href="#contacto">Contacto</a>
     </nav>
 
@@ -1775,8 +1777,49 @@
     <section id="inicio" class="box hero-box fade-up">
       <div class="hero-eyebrow">🌻 Acompañamiento emocional para mujeres 🌻</div>
       <h1 class="hero-title fade-up delay-1">No tienes que poder con <em>todo sola</em>.</h1>
-      <p class="hero-body fade-up delay-2">Te acompaño, te sostengo y te ayudo a transitar lo que estás viviendo. Te ofrezco un espacio seguro donde puedes bajar el ruido, ordenar lo que sientes y volver a ti. Sin presión y sin juicio.</p>
+      <p class="hero-body fade-up delay-2">Te acompaño a identificar los patrones que traes de tu infancia para comprender su impacto en tu presente. En este espacio seguro, trabajaremos juntos en desentrañar esas dinámicas, sanar las heridas del pasado y recuperar tu libertad para elegir quién quieres ser hoy. Sin juicios y a tu propio ritmo.</p>
       <p class="hero-sign fade-up delay-3">Estoy para ti, hermana girasol. 💛</p>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ SESIÓN DE MUESTRA ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="sesion-muestra" class="fade-up delay-4" style="margin-bottom: var(--gap);">
+      <article class="svc-accordion" style="background:#FDECA6; border:1.5px solid rgba(212,169,74,0.4); border-radius:32px; padding:36px 40px; cursor:pointer; box-shadow: 0 12px 30px rgba(212,169,74,0.15);" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+          <div style="width:24px;"></div>
+          <div style="flex:1; text-align:center;">
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#FFFFFF; color:#A0702A; padding:5px 16px; border-radius:40px; margin-bottom:12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">Sesión de Muestra Gratis</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.8rem,3vw,2.5rem); color:#6B4226; margin:0 0 6px; line-height:1.1;">Un espacito para ti</h2>
+            <p style="font-weight:700; color:#6B4226; font-size:1.05rem; margin:0 0 10px;">Diosa en Guía · Sesión de Muestra (20 minutos)</p>
+            <p style="font-style:italic; color:#7A5230; font-size:1rem; margin:0; opacity:0.9;">Si llevas tiempo sintiéndote atrapada en los mismos patrones y no sabes por dónde empezar, esta sesión de 20 minutos es para ti.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.8rem; font-weight:700; color:#3d2b1f; transition:transform 0.3s ease; flex-shrink:0;">+</span>
+        </div>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(212,169,74,0.3); margin-top:24px; padding-top:24px; cursor: default;" onclick="event.stopPropagation()">
+            <p style="font-size:1.02rem; line-height:1.7; color:#3d2b1f; margin-bottom:16px;">Durante 20 minutos tendremos un espacio de conversación donde podrás compartir aquello que hoy te preocupa, te pesa o te gustaría comprender mejor. Juntas exploraremos lo que está ocurriendo, identificaremos posibles patrones emocionales y te mostraré cómo trabajo dentro de <em>Diosa en Guía</em>.</p>
+            
+            <p style="margin-bottom: 20px; font-size: 0.95rem; opacity: 0.9; padding: 12px 16px; background: rgba(255,255,255,0.6); border-radius: 12px; border-left: 4px solid #A0702A;"><em>Esta no es una sesión terapéutica completa ni una solución instantánea. Es una oportunidad para conocernos, resolver tus dudas y descubrir si este acompañamiento es adecuado para el momento que estás viviendo.</em></p>
+            
+            <h4 style="font-weight: 700; color: #3D2B1F; margin: 24px 0 12px; font-size: 1.05rem;">Ideal para ti si:</h4>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; color: #5C4033; font-size: 1rem;">
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Te sientes emocionalmente agotada o sobrepasada.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Repites situaciones o relaciones que te hacen daño.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Quieres comprender mejor lo que la infancia dejó en ti.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Buscas un acompañamiento cercano, humano y sin juicios.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Deseas conocer cómo funciona <em>Diosa en Guía</em> antes de dar el siguiente paso.</li>
+            </ul>
+
+            <div style="display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+              <div style="background: rgba(255,255,255,0.7); padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; color: #3D2B1F; border: 1px solid rgba(212,169,74,0.3);">⏱️ Duración: 20 minutos</div>
+              <div style="background: rgba(255,255,255,0.7); padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; color: #3D2B1F; border: 1px solid rgba(212,169,74,0.3);">💻 Modalidad: Google Meet</div>
+            </div>
+
+            <p style="font-style: italic; font-weight: 600; color: #7A5A10; font-size: 1.05rem; line-height: 1.5; margin-bottom: 24px;">Un espacio sencillo, cálido y seguro para escucharte, entender dónde estás hoy y explorar juntas si este camino puede ayudarte a construir una relación más amable contigo misma. 🌻</p>
+
+            <button onclick="document.getElementById('muestra-overlay').classList.add('active');" style="background: linear-gradient(135deg, #A0702A 0%, #7A5010 100%); color: #FAF4E8; padding: 14px 32px; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; display: inline-block;">Yo quiero</button>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
@@ -1794,17 +1837,22 @@
           <div class="c-slide text-slide">
             <h2>Soy Fergis, <em>pero tú puedes llamarme Mamá Girasol</em></h2>
             <p>Tengo una misión que se ha ido revelando con el tiempo: que ninguna mujer tenga que transitar sus procesos sola.</p>
-            <p>Sé lo que es necesitar sostén en momentos difíciles y de mucha oscuridad. Por eso creé este espacio.</p>
-            <p>No te ofrezco fórmulas mágicas, sino presencia, escucha, calma y claridad en lo que estás viviendo.</p>
-            <p>Te acompaño desde un lugar humano, cálido y sin juicios. 🌻</p>
+            <p>Sé lo que es cargarlo todo desde niña. Aprender a callar, a adaptarse, a merecer menos de lo que necesitabas, y sé lo que se siente cuando esos aprendizajes siguen gobernando tu vida adulta sin que nadie te haya dicho que podían transformarse.</p>
+            <p>Por eso creé este espacio.</p>
+            <p>No te ofrezco fórmulas mágicas ni respuestas prefabricadas. Te ofrezco presencia, escucha, calma y claridad para comprender lo que está pasando dentro de ti y de dónde viene realmente.</p>
+            <p>Aquí exploramos juntas los patrones que aprendiste en la infancia: cómo te hablas, qué crees que mereces, cómo te relacionas con el amor, los límites y tu propio valor. Porque esas formas de verte y tratarte no nacieron contigo, las aprendiste. Y lo que se aprende, puede desaprenderse para luego evolucionar.</p>
+            <p>Muchas veces no sufrimos solo por lo que ocurre hoy, sino por lo que una vez, siendo niña, tuvimos que cargar, callar o sostener para sobrevivir.</p>
+            <p>Este es un espacio humano, cálido y libre de juicios, donde puedes mirar tu historia con más comprensión y empezar a construir una relación más amable contigo misma. 🌻</p>
           </div>
 
           <!-- Slide 3: Texto Mamá Girasol -->
           <div class="c-slide text-slide">
             <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
-            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera sino que vive dentro de ti.</p>
-            <p>"Mamá Girasol" nace desde esa verdad. No para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.</p>
-            <p>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
+            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera, vive dentro de ti. Siempre vivió ahí.</p>
+            <p>Lo que pasa es que muchas veces, en la infancia y la adolescencia, aprendemos a apagarla. A doblarnos hacia donde nos necesitaban, a brillar menos para no molestar, a dudar de lo que sentíamos o queríamos.</p>
+            <p>"Mamá Girasol" nace desde esa verdad. No para iluminarte, sino para acompañarte mientras vuelves a lo que siempre fue tuyo.</p>
+            <p>Porque esa luz no desapareció, solo aprendiste a no verla.</p>
+            <p>Y de eso se trata este espacio: de caminar contigo mientras la vuelves a encontrar. 🌻</p>
           </div>
 
         </div>
@@ -1818,43 +1866,90 @@
     </div>
 
     <!-- SECCIÓN ACOMPAÑAMIENTOS -->
-    <section id="acompanamientos" class="tarot-row fade-up">
-      <!-- DIOSA EN GUÍA -->
-      <article id="diosa-en-guia-section" class="card card-mantequilla">
-        <span class="tag tag-mantequilla">Acompañamiento emocional mensual</span>
-        <h2 class="card-title title-mantequilla">Diosa en guía</h2>
-        <p class="card-hook">A veces no sabes ni por dónde empezar...</p>
-        <div class="card-body">
-          <p>Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.</p>
-          <p>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.</p>
+    <section id="acompanamientos" class="fade-up" style="display:flex; flex-direction:column; gap:14px;">
+
+      <!-- Servicio 1: Diosa en guía -->
+      <article class="svc-accordion" style="background:#F5EDD8; border:1.5px solid rgba(212,169,74,0.4); border-radius:32px; padding:36px 40px; cursor:pointer;" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+          <div>
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#F5EACC; color:#7A5A10; border:1px solid rgba(212,169,74,0.3); padding:5px 16px; border-radius:40px; margin-bottom:12px;">Acompañamiento emocional mensual</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.7rem,2.8vw,2.3rem); color:#3d2b1f; margin:0 0 6px; line-height:1.1;">Diosa en guía</h2>
+            <p style="font-style:italic; color:#6b4f2e; font-size:1rem; margin:0; opacity:0.85;">Acompañamiento emocional mensual para tu proceso.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.6rem; font-weight:700; color:#A0702A; transition:transform 0.3s ease; flex-shrink:0; margin-top:4px;">+</span>
         </div>
-        <div class="divider"></div>
-        <p class="card-meta">4 sesiones al mes · 45 min cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
-        <p class="card-price">$45 USD · S/ 120</p>
-        <div class="buttons-row">
-          <a href="#" class="btn-new btn-mant" onclick="goToBookingWith('Diosa en Guía'); return false;">Quiero empezar</a>
-          <a href="metodologia-diosa-en-guia.html" class="btn-new btn-secondary-new">Ver metodología</a>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(212,169,74,0.3); margin-top:24px; padding-top:24px;">
+            <p style="font-size:1.02rem; line-height:1.7; color:#3d2b1f; margin-bottom:20px;">Cuatro sesiones mensuales de 45 minutos. Un espacio fijo, seguro y continuo para llegar tal como estás. Sin filtros, sin máscaras.</p>
+            <p style="font-size:0.93rem; color:#6b4f2e; margin-bottom:10px; opacity:0.85;">4 sesiones al mes · 45 min cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
+            <p style="font-size:1.05rem; font-weight:700; color:#6B4226; margin-bottom:24px;">$80 USD &nbsp;&nbsp; S/ 250</p>
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a href="#" onclick="goToBookingWith('Diosa en Guía'); return false;" style="background:#A0702A; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Quiero empezar</a>
+              <a href="metodologia-diosa-en-guia.html" style="background:transparent; color:#3d2b1f; border:1px solid rgba(61,43,31,0.22); padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Ver metodología</a>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- Tu guía en cualquier momento -->
-      <article id="guia-whatsapp-section" class="card card-vino">
-        <span class="tag tag-vino">Orientación por audio vía WhatsApp</span>
-        <h2 class="card-title title-vino">Tu guía en cualquier momento</h2>
-        <p class="card-hook">A veces la vida no espera...</p>
-        <div class="card-body card-body-vino">
-          <p>Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible. No la próxima semana en una sesión agendada. Para eso existe esto.</p>
-          <p>Cada mes tienes 10 preguntas respondidas por audio, con orientación desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
+      <!-- Servicio 2: Tu guía en cualquier momento -->
+      <article class="svc-accordion" style="background:#F2E8E4; border:1.5px solid rgba(139,58,58,0.3); border-radius:32px; padding:36px 40px; cursor:pointer;" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+          <div>
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#EEDBD6; color:#6B2020; border:1px solid rgba(139,58,58,0.25); padding:5px 16px; border-radius:40px; margin-bottom:12px;">Orientación por audio vía WhatsApp</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.7rem,2.8vw,2.3rem); color:#3d0000; margin:0 0 6px; line-height:1.1;">Tu guía en cualquier momento</h2>
+            <p style="font-style:italic; color:#7a3030; font-size:1rem; margin:0; opacity:0.85;">Orientación por audio vía WhatsApp cuando la vida no espera.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.6rem; font-weight:700; color:#9f1239; transition:transform 0.3s ease; flex-shrink:0; margin-top:4px;">+</span>
         </div>
-        <div class="divider divider-vino"></div>
-        <p class="card-meta card-meta-vino">Tiempo de respuesta: lo antes posible · máx 24 horas · Se renueva mensualmente</p>
-        <p class="card-price card-price-vino">$45 USD · S/ 120</p>
-        <div class="buttons-row">
-          <a href="#" class="btn-new btn-vino-primary" id="guia-whatsapp" onclick="goToBookingWith('Tu guía en cualquier momento'); return false;">Quiero empezar</a>
-          <a href="metodologia-tu-guia.html" class="btn-new btn-secondary-new">Ver metodología</a>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(139,58,58,0.2); margin-top:24px; padding-top:24px;">
+            <p style="font-size:1.02rem; line-height:1.7; color:#3d0000; margin-bottom:20px;">10 preguntas respondidas por audio al mes. Orientación desde donde estés y cuando lo necesites. Sin agendas, a tu ritmo.</p>
+            <p style="font-size:0.93rem; color:#7a3030; margin-bottom:10px; opacity:0.85;">Tiempo de respuesta: lo antes posible · máx 24 horas · Se renueva mensualmente</p>
+            <p style="font-size:1.05rem; font-weight:700; color:#3d0000; margin-bottom:24px;">$55 USD &nbsp;&nbsp; S/ 160</p>
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a href="#" onclick="goToBookingWith('Tu guía en cualquier momento'); return false;" style="background:#4A1F1F; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Quiero empezar</a>
+              <a href="metodologia-tu-guia.html" style="background:transparent; color:#3d0000; border:1px solid rgba(61,0,0,0.22); padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Ver metodología</a>
+            </div>
+          </div>
         </div>
       </article>
+
+      <!-- Servicio 3: Guías personalizadas -->
+      <article class="svc-accordion" style="background:#edf7f2; border:1.5px solid rgba(16,100,70,0.25); border-radius:32px; padding:36px 40px; cursor:pointer;" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+          <div>
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#d8f0e7; color:#065f46; border:1px solid rgba(16,100,70,0.2); padding:5px 16px; border-radius:40px; margin-bottom:12px;">Recurso personalizado</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.7rem,2.8vw,2.3rem); color:#0d3d2a; margin:0 0 6px; line-height:1.1;">Guías personalizadas</h2>
+            <p style="font-style:italic; color:#2d6b50; font-size:1rem; margin:0; opacity:0.85;">El mapa profundo diseñado específicamente para ti.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.6rem; font-weight:700; color:#065f46; transition:transform 0.3s ease; flex-shrink:0; margin-top:4px;">+</span>
+        </div>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(16,100,70,0.2); margin-top:24px; padding-top:24px;">
+            <p style="font-size:1.02rem; line-height:1.7; color:#0d3d2a; margin-bottom:20px;">Un recurso interactivo diseñado solo para ti — no un PDF, sino una experiencia viva que puedes abrir desde tu teléfono o computadora.<br><br>A partir de lo que estás viviendo, identificamos juntas los patrones que se repiten en tu vida: los que vienen de lejos, los que aparecen en tus vínculos, los que te frenan sin que te des cuenta. Y desde ahí, construimos un espacio para trabajarlos.</p>
+            <p style="font-size:0.93rem; color:#2d6b50; margin-bottom:10px; opacity:0.85;">Recurso único · Diseñado a tu medida · Entrega digital</p>
+            <p style="font-size:1.05rem; font-weight:700; color:#0d3d2a; margin-bottom:24px;">$25 USD &nbsp;·&nbsp; S/ 80</p>
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a href="#" onclick="goToBookingWith('Guías personalizadas'); return false;" style="background:#2D5A47; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Quiero empezar</a>
+              <a href="metodologia-guias.html" style="background:transparent; color:#0d3d2a; border:1px solid rgba(13,61,42,0.22); padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Ver metodología</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </section>
+
+    <style>
+      .svc-accordion.svc-open .svc-plus { transform: rotate(45deg); }
+      .svc-accordion.svc-open .svc-body {
+        max-height: 1200px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      @media (max-width: 860px) {
+        .svc-accordion { padding: 28px 22px !important; }
+      }
+    </style>
 
     <!-- SECCIÓN: Sesiones individuales -->
     <!-- <section id="servicios" class="fade-up" style="padding: 40px 0;">
@@ -1919,7 +2014,7 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TAROT + TIENDITA ━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section id="tarot" class="tarot-row fade-up" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
 
-      <!-- IZQUIERDA: Card "Un regalito de mí para ti" -->
+      <!-- IZQUIERDA: Card "Un regalito de mí para ti" (Oculto temporalmente)
       <article class="tarot-card tarot-card-featured">
         <div class="tarot-pill">3 preguntas gratis al mes</div>
         <h2 class="tarot-title tarot-title-featured" style="white-space: nowrap;">Un regalito de mí para ti</h2>
@@ -1928,10 +2023,11 @@
         <p class="tarot-copy tarot-note" style="margin-top: 8px;">Tus preguntitas se renuevan de forma mensual.</p>
         <a href="tarot.html" class="tarot-cta" style="margin-top: 20px;">Haz tus preguntas aquí</a>
       </article>
+      -->
 
-      <!-- DERECHA: Imagen La Tiendita Girasol (Oculto temporalmente) 
-      <article class="tiendita-card" style="display: flex; min-height: 320px;">
-        <img src="./Fotos/La%20tiendita%20girasol.png" alt="La tiendita girasol - Próximamente" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24px;">
+      <!-- DERECHA: Imagen La Tiendita Girasol -->
+      <article class="tiendita-card" style="display: block; grid-column: 1 / -1;">
+        <img src="./Fotos/La%20tiendita%20girasol.png" alt="La tiendita girasol - Próximamente" style="width: 100%; height: auto; display: block; border-radius: 24px;">
       </article>
       -->
 
@@ -1976,65 +2072,323 @@
       <h2 class="box-heading">🌻 Entre Diosas 🌻</h2>
       <p class="box-body">Un espacio donde seguimos este proceso juntas. Reflexiones, guía cercana y acompañamiento más
         directo para sostenerte en lo que estás viviendo.💛</p>
-      <a href="#" class="btn-primary">👉 Unirme a la comunidad 🌻</a>
+      <a href="https://chat.whatsapp.com/IuwwkHwrhcnJ3jFmQKiwkC" class="btn-primary" target="_blank">👉 Unirme a la comunidad 🌻</a>
     </section>
 
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA NATAL EXTERNA ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="carta-natal" class="box box-warm fade-up" style="padding: 64px 32px; text-align: center;">
-      <div class="box-label" style="color:var(--terracotta)">Para las AstroLovers</div>
-      <h2 class="box-heading">Calcula tu Carta Natal</h2>
-      <p class="box-body" style="margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto;">
-        Ingresa tus datos básicos a continuación. Serás redirigida a nuestro portal aliado donde podrás indicar tu lugar de nacimiento para obtener tu mapa celestial exacto.
-      </p>
-
-      <form id="carta-natal-form" action="https://carta-natal.es/carta.php" method="POST" target="_blank" style="max-width: 540px; margin: 0 auto; text-align: left; background: #fff; padding: 40px; border-radius: var(--radius-sm); border: 1.5px dashed rgba(212, 168, 71, 0.4); box-shadow: var(--shadow-sm);">
-
-        <div class="form-group">
-          <label>Nombre o Seudónimo (Opcional)</label>
-          <input type="text" name="nombre" placeholder="Ej. Virginia" />
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TEST HERIDA EMOCIONAL ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="test-herida" class="box box-warm fade-up" style="padding: 48px 40px;">
+      <div class="box-label" style="color:var(--terracotta); text-align:center; width:100%; margin-bottom: 12px;">Autoconocimiento</div>
+      
+      <!-- Portada -->
+      <div id="herida-cover">
+        <div style="text-align:center; padding: 8px 0 8px;">
+          <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(2rem,4vw,3.2rem); color:var(--wine-deep); margin:0 0 16px; line-height:1.15;">¿Cuál es tu patrón de infancia?</h2>
+          <p style="font-size:1.1rem; font-weight:500; color:var(--wine); line-height:1.6; max-width:600px; margin:0 auto 12px;">8 preguntas para identificar lo que aprendiste en la infancia y descubrir si te acompaña en la actualidad.</p>
+          <p style="font-size:0.95rem; color:var(--gold-deep); margin-bottom:32px;">Responde con lo primero que sientas. No hay respuestas incorrectas.</p>
+          
+          <button onclick="hStart()" style="background:#3D2B1F; color:#FAF4E8; padding:16px 36px; border-radius:10px; border:none; font-family:var(--font-body); font-size:1rem; font-weight:600; cursor:pointer; transition:background 0.2s; margin-bottom:24px;">Comenzar el test →</button>
+          
+          <p style="font-size:0.9rem; font-style:italic; color:var(--wine); line-height:1.6; max-width:540px; margin:0 auto; opacity: 0.85;">Hay situaciones en nuestra vida que se repiten una y otra vez, y no sabemos el porqué. Aquí podrás encontrar una guía para darle respuesta a esa incógnita.</p>
         </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Fecha de Nacimiento</label>
-            <input type="date" id="cn-date" required />
-            <input type="hidden" name="fecha" id="cn-fecha-real" />
-          </div>
-
-          <div class="form-group">
-            <label>Hora de Nacimiento</label>
-            <input type="time" name="hora" required />
-          </div>
+      </div>
+      <!-- Quiz -->
+      <div id="herida-quiz" style="display:none;">
+        <div style="height:4px; background:rgba(212,168,71,0.2); border-radius:99px; margin-bottom:2rem;">
+          <div id="h-progress" style="height:100%; background:var(--gold); border-radius:99px; transition:width 0.4s ease; width:0%;"></div>
         </div>
-
-        <div class="form-group">
-          <label>País de Nacimiento</label>
-          <select name="Pais" required>
-            <option value="">Selecciona un país...</option>
-            <option value="PE">Perú</option>
-            <option value="ES">España</option>
-            <option value="MX">México</option>
-            <option value="CO">Colombia</option>
-            <option value="AR">Argentina</option>
-            <option value="CL">Chile</option>
-            <option value="US">Estados Unidos</option>
-            <option disabled>──────────</option>
-            <option value='AF'>Afganistán</option><option value='AL'>Albania</option><option value='DE'>Alemania</option><option value='AD'>Andorra</option><option value='AO'>Angola</option><option value='AI'>Anguila</option><option value='AQ'>Antártida</option><option value='AG'>Antigua y Barbuda</option><option value='SA'>Arabia Saudita</option><option value='DZ'>Argelia</option><option value='AR'>Argentina</option><option value='AM'>Armenia</option><option value='AW'>Aruba</option><option value='AU'>Australia</option><option value='AT'>Austria</option><option value='AZ'>Azerbaiyán</option><option value='BH'>Bahréin</option><option value='BD'>Bangladés</option><option value='BB'>Barbados</option><option value='BE'>Bélgica</option><option value='BZ'>Belice</option><option value='BJ'>Benín</option><option value='BM'>Bermudas</option><option value='BY'>Bielorrusia</option><option value='MM'>Birmania</option><option value='BO'>Bolivia</option><option value='BA'>Bosnia y Herzegovina</option><option value='BW'>Botsuana</option><option value='BR'>Brasil</option><option value='BN'>Brunéi</option><option value='BG'>Bulgaria</option><option value='BF'>Burkina Faso</option><option value='BI'>Burundi</option><option value='BT'>Bután</option><option value='CV'>Cabo Verde</option><option value='KH'>Camboya</option><option value='CM'>Camerún</option><option value='CA'>Canadá</option><option value='QA'>Catar</option><option value='TD'>Chad</option><option value='CL'>Chile</option><option value='CN'>China</option><option value='CY'>Chipre</option><option value='VA'>Ciudad del Vaticano</option><option value='CO'>Colombia</option><option value='KM'>Comoras</option><option value='CG'>Congo</option><option value='KP'>Corea del Norte</option><option value='KR'>Corea del Sur</option><option value='CI'>Costa de Marfil</option><option value='CR'>Costa Rica</option><option value='HR'>Croacia</option><option value='CU'>Cuba</option><option value='CW'>Curazao</option><option value='DK'>Dinamarca</option><option value='DM'>Dominica</option><option value='EC'>Ecuador</option><option value='EG'>Egipto</option><option value='SV'>El Salvador</option><option value='AE'>Emiratos Árabes Unidos</option><option value='ER'>Eritrea</option><option value='SK'>Eslovaquia</option><option value='SI'>Eslovenia</option><option value='ES'>España</option><option value='US'>Estados Unidos</option><option value='EE'>Estonia</option><option value='ET'>Etiopía</option><option value='PH'>Filipinas</option><option value='FI'>Finlandia</option><option value='FJ'>Fiyi</option><option value='FR'>Francia</option><option value='GA'>Gabón</option><option value='GM'>Gambia</option><option value='GE'>Georgia</option><option value='GH'>Ghana</option><option value='GI'>Gibraltar</option><option value='GD'>Granada</option><option value='GR'>Grecia</option><option value='GL'>Groenlandia</option><option value='GP'>Guadalupe</option><option value='GU'>Guam</option><option value='GT'>Guatemala</option><option value='GF'>Guayana Francesa</option><option value='GG'>Guernsey</option><option value='GN'>Guinea</option><option value='GQ'>Guinea Ecuatorial</option><option value='GW'>Guinea-Bissau</option><option value='GY'>Guyana</option><option value='HT'>Haití</option><option value='HN'>Honduras</option><option value='HK'>Hong Kong</option><option value='HU'>Hungría</option><option value='IN'>India</option><option value='ID'>Indonesia</option><option value='IQ'>Irak</option><option value='IR'>Irán</option><option value='IE'>Irlanda</option><option value='BV'>Isla Bouvet</option><option value='IM'>Isla de Man</option><option value='CX'>Isla de Navidad</option><option value='NF'>Isla Norfolk</option><option value='IS'>Islandia</option><option value='KY'>Islas Caimán</option><option value='CC'>Islas Cocos</option><option value='CK'>Islas Cook</option><option value='FO'>Islas Feroe</option><option value='GS'>Islas Georgias del Sur y Sandwich del Sur</option><option value='HM'>Islas Heard y McDonald</option><option value='FK'>Islas Malvinas</option><option value='MP'>Islas Marianas del Norte</option><option value='MH'>Islas Marshall</option><option value='PN'>Islas Pitcairn</option><option value='SB'>Islas Salomón</option><option value='TC'>Islas Turcas y Caicos</option><option value='UM'>Islas Ultramarinas de Estados Unidos</option><option value='VG'>Islas Vírgenes Británicas</option><option value='VI'>Islas Vírgenes de los EEUU</option><option value='IL'>Israel</option><option value='IT'>Italia</option><option value='JM'>Jamaica</option><option value='JP'>Japón</option><option value='JE'>Jersey</option><option value='JO'>Jordania</option><option value='KZ'>Kazajistán</option><option value='KE'>Kenia</option><option value='KG'>Kirguistán</option><option value='KI'>Kiribati</option><option value='XK'>Kosovo</option><option value='KW'>Kuwait</option><option value='RE'>La Reunión</option><option value='LA'>Laos</option><option value='BS'>Las Bahamas</option><option value='LS'>Lesoto</option><option value='LV'>Letonia</option><option value='LB'>Líbano</option><option value='LR'>Liberia</option><option value='LY'>Libia</option><option value='LI'>Liechtenstein</option><option value='LT'>Lituania</option><option value='LU'>Luxemburgo</option><option value='MO'>Macao</option><option value='MK'>Macedonia</option><option value='MG'>Madagascar</option><option value='MY'>Malasia</option><option value='MW'>Malaui</option><option value='MV'>Maldivas</option><option value='ML'>Malí</option><option value='MT'>Malta</option><option value='MA'>Marruecos</option><option value='MQ'>Martinica</option><option value='MU'>Mauricio</option><option value='MR'>Mauritania</option><option value='YT'>Mayotte</option><option value='MX'>México</option><option value='FM'>Micronesia</option><option value='MD'>Moldavia</option><option value='MC'>Mónaco</option><option value='MN'>Mongolia</option><option value='ME'>Montenegro</option><option value='MS'>Montserrat</option><option value='MZ'>Mozambique</option><option value='NA'>Namibia</option><option value='NR'>Nauru</option><option value='NP'>Nepal</option><option value='NI'>Nicaragua</option><option value='NE'>Níger</option><option value='NG'>Nigeria</option><option value='NU'>Niue</option><option value='NO'>Noruega</option><option value='NC'>Nueva Caledonia</option><option value='NZ'>Nueva Zelanda</option><option value='OM'>Omán</option><option value='NL'>Países Bajos</option><option value='PK'>Pakistán</option><option value='PW'>Palaos</option><option value='PS'>Palestina</option><option value='PA'>Panamá</option><option value='PG'>Papúa Nueva Guinea</option><option value='PY'>Paraguay</option><option value='PE'>Perú</option><option value='PF'>Polinesia Francesa</option><option value='PL'>Polonia</option><option value='PT'>Portugal</option><option value='PR'>Puerto Rico</option><option value='GB'>Reino Unido</option><option value='CF'>República Centroafricana</option><option value='CZ'>República Checa</option><option value='CD'>República Democrática del Congo</option><option value='DO'>República Dominicana</option><option value='RW'>Ruanda</option><option value='RO'>Rumanía</option><option value='RU'>Rusia</option><option value='EH'>Sahara Occidental</option><option value='MF'>Saint Martin</option><option value='WS'>Samoa</option><option value='AS'>Samoa Americana</option><option value='KN'>San Cristóbal y Nieves</option><option value='SM'>San Marino</option><option value='PM'>San Pedro y Miguelón</option><option value='VC'>San Vicente y las Granadinas</option><option value='SH'>Santa Elena</option><option value='LC'>Santa Lucía</option><option value='ST'>Santo Tomé y Príncipe</option><option value='SN'>Senegal</option><option value='RS'>Serbia</option><option value='SC'>Seychelles</option><option value='SL'>Sierra Leona</option><option value='SG'>Singapur</option><option value='SX'>Sint Maarten</option><option value='SY'>Siria</option><option value='SO'>Somalia</option><option value='LK'>Sri Lanka</option><option value='SZ'>Suazilandia</option><option value='ZA'>Sudáfrica</option><option value='SD'>Sudán</option><option value='SS'>Sudán del Sur</option><option value='SE'>Suecia</option><option value='CH'>Suiza</option><option value='SR'>Surinam</option><option value='SJ'>Svalbard y Jan Mayen</option><option value='TH'>Tailandia</option><option value='TW'>Taiwán</option><option value='TZ'>Tanzania</option><option value='TJ'>Tayikistán</option><option value='IO'>Territorio Británico del Océano Índico</option><option value='TF'>Territorios Australes Franceses</option><option value='TL'>Timor Oriental</option><option value='TG'>Togo</option><option value='TK'>Tokelau</option><option value='TO'>Tonga</option><option value='TT'>Trinidad y Tobago</option><option value='TN'>Túnez</option><option value='TM'>Turkmenia</option><option value='TR'>Turquía</option><option value='TV'>Tuvalu</option><option value='UA'>Ucrania</option><option value='UG'>Uganda</option><option value='UY'>Uruguay</option><option value='UZ'>Uzbekistán</option><option value='VU'>Vanuatu</option><option value='VE'>Venezuela</option><option value='VN'>Vietnam</option><option value='WF'>Wallis y Futuna</option><option value='YE'>Yemen</option><option value='DJ'>Yibuti</option><option value='ZM'>Zambia</option><option value='ZW'>Zimbabue</option>
-          </select>
+        <p id="h-qlabel" style="font-size:13px; color:var(--gold-deep); font-weight:600; letter-spacing:0.5px; margin-bottom:8px;"></p>
+        <p id="h-qtext" style="font-size:1.1rem; color:var(--ink); line-height:1.65; font-weight:500; margin-bottom:1.5rem;"></p>
+        <div id="h-options" style="display:flex; flex-direction:column; gap:10px;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem;">
+          <button id="h-back" onclick="hBack()" style="padding:10px 22px; border-radius:var(--radius-sm); border:1px solid rgba(61,43,31,0.2); background:transparent; color:var(--ink); cursor:pointer; font-family:var(--font-body); font-size:0.9rem;" disabled>← Anterior</button>
+          <span id="h-count" style="font-size:13px; color:var(--gold-deep);"></span>
+          <div style="width:90px;"></div>
         </div>
+      </div>
 
-        <div class="form-group" style="margin-top: 24px; margin-bottom: 0;">
-          <input type="hidden" name="ok" value="1" />
-          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-            ✨ Descubrir mi mapa
-          </button>
-        </div>
-      </form>
+      <!-- Resultado -->
+      <div id="herida-result" style="display:none;"></div>
     </section>
+
+    <style>
+      .h-opt {
+        text-align:left; padding:14px 18px; border-radius:var(--radius-sm);
+        border:1px solid rgba(212,168,71,0.3); background:#fff;
+        color:var(--ink); cursor:pointer; font-family:var(--font-body);
+        font-size:0.97rem; line-height:1.5; transition:background 0.15s, border-color 0.15s;
+      }
+      .h-opt:hover { background:#FDF8EC; border-color:rgba(212,168,71,0.6); }
+      .h-opt.h-sel { background:#FDF3D8; border-color:var(--gold); color:#5C3D00; }
+    </style>
+
+    <script>
+    (function() {
+      const QS = [
+        { text: "Cuando alguien importante no te responde o tarda en hacerlo, lo primero que sientes es...", opts: [
+          { text: "Angustia — ¿se habrá alejado? ¿hice algo mal?", s: { abandono:3, rechazo:1 } },
+          { text: "Enojo — siento que no soy una prioridad para esa persona.", s: { traicion:3, injusticia:1 } },
+          { text: "Vergüenza — probablemente dije o hice algo que los molestó.", s: { humillacion:3, rechazo:1 } },
+          { text: "Desconfianza — seguro están ocupados con alguien más.", s: { traicion:2, abandono:1 } },
+          { text: "Resignación — así son las cosas, no vale la pena esperar.", s: { injusticia:2, abandono:1 } }
+        ]},
+        { text: "En tus relaciones cercanas, ¿qué patrón reconoces más en ti?", opts: [
+          { text: "Me quedo más tiempo del que debería porque tengo miedo a quedarme sola.", s: { abandono:3, humillacion:1 } },
+          { text: "Tiendo a complacer a los demás para evitar conflictos o que se alejen.", s: { rechazo:3, abandono:1 } },
+          { text: "Me cuesta confiar aunque quiera hacerlo — siempre espero que me fallen.", s: { traicion:3, injusticia:1 } },
+          { text: "Me achico cuando alguien me critica, aunque sea de forma leve.", s: { humillacion:3, rechazo:1 } },
+          { text: "Siento que tengo que ganarme el cariño de los demás siendo útil o buena.", s: { injusticia:2, rechazo:2 } }
+        ]},
+        { text: "¿Cómo reaccionas cuando cometes un error o algo sale mal?", opts: [
+          { text: "Me lo reprocho mucho y me cuesta perdonarme.", s: { injusticia:2, humillacion:2 } },
+          { text: "Siento vergüenza y prefiero que nadie se entere.", s: { humillacion:3, rechazo:1 } },
+          { text: "Tengo miedo de que los demás se decepcionen y se alejen.", s: { abandono:3, rechazo:1 } },
+          { text: "Me enojo conmigo misma — siento que siempre hago algo mal.", s: { injusticia:3, traicion:1 } },
+          { text: "Lo minimizo o lo cubro — me cuesta reconocerlo abiertamente.", s: { traicion:2, humillacion:2 } }
+        ]},
+        { text: "De niña, ¿qué recuerdo o sensación te resulta más familiar?", opts: [
+          { text: "Sentir que tenía que portarme bien para que me quisieran.", s: { rechazo:3, injusticia:1 } },
+          { text: "No sentirme vista ni escuchada en casa.", s: { abandono:2, injusticia:2 } },
+          { text: "Sentir que había que callar o aguantar para no molestar.", s: { humillacion:3, traicion:1 } },
+          { text: "Ver cómo se rompían promesas o acuerdos en mi familia.", s: { traicion:3, abandono:1 } },
+          { text: "Sentir que las reglas eran injustas o que yo era tratada diferente.", s: { injusticia:3, traicion:1 } }
+        ]},
+        { text: "¿Qué frase te resuena más profundamente?", opts: [
+          { text: "\"Tengo miedo de que las personas que amo me abandonen.\"", s: { abandono:3 } },
+          { text: "\"Siento que si muestro quién soy, no voy a gustarle a nadie.\"", s: { rechazo:3 } },
+          { text: "\"Me cuesta creer que alguien me quiera sin esperar algo a cambio.\"", s: { traicion:3 } },
+          { text: "\"Me da vergüenza mostrarme vulnerable o necesitada.\"", s: { humillacion:3 } },
+          { text: "\"Siento que tengo que esforzarme el doble para merecer lo que otros tienen.\"", s: { injusticia:3 } }
+        ]},
+        { text: "Cuando alguien te da un cumplido o reconocimiento, ¿qué haces?", opts: [
+          { text: "Lo minimizo — \"no es para tanto\" — me incomoda recibirlo.", s: { humillacion:3, rechazo:1 } },
+          { text: "Lo recibo bien, pero por dentro me pregunto si es verdad.", s: { rechazo:2, traicion:2 } },
+          { text: "Lo necesito y me alegra mucho, pero me quedo queriendo más.", s: { abandono:3, rechazo:1 } },
+          { text: "Desconfío — me pregunto qué quiere esa persona a cambio.", s: { traicion:3 } },
+          { text: "Lo recibo con incomodidad — siento que no lo merezco del todo.", s: { injusticia:2, humillacion:2 } }
+        ]},
+        { text: "En el trabajo o en tus proyectos, ¿qué patrón reconoces?", opts: [
+          { text: "Busco aprobación constante — necesito saber que lo estoy haciendo bien.", s: { abandono:2, rechazo:2 } },
+          { text: "Me cuesta delegar o pedir ayuda — siento que debo hacerlo sola.", s: { traicion:2, injusticia:2 } },
+          { text: "Trabajo de más para demostrar que valgo — que no soy un estorbo.", s: { humillacion:3, injusticia:1 } },
+          { text: "Me quedo callada aunque tenga ideas — me da miedo ser juzgada.", s: { rechazo:3, humillacion:1 } },
+          { text: "Me enojo cuando el esfuerzo no es reconocido de forma justa.", s: { injusticia:3 } }
+        ]},
+        { text: "¿Qué es lo más difícil para ti en una relación cercana?", opts: [
+          { text: "Soltar el control — necesito saber que la persona no va a irse.", s: { abandono:3 } },
+          { text: "Mostrarme tal como soy, sin filtros.", s: { rechazo:3, humillacion:1 } },
+          { text: "Creer que la otra persona es honesta conmigo de verdad.", s: { traicion:3 } },
+          { text: "No sentirme pequeña o inferior cuando hay diferencias.", s: { humillacion:3 } },
+          { text: "Sentir que el vínculo es equitativo — que no doy más de lo que recibo.", s: { injusticia:3 } }
+        ]}
+      ];
+
+      const PATRONES = {
+        abandono: {
+          nombre: "Patrón de Búsqueda de Seguridad y Constancia",
+          bg: "#FDF3D8", border: "#D4A847", textColor: "#5C3D00",
+          situacion: "Puede que en este momento sientas cierta inquietud o inestabilidad en tus vínculos, experimentando a menudo el miedo a la desconexión o al distanciamiento emocional de las personas importantes para ti.",
+          patrones: "Es posible que notes una tendencia a conformarte o quedarte más tiempo del necesario en ciertas dinámicas, buscando confirmación constante de que el otro sigue ahí y que todavía le importas.",
+          aprendizajes: "Probablemente en tu infancia aprendiste que la presencia y el amor podían ser inestables o intermitentes, llevándote a la conclusión de que debías aferrarte fuerte para no perder la conexión.",
+          estrategias: "Para protegerte, puedes haber desarrollado estrategias como estar siempre disponible, complacer para no generar distancia, o anticipar escenarios de abandono antes de que ocurran.",
+          necesidades: "Detrás de todo esto hay una necesidad profunda y completamente válida: la necesidad de presencia real, de saber que eres una prioridad, y de sentir seguridad afectiva constante.",
+          relacion: "A veces puedes tender a valorar tu propia valía a través de cuánto te eligen o acompañan los demás, olvidando nutrir el vínculo más importante: el que tienes contigo misma.",
+          fortalezas: "Tienes una inmensa capacidad de amar, una empatía profunda, una lealtad inquebrantable y una hermosa disposición para construir conexiones genuinas.",
+          crecimiento: "Un área hermosa para explorar es aprender a maternar a tu niña interior, cultivando la certeza de que, incluso si alguien se aleja, tú nunca te dejarás a ti misma.",
+          reflexion: "El miedo a que el otro se vaya no habla de tu valor personal, sino de lo mucho que anhelaste seguridad cuando eras pequeña. Hoy tienes los recursos para ser esa presencia constante que tanto buscaste afuera.",
+          recomendaciones: [
+            "Dedica 10 minutos al día a conectar contigo misma en silencio.",
+            "Escribe una carta a esa niña que temía quedarse sola, recordándole que hoy tú estás a cargo y a salvo.",
+            "Practica establecer límites pequeños y observar que el vínculo no se rompe por decir 'no'."
+          ]
+        },
+        rechazo: {
+          nombre: "Patrón de Aprobación y Evitación de la Exposición",
+          bg: "#F9ECEC", border: "#C97070", textColor: "#5C1A1A",
+          situacion: "Es probable que sientas una fuerte presión interna por 'hacerlo bien' o por no incomodar, experimentando temor a mostrarte tal como eres por miedo a no ser suficiente.",
+          patrones: "Sueles minimizar tus necesidades, esconder tus opiniones y adaptar tu comportamiento para encajar, evitando a toda costa cualquier situación que pueda interpretarse como un rechazo.",
+          aprendizajes: "En etapas tempranas, pudiste haber internalizado el mensaje de que debías cumplir con ciertas expectativas para merecer amor o reconocimiento, sintiendo que tu verdadero yo no era del todo bienvenido.",
+          estrategias: "Para evitar el dolor de sentirte apartada, desarrollaste el mecanismo de 'leer' el entorno, anticipando lo que otros esperan de ti y moldeándote para cumplir con ello.",
+          necesidades: "La necesidad central aquí es la pertenencia auténtica y la aceptación incondicional: saber que tienes un lugar en el mundo exactamente por quien eres, sin filtros.",
+          relacion: "A menudo puedes ser muy dura y exigente contigo misma, censurando tus partes más vulnerables y condicionando tu amor propio a tus logros o a la aceptación externa.",
+          fortalezas: "Eres sumamente perceptiva, adaptable, sensible a las necesidades del entorno y posees un mundo interior muy rico y valioso.",
+          crecimiento: "El camino hacia la sanación implica atreverte a ocupar tu espacio, a darle voz a tus necesidades y a descubrir que perteneces incluso cuando no complaces a los demás.",
+          reflexion: "Esconderte o moldearte fue la forma más brillante que encontraste para protegerte cuando sentías que tu esencia no era recibida. Hoy estás a salvo para descubrir y abrazar quién eres realmente.",
+          recomendaciones: [
+            "Haz una lista de tres cosas que te gustan hacer solo para ti, sin importar la opinión ajena.",
+            "Practica pequeñas expresiones de tu autenticidad en entornos seguros.",
+            "Cuando aparezca la necesidad de complacer, haz una pausa y pregúntate: '¿Qué quiero yo en este momento?'"
+          ]
+        },
+        traicion: {
+          nombre: "Patrón de Control y Desconfianza Protectora",
+          bg: "#EDF4FB", border: "#5A96C8", textColor: "#0C3A5C",
+          situacion: "Puedes estar experimentando una sensación constante de alerta o de tener que 'llevar las riendas' de las situaciones y los vínculos para sentirte a salvo.",
+          patrones: "Tiendes a asumir el control, te cuesta delegar, y puedes tener dificultades para bajar la guardia y confiar plenamente, prefiriendo hacerlo todo tú misma para evitar decepciones.",
+          aprendizajes: "Probablemente viviste experiencias tempranas donde la confianza fue rota, promesas no se cumplieron o el entorno era impredecible, enseñándote que solo podías contar contigo misma.",
+          estrategias: "Para protegerte de futuras decepciones, desarrollaste una fuerte coraza de autosuficiencia, controlando tu entorno y anticipando posibles fallos en los demás antes de que sucedan.",
+          necesidades: "Detrás del control se esconde una profunda necesidad de encontrar un espacio seguro donde puedas rendirte, descansar y saber que el otro sostendrá su parte del acuerdo.",
+          relacion: "Puedes tender a exigirte una fuerza y resistencia extremas, sin darte permiso para sentir fragilidad, miedo o cansancio.",
+          fortalezas: "Tienes un liderazgo innato, gran capacidad de resolución, fortaleza, y eres alguien profundamente comprometida y responsable con lo que asumes.",
+          crecimiento: "El desafío aquí es aprender a soltar gradualmente, permitiendo la vulnerabilidad y comprendiendo que no todo el mundo fallará como lo hicieron en el pasado.",
+          reflexion: "El control no es un defecto, fue la estrategia que te mantuvo a flote cuando el suelo era inestable. Hoy, poco a poco, puedes empezar a construir refugios donde sea seguro soltar el peso.",
+          recomendaciones: [
+            "Identifica una tarea pequeña esta semana que puedas delegar o pedir ayuda, y observa qué sientes al hacerlo.",
+            "Practica ejercicios de respiración para calmar el sistema nervioso cuando sientas la urgencia de controlar.",
+            "Escribe qué pasaría en el peor escenario si sueltas un poco, y descubre tu capacidad para manejarlo."
+          ]
+        },
+        humillacion: {
+          nombre: "Patrón de Hiperresponsabilidad y Sacrificio",
+          bg: "#EFF7EF", border: "#6BAF6B", textColor: "#1A4A1A",
+          situacion: "Puede que te encuentres en una etapa donde sientes que siempre estás al servicio de otros, cargando responsabilidades ajenas o postergando tu propio disfrute.",
+          patrones: "Es común que pongas las necesidades de los demás por encima de las tuyas, que sientas culpa si te priorizas o que te incomode profundamente recibir atención o reconocimiento.",
+          aprendizajes: "En tu historia pudiste recibir mensajes que te hicieron creer que tus necesidades o emociones eran vergonzosas o 'demasiado', llevándote a asociar tu valor con tu capacidad de servir a otros.",
+          estrategias: "Para evitar sentirte expuesta o egoísta, desarrollaste el mecanismo de enfocarte obsesivamente en los demás, ocultando tu propio mundo interno y minimizando tus dolores.",
+          necesidades: "Hay una necesidad vital de recuperar el derecho al disfrute, de experimentar ligereza y de saber que eres valiosa y digna de ser cuidada, sin tener que dar nada a cambio.",
+          relacion: "A menudo la voz interna puede ser crítica y avergonzante, negándote el permiso de ser humana, cometer errores o simplemente descansar sin culpa.",
+          fortalezas: "Posees una generosidad inmensa, una capacidad genuina para cuidar, una gran sensibilidad y un corazón enorme orientado al bienestar de quienes amas.",
+          crecimiento: "Un hermoso paso a dar es aprender a recibir. Acoger tu propio derecho a la alegría, poner límites al exceso de dar y tratar a tu propia persona con la misma dulzura que das al mundo.",
+          reflexion: "Tu valor no se mide por cuánto soportas ni por cuánto te sacrificas. Naciste digna de amor, de cuidado y de disfrute, simplemente por el hecho de existir.",
+          recomendaciones: [
+            "Permítete recibir un cumplido o ayuda esta semana sin intentar devolver el favor inmediatamente.",
+            "Crea un espacio sagrado solo para ti donde el único objetivo sea tu propio placer y descanso.",
+            "Empieza a cuestionar la voz interna de la culpa cada vez que decides priorizarte."
+          ]
+        },
+        injusticia: {
+          nombre: "Patrón de Exigencia y Perfeccionismo Protector",
+          bg: "#F5F0FA", border: "#9470C8", textColor: "#3A1A5C",
+          situacion: "Es probable que en este momento sientas un nivel alto de rigidez, autoexigencia y la sensación de que debes hacer las cosas 'perfectas' para que estén bien.",
+          patrones: "Sueles esforzarte al máximo, desconectándote a veces de tus propias emociones para cumplir con el deber. Puedes sentir indignación o frustración cuando el esfuerzo no es equitativo.",
+          aprendizajes: "Pudiste haber crecido en un entorno autoritario, frío o muy demandante, donde el cariño o el reconocimiento se basaban en el desempeño o en hacer lo 'correcto'.",
+          estrategias: "Como estrategia de protección, te volviste impecable, estructurada y exigente, cortando el contacto con la vulnerabilidad para no sentir dolor o evitar cometer errores que fueran castigados.",
+          necesidades: "Detrás de esa armadura existe una profunda necesidad de compasión, de validación emocional genuina y de sentir que eres amada por lo que eres, no solo por lo que logras.",
+          relacion: "Tu diálogo interno suele ser severo y perfeccionista. Es probable que te midas a través de estándares inalcanzables y te cueste perdonarte cualquier tipo de falla.",
+          fortalezas: "Tienes un sentido ético admirable, una gran capacidad de estructuración, disciplina, orden y un talento increíble para materializar proyectos y objetivos.",
+          crecimiento: "El camino hacia tu bienestar implica integrar la flexibilidad, reconectar con tu cuerpo y tus emociones, y descubrir la belleza que existe en lo imperfecto y en la vulnerabilidad.",
+          reflexion: "Ser fuerte e impecable te ayudó a sobrevivir en un entorno donde no había espacio para equivocarse. Hoy estás a salvo; hoy puedes bajar la armadura y permitirte sentir sin necesidad de ser perfecta.",
+          recomendaciones: [
+            "Elige hacer una tarea a propósito de forma imperfecta y nota que el mundo no se derrumba.",
+            "Dedica tiempo a prácticas corporales (yoga suave, baile, estiramientos) para reconectar la mente con el cuerpo.",
+            "Reemplaza en tu diálogo interno la palabra 'tengo que' por 'elijo'."
+          ]
+        }
+      };
+
+      let cur = 0;
+      let ans = Array(QS.length).fill(null);
+
+      window.hStart = function() {
+        document.getElementById('herida-cover').style.display = 'none';
+        document.getElementById('herida-quiz').style.display = 'block';
+        render();
+      };
+
+      function render() {
+        const q = QS[cur];
+        document.getElementById('h-qlabel').textContent = 'Pregunta ' + (cur+1) + ' de ' + QS.length;
+        document.getElementById('h-count').textContent = (cur+1) + ' / ' + QS.length;
+        document.getElementById('h-qtext').textContent = q.text;
+        document.getElementById('h-progress').style.width = ((cur / QS.length) * 100) + '%';
+
+        const cont = document.getElementById('h-options');
+        cont.innerHTML = '';
+        q.opts.forEach((o, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'h-opt' + (ans[cur] === i ? ' h-sel' : '');
+          btn.textContent = o.text;
+          btn.onclick = () => {
+            ans[cur] = i;
+            render();
+            setTimeout(() => {
+              if (cur < QS.length - 1) { cur++; render(); }
+              else showResult();
+            }, 340);
+          };
+          cont.appendChild(btn);
+        });
+
+        document.getElementById('h-back').disabled = cur === 0;
+      }
+
+      window.hBack = function() {
+        if (cur > 0) { cur--; render(); }
+      };
+
+      window.hRestart = function() {
+        cur = 0; ans = Array(QS.length).fill(null);
+        document.getElementById('herida-result').style.display = 'none';
+        document.getElementById('herida-quiz').style.display = 'block';
+        render();
+      };
+
+      function showResult() {
+        const sc = { abandono:0, rechazo:0, traicion:0, humillacion:0, injusticia:0 };
+        QS.forEach((q, qi) => {
+          if (ans[qi] !== null) Object.keys(q.opts[ans[qi]].s).forEach(k => sc[k] += q.opts[ans[qi]].s[k]);
+        });
+        const top = Object.keys(sc).sort((a,b) => sc[b]-sc[a])[0];
+        const h = PATRONES[top];
+
+        document.getElementById('herida-quiz').style.display = 'none';
+        const rv = document.getElementById('herida-result');
+        rv.style.display = 'block';
+        
+        let recHtml = h.recomendaciones.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
+
+        rv.innerHTML = `
+          <p style="font-size:13px; color:var(--gold-deep); font-weight:600; letter-spacing:0.5px; margin-bottom:1rem; text-transform:uppercase;">Resultados del análisis</p>
+          
+          <div style="background:${h.bg}; border:1.5px solid ${h.border}; border-radius:var(--radius); padding:28px 32px; margin-bottom:1.5rem;">
+            <p style="font-family:var(--font-display); font-style:italic; font-size:1.8rem; color:${h.textColor}; margin:0 0 16px; line-height:1.1;">${h.nombre}</p>
+            <p style="font-size:1.05rem; line-height:1.6; color:${h.textColor}; margin:0; font-weight:500; font-style:italic;">"${h.reflexion}"</p>
+          </div>
+
+          <div style="display:grid; gap:16px; margin-bottom:2rem;">
+            <div style="background:#FFF; border:1px solid rgba(212,168,71,0.2); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--wine-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">1. Situación y Patrones</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Lo que experimentas:</strong> ${h.situacion}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0;"><strong>Cómo se manifiesta:</strong> ${h.patrones}</p>
+            </div>
+
+            <div style="background:#FFF; border:1px solid rgba(212,168,71,0.2); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--wine-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">2. El Origen y la Protección</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Aprendizajes tempranos:</strong> ${h.aprendizajes}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0;"><strong>Estrategias de protección:</strong> ${h.estrategias}</p>
+            </div>
+
+            <div style="background:#FFF; border:1px solid rgba(212,168,71,0.2); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--wine-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">3. Tu Mundo Interno</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Necesidades ocultas:</strong> ${h.necesidades}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Relación contigo misma:</strong> ${h.relacion}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0;"><strong>Fortalezas:</strong> ${h.fortalezas}</p>
+            </div>
+
+            <div style="background:rgba(212,168,71,0.08); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--gold-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">4. El Camino hacia la Calma</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:12px;"><strong>Áreas de crecimiento:</strong> ${h.crecimiento}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:8px;"><strong>Recomendaciones prácticas:</strong></p>
+              <ul style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0; padding-left:20px;">
+                ${recHtml}
+              </ul>
+            </div>
+          </div>
+
+          <p style="font-size:0.95rem; color:var(--wine); line-height:1.7; margin-bottom:1.5rem;">Identificar tus patrones es solo el primer paso. El verdadero trabajo de comprensión, desaprendizaje y sanación es el que construimos paso a paso en el acompañamiento emocional.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+            <a href="#" onclick="goToBookingWith('Diosa en Guía'); return false;" style="background:#3D2B1F; color:#FAF4E8; padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none;">Trabajemos en esto 🌻</a>
+            <button onclick="hRestart()" style="background:transparent; border:1px solid rgba(61,43,31,0.2); color:var(--ink); padding:12px 20px; border-radius:10px; font-family:var(--font-body); font-size:0.9rem; cursor:pointer;">Volver a hacer el test</button>
+          </div>
+        `;
+      }
+
+      render();
+    })();
+    </script>
 
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="testimonios" class="box fade-up" style="padding: 64px 32px; background: #FBF5EC; border-color: #F2E8D0;">
+    <section id="testimonios" class="box fade-up" style="padding: 64px 32px; background: #EAD5B5; border-color: #D6BD96;">
       <div class="box-label" style="color:var(--gold-deep)">Testimonios</div>
       <h2 class="box-heading" style="margin-bottom: 15px; color: var(--wine-deep); font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic;">Lo que dicen mis chicas sobre sus sesiones</h2>
       <p class="box-body" style="margin-bottom: 40px; max-width: 760px; color: #5C4033; font-size: 1.1rem;">
@@ -2092,7 +2446,46 @@
       </div>
     </section>
 
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA CIERRE ━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="box" style="
+      background: linear-gradient(160deg, #7A1A1A 0%, #3D0000 100%);
+      padding: 3.5rem 4rem;
+      text-align: center;
+      color: #FAF4E8;
+    ">
+      <h2 style="font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #F5C070; line-height: 1.2; margin-bottom: 2rem;">
+        Lo que aprendiste de niña sigue dirigiendo tu vida
+      </h2>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Si llegaste hasta aquí es porque algo en ti te trajo.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Alguien tiene que decirlo: no naciste sintiéndote así. Te enseñaron.<br>
+        Te enseñaron en casa. Te enseñaron en el colegio. Te lo enseñaron personas que tampoco sabían lo que hacían con sus propias heridas — y las descargaron en ti, que eras una niña y no podías irte a ningún lado.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Y lo más duro no es lo que viviste. Es que durante años no supiste que eso tenía que ver. No sabías que la forma en que te hablas hoy viene de lo que te dijo tu mamá. Que el miedo que sientes en tus relaciones viene de lo que aprendiste de tu papá. Que esa voz que te dice que no eres suficiente no es tuya — es de alguien que tampoco supo quererse.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Nadie te lo explicó. Y no era tu trabajo adivinarlo.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Sanar no es olvidar. No es perdonar a la fuerza. Es que lo que aprendiste entonces deje de tomar decisiones por ti hoy.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        No tienes que poder sola. Nunca tuviste que poder sola.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 2rem;">
+        Lo que hago contigo es algo que no sabías que necesitabas — hasta que lo encontraste.
+      </p>
+      <p style="font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic; font-size: 1.5rem; font-weight: 700; color: #F5C070; letter-spacing: -0.01em;">
+        Cuando estés lista, yo estoy. 🌻
+      </p>
+    </section>
+
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ RRSS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
     <footer id="contacto" class="box box-warm social-box fade-up">
       <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
         <div class="social-brand">Fergis Marrero — <span>Mamá Girasol</span></div>
@@ -2236,8 +2629,10 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div class="form-group">
           <label>Servicio a Reservar</label>
           <select id="bf-service" required>
-            <option value="45.00">🌻 Diosa en Guía - $45 USD</option>
-            <option value="45.00">🌻 Tu guía en cualquier momento - $45 USD</option>
+            <option value="80.00">🌻 Diosa en Guía - $80 USD</option>
+            <option value="55.00">🌻 Tu guía en cualquier momento - $55 USD</option>
+            <option value="25.00">🌻 Guías personalizadas - $25 USD</option>
+            <!--
             <option value="50.00">🔮 Tarot - $50 USD</option>
             <option value="90.00">🌙 Carta Natal - $90 USD</option>
             <option value="90.00">👶 Carta Natal Infantil - $90 USD</option>
@@ -2246,6 +2641,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
             <option value="110.00">🪐 Sinastría o Carta Compuesta - $110 USD</option>
             <option value="80.00">🌌 Tránsitos Astrológicos - $80 USD</option>
             <option value="20.00">🌻 Diosas Girasol - $20 USD</option>
+            -->
           </select>
         </div>
         <div class="form-group">
@@ -2306,8 +2702,10 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         <div class="form-group">
           <label>Servicio a Reservar</label>
           <select id="yf-service" required>
-            <option value="120" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 120</option>
-            <option value="120" data-name="Tu guía en cualquier momento">🌻 Tu guía en cualquier momento - S/ 120</option>
+            <option value="250" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 250</option>
+            <option value="160" data-name="Tu guía en cualquier momento">🌻 Tu guía en cualquier momento - S/ 160</option>
+            <option value="80" data-name="Guías personalizadas">🌻 Guías personalizadas - S/ 80</option>
+            <!--
             <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
             <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
             <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
@@ -2316,6 +2714,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
             <option value="380" data-name="Sinastría o Carta Compuesta">🪐 Sinastría o Carta Compuesta - S/ 380</option>
             <option value="250" data-name="Tránsitos Astrológicos">🌌 Tránsitos Astrológicos - S/ 250</option>
             <option value="30" data-name="Diosas Girasol">🌻 Diosas Girasol - S/ 30</option>
+            -->
           </select>
         </div>
         <div class="form-group">
@@ -2437,9 +2836,55 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
   </div>
 
   <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MUESTRA MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="muestra-overlay">
+    <div class="modal-panel" style="max-width: 500px;">
+      <button type="button" class="modal-close" onclick="document.getElementById('muestra-overlay').classList.remove('active')" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size:1.8rem;">Reserva tu espacio</h3>
+      <p class="bm-sub" style="margin-bottom:20px;">Llena este formulario y te enviaremos la solicitud por WhatsApp para agendar tu sesión de muestra.</p>
+
+      <form onsubmit="submitMuestra(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Nombre y apellido</label>
+          <input type="text" id="m-nombre" required placeholder="Tu nombre completo" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Edad</label>
+            <input type="number" id="m-edad" required placeholder="Ej. 28" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Fecha de nac.</label>
+            <input type="date" id="m-fecha" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Lugar de nacimiento</label>
+          <input type="text" id="m-lugar" required placeholder="Ciudad, País" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Número de teléfono</label>
+          <input type="tel" id="m-telefono" required placeholder="+00 000 000 000" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Correo electrónico</label>
+          <input type="email" id="m-correo" required placeholder="tu@correo.com" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+
+        <button type="submit" style="margin-top: 10px; width: 100%; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #FFF; border: none; padding: 16px; border-radius: 12px; font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);">💬 Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      TERMINOS Y CONDICIONES MODAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="overlay" id="terminos-overlay">
+   <div class="overlay" id="terminos-overlay">
     <div class="modal-panel" style="max-width: 650px;">
       <button type="button" class="modal-close" onclick="closeTerminos()" aria-label="Cerrar">✕</button>
       <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
@@ -2586,6 +3031,30 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
      JAVASCRIPT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
   <script>
+    function submitMuestra(e) {
+      e.preventDefault();
+      
+      const nombre = document.getElementById('m-nombre').value;
+      const edad = document.getElementById('m-edad').value;
+      const fecha = document.getElementById('m-fecha').value;
+      const lugar = document.getElementById('m-lugar').value;
+      const telefono = document.getElementById('m-telefono').value;
+      const correo = document.getElementById('m-correo').value;
+
+      let msg = "🌻 *Reserva de Sesión de Muestra* 🌻\n\n";
+      msg += `*Nombre:* ${nombre}\n`;
+      msg += `*Edad:* ${edad}\n`;
+      msg += `*Fecha de nac.:* ${fecha}\n`;
+      msg += `*Lugar de nac.:* ${lugar}\n`;
+      msg += `*Teléfono:* ${telefono}\n`;
+      msg += `*Correo:* ${correo}\n\n`;
+      msg += `¡Hola! Me gustaría agendar mi sesión de muestra gratuita.`;
+
+      const wUrl = "https://wa.me/51907671044?text=" + encodeURIComponent(msg);
+      window.open(wUrl, '_blank');
+      document.getElementById('muestra-overlay').classList.remove('active');
+    }
+
     /* ── SERVICIOS DATA ──────────────────────────────────────── */
     const SERVICES = {
       'Diosa en Guía': {
@@ -2594,15 +3063,22 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         text: 'A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.\n\nCada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.\n\nY no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.\n\nSesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.',
         duration: '4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones',
         modality: 'Virtual · Se renueva mensualmente',
-        price: '$45 USD · S/ 120',
+        price: '$80 USD   S/ 250',
         match: 'Diosa en Guía'
       },
       'Tu guía en cualquier momento': {
         tag: 'Orientación por audio vía WhatsApp',
         title: 'Tu guía en cualquier momento',
         text: 'Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.\n\nCada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.',
-        price: '$45 USD · S/ 120',
+        price: '$55 USD   S/ 160',
         match: 'Tu guía en cualquier momento'
+      },
+      'Guías personalizadas': {
+        tag: 'Recurso personalizado',
+        title: 'Guías personalizadas',
+        text: 'Un recurso interactivo diseñado solo para ti — no un PDF, sino una experiencia viva que puedes abrir desde tu teléfono o computadora.\n\nA partir de lo que estás viviendo, identificamos juntas los patrones que se repiten en tu vida: los que vienen de lejos, los que aparecen en tus vínculos, los que te frenan sin que te des cuenta. Y desde ahí, construimos un espacio para trabajarlos.',
+        modality: 'Entrega digital · Diseñado a tu medida',
+        price: '$25 USD · S/ 80',
       },
       'Tarot': {
         tag: 'Para cuando necesitas orientación',
@@ -2900,17 +3376,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
       }).render('#paypal-button-container');
     }
 
-    /* Interceptar form carta natal para formato de fecha */
-    const cnForm = document.getElementById('carta-natal-form');
-    if (cnForm) {
-      cnForm.addEventListener('submit', function(e) {
-        const d = document.getElementById('cn-date').value;
-        if (d) {
-          const parts = d.split('-');
-          document.getElementById('cn-fecha-real').value = `${parts[2]}-${parts[1]}-${parts[0]}`;
-        }
-      });
-    }
+    /* Carta natal form removed */
   </script>
 
 </body>
