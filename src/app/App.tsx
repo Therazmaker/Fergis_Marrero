@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import type { User as SupabaseUser } from '@supabase/supabase-js';
-import { supabase } from './lib/supabase';
-import AuthModal from './components/AuthModal';
-import AccountModal from './components/AccountModal';
+import { supabase } from '../lib/supabase';
+import AuthModal from '../components/AuthModal';
+import AccountModal from '../components/AccountModal';
 import {
   ShoppingCart,
   User,
