@@ -594,23 +594,33 @@ export default function App() {
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 8 }}>Perú</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
                 {[
-                  { name: "Yape", icon: Smartphone },
-                  { name: "Plin", icon: Smartphone },
-                  { name: "Depósito", icon: Landmark }
+                  { name: "Yape", img: `${R}Yape.png`, icon: undefined },
+                  { name: "Plin", img: `${R}Plin.png`, icon: undefined },
+                  { name: "Depósito", img: `${R}Banco.png`, icon: undefined }
                 ].map(m => (
-                  <span key={m.name} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
-                    <m.icon size={12} /> {m.name}
+                  <span key={m.name} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.72rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
+                    {m.img ? (
+                      <img src={m.img} alt={m.name} style={{ height: 18, width: "auto", objectFit: "contain" }} />
+                    ) : m.icon ? (
+                      <m.icon size={12} />
+                    ) : null}
+                    {m.name}
                   </span>
                 ))}
               </div>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 6 }}>Internacional</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {[
-                  { name: "PayPal", icon: DollarSign },
-                  { name: "Tarjeta", icon: CreditCard }
+                  { name: "PayPal", img: `${R}Paypal.png`, icon: undefined },
+                  { name: "Tarjeta", img: undefined, icon: CreditCard }
                 ].map(m => (
-                  <span key={m.name} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
-                    <m.icon size={12} /> {m.name}
+                  <span key={m.name} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.72rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
+                    {m.img ? (
+                      <img src={m.img} alt={m.name} style={{ height: 18, width: "auto", objectFit: "contain" }} />
+                    ) : m.icon ? (
+                      <m.icon size={12} />
+                    ) : null}
+                    {m.name}
                   </span>
                 ))}
               </div>
