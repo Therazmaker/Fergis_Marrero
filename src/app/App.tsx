@@ -39,7 +39,7 @@ const NAV_LINKS = [
 const FEATURES = [
   { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado" },
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
-  { img: `${R}Cerebro.png`,               label: "Enfoque\nneuроafirmativo" },
+  { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
 ];
 
