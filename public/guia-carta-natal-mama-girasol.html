@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Carta Natal es Tu Plan de Negocios — Mamá Girasol</title>
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #1a0a12;
+    --dark-wine: #2d0f1e;
+    --mid-wine: #3d1428;
+    --gold: #d4a84b;
+    --gold-light: #f0c96a;
+    --gold-dim: #a07830;
+    --cream: #f5efe6;
+    --cream-dark: #e0d4c4;
+    --cherry: #6e1020;
+    --lilac: #c4a8c8;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--burgundy);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── PROGRESS BAR ── */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(26,10,18,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-brand {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream-dark);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* ── COVER ── */
+  #cover {
+    background: var(--dark-wine);
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .cover-radial {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,168,75,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(212,168,75,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,168,75,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(212,168,75,0.12);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate-slow 40s linear infinite;
+  }
+
+  .orbit-ring:nth-child(1) { width: 500px; height: 500px; }
+  .orbit-ring:nth-child(2) { width: 700px; height: 700px; animation-duration: 60s; animation-direction: reverse; border-color: rgba(212,168,75,0.07); }
+  .orbit-ring:nth-child(3) { width: 900px; height: 900px; animation-duration: 80s; border-color: rgba(212,168,75,0.04); }
+
+  @keyframes rotate-slow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .planet-dot {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    top: 0; left: 50%;
+    margin-left: -3px;
+    box-shadow: 0 0 8px var(--gold);
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .cover-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 32px;
+  }
+
+  .cover-pretitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream-dark);
+    margin-bottom: 12px;
+  }
+
+  .cover-title {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-shadow: 0 0 60px rgba(212,168,75,0.2);
+  }
+
+  .cover-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 24px auto;
+    width: 260px;
+  }
+
+  .cover-divider::before,
+  .cover-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .cover-divider::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .cover-glyphs {
+    font-size: 1.4rem;
+    color: var(--gold);
+    opacity: 0.7;
+    letter-spacing: 8px;
+  }
+
+  .cover-subtitle {
+    font-size: 0.95rem;
+    color: var(--cream-dark);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+
+  .cover-author {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cream);
+    opacity: 0.8;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-dim);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: pulse 2s ease infinite;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--gold-dim), transparent);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* ── CONTENT SECTIONS ── */
+  .section-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    width: 100%;
+  }
+
+  .section-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-tag::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .section-title {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+
+  .section-title span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .gold-rule {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 24px 0;
+  }
+
+  .body-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--cream-dark);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-left: 2px solid var(--gold);
+    padding: 20px 28px;
+    margin: 36px 0;
+    background: rgba(212,168,75,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pull-quote p {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--gold-light);
+    line-height: 1.6;
+  }
+
+  /* ── PLANET SECTIONS ── */
+  .planet-section {
+    background: var(--dark-wine);
+    border-top: 1px solid rgba(212,168,75,0.1);
+  }
+
+  .planet-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  .planet-glyph-wrap {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--gold);
+    background: var(--mid-wine);
+    flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(212,168,75,0.1);
+    position: relative;
+  }
+
+  .planet-glyph-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,168,75,0.2);
+  }
+
+  /* ── SIGN TABLE ── */
+  .sign-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+  }
+
+  .sign-table thead tr {
+    border-bottom: 1px solid var(--gold-dim);
+  }
+
+  .sign-table th {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .sign-table td {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: var(--cream-dark);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .sign-table tr:nth-child(even) td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .sign-table tr:hover td {
+    background: rgba(212,168,75,0.05);
+  }
+
+  .sign-name {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    color: var(--gold-light);
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+
+  /* ── ACTION BOX ── */
+  .action-box {
+    background: var(--cherry);
+    border: 1px solid rgba(212,168,75,0.25);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .action-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .action-box-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .action-box p {
+    font-size: 0.92rem;
+    color: var(--cream);
+    line-height: 1.7;
+  }
+
+  /* ── TRANSIT TABLE ── */
+  .transit-grid {
+    display: grid;
+    gap: 2px;
+    margin: 28px 0;
+  }
+
+  .transit-row {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    background: var(--mid-wine);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+
+  .transit-row:hover { background: rgba(212,168,75,0.06); }
+
+  .transit-planet {
+    padding: 14px 20px;
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 0.95rem;
+    border-right: 1px solid rgba(212,168,75,0.12);
+    display: flex;
+    align-items: center;
+  }
+
+  .transit-desc {
+    padding: 14px 20px;
+    font-size: 0.88rem;
+    color: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+  }
+
+  /* ── WORKSHEET ── */
+  #worksheet {
+    background: var(--dark-wine);
+  }
+
+  .worksheet-field {
+    margin-bottom: 20px;
+  }
+
+  .worksheet-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .worksheet-input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: none;
+    border-bottom: 1px solid rgba(212,168,75,0.3);
+    padding: 12px 4px;
+    color: var(--cream);
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .worksheet-input:focus {
+    border-bottom-color: var(--gold);
+  }
+
+  .worksheet-input::placeholder {
+    color: rgba(245,239,230,0.2);
+    font-style: italic;
+  }
+
+  .worksheet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--dark-wine);
+    text-align: center;
+    align-items: center;
+  }
+
+  #cta .section-inner {
+    padding: 120px 40px;
+  }
+
+  .cta-stars {
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 16px;
+    margin-bottom: 32px;
+    opacity: 0.6;
+  }
+
+  .cta-title {
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .cta-title em { color: var(--gold); font-style: italic; }
+
+  .cta-text {
+    font-size: 1rem;
+    color: var(--cream-dark);
+    max-width: 520px;
+    margin: 24px auto 40px;
+    line-height: 1.85;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 16px 48px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+
+  .cta-btn:hover {
+    color: var(--burgundy);
+  }
+
+  .cta-btn:hover::before {
+    transform: translateY(0);
+  }
+
+  .cta-btn span { position: relative; z-index: 1; }
+
+  .cta-services {
+    margin: 32px 0;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .cta-service {
+    font-size: 0.78rem;
+    color: var(--cream-dark);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cta-service::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+  }
+
+  .cta-handle {
+    margin-top: 48px;
+    font-family: "Carelia W05 Italic", serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--gold);
+  }
+
+  .cta-handle-sub {
+    font-size: 0.78rem;
+    color: var(--cream-dark);
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid rgba(212,168,75,0.12);
+    font-size: 0.72rem;
+    color: rgba(245,239,230,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  footer span { color: var(--gold-dim); }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .section-inner { padding: 80px 24px; }
+    .planet-header { grid-template-columns: 1fr; }
+    .transit-row { grid-template-columns: 1fr; }
+    .transit-planet { border-right: none; border-bottom: 1px solid rgba(212,168,75,0.12); }
+    .worksheet-grid { grid-template-columns: 1fr; }
+    .cta-services { flex-direction: column; gap: 12px; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-brand">Mamá Girasol</div>
+  <ul class="nav-links">
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#casa2">Casa 2</a></li>
+    <li><a href="#venus">Venus</a></li>
+    <li><a href="#jupiter">Júpiter</a></li>
+    <li><a href="#mc">MC</a></li>
+    <li><a href="#transits">Tránsitos</a></li>
+    <li><a href="#cta">Sesión</a></li>
+  </ul>
+</nav>
+
+<!-- ══ COVER ══ -->
+<section id="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-radial"></div>
+  <div class="orbit-ring"><div class="planet-dot"></div></div>
+  <div class="orbit-ring"></div>
+  <div class="orbit-ring"></div>
+
+  <div class="cover-content">
+    <p class="cover-label">Mamá Girasol · Guía Astrológica</p>
+    <p class="cover-pretitle">Tu carta natal es</p>
+    <h1 class="cover-title">Tu Plan de<br>Negocios</h1>
+    <div class="cover-divider">
+      <span class="cover-glyphs">☽ ♀ ♃</span>
+    </div>
+    <p class="cover-subtitle">Activa tus planetas, abre tu flujo y genera dinero<br>desde tu naturaleza más auténtica</p>
+    <p class="cover-author">Fergis Marrero · Astróloga · Tarotista</p>
+  </div>
+
+  <div class="scroll-hint">Explorar</div>
+</section>
+
+<!-- ══ INTRO ══ -->
+<section id="intro">
+  <div class="section-inner">
+    <p class="section-tag reveal">Introducción</p>
+    <h2 class="section-title reveal reveal-delay-1">Tu dinero tiene <span>firma astrológica</span></h2>
+    <div class="gold-rule reveal reveal-delay-2"></div>
+
+    <p class="body-text reveal reveal-delay-3">Vivimos en una cultura que nos enseñó que el dinero se gana con esfuerzo ciego, con fórmulas iguales para todas. Pero eso nunca fue verdad para ti, ¿verdad? Lo que funciona para otra persona no siempre te funciona a ti — y tiene una razón cósmica.</p>
+
+    <p class="body-text reveal">Tu carta natal es el mapa único de tu alma. En ella está grabado no solo quién eres, sino <strong style="color:var(--gold-light);font-weight:400">cómo fluye la abundancia hacia ti</strong>: qué talentos son tus puertas de entrada, en qué áreas se expande tu fortuna, cuándo es el momento exacto de actuar.</p>
+
+    <div class="pull-quote reveal">
+      <p>«El dinero no es aleatorio. Está en tu carta — solo hay que saber leerlo.»</p>
+    </div>
+
+    <p class="body-text reveal">Esta guía no es de manifestación genérica. Es una guía práctica para que aprendas a leer las partes específicas de tu carta que hablan de dinero, trabajo y propósito — y sepas exactamente cómo activarlas.</p>
+
+    <p class="body-text reveal">Los planetas que estudiaremos son tus aliados más poderosos: <strong style="color:var(--gold-light);font-weight:400">Casa 2, Venus, Júpiter y tu Medio Cielo</strong>. Cada uno tiene un lenguaje, y cuando aprendes a hablarlo, la abundancia deja de ser un misterio.</p>
+  </div>
+</section>
+
+<!-- ══ CASA 2 ══ -->
+<section id="casa2" class="planet-section">
+  <div class="section-inner">
+    <p class="section-tag reveal">Capítulo 1</p>
+    <div class="planet-header reveal">
+      <div class="planet-glyph-wrap">II</div>
+      <div>
+        <h2 class="section-title">La Casa 2: <span>tu zona de ingresos</span></h2>
+        <div class="gold-rule"></div>
+      </div>
+    </div>
+
+    <p class="body-text reveal">La Casa 2 de tu carta natal rige el dinero que generas con tus propios recursos: talentos, tiempo, habilidades. El signo que la rige dice mucho sobre cómo y por dónde fluye tu dinero de forma natural.</p>
+
+    <table class="sign-table reveal">
+      <thead>
+        <tr>
+          <th>Signo en Casa 2</th>
+          <th>Cómo fluye tu abundancia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sign-name">♈ Aries</td><td>Iniciativas propias, freelance, ser la primera en algo nuevo.</td></tr>
+        <tr><td class="sign-name">♉ Tauro</td><td>Constancia y calidad. Arte, bienes raíces, lo tangible y sensorial.</td></tr>
+        <tr><td class="sign-name">♊ Géminis</td><td>Comunicación, escritura, enseñanza, dos fuentes de ingreso paralelas.</td></tr>
+        <tr><td class="sign-name">♋ Cáncer</td><td>Servicios de cuidado, hogar, todo lo emocional y nutritivo.</td></tr>
+        <tr><td class="sign-name">♌ Leo</td><td>Creatividad, liderazgo, escenario propio, marca personal fuerte.</td></tr>
+        <tr><td class="sign-name">♍ Virgo</td><td>Salud, análisis, servicio técnico, perfección en tu oficio.</td></tr>
+        <tr><td class="sign-name">♎ Libra</td><td>Belleza, relaciones, consultoría, equilibrio y estética.</td></tr>
+        <tr><td class="sign-name">♏ Escorpio</td><td>Transformación, psicología, recursos compartidos, inversión.</td></tr>
+        <tr><td class="sign-name">♐ Sagitario</td><td>Enseñanza, expansión global, filosofía, viajes y libertad.</td></tr>
+        <tr><td class="sign-name">♑ Capricornio</td><td>Estructura, empresa, construcción a largo plazo, autoridad.</td></tr>
+        <tr><td class="sign-name">♒ Acuario</td><td>Innovación, comunidad, tecnología, proyectos colectivos.</td></tr>
+        <tr><td class="sign-name">♓ Piscis</td><td>Arte, espiritualidad, sanación, flujo intuitivo e inspirado.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="action-box reveal">
+      <p class="action-box-label">✦ Cómo activarlo</p>
+      <p>Busca el cuadrante de tu carta que dice "II" o "Casa 2". Identifica el signo que está ahí y lee cómo fluye tu dinero naturalmente. ¿Estás trabajando en esa dirección o estás forzando algo que no es tuyo?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VENUS ══ -->
+<section id="venus">
+  <div class="section-inner">
+    <p class="section-tag reveal">Capítulo 2</p>
+    <div class="planet-header reveal">
+      <div class="planet-glyph-wrap">♀</div>
+      <div>
+        <h2 class="section-title">Venus: <span>tu estilo de abundancia</span></h2>
+        <div class="gold-rule"></div>
+      </div>
+    </div>
+
+    <p class="body-text reveal">Venus no solo rige el amor — rige el valor, la atracción y lo que consideras hermoso o deseable. Tu Venus por signo revela <strong style="color:var(--gold-light);font-weight:400">cómo atraes dinero de manera natural, sin forzarte</strong>. Es tu magnetismo financiero.</p>
+
+    <table class="sign-table reveal">
+      <thead>
+        <tr>
+          <th>Venus por Signo</th>
+          <th>Tu magnetismo financiero</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sign-name">♈ Venus en Aries</td><td>Atraes con audacia, velocidad y liderazgo. Sé la pionera.</td></tr>
+        <tr><td class="sign-name">♉ Venus en Tauro</td><td>Atraes con belleza real, calidad y experiencias sensoriales.</td></tr>
+        <tr><td class="sign-name">♊ Venus en Géminis</td><td>Atraes con palabras, versatilidad e ideas originales.</td></tr>
+        <tr><td class="sign-name">♋ Venus en Cáncer</td><td>Atraes con ternura, presencia emocional y seguridad.</td></tr>
+        <tr><td class="sign-name">♌ Venus en Leo</td><td>Atraes con carisma, generosidad y presencia magnética.</td></tr>
+        <tr><td class="sign-name">♍ Venus en Virgo</td><td>Atraes con precisión, utilidad y atención al detalle.</td></tr>
+        <tr><td class="sign-name">♎ Venus en Libra</td><td>Atraes con elegancia, armonía y conexión auténtica.</td></tr>
+        <tr><td class="sign-name">♏ Venus en Escorpio</td><td>Atraes con profundidad, magnetismo e intensidad.</td></tr>
+        <tr><td class="sign-name">♐ Venus en Sagitario</td><td>Atraes con entusiasmo, visión expansiva y autenticidad.</td></tr>
+        <tr><td class="sign-name">♑ Venus en Capricornio</td><td>Atraes con responsabilidad, logros tangibles y estructura.</td></tr>
+        <tr><td class="sign-name">♒ Venus en Acuario</td><td>Atraes con originalidad, causa y visión de futuro.</td></tr>
+        <tr><td class="sign-name">♓ Venus en Piscis</td><td>Atraes con compasión, arte y presencia espiritual.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="action-box reveal">
+      <p class="action-box-label">✦ Cómo activarlo</p>
+      <p>Activa tu Venus encarnando su energía: viste, decora tu espacio y comunica desde esa vibración. No imites a otras creadoras — encarna lo tuyo. El dinero sigue la vibración, no la fórmula.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ JÚPITER ══ -->
+<section id="jupiter" class="planet-section">
+  <div class="section-inner">
+    <p class="section-tag reveal">Capítulo 3</p>
+    <div class="planet-header reveal">
+      <div class="planet-glyph-wrap">♃</div>
+      <div>
+        <h2 class="section-title">Júpiter: <span>donde se expande tu fortuna</span></h2>
+        <div class="gold-rule"></div>
+      </div>
+    </div>
+
+    <p class="body-text reveal">Júpiter es el planeta de la expansión, la fortuna y el crecimiento. Su casa natal indica el área de vida donde tienes más potencial de abundancia — y donde el universo naturalmente te apoya con menos fricción.</p>
+
+    <table class="sign-table reveal">
+      <thead>
+        <tr>
+          <th>Júpiter en Casa</th>
+          <th>Zona de expansión natural</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sign-name">Casa 1</td><td>Tu presencia personal es tu fortuna. Marca personal potente.</td></tr>
+        <tr><td class="sign-name">Casa 2</td><td>Talento natural para generar dinero propio. Muy favorable.</td></tr>
+        <tr><td class="sign-name">Casa 3</td><td>Éxito en comunicación, escritura, cursos y redes sociales.</td></tr>
+        <tr><td class="sign-name">Casa 4</td><td>Bienestar doméstico, negocios familiares, raíces fuertes.</td></tr>
+        <tr><td class="sign-name">Casa 5</td><td>Creatividad, arte, entretenimiento y proyectos propios.</td></tr>
+        <tr><td class="sign-name">Casa 6</td><td>Trabajo constante, salud, servicio, hábitos que construyen.</td></tr>
+        <tr><td class="sign-name">Casa 7</td><td>Socios, clientes, relaciones que multiplican tus recursos.</td></tr>
+        <tr><td class="sign-name">Casa 8</td><td>Dinero a través de otros, inversión, transformación de recursos.</td></tr>
+        <tr><td class="sign-name">Casa 9</td><td>Expansión global, enseñanza, filosofía, audiencias amplias.</td></tr>
+        <tr><td class="sign-name">Casa 10</td><td>Reconocimiento profesional y éxito público. Carrera estelar.</td></tr>
+        <tr><td class="sign-name">Casa 11</td><td>Comunidades, audiencias digitales, proyectos colectivos.</td></tr>
+        <tr><td class="sign-name">Casa 12</td><td>Trabajo espiritual, retiros, lo que sana y trasciende.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="action-box reveal">
+      <p class="action-box-label">✦ Cómo activarlo</p>
+      <p>Localiza Júpiter en tu carta. Esa casa es donde deberías enfocar más energía deliberada. No lo ignores — ahí está tu zona de crecimiento natural, tu línea de menor resistencia hacia la abundancia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEDIO CIELO ══ -->
+<section id="mc">
+  <div class="section-inner">
+    <p class="section-tag reveal">Capítulo 4</p>
+    <div class="planet-header reveal">
+      <div class="planet-glyph-wrap" style="font-size:1rem;letter-spacing:0.05em">MC</div>
+      <div>
+        <h2 class="section-title">El Medio Cielo: <span>tu misión pública</span></h2>
+        <div class="gold-rule"></div>
+      </div>
+    </div>
+
+    <p class="body-text reveal">El Medio Cielo (MC) es la cúspide de tu Casa 10 — representa tu vocación pública, tu reputación y cómo el mundo te ve profesionalmente. El signo que lo rige define qué tipo de trabajo te trae más reconocimiento y dinero.</p>
+
+    <table class="sign-table reveal">
+      <thead>
+        <tr>
+          <th>Signo en MC</th>
+          <th>Tu rol público ideal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sign-name">♈ MC en Aries</td><td>Emprendimiento, liderazgo, ser pionera en tu campo.</td></tr>
+        <tr><td class="sign-name">♉ MC en Tauro</td><td>Arte, bienes, construcción sostenible, lujo con propósito.</td></tr>
+        <tr><td class="sign-name">♊ MC en Géminis</td><td>Comunicación, medios, educación, múltiples proyectos.</td></tr>
+        <tr><td class="sign-name">♋ MC en Cáncer</td><td>Cuidado, nutrición, hogar, trabajo con familias o mujeres.</td></tr>
+        <tr><td class="sign-name">♌ MC en Leo</td><td>Entretenimiento, creatividad, palco propio, ser la estrella.</td></tr>
+        <tr><td class="sign-name">♍ MC en Virgo</td><td>Salud, análisis, servicio, perfección artesanal.</td></tr>
+        <tr><td class="sign-name">♎ MC en Libra</td><td>Arte, belleza, justicia, relaciones públicas, moda.</td></tr>
+        <tr><td class="sign-name">♏ MC en Escorpio</td><td>Psicología, misterio, transformación, investigación profunda.</td></tr>
+        <tr><td class="sign-name">♐ MC en Sagitario</td><td>Enseñanza, viajes, expansión filosófica y espiritual.</td></tr>
+        <tr><td class="sign-name">♑ MC en Capricornio</td><td>Empresa seria, autoridad reconocida, legado a largo plazo.</td></tr>
+        <tr><td class="sign-name">♒ MC en Acuario</td><td>Innovación social, tecnología, ser referente alternativo.</td></tr>
+        <tr><td class="sign-name">♓ MC en Piscis</td><td>Arte, espiritualidad, sanación, creatividad transcendente.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="action-box reveal">
+      <p class="action-box-label">✦ Cómo activarlo</p>
+      <p>Tu MC es tu "rol público ideal". Si no estás expresando esa energía en tu trabajo, es momento de alinear. El reconocimiento no llega antes de encarnar la energía de tu MC — viene como consecuencia de ella.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRÁNSITOS ══ -->
+<section id="transits" class="planet-section">
+  <div class="section-inner">
+    <p class="section-tag reveal">Capítulo 5</p>
+    <h2 class="section-title reveal">Cuándo actuar: <span>los tránsitos del dinero</span></h2>
+    <div class="gold-rule reveal"></div>
+
+    <p class="body-text reveal">Tu carta natal es fija, pero el cielo se mueve — y cuando ciertos planetas transitan tus casas clave, se abren ventanas de abundancia. Conocer estos momentos te da una ventaja real.</p>
+
+    <div class="transit-grid reveal">
+      <div class="transit-row">
+        <div class="transit-planet">♃ Júpiter sobre tu Casa 2</div>
+        <div class="transit-desc">Expansión directa del ingreso. Momento para lanzar, subir precios, invertir en ti.</div>
+      </div>
+      <div class="transit-row">
+        <div class="transit-planet">♃ Júpiter sobre tu Casa 8</div>
+        <div class="transit-desc">Dinero a través de otros: socios, herencias, colaboraciones, ventas grandes.</div>
+      </div>
+      <div class="transit-row">
+        <div class="transit-planet">♃ Júpiter sobre tu MC</div>
+        <div class="transit-desc">Reconocimiento público masivo. Tu trabajo llega a más personas. Lanza con todo.</div>
+      </div>
+      <div class="transit-row">
+        <div class="transit-planet">♀ Venus sobre tu Casa 2</div>
+        <div class="transit-desc">Flujo fácil de dinero. Ventas fluidas, atracción magnética. Dura ~3 semanas.</div>
+      </div>
+      <div class="transit-row">
+        <div class="transit-planet">☉ Sol sobre tu Casa 2</div>
+        <div class="transit-desc">Anualmente: un mes de enfoque natural en tus finanzas. Momento de revisión y acción.</div>
+      </div>
+      <div class="transit-row">
+        <div class="transit-planet">♄ Saturno sobre tu Casa 2</div>
+        <div class="transit-desc">Reestructuración financiera. No es fácil, pero construye las bases más sólidas.</div>
+      </div>
+    </div>
+
+    <div class="action-box reveal">
+      <p class="action-box-label">✦ Pro Tip</p>
+      <p>Usa apps como <strong style="color:var(--gold-light);font-weight:400">Time Passages</strong> o <strong style="color:var(--gold-light);font-weight:400">Astro.com</strong> para ver tus tránsitos activos. Marca en tu calendario cuando Júpiter o Venus toquen tus casas 2, 8 y 10 — esas son tus ventanas de oro.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="section-inner">
+    <p class="cta-stars reveal">✦ ✦ ✦</p>
+    <h2 class="cta-title reveal">Has llegado hasta aquí porque<br>estás lista para activar<br><em>tu abundancia.</em></h2>
+
+    <p class="cta-text reveal">Esta guía es solo el comienzo. Si quieres ir más profundo y leer tu carta natal completa — entender tus bloqueos, tus dones y tu timing exacto — agenda una sesión de astrología conmigo.</p>
+
+    <div class="cta-services reveal">
+      <span class="cta-service">Lectura de Carta Natal</span>
+      <span class="cta-service">Sesión de Tarot</span>
+    </div>
+
+    <a href="https://fergismarrero.com" class="cta-btn reveal"><span>Agenda tu Sesión</span></a>
+
+    <div class="reveal" style="margin-top:56px">
+      <p class="cta-handle">Mamá Girasol</p>
+      <p class="cta-handle-sub">@fergismarrero · Comunidad Entre Diosas 🌻</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Fergis Marrero · Mamá Girasol</span> — con amor y astrología</p>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (scrolled / total * 100) + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

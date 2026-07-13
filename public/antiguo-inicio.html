@@ -1,0 +1,3388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fergis Marrero – Mamá Girasol | Acompañamiento emocional para mujeres 🌻</title>
+  <meta name="description"
+    content="Los servicios de Mamá Girasol están orientados al acompañamiento y la guía emocional para mujeres. Un espacio de escucha, presencia y autoconocimiento donde encontrar claridad." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════════════════ */
+    :root {
+      /* Paleta principal */
+      --cream: #FAF4E8;
+      --parchment: #F2E8D0;
+      --gold-light: #F5E3A3;
+      --gold: #D4A847;
+      --gold-deep: #A87828;
+      --terracotta: #A50E0E;
+      --terracotta-d: #7D0404;
+      --wine: #7A0000;
+      --wine-deep: #520000;
+      --ink: #1F0A10;
+
+      /* Tipografía */
+      --font-display: 'Carelia W05 Italic', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      /* Espaciados */
+      --gap: 20px;
+      --radius: 20px;
+      --radius-sm: 12px;
+
+      /* Sombras */
+      --shadow-sm: 0 2px 12px rgba(31, 10, 16, 0.08);
+      --shadow-md: 0 8px 40px rgba(31, 10, 16, 0.12);
+      --shadow-lg: 0 20px 80px rgba(31, 10, 16, 0.18);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .bento-page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BASE BOX
+    ═══════════════════════════════════════════════════════ */
+    .box {
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Warm box (crema) */
+    .box-warm {
+      background: var(--parchment);
+      border: 1px solid rgba(212, 168, 71, 0.25);
+    }
+
+    /* ── Dark box (fondo rico, tipografía clara) */
+    .box-rich {
+      background: linear-gradient(140deg, var(--terracotta) 0%, var(--wine) 100%);
+      color: var(--cream);
+    }
+
+    /* ── Gold box */
+    .box-gold {
+      background: linear-gradient(135deg, #F0C860 0%, #D4A847 100%);
+      color: var(--wine-deep);
+    }
+
+    /* ── Deep box */
+    .box-deep {
+      background: linear-gradient(140deg, var(--wine-deep) 0%, var(--ink) 100%);
+      color: var(--cream);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO INTRO
+    ═══════════════════════════════════════════════════════ */
+    .hero-box {
+      padding: 72px 64px;
+      text-align: center;
+      background: var(--wine-deep);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-nav {
+      position: sticky;
+      top: 12px;
+      z-index: 200;
+      padding: 14px 16px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
+      gap: 10px;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(201, 212, 177, 0.9);
+      border: 1px solid rgba(212, 168, 71, 0.35);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+
+    .quick-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(125, 4, 4, 0.24);
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--wine-deep);
+      text-decoration: none;
+      font-size: 0.87rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.2;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .quick-nav a:hover {
+      background: var(--gold-light);
+      border-color: rgba(168, 120, 40, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .hero-box::before {
+      content: '🌻';
+      position: absolute;
+      font-size: 320px;
+      opacity: 0.04;
+      right: -60px;
+      top: -60px;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 168, 71, 0.4);
+      padding: 6px 18px;
+      border-radius: 99px;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-body {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(250, 244, 232, 0.82);
+      max-width: 620px;
+      margin: 0 auto 12px;
+      line-height: 1.75;
+    }
+
+    .hero-sign {
+      margin-top: 32px;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--gold-light);
+      letter-spacing: 0.3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BENTO GRID (centro)
+    ═══════════════════════════════════════════════════════ */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      min-height: 580px;
+    }
+
+    .tarot-row {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SERVICE CARDS (MODULAR DESIGN)
+    ═══════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════
+       NEW SERVICE CARDS DESIGN
+    ═══════════════════════════════════════════════════════ */
+    .card {
+      border-radius: 40px;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      border: 1.5px solid rgba(180, 140, 60, 0.35);
+      box-shadow: 0 12px 40px rgba(61, 43, 31, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(61, 43, 31, 0.15);
+    }
+
+    .card-mantequilla {
+      background: #F5EDD8;
+      border-color: #D4A94A66;
+    }
+
+    .card-vino {
+      background: #F2E8E4;
+      border-color: #8B3A3A66;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 40px;
+      width: fit-content;
+      margin: 0 auto 0.5rem;
+    }
+
+    .tag-mantequilla {
+      background: #F5EACC;
+      color: #7A5A10;
+      border: 1px solid #D4A94A33;
+    }
+
+    .tag-vino {
+      background: #EEDBD6;
+      color: #6B2020;
+      border: 1px solid #8B3A3A33;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .title-mantequilla { color: #3d2b1f; }
+    .title-vino { color: #3d0000; }
+
+    .card-hook {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: #3d2b1f;
+      margin: 0;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+
+    .card-body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #3d2b1f;
+      margin: 0;
+      opacity: 0.85;
+    }
+
+    .card-body-vino {
+      color: #3d0000;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(180, 140, 60, 0.2);
+      margin: 0.75rem 0;
+    }
+
+    .divider-vino {
+      background: rgba(122, 0, 0, 0.15);
+    }
+
+    .card-meta {
+      font-size: 0.95rem;
+      color: #3d2b1f;
+      line-height: 1.6;
+      margin: 0;
+      opacity: 0.75;
+    }
+
+    .card-meta-vino {
+      color: #3d0000;
+    }
+
+    .card-price {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #3d2b1f;
+      margin: 0;
+    }
+
+    .card-price-vino {
+      color: #3d0000;
+    }
+
+    .buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 1.5rem;
+      justify-content: center;
+    }
+
+    .btn-new {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-new:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-mant {
+      background: #A0702A;
+      color: #fff;
+    }
+
+    .btn-mant:hover { background: #8a6024; }
+
+    .btn-vino-primary {
+      background: #3d0000;
+      color: #fff;
+    }
+
+    .btn-vino-primary:hover { background: #2a0000; }
+
+    .btn-secondary-new {
+      background: transparent;
+      color: #3d2b1f;
+      border: 1px solid rgba(61, 43, 31, 0.2);
+    }
+
+    .btn-secondary-new:hover {
+      background: rgba(61, 43, 31, 0.05);
+    }
+
+    .tarot-card {
+      background: linear-gradient(135deg, #d4af88 0%, #bc8f61 100%);
+      border: 1px solid #a97644;
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tarot-card-featured {
+      background: linear-gradient(135deg, #FFF9E6 0%, #FDE68A 100%);
+      border-color: #D4A94A66;
+      border-width: 1.5px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .tarot-card-featured .tarot-pill {
+      background: rgba(160, 112, 42, 0.1);
+      border: 1px solid rgba(160, 112, 42, 0.2);
+      color: #A0702A;
+      letter-spacing: 0.04em;
+    }
+
+    .tarot-card-featured .tarot-title {
+      color: #3d2b1f;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-shadow: none;
+    }
+
+    .tarot-card-featured .tarot-copy {
+      color: #7a5e34;
+    }
+
+    .tarot-card-featured .tarot-lead {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #4b3108;
+    }
+
+    .tarot-card-featured .tarot-note {
+      color: #7a5e34;
+      font-size: 0.93rem;
+    }
+
+    .tarot-card-featured .tarot-cta {
+      background: linear-gradient(90deg, #3d2b1f 0%, #1f140c 100%);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      align-self: center;
+    }
+
+    .tarot-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 246, 226, 0.72);
+      border: 1px solid rgba(107, 34, 54, 0.22);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--wine-deep);
+      letter-spacing: 0.02em;
+      text-transform: none;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .tarot-title {
+      font-family: var(--font-body);
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
+      font-weight: 500;
+      font-style: italic;
+      color: #4b3108;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      min-height: 3.6rem;
+    }
+
+    .tarot-title-featured {
+      min-height: auto;
+    }
+
+    .tarot-title-script {
+      font-family: "Carelia W05 Italic", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--wine-deep);
+    }
+
+    .tarot-copy {
+      color: #7a5e34;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .tarot-lead {
+      font-size: 1.14rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      flex-grow: 0;
+    }
+
+    .tarot-note {
+      font-size: 0.92rem;
+      opacity: 1;
+      color: rgba(78, 49, 8, 0.74);
+      margin-top: 0;
+      margin-bottom: 24px;
+      flex-grow: 0;
+      line-height: 1.5;
+    }
+
+    .tarot-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #e4ba49 0%, #d9a93a 100%);
+      color: #4f3600;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 24px;
+      text-decoration: none;
+      width: fit-content;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .tiendita-card {
+      border-radius: 24px;
+      padding: 0;
+      min-height: auto;
+      overflow: hidden;
+      border: none;
+    }
+
+    .tiendita-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(243, 240, 230, 0.14);
+      border: 1px solid rgba(243, 240, 230, 0.22);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: rgba(243, 240, 230, 0.9);
+      letter-spacing: 0.08em;
+      text-transform: none;
+      width: fit-content;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .tiendita-pill::before {
+      content: none;
+    }
+
+    .tiendita-title {
+      font-family: "Carelia W05 Italic", Georgia, serif;
+      font-size: clamp(1.95rem, 2.45vw, 2.4rem);
+      font-style: normal;
+      font-weight: 900;
+      color: #fff4cf;
+      line-height: 1;
+      margin-top: 28px;
+      margin-bottom: 0;
+      max-width: none;
+      text-align: center;
+      align-self: center;
+    }
+
+    .tiendita-title-accent {
+      font-style: normal;
+      display: block;
+      font-size: 1.56em;
+    }
+
+    .tiendita-state {
+      color: rgba(243, 240, 230, 0.78);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin: 0;
+      text-align: center;
+      order: 4;
+    }
+
+    .tiendita-accent {
+      width: 56px;
+      height: 4px;
+      border-radius: 999px;
+      background: #a991A7;
+      margin-top: auto;
+      margin-bottom: 10px;
+      align-self: center;
+      order: 3;
+    }
+
+    .tiendita-copy {
+      color: rgba(243, 240, 230, 0.72);
+      font-size: 1.02rem;
+      line-height: 1.5;
+      max-width: 30ch;
+      margin-bottom: 0;
+    }
+
+    .tiendita-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-box,
+      .blog-box,
+      .community-box,
+      .social-box {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .blog-box {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      .carousel-box {
+        min-height: 470px;
+      }
+
+      .tarot-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tiendita-card {
+        border-radius: 24px;
+        padding: 0;
+      }
+
+      .tiendita-title {
+        max-width: 100%;
+        white-space: normal;
+      }
+
+      .tiendita-cta {
+        margin-left: 0;
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tiendita-card {
+      }
+
+      .tiendita-pill {
+        align-self: center;
+        margin-bottom: 14px;
+      }
+
+      .tiendita-title {
+        margin-top: 5px;
+      }
+    }
+
+    /* ── CAROUSEL ────────────────────────────────────────── */
+    .carousel-box {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--wine-deep);
+      min-height: 680px;
+    }
+
+    /* El viewport ocupa todo el espacio de la caja y oculta lo que sobresale */
+    .carousel-viewport {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      /* 3 slides, cada uno ocupa el 100% del viewport */
+      width: 300%;
+      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .c-slide {
+      /* 33.3333% del track = 100% del viewport */
+      width: 33.3333%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .c-slide.img-slide {
+      padding: 0;
+      position: relative;
+    }
+
+    .c-slide.img-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    /* Placeholder cuando no hay imagen */
+    .c-slide.img-slide {
+      background: linear-gradient(150deg, var(--wine) 0%, #1F0A10 100%);
+    }
+
+    .c-slide.img-slide::after {
+      content: attr(data-label);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
+      padding: 24px;
+      text-align: center;
+      z-index: 0;
+    }
+
+    .c-slide.img-slide img {
+      z-index: 1;
+    }
+
+    .c-slide.text-slide {
+      padding: 36px 48px 40px;
+      background: linear-gradient(150deg, var(--terracotta) 0%, var(--wine-deep) 100%);
+      color: var(--cream);
+      text-align: center;
+      overflow-y: auto;
+      align-items: center;
+      justify-content: safe center;
+    }
+
+    .c-slide.text-slide h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: #fff;
+      white-space: normal;
+      max-width: 26ch;
+    }
+
+    .c-slide.text-slide h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .c-slide.text-slide p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: rgba(250, 244, 232, 0.9);
+      font-weight: 300;
+      max-width: 120ch;
+      margin: 0 auto;
+    }
+
+    .c-slide.text-slide p + p {
+      margin-top: 10px;
+    }
+
+    /* Dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: background 0.4s, transform 0.4s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ── SERVICES STACK ──────────────────────────────────── */
+    .services-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+
+    .srv-btn {
+      flex: 1;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: left;
+    }
+
+    .srv-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.22s;
+    }
+
+    .srv-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .srv-btn:hover::before {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .srv-btn-rich {
+      background: linear-gradient(120deg, var(--terracotta) 0%, #8E0000 100%);
+      color: var(--cream);
+    }
+
+    .srv-btn-wine {
+      background: linear-gradient(120deg, var(--wine) 0%, #640000 100%);
+      color: var(--cream);
+    }
+
+    .srv-btn-gold {
+      background: linear-gradient(120deg, #E8B840 0%, var(--gold-deep) 100%);
+      color: var(--wine-deep);
+    }
+
+    .srv-btn-deep {
+      background: linear-gradient(120deg, var(--wine-deep) 0%, var(--ink) 100%);
+      color: var(--cream);
+    }
+
+    .srv-btn-parch {
+      background: var(--parchment);
+      border: 1px solid rgba(212, 168, 71, 0.3);
+      color: var(--ink);
+    }
+
+    .srv-label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .srv-name {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.2px;
+    }
+
+
+    .srv-sub {
+      font-size: 0.8rem;
+      font-weight: 400;
+      opacity: 0.75;
+      letter-spacing: 0.5px;
+    }
+
+    .srv-arrow {
+      font-size: 1.3rem;
+      opacity: 0.65;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: transform 0.22s;
+    }
+
+    .srv-btn:hover .srv-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BLOG BOX
+    ═══════════════════════════════════════════════════════ */
+    .blog-box {
+      padding: 60px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .box-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .box-rich .box-label {
+      color: var(--gold-light);
+    }
+
+    .box-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--wine-deep);
+    }
+
+    .box-rich .box-heading,
+    .box-deep .box-heading {
+      color: #fff;
+    }
+
+    .box-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--wine);
+      line-height: 1.75;
+    }
+
+    .box-rich .box-body,
+    .box-deep .box-body {
+      color: rgba(250, 244, 232, 0.8);
+    }
+
+    .blog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .blog-tag {
+      background: rgba(212, 168, 71, 0.15);
+      border: 1px solid rgba(212, 168, 71, 0.4);
+      color: var(--gold-deep);
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: background 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .blog-tag:hover {
+      background: rgba(212, 168, 71, 0.28);
+    }
+
+    .box-rich .blog-tag {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--gold-light);
+    }
+
+    .box-rich .blog-tag:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .blog-mobile {
+      display: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       COMMUNITY BOX
+    ═══════════════════════════════════════════════════════ */
+    .community-box {
+      padding: 64px;
+      text-align: center;
+    }
+
+    .community-box .box-heading {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .community-box .box-body {
+      color: rgba(250, 244, 232, 0.82);
+      margin-bottom: 36px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Botón principal */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--wine-deep);
+      padding: 16px 42px;
+      border-radius: 99px;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+      box-shadow: 0 4px 20px rgba(212, 168, 71, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 40px rgba(212, 168, 71, 0.45);
+      background: #E8BE55;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SOCIAL / FOOTER BOX
+    ═══════════════════════════════════════════════════════ */
+    .social-box {
+      padding: 36px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .social-brand {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--wine-deep);
+      letter-spacing: -0.2px;
+    }
+
+    .social-brand span {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(212, 168, 71, 0.12);
+      border: 1.5px solid rgba(212, 168, 71, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wine-deep);
+      font-size: 20px;
+      text-decoration: none;
+      transition: background 0.22s, transform 0.22s, border-color 0.22s;
+    }
+
+    .social-link:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MODALS
+    ═══════════════════════════════════════════════════════ */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(31, 10, 16, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-panel {
+      background: var(--cream);
+      width: 90%;
+      max-width: 540px;
+      border-radius: 24px;
+      padding: 48px 44px;
+      position: relative;
+      transform: translateY(28px) scale(0.96);
+      transition: transform 0.38s cubic-bezier(0.34, 1.5, 0.64, 1);
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .overlay.active .modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(107, 34, 54, 0.08);
+      border: none;
+      color: var(--wine);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      z-index: 999;
+    }
+
+    .modal-close:hover {
+      background: rgba(107, 34, 54, 0.15);
+      transform: rotate(90deg);
+    }
+
+    /* Service modal */
+    .sdm-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+    }
+
+    .sdm-title {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--wine-deep);
+      margin-bottom: 20px;
+    }
+
+    .sdm-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--wine);
+      white-space: pre-line;
+      margin-bottom: 28px;
+    }
+
+    /* Opción cards inside Compatibilidad modal */
+    .compat-option {
+      background: var(--parchment);
+      border: 1px solid rgba(212,168,71,0.25);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      margin-bottom: 8px;
+    }
+    .compat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+    .compat-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--wine-deep);
+      margin-bottom: 12px;
+    }
+    .compat-price {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--wine-deep);
+      margin-bottom: 12px;
+    }
+    .compat-option .sdm-text {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .compat-divider {
+      height: 1px;
+      background: rgba(212,168,71,0.3);
+      margin: 16px 0;
+    }
+
+    /* Booking modal */
+    .bm-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--wine-deep);
+      margin-bottom: 6px;
+    }
+
+    .bm-sub {
+      font-size: 0.9rem;
+      color: var(--wine);
+      opacity: 0.75;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--wine);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(212, 168, 71, 0.3);
+      background: #fff;
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      color: var(--ink);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212, 168, 71, 0.14);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .paypal-wrap {
+      margin-top: 24px;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      border: 1.5px dashed rgba(212, 168, 71, 0.3);
+      text-align: center;
+    }
+
+    .paypal-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--wine);
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FAB WHATSAPP
+    ═══════════════════════════════════════════════════════ */
+    .wa-fab-wrap {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    .wa-bubble {
+      max-width: min(280px, calc(100vw - 40px));
+      background: rgba(255, 251, 242, 0.96);
+      color: var(--wine-deep);
+      border: 1px solid rgba(212, 168, 71, 0.5);
+      border-radius: 18px;
+      padding: 12px 16px;
+      font-size: 0.93rem;
+      line-height: 1.45;
+      box-shadow: 0 12px 28px rgba(31, 10, 16, 0.14);
+      position: relative;
+      opacity: 0;
+      transform: translateY(10px) scale(0.96);
+      transform-origin: bottom right;
+      pointer-events: none;
+      animation: waBubbleCycle 10s ease-in-out infinite;
+    }
+
+    .wa-bubble::after {
+      content: '';
+      position: absolute;
+      right: 24px;
+      bottom: -9px;
+      width: 18px;
+      height: 18px;
+      background: rgba(255, 251, 242, 0.96);
+      border-right: 1px solid rgba(212, 168, 71, 0.5);
+      border-bottom: 1px solid rgba(212, 168, 71, 0.5);
+      transform: rotate(45deg);
+    }
+
+    #fab-wa {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #2ce171 0%, #21bf5d 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.42);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      isolation: isolate;
+    }
+
+    #fab-wa::before {
+      content: '';
+      position: absolute;
+      inset: 50%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #f5d35f 0%, #d79c1c 100%);
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 -31px 0 2px #f3c64d,
+        22px -22px 0 2px #f0bb3d,
+        31px 0 0 2px #f3c64d,
+        22px 22px 0 2px #e5a62f,
+        0 31px 0 2px #f3c64d,
+        -22px 22px 0 2px #f0bb3d,
+        -31px 0 0 2px #f3c64d,
+        -22px -22px 0 2px #e5a62f;
+      z-index: -2;
+    }
+
+    #fab-wa::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 3px solid rgba(107, 34, 54, 0.12);
+      z-index: -1;
+    }
+
+    #fab-wa:hover,
+    .wa-fab-wrap:hover #fab-wa,
+    #fab-wa:focus-visible {
+      transform: scale(1.08);
+      box-shadow: 0 14px 38px rgba(37, 211, 102, 0.5);
+    }
+
+    .wa-fab-wrap:hover .wa-bubble,
+    .wa-fab-wrap:focus-within .wa-bubble {
+      animation-play-state: paused;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .fab-wa-icon {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .bento-page {
+        padding: 16px 16px 60px;
+        gap: 14px;
+      }
+
+      .hero-box {
+        padding: 44px 24px;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .hero-body {
+        font-size: 1.02rem;
+      }
+
+      .carousel-box {
+        min-height: 520px;
+      }
+
+      .quick-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 12px;
+      }
+
+      .quick-nav a {
+        flex: 0 0 auto;
+        font-size: 0.8rem;
+      }
+
+      .c-slide.text-slide {
+        padding: 36px 28px 68px;
+      }
+
+      .c-slide.text-slide h2 {
+        font-size: 1.6rem;
+      }
+
+      .srv-btn {
+        padding: 18px 18px;
+      }
+
+      .srv-name {
+        font-size: 1.25rem;
+      }
+
+      .tarot-card {
+        padding: 28px 22px;
+      }
+
+      .service-card {
+        padding: 36px 24px;
+        border-radius: 32px;
+      }
+
+      .service-card__title {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+      }
+
+      .service-card__quote {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .tiendita-card {
+        min-height: auto;
+      }
+
+      .blog-box,
+      .community-box,
+      .social-box {
+        padding: 34px 22px;
+      }
+
+      .blog-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .blog-desktop-only {
+        display: none;
+      }
+
+      .blog-mobile {
+        display: block;
+      }
+
+      .blog-mobile .box-heading {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .blog-mobile .box-body {
+        font-size: 0.96rem;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+
+      .blog-mobile .btn-primary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 14px 20px;
+      }
+
+      #carta-natal {
+        padding: 40px 18px !important;
+      }
+
+      #carta-natal-form {
+        padding: 24px !important;
+      }
+
+      .wa-fab-wrap {
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .wa-bubble {
+        max-width: min(240px, calc(100vw - 28px));
+      }
+
+      #fab-wa {
+        width: 56px;
+        height: 56px;
+      }
+
+      .fab-wa-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .sdm-title {
+        font-size: 1.9rem;
+      }
+
+      .modal-panel {
+        padding: 36px 28px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      /* Evita solapamiento entre el banner de cookies y el FAB de WhatsApp */
+      #cookie-banner {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 140px !important;
+        max-width: none !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .carousel-box {
+        min-height: 680px;
+      }
+
+      /* Solo mobile: primera tarjeta del carrusel hero */
+      .hero-track .hero-card:first-child {
+        background-size: 110% auto;
+        background-position: center 15% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+
+      .c-slide.text-slide {
+        padding: 30px 24px 96px;
+        align-items: center;
+      }
+
+      .c-slide.text-slide h2 {
+        font-size: 1.55rem;
+        line-height: 1.2;
+        white-space: normal;
+      }
+
+      .c-slide.text-slide p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .wa-bubble {
+        display: none;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes waBubbleCycle {
+      0%, 10%, 100% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+      }
+
+      18%, 58% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-5 {
+      animation-delay: 0.5s;
+    }
+
+    /* Ajustes exclusivos para la primera tarjeta del carrusel hero */
+    .hero-track .hero-card:first-child {
+      background-size: 110% auto;
+      background-position: center 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* SCROLLBAR */
+    ::selection {
+      background: rgba(212, 168, 71, 0.3);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 99px;
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXNGBZK96C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VXNGBZK96C');
+  </script>
+
+  <!-- Netlify Identity Widget -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+
+<body>
+
+  <!-- ▸ WhatsApp FAB -->
+  <div class="wa-fab-wrap">
+    <div class="wa-bubble">También podemos hablar por Whatsapp, hermana girasol.</div>
+    <a id="fab-wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Ir a WhatsApp">
+      <svg class="fab-wa-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor"
+          d="M27.3 15.5c0 6.1-5 11.1-11.1 11.1-2 0-4-.5-5.7-1.6l-6 1.6 1.6-5.8c-1.1-1.8-1.7-3.8-1.7-5.9C4.4 8.8 9.4 3.8 15.5 3.8s11.8 5.6 11.8 11.7Zm-11.8-9C10.2 6.5 6 10.7 6 15.9c0 1.9.6 3.7 1.6 5.2l.4.6-.9 3.2 3.3-.9.5.3c1.4.9 3 1.4 4.6 1.4 5.2 0 9.4-4.2 9.4-9.4S20.7 6.5 15.5 6.5Zm5.2 12c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-2-.9-3.3-2.8-3.4-3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.8-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.6s1.2 3 1.4 3.2c.2.2 2.3 3.5 5.5 4.8 3.2 1.4 3.2.9 3.8.9.6 0 1.8-.8 2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.2-.6-.4Z" />
+      </svg>
+    </a>
+  </div>
+
+  <main class="bento-page">
+
+    <nav class="box box-warm quick-nav fade-up" aria-label="Navegación rápida">
+      <a href="#inicio">Inicio</a>
+      <a href="#quien-soy">Quién soy</a>
+      <a href="#acompanamientos">Servicios</a>
+      <a href="blog-mama-girasol.html">Blog</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#test-herida">Test de patrones</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ HERO INTRO ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="inicio" class="box hero-box fade-up">
+      <div class="hero-eyebrow">🌻 Acompañamiento emocional para mujeres 🌻</div>
+      <h1 class="hero-title fade-up delay-1">No tienes que poder con <em>todo sola</em>.</h1>
+      <p class="hero-body fade-up delay-2">Te acompaño a identificar los patrones que traes de tu infancia para comprender su impacto en tu presente. En este espacio seguro, trabajaremos juntos en desentrañar esas dinámicas, sanar las heridas del pasado y recuperar tu libertad para elegir quién quieres ser hoy. Sin juicios y a tu propio ritmo.</p>
+      <p class="hero-sign fade-up delay-3">Estoy para ti, hermana girasol. 💛</p>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- ► QUIÉN SOY (CARRUSEL) -->
+    <div id="quien-soy" class="carousel-box fade-up delay-1">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
+
+          <!-- Slide 1: Foto Girasol -->
+          <div class="c-slide img-slide" data-label="📷 Tu foto aquí">
+            <img src="Fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
+          </div>
+
+          <!-- Slide 2: Texto Fergis -->
+          <div class="c-slide text-slide">
+            <h2>Soy Fergis, <em>pero tú puedes llamarme Mamá Girasol</em></h2>
+            <p>Tengo una misión que se ha ido revelando con el tiempo: que ninguna mujer tenga que transitar sus procesos sola.</p>
+            <p>Sé lo que es cargarlo todo desde niña. Aprender a callar, a adaptarse, a merecer menos de lo que necesitabas, y sé lo que se siente cuando esos aprendizajes siguen gobernando tu vida adulta sin que nadie te haya dicho que podían transformarse.</p>
+            <p>Por eso creé este espacio.</p>
+            <p>No te ofrezco fórmulas mágicas ni respuestas prefabricadas. Te ofrezco presencia, escucha, calma y claridad para comprender lo que está pasando dentro de ti y de dónde viene realmente.</p>
+            <p>Aquí exploramos juntas los patrones que aprendiste en la infancia: cómo te hablas, qué crees que mereces, cómo te relacionas con el amor, los límites y tu propio valor. Porque esas formas de verte y tratarte no nacieron contigo, las aprendiste. Y lo que se aprende, puede desaprenderse para luego evolucionar.</p>
+            <p>Muchas veces no sufrimos solo por lo que ocurre hoy, sino por lo que una vez, siendo niña, tuvimos que cargar, callar o sostener para sobrevivir.</p>
+            <p>Este es un espacio humano, cálido y libre de juicios, donde puedes mirar tu historia con más comprensión y empezar a construir una relación más amable contigo misma.</p>
+            <p>En este espacio también abrazamos y sanamos las heridas de esa infancia donde la neurodivergencia no fue vista, transformando la culpa de no encajar y las exigencias del entorno en una celebración amorosa de tu propia luz y tus propios ritmos.🌻 </p>
+          </div>
+
+          <!-- Slide 3: Texto Mamá Girasol -->
+          <div class="c-slide text-slide">
+            <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
+            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera, vive dentro de ti. Siempre vivió ahí.</p>
+            <p>Lo que pasa es que muchas veces, en la infancia y la adolescencia, aprendemos a apagarla. A doblarnos hacia donde nos necesitaban, a brillar menos para no molestar, a dudar de lo que sentíamos o queríamos.</p>
+            <p>"Mamá Girasol" nace desde esa verdad. No para iluminarte, sino para acompañarte mientras vuelves a lo que siempre fue tuyo.</p>
+            <p>Porque esa luz no desapareció, solo aprendiste a no verla.</p>
+            <p>Y de eso se trata este espacio: de caminar contigo mientras la vuelves a encontrar. 🌻</p>
+          </div>
+
+        </div>
+      </div>
+      <!-- Indicadores -->
+      <div class="carousel-dots" id="carousel-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+      </div>
+    </div>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ SESIÓN DE MUESTRA ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="sesion-muestra" class="fade-up delay-4" style="margin-bottom: var(--gap);">
+      <article class="svc-accordion" style="background:#FDECA6; border:1.5px solid rgba(212,169,74,0.4); border-radius:32px; padding:36px 40px; cursor:pointer; box-shadow: 0 12px 30px rgba(212,169,74,0.15);" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+          <div style="width:24px;"></div>
+          <div style="flex:1; text-align:center;">
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#FFFFFF; color:#A0702A; padding:5px 16px; border-radius:40px; margin-bottom:12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">Sesión de Muestra Gratis</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.8rem,3vw,2.5rem); color:#6B4226; margin:0 0 6px; line-height:1.1;">Un espacito para ti</h2>
+            <p style="font-weight:700; color:#6B4226; font-size:1.05rem; margin:0 0 10px;">Diosa en Guía · Sesión de Muestra (20 minutos)</p>
+            <p style="font-style:italic; color:#7A5230; font-size:1rem; margin:0; opacity:0.9;">Si llevas tiempo sintiéndote atrapada en los mismos patrones y no sabes por dónde empezar, esta sesión de 20 minutos es para ti.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.8rem; font-weight:700; color:#3d2b1f; transition:transform 0.3s ease; flex-shrink:0;">+</span>
+        </div>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(212,169,74,0.3); margin-top:24px; padding-top:24px; cursor: default;" onclick="event.stopPropagation()">
+            <p style="font-size:1.02rem; line-height:1.7; color:#3d2b1f; margin-bottom:16px;">Durante 20 minutos tendremos un espacio de conversación donde podrás compartir aquello que hoy te preocupa, te pesa o te gustaría comprender mejor. Juntas exploraremos lo que está ocurriendo, identificaremos posibles patrones emocionales y te mostraré cómo trabajo dentro de <em>Diosa en Guía</em>.</p>
+            
+            <p style="margin-bottom: 20px; font-size: 0.95rem; opacity: 0.9; padding: 12px 16px; background: rgba(255,255,255,0.6); border-radius: 12px; border-left: 4px solid #A0702A;"><em>Esta no es una sesión terapéutica completa ni una solución instantánea. Es una oportunidad para conocernos, resolver tus dudas y descubrir si este acompañamiento es adecuado para el momento que estás viviendo.</em></p>
+            
+            <h4 style="font-weight: 700; color: #3D2B1F; margin: 24px 0 12px; font-size: 1.05rem;">Ideal para ti si:</h4>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; color: #5C4033; font-size: 1rem;">
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Te sientes emocionalmente agotada o sobrepasada.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Repites situaciones o relaciones que te hacen daño.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Quieres comprender mejor lo que la infancia dejó en ti.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Buscas un acompañamiento cercano, humano y sin juicios.</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;"><span style="color: #A0702A;">🌻</span> Deseas conocer cómo funciona <em>Diosa en Guía</em> antes de dar el siguiente paso.</li>
+            </ul>
+
+            <div style="display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+              <div style="background: rgba(255,255,255,0.7); padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; color: #3D2B1F; border: 1px solid rgba(212,169,74,0.3);">⏱️ Duración: 20 minutos</div>
+              <div style="background: rgba(255,255,255,0.7); padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; color: #3D2B1F; border: 1px solid rgba(212,169,74,0.3);">💻 Modalidad: Google Meet</div>
+            </div>
+
+            <p style="font-style: italic; font-weight: 600; color: #7A5A10; font-size: 1.05rem; line-height: 1.5; margin-bottom: 24px;">Un espacio sencillo, cálido y seguro para escucharte, entender dónde estás hoy y explorar juntas si este camino puede ayudarte a construir una relación más amable contigo misma. 🌻</p>
+
+            <button onclick="document.getElementById('muestra-overlay').classList.add('active');" style="background: linear-gradient(135deg, #A0702A 0%, #7A5010 100%); color: #FAF4E8; padding: 14px 32px; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; display: inline-block;">Yo quiero</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- SECCIÓN ACOMPAÑAMIENTOS -->
+    <section id="acompanamientos" class="fade-up" style="display:flex; flex-direction:column; gap:14px;">
+
+      <!-- Servicio 1: Diosa en guía -->
+      <article class="svc-accordion" style="background:#F5EDD8; border:1.5px solid rgba(212,169,74,0.4); border-radius:32px; padding:36px 40px; cursor:pointer;" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+          <div>
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#F5EACC; color:#7A5A10; border:1px solid rgba(212,169,74,0.3); padding:5px 16px; border-radius:40px; margin-bottom:12px;">Acompañamiento emocional mensual</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.7rem,2.8vw,2.3rem); color:#3d2b1f; margin:0 0 6px; line-height:1.1;">Diosa en guía</h2>
+            <p style="font-style:italic; color:#6b4f2e; font-size:1rem; margin:0; opacity:0.85;">Acompañamiento emocional mensual para tu proceso.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.6rem; font-weight:700; color:#A0702A; transition:transform 0.3s ease; flex-shrink:0; margin-top:4px;">+</span>
+        </div>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(212,169,74,0.3); margin-top:24px; padding-top:24px;">
+            <p style="font-size:1.02rem; line-height:1.7; color:#3d2b1f; margin-bottom:20px;">Cuatro sesiones mensuales de 45 minutos. Un espacio fijo, seguro y continuo para llegar tal como estás. Sin filtros, sin máscaras.</p>
+            <p style="font-size:0.93rem; color:#6b4f2e; margin-bottom:10px; opacity:0.85;">4 sesiones al mes · 45 min cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
+            <p style="font-size:1.05rem; font-weight:700; color:#6B4226; margin-bottom:24px;">$80 USD &nbsp;&nbsp; S/ 250</p>
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a href="#" onclick="goToBookingWith('Diosa en Guía'); return false;" style="background:#A0702A; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Quiero empezar</a>
+              <a href="metodologia-diosa-en-guia.html" style="background:transparent; color:#3d2b1f; border:1px solid rgba(61,43,31,0.22); padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Ver metodología</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Servicio 2: Tu guía en cualquier momento -->
+      <article class="svc-accordion" style="background:#F2E8E4; border:1.5px solid rgba(139,58,58,0.3); border-radius:32px; padding:36px 40px; cursor:pointer;" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+          <div>
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#EEDBD6; color:#6B2020; border:1px solid rgba(139,58,58,0.25); padding:5px 16px; border-radius:40px; margin-bottom:12px;">Orientación por audio vía WhatsApp</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.7rem,2.8vw,2.3rem); color:#3d0000; margin:0 0 6px; line-height:1.1;">Tu guía en cualquier momento</h2>
+            <p style="font-style:italic; color:#7a3030; font-size:1rem; margin:0; opacity:0.85;">Orientación por audio vía WhatsApp cuando la vida no espera.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.6rem; font-weight:700; color:#9f1239; transition:transform 0.3s ease; flex-shrink:0; margin-top:4px;">+</span>
+        </div>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(139,58,58,0.2); margin-top:24px; padding-top:24px;">
+            <p style="font-size:1.02rem; line-height:1.7; color:#3d0000; margin-bottom:20px;">10 preguntas respondidas por audio al mes. Orientación desde donde estés y cuando lo necesites. Sin agendas, a tu ritmo.</p>
+            <p style="font-size:0.93rem; color:#7a3030; margin-bottom:10px; opacity:0.85;">Tiempo de respuesta: lo antes posible · máx 24 horas · Se renueva mensualmente</p>
+            <p style="font-size:1.05rem; font-weight:700; color:#3d0000; margin-bottom:24px;">$55 USD &nbsp;&nbsp; S/ 160</p>
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a href="#" onclick="goToBookingWith('Tu guía en cualquier momento'); return false;" style="background:#4A1F1F; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Quiero empezar</a>
+              <a href="metodologia-tu-guia.html" style="background:transparent; color:#3d0000; border:1px solid rgba(61,0,0,0.22); padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Ver metodología</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Servicio 3: Guías personalizadas -->
+      <article class="svc-accordion" style="background:#edf7f2; border:1.5px solid rgba(16,100,70,0.25); border-radius:32px; padding:36px 40px; cursor:pointer;" onclick="this.classList.toggle('svc-open')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+          <div>
+            <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:#d8f0e7; color:#065f46; border:1px solid rgba(16,100,70,0.2); padding:5px 16px; border-radius:40px; margin-bottom:12px;">Recurso personalizado</span>
+            <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(1.7rem,2.8vw,2.3rem); color:#0d3d2a; margin:0 0 6px; line-height:1.1;">Guías personalizadas</h2>
+            <p style="font-style:italic; color:#2d6b50; font-size:1rem; margin:0; opacity:0.85;">El mapa profundo diseñado específicamente para ti.</p>
+          </div>
+          <span class="svc-plus" style="font-size:1.6rem; font-weight:700; color:#065f46; transition:transform 0.3s ease; flex-shrink:0; margin-top:4px;">+</span>
+        </div>
+        <div class="svc-body" style="max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; visibility:hidden;">
+          <div style="border-top:1px solid rgba(16,100,70,0.2); margin-top:24px; padding-top:24px;">
+            <p style="font-size:1.02rem; line-height:1.7; color:#0d3d2a; margin-bottom:20px;">Un recurso interactivo diseñado solo para ti — no un PDF, sino una experiencia viva que puedes abrir desde tu teléfono o computadora.<br><br>A partir de lo que estás viviendo, identificamos juntas los patrones que se repiten en tu vida: los que vienen de lejos, los que aparecen en tus vínculos, los que te frenan sin que te des cuenta. Y desde ahí, construimos un espacio para trabajarlos.</p>
+            <p style="font-size:0.93rem; color:#2d6b50; margin-bottom:10px; opacity:0.85;">Recurso único · Diseñado a tu medida · Entrega digital</p>
+            <p style="font-size:1.05rem; font-weight:700; color:#0d3d2a; margin-bottom:24px;">$25 USD &nbsp;·&nbsp; S/ 80</p>
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a href="#" onclick="goToBookingWith('Guías personalizadas'); return false;" style="background:#2D5A47; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Quiero empezar</a>
+              <a href="metodologia-guias.html" style="background:transparent; color:#0d3d2a; border:1px solid rgba(13,61,42,0.22); padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none; transition:background 0.2s;">Ver metodología</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <style>
+      .svc-accordion.svc-open .svc-plus { transform: rotate(45deg); }
+      .svc-accordion.svc-open .svc-body {
+        max-height: 1200px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      @media (max-width: 860px) {
+        .svc-accordion { padding: 28px 22px !important; }
+      }
+    </style>
+
+    <!-- SECCIÓN: Sesiones individuales -->
+    <!-- <section id="servicios" class="fade-up" style="padding: 40px 0;">
+      <div class="box box-warm" style="padding: 40px; margin-bottom: 20px;">
+        <h2 class="box-heading">Sesiones individuales</h2>
+        <p class="box-body">A veces necesitas un espacio puntual — un momento para pausar, mirar lo que estás viviendo y entender qué está pasando dentro de ti. Estas sesiones son para eso. Un encuentro contigo misma, acompañado de herramientas como el tarot y la astrología, para ayudarte a ver con más luz lo que sientes y lo que necesitas.</p>
+        <h3 class="sdm-title" style="font-size: 1.5rem; margin-top: 20px;">El tarot y la astrología como herramientas de autoconocimiento</h3>
+        <p class="box-body">No los uso para predecir el futuro. Los uso como lenguajes simbólicos — espejos que te ayudan a ver lo que ya está dentro de ti pero que quizás todavía no has podido nombrar. Tus patrones. Tus miedos. Lo que repites sin darte cuenta. Lo que sientes pero no sabes cómo nombrar. Desde ahí trabajamos juntas.</p>
+      </div>
+
+      <div class="services-stack">
+        <button class="srv-btn srv-btn-wine" onclick="showService('Tarot')">
+          <div class="srv-label">
+            <span class="srv-name">Tarot</span>
+            <span class="srv-sub">Para encontrar claridad</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-gold" onclick="showService('Carta Natal')">
+          <div class="srv-label">
+            <span class="srv-name">Carta Natal</span>
+            <span class="srv-sub">Tu mapa emocional</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-deep" onclick="showService('Revolución Solar')">
+          <div class="srv-label">
+            <span class="srv-name">Revolución Solar</span>
+            <span class="srv-sub">Tu año con dirección</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-rich" onclick="showService('Compatibilidad')">
+          <div class="srv-label">
+            <span class="srv-name">Compatibilidad de Pareja y Vínculos</span>
+            <span class="srv-sub">Tarot + Astrología para vínculos</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-wine" onclick="showService('Tránsitos')">
+          <div class="srv-label">
+            <span class="srv-name">Tránsitos Astrológicos</span>
+            <span class="srv-sub">Cómo influye en ti lo que está pasando en el cielo</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+
+        <button class="srv-btn srv-btn-gold" onclick="showService('Diosas Girasol')">
+          <div class="srv-label">
+            <span class="srv-name">Diosas Girasol</span>
+            <span class="srv-sub">Comunidad por suscripción en WhatsApp</span>
+          </div>
+          <span class="srv-arrow">→</span>
+        </button>
+      </div>
+    </section> -->
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TAROT + TIENDITA ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="tarot" class="tarot-row fade-up" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+
+      <!-- IZQUIERDA: Card "Un regalito de mí para ti" (Oculto temporalmente)
+      <article class="tarot-card tarot-card-featured">
+        <div class="tarot-pill">3 preguntas gratis al mes</div>
+        <h2 class="tarot-title tarot-title-featured" style="white-space: nowrap;">Un regalito de mí para ti</h2>
+        <p class="tarot-copy tarot-lead">A veces solo necesitas una respuesta. Una orientación. Alguien que te ayude a ver con más luz lo que estás viviendo en este momento.</p>
+        <p class="tarot-copy tarot-note" style="margin-bottom: 0;">Cuéntame lo que estás viviendo, hermana girasol.</p>
+        <p class="tarot-copy tarot-note" style="margin-top: 8px;">Tus preguntitas se renuevan de forma mensual.</p>
+        <a href="tarot.html" class="tarot-cta" style="margin-top: 20px;">Haz tus preguntas aquí</a>
+      </article>
+      -->
+
+      <!-- DERECHA: Imagen La Tiendita Girasol (Oculto temporalmente) 
+      <article class="tiendita-card" style="display: block; grid-column: 1 / -1;">
+        <img src="./Fotos/La%20tiendita%20girasol.png" alt="La tiendita girasol - Próximamente" style="width: 100%; height: auto; display: block; border-radius: 24px;">
+      </article>
+      -->
+
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BLOG (Oculto temporalmente) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 
+    <section id="blog" class="box box-rich blog-box fade-up">
+      <div>
+        <div class="box-label">BLOG</div>
+        <h2 class="box-heading">Para cuando necesites un respiro</h2>
+        <p class="box-body">Un lugar donde puedes hacer pausa, leer con calma y sentirte acompañada sin tener que
+          explicar demasiado. Ideas, palabras y miradas que quizás te ayuden a ver lo que estás viviendo desde otro
+          ángulo… o simplemente a no sentirte tan sola en eso.</p>
+      </div>
+      <div class="blog-desktop-only">
+        <p class="box-body" style="margin-bottom: 20px;">A veces desde lo emocional, a veces desde las relaciones y el
+          autoconocimiento… pero siempre con la intención de acercarte un poquito más a ti.</p>
+        <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary"
+          style="margin-bottom: 20px; display: inline-flex;">📖 Leer artículos</a>
+        <div style="color: #fff; font-size: 0.95rem; opacity: 0.9;">
+          <p style="margin-bottom: 12px; font-weight: 600;">Encontrarás artículos sobre estos temas:</p>
+          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <li>• Relaciones y vínculos</li>
+            <li>• Bienestar emocional</li>
+            <li>• Patrones y creencias</li>
+            <li>• Autonocimiento</li>
+            <li>• Amor propio</li>
+            <li>• Reflexiones</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blog-mobile">
+        <p class="box-body">Contenido breve para acompañarte con reflexiones, vínculos y bienestar emocional, en palabras simples.</p>
+        <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary">📖 Leer artículos</a>
+      </div>
+    </section>
+    -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TEST HERIDA EMOCIONAL ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="test-herida" class="box box-warm fade-up" style="padding: 48px 40px;">
+      <div class="box-label" style="color:var(--terracotta); text-align:center; width:100%; margin-bottom: 12px;">Autoconocimiento</div>
+      
+      <!-- Portada -->
+      <div id="herida-cover">
+        <div style="text-align:center; padding: 8px 0 8px;">
+          <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(2rem,4vw,3.2rem); color:var(--wine-deep); margin:0 0 16px; line-height:1.15;">¿Cuál es tu patrón de infancia?</h2>
+          <p style="font-size:1.1rem; font-weight:500; color:var(--wine); line-height:1.6; max-width:600px; margin:0 auto 12px;">8 preguntas para identificar lo que aprendiste en la infancia y descubrir si te acompaña en la actualidad.</p>
+          <p style="font-size:0.95rem; color:var(--gold-deep); margin-bottom:32px;">Responde con lo primero que sientas. No hay respuestas incorrectas.</p>
+          
+          <button onclick="hStart()" style="background:#3D2B1F; color:#FAF4E8; padding:16px 36px; border-radius:10px; border:none; font-family:var(--font-body); font-size:1rem; font-weight:600; cursor:pointer; transition:background 0.2s; margin-bottom:24px;">Comenzar el test →</button>
+          
+          <p style="font-size:0.9rem; font-style:italic; color:var(--wine); line-height:1.6; max-width:540px; margin:0 auto; opacity: 0.85;">Hay situaciones en nuestra vida que se repiten una y otra vez, y no sabemos el porqué. Aquí podrás encontrar una guía para darle respuesta a esa incógnita.</p>
+        </div>
+      </div>
+      <!-- Quiz -->
+      <div id="herida-quiz" style="display:none;">
+        <div style="height:4px; background:rgba(212,168,71,0.2); border-radius:99px; margin-bottom:2rem;">
+          <div id="h-progress" style="height:100%; background:var(--gold); border-radius:99px; transition:width 0.4s ease; width:0%;"></div>
+        </div>
+        <p id="h-qlabel" style="font-size:13px; color:var(--gold-deep); font-weight:600; letter-spacing:0.5px; margin-bottom:8px;"></p>
+        <p id="h-qtext" style="font-size:1.1rem; color:var(--ink); line-height:1.65; font-weight:500; margin-bottom:1.5rem;"></p>
+        <div id="h-options" style="display:flex; flex-direction:column; gap:10px;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem;">
+          <button id="h-back" onclick="hBack()" style="padding:10px 22px; border-radius:var(--radius-sm); border:1px solid rgba(61,43,31,0.2); background:transparent; color:var(--ink); cursor:pointer; font-family:var(--font-body); font-size:0.9rem;" disabled>← Anterior</button>
+          <span id="h-count" style="font-size:13px; color:var(--gold-deep);"></span>
+          <div style="width:90px;"></div>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div id="herida-result" style="display:none;"></div>
+    </section>
+
+    <style>
+      .h-opt {
+        text-align:left; padding:14px 18px; border-radius:var(--radius-sm);
+        border:1px solid rgba(212,168,71,0.3); background:#fff;
+        color:var(--ink); cursor:pointer; font-family:var(--font-body);
+        font-size:0.97rem; line-height:1.5; transition:background 0.15s, border-color 0.15s;
+      }
+      .h-opt:hover { background:#FDF8EC; border-color:rgba(212,168,71,0.6); }
+      .h-opt.h-sel { background:#FDF3D8; border-color:var(--gold); color:#5C3D00; }
+    </style>
+
+    <script>
+    (function() {
+      const QS = [
+        { text: "Cuando alguien importante no te responde o tarda en hacerlo, lo primero que sientes es...", opts: [
+          { text: "Angustia — ¿se habrá alejado? ¿hice algo mal?", s: { abandono:3, rechazo:1 } },
+          { text: "Enojo — siento que no soy una prioridad para esa persona.", s: { traicion:3, injusticia:1 } },
+          { text: "Vergüenza — probablemente dije o hice algo que los molestó.", s: { humillacion:3, rechazo:1 } },
+          { text: "Desconfianza — seguro están ocupados con alguien más.", s: { traicion:2, abandono:1 } },
+          { text: "Resignación — así son las cosas, no vale la pena esperar.", s: { injusticia:2, abandono:1 } }
+        ]},
+        { text: "En tus relaciones cercanas, ¿qué patrón reconoces más en ti?", opts: [
+          { text: "Me quedo más tiempo del que debería porque tengo miedo a quedarme sola.", s: { abandono:3, humillacion:1 } },
+          { text: "Tiendo a complacer a los demás para evitar conflictos o que se alejen.", s: { rechazo:3, abandono:1 } },
+          { text: "Me cuesta confiar aunque quiera hacerlo — siempre espero que me fallen.", s: { traicion:3, injusticia:1 } },
+          { text: "Me achico cuando alguien me critica, aunque sea de forma leve.", s: { humillacion:3, rechazo:1 } },
+          { text: "Siento que tengo que ganarme el cariño de los demás siendo útil o buena.", s: { injusticia:2, rechazo:2 } }
+        ]},
+        { text: "¿Cómo reaccionas cuando cometes un error o algo sale mal?", opts: [
+          { text: "Me lo reprocho mucho y me cuesta perdonarme.", s: { injusticia:2, humillacion:2 } },
+          { text: "Siento vergüenza y prefiero que nadie se entere.", s: { humillacion:3, rechazo:1 } },
+          { text: "Tengo miedo de que los demás se decepcionen y se alejen.", s: { abandono:3, rechazo:1 } },
+          { text: "Me enojo conmigo misma — siento que siempre hago algo mal.", s: { injusticia:3, traicion:1 } },
+          { text: "Lo minimizo o lo cubro — me cuesta reconocerlo abiertamente.", s: { traicion:2, humillacion:2 } }
+        ]},
+        { text: "De niña, ¿qué recuerdo o sensación te resulta más familiar?", opts: [
+          { text: "Sentir que tenía que portarme bien para que me quisieran.", s: { rechazo:3, injusticia:1 } },
+          { text: "No sentirme vista ni escuchada en casa.", s: { abandono:2, injusticia:2 } },
+          { text: "Sentir que había que callar o aguantar para no molestar.", s: { humillacion:3, traicion:1 } },
+          { text: "Ver cómo se rompían promesas o acuerdos en mi familia.", s: { traicion:3, abandono:1 } },
+          { text: "Sentir que las reglas eran injustas o que yo era tratada diferente.", s: { injusticia:3, traicion:1 } }
+        ]},
+        { text: "¿Qué frase te resuena más profundamente?", opts: [
+          { text: "\"Tengo miedo de que las personas que amo me abandonen.\"", s: { abandono:3 } },
+          { text: "\"Siento que si muestro quién soy, no voy a gustarle a nadie.\"", s: { rechazo:3 } },
+          { text: "\"Me cuesta creer que alguien me quiera sin esperar algo a cambio.\"", s: { traicion:3 } },
+          { text: "\"Me da vergüenza mostrarme vulnerable o necesitada.\"", s: { humillacion:3 } },
+          { text: "\"Siento que tengo que esforzarme el doble para merecer lo que otros tienen.\"", s: { injusticia:3 } }
+        ]},
+        { text: "Cuando alguien te da un cumplido o reconocimiento, ¿qué haces?", opts: [
+          { text: "Lo minimizo — \"no es para tanto\" — me incomoda recibirlo.", s: { humillacion:3, rechazo:1 } },
+          { text: "Lo recibo bien, pero por dentro me pregunto si es verdad.", s: { rechazo:2, traicion:2 } },
+          { text: "Lo necesito y me alegra mucho, pero me quedo queriendo más.", s: { abandono:3, rechazo:1 } },
+          { text: "Desconfío — me pregunto qué quiere esa persona a cambio.", s: { traicion:3 } },
+          { text: "Lo recibo con incomodidad — siento que no lo merezco del todo.", s: { injusticia:2, humillacion:2 } }
+        ]},
+        { text: "En el trabajo o en tus proyectos, ¿qué patrón reconoces?", opts: [
+          { text: "Busco aprobación constante — necesito saber que lo estoy haciendo bien.", s: { abandono:2, rechazo:2 } },
+          { text: "Me cuesta delegar o pedir ayuda — siento que debo hacerlo sola.", s: { traicion:2, injusticia:2 } },
+          { text: "Trabajo de más para demostrar que valgo — que no soy un estorbo.", s: { humillacion:3, injusticia:1 } },
+          { text: "Me quedo callada aunque tenga ideas — me da miedo ser juzgada.", s: { rechazo:3, humillacion:1 } },
+          { text: "Me enojo cuando el esfuerzo no es reconocido de forma justa.", s: { injusticia:3 } }
+        ]},
+        { text: "¿Qué es lo más difícil para ti en una relación cercana?", opts: [
+          { text: "Soltar el control — necesito saber que la persona no va a irse.", s: { abandono:3 } },
+          { text: "Mostrarme tal como soy, sin filtros.", s: { rechazo:3, humillacion:1 } },
+          { text: "Creer que la otra persona es honesta conmigo de verdad.", s: { traicion:3 } },
+          { text: "No sentirme pequeña o inferior cuando hay diferencias.", s: { humillacion:3 } },
+          { text: "Sentir que el vínculo es equitativo — que no doy más de lo que recibo.", s: { injusticia:3 } }
+        ]}
+      ];
+
+      const PATRONES = {
+        abandono: {
+          nombre: "Patrón de Búsqueda de Seguridad y Constancia",
+          bg: "#FDF3D8", border: "#D4A847", textColor: "#5C3D00",
+          situacion: "Puede que en este momento sientas cierta inquietud o inestabilidad en tus vínculos, experimentando a menudo el miedo a la desconexión o al distanciamiento emocional de las personas importantes para ti.",
+          patrones: "Es posible que notes una tendencia a conformarte o quedarte más tiempo del necesario en ciertas dinámicas, buscando confirmación constante de que el otro sigue ahí y que todavía le importas.",
+          aprendizajes: "Probablemente en tu infancia aprendiste que la presencia y el amor podían ser inestables o intermitentes, llevándote a la conclusión de que debías aferrarte fuerte para no perder la conexión.",
+          estrategias: "Para protegerte, puedes haber desarrollado estrategias como estar siempre disponible, complacer para no generar distancia, o anticipar escenarios de abandono antes de que ocurran.",
+          necesidades: "Detrás de todo esto hay una necesidad profunda y completamente válida: la necesidad de presencia real, de saber que eres una prioridad, y de sentir seguridad afectiva constante.",
+          relacion: "A veces puedes tender a valorar tu propia valía a través de cuánto te eligen o acompañan los demás, olvidando nutrir el vínculo más importante: el que tienes contigo misma.",
+          fortalezas: "Tienes una inmensa capacidad de amar, una empatía profunda, una lealtad inquebrantable y una hermosa disposición para construir conexiones genuinas.",
+          crecimiento: "Un área hermosa para explorar es aprender a maternar a tu niña interior, cultivando la certeza de que, incluso si alguien se aleja, tú nunca te dejarás a ti misma.",
+          reflexion: "El miedo a que el otro se vaya no habla de tu valor personal, sino de lo mucho que anhelaste seguridad cuando eras pequeña. Hoy tienes los recursos para ser esa presencia constante que tanto buscaste afuera.",
+          recomendaciones: [
+            "Dedica 10 minutos al día a conectar contigo misma en silencio.",
+            "Escribe una carta a esa niña que temía quedarse sola, recordándole que hoy tú estás a cargo y a salvo.",
+            "Practica establecer límites pequeños y observar que el vínculo no se rompe por decir 'no'."
+          ]
+        },
+        rechazo: {
+          nombre: "Patrón de Aprobación y Evitación de la Exposición",
+          bg: "#F9ECEC", border: "#C97070", textColor: "#5C1A1A",
+          situacion: "Es probable que sientas una fuerte presión interna por 'hacerlo bien' o por no incomodar, experimentando temor a mostrarte tal como eres por miedo a no ser suficiente.",
+          patrones: "Sueles minimizar tus necesidades, esconder tus opiniones y adaptar tu comportamiento para encajar, evitando a toda costa cualquier situación que pueda interpretarse como un rechazo.",
+          aprendizajes: "En etapas tempranas, pudiste haber internalizado el mensaje de que debías cumplir con ciertas expectativas para merecer amor o reconocimiento, sintiendo que tu verdadero yo no era del todo bienvenido.",
+          estrategias: "Para evitar el dolor de sentirte apartada, desarrollaste el mecanismo de 'leer' el entorno, anticipando lo que otros esperan de ti y moldeándote para cumplir con ello.",
+          necesidades: "La necesidad central aquí es la pertenencia auténtica y la aceptación incondicional: saber que tienes un lugar en el mundo exactamente por quien eres, sin filtros.",
+          relacion: "A menudo puedes ser muy dura y exigente contigo misma, censurando tus partes más vulnerables y condicionando tu amor propio a tus logros o a la aceptación externa.",
+          fortalezas: "Eres sumamente perceptiva, adaptable, sensible a las necesidades del entorno y posees un mundo interior muy rico y valioso.",
+          crecimiento: "El camino hacia la sanación implica atreverte a ocupar tu espacio, a darle voz a tus necesidades y a descubrir que perteneces incluso cuando no complaces a los demás.",
+          reflexion: "Esconderte o moldearte fue la forma más brillante que encontraste para protegerte cuando sentías que tu esencia no era recibida. Hoy estás a salvo para descubrir y abrazar quién eres realmente.",
+          recomendaciones: [
+            "Haz una lista de tres cosas que te gustan hacer solo para ti, sin importar la opinión ajena.",
+            "Practica pequeñas expresiones de tu autenticidad en entornos seguros.",
+            "Cuando aparezca la necesidad de complacer, haz una pausa y pregúntate: '¿Qué quiero yo en este momento?'"
+          ]
+        },
+        traicion: {
+          nombre: "Patrón de Control y Desconfianza Protectora",
+          bg: "#EDF4FB", border: "#5A96C8", textColor: "#0C3A5C",
+          situacion: "Puedes estar experimentando una sensación constante de alerta o de tener que 'llevar las riendas' de las situaciones y los vínculos para sentirte a salvo.",
+          patrones: "Tiendes a asumir el control, te cuesta delegar, y puedes tener dificultades para bajar la guardia y confiar plenamente, prefiriendo hacerlo todo tú misma para evitar decepciones.",
+          aprendizajes: "Probablemente viviste experiencias tempranas donde la confianza fue rota, promesas no se cumplieron o el entorno era impredecible, enseñándote que solo podías contar contigo misma.",
+          estrategias: "Para protegerte de futuras decepciones, desarrollaste una fuerte coraza de autosuficiencia, controlando tu entorno y anticipando posibles fallos en los demás antes de que sucedan.",
+          necesidades: "Detrás del control se esconde una profunda necesidad de encontrar un espacio seguro donde puedas rendirte, descansar y saber que el otro sostendrá su parte del acuerdo.",
+          relacion: "Puedes tender a exigirte una fuerza y resistencia extremas, sin darte permiso para sentir fragilidad, miedo o cansancio.",
+          fortalezas: "Tienes un liderazgo innato, gran capacidad de resolución, fortaleza, y eres alguien profundamente comprometida y responsable con lo que asumes.",
+          crecimiento: "El desafío aquí es aprender a soltar gradualmente, permitiendo la vulnerabilidad y comprendiendo que no todo el mundo fallará como lo hicieron en el pasado.",
+          reflexion: "El control no es un defecto, fue la estrategia que te mantuvo a flote cuando el suelo era inestable. Hoy, poco a poco, puedes empezar a construir refugios donde sea seguro soltar el peso.",
+          recomendaciones: [
+            "Identifica una tarea pequeña esta semana que puedas delegar o pedir ayuda, y observa qué sientes al hacerlo.",
+            "Practica ejercicios de respiración para calmar el sistema nervioso cuando sientas la urgencia de controlar.",
+            "Escribe qué pasaría en el peor escenario si sueltas un poco, y descubre tu capacidad para manejarlo."
+          ]
+        },
+        humillacion: {
+          nombre: "Patrón de Hiperresponsabilidad y Sacrificio",
+          bg: "#EFF7EF", border: "#6BAF6B", textColor: "#1A4A1A",
+          situacion: "Puede que te encuentres en una etapa donde sientes que siempre estás al servicio de otros, cargando responsabilidades ajenas o postergando tu propio disfrute.",
+          patrones: "Es común que pongas las necesidades de los demás por encima de las tuyas, que sientas culpa si te priorizas o que te incomode profundamente recibir atención o reconocimiento.",
+          aprendizajes: "En tu historia pudiste recibir mensajes que te hicieron creer que tus necesidades o emociones eran vergonzosas o 'demasiado', llevándote a asociar tu valor con tu capacidad de servir a otros.",
+          estrategias: "Para evitar sentirte expuesta o egoísta, desarrollaste el mecanismo de enfocarte obsesivamente en los demás, ocultando tu propio mundo interno y minimizando tus dolores.",
+          necesidades: "Hay una necesidad vital de recuperar el derecho al disfrute, de experimentar ligereza y de saber que eres valiosa y digna de ser cuidada, sin tener que dar nada a cambio.",
+          relacion: "A menudo la voz interna puede ser crítica y avergonzante, negándote el permiso de ser humana, cometer errores o simplemente descansar sin culpa.",
+          fortalezas: "Posees una generosidad inmensa, una capacidad genuina para cuidar, una gran sensibilidad y un corazón enorme orientado al bienestar de quienes amas.",
+          crecimiento: "Un hermoso paso a dar es aprender a recibir. Acoger tu propio derecho a la alegría, poner límites al exceso de dar y tratar a tu propia persona con la misma dulzura que das al mundo.",
+          reflexion: "Tu valor no se mide por cuánto soportas ni por cuánto te sacrificas. Naciste digna de amor, de cuidado y de disfrute, simplemente por el hecho de existir.",
+          recomendaciones: [
+            "Permítete recibir un cumplido o ayuda esta semana sin intentar devolver el favor inmediatamente.",
+            "Crea un espacio sagrado solo para ti donde el único objetivo sea tu propio placer y descanso.",
+            "Empieza a cuestionar la voz interna de la culpa cada vez que decides priorizarte."
+          ]
+        },
+        injusticia: {
+          nombre: "Patrón de Exigencia y Perfeccionismo Protector",
+          bg: "#F5F0FA", border: "#9470C8", textColor: "#3A1A5C",
+          situacion: "Es probable que en este momento sientas un nivel alto de rigidez, autoexigencia y la sensación de que debes hacer las cosas 'perfectas' para que estén bien.",
+          patrones: "Sueles esforzarte al máximo, desconectándote a veces de tus propias emociones para cumplir con el deber. Puedes sentir indignación o frustración cuando el esfuerzo no es equitativo.",
+          aprendizajes: "Pudiste haber crecido en un entorno autoritario, frío o muy demandante, donde el cariño o el reconocimiento se basaban en el desempeño o en hacer lo 'correcto'.",
+          estrategias: "Como estrategia de protección, te volviste impecable, estructurada y exigente, cortando el contacto con la vulnerabilidad para no sentir dolor o evitar cometer errores que fueran castigados.",
+          necesidades: "Detrás de esa armadura existe una profunda necesidad de compasión, de validación emocional genuina y de sentir que eres amada por lo que eres, no solo por lo que logras.",
+          relacion: "Tu diálogo interno suele ser severo y perfeccionista. Es probable que te midas a través de estándares inalcanzables y te cueste perdonarte cualquier tipo de falla.",
+          fortalezas: "Tienes un sentido ético admirable, una gran capacidad de estructuración, disciplina, orden y un talento increíble para materializar proyectos y objetivos.",
+          crecimiento: "El camino hacia tu bienestar implica integrar la flexibilidad, reconectar con tu cuerpo y tus emociones, y descubrir la belleza que existe en lo imperfecto y en la vulnerabilidad.",
+          reflexion: "Ser fuerte e impecable te ayudó a sobrevivir en un entorno donde no había espacio para equivocarse. Hoy estás a salvo; hoy puedes bajar la armadura y permitirte sentir sin necesidad de ser perfecta.",
+          recomendaciones: [
+            "Elige hacer una tarea a propósito de forma imperfecta y nota que el mundo no se derrumba.",
+            "Dedica tiempo a prácticas corporales (yoga suave, baile, estiramientos) para reconectar la mente con el cuerpo.",
+            "Reemplaza en tu diálogo interno la palabra 'tengo que' por 'elijo'."
+          ]
+        }
+      };
+
+      let cur = 0;
+      let ans = Array(QS.length).fill(null);
+
+      window.hStart = function() {
+        document.getElementById('herida-cover').style.display = 'none';
+        document.getElementById('herida-quiz').style.display = 'block';
+        render();
+      };
+
+      function render() {
+        const q = QS[cur];
+        document.getElementById('h-qlabel').textContent = 'Pregunta ' + (cur+1) + ' de ' + QS.length;
+        document.getElementById('h-count').textContent = (cur+1) + ' / ' + QS.length;
+        document.getElementById('h-qtext').textContent = q.text;
+        document.getElementById('h-progress').style.width = ((cur / QS.length) * 100) + '%';
+
+        const cont = document.getElementById('h-options');
+        cont.innerHTML = '';
+        q.opts.forEach((o, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'h-opt' + (ans[cur] === i ? ' h-sel' : '');
+          btn.textContent = o.text;
+          btn.onclick = () => {
+            ans[cur] = i;
+            render();
+            setTimeout(() => {
+              if (cur < QS.length - 1) { cur++; render(); }
+              else showResult();
+            }, 340);
+          };
+          cont.appendChild(btn);
+        });
+
+        document.getElementById('h-back').disabled = cur === 0;
+      }
+
+      window.hBack = function() {
+        if (cur > 0) { cur--; render(); }
+      };
+
+      window.hRestart = function() {
+        cur = 0; ans = Array(QS.length).fill(null);
+        document.getElementById('herida-result').style.display = 'none';
+        document.getElementById('herida-quiz').style.display = 'block';
+        render();
+      };
+
+      function showResult() {
+        const sc = { abandono:0, rechazo:0, traicion:0, humillacion:0, injusticia:0 };
+        QS.forEach((q, qi) => {
+          if (ans[qi] !== null) Object.keys(q.opts[ans[qi]].s).forEach(k => sc[k] += q.opts[ans[qi]].s[k]);
+        });
+        const top = Object.keys(sc).sort((a,b) => sc[b]-sc[a])[0];
+        const h = PATRONES[top];
+
+        document.getElementById('herida-quiz').style.display = 'none';
+        const rv = document.getElementById('herida-result');
+        rv.style.display = 'block';
+        
+        let recHtml = h.recomendaciones.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
+
+        rv.innerHTML = `
+          <p style="font-size:13px; color:var(--gold-deep); font-weight:600; letter-spacing:0.5px; margin-bottom:1rem; text-transform:uppercase;">Resultados del análisis</p>
+          
+          <div style="background:${h.bg}; border:1.5px solid ${h.border}; border-radius:var(--radius); padding:28px 32px; margin-bottom:1.5rem;">
+            <p style="font-family:var(--font-display); font-style:italic; font-size:1.8rem; color:${h.textColor}; margin:0 0 16px; line-height:1.1;">${h.nombre}</p>
+            <p style="font-size:1.05rem; line-height:1.6; color:${h.textColor}; margin:0; font-weight:500; font-style:italic;">"${h.reflexion}"</p>
+          </div>
+
+          <div style="display:grid; gap:16px; margin-bottom:2rem;">
+            <div style="background:#FFF; border:1px solid rgba(212,168,71,0.2); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--wine-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">1. Situación y Patrones</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Lo que experimentas:</strong> ${h.situacion}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0;"><strong>Cómo se manifiesta:</strong> ${h.patrones}</p>
+            </div>
+
+            <div style="background:#FFF; border:1px solid rgba(212,168,71,0.2); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--wine-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">2. El Origen y la Protección</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Aprendizajes tempranos:</strong> ${h.aprendizajes}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0;"><strong>Estrategias de protección:</strong> ${h.estrategias}</p>
+            </div>
+
+            <div style="background:#FFF; border:1px solid rgba(212,168,71,0.2); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--wine-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">3. Tu Mundo Interno</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Necesidades ocultas:</strong> ${h.necesidades}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:10px;"><strong>Relación contigo misma:</strong> ${h.relacion}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0;"><strong>Fortalezas:</strong> ${h.fortalezas}</p>
+            </div>
+
+            <div style="background:rgba(212,168,71,0.08); border-radius:12px; padding:20px;">
+              <h4 style="color:var(--gold-deep); font-size:1.1rem; margin-bottom:12px; font-weight:700;">4. El Camino hacia la Calma</h4>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:12px;"><strong>Áreas de crecimiento:</strong> ${h.crecimiento}</p>
+              <p style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin-bottom:8px;"><strong>Recomendaciones prácticas:</strong></p>
+              <ul style="font-size:0.95rem; color:var(--ink); line-height:1.6; margin:0; padding-left:20px;">
+                ${recHtml}
+              </ul>
+            </div>
+          </div>
+
+          <p style="font-size:0.95rem; color:var(--wine); line-height:1.7; margin-bottom:1.5rem;">Identificar tus patrones es solo el primer paso. El verdadero trabajo de comprensión, desaprendizaje y sanación es el que construimos paso a paso en el acompañamiento emocional.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+            <a href="#" onclick="goToBookingWith('Diosa en Guía'); return false;" style="background:#3D2B1F; color:#FAF4E8; padding:14px 28px; border-radius:10px; font-weight:600; font-size:0.97rem; text-decoration:none;">Trabajemos en esto 🌻</a>
+            <button onclick="hRestart()" style="background:transparent; border:1px solid rgba(61,43,31,0.2); color:var(--ink); padding:12px 20px; border-radius:10px; font-family:var(--font-body); font-size:0.9rem; cursor:pointer;">Volver a hacer el test</button>
+          </div>
+        `;
+      }
+
+      render();
+    })();
+    </script>
+
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ COMUNIDAD ━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="comunidad" class="box community-box fade-up" style="background: #3D2B1F; border-color: rgba(212, 168, 71, 0.2);">
+      <div class="box-label" style="color:var(--gold-light)">Comunidad</div>
+      <h2 class="box-heading">🌻 Entre Diosas 🌻</h2>
+      <p class="box-body">Un espacio donde seguimos este proceso juntas. Reflexiones, guía cercana y acompañamiento más
+        directo para sostenerte en lo que estás viviendo.💛</p>
+      <a href="https://chat.whatsapp.com/IuwwkHwrhcnJ3jFmQKiwkC" class="btn-primary" target="_blank">👉 Unirme a la comunidad 🌻</a>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA CIERRE ━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="box" style="
+      background: linear-gradient(160deg, #7A1A1A 0%, #3D0000 100%);
+      padding: 3.5rem 4rem;
+      text-align: center;
+      color: #FAF4E8;
+    ">
+      <h2 style="font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #F5C070; line-height: 1.2; margin-bottom: 2rem;">
+        Lo que aprendiste de niña sigue dirigiendo tu vida
+      </h2>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Si llegaste hasta aquí es porque algo en ti te trajo.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Alguien tiene que decirlo: no naciste sintiéndote así.<br>
+        Viviste cosas difíciles en casa. En la escuela. Hubo personas que tampoco sabían qué hacer con sus propias heridas y las descargaron en ti, que eras una niña y no tenías herramientas para comprender y para poner límites.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        ​Y quizá lo más duro no fueron esas experiencias. Sino que durante años no supiste que eso tenía que ver en tu forma de vivir, pensar, actuar... No sabías que la forma en que te hablas hoy viene de tu mamá. Que el miedo que sientes en tus relaciones viene de tu papá. Que los juicios hacia ti misma vienen de tu maestra. O que tal vez, tu herida viene de haber crecido con una mente neurodivergente que nadie notó (ni tú misma), recibiendo etiquetas e incomprensión solo por procesar el mundo diferente. Que esa voz que te dice que no eres suficiente no es tuya. Es de alguien que no te supo mirar.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Nadie te lo explicó. Y no era tu trabajo adivinarlo.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        Sanar no es olvidar. No es perdonar a la fuerza. Es que el pasado deje de tomar decisiones por ti hoy.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 1.25rem;">
+        No tienes que poder sola. Nunca tuviste que poder sola.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(250,244,232,0.92); margin-bottom: 2rem;">
+        Lo que hago contigo es algo que no sabías que necesitabas, hasta que lo encontraste.
+      </p>
+      <p style="font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic; font-size: 1.5rem; font-weight: 700; color: #F5C070; letter-spacing: -0.01em;">
+        Así que cuando estés lista, yo estoy. 🌻
+      </p>
+    </section>
+
+
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section id="testimonios" class="box fade-up" style="padding: 64px 32px; background: #EAD5B5; border-color: #D6BD96;">
+      <div class="box-label" style="color:var(--gold-deep)">Testimonios</div>
+      <h2 class="box-heading" style="margin-bottom: 15px; color: var(--wine-deep); font-family: 'Carelia W05 Italic', Georgia, serif; font-style: italic;">Lo que dicen mis chicas sobre sus sesiones</h2>
+      <p class="box-body" style="margin-bottom: 40px; max-width: 760px; color: #5C4033; font-size: 1.1rem;">
+        Estos son algunos de los mensajitos que mis consultantes me envían para expresar cómo se sintieron con su acompañamiento.
+      </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Me sentí muy bien con Fer. Tiene una forma muy linda de contener, de dar paz y de ayudarte a ver todo con más claridad. Salí de la sesión mucho más tranquila.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Cataleya M.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Fergis me ayudó a entender lo que estaba viviendo sin sentirme juzgada. Su apoyo y su manera de explicarme las cosas me dieron mucha calma y muchísimo soporte emocional.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Camila R.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Con Mamá Girasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Lucía P.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Gracias por guiarme con tanta calidez. Todo se sintió humano, amoroso y muy claro. Me ayudaste a ordenarme por dentro y a sentirme sostenida de una manera muy bonita.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Daniela S.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Lo que más valoro es la contención que encontré contigo. No sentí solo una lectura, sentí compañía, paz y una presencia muy amorosa que me ayudó a atravesar lo que estaba pasando.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Valeria T.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Mi sesión de tarot me dio una calma que necesitaba muchísimo. Llegué con ansiedad y me fui con más paz, respuestas claras y la sensación de que todo podía acomodarse dentro de mí.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Sofía L.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“La sesión de carta natal me ayudó muchísimo con temas del trabajo y de mi pareja. Todo cobró sentido. Sentí claridad, apoyo y una guía muy amorosa para saber por dónde seguir.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Yulimar G.</p>
+        </article>
+        <article style="background:#FFFFFF; border:1px solid #F2E8D0; border-radius:18px; padding:24px; box-shadow: 0 10px 30px rgba(61, 43, 31, 0.04); transition: transform 0.3s ease;">
+          <p style="font-size:1rem; line-height:1.6; color:#3D2000; font-family: 'DM Sans', sans-serif;">
+“Diosa en Guía ha sido un regalo para mí. Con tu soporte empecé a mirarme con más amor, a darme más paciencia y a sentirme acompañada en un proceso que antes vivía muy sola.”</p>
+          <p style="margin-top:16px; font-weight:700; color:var(--gold-deep); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+— Fernanda C.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ RRSS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+    <footer id="contacto" class="box box-warm social-box fade-up">
+      <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+        <div class="social-brand">Fergis Marrero — <span>Mamá Girasol</span></div>
+        <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
+          🍪 Política de Cookies
+        </a>
+        <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
+          🌻 Términos y Condiciones
+        </a>
+        <a href="#" onclick="document.getElementById('reclamaciones-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
+          📖 Libro de Reclamaciones
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/fergismarrero" class="social-link" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@fergismarrero" class="social-link" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.5z"></path>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/" class="social-link" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/people/Fergis-Marrero" class="social-link" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     SERVICE DETAIL MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <!-- SERVICE DETAIL MODAL -->
+  <div class="overlay" id="service-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeService()" aria-label="Cerrar">✕</button>
+
+      <!-- Panel estándar -->
+      <div id="sdm-standard">
+        <div class="sdm-tag" id="sdm-tag">Servicio</div>
+        <h3 class="sdm-title" id="sdm-title">Título</h3>
+        <div class="sdm-text" id="sdm-text">Descripción</div>
+        <div id="sdm-meta" style="margin:0 0 18px; font-size:0.92rem; line-height:1.5; color:var(--wine);"></div>
+        <div class="sdm-price" id="sdm-price" style="margin:0 0 18px; font-size:1rem; font-weight:700; color:var(--wine-deep);">Precio</div>
+        <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBooking()">
+          👉 Agenda tu sesión 🌻
+        </button>
+      </div>
+
+      <!-- Panel dual: Compatibilidad -->
+      <div id="sdm-compat" style="display:none">
+        <div class="sdm-tag">Compatibilidad de Pareja y Vínculos</div>
+        <h3 class="sdm-title">Entendiendo tu vínculo / Compatibilidad</h3>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 1</div>
+          <h4 class="compat-name">Tarot + Astrología para vínculos</h4>
+          <p class="sdm-text">Para comprender la dinámica entre tú y otra persona — pareja, madre, hijo, amistad. Qué los une, qué los desafía y qué está pasando realmente en esa relación.
+<br><br><strong>Duración:</strong> 1 hora
+<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
+          <p class="compat-price">Precio: $50 USD · S/ 150</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Compatibilidad')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+
+        <div class="compat-divider"></div>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 2</div>
+          <h4 class="compat-name">Sinastría / Carta Compuesta</h4>
+          <p class="sdm-text">Un análisis más detallado de la conexión entre dos personas a nivel emocional y energético. Para entender el propósito del vínculo y lo que vienen a aprender juntos.
+<br><br><strong>Duración:</strong> 2 horas
+<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
+          <p class="compat-price">Precio: $110 USD · S/ 380</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Sinastría')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+      </div>
+
+      <!-- Panel dual: Carta Natal -->
+      <div id="sdm-carta" style="display:none">
+        <div class="sdm-tag">Carta Natal</div>
+        <h3 class="sdm-title">Tu mapa personal / Carta natal</h3>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 1</div>
+          <h4 class="compat-name">Carta natal</h4>
+          <p class="sdm-text">Un análisis profundo de tu personalidad, tus emociones y tus patrones. Entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu propia energía a tu favor.
+<br><br><strong>Duración:</strong> 2 horas
+<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
+          <p class="compat-price">Precio: $90 USD · S/ 300</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Carta Natal')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+
+        <div class="compat-divider"></div>
+
+        <div class="compat-option">
+          <div class="compat-label">Opción 2</div>
+          <h4 class="compat-name">Carta natal infantil</h4>
+          <p class="sdm-text">Para entender el mundo energético, emocional y mental de tu hijo/a.
+Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amor.
+<br><br><strong>Duración:</strong> 2 horas
+<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
+          <p class="compat-price">Precio: $90 USD · S/ 300</p>
+          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Carta Natal Infantil')">
+            👉 Agenda tu sesión 🌻
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     BOOKING MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="booking-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeBookingModal()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title">Agendar Sesión</h3>
+      <p class="bm-sub">Completa tus datos de nacimiento para generar tu carta. Luego procede al pago seguro.</p>
+
+      <form id="booking-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Servicio a Reservar</label>
+          <select id="bf-service" required>
+            <option value="80.00">🌻 Diosa en Guía - $80 USD</option>
+            <option value="55.00">🌻 Tu guía en cualquier momento - $55 USD</option>
+            <option value="25.00">🌻 Guías personalizadas - $25 USD</option>
+            <!--
+            <option value="50.00">🔮 Tarot - $50 USD</option>
+            <option value="90.00">🌙 Carta Natal - $90 USD</option>
+            <option value="90.00">👶 Carta Natal Infantil - $90 USD</option>
+            <option value="90.00">🌞 Revolución Solar - $90 USD</option>
+            <option value="50.00">❤️ Compatibilidad de Pareja - $50 USD</option>
+            <option value="110.00">🪐 Sinastría o Carta Compuesta - $110 USD</option>
+            <option value="80.00">🌌 Tránsitos Astrológicos - $80 USD</option>
+            <option value="20.00">🌻 Diosas Girasol - $20 USD</option>
+            -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="bf-name" placeholder="Ej. Valeria López" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="bf-date" required />
+          </div>
+          <div class="form-group">
+            <label>Hora exacta</label>
+            <input type="time" id="bf-time" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Lugar de nacimiento</label>
+          <input type="text" id="bf-place" placeholder="Ciudad, País" required />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" id="bf-phone" placeholder="+1 234 567 890" required />
+        </div>
+
+        <div class="form-group" style="margin-top: 16px;">
+          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+            <input type="checkbox" id="bf-terms" required style="margin-top:2px;">
+            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
+          </label>
+        </div>
+      </form>
+
+      <div class="paypal-wrap">
+        <p class="paypal-label">Pago seguro con PayPal o Tarjeta de crédito</p>
+        <div id="paypal-button-container"></div>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 168, 71, 0.3); padding-top: 24px;">
+        <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--wine-deep);">¿Deseas pagar con Yape? (Solo Perú)</p>
+        <button type="button" class="btn-primary" style="background: #742284; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35);" onclick="openYapeModal()">
+          📲 Haz click aquí
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     YAPE MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="yape-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeYapeModal()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title">Agendar con Yape</h3>
+      <p class="bm-sub">Completa los mismos datos para generar tu carta y realiza pago en Soles.</p>
+
+      <form id="yape-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Servicio a Reservar</label>
+          <select id="yf-service" required>
+            <option value="250" data-name="Diosa en Guía">🌻 Diosa en Guía - S/ 250</option>
+            <option value="160" data-name="Tu guía en cualquier momento">🌻 Tu guía en cualquier momento - S/ 160</option>
+            <option value="80" data-name="Guías personalizadas">🌻 Guías personalizadas - S/ 80</option>
+            <!--
+            <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
+            <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
+            <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
+            <option value="300" data-name="Revolución Solar">🌞 Revolución Solar - S/ 300</option>
+            <option value="150" data-name="Compatibilidad de Pareja">❤️ Compatibilidad de Pareja - S/ 150</option>
+            <option value="380" data-name="Sinastría o Carta Compuesta">🪐 Sinastría o Carta Compuesta - S/ 380</option>
+            <option value="250" data-name="Tránsitos Astrológicos">🌌 Tránsitos Astrológicos - S/ 250</option>
+            <option value="30" data-name="Diosas Girasol">🌻 Diosas Girasol - S/ 30</option>
+            -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="yf-name" placeholder="Ej. Valeria López" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="yf-date" required />
+          </div>
+          <div class="form-group">
+            <label>Hora exacta</label>
+            <input type="time" id="yf-time" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Lugar de nacimiento</label>
+          <input type="text" id="yf-place" placeholder="Ciudad, País" required />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" id="yf-phone" placeholder="+51 900 000 000" required />
+        </div>
+
+        <div class="form-group" style="margin-top: 16px;">
+          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+            <input type="checkbox" id="yf-terms" required style="margin-top:2px;">
+            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
+          </label>
+        </div>
+
+        <div class="paypal-wrap" style="border-color: #742284; margin-top:24px;">
+          <p class="paypal-label" style="color: #742284; margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás envíar la captura aquí 👇</p>
+          <button type="button" class="btn-primary" style="background: #25D366; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);" onclick="submitYapeBooking()">
+            💬 Enviar captura por WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LIBRO DE RECLAMACIONES MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="reclamaciones-overlay">
+    <div class="modal-panel" style="max-width: 600px;">
+      <button type="button" class="modal-close" onclick="closeReclamaciones()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size: 1.8rem;">Libro de Reclamaciones</h3>
+      <p class="bm-sub" style="margin-bottom: 24px;">Conforme al Código de Protección y Defensa del Consumidor, contamos con un Libro de Reclamaciones Virtual.</p>
+
+      <form id="reclamaciones-form" onsubmit="submitReclamacion(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombres</label>
+            <input type="text" id="rec-nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" id="rec-apellidos" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Documento</label>
+            <select id="rec-doc-tipo">
+              <option value="DNI">DNI</option>
+              <option value="CE">CE</option>
+              <option value="Pasaporte">Pasaporte</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Número de Documento</label>
+            <input type="number" id="rec-doc-num" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Celular</label>
+            <input type="tel" id="rec-celular" required />
+          </div>
+          <div class="form-group">
+            <label>Correo Electrónico</label>
+            <input type="email" id="rec-correo" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Qué deseas presentar?</label>
+          <select id="rec-tipo" required>
+            <option value="Reclamo">Reclamo (Desacuerdo relacionado al servicio)</option>
+            <option value="Queja">Queja (Malestar por la atención al público)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Detalle de tu solicitud</label>
+          <textarea id="rec-detalle" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:80px;" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Pedido concreto</label>
+          <textarea id="rec-pedido" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:60px;" required></textarea>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--wine); opacity:0.85; margin: 20px 0; line-height:1.5;">
+          <p>El proveedor (Fergis Marrero - Mamá Girasol) deberá dar respuesta a su reclamo o queja dentro del plazo legal aplicable. La formulación del reclamo no excluye la posibilidad de acudir a otras vías de resolución.</p>
+          <label style="display:flex; gap:10px; margin-top:12px; cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px;">
+            <span>Declaro bajo juramento que los datos consignados son verdaderos y acepto las Políticas de Privacidad.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Enviar Solicitud al WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MUESTRA MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="muestra-overlay">
+    <div class="modal-panel" style="max-width: 500px;">
+      <button type="button" class="modal-close" onclick="document.getElementById('muestra-overlay').classList.remove('active')" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size:1.8rem;">Reserva tu espacio</h3>
+      <p class="bm-sub" style="margin-bottom:20px;">Llena este formulario y te enviaremos la solicitud por WhatsApp para agendar tu sesión de muestra.</p>
+
+      <form onsubmit="submitMuestra(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Nombre y apellido</label>
+          <input type="text" id="m-nombre" required placeholder="Tu nombre completo" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Edad</label>
+            <input type="number" id="m-edad" required placeholder="Ej. 28" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Fecha de nac.</label>
+            <input type="date" id="m-fecha" required style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Lugar de nacimiento</label>
+          <input type="text" id="m-lugar" required placeholder="Ciudad, País" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Número de teléfono</label>
+          <input type="tel" id="m-telefono" required placeholder="+00 000 000 000" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-size: 0.85rem; color: #5C4033; font-weight: 600; margin-bottom: 4px; display: block;">Correo electrónico</label>
+          <input type="email" id="m-correo" required placeholder="tu@correo.com" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(212,169,74,0.4); background: #FAF4E8; font-family: var(--font-body); font-size: 0.95rem; color: #3D2B1F;">
+        </div>
+
+        <button type="submit" style="margin-top: 10px; width: 100%; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #FFF; border: none; padding: 16px; border-radius: 12px; font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);">💬 Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     TERMINOS Y CONDICIONES MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+   <div class="overlay" id="terminos-overlay">
+    <div class="modal-panel" style="max-width: 650px;">
+      <button type="button" class="modal-close" onclick="closeTerminos()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
+      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
+        <p style="margin-bottom:20px; font-weight:600;">Fergis Marrero • Mamá Girasol</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
+        <p style="margin-bottom:16px;">Los servicios de Fergis Marrero • Mamá Girasol están orientados al acompañamiento emocional y la guía personal para mujeres. Este es un espacio de escucha, presencia y autoconocimiento donde se encuentra claridad en los procesos de vida.</p>
+        <p style="margin-bottom:24px;">⚠️ <strong>Importante:</strong> Estos servicios no sustituyen en ningún caso la atención psicológica, psiquiátrica ni médica profesional. Son un complemento de apoyo emocional y personal desde un enfoque humano y empático.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌻 SOBRE LOS SERVICIOS</h4>
+        <ul style="margin-bottom:16px; padding-left:20px; list-style-type:none;">
+          <li style="margin-bottom:12px;"><strong>✨ Diosa en Guía:</strong> Acompañamiento emocional mensual mediante cuatro sesiones virtuales de 45 minutos, con soporte entre sesiones. Es un espacio continuo, seguro y confidencial. No reemplaza ningún proceso terapéutico clínico.</li>
+          <li style="margin-bottom:12px;"><strong>✨ Tu Guía en Cualquier Momento:</strong> Orientación por audio vía WhatsApp. Incluye 10 preguntas al mes respondidas en un plazo máximo de 24 horas. Es un soporte emocional complementario, no una línea de crisis ni un servicio de emergencias.</li>
+          <li style="margin-bottom:12px;"><strong>✨ Un Regalito de Mí para Ti:</strong> Servicio gratuito de orientación con 3 preguntas mensuales. Se renueva cada mes de forma automática. Su uso implica la aceptación de estos términos. Las respuestas son orientativas y generales. No tienen el mismo nivel de profundidad, personalización ni continuidad que los servicios de pago.</li>
+        </ul>
+        <p style="margin-bottom:12px; font-style: italic;">Si sientes que necesitas ir más allá — explorar con más calma, ser acompañada de verdad y recibir una guía pensada solo para ti — te invito a agendar mis servicios:</p>
+        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
+          <li>✨ <strong>Diosa en Guía:</strong> cuatro sesiones al mes de acompañamiento emocional.</li>
+          <li>✨ <strong>Tu Guía en Cualquier Momento:</strong> 10 respuestas en audio al mes, cuando lo necesites.</li>
+        </ul>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 RESERVA Y PAGO</h4>
+        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:disc;">
+          <li>El servicio se considera confirmado una vez realizado el pago correspondiente.</li>
+          <li>Al reservar, estás separando un espacio exclusivo destinado solo para ti.</li>
+          <li>Los precios están expresados en USD y en Soles (S/) según corresponda, e incluyen todos los impuestos aplicables.</li>
+          <li>Se aceptan pagos mediante PayPal, tarjeta de crédito y Yape (solo Perú).</li>
+        </ul>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⏰ PUNTUALIDAD</h4>
+        <p style="margin-bottom:24px;">Para las sesiones de Diosa en Guía, se considera un tiempo de espera máximo de 10 minutos desde la hora acordada. Transcurrido ese tiempo sin conexión de la consultante, la sesión se dará por realizada y no podrá ser recuperada ni reembolsada.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔁 REPROGRAMACIONES</h4>
+        <p style="margin-bottom:24px;">Las sesiones pueden reprogramarse con un mínimo de 24 horas de anticipación. Las reprogramaciones están sujetas a disponibilidad y deben realizarse dentro del mismo mes de contratación. No se acumulan sesiones de un mes a otro.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🚫 POLÍTICA DE NO DEVOLUCIÓN</h4>
+        <p style="margin-bottom:16px;">Todos los pagos realizados son no reembolsables, ya que cada servicio implica una reserva de tiempo, energía y preparación personalizada. Al contratar cualquier servicio, la usuaria acepta expresamente esta condición.</p>
+        <p style="margin-bottom:24px;">En caso de inconveniente extraordinario debidamente justificado, se evaluará individualmente la posibilidad de reprogramación, pero no de devolución económica.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🛍️ TIENDITA GIRASOL — ARTÍCULOS PERSONALIZADOS</h4>
+        <p style="margin-bottom:10px; font-weight:600;">Características de los pedidos:</p>
+        <ul style="margin-bottom:16px; padding-left:20px; list-style-type:disc;">
+          <li>Todos los artículos son fabricados bajo pedido y de forma personalizada, por lo que no se aceptan devoluciones ni cambios una vez confirmada la orden, salvo defecto de fabricación comprobable.</li>
+          <li>El tiempo de producción varía según el artículo. Se informará el plazo estimado al momento de la compra.</li>
+          <li>En caso de error en el diseño imputable a Mamá Girasol, se procederá a la reposición del artículo sin costo adicional.</li>
+          <li>Los colores y acabados pueden presentar variaciones mínimas respecto a las imágenes mostradas en pantalla, lo cual es inherente al proceso de producción artesanal y/o de impresión.</li>
+          <li>Para guías personalizadas, la entrega será en formato digital (HTML) al correo o WhatsApp indicado en el pedido.</li>
+        </ul>
+        <p style="margin-bottom:10px; font-weight:600;">Proceso de compra:</p>
+        <ul style="margin-bottom:16px; padding-left:20px; list-style-type:disc;">
+          <li>La confirmación del pedido se realiza una vez recibido el pago.</li>
+          <li>La consultante/compradora deberá proporcionar todos los datos necesarios para la personalización en el momento de la compra.</li>
+          <li>No se iniciará la producción hasta recibir la información completa y el pago correspondiente.</li>
+        </ul>
+        <p style="margin-bottom:10px; font-weight:600;">Envíos:</p>
+        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:disc;">
+          <li>Los envíos físicos aplican solo dentro del territorio peruano, salvo acuerdo expreso.</li>
+          <li>Los costos de envío son responsabilidad de la compradora y se informarán antes de confirmar el pedido.</li>
+          <li>Mamá Girasol no se hace responsable por demoras o pérdidas ocasionadas por el servicio de courier una vez despachado el paquete.</li>
+        </ul>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔒 CONFIDENCIALIDAD Y PRIVACIDAD</h4>
+        <p style="margin-bottom:16px;">Todo lo compartido durante las sesiones y por mensajes es estrictamente confidencial. La información personal de las consultantes no será compartida con terceros bajo ningún concepto, salvo obligación legal.</p>
+        <p style="margin-bottom:24px;">Los datos proporcionados al agendar o comprar (nombre, correo, WhatsApp) se utilizan exclusivamente para la prestación del servicio y comunicaciones relacionadas.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💌 COMUNICACIONES</h4>
+        <p style="margin-bottom:24px;">Las comunicaciones principales se realizan vía WhatsApp y correo electrónico. Al proporcionar tus datos de contacto, aceptas recibir mensajes relacionados con tu servicio contratado. No se realizará envío de publicidad masiva sin consentimiento previo.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⚖️ RESPONSABILIDAD</h4>
+        <p style="margin-bottom:24px;">Mamá Girasol no se responsabiliza por las decisiones personales que la consultante tome a partir de las orientaciones recibidas. Cada persona es responsable de su propio proceso y bienestar. Los servicios ofrecidos son un apoyo, no una prescripción.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">📋 LIBRO DE RECLAMACIONES</h4>
+        <p style="margin-bottom:24px;">Conforme al Código de Protección y Defensa del Consumidor del Perú, contamos con un Libro de Reclamaciones Virtual disponible en la página web. Toda reclamación recibirá respuesta dentro del plazo legal establecido.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌿 ACEPTACIÓN DE LOS TÉRMINOS</h4>
+        <p style="margin-bottom:24px;">El uso de cualquier servicio de Mamá Girasol, ya sea de acompañamiento o de la Tiendita Girasol, implica la lectura y aceptación plena de estos Términos y Condiciones.</p>
+
+        <p style="margin-bottom:20px; font-weight:600; text-align:center;">Este espacio ha sido creado con amor, respeto y presencia. Gracias por confiar en este camino. 🌻</p>
+
+        <div style="border-top: 1px solid rgba(122, 0, 0, 0.1); padding-top: 20px; font-size: 0.85rem; text-align: center; color: var(--wine-deep);">
+          <p><strong>Fergis Marrero • Mamá Girasol</strong></p>
+          <p>Acompañamiento y guía emocional</p>
+          <p>📲 WhatsApp: +51 907671044</p>
+          <p>📧 Correo: girasol@fergismarrero.com</p>
+          <p>🌐 fergismarrero.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     POLÍTICA DE COOKIES MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="cookies-overlay">
+    <div class="modal-panel" style="max-width: 650px;">
+      <button type="button" class="modal-close" onclick="closeCookies()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 POLÍTICA DE COOKIES</h3>
+      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
+        <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ ¿Qué son las cookies?</h4>
+        <p style="margin-bottom:16px;">Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas esta página. Su función es ayudarte a tener una experiencia más fluida, recordando ciertas preferencias y permitiendo que todo funcione de manera más armoniosa.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 ¿Para qué usamos cookies?</h4>
+        <p style="margin-bottom:8px;">En este espacio utilizamos cookies para:</p>
+        <ul style="margin-bottom:16px; padding-left:20px; list-style-type:disc;">
+          <li>Mejorar tu experiencia de navegación</li>
+          <li>Entender cómo interactúas con la web</li>
+          <li>Optimizar el contenido y los servicios ofrecidos</li>
+        </ul>
+        <p style="margin-bottom:24px;">Nada invasivo… solo lo necesario para que todo fluya mejor ✨</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌐 Tipos de cookies que podemos utilizar</h4>
+        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
+          <li style="margin-bottom:8px;"><strong>Cookies técnicas:</strong> necesarias para el funcionamiento de la página</li>
+          <li style="margin-bottom:8px;"><strong>Cookies de análisis:</strong> nos ayudan a entender el uso del sitio (por ejemplo, herramientas como Google Analytics)</li>
+          <li style="margin-bottom:8px;"><strong>Cookies de terceros:</strong> pueden provenir de servicios externos integrados en la web</li>
+        </ul>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔒 Sobre tu información</h4>
+        <p style="margin-bottom:24px;">Las cookies no acceden a información personal sensible ni permiten identificarte directamente como persona. Tu privacidad es importante y este espacio busca respetarla en todo momento.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⚙️ Gestión de cookies</h4>
+        <p style="margin-bottom:24px;">Puedes aceptar, rechazar o eliminar las cookies desde la configuración de tu navegador en cualquier momento. Ten en cuenta que desactivarlas podría afectar el funcionamiento de algunas partes del sitio.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌻 Aceptación de cookies</h4>
+        <p style="margin-bottom:24px;">Al navegar en este sitio, aceptas el uso de cookies para mejorar tu experiencia.</p>
+
+        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💌 Contacto</h4>
+        <p>Si tienes alguna duda sobre esta política, puedes escribirme directamente. Estoy aquí para acompañarte también en esto 💛</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNER DE COOKIES -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:24px; right:24px; max-width:420px; background:rgba(255,255,255,0.98); border:2px solid rgba(212,168,71,0.25); border-radius:16px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:900;">
+    <h4 style="margin:0 0 10px 0; font-size:1.1rem; color:var(--wine-deep);">Quiero que te sientas cómoda aquí 🌻</h4>
+    <p style="margin:0 0 20px 0; font-size:0.9rem; line-height:1.5; color:var(--wine);">Usamos cookies para que tu experiencia sea más fluida y armoniosa. <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="color:var(--gold); font-weight:600; text-decoration:underline;">Ver política</a></p>
+    <button onclick="acceptCookies()" class="btn-primary" style="width:100%; justify-content:center; padding:12px;">Aceptar ✨</button>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     JAVASCRIPT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    function submitMuestra(e) {
+      e.preventDefault();
+      
+      const nombre = document.getElementById('m-nombre').value;
+      const edad = document.getElementById('m-edad').value;
+      const fecha = document.getElementById('m-fecha').value;
+      const lugar = document.getElementById('m-lugar').value;
+      const telefono = document.getElementById('m-telefono').value;
+      const correo = document.getElementById('m-correo').value;
+
+      let msg = "🌻 *Reserva de Sesión de Muestra* 🌻\n\n";
+      msg += `*Nombre:* ${nombre}\n`;
+      msg += `*Edad:* ${edad}\n`;
+      msg += `*Fecha de nac.:* ${fecha}\n`;
+      msg += `*Lugar de nac.:* ${lugar}\n`;
+      msg += `*Teléfono:* ${telefono}\n`;
+      msg += `*Correo:* ${correo}\n\n`;
+      msg += `¡Hola! Me gustaría agendar mi sesión de muestra gratuita.`;
+
+      const wUrl = "https://wa.me/51907671044?text=" + encodeURIComponent(msg);
+      window.open(wUrl, '_blank');
+      document.getElementById('muestra-overlay').classList.remove('active');
+    }
+
+    /* ── SERVICIOS DATA ──────────────────────────────────────── */
+    const SERVICES = {
+      'Diosa en Guía': {
+        tag: 'Acompañamiento emocional mensual',
+        title: 'Diosa en Guía',
+        text: 'A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.\n\nCada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.\n\nY no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.\n\nSesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.',
+        duration: '4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones',
+        modality: 'Virtual · Se renueva mensualmente',
+        price: '$80 USD   S/ 250',
+        match: 'Diosa en Guía'
+      },
+      'Tu guía en cualquier momento': {
+        tag: 'Orientación por audio vía WhatsApp',
+        title: 'Tu guía en cualquier momento',
+        text: 'Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.\n\nCada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.',
+        price: '$55 USD   S/ 160',
+        match: 'Tu guía en cualquier momento'
+      },
+      'Guías personalizadas': {
+        tag: 'Recurso personalizado',
+        title: 'Guías personalizadas',
+        text: 'Un recurso interactivo diseñado solo para ti — no un PDF, sino una experiencia viva que puedes abrir desde tu teléfono o computadora.\n\nA partir de lo que estás viviendo, identificamos juntas los patrones que se repiten en tu vida: los que vienen de lejos, los que aparecen en tus vínculos, los que te frenan sin que te des cuenta. Y desde ahí, construimos un espacio para trabajarlos.',
+        modality: 'Entrega digital · Diseñado a tu medida',
+        price: '$25 USD · S/ 80',
+      },
+      'Tarot': {
+        tag: 'Para cuando necesitas orientación',
+        title: '🌙 Sesión de claridad / Tarot',
+        text: 'Para cuando necesitas orientación sobre una situación específica que estás viviendo — una decisión, una relación, un momento de quiebre. Saldrás con más claridad y con un lugar desde donde moverte.',
+        duration: '1 hora',
+        modality: 'Virtual • Google Meet',
+        price: '$50 USD · S/ 150',
+        match: 'Tarot'
+      },
+      'Carta Natal': {
+        tag: 'Tu mapa personal',
+        title: '🌟 Tu mapa personal / Carta natal',
+        text: 'Un análisis profundo de tu personalidad, tus emociones y tus patrones. Entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu propia energía a tu favor.',
+        price: '$90 USD · S/ 300',
+        match: 'Carta Natal'
+      },
+      'Carta Natal Infantil': {
+        tag: 'Carta para infancia',
+        title: 'Carta natal infantil',
+        text: 'Para entender el mundo energético, emocional y mental de tu hijo/a.\n\nTe explico cómo siente, qué necesita y cómo acompañarle con más calma y amor.',
+        price: '$90 USD · S/ 300',
+        match: 'Carta Natal Infantil'
+      },
+      'Revolución Solar': {
+        tag: 'Tu año con dirección',
+        title: '☀️ Tu año con dirección / Revolución solar',
+        text: 'Para entender qué viene en este ciclo de tu vida — qué quiere moverse, qué quiere cerrarse y cómo acompañar ese proceso con más conciencia.',
+        duration: '2 horas',
+        modality: 'Virtual • Google Meet',
+        price: '$90 USD · S/ 300',
+        match: 'Revolución'
+      },
+      'Diosas Girasol': {
+        tag: 'Guía y contención semanal',
+        title: 'Comunidad por suscripción en WhatsApp',
+        text: 'Un espacio cercano para sentirte acompañada cada semana.\n\nAquí encuentras un audio semanal donde te cuento sobre la energía de la semana, un horóscopo para cada signo zodiacal y dos preguntas al mes para cuando necesitas dirección.\n\nTambién es un espacio seguro donde puedes encontrar contención y acompañamiento.',
+        price: '$20 USD · S/ 30',
+        match: 'Diosas Girasol'
+      },
+      'Compatibilidad': {
+        tag: 'Entendiendo tu vínculo',
+        title: '💞 Entendiendo tu vínculo / Compatibilidad',
+        text: 'Para comprender la dinámica entre tú y otra persona — pareja, madre, hijo, amistad. Qué los une, qué los desafía y qué está pasando realmente en esa relación.',
+        match: 'Compatibilidad'
+      },
+      'Sinastría': {
+        tag: 'Estudio profundo del vínculo',
+        title: '🔭 Estudio profundo del vínculo / Sinastría',
+        text: 'Un análisis más detallado de la conexión entre dos personas a nivel emocional y energético. Para entender el propósito del vínculo y lo que vienen a aprender juntos.',
+        match: 'Sinastría'
+      },
+      'Tránsitos': {
+        tag: 'Lo que el momento te está diciendo',
+        title: '🌌 Lo que el momento te está diciendo / Tránsitos',
+        text: 'Para entender cómo lo que está pasando en el mundo influye en ti — en tus emociones, tus decisiones y tu proceso personal.',
+        duration: '1 hora',
+        modality: 'Virtual • Google Meet',
+        price: '$80 USD · S/ 250',
+        match: 'Tránsitos'
+      }
+    };
+
+    let activeMatch = '';
+
+    function showService(name) {
+      const s = SERVICES[name];
+      if (!s) return;
+      activeMatch = s.match || name;
+
+      const isCompat = name === 'Compatibilidad' || name === 'Sinastría';
+      const isCarta = name === 'Carta Natal' || name === 'Carta Natal Infantil';
+
+      document.getElementById('sdm-standard').style.display = (isCompat || isCarta) ? 'none' : 'block';
+      document.getElementById('sdm-compat').style.display = isCompat ? 'block' : 'none';
+      document.getElementById('sdm-carta').style.display = isCarta ? 'block' : 'none';
+
+      if (!isCompat && !isCarta) {
+        document.getElementById('sdm-tag').textContent = s.tag;
+        document.getElementById('sdm-title').textContent = s.title;
+        document.getElementById('sdm-text').textContent = s.text;
+        document.getElementById('sdm-price').textContent = s.price || '';
+        let meta = '';
+        if (s.duration) meta += '<strong>Duración:</strong> ' + s.duration + '<br>';
+        if (s.modality) meta += '<strong>Modalidad:</strong> ' + s.modality;
+        document.getElementById('sdm-meta').innerHTML = meta;
+      }
+
+      document.getElementById('service-overlay').classList.add('active');
+    }
+    function closeService() {
+      document.getElementById('service-overlay').classList.remove('active');
+    }
+    function closeBookingModal() {
+      document.getElementById('booking-overlay').classList.remove('active');
+    }
+    function goToBooking() {
+      closeService();
+      const sel = document.getElementById('bf-service');
+      [...sel.options].forEach(o => {
+        if (o.text.toLowerCase().includes(activeMatch.toLowerCase())) o.selected = true;
+      });
+      document.getElementById('booking-overlay').classList.add('active');
+    }
+    // Usado por los botones del panel dual
+    function goToBookingWith(match) {
+      activeMatch = match;
+      goToBooking();
+    }
+
+    function openYapeModal() {
+      closeBookingModal();
+      const sel = document.getElementById('yf-service');
+      [...sel.options].forEach(o => {
+        if (o.text.toLowerCase().includes(activeMatch.toLowerCase())) o.selected = true;
+      });
+      document.getElementById('yape-overlay').classList.add('active');
+    }
+
+    function closeYapeModal() {
+      document.getElementById('yape-overlay').classList.remove('active');
+    }
+
+    function submitYapeBooking() {
+      const form = document.getElementById('yape-form');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const sel = document.getElementById('yf-service');
+      const srvName = sel.options[sel.selectedIndex].dataset.name;
+      const srvPrice = sel.options[sel.selectedIndex].value;
+      const name = document.getElementById('yf-name').value;
+      const date = document.getElementById('yf-date').value;
+      const time = document.getElementById('yf-time').value;
+      const place = document.getElementById('yf-place').value;
+      const phone = document.getElementById('yf-phone').value;
+      const msg = `¡Hola Fergis! Quisiera agendar una sesión y de una vez hago el Yapeo 💛\n\nSERVICIO: ${srvName}\nMONTO: S/ ${srvPrice}\nNOMBRE: ${name}\nNACIMIENTO: ${date} a las ${time}\nLUGAR: ${place}\nWHATSAPP: ${phone}\n\nAquí envío mi captura 👇`;
+      closeYapeModal();
+      document.getElementById('yape-form').reset();
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function closeReclamaciones() {
+      document.getElementById('reclamaciones-overlay').classList.remove('active');
+    }
+
+    function closeTerminos() {
+      document.getElementById('terminos-overlay').classList.remove('active');
+    }
+
+    function closeCookies() {
+      document.getElementById('cookies-overlay').classList.remove('active');
+    }
+
+    function submitReclamacion(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('rec-nombre').value;
+      const apel = document.getElementById('rec-apellidos').value;
+      const doc = document.getElementById('rec-doc-tipo').value + ' ' + document.getElementById('rec-doc-num').value;
+      const cel = document.getElementById('rec-celular').value;
+      const correo = document.getElementById('rec-correo').value;
+      const tipo = document.getElementById('rec-tipo').value;
+      const detalle = document.getElementById('rec-detalle').value;
+      const pedido = document.getElementById('rec-pedido').value;
+
+      let text = `*LIBRO DE RECLAMACIONES*\n\n`;
+      text += `*Nombre:* ${nombre} ${apel}\n`;
+      text += `*Doc:* ${doc}\n`;
+      text += `*Celular:* ${cel}\n`;
+      text += `*Correo:* ${correo}\n`;
+      text += `*Solicitud:* ${tipo}\n`;
+      text += `*Detalle:* ${detalle}\n`;
+      text += `*Pedido:* ${pedido}\n`;
+
+      const msg = encodeURIComponent(text);
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${msg}`, '_blank');
+
+      alert('Tu solicitud ha sido generada. Serás redirigida a WhatsApp para enviarla formalmente.');
+      closeReclamaciones();
+      document.getElementById('reclamaciones-form').reset();
+    }
+
+    /* Cerrar al hacer clic fuera */
+    ['service-overlay', 'booking-overlay', 'yape-overlay', 'reclamaciones-overlay', 'terminos-overlay', 'cookies-overlay'].forEach(id => {
+      document.getElementById(id).addEventListener('click', function (e) {
+        if (e.target === this) this.classList.remove('active');
+      });
+    });
+
+    /* ── CAROUSEL ────────────────────────────────────────────── */
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.dot');
+    let idx = 0, timer;
+
+    function goToSlide(n) {
+      idx = n;
+      track.style.transform = `translateX(-${idx * 33.3333}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function nextSlide() {
+      goToSlide((idx + 1) % 3);
+    }
+
+    function startCarousel() {
+      timer = setInterval(nextSlide, 4800);
+    }
+
+    /* Pausar al hover */
+    document.getElementById('carousel-track').closest('.carousel-box')
+      .addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('carousel-track').closest('.carousel-box')
+      .addEventListener('mouseleave', startCarousel);
+
+    startCarousel();
+
+    /* ── CONFIGURACIÓN & PAYPAL ──────────────────────────────── */
+    let appConfig = {
+      whatsappNumber: '51907671044',
+      whatsappMessage: '¡Hola Fergis! Quisiera agendar una sesión.',
+      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+      paypalCurrency: 'USD'
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('config.json')
+        .then(r => r.json())
+        .then(d => { appConfig = { ...appConfig, ...d }; init(); })
+        .catch(() => init());
+
+      /* Intersection observer para fade-up on scroll */
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-up'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.bento-grid, .blog-box, .community-box, .social-box').forEach(el => io.observe(el));
+
+      /* Banner de Cookies */
+      if (!localStorage.getItem('cookies_accepted')) {
+        setTimeout(() => {
+          const banner = document.getElementById('cookie-banner');
+          if (banner) {
+            banner.style.display = 'block';
+            banner.classList.add('fade-up');
+          }
+        }, 1500);
+      }
+    });
+
+    function acceptCookies() {
+      localStorage.setItem('cookies_accepted', 'true');
+      const banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(10px)';
+        banner.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        setTimeout(() => banner.style.display = 'none', 400);
+      }
+    }
+
+    function init() {
+      document.getElementById('fab-wa').href =
+        `https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(appConfig.whatsappMessage)}`;
+
+      if (!document.getElementById('pp-sdk')) {
+        const s = document.createElement('script');
+        s.id = 'pp-sdk';
+        s.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+        s.onload = renderPayPal;
+        document.body.appendChild(s);
+      }
+    }
+
+    function renderPayPal() {
+      paypal.Buttons({
+        createOrder: (data, actions) => {
+          const form = document.getElementById('booking-form');
+          if (!form.checkValidity()) { form.reportValidity(); return actions.reject(); }
+          return actions.order.create({
+            purchase_units: [{ amount: { value: document.getElementById('bf-service').value } }]
+          });
+        },
+        onApprove: (data, actions) => actions.order.capture().then(det => {
+          const sel = document.getElementById('bf-service');
+          const srv = sel.options[sel.selectedIndex].text;
+          const name = document.getElementById('bf-name').value;
+          const date = document.getElementById('bf-date').value;
+          const time = document.getElementById('bf-time').value;
+          const place = document.getElementById('bf-place').value;
+          const phone = document.getElementById('bf-phone').value;
+          const msg = `¡Hola Fergis! Acabo de hacer el pago 💛 (ID: ${det.id})\n\nSERVICIO: ${srv}\nNOMBRE: ${name}\nNACIMIENTO: ${date} a las ${time}\nLUGAR: ${place}\nWHATSAPP: ${phone}`;
+          alert('¡Pago completado! Serás redirigida a WhatsApp para confirmar.');
+          closeBookingModal();
+          document.getElementById('booking-form').reset();
+          window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        })
+      }).render('#paypal-button-container');
+    }
+
+    /* Carta natal form removed */
+  </script>
+
+</body>
+
+</html>

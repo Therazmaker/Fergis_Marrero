@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiendita — Mamá Girasol</title>
+<meta name="description" content="Guías en PDF y recursos para tu proceso de sanación.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --lemon:#FAFFA0;
+    --butter:#FCEEA8;
+    --brown:#3C2212;
+    --red:#86030E;
+    --red-dark:#540205;
+    --green:#BFDF8E;
+    --cream-bg:#FFFCF2;
+    --card-bg:#FFFEF6;
+    --line:rgba(60,34,18,0.14);
+    --radius:22px;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream-bg);
+    color:var(--brown);
+    font-family:'DM Sans', system-ui, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+
+  .display{
+    font-family:'Carelia W05 Italic', Georgia, serif;
+    font-style:italic;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--butter);
+    border-bottom:1.5px solid var(--line);
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto; padding:18px 28px;
+    display:flex; align-items:center; gap:28px; flex-wrap:wrap;
+  }
+  .logo{
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-weight:600;
+    font-size:1.5rem; color:#6B3E1E; flex-shrink:0;
+  }
+  nav{display:flex; gap:26px; flex-wrap:wrap; margin-left:auto;}
+  nav a{
+    font-size:0.92rem; font-weight:500; color:var(--brown);
+    position:relative; padding:6px 2px; white-space:nowrap;
+  }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:var(--red); transition:width .25s ease;
+  }
+  nav a:hover::after, nav a.active::after{width:100%;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:900px; margin:0 auto; padding:74px 28px 50px;
+    text-align:center;
+  }
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:0.16em; font-size:0.74rem;
+    font-weight:700; color:var(--red); margin:0 0 14px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 4vw, 3.2rem);
+    font-weight:500; line-height:1.12; margin:0 0 22px; color:var(--brown);
+  }
+  .hero p.lede{
+    font-size:1.08rem; color:rgba(60,34,18,0.85); margin:0 auto; max-width:600px;
+  }
+
+  /* ---------- grid ---------- */
+  main{max-width:1180px; margin:0 auto; padding:20px 28px 80px;}
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+    gap:40px;
+  }
+  .card{
+    background:var(--card-bg); border:1.5px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .card:hover{transform:translateY(-5px); box-shadow:0 14px 30px -16px rgba(60,34,18,0.35); border-color:var(--red);}
+  .card-art{
+    aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+    background:var(--lemon); border-bottom:1.5px solid var(--line);
+    font-size:3.5rem; overflow:hidden; border-radius:14px 14px 0 0;
+  }
+  .card-art img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .card-body{padding:28px; display:flex; flex-direction:column; gap:12px; flex:1;}
+  .tag{
+    align-self:flex-start; font-size:0.7rem; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--red-dark); background:var(--green);
+    padding:4px 12px; border-radius:20px; margin-bottom: 4px;
+  }
+  .card h3{
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-weight:500;
+    font-size:1.5rem; line-height:1.2; margin:0; color:var(--brown);
+  }
+  .price{
+    font-size:1.1rem; font-weight:700; color:var(--brown); margin-top:4px;
+  }
+  .card p.desc{font-size:0.95rem; color:rgba(60,34,18,0.8); margin:0; flex:1;}
+  .btn-buy{
+    display:inline-flex; justify-content:center; align-items:center;
+    background:var(--red); color:var(--lemon); padding:14px 24px;
+    border-radius:30px; font-weight:700; font-size:0.95rem; border:none;
+    cursor:pointer; transition:background .2s ease; margin-top:16px; width: 100%;
+  }
+  .btn-buy:hover{background:var(--red-dark);}
+
+  /* ---------- overlay ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(60,34,18,0.5); backdrop-filter:blur(4px);
+    z-index:100; display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .3s ease; padding: 20px;
+  }
+  .overlay.active{opacity:1; pointer-events:auto;}
+  .modal{
+    background:var(--card-bg); width:100%; max-width:480px; padding:36px;
+    border-radius:var(--radius); position:relative; transform:translateY(20px);
+    transition:transform .3s ease; border: 1.5px solid var(--line);
+  }
+  .overlay.active .modal{transform:translateY(0);}
+  .modal-close{
+    position:absolute; top:20px; right:20px; background:none; border:none;
+    font-size:1.4rem; cursor:pointer; color:var(--brown); opacity:0.6;
+  }
+  .modal-close:hover{opacity:1;}
+  .modal h3{
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-weight:500;
+    font-size:1.8rem; margin:0 0 12px; color:var(--brown);
+  }
+  .modal p{font-size:0.95rem; color:rgba(60,34,18,0.8); margin:0 0 24px; line-height: 1.5;}
+  
+  .form-group{margin-bottom:16px;}
+  .form-group label{display:block; font-size:0.85rem; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.04em;}
+  .form-group input{
+    width:100%; padding:12px 16px; border-radius:12px; border:1.5px solid var(--line);
+    font-family:inherit; font-size:0.95rem; background:var(--cream-bg); color:var(--brown);
+  }
+  .form-group input:focus{outline:none; border-color:var(--red);}
+  .btn-ws{
+    display:flex; justify-content:center; align-items:center; gap: 8px;
+    background:#25D366; color:#fff; padding:15px 24px;
+    border-radius:12px; font-weight:700; font-size:1rem; border:none;
+    cursor:pointer; transition:background .2s ease; width: 100%; margin-top: 24px;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  }
+  .btn-ws:hover{background:#1EBE5A;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="blog-mama-girasol.html" class="logo">
+      Fergis Marrero • Mamá Girasol
+    </a>
+    <nav>
+      <a href="blog-mama-girasol.html">Inicio</a>
+      <a href="#" class="active">Tiendita</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">Recursos para ti</p>
+  <h1 class="display">Lleva la sanación a tu propio ritmo.</h1>
+  <p class="lede">Guías prácticas en PDF diseñadas para acompañarte en tu proceso de autoconocimiento, amor propio y conexión con tu niña interior.</p>
+</section>
+
+<main>
+  <div id="loadingState" style="text-align:center;padding:80px 20px;color:rgba(60,34,18,0.55);font-family:'Carelia W05 Italic', Georgia, serif;font-style:italic;font-size:1.1rem;">
+    Cargando recursos… 🌻
+  </div>
+  <div class="grid" id="guiasGrid" style="display:none;">
+    <!-- Guías se cargan dinámicamente -->
+  </div>
+</main>
+
+<!-- Modal Checkout Principal -->
+<div class="overlay" id="checkout-modal">
+  <div class="modal" style="max-height:90vh; overflow-y:auto;">
+    <button class="modal-close" onclick="closeCheckout()">✕</button>
+    <h3 id="modal-product-title">Comprar Guía</h3>
+    <p>Ingresa tus datos y procede al pago seguro. Al finalizar se abrirá WhatsApp para coordinar la entrega.</p>
+    
+    <form id="checkout-form" onsubmit="return false;">
+      <div class="form-group">
+        <label>Nombre Completo</label>
+        <input type="text" id="buyer-name" required placeholder="Ej. Valeria López">
+      </div>
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" id="buyer-email" required placeholder="tu@correo.com">
+      </div>
+      <div class="form-group">
+        <label>WhatsApp</label>
+        <input type="tel" id="buyer-phone" required placeholder="+1 234 567 890">
+      </div>
+
+      <div class="form-group" style="margin-top: 16px;">
+        <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+          <input type="checkbox" id="terms-check" required style="margin-top:2px;">
+          <span>He leído y acepto los <a href="#" onclick="document.getElementById('terms-modal').classList.add('active'); return false;" style="color:var(--red); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> de compra.</span>
+        </label>
+      </div>
+    </form>
+
+    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line);">
+      <p style="font-size:0.85rem; font-weight:700; color:var(--brown); margin-bottom:12px; text-transform:uppercase;">Pago seguro con PayPal o Tarjeta</p>
+      <div id="paypal-button-container"></div>
+    </div>
+
+    <div style="margin-top: 24px; text-align: center; border-top: 1px solid var(--line); padding-top: 24px;">
+      <p style="font-size:0.85rem; font-weight:700; color:var(--brown); margin-bottom:12px; text-transform:uppercase;">¿Estás en Perú?</p>
+      <button type="button" onclick="openYapeModal()" style="display:inline-flex; justify-content:center; align-items:center; background:#742284; color:#fff; padding:14px 24px; border-radius:30px; font-weight:700; font-size:0.95rem; border:none; cursor:pointer; transition:opacity .2s ease; width:100%; box-shadow:0 4px 20px rgba(116, 34, 132, 0.35);">
+        📲 Pagar con Yape
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Yape -->
+<div class="overlay" id="yape-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeYapeModal()">✕</button>
+    <h3>Comprar con Yape</h3>
+    <p>Realiza el Yapeo por <strong>S/ 55</strong> al número <strong>907671044</strong> (a nombre de Fergis Marrero) y envíanos la captura por WhatsApp.</p>
+    
+    <button type="button" onclick="submitYapeOrder()" style="display:inline-flex; justify-content:center; align-items:center; background:#25D366; color:#fff; padding:14px 24px; border-radius:30px; font-weight:700; font-size:0.95rem; border:none; cursor:pointer; transition:background .2s ease; width:100%; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3); margin-top:16px;">
+      💬 Enviar captura por WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- Modal Términos y Condiciones -->
+<div class="overlay" id="terms-modal">
+  <div class="modal" style="max-height:90vh; overflow-y:auto;">
+    <button class="modal-close" onclick="document.getElementById('terms-modal').classList.remove('active')">✕</button>
+    <h3>Términos y Condiciones de Compra</h3>
+    <div style="font-size:0.9rem; color:rgba(60,34,18,0.85); line-height:1.6;">
+      <p>Gracias por confiar en mi trabajo y adquirir una de mis guías digitales. 💛 Al realizar tu compra, aceptas los siguientes términos y condiciones:</p>
+      
+      <p><strong>🌻 Naturaleza del producto:</strong> Las guías son productos digitales en formato PDF y contienen información de carácter general. No incluyen acompañamiento personalizado, asesorías individuales ni sustituyen atención profesional de ningún tipo.</p>
+      
+      <p><strong>💌 Entrega de la guía:</strong> Una vez confirmado el pago, recibirás tu guía por correo electrónico o por el medio de contacto acordado lo más pronto posible, en un plazo máximo de 24 horas. ✨</p>
+      
+      <p><strong>🌻 Datos de contacto:</strong> Por favor, verifica que tu correo electrónico o datos de contacto estén escritos correctamente. No podré responsabilizarme por retrasos derivados de información incorrecta proporcionada por el comprador. 💛</p>
+      
+      <p><strong>💕 Política de reembolsos:</strong> Debido a que se trata de un producto digital, una vez enviada la guía no se realizan cambios, devoluciones ni reembolsos.</p>
+      
+      <p><strong>🌻 Uso personal:</strong> Tu compra es para uso personal e individual. No está permitido copiar, compartir, distribuir, revender, modificar o utilizar el contenido con fines comerciales sin autorización previa por escrito. 🌻</p>
+      
+      <p><strong>✨ Propiedad intelectual:</strong> Todo el contenido de las guías, incluyendo textos, ejercicios, diseños, imágenes y materiales complementarios, pertenece a Fergis Marrero y está protegido por las leyes de propiedad intelectual correspondientes. 💛</p>
+      
+      <p><strong>🌻 Modificaciones:</strong> Me reservo el derecho de actualizar estos términos y condiciones cuando sea necesario para mejorar el servicio o adaptarlos a cambios futuros.</p>
+      
+      <p><strong>💌 Contacto:</strong> Si tienes alguna duda sobre tu compra o la entrega de tu guía, puedes escribirme a través de mis canales oficiales de contacto. Estaré encantada de ayudarte. 💛🌻</p>
+      
+      <p><strong>💕 Importante:</strong> Al realizar tu compra, confirmas que has leído, comprendido y aceptado estos términos y condiciones.</p>
+      
+      <p>🌻 Gracias por apoyar este proyecto y permitirme acompañarte a través de estas herramientas. 💛✨🌻</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let activeProduct = '';
+  let appConfig = {
+    whatsappNumber: '51907671044',
+    paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+    paypalCurrency: 'USD'
+  };
+
+  // Lógica para cargar Guías dinámicamente
+  const REPO = 'Therazmaker/Fergis_Marrero';
+  const BRANCH = 'main';
+  const GUIAS_PATH = 'guias_store';
+
+  function parseFrontmatter(text) {
+    const match = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+    if (!match) return { meta: {}, body: text };
+    const meta = {};
+    match[1].split('\n').forEach(line => {
+      const colon = line.indexOf(':');
+      if (colon === -1) return;
+      const key = line.slice(0, colon).trim();
+      const val = line.slice(colon + 1).trim().replace(/^['"]|['"]$/g, '');
+      meta[key] = val;
+    });
+    return { meta, body: match[2].trim() };
+  }
+
+  async function loadGuias() {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${GUIAS_PATH}?ref=${BRANCH}`);
+      if (!res.ok) throw new Error('No se pudo cargar');
+      const files = await res.json();
+      const mdFiles = files.filter(f => f.name.endsWith('.md'));
+
+      const guiasPromises = mdFiles.map(async f => {
+        const r = await fetch(f.download_url);
+        const raw = await r.text();
+        const { meta } = parseFrontmatter(raw);
+        return { ...meta };
+      });
+
+      const allGuias = await Promise.all(guiasPromises);
+      
+      const grid = document.getElementById('guiasGrid');
+      grid.innerHTML = allGuias.map(g => {
+        const artHtml = g.image 
+          ? `<div class="card-art" style="padding:0; overflow:hidden;"><img src="${g.image}" alt="" style="width:100%;height:100%;object-fit:cover;"></div>`
+          : `<div class="card-art" style="background:${g.color || 'var(--lemon)'};">${g.emoji || '🌻'}</div>`;
+
+        return `
+        <article class="card">
+          ${artHtml}
+          <div class="card-body">
+            <span class="tag">Guía en PDF</span>
+            <h3>${g.title}</h3>
+            <div class="price">$${g.price || '15'} USD</div>
+            <p class="desc">${g.description}</p>
+            <button class="btn-buy" onclick="openCheckout('${g.title}')">Comprar ahora</button>
+          </div>
+        </article>
+      `}).join('');
+      
+      document.getElementById('loadingState').style.display = 'none';
+      grid.style.display = '';
+    } catch(e) {
+      document.getElementById('loadingState').innerHTML = 'No se pudieron cargar las guías. Intenta más tarde. 🌻';
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadGuias();
+    const s = document.createElement('script');
+    s.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+    s.onload = renderPayPal;
+    document.body.appendChild(s);
+  });
+
+  function openCheckout(productName) {
+    activeProduct = productName;
+    document.getElementById('modal-product-title').innerText = `Comprar: ${productName}`;
+    document.getElementById('checkout-modal').classList.add('active');
+  }
+
+  function closeCheckout() {
+    document.getElementById('checkout-modal').classList.remove('active');
+    document.getElementById('checkout-form').reset();
+  }
+
+  function openYapeModal() {
+    const form = document.getElementById('checkout-form');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    closeCheckout();
+    document.getElementById('yape-modal').classList.add('active');
+  }
+
+  function closeYapeModal() {
+    document.getElementById('yape-modal').classList.remove('active');
+  }
+
+  function submitYapeOrder() {
+    const name = document.getElementById('buyer-name').value;
+    const email = document.getElementById('buyer-email').value;
+    const phone = document.getElementById('buyer-phone').value;
+    
+    const msg = `¡Hola Fergis! Quisiera comprar tu guía en PDF y de una vez hago el Yapeo 💛\n\nGUÍA: ${activeProduct}\nMONTO: S/ 55\nNOMBRE: ${name}\nCORREO: ${email}\nWHATSAPP: ${phone}\n\nAquí envío mi captura 👇`;
+    
+    closeYapeModal();
+    window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  function renderPayPal() {
+    paypal.Buttons({
+      createOrder: (data, actions) => {
+        const form = document.getElementById('checkout-form');
+        if (!form.checkValidity()) { form.reportValidity(); return actions.reject(); }
+        const email = document.getElementById('buyer-email').value;
+        return actions.order.create({
+          purchase_units: [{ 
+            amount: { value: '15.00' },
+            custom_id: `${email}|${activeProduct}`
+          }]
+        });
+      },
+      onApprove: (data, actions) => actions.order.capture().then(det => {
+        const name = document.getElementById('buyer-name').value;
+        const email = document.getElementById('buyer-email').value;
+        const phone = document.getElementById('buyer-phone').value;
+        
+        const msg = `¡Hola Fergis! Acabo de hacer el pago por PayPal 💛 (ID: ${det.id})\n\nGUÍA: ${activeProduct}\nNOMBRE: ${name}\nCORREO: ${email}\nWHATSAPP: ${phone}\n\nQuedo atenta para recibir mi PDF. ¡Gracias!`;
+        
+        alert('¡Pago completado! Serás redirigida a WhatsApp para coordinar la entrega.');
+        closeCheckout();
+        window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+      })
+    }).render('#paypal-button-container');
+  }
+</script>
+</body>
+</html>

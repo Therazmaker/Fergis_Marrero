@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "Fotos/blog"
+public_folder: "/Fotos/blog"
+
+collections:
+  - name: "blog"
+    label: "Artículos del Blog"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Imagen de Portada", name: "image", widget: "image", required: false}
+      - {label: "Etiqueta", name: "tag", widget: "string", required: false, hint: "Ej: PATRONES DE LA INFANCIA"}
+      - {label: "Emoji (si no hay imagen)", name: "emoji", widget: "string", required: false, default: "🌻"}
+      - {label: "Minutos de lectura", name: "lecturaMin", widget: "number", required: false, value_type: "int"}
+      - {label: "Resumen", name: "description", widget: "text", required: false}
+      - {label: "Cuerpo del artículo", name: "body", widget: "markdown"}
+
+  - name: "guias"
+    label: "Guías PDF (Tiendita)"
+    folder: "guias_store"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Título de la Guía", name: "title", widget: "string"}
+      - {label: "Precio (USD)", name: "price", widget: "string", default: "15"}
+      - {label: "Imagen de Portada", name: "image", widget: "image", required: false}
+      - {label: "Emoji Principal (si no hay imagen)", name: "emoji", widget: "string", default: "🧸"}
+      - {label: "Color de Fondo (Ej: #FAFFA0)", name: "color", widget: "string", default: "#FAFFA0"}
+      - {label: "Descripción Corta", name: "description", widget: "text"}
+      - {label: "Cuerpo (Opcional)", name: "body", widget: "markdown", required: false}

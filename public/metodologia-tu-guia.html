@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología · Tu guía en cualquier momento · Mamá Girasol</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+<style>
+  :root {
+    --cream: #FAF4E8;
+    --parchment: #F2E8D0;
+    --gold: #D4A847;
+    --gold-deep: #A87828;
+    --wine: #7A0000;
+    --ink: #1F0A10;
+    --font-display: 'Carelia W05 Italic', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #FBF5EC;
+    color: #3D2000;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .nav-back {
+    margin-bottom: 2rem;
+  }
+
+  .nav-back a {
+    text-decoration: none;
+    color: var(--gold-deep);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .metodologia-section {
+    padding: 2.5rem;
+    background: #FBF5EC;
+    border-radius: 30px;
+    border: 1px solid #D4A94A55;
+    box-shadow: 0 10px 40px rgba(160, 112, 42, 0.05);
+  }
+
+  .met-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #A0702A;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+  }
+
+  .met-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .met-subtitle {
+    font-size: 16px;
+    color: #6A4A28;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .met-divider {
+    height: 1px;
+    background: #D4A94A55;
+    margin-bottom: 2rem;
+  }
+
+  .met-intro-box {
+    background: #5C3D0A11;
+    border-left: 4px solid #A0702A;
+    border-radius: 0 16px 16px 0;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 15px;
+    color: #4A2800;
+    line-height: 1.75;
+  }
+
+  .met-intro-box strong {
+    color: #7A4A00;
+    font-weight: 600;
+  }
+
+  .met-section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: #3D2000;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .met-section-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .pilar-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+    transition: transform 0.2s;
+  }
+
+  .pilar-num {
+    font-size: 11px;
+    color: #A0702A;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .pilar-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 700;
+    color: #4A2800;
+    margin: 0 0 8px;
+  }
+
+  .pilar-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .response-box {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .response-row {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    margin-bottom: 1.25rem;
+  }
+
+  .response-row:last-child { margin-bottom: 0; }
+
+  .resp-icon {
+    font-size: 24px;
+    color: #A0702A;
+    margin-top: 2px;
+  }
+
+  .resp-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #A0702A;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 2px;
+  }
+
+  .resp-text {
+    font-size: 14.5px;
+    color: #4A2800;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .principios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .principio-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A33;
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .principio-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3D2000;
+    margin: 0 0 6px;
+  }
+
+  .principio-body {
+    font-size: 14px;
+    color: #6A4A28;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .met-cierre {
+    text-align: center;
+    background: #7A2828;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .met-cierre-icon {
+    font-size: 32px;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .met-cierre-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    color: #FDF4F2;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .met-cierre-text strong {
+    color: #F5C070;
+    font-weight: 700;
+  }
+
+  @media (max-width: 640px) {
+    .pilares-grid, .principios-grid {
+      grid-template-columns: 1fr;
+    }
+    .metodologia-section {
+      padding: 1.5rem;
+    }
+    .met-title {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="nav-back">
+    <a href="index.html">← Volver al inicio</a>
+  </div>
+
+    <div class="metodologia-section">
+    <span class="met-tag">Metodología</span>
+    <h2 class="met-title">Tu Guía en <em>cualquier momento</em></h2>
+    <p class="met-subtitle">Acompañamiento emocional continuo por mensajes de audio para encontrar claridad en el momento que la necesitas.</p>
+    <div class="met-divider"></div>
+
+    <div class="met-intro-box">
+      <p style="margin-bottom: 1rem;">Hay momentos en los que no necesitamos una sesión completa. Necesitamos detenernos, entender qué está pasando, poner en orden lo que sentimos y recibir una mirada externa que nos ayude a ver con más claridad.</p>
+      <p style="margin-bottom: 1rem;">Tu Guía en Cualquier Momento es un espacio de acompañamiento emocional diseñado para esos instantes.</p>
+      <p>No se trata de recibir consejos rápidos. Se trata de comprender mejor lo que estás viviendo para responder desde la consciencia y no desde el piloto automático.</p>
+    </div>
+
+    <h3 class="met-section-title">Cómo acompaño cada <em>consulta</em></h3>
+    <div class="pilares-grid">
+      <div class="pilar-card">
+        <p class="pilar-num">01</p>
+        <h4 class="pilar-title">Escucho antes de responder</h4>
+        <p class="pilar-body">Cada pregunta es recibida como parte de una historia más grande. Antes de ofrecer una reflexión, busco comprender el contexto emocional detrás de lo que estás viviendo.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">02</p>
+        <h4 class="pilar-title">Observo el patrón</h4>
+        <p class="pilar-body">Muchas veces el problema no es únicamente la situación actual, también es la dinámica que se activa. Por eso observo los patrones emocionales que podrían estar influyendo en la experiencia.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">03</p>
+        <h4 class="pilar-title">Nombramos lo que ocurre</h4>
+        <p class="pilar-body">A veces el alivio comienza cuando algo tiene nombre. Mi objetivo es ayudarte a comprender lo que estás sintiendo y ofrecer una mirada más amplia de la situación.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">04</p>
+        <h4 class="pilar-title">Te devuelvo claridad</h4>
+        <p class="pilar-body">Cada respuesta busca darte algo útil para tu vida real. Puede ser una reflexión, una pregunta poderosa, una observación sobre un patrón o una acción concreta para avanzar con consciencia.</p>
+      </div>
+    </div>
+
+    <h3 class="met-section-title">Lo que puedes <em>traer</em> a este espacio</h3>
+    <div class="principios-grid" style="margin-bottom: 2.5rem;">
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Relaciones y Dinámicas</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Límites</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Ansiedad y Sobrecarga Emocional</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Conflictos Familiares</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Culpa y Autoexigencia</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Maternidad</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Toma de decisiones</span>
+      </div>
+      <div class="principio-card" style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size: 20px;">🌻</span> <span class="principio-title" style="margin:0;">Autoestima y Valor propio</span>
+      </div>
+    </div>
+
+    <h3 class="met-section-title">Mis <em>principios</em> de acompañamiento</h3>
+    <div class="principios-grid">
+      <div class="principio-card">
+        <h4 class="principio-title">Presencia antes que rapidez</h4>
+        <p class="principio-body">Aunque las respuestas llegan en un plazo máximo de 24 horas, mi prioridad no es responder rápido. Mi prioridad es responder con presencia.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Sin juicio</h4>
+        <p class="principio-body">No estoy aquí para decirte lo que deberías sentir. Estoy aquí para ayudarte a comprender lo que ya estás sintiendo.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Claridad antes que consejos</h4>
+        <p class="principio-body">No creo en las soluciones universales. Cada respuesta nace de tu contexto, tu historia y tu situación particular.</p>
+      </div>
+      <div class="principio-card">
+        <h4 class="principio-title">Tú eres la experta en tu vida</h4>
+        <p class="principio-body">Mi papel es acompañarte a mirar con más claridad. Las decisiones siempre te pertenecen a ti.</p>
+      </div>
+    </div>
+
+    <div class="met-cierre">
+      <span class="met-cierre-icon">🌻</span>
+      <p class="met-cierre-text">Porque hay momentos en los que una sola conversación puede ayudarte a ver algo que llevabas semanas intentando entender sola.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

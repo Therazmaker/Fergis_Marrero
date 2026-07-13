@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamá Girasol — Habitándome</title>
+<meta name="description" content="Un cuaderno abierto sobre patrones de infancia, amor propio, cuerpo y vida suave. Por Fergis Marrero, Mamá Girasol.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/9287018f7306a935ab7df53aa312f819?family=Carelia+W05+Italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --lemon:#FAFFA0;
+    --butter:#FCEEA8;
+    --brown:#3C2212;
+    --red:#86030E;
+    --red-dark:#540205;
+    --green:#BFDF8E;
+    --cream-bg:#FFFCF2;
+    --card-bg:#FFFEF6;
+    --line:rgba(60,34,18,0.14);
+    --radius:22px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream-bg);
+    color:var(--brown);
+    font-family:'DM Sans', system-ui, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--lemon);}
+
+  .display{
+    font-family:'Carelia W05 Italic', Georgia, serif;
+    font-style:italic;
+    font-optical-sizing:auto;
+    letter-spacing:-0.01em;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2.5px solid var(--red);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  /* ---------- decorative texture ---------- */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    opacity:0.035; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--butter);
+    border-bottom:1.5px solid var(--line);
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto; padding:18px 28px;
+    display:flex; align-items:center; gap:28px; flex-wrap:wrap;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-weight:600;
+    font-size:1.5rem; color:#6B3E1E; flex-shrink:0;
+  }
+  nav{display:flex; gap:26px; flex-wrap:wrap; margin-left:auto;}
+  nav a{
+    font-size:0.92rem; font-weight:500; color:var(--brown);
+    position:relative; padding:6px 2px; white-space:nowrap;
+  }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:var(--red); transition:width .25s ease;
+  }
+  nav a:hover::after, nav a.active::after{width:100%;}
+  .search-wrap{
+    display:flex; align-items:center; gap:8px;
+    background:var(--cream-bg); border:1.5px solid var(--line);
+    border-radius:30px; padding:8px 16px; min-width:200px; flex:1 1 200px; max-width:280px;
+  }
+  .search-wrap svg{width:16px;height:16px;flex-shrink:0;opacity:0.6;}
+  .search-wrap input{
+    border:none; background:transparent; outline:none; font-family:'DM Sans',sans-serif;
+    font-size:0.9rem; width:100%; color:var(--brown);
+  }
+  .search-wrap input::placeholder{color:rgba(60,34,18,0.5);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:1180px; margin:0 auto; padding:74px 28px 50px;
+    display:grid; grid-template-columns:1.3fr 0.9fr; gap:50px; align-items:center;
+    position:relative; z-index:1;
+  }
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:0.16em; font-size:0.74rem;
+    font-weight:700; color:var(--red); margin:0 0 14px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.4vw, 3.6rem);
+    font-weight:500; line-height:1.12; margin:0 0 22px; color:var(--brown);
+  }
+  .hero h1 em{color:var(--red); font-style:italic;}
+  .hero p.lede{
+    font-size:1.08rem; max-width:520px; color:rgba(60,34,18,0.85); margin:0;
+  }
+  .hero-art{position:relative; display:flex; justify-content:center;}
+  .hero-art svg{width:100%; max-width:300px;}
+
+  /* ---------- filters ---------- */
+  .filters{
+    max-width:1180px; margin:0 auto; padding:0 28px 36px;
+    display:flex; gap:10px; flex-wrap:wrap; position:relative; z-index:1;
+  }
+  .pill{
+    font-family:'DM Sans',sans-serif; font-size:0.86rem; font-weight:500;
+    padding:9px 18px; border-radius:30px; border:1.5px solid var(--line);
+    background:var(--card-bg); cursor:pointer; transition:all .2s ease;
+    color:var(--brown);
+  }
+  .pill:hover{border-color:var(--red);}
+  .pill.active{background:var(--brown); color:var(--lemon); border-color:var(--brown);}
+
+  /* ---------- divider ---------- */
+  .divider{
+    max-width:1180px; margin:0 auto; padding:0 28px 8px;
+    display:flex; justify-content:center; opacity:0.85;
+  }
+  .divider svg{width:160px;}
+
+  /* ---------- grid ---------- */
+  main{max-width:1180px; margin:0 auto; padding:20px 28px 10px; position:relative; z-index:1;}
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(290px,1fr));
+    gap:30px;
+  }
+  .card{
+    background:var(--card-bg); border:1.5px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    opacity:0; transform:translateY(16px);
+  }
+  .card.in-view{opacity:1; transform:translateY(0); transition:opacity .6s ease, transform .6s ease;}
+  .card:hover{transform:translateY(-5px); box-shadow:0 14px 30px -16px rgba(60,34,18,0.35); border-color:var(--red);}
+  .card-art{
+    aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+    border-bottom:1.5px solid var(--line);
+    overflow:hidden; border-radius:14px 14px 0 0;
+  }
+  .card-art img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .card-art svg{width:62%;}
+  .card-body{padding:22px 24px 24px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .tag{
+    align-self:flex-start; font-size:0.7rem; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--red-dark); background:var(--lemon);
+    padding:4px 12px; border-radius:20px;
+  }
+  .card h3{
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-weight:500;
+    font-size:1.32rem; line-height:1.28; margin:0; color:var(--brown);
+  }
+  .card h3 a:hover{color:var(--red);}
+  .card p.excerpt{font-size:0.92rem; color:rgba(60,34,18,0.78); margin:0; flex:1;}
+  .card-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.8rem; color:rgba(60,34,18,0.55); margin-top:4px;
+    border-top:1px solid var(--line); padding-top:14px;
+  }
+  .read-more{font-weight:700; color:var(--red); font-size:0.82rem;}
+  .read-more::after{content:' →'; transition:margin .2s ease;}
+  .card:hover .read-more::after{margin-left:4px;}
+
+  .empty-state{
+    display:none; text-align:center; padding:70px 20px; color:rgba(60,34,18,0.65);
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-size:1.2rem;
+  }
+  .empty-state.show{display:block;}
+
+  /* ---------- closing CTA ---------- */
+  .closing{
+    max-width:780px; margin:80px auto 0; padding:0 28px 80px;
+    text-align:center; position:relative; z-index:1;
+  }
+  .closing svg{width:54px; margin-bottom:18px;}
+  .closing p.sign{
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-size:1.7rem; margin:0 0 18px; color:var(--brown);
+  }
+  .closing p.sub{font-size:0.95rem; color:rgba(60,34,18,0.7); margin:0 0 26px;}
+  .closing a.cta{
+    display:inline-block; background:var(--red); color:var(--lemon);
+    padding:13px 30px; border-radius:30px; font-weight:700; font-size:0.92rem;
+    transition:background .2s ease;
+  }
+  .closing a.cta:hover{background:var(--red-dark);}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--brown); color:var(--butter); padding:48px 28px 30px;
+    position:relative; z-index:1;
+  }
+  .footer-inner{
+    max-width:1180px; margin:0 auto; display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:26px; align-items:center;
+  }
+  .foot-logo{font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-size:1.2rem;}
+  .foot-links{display:flex; gap:22px; flex-wrap:wrap; font-size:0.86rem;}
+  .foot-links a:hover{color:var(--lemon);}
+  .foot-bottom{
+    max-width:1180px; margin:34px auto 0; padding-top:22px;
+    border-top:1px solid rgba(252,238,168,0.18);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.78rem; color:rgba(252,238,168,0.65);
+  }
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr; padding-top:48px;}
+    .hero-art{order:-1; max-width:220px; margin:0 auto;}
+    nav{margin-left:0; gap:16px;}
+    .header-inner{padding:16px 20px;}
+    .search-wrap{max-width:100%; order:5;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .card, .card.in-view{transition:none; opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      Fergis Marrero • Mamá Girasol
+    </a>
+    <nav>
+      <a href="blog-mama-girasol.html">Inicio</a>
+      <a href="tienda.html">Tiendita</a>
+    </nav>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar en el cuaderno…">
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Un cuaderno abierto</p>
+    <h1 class="display">Habitándome <em>y siendo</em><br>profundamente humana.</h1>
+    <p class="lede">Aquí no escribo para tener razón. Escribo para nombrar lo que aprendimos de niñas — cómo nos hablamos, qué creímos merecer, qué patrones repetimos sin darnos cuenta. No para quedarnos ahí. Para hacernos cargo, desde el presente, con la luz que ya tenemos.</p>
+  </div>
+  <div class="hero-art">
+  </div>
+</section>
+
+<div class="filters" id="temas" style="display:none;">
+  <button class="pill active" data-filter="todos">Todos</button>
+  <button class="pill" data-filter="infancia">Patrones de la infancia</button>
+  <button class="pill" data-filter="amorpropio">Amor propio</button>
+  <button class="pill" data-filter="cuerpo">Cuerpo y sistema nervioso</button>
+  <button class="pill" data-filter="vinculos">Vida en pareja</button>
+  <button class="pill" data-filter="maternidad">Maternidad consciente</button>
+  <button class="pill" data-filter="suave">Vida suave</button>
+</div>
+
+<div class="divider">
+  <svg viewBox="0 0 200 20" fill="none">
+    <line x1="0" y1="10" x2="80" y2="10" stroke="var(--brown)" stroke-width="1" opacity="0.3"/>
+    <circle cx="100" cy="10" r="4" fill="var(--red)"/>
+    <line x1="120" y1="10" x2="200" y2="10" stroke="var(--brown)" stroke-width="1" opacity="0.3"/>
+  </svg>
+</div>
+
+<main>
+  <div id="loadingState" style="text-align:center;padding:80px 20px;color:rgba(60,34,18,0.55);font-family:'Carelia W05 Italic', Georgia, serif;font-style:italic;font-size:1.1rem;">
+    Cargando artículos… 🌻
+  </div>
+  <div class="grid" id="postsGrid" style="display:none;">
+    <!-- Posts se cargan dinámicamente -->
+  </div>
+
+  <p class="empty-state" id="emptyState">Por aquí todavía no hay nada escrito… vuelve pronto 🌻</p>
+</main>
+
+<!-- Vista de artículo individual -->
+<div id="postSingle" style="display:none; max-width:900px; margin:0 auto; padding:0 24px 80px;">
+  <button id="backBtn" onclick="closeSinglePost()" style="
+    display:inline-flex; align-items:center; gap:6px;
+    background:none; border:none; cursor:pointer;
+    font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic;
+    font-size:1rem; color:var(--red); margin-bottom:32px; padding:0;
+  ">← Volver al blog</button>
+  <div id="postSingleContent"></div>
+</div>
+
+<style>
+  /* ---- Post individual ---- */
+  #postSingleContent .post-tag { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--red-dark); background:var(--lemon); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+  #postSingleContent h1 { font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-weight:500; font-size:2rem; line-height:1.2; color:var(--brown); margin-bottom:10px; }
+  #postSingleContent .post-meta-line { font-size:0.82rem; color:rgba(60,34,18,0.5); margin-bottom:36px; border-bottom:1px solid var(--line); padding-bottom:20px; }
+  #postSingleContent p { font-size:1rem; color:rgba(60,34,18,0.85); line-height:1.75; margin-bottom:18px; }
+  #postSingleContent h2, #postSingleContent h3 { font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; color:var(--brown); margin:32px 0 12px; }
+  #postSingleContent h3 { font-size:1.2rem; }
+  #postSingleContent blockquote { border-left:3px solid var(--red); margin:28px 0; padding:16px 20px; background:var(--lemon); border-radius:0 12px 12px 0; font-family:'Carelia W05 Italic', Georgia, serif; font-style:italic; font-size:1.05rem; color:var(--brown); line-height:1.6; }
+  #postSingleContent blockquote p { margin:0; }
+  #postSingleContent hr { border:none; border-top:1px solid var(--line); margin:36px 0; }
+  #postSingleContent strong { font-weight:700; color:var(--brown); }
+</style>
+
+<section class="closing">
+  <p class="sign display">Cuando estés lista, yo estoy 🌻</p>
+  <p class="sub">Si algo de lo que leíste aquí te tocó, también acompaño procesos uno a uno — con calma, sin fórmulas, desde lo que yo misma viví.</p>
+  <a href="https://fergismarrero.com" class="cta">Conóceme</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="foot-logo">🌻 Mamá Girasol</span>
+    <div class="foot-links">
+      <a href="https://fergismarrero.com">fergismarrero.com</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Pinterest</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Mamá Girasol — Fergis Marrero</span>
+    <span>Hecho con calma, desde Lima 🌿</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const REPO = 'Therazmaker/Fergis_Marrero';
+  const BRANCH = 'main';
+  const POSTS_PATH = 'posts';
+
+  let allPosts = [];
+  let activeFilter = 'todos';
+
+  function parseFrontmatter(text) {
+    const match = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+    if (!match) return { meta: {}, body: text };
+    const meta = {};
+    match[1].split('\n').forEach(line => {
+      const colon = line.indexOf(':');
+      if (colon === -1) return;
+      const key = line.slice(0, colon).trim();
+      const val = line.slice(colon + 1).trim().replace(/^['"]|['"]$/g, '');
+      meta[key] = val;
+    });
+    return { meta, body: match[2].trim() };
+  }
+
+  function formatFecha(d) {
+    if (!d) return '';
+    const [y, m, day] = d.split('-');
+    const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    return `${parseInt(day)} ${meses[parseInt(m)-1]} ${y}`;
+  }
+
+  function slugToFilter(tag) {
+    if (!tag) return 'todos';
+    const t = tag.toLowerCase();
+    if (t.includes('infancia') || t.includes('patrones')) return 'infancia';
+    if (t.includes('amor')) return 'amorpropio';
+    if (t.includes('cuerpo')) return 'cuerpo';
+    if (t.includes('pareja') || t.includes('vinculo')) return 'vinculos';
+    if (t.includes('maternidad')) return 'maternidad';
+    if (t.includes('suave') || t.includes('vida')) return 'suave';
+    return 'todos';
+  }
+
+  function cardArtFor(cat, emoji, image) {
+    if (image) {
+      return `<div class="card-art" style="padding:0; overflow:hidden;"><img src="${image}" alt="" style="width:100%;height:100%;object-fit:cover;"></div>`;
+    }
+    const colors = {
+      infancia: 'var(--butter)', amorpropio: 'var(--butter)',
+      cuerpo: '#E9F1D6', vinculos: '#F7E9C9',
+      maternidad: '#E9F1D6', suave: 'var(--lemon)', todos: 'var(--lemon)'
+    };
+    const bg = colors[cat] || 'var(--lemon)';
+    const e = emoji || '🌻';
+    return `<div class="card-art" style="background:${bg};font-size:3rem;display:flex;align-items:center;justify-content:center;">${e}</div>`;
+  }
+
+  function buildCard(post) {
+    const cat = slugToFilter(post.tag);
+    const titleLower = post.title.toLowerCase();
+    const descLower = (post.description || '').toLowerCase();
+    const art = cardArtFor(cat, post.emoji, post.image);
+    const tagLabel = post.tag || 'Artículo';
+    const mins = post.lecturaMin ? `${post.lecturaMin} min` : '';
+    return `
+      <article class="card" data-cat="${cat}" data-title="${titleLower}" data-excerpt="${descLower}" data-filename="${post.filename}">
+        ${art}
+        <div class="card-body">
+          <span class="tag">${tagLabel}</span>
+          <h3><a href="#" onclick="openPost('${post.filename}');return false;">${post.title}</a></h3>
+          <p class="excerpt">${post.description || ''}</p>
+          <div class="card-meta">
+            <span>${formatFecha(post.date)}${mins ? ' · ' + mins : ''}</span>
+            <a href="#" class="read-more" onclick="openPost('${post.filename}');return false;">Leer</a>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  async function loadPosts() {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${POSTS_PATH}?ref=${BRANCH}`);
+      if (!res.ok) throw new Error('No se pudo cargar');
+      const files = await res.json();
+      const mdFiles = files.filter(f => f.name.endsWith('.md') && f.name !== 'SCHEMA.md');
+
+      const postPromises = mdFiles.map(async f => {
+        const r = await fetch(f.download_url);
+        const raw = await r.text();
+        const { meta } = parseFrontmatter(raw);
+        return { ...meta, filename: f.name, download_url: f.download_url };
+      });
+
+      allPosts = (await Promise.all(postPromises))
+        .filter(p => p.title)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      document.getElementById('loadingState').style.display = 'none';
+      renderList();
+    } catch(e) {
+      document.getElementById('loadingState').innerHTML = 'No se pudieron cargar los artículos. Intenta más tarde. 🌻';
+    }
+  }
+
+  function renderList() {
+    const grid = document.getElementById('postsGrid');
+    const searchInput = document.getElementById('searchInput');
+    const q = (searchInput ? searchInput.value : '').trim().toLowerCase();
+    const filtered = allPosts.filter(p => {
+      const catOk = activeFilter === 'todos' || slugToFilter(p.tag) === activeFilter;
+      const searchOk = !q || p.title.toLowerCase().includes(q) || (p.description || '').toLowerCase().includes(q);
+      return catOk && searchOk;
+    });
+
+    grid.innerHTML = filtered.map(buildCard).join('');
+    grid.style.display = filtered.length ? '' : 'none';
+    document.getElementById('emptyState').classList.toggle('show', filtered.length === 0);
+
+    const cards = Array.from(grid.querySelectorAll('.card'));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); }});
+    }, {threshold: 0.1});
+    cards.forEach(c => obs.observe(c));
+  }
+
+  async function openPost(filename) {
+    const post = allPosts.find(p => p.filename === filename);
+    if (!post) return;
+
+    const r = await fetch(post.download_url);
+    const raw = await r.text();
+    const { meta, body } = parseFrontmatter(raw);
+
+    document.getElementById('postsGrid').style.display = 'none';
+    document.getElementById('emptyState').style.display = 'none';
+    const loadingState = document.getElementById('loadingState');
+    if (loadingState) loadingState.style.display = 'none';
+    const hero = document.querySelector('.hero');
+    if (hero) hero.style.display = 'none';
+    const searchBar = document.querySelector('.search-bar-wrap');
+    if (searchBar) searchBar.style.display = 'none';
+    const pills = document.querySelector('.pills');
+    if (pills) pills.style.display = 'none';
+    const divider = document.querySelector('.divider');
+    if (divider) divider.style.display = 'none';
+
+    document.getElementById('postSingleContent').innerHTML = `
+      <span class="post-tag">${meta.tag || 'Artículo'}</span>
+      <h1>${meta.emoji || '🌻'} ${meta.title}</h1>
+      <div class="post-meta-line">${formatFecha(meta.date)}${meta.lecturaMin ? ' · ' + meta.lecturaMin + ' min de lectura' : ''}</div>
+      <div class="post-body-md">${marked.parse(body)}</div>
+    `;
+    document.getElementById('postSingle').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function closeSinglePost() {
+    document.getElementById('postSingle').style.display = 'none';
+    document.getElementById('postsGrid').style.display = '';
+    const hero = document.querySelector('.hero');
+    if (hero) hero.style.display = '';
+    const searchBar = document.querySelector('.search-bar-wrap');
+    if (searchBar) searchBar.style.display = '';
+    const pills = document.querySelector('.pills');
+    if (pills) pills.style.display = '';
+    const divider = document.querySelector('.divider');
+    if (divider) divider.style.display = '';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeFilter = pill.dataset.filter;
+      renderList();
+    });
+  });
+
+  const searchInputNode = document.getElementById('searchInput');
+  if (searchInputNode) searchInputNode.addEventListener('input', renderList);
+
+  loadPosts();
+</script>
+
+</body>
+</html>

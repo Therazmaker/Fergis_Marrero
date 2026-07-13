@@ -1,0 +1,506 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+
+  .mg-root {
+    font-family: 'DM Sans', sans-serif;
+    padding: 2rem 1rem;
+    background: transparent;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-mantequilla {
+    background: #F5EDD8;
+    border: 1.5px solid #D4A94A;
+  }
+
+  .card-vino {
+    background: #F2E8E4;
+    border: 1.5px solid #8B3A3A;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 40px;
+    width: fit-content;
+  }
+
+  .tag-mantequilla {
+    background: #D4A94A22;
+    color: #7A5A10;
+    border: 1px solid #D4A94A66;
+  }
+
+  .tag-vino {
+    background: #8B3A3A22;
+    color: #6B2020;
+    border: 1px solid #8B3A3A66;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .title-mantequilla { color: #5C3D0A; }
+  .title-vino { color: #4A1818; }
+
+  .card-hook {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #7A5A3A;
+    margin: 0;
+  }
+
+  .card-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5A3E2A;
+    margin: 0;
+  }
+
+  .card-body-vino {
+    color: #4A2828;
+  }
+
+  .divider {
+    height: 1px;
+    background: #C8A06044;
+    margin: 0.25rem 0;
+  }
+
+  .divider-vino {
+    background: #8B3A3A33;
+  }
+
+  .card-meta {
+    font-size: 12.5px;
+    color: #7A5A3A;
+    line-height: 1.6;
+  }
+
+  .card-meta-vino {
+    color: #6B3030;
+  }
+
+  .card-price {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #5C3D0A;
+    margin: 0;
+  }
+
+  .card-price-vino {
+    color: #4A1818;
+  }
+
+  .buttons-row {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .btn-primary {
+    padding: 11px 22px;
+    border-radius: 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-mant {
+    background: #A0702A;
+    color: #FDF6E8;
+  }
+
+  .btn-vino-primary {
+    background: #7A2828;
+    color: #FDF0EE;
+  }
+
+  .btn-secondary {
+    padding: 11px 20px;
+    border-radius: 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-sec-mant {
+    border: 1.5px solid #A0702A;
+    color: #7A5010;
+  }
+
+  .btn-sec-mant:hover { background: #A0702A14; }
+
+  .btn-sec-vino {
+    border: 1.5px solid #7A2828;
+    color: #6B2020;
+  }
+
+  .btn-sec-vino:hover { background: #7A282814; }
+
+  .metodologia-section {
+    margin-top: 1rem;
+    padding: 2rem;
+    background: #FBF5EC;
+    border-radius: 20px;
+    border: 1px solid #D4A94A55;
+  }
+
+  .met-tag {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #A0702A;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .met-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #3D2000;
+    margin: 0 0 0.4rem;
+  }
+
+  .met-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .met-subtitle {
+    font-size: 14px;
+    color: #6A4A28;
+    margin: 0 0 1.5rem;
+    line-height: 1.6;
+  }
+
+  .met-divider {
+    height: 1px;
+    background: #D4A94A55;
+    margin-bottom: 1.5rem;
+  }
+
+  .met-intro-box {
+    background: #5C3D0A11;
+    border-left: 3px solid #A0702A;
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+    color: #4A2800;
+    line-height: 1.7;
+  }
+
+  .met-intro-box strong {
+    color: #7A4A00;
+  }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pilar-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A44;
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+  }
+
+  .pilar-num {
+    font-size: 11px;
+    color: #A0702A;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .pilar-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 700;
+    color: #4A2800;
+    margin: 0 0 6px;
+  }
+
+  .pilar-body {
+    font-size: 13px;
+    color: #6A4A28;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .met-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #3D2000;
+    margin: 0 0 0.75rem;
+  }
+
+  .met-section-title em {
+    font-style: italic;
+    color: #A0702A;
+  }
+
+  .response-box {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A44;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .response-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 0.6rem;
+  }
+
+  .response-row:last-child { margin-bottom: 0; }
+
+  .resp-icon {
+    font-size: 18px;
+    color: #A0702A;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .resp-content {}
+
+  .resp-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #A0702A;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 0 0 2px;
+  }
+
+  .resp-text {
+    font-size: 13.5px;
+    color: #4A2800;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .principios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .principio-card {
+    background: #FFF8EE;
+    border: 1px solid #D4A94A44;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+  }
+
+  .principio-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3D2000;
+    margin: 0 0 4px;
+  }
+
+  .principio-body {
+    font-size: 13px;
+    color: #6A4A28;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .met-cierre {
+    text-align: center;
+    background: #7A2828;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .met-cierre-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+    color: #F5C8A0;
+  }
+
+  .met-cierre-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #F5E8DC;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .met-cierre-text strong {
+    color: #F5C070;
+  }
+</style>
+
+<div class="mg-root">
+  <h2 class="sr-only">Propuesta de servicios Mamá Girasol — mockup</h2>
+
+  <div class="cards-grid">
+
+    <div class="card card-mantequilla">
+      <span class="tag tag-mantequilla">Acompañamiento emocional mensual</span>
+      <h3 class="card-title title-mantequilla">Diosa en guía</h3>
+      <p class="card-hook">A veces no sabes ni por dónde empezar...</p>
+      <p class="card-body">Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.</p>
+      <p class="card-body">Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.</p>
+      <div class="divider"></div>
+      <p class="card-meta">4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
+      <p class="card-price">$45 USD · S/ 120</p>
+      <div class="buttons-row">
+        <button class="btn-primary btn-mant">Quiero empezar</button>
+        <button class="btn-secondary btn-sec-mant">Ver metodología</button>
+      </div>
+    </div>
+
+    <div class="card card-vino">
+      <span class="tag tag-vino">Orientación por audio vía WhatsApp</span>
+      <h3 class="card-title title-vino">Tu guía en cualquier momento</h3>
+      <p class="card-hook">A veces la vida no espera...</p>
+      <p class="card-body card-body-vino">Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible. No la próxima semana en una sesión agendada. Para eso existe esto.</p>
+      <p class="card-body card-body-vino">Cada mes tienes 10 preguntas respondidas por audio, con orientación desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
+      <div class="divider divider-vino"></div>
+      <p class="card-meta card-meta-vino">Tiempo de respuesta: lo más pronto posible · máximo 24 horas · Se renueva mensualmente</p>
+      <p class="card-price card-price-vino">$45 USD · S/ 120</p>
+      <div class="buttons-row">
+        <button class="btn-primary btn-vino-primary">Quiero empezar</button>
+        <button class="btn-secondary btn-sec-vino">Ver metodología</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="metodologia-section">
+    <p class="met-tag">Metodología</p>
+    <h2 class="met-title">Tu guía en cualquier <em>momento</em></h2>
+    <p class="met-subtitle">Cómo acompaño cada pregunta que llega. No es una respuesta rápida — es presencia cuando más la necesitas.</p>
+    <div class="met-divider"></div>
+
+    <div class="met-intro-box">
+      Mi acompañamiento parte de una verdad simple: <strong>lo que sientes tiene sentido, aunque todavía no lo tenga para ti.</strong> Mi trabajo no es darte respuestas — es ayudarte a escuchar lo que ya sabes, pero que el ruido de la vida no te deja oír.
+    </div>
+
+    <p class="met-section-title">Los <em>4 pilares</em> de cada respuesta</p>
+    <div class="pilares-grid">
+      <div class="pilar-card">
+        <p class="pilar-num">01</p>
+        <p class="pilar-title">Escucha antes que solución</p>
+        <p class="pilar-body">Escucho tu pregunta con atención completa antes de responder. No busco ser rápida — busco ser real contigo.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">02</p>
+        <p class="pilar-title">Presencia, no protocolo</p>
+        <p class="pilar-body">No tengo un guión. Fluyo con lo que traes. Cada audio es para ti, no una respuesta genérica.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">03</p>
+        <p class="pilar-title">Claridad sin juicio</p>
+        <p class="pilar-body">Lo que traes — tus miedos, tus contradicciones — merece el mismo trato que tus logros. Aquí no hay respuestas incorrectas.</p>
+      </div>
+      <div class="pilar-card">
+        <p class="pilar-num">04</p>
+        <p class="pilar-title">Un punto de apoyo, no de dependencia</p>
+        <p class="pilar-body">Te oriento para que puedas moverte sola. Mi meta es que cada audio te deje más enraizada, no más necesitada.</p>
+      </div>
+    </div>
+
+    <p class="met-section-title" style="margin-top:1.25rem">¿Cómo <em>funciona</em>?</p>
+    <div class="response-box">
+      <div class="response-row">
+        <i class="ti ti-message-circle resp-icon" aria-hidden="true"></i>
+        <div class="resp-content">
+          <p class="resp-label">Me envías tu pregunta</p>
+          <p class="resp-text">Por WhatsApp, en audio o en texto. Sin formatos, sin estructuras. Como se te venga.</p>
+        </div>
+      </div>
+      <div class="response-row">
+        <i class="ti ti-clock resp-icon" aria-hidden="true"></i>
+        <div class="resp-content">
+          <p class="resp-label">Respondo lo más pronto posible — máximo 24 horas</p>
+          <p class="resp-text">Con un audio pensado para ti. Sin prisa, pero sin dejarte esperando más de un día.</p>
+        </div>
+      </div>
+      <div class="response-row">
+        <i class="ti ti-repeat resp-icon" aria-hidden="true"></i>
+        <div class="resp-content">
+          <p class="resp-label">10 preguntas al mes</p>
+          <p class="resp-text">Se renuevan cada mes. Úsalas cuando las necesites — no tienen que ser "perfectas".</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="met-section-title">Lo que <em>nunca olvido</em></p>
+    <div class="principios-grid">
+      <div class="principio-card">
+        <p class="principio-title">Ella tiene la respuesta</p>
+        <p class="principio-body">Mi trabajo es crear el espacio, no ser la experta de tu vida. Tú ya sabes más de ti misma de lo que crees.</p>
+      </div>
+      <div class="principio-card">
+        <p class="principio-title">Sin juicio, siempre</p>
+        <p class="principio-body">Lo que traes merece el mismo trato que tus logros. Tus contradicciones son parte del proceso.</p>
+      </div>
+      <div class="principio-card">
+        <p class="principio-title">Privacidad absoluta</p>
+        <p class="principio-body">Lo que compartimos aquí no sale de aquí. La confianza es el único contenedor que importa.</p>
+      </div>
+      <div class="principio-card">
+        <p class="principio-title">No soy terapeuta clínica</p>
+        <p class="principio-body">Mi acompañamiento no reemplaza procesos psicológicos. Cuando lo necesitas, te lo digo y te lo recomiendo con amor.</p>
+      </div>
+    </div>
+
+    <div class="met-cierre">
+      <i class="ti ti-sun met-cierre-icon" aria-hidden="true"></i>
+      <p class="met-cierre-text">Esta metodología no es un guión — es una <strong>brújula</strong>. Lo que la hace funcionar no es seguirla al pie de la letra, sino llevarla con presencia y con la certeza de que <strong>ninguna mujer tiene que transitar sus procesos sola.</strong></p>
+    </div>
+  </div>
+</div>
