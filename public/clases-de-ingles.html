@@ -492,6 +492,141 @@
     text-decoration:none;
     font-size:.95rem;
     margin-top:10px;
+    cursor:pointer;
+    border:none;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     MODALS & OVERLAYS
+  ═══════════════════════════════════════════════════════ */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 10, 16, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-panel {
+    background: var(--cream);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 24px;
+    padding: 40px 36px;
+    position: relative;
+    transform: translateY(28px) scale(0.96);
+    transition: transform 0.38s cubic-bezier(0.34, 1.5, 0.64, 1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .overlay.active .modal-panel {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(93, 90, 80, 0.08);
+    border: none;
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 999;
+  }
+
+  .modal-close:hover {
+    background: rgba(93, 90, 80, 0.15);
+    transform: rotate(90deg);
+  }
+
+  .bm-title {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .bm-sub {
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.8;
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--cloud);
+    background: #fff;
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--slate);
+    box-shadow: 0 0 0 4px rgba(125, 152, 163, 0.14);
+  }
+
+  .paypal-wrap {
+    margin-top: 24px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1.5px dashed var(--cloud);
+    text-align: center;
+  }
+
+  .paypal-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
   }
 </style>
 </head>
@@ -506,7 +641,7 @@
       <a href="#clases">Clases</a>
       <a href="#precios">Precios</a>
     </div>
-    <a class="cta" href="#precios">Reservar clase</a>
+    <a class="cta" href="javascript:void(0)" onclick="openBookingModal()">Reservar clase</a>
   </div>
 </nav>
 
@@ -625,6 +760,9 @@
           <div class="country">🌎 Resto del mundo</div>
           <div class="amount">USD 30</div>
         </div>
+        <div style="margin-top:24px;">
+          <button class="btn" style="width:100%; margin-top:0;" onclick="openBookingModal('individual')">Reservar Clase Individual</button>
+        </div>
       </div>
 
       <div class="price-card featured">
@@ -645,6 +783,9 @@
         <div class="price-row">
           <div class="country">🌎 Resto del mundo</div>
           <div class="amount">USD 99</div>
+        </div>
+        <div style="margin-top:24px;">
+          <button class="btn" style="width:100%; margin-top:0;" onclick="openBookingModal('mensual')">Reservar Plan Mensual</button>
         </div>
       </div>
     </div>
@@ -731,7 +872,7 @@
     <h2>Un espacio para aprender con calma</h2>
     <p class="lede" style="margin:0 auto;">En Mamá Girasol creemos que cada persona aprende, siente y florece de una manera diferente. Aquí no buscamos que llegues más rápido.</p>
     <div class="big">Queremos que disfrutes el camino. 🌻🏡</div>
-    <a class="btn" href="#precios">Agendar mi primera clase</a>
+    <a class="btn" href="javascript:void(0)" onclick="openBookingModal()">Agendar mi primera clase</a>
   </div>
 </section>
 
@@ -739,6 +880,242 @@
   <div class="brand" style="font-family:'Dancing Script',cursive; font-size:1.3rem;">🌻 Papá Girasol</div>
   <div>Clases de inglés americano, online, a tu ritmo.</div>
 </footer>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     BOOKING MODAL (PAYPAL / CREDIT CARD)
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="booking-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeBookingModal()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title">Agendar Clases de Inglés</h3>
+      <p class="bm-sub">Completa tus datos de contacto para coordinar tus clases con Papá Girasol. Luego procede al pago seguro.</p>
+
+      <form id="booking-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Plan de clases a reservar</label>
+          <select id="bf-service" required>
+            <option value="30.00" data-name="Clase individual">🌻 Clase individual - $30 USD</option>
+            <option value="99.00" data-name="Plan mensual">🌻 Plan mensual - $99 USD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="bf-name" placeholder="Ej. Valeria López" required />
+        </div>
+        <div class="form-group">
+          <label>Número de WhatsApp</label>
+          <input type="tel" id="bf-phone" placeholder="Ej. +51 907 671 044" required />
+        </div>
+        <div class="form-group">
+          <label>Horarios de preferencia / Mensaje</label>
+          <textarea id="bf-schedule" placeholder="Ej. Lunes y Miércoles por la tarde, o cualquier detalle adicional." rows="3"></textarea>
+        </div>
+        <div class="form-group" style="margin-top: 16px;">
+          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+            <input type="checkbox" id="bf-terms" required style="margin-top:2px;">
+            <span>Acepto los Términos y Condiciones del servicio.</span>
+          </label>
+        </div>
+      </form>
+
+      <div class="paypal-wrap">
+        <p class="paypal-label">Pago seguro con PayPal o Tarjeta de crédito</p>
+        <div id="paypal-button-container"></div>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(125, 152, 163, 0.2); padding-top: 24px;">
+        <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--text);">¿Deseas pagar con Yape? (Solo Perú)</p>
+        <button type="button" class="btn" style="background: #742284; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35); font-family:var(--body); margin-top:0;" onclick="openYapeModal()">
+          📲 Haz click aquí para pagar con Yape
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     YAPE MODAL (SOLO PERÚ)
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="overlay" id="yape-overlay">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeYapeModal()" aria-label="Cerrar">✕</button>
+      <h3 class="bm-title">Agendar con Yape</h3>
+      <p class="bm-sub">Completa tus datos de contacto y realiza tu pago en Soles de forma rápida y sencilla.</p>
+
+      <form id="yape-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Plan de clases a reservar</label>
+          <select id="yf-service" required>
+            <option value="60" data-name="Clase individual">🌻 Clase individual - S/ 60</option>
+            <option value="320" data-name="Plan mensual">🌻 Plan mensual - S/ 320</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="yf-name" placeholder="Ej. Valeria López" required />
+        </div>
+        <div class="form-group">
+          <label>Número de WhatsApp</label>
+          <input type="tel" id="yf-phone" placeholder="Ej. +51 907 671 044" required />
+        </div>
+        <div class="form-group">
+          <label>Horarios de preferencia / Mensaje</label>
+          <textarea id="yf-schedule" placeholder="Ej. Lunes y Miércoles por la tarde, o cualquier detalle adicional." rows="3"></textarea>
+        </div>
+        <div class="form-group" style="margin-top: 16px;">
+          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
+            <input type="checkbox" id="yf-terms" required style="margin-top:2px;">
+            <span>Acepto los Términos y Condiciones del servicio.</span>
+          </label>
+        </div>
+
+        <div class="paypal-wrap" style="border-color: #742284; margin-top:24px;">
+          <p class="paypal-label" style="color: #742284; margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás enviar la captura aquí 👇</p>
+          <button type="button" class="btn" style="background: #742284; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35); font-family:var(--body); margin-top:0;" onclick="submitYapeBooking()">
+            📲 Enviar reporte por WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     JAVASCRIPT CONFIG & CHECKOUT FLOWS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    let appConfig = {
+      whatsappNumber: '51907671044',
+      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+      paypalCurrency: 'USD'
+    };
+
+    let activeMatch = 'individual';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('config.json')
+        .then(r => r.json())
+        .then(d => { appConfig = { ...appConfig, ...d }; init(); })
+        .catch(() => init());
+    });
+
+    function init() {
+      if (!document.getElementById('pp-sdk')) {
+        const s = document.createElement('script');
+        s.id = 'pp-sdk';
+        s.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+        s.onload = renderPayPal;
+        document.body.appendChild(s);
+      }
+
+      /* Cerrar al hacer clic fuera del panel del modal */
+      ['booking-overlay', 'yape-overlay'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', function (e) {
+            if (e.target === this) this.classList.remove('active');
+          });
+        }
+      });
+    }
+
+    // Modal triggering function
+    function openBookingModal(match) {
+      if (match) {
+        activeMatch = match;
+      }
+      const sel = document.getElementById('bf-service');
+      if (sel) {
+        if (activeMatch === 'individual') {
+          sel.value = '30.00';
+        } else {
+          sel.value = '99.00';
+        }
+      }
+      const overlay = document.getElementById('booking-overlay');
+      if (overlay) overlay.classList.add('active');
+    }
+
+    function closeBookingModal() {
+      const overlay = document.getElementById('booking-overlay');
+      if (overlay) overlay.classList.remove('active');
+    }
+
+    function openYapeModal() {
+      closeBookingModal();
+      const sel = document.getElementById('yf-service');
+      if (sel) {
+        if (activeMatch === 'individual') {
+          sel.value = '60';
+        } else {
+          sel.value = '320';
+        }
+      }
+      const overlay = document.getElementById('yape-overlay');
+      if (overlay) overlay.classList.add('active');
+    }
+
+    function closeYapeModal() {
+      const overlay = document.getElementById('yape-overlay');
+      if (overlay) overlay.classList.remove('active');
+    }
+
+    function submitYapeBooking() {
+      const form = document.getElementById('yape-form');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const sel = document.getElementById('yf-service');
+      const srvName = sel.options[sel.selectedIndex].dataset.name;
+      const srvPrice = sel.options[sel.selectedIndex].value;
+      const name = document.getElementById('yf-name').value;
+      const phone = document.getElementById('yf-phone').value;
+      const schedule = document.getElementById('yf-schedule').value;
+
+      const msg = `¡Hola! Quisiera reportar mi pago por Yape para mis clases de inglés con Papá Girasol 🌻
+
+SERVICIO: ${srvName} (S/ ${srvPrice})
+NOMBRE: ${name}
+WHATSAPP: ${phone}
+HORARIOS DE PREFERENCIA: ${schedule || 'No especificado'}
+
+Estaré enviando la captura de pantalla de la transferencia por este chat.`;
+
+      closeYapeModal();
+      document.getElementById('yape-form').reset();
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function renderPayPal() {
+      if (window.paypal && window.paypal.Buttons) {
+        paypal.Buttons({
+          createOrder: (data, actions) => {
+            const form = document.getElementById('booking-form');
+            if (!form.checkValidity()) { form.reportValidity(); return actions.reject(); }
+            return actions.order.create({
+              purchase_units: [{ amount: { value: document.getElementById('bf-service').value } }]
+            });
+          },
+          onApprove: (data, actions) => actions.order.capture().then(det => {
+            const sel = document.getElementById('bf-service');
+            const srv = sel.options[sel.selectedIndex].text;
+            const name = document.getElementById('bf-name').value;
+            const phone = document.getElementById('bf-phone').value;
+            const schedule = document.getElementById('bf-schedule').value;
+
+            const msg = `¡Hola! Acabo de hacer el pago por PayPal para mis clases de inglés con Papá Girasol 🌻 (ID de Orden: ${det.id})
+
+SERVICIO: ${srv}
+NOMBRE: ${name}
+WHATSAPP: ${phone}
+HORARIOS DE PREFERENCIA: ${schedule || 'No especificado'}`;
+
+            alert('¡Pago completado! Serás redirigido/a a WhatsApp para coordinar tus horarios.');
+            closeBookingModal();
+            document.getElementById('booking-form').reset();
+            window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+          })
+        }).render('#paypal-button-container');
+      }
+    }
+  </script>
 
 </body>
 </html>
