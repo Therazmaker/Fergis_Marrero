@@ -447,14 +447,23 @@ export default function App() {
             </div>
           </div>
 
-          {/* Sobre mí */}
-          <div style={{
-            background: CREAM, borderRadius: 16, overflow: "visible",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.13)",
-            display: "flex", flexDirection: "row", alignItems: "center",
-            padding: "28px 24px 28px 28px", gap: 0, position: "relative",
-            minHeight: 220,
-          }}>
+          {/* Clases de inglés */}
+          <a
+            href="/clases-de-ingles.html"
+            style={{
+              background: CREAM, borderRadius: 16, overflow: "visible",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.13)",
+              display: "flex", flexDirection: "row", alignItems: "center",
+              padding: "28px 24px 28px 28px", gap: 0, position: "relative",
+              minHeight: 220,
+              textDecoration: "none",
+              color: "inherit",
+              cursor: "pointer",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 10px 28px rgba(44,31,14,0.14)"; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.13)"; }}
+          >
             {/* tape decoration top */}
             <div style={{
               position: "absolute", top: -10, right: 60,
@@ -466,20 +475,22 @@ export default function App() {
             {/* Left: text */}
             <div style={{ flex: 1, paddingRight: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
-                <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain" }} />
-                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Sobre mí</h3>
+                <img src={`${R}icono-girasoles.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain" }} />
+                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Clases de inglés</h3>
               </div>
-              <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Hola, soy Mamá Girasol 🌻</p>
-              <p style={{ fontSize: "0.8rem", color: BROWN3, lineHeight: 1.7, marginBottom: 16 }}>
-                Mujer neurodivergente, acompañante y apasionada por ayudar a otras mujeres a comprenderse, aceptarse y vivir con más calma.
+              <p style={{ fontSize: "0.85rem", color: BROWN, fontWeight: 700, fontStyle: "italic", marginBottom: 8, lineHeight: 1.4 }}>
+                "Aprender un idioma no debería sentirse como una carrera contra el tiempo"
               </p>
-              <a href="#" style={{
+              <p style={{ fontSize: "0.78rem", color: BROWN3, lineHeight: 1.6, marginBottom: 16 }}>
+                Clases de inglés americano en un espacio tranquilo, flexible y adaptado al ritmo de cada estudiante. Su forma de enseñar prioriza la comprensión, la paciencia y la confianza — un ambiente donde equivocarse también forma parte del aprendizaje.
+              </p>
+              <div style={{
                 display: "inline-flex", alignItems: "center", gap: 4,
                 color: GOLD, fontWeight: 700,
-                textDecoration: "none", fontFamily: SCRIPT, fontSize: "1.05rem"
+                fontFamily: SCRIPT, fontSize: "1.05rem"
               }}>
-                Conóceme más →
-              </a>
+                Ver clases de inglés →
+              </div>
             </div>
 
             {/* Right: polaroid photo */}
@@ -493,13 +504,13 @@ export default function App() {
             }}>
               <div style={{ width: "100%", height: 160, overflow: "hidden" }}>
                 <img
-                  src={`${R}lv_0_20260710193215.jpg.jpeg`}
-                  alt="Mamá Girasol"
+                  src={`${R}papa-girasol.jpg`}
+                  alt="Clases de inglés"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
               </div>
             </div>
-          </div>
+          </a>
 
           {/* La Semillita */}
           <div style={{ background: CREAM2, borderRadius: 16, padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.1)", display: "flex", flexDirection: "column", gap: 14 }}>
