@@ -41,6 +41,7 @@ const FEATURES = [
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
+  { img: `${R}icono-libros.png`,         label: "Clases de\ninglés" },
 ];
 
 const CATEGORIES = [
@@ -286,7 +287,7 @@ export default function App() {
             ¿Qué encontrarás aquí? <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 28, height: 28, objectFit: "contain" }} />
           </h2>
           <div style={{ display: "flex", justifyContent: "center", background: CREAM, borderRadius: 16, padding: "24px 20px", boxShadow: "0 2px 12px rgba(44,31,14,0.07)" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, width: "100%", maxWidth: 860 }} className="features-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 40, width: "100%", maxWidth: 860 }} className="features-grid">
               {FEATURES.map((f, i) => (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
                   <img src={f.img} alt={f.label} style={{ width: 44, height: 44, objectFit: "contain" }} />
