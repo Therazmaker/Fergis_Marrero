@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { Link } from "react-router-dom";
+import { supabase } from "../lib/supabase";
 import { ArrowLeft, Heart, Coffee, Sun } from "lucide-react";
 
 export default function Pagar() {
@@ -113,7 +114,33 @@ export default function Pagar() {
                         });
                       }}
                       onApprove={(data, actions) => {
-                        return actions.order!.capture().then((details) => {
+                        return actions.order!.capture().then(async (details) => {
+                          try {
+                            // 1. Obtener los datos actuales del campo
+                            const { data: dbData } = await supabase.from('escenario').select('datos').eq('id', 1).single();
+                            let currentElements = dbData?.datos || [];
+                            
+                            // 2. Crear un brote en una posición aleatoria segura (lejos de los bordes)
+                            const nuevoBrote = {
+                              id: Date.now(),
+                              type: "brote",
+                              src: "/Campo/Brote.png",
+                              label: "🌱 Brote nuevo",
+                              x: 500 + Math.random() * 2000, // Coordenadas aleatorias centradas
+                              y: 500 + Math.random() * 700,
+                              w: 100,
+                              h: 100,
+                              clientName: details.payer?.name?.given_name || "Aportante Mágico"
+                            };
+                            
+                            currentElements.push(nuevoBrote);
+                            
+                            // 3. Guardar el nuevo campo en la base de datos
+                            await supabase.from("escenario").upsert({ id: 1, datos: currentElements });
+                          } catch (err) {
+                            console.error("Error al plantar el brote automático:", err);
+                          }
+
                           setPaid(true);
                         });
                       }}
