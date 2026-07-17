@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import { Link } from "react-router-dom";
 
-// Bicho inteligente: explora su zona y visita flores cercanas
+// Bicho inteligente con movimiento realista continuo
 const Bicho = ({ startX, startY, width, src, flowers }: {
   startX: number;
   startY: number;
@@ -10,64 +10,127 @@ const Bicho = ({ startX, startY, width, src, flowers }: {
   src: string;
   flowers: { x: number; y: number }[];
 }) => {
-  const [pos, setPos] = useState({ x: startX, y: startY });
-  const [visiting, setVisiting] = useState(false);
+  const bugRef = React.useRef<HTMLImageElement>(null);
+  
+  // Usamos ref para mutar estado de físicas sin re-renderizar
+  const physics = React.useRef({
+    x: startX,
+    y: startY,
+    vx: (Math.random() - 0.5) * 2,
+    vy: (Math.random() - 0.5) * 2,
+    targetX: startX,
+    targetY: startY,
+    visiting: false,
+    timer: 0,
+    angle: 0
+  });
 
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
+    let animationFrameId: number;
+    let lastTime = performance.now();
 
-    const tick = () => {
-      // 30% de probabilidad de ir a visitar una flor si hay alguna cerca
-      const shouldVisit = !visiting && flowers.length > 0 && Math.random() < 0.3;
+    const update = (time: number) => {
+      const dt = (time - lastTime) / 1000;
+      lastTime = time;
+      
+      const p = physics.current;
+      p.timer -= dt;
 
-      if (shouldVisit) {
-        // Elegir una flor aleatoria
-        const target = flowers[Math.floor(Math.random() * flowers.length)];
-        setVisiting(true);
-        // Volar hacia la flor
-        setPos({ x: target.x + (Math.random() - 0.5) * 60, y: target.y - 30 + (Math.random() - 0.5) * 40 });
-        // Quedarse unos segundos y luego volver a explorar
-        timeout = setTimeout(() => {
-          setVisiting(false);
-          setPos({
-            x: startX + (Math.random() - 0.5) * 300,
-            y: startY + (Math.random() - 0.5) * 300
-          });
-          timeout = setTimeout(tick, 1200 + Math.random() * 800);
-        }, 2000 + Math.random() * 2000);
-      } else {
-        // Exploración libre alrededor del punto de inicio
-        setPos({
-          x: startX + (Math.random() - 0.5) * 400,
-          y: startY + (Math.random() - 0.5) * 400
-        });
-        timeout = setTimeout(tick, 1200 + Math.random() * 800);
+      // Decisiones de IA
+      if (p.timer <= 0) {
+        if (p.visiting) {
+          // Terminar visita y volver a explorar
+          p.visiting = false;
+          p.timer = 2 + Math.random() * 3;
+          p.targetX = startX + (Math.random() - 0.5) * 600;
+          p.targetY = startY + (Math.random() - 0.5) * 600;
+        } else {
+          // 30% de ir a una flor si hay
+          const shouldVisit = flowers.length > 0 && Math.random() < 0.3;
+          if (shouldVisit) {
+            const target = flowers[Math.floor(Math.random() * flowers.length)];
+            p.targetX = target.x;
+            p.targetY = target.y - 30; // Posarse arribita
+            p.visiting = true;
+            p.timer = 4 + Math.random() * 3; // Tiempo hasta llegar y quedarse
+          } else {
+            // Seguir explorando
+            p.targetX = startX + (Math.random() - 0.5) * 600;
+            p.targetY = startY + (Math.random() - 0.5) * 600;
+            p.timer = 1 + Math.random() * 2;
+          }
+        }
       }
+
+      // Físicas (Steering behavior)
+      const dx = p.targetX - p.x;
+      const dy = p.targetY - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      
+      // Velocidad deseada
+      const speed = p.visiting && dist < 50 ? 20 : 150; // frenar al llegar a la flor
+      const desiredVx = dist > 0 ? (dx / dist) * speed : 0;
+      const desiredVy = dist > 0 ? (dy / dist) * speed : 0;
+
+      // Wiggle/ruido aleatorio para simular aleteo errático
+      const noiseX = (Math.random() - 0.5) * 200;
+      const noiseY = (Math.random() - 0.5) * 200;
+
+      // Steering (suavizar cambio de velocidad)
+      const steerStrength = p.visiting ? 2.5 : 1.5;
+      p.vx += (desiredVx + noiseX - p.vx) * steerStrength * dt;
+      p.vy += (desiredVy + noiseY - p.vy) * steerStrength * dt;
+
+      // Actualizar posición
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+
+      // Rotación basada en velocidad, pero suavizada
+      const targetAngle = Math.atan2(p.vy, p.vx) * (180 / Math.PI);
+      
+      // Mantener la mariposa más o menos derecha si es necesario, 
+      // pero dar giro natural. (Sumamos 90 si la imagen original mira hacia arriba)
+      // Usaremos rotación simple para darle dinamismo
+      p.angle += (targetAngle - p.angle) * 4 * dt;
+      
+      // Si el sprite está volteado horizontalmente, lo calculamos por la vx
+      const flipX = p.vx < 0 ? -1 : 1;
+
+      if (bugRef.current) {
+        const leftPct = (p.x / 3000) * 100;
+        const topPct = (p.y / 1688) * 100;
+        const wPct = (width / 3000) * 100;
+        
+        bugRef.current.style.left = `${leftPct}%`;
+        bugRef.current.style.top = `${topPct}%`;
+        bugRef.current.style.width = `${wPct}%`;
+        // Pequeño giro errático
+        const rot = p.vx * 0.1; // Se inclina ligeramente al moverse en x
+        bugRef.current.style.transform = `translate(-50%, -50%) scaleX(${flipX}) rotate(${rot}deg)`;
+        
+        if (p.visiting && dist < 50) {
+           bugRef.current.style.filter = 'drop-shadow(0 0 4px rgba(255,220,0,0.7))';
+        } else {
+           bugRef.current.style.filter = 'none';
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(update);
     };
 
-    timeout = setTimeout(tick, 800 + Math.random() * 600);
-    return () => clearTimeout(timeout);
-  }, [startX, startY, flowers, visiting]);
-
-  const leftPct = (pos.x / 3000) * 100;
-  const topPct = (pos.y / 1688) * 100;
-  const wPct = (width / 3000) * 100;
+    animationFrameId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [startX, startY, flowers, width]);
 
   return (
     <img
+      ref={bugRef}
       src={src}
       style={{
         position: 'absolute',
-        left: `${leftPct}%`,
-        top: `${topPct}%`,
-        width: `${wPct}%`,
-        transition: visiting
-          ? 'left 1.2s cubic-bezier(.4,0,.2,1), top 1.2s cubic-bezier(.4,0,.2,1)'
-          : 'left 2s ease-in-out, top 2s ease-in-out',
         zIndex: 50,
         pointerEvents: 'none',
         opacity: 0.9,
-        filter: visiting ? 'drop-shadow(0 0 4px rgba(255,220,0,0.7))' : 'none',
       }}
       alt="bicho"
     />
