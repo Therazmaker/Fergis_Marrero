@@ -120,17 +120,18 @@ export default function Pagar() {
                             const { data: dbData } = await supabase.from('escenario').select('datos').eq('id', 1).single();
                             let currentElements = dbData?.datos || [];
                             
-                            // 2. Crear un brote en una posición aleatoria segura (lejos de los bordes)
+                            // 2. Crear un brote con timestamp de plantado
                             const nuevoBrote = {
                               id: Date.now(),
                               type: "brote",
                               src: "/Campo/Brote.png",
                               label: "🌱 Brote nuevo",
-                              x: 500 + Math.random() * 2000, // Coordenadas aleatorias centradas
+                              x: 500 + Math.random() * 2000,
                               y: 500 + Math.random() * 700,
                               w: 100,
                               h: 100,
-                              clientName: details.payer?.name?.given_name || "Aportante Mágico"
+                              clientName: details.payer?.name?.given_name || "Aportante Mágico",
+                              plantedAt: new Date().toISOString(), // ⏰ Timestamp para germinar en 24h
                             };
                             
                             currentElements.push(nuevoBrote);

@@ -1,5 +1,12 @@
 @custom-variant dark (&:is(.dark *));
 
+/* Animación de pulso para brotes en germinación */
+@keyframes germinar-pulso {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.06); opacity: 0.85; }
+}
+
+
 :root {
   --font-size: 16px;
   --background: #f7f0e6;

@@ -225,6 +225,26 @@ export default function CampoGirasol() {
                     </div>
                   </div>
 
+                ) : el.type === "brote" ? (() => {
+                  // 🌱→🌻 Germinar tras 24h
+                  const VEINTICUATRO_HORAS = 24 * 60 * 60 * 1000;
+                  const haPasado24h = el.plantedAt
+                    ? Date.now() - new Date(el.plantedAt).getTime() >= VEINTICUATRO_HORAS
+                    : false;
+
+                  return haPasado24h ? (
+                    // Ya es un girasol 🌻
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+                      <img src="/Campo/Girasol.gif" style={{ width: "100%" }} alt="" />
+                    </div>
+                  ) : (
+                    // Sigue siendo un brote 🌱 (con animación de pulso suave)
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", animation: "germinar-pulso 2s ease-in-out infinite" }}>
+                      <img src="/Campo/Brote.png" style={{ width: "100%", filter: "drop-shadow(0 0 6px rgba(100,200,80,0.5))" }} alt="" />
+                    </div>
+                  );
+                })()
+
                 ) : el.type === "flower" ? (
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
                     <img src={el.src || "/Campo/Girasol.gif"} style={{ width: "100%" }} alt="" />
