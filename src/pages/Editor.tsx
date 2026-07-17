@@ -35,8 +35,9 @@ const STATIC_LIBRARY: Record<string, { type: string; src: string; label: string;
 };
 
 // ─── ELEMENTO EN EL CANVAS ────────────────────────────────────────────────────
-function CanvasItem({ el, onMove, onResize, onDelete, onNameChange }: {
+function CanvasItem({ el, zoom, onMove, onResize, onDelete, onNameChange }: {
   el: SceneElement;
+  zoom: number;
   onMove: (id: number, x: number, y: number) => void;
   onResize: (id: number, w: number, h: number) => void;
   onDelete: (id: number) => void;
@@ -47,10 +48,12 @@ function CanvasItem({ el, onMove, onResize, onDelete, onNameChange }: {
   const handlePointerDown = (e: React.PointerEvent) => {
     if ((e.target as HTMLElement).tagName === "INPUT") return;
     e.preventDefault();
-    const startX = e.clientX - el.x;
-    const startY = e.clientY - el.y;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const elStartX = el.x;
+    const elStartY = el.y;
 
-    const move = (ev: PointerEvent) => onMove(el.id, ev.clientX - startX, ev.clientY - startY);
+    const move = (ev: PointerEvent) => onMove(el.id, elStartX + (ev.clientX - startX) / zoom, elStartY + (ev.clientY - startY) / zoom);
     const up = () => { document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); };
     document.addEventListener("pointermove", move);
     document.addEventListener("pointerup", up);
@@ -148,7 +151,7 @@ function CanvasItem({ el, onMove, onResize, onDelete, onNameChange }: {
             const startX = e.clientX;
             const startY = e.clientY;
             const move = (ev: PointerEvent) => {
-              onResize(el.id, Math.max(40, startW + ev.clientX - startX), Math.max(40, startH + ev.clientY - startY));
+              onResize(el.id, Math.max(40, startW + (ev.clientX - startX) / zoom), Math.max(40, startH + (ev.clientY - startY) / zoom));
             };
             const up = () => { document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); };
             document.addEventListener("pointermove", move);
@@ -170,6 +173,7 @@ export default function Editor() {
   const ghostRef = useRef<HTMLDivElement | null>(null);
   const [uploadCategory, setUploadCategory] = useState<"Flora" | "Bichos" | "Objetos">("Flora");
   const [dynamicLibrary, setDynamicLibrary] = useState<Record<string, { type: string; src: string; label: string; isBug?: boolean }[]>>({});
+  const [zoom, setZoom] = useState(0.4);
 
   // Cargar assets del bucket de Supabase
   const loadCustomAssets = async () => {
@@ -257,9 +261,8 @@ export default function Editor() {
       // Calcular posición relativa al canvas
       if (canvasRef.current) {
         const rect = canvasRef.current.getBoundingClientRect();
-        const scroll = canvasRef.current.parentElement!;
-        const x = ev.clientX - rect.left + scroll.scrollLeft - 50;
-        const y = ev.clientY - rect.top + scroll.scrollTop - 50;
+        const x = (ev.clientX - rect.left) / zoom - 50;
+        const y = (ev.clientY - rect.top) / zoom - 50;
 
         const isWater = item.type === "water";
         const newEl: SceneElement = {
@@ -416,6 +419,16 @@ export default function Editor() {
           <p>❌ Doble clic para borrar</p>
         </div>
 
+        <div style={{ marginTop: 20, borderTop: "1px solid #333", paddingTop: 16 }}>
+          <label style={{ fontSize: 10, color: "#aaa", display: "block", marginBottom: 4 }}>Zoom del Canvas ({Math.round(zoom * 100)}%)</label>
+          <input 
+            type="range" min="0.1" max="1.5" step="0.05" 
+            value={zoom} 
+            onChange={e => setZoom(parseFloat(e.target.value))} 
+            style={{ width: "100%", accentColor: "#27ae60", cursor: "pointer" }} 
+          />
+        </div>
+
         <button
           onClick={saveData}
           disabled={saving}
@@ -440,12 +453,15 @@ export default function Editor() {
             backgroundSize: "contain",
             position: "relative",
             boxShadow: "0 0 30px rgba(0,0,0,0.7)",
+            transform: `scale(${zoom})`,
+            transformOrigin: "top left",
           }}
         >
           {elements.map(el => (
             <CanvasItem
               key={el.id}
               el={el}
+              zoom={zoom}
               onMove={updateElement}
               onResize={resizeElement}
               onDelete={deleteElement}
