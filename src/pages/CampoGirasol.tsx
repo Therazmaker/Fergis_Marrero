@@ -161,21 +161,23 @@ export default function CampoGirasol() {
       width: "100vw", 
       height: "100vh", 
       overflow: "hidden", 
-      background: "#cce8a6", // Color del pasto para que se difumine con los bordes
+      background: "#cce8a6",
       display: "flex",
       justifyContent: "center",
       alignItems: "center"
     }}>
-      {/* CONTENEDOR CENTRAL: Simula el espacio del campo (16:9 escalado) */}
+      {/* CONTENEDOR CENTRAL: fit-dentro-del-viewport manteniendo 16:9 */}
+      {/* En landscape: llena el alto. En portrait mobile: llena el ancho y se letterboxea */}
       <div style={{
         position: "relative",
-        height: "100vh",
-        aspectRatio: "16 / 9",
-        background: "url('/Campo/Campo de girasoles.png?v=3') no-repeat top left",
-        backgroundSize: "contain",
+        width: "min(100vw, calc(100vh * 16 / 9))",
+        height: "min(100vh, calc(100vw * 9 / 16))",
+        background: "url('/Campo/Campo de girasoles.png?v=3') no-repeat center center",
+        backgroundSize: "cover",
         overflow: "hidden",
         opacity: loading ? 0 : 1,
-        transition: "opacity 0.5s ease-in-out"
+        transition: "opacity 0.5s ease-in-out",
+        flexShrink: 0,
       }}>
         
         {/* ELEMENTOS DE LA BASE DE DATOS */}
@@ -245,15 +247,15 @@ export default function CampoGirasol() {
         to="/pagar"
         style={{
           position: "fixed",
-          bottom: "20px",
-          right: "20px",
+          bottom: "clamp(12px, 4vw, 20px)",
+          right: "clamp(12px, 4vw, 20px)",
           zIndex: 1000,
           backgroundColor: "#829e6c",
           color: "white",
-          padding: "12px 24px",
+          padding: "clamp(8px, 2vw, 12px) clamp(14px, 4vw, 24px)",
           borderRadius: "9999px",
           fontFamily: "'Dancing Script', cursive",
-          fontSize: "1.5rem",
+          fontSize: "clamp(1rem, 4vw, 1.5rem)",
           textDecoration: "none",
           boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
           transition: "transform 0.2s ease-in-out, background-color 0.2s ease-in-out",
