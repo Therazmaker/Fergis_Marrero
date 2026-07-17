@@ -224,6 +224,16 @@ export default function Editor() {
   const updateName = (id: number, name: string) =>
     setElements(els => els.map(e => e.id === id ? { ...e, clientName: name } : e));
 
+  const handleDeleteCustomAsset = async (itemSrc: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!window.confirm("¿Seguro que quieres borrar este elemento de la biblioteca?")) return;
+    const fileName = itemSrc.split('/').pop();
+    if (fileName) {
+      await supabase.storage.from('assets').remove([fileName]);
+      loadCustomAssets();
+    }
+  };
+
   // ── Arrastrar desde biblioteca al canvas ──────────────────────────────────
   const handleLibPointerDown = (item: typeof LIBRARY[0], e: React.PointerEvent) => {
     e.preventDefault();
@@ -359,6 +369,7 @@ export default function Editor() {
                     key={item.src + i}
                     onPointerDown={(e) => handleLibPointerDown(item, e)}
                     style={{
+                      position: "relative",
                       background: "#0f3460", borderRadius: 8, padding: 8,
                       cursor: "grab", display: "flex", flexDirection: "column",
                       alignItems: "center", gap: 4, border: "1px solid #1a4a8a",
@@ -367,6 +378,23 @@ export default function Editor() {
                     onMouseEnter={e => (e.currentTarget.style.background = "#1a5276")}
                     onMouseLeave={e => (e.currentTarget.style.background = "#0f3460")}
                   >
+                    {/* Botón borrar solo para items dinámicos (los que tienen URL de supabase) */}
+                    {item.src.includes('supabase.co') && (
+                      <button
+                        onPointerDown={(e) => handleDeleteCustomAsset(item.src, e)}
+                        style={{
+                          position: "absolute", top: -5, right: -5,
+                          background: "#e74c3c", color: "white", border: "none",
+                          borderRadius: "50%", width: 18, height: 18,
+                          fontSize: 10, cursor: "pointer", display: "flex",
+                          alignItems: "center", justifyContent: "center", zIndex: 10
+                        }}
+                        title="Borrar de la biblioteca"
+                      >
+                        ✕
+                      </button>
+                    )}
+
                     {item.src
                       ? <img src={item.src} style={{ width: 36, height: 36, objectFit: "contain" }} alt="" />
                       : <div style={{ width: 36, height: 20, background: "rgba(255,0,0,0.4)", border: "1px dashed red", borderRadius: 2 }} />
