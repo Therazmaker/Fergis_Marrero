@@ -234,7 +234,12 @@ export default function CampoGirasol() {
 
                   return haPasado24h ? (
                     // Ya es un girasol 🌻
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+                    <div style={{ 
+                      display: "flex", flexDirection: "column", alignItems: "center", width: "100%",
+                      transformOrigin: "bottom center",
+                      animation: `sway-wind ${3 + (el.id % 2)}s ease-in-out infinite alternate`,
+                      animationDelay: `-${el.id % 5}s`
+                    }}>
                       <img src="/Campo/Girasol.gif" style={{ width: "100%" }} alt="" />
                     </div>
                   ) : (
@@ -246,7 +251,12 @@ export default function CampoGirasol() {
                 })()
 
                 : el.type === "flower" ? (
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+                  <div style={{ 
+                    display: "flex", flexDirection: "column", alignItems: "center", width: "100%",
+                    transformOrigin: "bottom center",
+                    animation: `sway-wind ${3 + (el.id % 3)}s ease-in-out infinite alternate`,
+                    animationDelay: `-${el.id % 7}s`
+                  }}>
                     <img src={el.src || "/Campo/Girasol.gif"} style={{ width: "100%" }} alt="" />
                   </div>
 
