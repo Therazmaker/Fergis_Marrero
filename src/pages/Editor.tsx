@@ -119,9 +119,9 @@ function CanvasItem({ el, zoom, onMove, onResize, onDelete, onNameChange }: {
         </div>
 
       ) : el.type === "flower" ? (
-        // Girasol = solo la planta, sin tierra
+        // Flor — usa el src propio (puede ser girasol o cualquier imagen subida)
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: el.w }}>
-          <img src="/Campo/Girasol.gif" style={{ width: "100%", pointerEvents: "none" }} alt="" />
+          <img src={el.src || "/Campo/Girasol.gif"} style={{ width: "100%", pointerEvents: "none" }} alt="" />
         </div>
 
       ) : (
