@@ -245,7 +245,7 @@ export default function CampoGirasol() {
                   );
                 })()
 
-                ) : el.type === "flower" ? (
+                : el.type === "flower" ? (
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
                     <img src={el.src || "/Campo/Girasol.gif"} style={{ width: "100%" }} alt="" />
                   </div>
