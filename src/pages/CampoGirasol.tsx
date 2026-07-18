@@ -205,7 +205,7 @@ export default function CampoGirasol() {
                   left: `${leftPct}%`,
                   top: `${topPct}%`,
                   width: `${wPct}%`,
-                  zIndex: 4,
+                  zIndex: (el.type === "flower" || el.type === "brote") ? 10 : 4,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center"
