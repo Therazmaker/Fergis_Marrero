@@ -302,7 +302,7 @@ export default function CampoGirasol() {
           e.currentTarget.style.backgroundColor = "#829e6c";
         }}
       >
-        🌻 Comprar una Flor
+        🌻 Planta una Semilla
       </Link>
     </div>
   );
