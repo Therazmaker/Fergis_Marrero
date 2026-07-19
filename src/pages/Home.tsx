@@ -37,12 +37,12 @@ const NAV_LINKS = [
 ];
 
 const FEATURES = [
-  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 64 },
+  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 50 },
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
-  { img: `${R}icono-taza-te.png`,         label: "Un poco de calma", size: 64 },
+  { img: `${R}icono-taza-te.png`,         label: "Un poco de calma", size: 90 },
 ];
 
 const CATEGORIES = [
@@ -326,8 +326,10 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 20, width: "100%", maxWidth: 1060 }} className="features-grid">
               {FEATURES.map((f, i) => (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
-                  <img src={f.img} alt={f.label} style={{ width: f.size || 44, height: f.size || 44, objectFit: "contain" }} />
-                  <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line" }}>{f.label}</p>
+                  <div style={{ height: 90, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+                    <img src={f.img} alt={f.label} style={{ width: f.size || 54, height: f.size || 54, objectFit: "contain" }} />
+                  </div>
+                  <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line", margin: 0, flex: 1, display: "flex", alignItems: "flex-start", justifyContent: "center" }}>{f.label}</p>
                 </div>
               ))}
             </div>
