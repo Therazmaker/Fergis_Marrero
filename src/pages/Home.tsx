@@ -534,33 +534,29 @@ export default function Home() {
             </div>
           </div>
 
-          {/* La Semillita */}
+          {/* El Campo de Flores */}
           <div style={{ background: CREAM2, borderRadius: 16, padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.1)", display: "flex", flexDirection: "column", gap: 14 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <img src={`${R}icono-brote-semilla.png`} alt="" style={{ width: 28, height: 28, objectFit: "contain" }} />
-              <h3 style={{ fontFamily: SERIF, fontSize: "1.15rem", color: BROWN, fontWeight: 700 }}>La Semillita</h3>
+              <h3 style={{ fontFamily: SERIF, fontSize: "1.15rem", color: BROWN, fontWeight: 700 }}>El Campo de Flores</h3>
             </div>
             <p style={{ fontSize: "0.8rem", color: BROWN2, lineHeight: 1.65 }}>
-              Planta una semillita en tu correo 🌱<br />
-              Recibe reflexiones, herramientas y recursos para comprender mejor tu forma de funcionar.
+              El Campo de Flores es un jardín digital que crece con cada persona que decide acompañar este proyecto. 🌱<br />
+              Planta tu semillita y ayúdanos a seguir floreciendo.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: "auto" }}>
-              <input
-                type="email"
-                placeholder="Tu correo aquí..."
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ width: "100%", padding: "10px 16px", borderRadius: 24, border: `1.5px solid rgba(100,70,30,0.2)`, background: CREAM, color: BROWN, fontSize: "0.83rem", outline: "none", boxSizing: "border-box" }}
-              />
-              <button
-                type="submit"
-                style={{ width: "100%", padding: "11px", borderRadius: 24, background: YELLOW, color: BROWN, fontWeight: 700, fontSize: "0.85rem", border: "none", cursor: "pointer", transition: "opacity 0.2s" }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
-                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-              >
-                Quiero plantar mi semilla 🌱
-              </button>
-            </form>
+            <a
+              href="/pago.html"
+              style={{
+                display: "block", textAlign: "center", width: "100%", padding: "11px",
+                borderRadius: 24, background: YELLOW, color: BROWN, fontWeight: 700,
+                fontSize: "0.85rem", textDecoration: "none", marginTop: "auto",
+                transition: "opacity 0.2s"
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              Visitar el Campo de Flores 🌻
+            </a>
           </div>
 
         </div>
