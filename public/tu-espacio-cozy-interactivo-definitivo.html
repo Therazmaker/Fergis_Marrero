@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Espacio Cozy · Mamá Girasol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500&family=DM+Sans:wght@400;500;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  /* Amarillos */
+  --vainilla:#FEE89E;
+  --crema:#FEDD89;
+  --limon-palido:#FEF1CE;
+  --mostacillon:#F8C84B;
+
+  /* Verdes */
+  --sal:#E4E5C1;
+  --verde-musgo:#B3B989;
+  --eucalipto:#888D5C;
+  --verde-gris:#C7C7AA;
+
+  /* Marrones */
+  --arena:#D4A56B;
+  --toffee:#C98D41;
+  --canela:#BD8347;
+  --chocolate:#7D5425;
+
+  /* Neutros */
+  --lino:#F0D9B7;
+  --arena-clara:#F0E0C8;
+
+  /* Rosados y rojos suaves */
+  --rosa:#EDC3B6;
+  --rosa-claro:#F5D7C7;
+  --terracota:#BC5535;
+
+  --tinta:#4A3B2A;
+  --tinta-suave:#7A6A54;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans', sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 0%, var(--limon-palido) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 15%, var(--rosa-claro) 0%, transparent 40%),
+    var(--arena-clara);
+  color:var(--tinta);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:0.3px;
+}
+
+em, i, .no-italic{ font-style:normal !important; }
+
+button{ font-family:inherit; }
+
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ---------- HERO ---------- */
+.hero{ padding:64px 0 48px; text-align:center; position:relative; }
+.hero .kicker{
+  display:inline-block; font-size:13px; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--eucalipto); background:var(--sal);
+  padding:6px 16px; border-radius:30px; margin-bottom:22px;
+}
+.hero h1{ font-size:42px; line-height:1.15; color:var(--chocolate); margin-bottom:16px; }
+.hero .sub{
+  font-family:'Cormorant Garamond', serif; font-size:22px; color:var(--tinta-suave);
+  max-width:480px; margin:0 auto;
+}
+
+.sunflower-divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin:34px 0; }
+.sunflower-divider span{ font-size:18px; }
+.sunflower-divider .line{ height:1px; width:60px; background:var(--verde-gris); }
+
+/* ---------- INTRO TEXT ---------- */
+.intro{ padding:8px 0 48px; }
+.intro p{ font-size:17px; margin-bottom:18px; color:var(--tinta); }
+.intro p.destacado{
+  font-family:'Cormorant Garamond', serif; font-size:24px; color:var(--chocolate);
+  text-align:center; margin:36px 0; padding:0 20px;
+}
+
+/* ---------- SECTION CARD ---------- */
+.section{ margin:0 0 44px; }
+.section-title{ font-size:30px; color:var(--chocolate); margin-bottom:8px; text-align:center; }
+.section-intro{ text-align:center; font-size:16px; margin-bottom:26px; color:var(--tinta-suave); }
+
+.card{
+  background:#fffdf8; border:1px solid var(--lino); border-radius:22px;
+  padding:34px 30px; box-shadow:0 10px 30px -18px rgba(122,90,50,0.35);
+}
+
+/* ---------- CATEGORIAS ---------- */
+.categorias{ display:grid; gap:22px; }
+.categoria{
+  background:#fffdf8; border:1px solid var(--lino); border-radius:22px;
+  padding:28px 28px; box-shadow:0 10px 30px -18px rgba(122,90,50,0.35); position:relative;
+}
+.categoria .cat-icon{
+  display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px;
+  border-radius:50%; background:var(--mostacillon); font-size:19px; margin-bottom:14px;
+}
+.categoria h3{ font-size:23px; color:var(--chocolate); margin-bottom:12px; }
+.categoria p{ font-size:15.5px; margin-bottom:10px; color:var(--tinta); }
+.categoria p.acento{ font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--eucalipto); }
+.categoria > p:last-of-type{ margin-bottom:0; }
+
+/* ---------- WIDGET WRAPPER (todo lo interactivo) ---------- */
+.widget{
+  margin-top:18px; padding-top:18px; border-top:1px dashed var(--verde-gris);
+}
+.widget-hint{ font-size:12.5px; color:var(--tinta-suave); margin-bottom:12px; }
+
+/* ---- Sonidos: mezclador ---- */
+.track-list{ display:grid; gap:10px; }
+.track{
+  display:flex; align-items:center; gap:12px; padding:10px 14px;
+  border-radius:14px; background:var(--sal);
+}
+.track .toggle{
+  width:38px; height:38px; flex-shrink:0; border-radius:50%; border:none;
+  background:var(--mostacillon); color:var(--chocolate); font-size:15px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:background .2s, color .2s;
+}
+.track .toggle.active{ background:var(--terracota); color:#fff; }
+.track .label{ min-width:118px; font-size:14px; color:var(--tinta); }
+.track input[type=range]{ flex:1; accent-color:var(--terracota); }
+.mix-actions{ margin-top:14px; text-align:center; }
+
+/* ---- Botones generales ---- */
+.btn{
+  border:none; border-radius:30px; padding:10px 20px; font-size:14px; cursor:pointer;
+  background:var(--chocolate); color:#fff; transition:opacity .2s;
+}
+.btn:hover{ opacity:.85; }
+.btn.ghost{ background:transparent; border:1px solid var(--chocolate); color:var(--chocolate); }
+
+/* ---- Colores ---- */
+.paleta-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.paleta-tabs button{
+  border:1px solid var(--verde-gris); background:#fff; border-radius:20px;
+  padding:6px 14px; font-size:13px; cursor:pointer; color:var(--tinta-suave);
+}
+.paleta-tabs button.active{ background:var(--chocolate); border-color:var(--chocolate); color:#fff; }
+.paleta-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(64px,1fr)); gap:10px; }
+.swatch{
+  aspect-ratio:1; border-radius:14px; cursor:pointer; position:relative;
+  border:1px solid rgba(0,0,0,.06); transition:transform .15s;
+}
+.swatch:hover{ transform:scale(1.07); }
+.swatch .hex{
+  position:absolute; inset:auto 0 4px 0; text-align:center; font-size:9.5px;
+  color:rgba(0,0,0,.5); opacity:0; transition:opacity .15s;
+}
+.swatch:hover .hex{ opacity:1; }
+.copy-toast{
+  position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
+  background:var(--chocolate); color:#fff; padding:10px 18px; border-radius:30px;
+  font-size:13.5px; opacity:0; pointer-events:none; transition:all .25s; z-index:60;
+}
+.copy-toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+.focus-overlay{
+  position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .5s;
+}
+.focus-overlay.show{ opacity:1; pointer-events:all; }
+.focus-overlay .close{
+  position:absolute; top:22px; right:26px; background:rgba(255,255,255,.7); border:none;
+  width:40px; height:40px; border-radius:50%; font-size:18px; cursor:pointer; color:var(--tinta);
+}
+.focus-overlay .txt{
+  font-family:'Cormorant Garamond', serif; font-size:26px; color:rgba(0,0,0,.55);
+  text-align:center; max-width:340px; padding:0 20px;
+}
+
+/* ---- Juegos ---- */
+.game-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.game-tabs button{
+  border:1px solid var(--verde-gris); background:#fff; border-radius:20px;
+  padding:7px 14px; font-size:13px; cursor:pointer; color:var(--tinta-suave);
+}
+.game-tabs button.active{ background:var(--eucalipto); border-color:var(--eucalipto); color:#fff; }
+.game-pane{ display:none; }
+.game-pane.active{ display:block; }
+
+#mandalaCanvas{
+  width:100%; aspect-ratio:1/1; max-width:340px; display:block; margin:0 auto 14px;
+  border-radius:20px; background:#fffdf6; border:1px solid var(--lino); touch-action:none;
+  cursor:crosshair;
+}
+.mandala-colors{ display:flex; justify-content:center; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+.mandala-colors button{
+  width:26px; height:26px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 1px var(--verde-gris);
+  cursor:pointer;
+}
+.mandala-colors button.active{ box-shadow:0 0 0 2px var(--chocolate); }
+.mandala-actions{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+
+.ws-wrap{ display:flex; flex-direction:column; align-items:center; gap:14px; }
+#wsGrid{ display:grid; gap:3px; user-select:none; }
+#wsGrid .cell{
+  width:28px; height:28px; display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; background:var(--limon-palido); border-radius:6px;
+  cursor:pointer; color:var(--tinta); transition:background .15s;
+}
+#wsGrid .cell.selected{ background:var(--mostacillon); }
+#wsGrid .cell.found{ background:var(--verde-musgo); color:#fff; }
+.ws-words{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+.ws-words span{
+  font-size:12.5px; padding:5px 12px; border-radius:20px; background:var(--sal); color:var(--tinta-suave);
+}
+.ws-words span.done{ background:var(--verde-musgo); color:#fff; text-decoration:line-through; }
+.ws-msg{ font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--chocolate); min-height:26px; }
+
+.spot-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:320px; margin:0 auto 14px;
+}
+.spot-grid button{
+  aspect-ratio:1; border-radius:14px; border:none; background:var(--limon-palido);
+  font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.spot-grid button:hover{ background:var(--vainilla); }
+.spot-msg{ text-align:center; font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--chocolate); min-height:26px; margin-bottom:10px; }
+
+/* ---- Música ---- */
+.mood-grid{ display:grid; gap:12px; }
+.mood-card{
+  display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:16px;
+  background:var(--sal); cursor:pointer; transition:background .2s;
+}
+.mood-card.playing{ background:var(--mostacillon); }
+.mood-card .m-icon{
+  width:42px; height:42px; border-radius:50%; background:#fff; display:flex; align-items:center;
+  justify-content:center; font-size:18px; flex-shrink:0;
+}
+.mood-card .m-text{ flex:1; }
+.mood-card .m-title{ font-size:15px; font-weight:700; color:var(--tinta); }
+.mood-card .m-sub{ font-size:12.5px; color:var(--tinta-suave); }
+.mood-card .m-play{
+  width:34px; height:34px; border-radius:50%; border:none; background:var(--chocolate);
+  color:#fff; font-size:13px; flex-shrink:0; cursor:pointer;
+}
+
+/* ---- Pausas de regulación ---- */
+.breath-wrap{ display:flex; flex-direction:column; align-items:center; gap:18px; }
+.breath-circle{
+  width:150px; height:150px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--vainilla), var(--mostacillon) 70%);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  transition:transform 4s ease-in-out; box-shadow:0 12px 30px -14px rgba(122,90,50,.5);
+}
+.breath-circle span{ font-family:'Cormorant Garamond', serif; font-size:17px; color:var(--chocolate); font-weight:600; }
+.breath-circle.grow{ transform:scale(1.35); }
+.breath-circle.hold{ transform:scale(1.35); }
+.breath-circle.shrink{ transform:scale(1); }
+
+.grounding-list{ display:grid; gap:12px; margin-top:16px; }
+.gr-row{ }
+.gr-row label{ font-size:13.5px; color:var(--tinta-suave); display:block; margin-bottom:6px; }
+.gr-row input{
+  width:100%; border:1px solid var(--verde-gris); border-radius:10px; padding:8px 12px;
+  font-size:14px; font-family:inherit; background:#fffdf8; color:var(--tinta);
+}
+.gr-row input:focus{ outline:2px solid var(--mostacillon); outline-offset:1px; }
+.gr-done{ text-align:center; font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--chocolate); margin-top:14px; min-height:24px; }
+
+.reg-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.reg-tabs button{
+  border:1px solid var(--verde-gris); background:#fff; border-radius:20px;
+  padding:7px 14px; font-size:13px; cursor:pointer; color:var(--tinta-suave);
+}
+.reg-tabs button.active{ background:var(--terracota); border-color:var(--terracota); color:#fff; }
+.reg-pane{ display:none; }
+.reg-pane.active{ display:block; }
+
+/* ---------- texto plano ---------- */
+.texto-plano .card p{ font-size:16px; margin-bottom:14px; }
+.texto-plano .card p:last-child{ margin-bottom:0; }
+.texto-plano .card p.cierre{
+  font-family:'Cormorant Garamond', serif; font-size:19px; color:var(--chocolate); margin-top:20px;
+}
+
+.para-ti-list{ list-style:none; display:grid; gap:14px; }
+.para-ti-list li{
+  display:flex; align-items:flex-start; gap:12px; font-size:16px;
+  background:var(--sal); border-radius:14px; padding:14px 16px;
+}
+.para-ti-list .emoji{ flex-shrink:0; }
+
+/* ---------- FOOTER ---------- */
+footer{ padding:56px 0 60px; text-align:center; }
+footer .firma{
+  font-family:'Dancing Script', cursive; font-weight:600; font-style:normal;
+  font-size:38px; color:var(--terracota); margin-bottom:4px;
+}
+footer .rol{
+  font-family:'Cormorant Garamond', serif; font-weight:400; font-style:normal;
+  font-size:16px; letter-spacing:1.5px; color:var(--tinta-suave); text-transform:uppercase;
+}
+footer .petalo{ margin-top:18px; font-size:14px; color:var(--verde-musgo); }
+
+@media (max-width:520px){
+  .hero h1{ font-size:32px; }
+  .hero .sub{ font-size:19px; }
+  .section-title{ font-size:26px; }
+  .card, .categoria{ padding:26px 20px; }
+  .track .label{ min-width:90px; font-size:12.5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="kicker" data-t="kicker">Refugio digital</span>
+    <h1 data-t="h1">Tu espacio cozy</h1>
+    <p class="sub" data-t="sub">Un rincón para bajar el ruido y volver a ti.</p>
+  </section>
+
+  <div class="sunflower-divider"><span class="line"></span><span>🌻</span><span class="line"></span></div>
+
+  <section class="intro">
+    <p data-t="intro1">Hay momentos donde la mente no necesita más información.</p>
+    <p data-t="intro2">Necesita silencio.<br>Necesita suavidad.<br>Necesita un lugar donde no tenga que resolver nada por unos minutos.</p>
+    <p data-t="intro3">🌻 <strong>Tu espacio cozy</strong> es un pequeño refugio digital creado para acompañarte cuando necesitas descansar, regular tus sentidos y reconectar contigo.</p>
+    <p data-t="intro4">Aquí no vienes a aprender.<br>No vienes a producir.<br>No vienes a mejorar.</p>
+    <p class="destacado" data-t="destacado">Vienes a estar.<br>A respirar.<br>A sentir.<br>A darte una pausa.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title" data-t="titulo1">🌼 ¿Qué encontrarás aquí?</h2>
+    <p class="section-intro" data-t="intro-titulo1">Cada rincón de abajo es real: tócalo, muévelo, quédate.</p>
+
+    <div class="categorias">
+
+      <!-- ============ SONIDOS ============ -->
+      <div class="categoria">
+        <span class="cat-icon">🎧</span>
+        <h3>Sonidos para calmar la mente</h3>
+        <p>Enciende uno o mezcla varios. Ajusta el volumen a lo que tu cuerpo pida hoy.</p>
+
+        <div class="widget">
+          <p class="widget-hint">🔈 Sonidos generados en vivo en tu navegador — actívalos y mézclalos.</p>
+          <div class="track-list" id="soundTracks"></div>
+          <div class="mix-actions"><button class="btn ghost" id="stopAllSounds">Detener todo</button></div>
+        </div>
+      </div>
+
+      <!-- ============ COLORES ============ -->
+      <div class="categoria">
+        <span class="cat-icon">🌈</span>
+        <h3>El Oráculo de Colores</h3>
+        <p>Un espacio visual para conectar con los sentidos a través de colores, formas y belleza.</p>
+
+        <div class="widget">
+          <div class="paleta-tabs" id="paletaTabs"></div>
+          <div class="paleta-grid" id="paletaGrid"></div>
+          <p class="acento" style="margin-top:14px;">Toca un color para copiarlo, o entra en modo enfoque para descansar la vista.</p>
+          <div class="mix-actions"><button class="btn" id="openFocus">Entrar en modo enfoque 🌤</button></div>
+        </div>
+      </div>
+
+      <!-- ============ JUEGOS ============ -->
+      <div class="categoria">
+        <span class="cat-icon">🧩</span>
+        <h3>Juegos para una mente inquieta</h3>
+        <p>No para ser más productiva. Solo para jugar.</p>
+
+        <div class="widget">
+          <div class="game-tabs">
+            <button class="active" data-game="mandala">Mandala digital</button>
+            <button data-game="sopa">Sopa de letras</button>
+            <button data-game="spot">Encuentra el diferente</button>
+          </div>
+
+          <div class="game-pane active" id="game-mandala">
+            <canvas id="mandalaCanvas" width="500" height="500"></canvas>
+            <div class="mandala-colors" id="mandalaColors"></div>
+            <div class="mandala-actions">
+              <button class="btn ghost" id="mandalaClear">Limpiar</button>
+              <button class="btn" id="mandalaSave">Guardar imagen</button>
+            </div>
+          </div>
+
+          <div class="game-pane" id="game-sopa">
+            <div class="ws-wrap">
+              <div id="wsGrid"></div>
+              <div class="ws-words" id="wsWords"></div>
+              <div class="ws-msg" id="wsMsg">Selecciona la primera y la última letra de cada palabra.</div>
+              <button class="btn ghost" id="wsReset">Nueva sopa de letras</button>
+            </div>
+          </div>
+
+          <div class="game-pane" id="game-spot">
+            <p class="spot-msg" id="spotMsg">Encuentra el símbolo que no es igual a los demás.</p>
+            <div class="spot-grid" id="spotGrid"></div>
+            <div class="mix-actions"><button class="btn ghost" id="spotNew">Nueva ronda</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ MÚSICA ============ -->
+      <div class="categoria">
+        <span class="cat-icon">🎶</span>
+        <h3>Música para diferentes momentos</h3>
+        <p>Paisajes musicales generativos, distintos cada vez que los escuchas.</p>
+
+        <div class="widget">
+          <p class="widget-hint">🎵 Toca una tarjeta para reproducir. Solo suena una a la vez.</p>
+          <div class="mood-grid" id="moodGrid"></div>
+        </div>
+      </div>
+
+      <!-- ============ PAUSAS DE REGULACIÓN ============ -->
+      <div class="categoria">
+        <span class="cat-icon">🌿</span>
+        <h3>Pausas de regulación</h3>
+        <p>Pequeños recursos para esos momentos donde sientes demasiados pensamientos, saturación o cansancio emocional.</p>
+
+        <div class="widget">
+          <div class="reg-tabs">
+            <button class="active" data-reg="breath">Respiración guiada</button>
+            <button data-reg="ground">Anclaje 5-4-3-2-1</button>
+          </div>
+
+          <div class="reg-pane active" id="reg-breath">
+            <div class="breath-wrap">
+              <div class="breath-circle" id="breathCircle"><span id="breathLabel">Inhala</span></div>
+              <button class="btn" id="breathToggle">Comenzar</button>
+            </div>
+          </div>
+
+          <div class="reg-pane" id="reg-ground">
+            <div class="grounding-list" id="groundList"></div>
+            <div class="gr-done" id="groundDone"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sunflower-divider"><span class="line"></span><span>🌻</span><span class="line"></span></div>
+
+  <section class="section texto-plano">
+    <h2 class="section-title" data-t="titulo2">🌻 Un espacio pensado para cerebros sensibles</h2>
+    <div class="card">
+      <p data-t="c2p1">Vivimos en un mundo lleno de estímulos.</p>
+      <p data-t="c2p2">Pantallas. Ruido. Prisa. Exigencias constantes.</p>
+      <p data-t="c2p3">A veces necesitamos lugares donde no tengamos que adaptarnos. Lugares donde podamos bajar la guardia.</p>
+      <p class="cierre" data-t="c2p4">Este espacio es una invitación a crear unos minutos de calma dentro del caos.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title" data-t="titulo3">☕ Cómo usar este espacio</h2>
+    <p class="section-intro" data-t="intro-titulo3">No hay una forma correcta. Puedes entrar cuando:</p>
+    <div class="card">
+      <ul class="para-ti-list">
+        <li><span class="emoji">🌻</span><span>Necesites descansar después de un día intenso.</span></li>
+        <li><span class="emoji">🌧</span><span>Sientas sobrecarga.</span></li>
+        <li><span class="emoji">🎨</span><span>Quieras inspirarte.</span></li>
+        <li><span class="emoji">🧠</span><span>Necesites despejar tu mente.</span></li>
+        <li><span class="emoji">🌙</span><span>Quieras cerrar el día con más suavidad.</span></li>
+        <li><span class="emoji">💛</span><span>Simplemente quieras regalarte un momento bonito.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section texto-plano">
+    <h2 class="section-title" data-t="titulo4">🌼 Un pequeño refugio dentro de internet</h2>
+    <div class="card">
+      <p data-t="c4p1">Prepara algo rico. Busca un lugar cómodo.</p>
+      <p data-t="c4p2">Elige un sonido. Un color. Una imagen. Un juego.</p>
+      <p class="cierre" data-t="c4p3">Y quédate un ratito.</p>
+      <p style="margin-top:20px;" data-t="c4p4">🌻 Este espacio no está aquí para cambiarte.</p>
+      <p class="cierre" data-t="c4p5">Está aquí para recordarte que también mereces momentos donde el mundo pueda sentirse un poco más amable.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="firma">Fergis • Mamá Girasol</div>
+    <div class="rol" data-t="rol">Acompañamiento neurodivergente</div>
+    <div class="petalo">🌻 🌼 🌻</div>
+  </footer>
+
+</div>
+
+<div class="focus-overlay" id="focusOverlay">
+  <button class="close" id="closeFocus">✕</button>
+  <p class="txt" id="focusText">Respira. No hay nada que resolver aquí.</p>
+</div>
+<div class="copy-toast" id="copyToast">Color copiado 🌻</div>
+
+<script>
+/* ============================================================
+   AUDIO ENGINE — compartido por Sonidos y Música
+   ============================================================ */
+let audioCtx = null;
+function getCtx(){
+  if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+  if(audioCtx.state === 'suspended'){ audioCtx.resume(); }
+  return audioCtx;
+}
+
+function makeNoiseBuffer(ctx, seconds, color){
+  const bufferSize = Math.max(1, Math.floor(ctx.sampleRate * seconds));
+  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  if(color === 'pink'){
+    // ruido rosa (Paul Kellet) — más cálido y suave que el ruido blanco
+    let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+    for(let i=0;i<bufferSize;i++){
+      const white = Math.random()*2-1;
+      b0 = 0.99886*b0 + white*0.0555179;
+      b1 = 0.99332*b1 + white*0.0750759;
+      b2 = 0.96900*b2 + white*0.1538520;
+      b3 = 0.86650*b3 + white*0.3104856;
+      b4 = 0.55000*b4 + white*0.5329522;
+      b5 = -0.7616*b5 - white*0.0168980;
+      const pink = b0+b1+b2+b3+b4+b5+b6+white*0.5362;
+      b6 = white*0.115926;
+      data[i] = pink*0.11;
+    }
+  } else if(color === 'brown'){
+    // ruido marrón — grave y envolvente, ideal para olas y fuego
+    let lastOut = 0;
+    for(let i=0;i<bufferSize;i++){
+      const white = Math.random()*2-1;
+      lastOut = (lastOut + 0.02*white) / 1.02;
+      data[i] = lastOut*3.5;
+    }
+  } else {
+    for(let i=0;i<bufferSize;i++){ data[i] = Math.random()*2-1; }
+  }
+  return buffer;
+}
+
+/* ---------- micro-eventos: gotas, crujidos, cantos, tintineos ---------- */
+function playDrop(ctx, dest){
+  const now = ctx.currentTime;
+  const src = ctx.createBufferSource();
+  src.buffer = makeNoiseBuffer(ctx, 0.05, 'white');
+  const filter = ctx.createBiquadFilter();
+  filter.type = 'bandpass'; filter.frequency.value = 4000 + Math.random()*3200; filter.Q.value = 6;
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.linearRampToValueAtTime(0.45 + Math.random()*0.3, now+0.006);
+  g.gain.exponentialRampToValueAtTime(0.0005, now + 0.05 + Math.random()*0.04);
+  src.connect(filter); filter.connect(g); g.connect(dest);
+  src.start(now); src.stop(now+0.14);
+}
+
+function playChirp(ctx, dest, variant){
+  const now = ctx.currentTime;
+  const isBird = variant === 'birds';
+  const baseFreq = isBird ? (2200 + Math.random()*1800) : (1100 + Math.random()*900);
+  const dur = 0.12 + Math.random()*0.14;
+  const osc = ctx.createOscillator();
+  osc.type = isBird ? 'sine' : 'triangle';
+  osc.frequency.setValueAtTime(baseFreq, now);
+  osc.frequency.exponentialRampToValueAtTime(baseFreq*(1.3+Math.random()*0.5), now+dur*0.5);
+  osc.frequency.exponentialRampToValueAtTime(baseFreq*0.8, now+dur);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.linearRampToValueAtTime(0.16 + Math.random()*0.1, now+0.02);
+  g.gain.exponentialRampToValueAtTime(0.0005, now+dur);
+  osc.connect(g); g.connect(dest);
+  osc.start(now); osc.stop(now+dur+0.02);
+
+  if(Math.random() < 0.45){
+    const t2 = now + dur*0.6;
+    const osc2 = ctx.createOscillator(); osc2.type = osc.type;
+    osc2.frequency.setValueAtTime(baseFreq*1.15, t2);
+    osc2.frequency.exponentialRampToValueAtTime(baseFreq*0.9, t2+dur*0.7);
+    const g2 = ctx.createGain();
+    g2.gain.setValueAtTime(0.0001, t2);
+    g2.gain.linearRampToValueAtTime(0.13, t2+0.02);
+    g2.gain.exponentialRampToValueAtTime(0.0005, t2+dur*0.7);
+    osc2.connect(g2); g2.connect(dest);
+    osc2.start(t2); osc2.stop(t2+dur*0.7+0.02);
+  }
+}
+
+function playClink(ctx, dest){
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  osc.type = 'sine'; osc.frequency.value = 2800 + Math.random()*2200;
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.linearRampToValueAtTime(0.05 + Math.random()*0.04, now+0.006);
+  g.gain.exponentialRampToValueAtTime(0.0005, now + 0.25 + Math.random()*0.15);
+  osc.connect(g); g.connect(dest);
+  osc.start(now); osc.stop(now+0.45);
+}
+
+function playPop(ctx, dest, depth){
+  const now = ctx.currentTime;
+  const src = ctx.createBufferSource();
+  src.buffer = makeNoiseBuffer(ctx, 0.03, 'white');
+  const filter = ctx.createBiquadFilter();
+  filter.type = 'highpass'; filter.frequency.value = 1200 + Math.random()*2600;
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.linearRampToValueAtTime(0.22 + Math.random()*0.22, now+0.003);
+  g.gain.exponentialRampToValueAtTime(0.0005, now + 0.02 + Math.random()*0.03);
+  src.connect(filter); filter.connect(g); g.connect(dest);
+  src.start(now); src.stop(now+0.08);
+  if((depth||0) < 1 && Math.random() < 0.35){
+    setTimeout(()=> playPop(ctx, dest, (depth||0)+1), 30 + Math.random()*60);
+  }
+}
+
+function playSoundEvent(ctx, dest, gen, variant){
+  if(gen==='drop') playDrop(ctx, dest);
+  else if(gen==='chirp') playChirp(ctx, dest, variant);
+  else if(gen==='clink') playClink(ctx, dest);
+  else if(gen==='pop') playPop(ctx, dest);
+}
+
+/* ---------- SONIDOS: mezclador de texturas ---------- */
+const SOUND_DEFS = [
+  { id:'lluvia',  label:'🌧 Lluvia en la ventana', bed:{color:'pink',  type:'bandpass', freq:3400, q:0.8, gain:0.30},                events:{gen:'drop',  min:70,  max:220} },
+  { id:'olas',    label:'🌊 Olas del mar',          bed:{color:'brown', type:'lowpass',  freq:480,  q:0.4, gain:0.55, sway:true} },
+  { id:'bosque',  label:'🌲 Bosque tranquilo',      bed:{color:'pink',  type:'bandpass', freq:600,  q:0.5, gain:0.16},                events:{gen:'chirp', min:1800, max:4200, variant:'forest'} },
+  { id:'cafe',    label:'☕ Cafetería acogedora',    bed:{color:'pink',  type:'lowpass',  freq:1100, q:0.3, gain:0.24, hum:true},      events:{gen:'clink', min:3200, max:7000} },
+  { id:'chimenea',label:'🔥 Chimenea',               bed:{color:'brown', type:'lowpass',  freq:280,  q:0.4, gain:0.32},                events:{gen:'pop',   min:150,  max:550} },
+  { id:'aves',    label:'🐦 Sonidos de naturaleza',  bed:{color:'pink',  type:'highpass', freq:2200, q:0.3, gain:0.12},                events:{gen:'chirp', min:900,  max:2600, variant:'birds'} },
+];
+const soundState = {}; // id -> {source, filter, bedGain, trackGain, lfo, lfo2, eventTimer, active}
+
+function buildSoundTracks(){
+  const wrap = document.getElementById('soundTracks');
+  SOUND_DEFS.forEach(def=>{
+    const row = document.createElement('div');
+    row.className = 'track';
+    row.innerHTML = `
+      <button class="toggle" data-id="${def.id}" aria-label="Reproducir ${def.label}">▶</button>
+      <span class="label">${def.label}</span>
+      <input type="range" min="0" max="100" value="55" data-id="${def.id}">
+    `;
+    wrap.appendChild(row);
+  });
+
+  wrap.querySelectorAll('.toggle').forEach(btn=>{
+    btn.addEventListener('click', ()=> toggleSound(btn.dataset.id, btn));
+  });
+  wrap.querySelectorAll('input[type=range]').forEach(sl=>{
+    sl.addEventListener('input', ()=>{
+      const st = soundState[sl.dataset.id];
+      if(st){ st.trackGain.gain.value = sl.value/100 * 0.6; }
+    });
+  });
+}
+
+function scheduleSoundEvents(id, cfg, state){
+  const ctx = getCtx();
+  function tick(){
+    if(!state.active) return;
+    playSoundEvent(ctx, state.trackGain, cfg.gen, cfg.variant);
+    const delay = cfg.min + Math.random()*(cfg.max-cfg.min);
+    state.eventTimer = setTimeout(tick, delay);
+  }
+  state.eventTimer = setTimeout(tick, cfg.min + Math.random()*(cfg.max-cfg.min));
+}
+
+function toggleSound(id, btn){
+  const ctx = getCtx();
+  if(soundState[id]){
+    stopSound(id);
+    btn.classList.remove('active'); btn.textContent = '▶';
+    return;
+  }
+  const def = SOUND_DEFS.find(d=>d.id===id);
+  const bedCfg = def.bed;
+  const slider = document.querySelector(`input[data-id="${id}"]`);
+
+  const trackGain = ctx.createGain();
+  trackGain.gain.value = (slider ? slider.value/100 : 0.55) * 0.6;
+  trackGain.connect(ctx.destination);
+
+  const buffer = makeNoiseBuffer(ctx, 4, bedCfg.color);
+  const source = ctx.createBufferSource();
+  source.buffer = buffer; source.loop = true;
+
+  const filter = ctx.createBiquadFilter();
+  filter.type = bedCfg.type; filter.frequency.value = bedCfg.freq; filter.Q.value = bedCfg.q;
+
+  const bedGain = ctx.createGain();
+  bedGain.gain.value = bedCfg.gain;
+
+  source.connect(filter); filter.connect(bedGain); bedGain.connect(trackGain);
+  source.start();
+
+  let lfo = null, lfo2 = null;
+  if(bedCfg.sway){
+    lfo = ctx.createOscillator(); lfo.frequency.value = 0.07;
+    const lfoGain = ctx.createGain(); lfoGain.gain.value = bedCfg.freq*0.6;
+    lfo.connect(lfoGain); lfoGain.connect(filter.frequency); lfo.start();
+
+    lfo2 = ctx.createOscillator(); lfo2.frequency.value = 0.05;
+    const lfoGain2 = ctx.createGain(); lfoGain2.gain.value = bedCfg.gain*0.4;
+    lfo2.connect(lfoGain2); lfoGain2.connect(bedGain.gain); lfo2.start();
+  }
+  if(bedCfg.hum){
+    lfo = ctx.createOscillator(); lfo.frequency.value = 0.15;
+    const lfoGain = ctx.createGain(); lfoGain.gain.value = bedCfg.gain*0.25;
+    lfo.connect(lfoGain); lfoGain.connect(bedGain.gain); lfo.start();
+  }
+
+  const state = { source, filter, bedGain, trackGain, lfo, lfo2, eventTimer:null, active:true };
+  soundState[id] = state;
+
+  if(def.events){ scheduleSoundEvents(id, def.events, state); }
+
+  btn.classList.add('active'); btn.textContent = '⏸';
+}
+
+function stopSound(id){
+  const st = soundState[id];
+  if(!st) return;
+  st.active = false;
+  if(st.eventTimer) clearTimeout(st.eventTimer);
+  try{ st.source.stop(); }catch(e){}
+  try{ st.lfo && st.lfo.stop(); }catch(e){}
+  try{ st.lfo2 && st.lfo2.stop(); }catch(e){}
+  delete soundState[id];
+}
+
+document.getElementById('stopAllSounds').addEventListener('click', ()=>{
+  Object.keys(soundState).forEach(id=>{
+    stopSound(id);
+    const btn = document.querySelector(`.toggle[data-id="${id}"]`);
+    if(btn){ btn.classList.remove('active'); btn.textContent='▶'; }
+  });
+});
+
+buildSoundTracks();
+
+/* ---------- MÚSICA: paisajes generativos por momento ---------- */
+const MOOD_DEFS = [
+  { id:'dia',    icon:'☕', title:'Empezar el día con calma', sub:'Pad suave y lento', scale:[261.6,293.7,329.6,392.0,440.0], tempo:2600, wave:'sine' },
+  { id:'crear',  icon:'🌱', title:'Crear algo nuevo',          sub:'Arpegios ligeros', scale:[293.7,349.2,392.0,440.0,523.3], tempo:1400, wave:'triangle' },
+  { id:'dormir', icon:'🌙', title:'Bajar la velocidad antes de dormir', sub:'Tonos graves y largos', scale:[196.0,220.0,246.9,293.7], tempo:3400, wave:'sine' },
+  { id:'conectar', icon:'✍️', title:'Conectar contigo', sub:'Melodía íntima', scale:[329.6,392.0,440.0,493.9,587.3], tempo:2200, wave:'sine' },
+  { id:'bonito', icon:'🌻', title:'Un momento bonito en el día', sub:'Brillante y cálido', scale:[349.2,392.0,440.0,523.3,587.3], tempo:1800, wave:'triangle' },
+];
+let currentMood = null;
+let moodTimer = null;
+
+function buildMoodCards(){
+  const grid = document.getElementById('moodGrid');
+  MOOD_DEFS.forEach(m=>{
+    const card = document.createElement('div');
+    card.className = 'mood-card'; card.dataset.id = m.id;
+    card.innerHTML = `
+      <div class="m-icon">${m.icon}</div>
+      <div class="m-text">
+        <div class="m-title">${m.title}</div>
+        <div class="m-sub">${m.sub}</div>
+      </div>
+      <button class="m-play" aria-label="Reproducir">▶</button>
+    `;
+    grid.appendChild(card);
+    card.addEventListener('click', ()=> toggleMood(m, card));
+  });
+}
+
+function toggleMood(m, card){
+  const ctx = getCtx();
+  if(currentMood === m.id){
+    stopMood(); return;
+  }
+  stopMood();
+  currentMood = m.id;
+  card.classList.add('playing');
+  card.querySelector('.m-play').textContent = '⏸';
+
+  function playNote(){
+    const freq = m.scale[Math.floor(Math.random()*m.scale.length)];
+    const osc = ctx.createOscillator();
+    osc.type = m.wave; osc.frequency.value = freq;
+    const g = ctx.createGain(); g.gain.value = 0;
+    osc.connect(g); g.connect(ctx.destination);
+    const now = ctx.currentTime;
+    g.gain.linearRampToValueAtTime(0.12, now + 0.6);
+    g.gain.linearRampToValueAtTime(0, now + (m.tempo/1000) * 0.95);
+    osc.start(now); osc.stop(now + (m.tempo/1000));
+  }
+  playNote();
+  moodTimer = setInterval(playNote, m.tempo);
+}
+
+function stopMood(){
+  if(moodTimer){ clearInterval(moodTimer); moodTimer = null; }
+  document.querySelectorAll('.mood-card').forEach(c=>{
+    c.classList.remove('playing');
+    c.querySelector('.m-play').textContent = '▶';
+  });
+  currentMood = null;
+}
+
+buildMoodCards();
+
+/* ============================================================
+   COLORES — Jardín de los colores
+   ============================================================ */
+const PALETAS = {
+  'Amanecer suave': ['#FEE89E','#FEDD89','#FEF1CE','#F8C84B','#F0D9B7'],
+  'Bosque tibio':    ['#B3B989','#888D5C','#C7C7AA','#E4E5C1','#7D5425'],
+  'Atardecer cálido':['#EDC3B6','#F5D7C7','#BC5535','#D4A56B','#C98D41'],
+  'Tierra':          ['#7D5425','#BD8347','#C98D41','#D4A56B','#F0E0C8'],
+  'Lavanda calma':   ['#D9CBEA','#C3AEDE','#EDE3F5','#A78BC9','#F3ECFA'],
+  'Menta fresca':    ['#BFE3D0','#9FD3B8','#E3F5EC','#7CBE9C','#D6EDE2'],
+  'Cielo despejado': ['#BBDDEC','#9CC9E0','#E6F3FA','#6FA9C7','#D3E9F2'],
+  'Coral suave':     ['#F5B8A8','#F2937A','#FBE0D8','#E56F52','#F8CFC3'],
+};
+
+/* Cada color tiene varias frases posibles (se sortea una al azar) */
+const PALETA_FRASES = {
+  'Amanecer suave': [
+    ['Cada amanecer es una nueva oportunidad para empezar con ternura.','Hoy es un buen día para tratarte con suavidad.','Un nuevo comienzo no tiene que ser perfecto para ser valioso.'],
+    ['Mereces la misma calidez que le das a los demás.','Tu bienestar también importa, no solo el de otros.','Darte cariño no es egoísmo, es necesario.'],
+    ['Un nuevo día, un nuevo respiro, una nueva posibilidad.','Cada respiro es una pequeña oportunidad de empezar de nuevo.','No necesitas tenerlo todo resuelto para seguir avanzando.'],
+    ['Tu luz no necesita ser intensa para ser valiosa.','Brillar a tu manera también cuenta.','No compares tu luz con la de nadie más.'],
+    ['Poco a poco también se llega lejos.','Los pasos pequeños también son progreso.','No hay prisa por llegar, solo por estar presente.'],
+  ],
+  'Bosque tibio': [
+    ['Estás creciendo, aunque no lo veas todos los días.','El crecimiento silencioso también cuenta.','No todo lo importante se nota de inmediato.'],
+    ['Como los árboles, puedes doblarte sin romperte.','La flexibilidad también es una forma de fuerza.','Puedes ceder sin perderte a ti misma.'],
+    ['Tus raíces son más fuertes de lo que imaginas.','Lo que te sostiene está más presente de lo que crees.','Tienes una base más sólida de lo que sientes hoy.'],
+    ['Está bien avanzar a tu propio ritmo, como la naturaleza.','No todo florece al mismo tiempo, y está bien.','Tu ritmo también es válido.'],
+    ['Hay calma esperándote entre tus propias ramas.','Dentro de ti también hay un lugar tranquilo.','La quietud también vive en ti.'],
+  ],
+  'Atardecer cálido': [
+    ['Hoy hiciste lo que pudiste, y eso ya es suficiente.','No tienes que hacerlo todo para que el día haya valido la pena.','Lo que lograste hoy, por pequeño que sea, cuenta.'],
+    ['Suelta lo que ya no necesitas cargar hasta mañana.','No tienes que resolver todo antes de descansar.','Puedes dejar pendientes para después, y está bien.'],
+    ['Mereces terminar el día con la misma ternura con la que empezó.','El final del día también merece amabilidad.','Cierra el día con la misma suavidad que le darías a alguien más.'],
+    ['Cada atardecer te recuerda que también puedes descansar.','Descansar no hay que ganárselo.','El descanso también es parte de avanzar.'],
+    ['Eres digna de un cierre amable, aunque el día haya sido difícil.','Los días difíciles también merecen un cierre suave.','No necesitas un buen día para merecer descanso.'],
+  ],
+  'Tierra': [
+    ['Estás más segura de lo que sientes en este momento.','La inseguridad no borra tu valor.','Lo que sientes ahora no define lo que eres.'],
+    ['Tienes un lugar en este mundo, tal como eres.','No necesitas cambiar para pertenecer.','Tu forma de ser también tiene espacio aquí.'],
+    ['Puedes construir calma incluso en medio del caos.','La calma también se puede crear, no solo encontrar.','Aun en el desorden, puedes hallar un rincón tranquilo.'],
+    ['Tu cuerpo es un hogar al que siempre puedes volver.','Volver a ti misma también es llegar a casa.','Tu cuerpo te sostiene, aunque a veces lo olvides.'],
+    ['Estar presente también es una forma de avanzar.','No todo avance se ve como movimiento.','Quedarte quieta también puede ser un paso adelante.'],
+  ],
+  'Lavanda calma': [
+    ['Tu mente merece momentos de silencio amable.','El silencio también es un lugar seguro.','No pasa nada por no tener pensamientos todo el tiempo.'],
+    ['No tienes que resolverlo todo hoy.','Mañana también existe para seguir intentando.','Puedes dejar algo para después, sin culpa.'],
+    ['Permítete simplemente estar, sin exigirte nada más.','Existir también es suficiente, a veces.','No siempre hay que hacer algo para merecer descanso.'],
+    ['La calma también es una forma de fortaleza.','Estar en paz no es debilidad.','La quietud también requiere valentía.'],
+    ['Mereces paz, incluso en los días difíciles.','La paz no depende de que todo esté bien.','Puedes buscar calma aunque el día haya sido complicado.'],
+  ],
+  'Menta fresca': [
+    ['Cada respiro profundo es un pequeño nuevo comienzo.','Respirar hondo también es un acto de cuidado.','Un respiro consciente puede cambiar el momento.'],
+    ['Puedes soltar la tensión que no te pertenece.','No toda la carga es tuya para sostener.','Puedes dejar ir lo que ya no te sirve cargar.'],
+    ['Hoy puedes empezar de nuevo, si lo necesitas.','Nunca es tarde para empezar otra vez.','Cada momento es una oportunidad de reiniciar.'],
+    ['Tu mente merece espacio para respirar.','Darle espacio a tu mente también es cuidado.','No siempre hay que llenar cada silencio.'],
+    ['Eres capaz de encontrar claridad, aunque todo se sienta confuso.','La claridad también llega poco a poco.','No necesitas entenderlo todo de inmediato.'],
+  ],
+  'Cielo despejado': [
+    ['Hay más espacio dentro de ti del que crees.','Tienes más capacidad de la que imaginas.','Dentro de ti también cabe la calma.'],
+    ['Mereces sentirte libre de ser quien eres.','Ser tú misma también es un acto de libertad.','No tienes que encajar para merecer espacio.'],
+    ['Las cosas pueden despejarse, aunque hoy no lo parezca.','Después de la tormenta también llega la calma.','Lo que hoy se siente denso, puede aligerarse.'],
+    ['Tienes permiso de soñar en grande, a tu manera.','Tus sueños no necesitan parecerse a los de nadie más.','Soñar también es un acto de esperanza.'],
+    ['Eres más grande que cualquier pensamiento difícil.','Un pensamiento difícil no define todo lo que eres.','Puedes contener el malestar sin que te consuma.'],
+  ],
+  'Coral suave': [
+    ['Mereces hablarte con la misma dulzura que le darías a alguien que amas.','Háblate como le hablarías a alguien que quieres cuidar.','Tus palabras hacia ti misma también importan.'],
+    ['Cuidarte también es una forma de quererte.','El autocuidado no es un lujo, es necesario.','Cuidarte a ti misma también cuenta como amor.'],
+    ['Eres digna de ternura, incluso en tus días difíciles.','La ternura también es para los días malos.','Mereces suavidad, sobre todo cuando más te cuesta.'],
+    ['Tu sensibilidad es una fortaleza, no una debilidad.','Sentir profundamente también es una forma de fuerza.','Tu forma de sentir no está mal, es parte de ti.'],
+    ['Date permiso de ser amable contigo misma hoy.','Ser amable contigo también es un buen comienzo.','Empieza por darte a ti misma la amabilidad que mereces.'],
+  ],
+};
+let activePaleta = Object.keys(PALETAS)[0];
+
+function buildPaletas(){
+  const tabs = document.getElementById('paletaTabs');
+  Object.keys(PALETAS).forEach(name=>{
+    const b = document.createElement('button');
+    b.textContent = name;
+    if(name === activePaleta) b.classList.add('active');
+    b.addEventListener('click', ()=>{
+      activePaleta = name;
+      tabs.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderPaletaGrid();
+    });
+    tabs.appendChild(b);
+  });
+  renderPaletaGrid();
+}
+
+function renderPaletaGrid(){
+  const grid = document.getElementById('paletaGrid');
+  grid.innerHTML = '';
+  PALETAS[activePaleta].forEach(hex=>{
+    const sw = document.createElement('div');
+    sw.className = 'swatch';
+    sw.style.background = hex;
+    sw.innerHTML = `<span class="hex">${hex}</span>`;
+    sw.addEventListener('click', ()=> copyHex(hex));
+    grid.appendChild(sw);
+  });
+}
+
+function copyHex(hex){
+  navigator.clipboard && navigator.clipboard.writeText(hex).catch(()=>{});
+  const toast = document.getElementById('copyToast');
+  toast.textContent = `${hex} copiado 🌻`;
+  toast.classList.add('show');
+  setTimeout(()=> toast.classList.remove('show'), 1600);
+}
+
+buildPaletas();
+
+document.getElementById('openFocus').addEventListener('click', ()=>{
+  const colores = PALETAS[activePaleta];
+  const frases = PALETA_FRASES[activePaleta];
+  const idx = Math.floor(Math.random()*colores.length);
+  const hex = colores[idx];
+  const opciones = (frases && frases[idx]) ? frases[idx] : ['Respira. No hay nada que resolver aquí.'];
+  const frase = opciones[Math.floor(Math.random()*opciones.length)];
+  const overlay = document.getElementById('focusOverlay');
+  overlay.style.background = `radial-gradient(circle at 50% 40%, ${hex}, ${colores[0]})`;
+  document.getElementById('focusText').textContent = frase;
+  overlay.classList.add('show');
+});
+document.getElementById('closeFocus').addEventListener('click', ()=>{
+  document.getElementById('focusOverlay').classList.remove('show');
+});
+
+/* ============================================================
+   JUEGOS
+   ============================================================ */
+
+/* pestañas de juegos */
+document.querySelectorAll('.game-tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.game-tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.game-pane').forEach(p=>p.classList.remove('active'));
+    document.getElementById('game-'+btn.dataset.game).classList.add('active');
+  });
+});
+
+/* ---------- Mandala digital (simetría radial) ---------- */
+const mCanvas = document.getElementById('mandalaCanvas');
+const mCtx = mCanvas.getContext('2d');
+const mColors = ['#BC5535','#7D5425','#888D5C','#C98D41','#F8C84B','#4A3B2A'];
+let mColor = mColors[0];
+let mDrawing = false;
+
+function buildMandalaColors(){
+  const wrap = document.getElementById('mandalaColors');
+  mColors.forEach((c,i)=>{
+    const b = document.createElement('button');
+    b.style.background = c;
+    if(i===0) b.classList.add('active');
+    b.addEventListener('click', ()=>{
+      mColor = c;
+      wrap.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+    });
+    wrap.appendChild(b);
+  });
+}
+buildMandalaColors();
+
+function mandalaPos(e){
+  const rect = mCanvas.getBoundingClientRect();
+  const cx = ((e.touches ? e.touches[0].clientX : e.clientX) - rect.left) * (mCanvas.width/rect.width);
+  const cy = ((e.touches ? e.touches[0].clientY : e.clientY) - rect.top) * (mCanvas.height/rect.height);
+  return {x:cx, y:cy};
+}
+
+function mandalaDraw(x,y){
+  const cx = mCanvas.width/2, cy = mCanvas.height/2;
+  const dx = x-cx, dy = y-cy;
+  const dist = Math.sqrt(dx*dx+dy*dy);
+  const angle = Math.atan2(dy,dx);
+  const segments = 10;
+  mCtx.fillStyle = mColor;
+  for(let i=0;i<segments;i++){
+    const a = angle + (Math.PI*2/segments)*i;
+    const px = cx + Math.cos(a)*dist;
+    const py = cy + Math.sin(a)*dist;
+    mCtx.beginPath(); mCtx.arc(px,py,4,0,Math.PI*2); mCtx.fill();
+    // reflejo espejado
+    const a2 = -angle + (Math.PI*2/segments)*i;
+    const px2 = cx + Math.cos(a2)*dist;
+    const py2 = cy + Math.sin(a2)*dist;
+    mCtx.beginPath(); mCtx.arc(px2,py2,4,0,Math.PI*2); mCtx.fill();
+  }
+}
+
+['mousedown','touchstart'].forEach(ev=> mCanvas.addEventListener(ev, e=>{ mDrawing=true; const p=mandalaPos(e); mandalaDraw(p.x,p.y); e.preventDefault(); }));
+['mousemove','touchmove'].forEach(ev=> mCanvas.addEventListener(ev, e=>{ if(!mDrawing) return; const p=mandalaPos(e); mandalaDraw(p.x,p.y); e.preventDefault(); }));
+['mouseup','mouseleave','touchend'].forEach(ev=> mCanvas.addEventListener(ev, ()=> mDrawing=false));
+
+document.getElementById('mandalaClear').addEventListener('click', ()=>{
+  mCtx.clearRect(0,0,mCanvas.width,mCanvas.height);
+});
+document.getElementById('mandalaSave').addEventListener('click', ()=>{
+  const link = document.createElement('a');
+  link.download = 'mi-mandala-cozy.png';
+  link.href = mCanvas.toDataURL();
+  link.click();
+});
+
+/* ---------- Sopa de letras ---------- */
+const WS_WORD_GROUPS = [
+  ['CALMA','PAUSA','RESPIRA','LUZ','HOGAR','RAIZ'],
+  ['FLOR','HOJA','BRISA','NIDO','ROCIO','RAMA'],
+  ['MANTA','TIBIO','ABRAZO','MIEL','CANELA','SUAVE'],
+  ['CIELO','LUNA','SOL','AURORA','ESTRELLA','NUBE'],
+  ['TERNURA','SOSIEGO','REFUGIO','GRATITUD','ARMONIA','QUIETUD'],
+  ['JARDIN','SEMILLA','PETALO','TALLO','POLEN','PRADERA'],
+];
+let WS_WORDS = WS_WORD_GROUPS[0];
+let wsLastGroupIndex = 0;
+const WS_SIZE = 10;
+let wsGridData = [];
+let wsFound = new Set();
+let wsSelecting = null;
+
+function wsPickWordGroup(){
+  let idx = Math.floor(Math.random()*WS_WORD_GROUPS.length);
+  if(WS_WORD_GROUPS.length>1){
+    while(idx===wsLastGroupIndex) idx = Math.floor(Math.random()*WS_WORD_GROUPS.length);
+  }
+  wsLastGroupIndex = idx;
+  WS_WORDS = WS_WORD_GROUPS[idx];
+}
+
+function wsRandomLetter(){ return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random()*26)]; }
+
+function wsBuildGrid(){
+  wsGridData = Array.from({length:WS_SIZE}, ()=> Array(WS_SIZE).fill(null));
+  const dirs = [[1,0],[0,1],[1,1]];
+  WS_WORDS.forEach(word=>{
+    let placed = false, tries = 0;
+    while(!placed && tries<200){
+      tries++;
+      const dir = dirs[Math.floor(Math.random()*dirs.length)];
+      const row = Math.floor(Math.random()*WS_SIZE);
+      const col = Math.floor(Math.random()*WS_SIZE);
+      const endRow = row + dir[1]*(word.length-1);
+      const endCol = col + dir[0]*(word.length-1);
+      if(endRow>=WS_SIZE || endCol>=WS_SIZE) continue;
+      let fits = true;
+      for(let i=0;i<word.length;i++){
+        const r = row+dir[1]*i, c = col+dir[0]*i;
+        if(wsGridData[r][c] && wsGridData[r][c]!==word[i]){ fits=false; break; }
+      }
+      if(!fits) continue;
+      for(let i=0;i<word.length;i++){
+        const r = row+dir[1]*i, c = col+dir[0]*i;
+        wsGridData[r][c] = word[i];
+      }
+      placed = true;
+    }
+  });
+  for(let r=0;r<WS_SIZE;r++) for(let c=0;c<WS_SIZE;c++) if(!wsGridData[r][c]) wsGridData[r][c] = wsRandomLetter();
+}
+
+function wsRender(){
+  wsFound = new Set(); wsSelecting = null;
+  wsPickWordGroup();
+  wsBuildGrid();
+  const grid = document.getElementById('wsGrid');
+  grid.style.gridTemplateColumns = `repeat(${WS_SIZE}, 28px)`;
+  grid.innerHTML = '';
+  for(let r=0;r<WS_SIZE;r++){
+    for(let c=0;c<WS_SIZE;c++){
+      const cell = document.createElement('div');
+      cell.className = 'cell'; cell.textContent = wsGridData[r][c];
+      cell.dataset.r = r; cell.dataset.c = c;
+      cell.addEventListener('click', ()=> wsCellClick(r,c,cell));
+      grid.appendChild(cell);
+    }
+  }
+  const wordsWrap = document.getElementById('wsWords');
+  wordsWrap.innerHTML = '';
+  WS_WORDS.forEach(w=>{
+    const s = document.createElement('span'); s.textContent = w; s.dataset.word = w;
+    wordsWrap.appendChild(s);
+  });
+  document.getElementById('wsMsg').textContent = 'Selecciona la primera y la última letra de cada palabra.';
+}
+
+function wsCellClick(r,c,el){
+  if(!wsSelecting){
+    wsSelecting = {r,c,el};
+    el.classList.add('selected');
+    return;
+  }
+  const dr = r - wsSelecting.r, dc = c - wsSelecting.c;
+  const steps = Math.max(Math.abs(dr), Math.abs(dc));
+  const stepR = steps ? dr/steps : 0, stepC = steps ? dc/steps : 0;
+  let letters = '', cells = [];
+  let ok = (stepR===0 || stepC===0 || Math.abs(stepR)===Math.abs(stepC));
+  if(ok){
+    for(let i=0;i<=steps;i++){
+      const rr = wsSelecting.r + Math.round(stepR*i);
+      const cc = wsSelecting.c + Math.round(stepC*i);
+      letters += wsGridData[rr][cc];
+      cells.push([rr,cc]);
+    }
+  }
+  const rev = letters.split('').reverse().join('');
+  const match = WS_WORDS.find(w => (w===letters || w===rev) && !wsFound.has(w));
+  if(match){
+    wsFound.add(match);
+    cells.forEach(([rr,cc])=>{
+      document.querySelector(`.cell[data-r="${rr}"][data-c="${cc}"]`).classList.add('found');
+    });
+    document.querySelector(`.ws-words span[data-word="${match}"]`).classList.add('done');
+    document.getElementById('wsMsg').textContent = wsFound.size===WS_WORDS.length ? '¡Las encontraste todas! 🌻' : `Encontraste "${match}" 💛`;
+  }
+  wsSelecting.el.classList.remove('selected');
+  wsSelecting = null;
+}
+
+document.getElementById('wsReset').addEventListener('click', wsRender);
+wsRender();
+
+/* ---------- Encuentra el diferente ---------- */
+const SPOT_EMOJIS = ['🌼','🍃','🌸','⭐','🍄','🌙'];
+function spotNewRound(){
+  const base = SPOT_EMOJIS[Math.floor(Math.random()*SPOT_EMOJIS.length)];
+  let different = SPOT_EMOJIS[Math.floor(Math.random()*SPOT_EMOJIS.length)];
+  while(different===base) different = SPOT_EMOJIS[Math.floor(Math.random()*SPOT_EMOJIS.length)];
+  const total = 12;
+  const oddIndex = Math.floor(Math.random()*total);
+  const grid = document.getElementById('spotGrid');
+  grid.innerHTML = '';
+  document.getElementById('spotMsg').textContent = 'Encuentra el símbolo que no es igual a los demás.';
+  for(let i=0;i<total;i++){
+    const b = document.createElement('button');
+    b.textContent = (i===oddIndex) ? different : base;
+    b.addEventListener('click', ()=>{
+      if(i===oddIndex){
+        document.getElementById('spotMsg').textContent = '¡Lo encontraste! ✨';
+        setTimeout(spotNewRound, 900);
+      }else{
+        b.style.transform = 'scale(0.9)';
+        setTimeout(()=> b.style.transform='', 150);
+      }
+    });
+    grid.appendChild(b);
+  }
+}
+document.getElementById('spotNew').addEventListener('click', spotNewRound);
+spotNewRound();
+
+/* ============================================================
+   PAUSAS DE REGULACIÓN
+   ============================================================ */
+document.querySelectorAll('.reg-tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.reg-tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.reg-pane').forEach(p=>p.classList.remove('active'));
+    document.getElementById('reg-'+btn.dataset.reg).classList.add('active');
+  });
+});
+
+/* ---------- Respiración guiada (caja 4-4-4-4) ---------- */
+let breathRunning = false;
+let breathStep = 0;
+let breathTimeout = null;
+const BREATH_PHASES = [
+  {label:'Inhala', cls:'grow'},
+  {label:'Sostén', cls:'hold'},
+  {label:'Exhala', cls:'shrink'},
+  {label:'Sostén', cls:'shrink'},
+];
+function breathTick(){
+  if(!breathRunning) return;
+  const phase = BREATH_PHASES[breathStep % BREATH_PHASES.length];
+  const circle = document.getElementById('breathCircle');
+  circle.className = 'breath-circle ' + phase.cls;
+  document.getElementById('breathLabel').textContent = phase.label;
+  breathStep++;
+  breathTimeout = setTimeout(breathTick, 4000);
+}
+document.getElementById('breathToggle').addEventListener('click', function(){
+  breathRunning = !breathRunning;
+  this.textContent = breathRunning ? 'Detener' : 'Comenzar';
+  if(breathRunning){ breathStep = 0; breathTick(); }
+  else{ clearTimeout(breathTimeout); document.getElementById('breathCircle').className='breath-circle'; document.getElementById('breathLabel').textContent='Inhala'; }
+});
+
+/* ---------- Anclaje 5-4-3-2-1 ---------- */
+const GROUND_STEPS = [
+  {n:5, sense:'que puedes ver'},
+  {n:4, sense:'que puedes tocar'},
+  {n:3, sense:'que puedes escuchar'},
+  {n:2, sense:'que puedes oler'},
+  {n:1, sense:'que puedes saborear'},
+];
+function buildGrounding(){
+  const wrap = document.getElementById('groundList');
+  GROUND_STEPS.forEach(step=>{
+    for(let i=1;i<=step.n;i++){
+      const row = document.createElement('div');
+      row.className = 'gr-row';
+      row.innerHTML = `<label>${step.n===1 && i===1 ? '1 cosa' : (i===1 ? step.n+' cosas' : '')} ${step.sense} ${step.n>1 ? '(#'+i+')' : ''}</label>
+        <input type="text" placeholder="Escribe aquí...">`;
+      wrap.appendChild(row);
+    }
+  });
+  wrap.querySelectorAll('input').forEach(inp=>{
+    inp.addEventListener('input', checkGrounding);
+  });
+}
+function checkGrounding(){
+  const inputs = document.querySelectorAll('#groundList input');
+  const filled = Array.from(inputs).every(i=> i.value.trim().length>0);
+  document.getElementById('groundDone').textContent = filled ? 'Volviste a tu cuerpo. Bien hecho 🌻' : '';
+}
+buildGrounding();
+
+</script>
+</body>
+</html>

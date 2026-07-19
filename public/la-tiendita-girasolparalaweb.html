@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Tiendita Girasol · Mamá Girasol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500&family=DM+Sans:wght@400;500;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  /* Amarillos */
+  --vainilla:#FEE89E;
+  --crema:#FEDD89;
+  --limon-palido:#FEF1CE;
+  --mostacillon:#F8C84B;
+
+  /* Verdes */
+  --sal:#E4E5C1;
+  --verde-musgo:#B3B989;
+  --eucalipto:#888D5C;
+  --verde-gris:#C7C7AA;
+
+  /* Marrones */
+  --arena:#D4A56B;
+  --toffee:#C98D41;
+  --canela:#BD8347;
+  --chocolate:#7D5425;
+
+  /* Neutros */
+  --lino:#F0D9B7;
+  --arena-clara:#F0E0C8;
+
+  /* Rosados y rojos suaves */
+  --rosa:#EDC3B6;
+  --rosa-claro:#F5D7C7;
+  --terracota:#BC5535;
+
+  --tinta:#4A3B2A;
+  --tinta-suave:#7A6A54;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans', sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 0%, var(--limon-palido) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 15%, var(--rosa-claro) 0%, transparent 40%),
+    var(--arena-clara);
+  color:var(--tinta);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:0.3px;
+}
+
+em, i, .no-italic{ font-style:normal !important; }
+button{ font-family:inherit; }
+
+.wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+
+/* ---------- HERO ---------- */
+.hero{ padding:64px 0 48px; text-align:center; position:relative; }
+.hero .kicker{
+  display:inline-block; font-size:13px; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--eucalipto); background:var(--sal);
+  padding:6px 16px; border-radius:30px; margin-bottom:22px;
+}
+.hero h1{ font-size:42px; line-height:1.15; color:var(--chocolate); margin-bottom:16px; }
+.hero .sub{
+  font-family:'Cormorant Garamond', serif; font-size:22px; color:var(--tinta-suave);
+  max-width:480px; margin:0 auto;
+}
+
+.sunflower-divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin:34px 0; }
+.sunflower-divider span{ font-size:18px; }
+.sunflower-divider .line{ height:1px; width:60px; background:var(--verde-gris); }
+
+/* ---------- INTRO TEXT ---------- */
+.intro{ padding:8px 0 48px; }
+.intro p{ font-size:17px; margin-bottom:18px; color:var(--tinta); }
+.intro p.destacado{
+  font-family:'Cormorant Garamond', serif; font-size:24px; color:var(--chocolate);
+  text-align:center; margin:36px 0; padding:0 20px;
+}
+
+/* ---------- SECTION ---------- */
+.section{ margin:0 0 44px; }
+.section-title{ font-size:30px; color:var(--chocolate); margin-bottom:8px; text-align:center; }
+.section-intro{ text-align:center; font-size:16px; margin-bottom:26px; color:var(--tinta-suave); }
+
+.card{
+  background:#fffdf8; border:1px solid var(--lino); border-radius:22px;
+  padding:34px 30px; box-shadow:0 10px 30px -18px rgba(122,90,50,0.35);
+}
+
+/* ---------- PRODUCTOS ---------- */
+.productos{ display:grid; gap:26px; }
+.producto{
+  background:#fffdf8; border:1px solid var(--lino); border-radius:22px;
+  overflow:hidden; box-shadow:0 10px 30px -18px rgba(122,90,50,0.35);
+}
+
+.producto-imagen{
+  aspect-ratio:1/1; width:100%;
+  background:
+    repeating-linear-gradient(135deg, var(--limon-palido) 0 18px, var(--vainilla) 18px 36px);
+  border-bottom:1px dashed var(--verde-gris);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  text-align:center; padding:20px;
+}
+.producto-imagen .icono{
+  width:56px; height:56px; border-radius:50%; background:#fffdf8;
+  display:flex; align-items:center; justify-content:center; font-size:24px;
+  box-shadow:0 6px 16px -8px rgba(122,90,50,0.4);
+}
+.producto-imagen .texto{
+  font-family:'Cormorant Garamond', serif; font-size:16px; color:var(--tinta-suave);
+}
+.producto-imagen .medida{
+  font-size:11.5px; letter-spacing:0.5px; color:var(--tinta-suave); opacity:0.75;
+}
+
+.producto-info{ padding:24px 26px 28px; }
+.producto-info .p-icon{
+  display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px;
+  border-radius:50%; background:var(--mostacillon); font-size:16px; margin-bottom:10px;
+}
+.producto-info h3{ font-size:22px; color:var(--chocolate); margin-bottom:8px; }
+.producto-info p{ font-size:15px; margin-bottom:10px; color:var(--tinta); }
+.producto-meta{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;
+  margin-top:14px; padding-top:14px; border-top:1px dashed var(--verde-gris);
+}
+.producto-tallas{ font-size:13px; color:var(--tinta-suave); }
+.producto-precio{
+  font-family:'Cormorant Garamond', serif; font-size:23px; color:var(--terracota); font-weight:700;
+}
+
+/* ---------- Info compra ---------- */
+.info-list{ list-style:none; display:grid; gap:14px; }
+.info-list li{
+  display:flex; align-items:flex-start; gap:12px; font-size:16px;
+  background:var(--sal); border-radius:14px; padding:14px 16px;
+}
+.info-list .emoji{ flex-shrink:0; }
+
+/* ---------- Términos ---------- */
+.terminos{ display:grid; gap:18px; }
+.termino{
+  background:#fffdf8; border:1px solid var(--lino); border-radius:18px; padding:22px 24px;
+}
+.termino h3{ font-size:19px; color:var(--chocolate); margin-bottom:8px; }
+.termino p{ font-size:14.5px; margin-bottom:6px; color:var(--tinta); }
+.termino p:last-child{ margin-bottom:0; }
+
+/* ---------- texto plano ---------- */
+.texto-plano .card p{ font-size:16px; margin-bottom:14px; }
+.texto-plano .card p:last-child{ margin-bottom:0; }
+.texto-plano .card p.cierre{
+  font-family:'Cormorant Garamond', serif; font-size:19px; color:var(--chocolate); margin-top:20px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{ padding:56px 0 60px; text-align:center; }
+footer .firma{
+  font-family:'Dancing Script', cursive; font-weight:600; font-style:normal;
+  font-size:38px; color:var(--terracota); margin-bottom:4px;
+}
+footer .rol{
+  font-family:'Cormorant Garamond', serif; font-weight:400; font-style:normal;
+  font-size:16px; letter-spacing:1.5px; color:var(--tinta-suave); text-transform:uppercase;
+}
+footer .petalo{ margin-top:18px; font-size:14px; color:var(--verde-musgo); }
+
+@media (max-width:520px){
+  .hero h1{ font-size:32px; }
+  .hero .sub{ font-size:19px; }
+  .section-title{ font-size:26px; }
+  .card, .termino{ padding:26px 20px; }
+  .producto-info{ padding:20px 20px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="kicker">Tienda oficial</span>
+    <h1>La Tiendita Girasol</h1>
+    <p class="sub">Un pedacito de Mamá Girasol para llevar contigo.</p>
+  </section>
+
+  <div class="sunflower-divider"><span class="line"></span><span>🌻</span><span class="line"></span></div>
+
+  <section class="intro">
+    <p>Hay objetos que simplemente usamos.<br>Y hay otros que nos recuerdan quiénes somos.</p>
+    <p>🌻 <strong>La Tiendita Girasol</strong> nació para crear productos inspirados en la calma, la naturaleza y la neurodivergencia. Cada diseño está pensado para acompañarte en tu día a día con un poquito de belleza, suavidad y ese toque cottagecore que tanto nos gusta.</p>
+    <p>Aquí encontrarás prendas y accesorios ilustrados con flores, girasoles, frases y elementos que forman parte del universo de Mamá Girasol.</p>
+    <p class="destacado">Porque a veces un pequeño detalle también puede recordarnos que merecemos vivir una vida más amable.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">🌻 Nuestra colección</h2>
+    <p class="section-intro">Cada pieza se prepara con cariño una vez confirmado tu pedido.</p>
+
+    <div class="productos">
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="icono">👕</div>
+          <div class="texto">Espacio para foto del producto</div>
+          <div class="medida">Polo Cottagecore</div>
+        </div>
+        <div class="producto-info">
+          <span class="p-icon">👕</span>
+          <h3>Polos Cottagecore</h3>
+          <p>Polos de algodón con ilustraciones y frases originales inspiradas en la esencia de Mamá Girasol.</p>
+          <div class="producto-meta">
+            <span class="producto-tallas">🌼 Tallas: S · M · L · XL</span>
+            <span class="producto-precio">S/68</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="icono">👗</div>
+          <div class="texto">Espacio para foto del producto</div>
+          <div class="medida">Vestido Cottagecore</div>
+        </div>
+        <div class="producto-info">
+          <span class="p-icon">👗</span>
+          <h3>Vestidos Cottagecore</h3>
+          <p>Vestidos tipo polo, cómodos, suaves y pensados para esos días en los que solo quieres sentirte libre y cómoda.</p>
+          <div class="producto-meta">
+            <span class="producto-tallas">🌼 Tallas: S · M · L · XL</span>
+            <span class="producto-precio">S/88</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="icono">☕</div>
+          <div class="texto">Espacio para foto del producto</div>
+          <div class="medida">Taza Cottagecore</div>
+        </div>
+        <div class="producto-info">
+          <span class="p-icon">☕</span>
+          <h3>Tazas Cottagecore</h3>
+          <p>Para acompañar tu café, tu té o ese chocolatito caliente de los días tranquilos. Cada diseño busca convertir un momento cotidiano en un pequeño recordatorio de calma.</p>
+          <div class="producto-meta">
+            <span class="producto-tallas">Diseño único</span>
+            <span class="producto-precio">S/30</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="icono">💧</div>
+          <div class="texto">Espacio para foto del producto</div>
+          <div class="medida">Tomatodo</div>
+        </div>
+        <div class="producto-info">
+          <span class="p-icon">💧</span>
+          <h3>Tomatodos</h3>
+          <p>Porque entre hiperfocos, trabajo y responsabilidades también necesitamos recordar algo tan simple como tomar agua. Con diseños exclusivos inspirados en Mamá Girasol.</p>
+          <div class="producto-meta">
+            <span class="producto-tallas">Diseño único</span>
+            <span class="producto-precio">S/38</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="icono">👜</div>
+          <div class="texto">Espacio para foto del producto</div>
+          <div class="medida">Tote Bag Cottagecore</div>
+        </div>
+        <div class="producto-info">
+          <span class="p-icon">👜</span>
+          <h3>Tote Bags Cottagecore</h3>
+          <p>Bolsos de tela resistentes y reutilizables para llevar libros, planners, flores, compras o cualquier pequeño tesoro que te acompañe durante el día.</p>
+          <div class="producto-meta">
+            <span class="producto-tallas">Diseño único</span>
+            <span class="producto-precio">S/35</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sunflower-divider"><span class="line"></span><span>🌻</span><span class="line"></span></div>
+
+  <section class="section">
+    <h2 class="section-title">🌻 Información de compra</h2>
+    <div class="card">
+      <ul class="info-list">
+        <li><span class="emoji">🚚</span><span>Delivery gratuito incluido en Lima Metropolitana.</span></li>
+        <li><span class="emoji">📦</span><span>Realizamos envíos a todo el Perú.</span></li>
+        <li><span class="emoji">🌤</span><span>Para envíos fuera de Lima Metropolitana, el costo se calculará según el destino antes de confirmar tu compra.</span></li>
+        <li><span class="emoji">💛</span><span>Todos los productos se preparan con mucho cariño una vez confirmado el pago.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">🌻 Términos y condiciones</h2>
+    <div class="terminos">
+
+      <div class="termino">
+        <h3>📦 Envíos</h3>
+        <p>• El delivery está incluido sin costo adicional para Lima Metropolitana.</p>
+        <p>• Realizamos envíos a cualquier ciudad del Perú.</p>
+        <p>• Para provincias, el costo de envío se informará antes de confirmar la compra.</p>
+        <p>• Los tiempos de entrega pueden variar según el destino y la empresa de transporte.</p>
+      </div>
+
+      <div class="termino">
+        <h3>💳 Pagos</h3>
+        <p>La preparación del pedido comienza una vez confirmado el pago.</p>
+        <p>Los pedidos se procesan en orden de compra.</p>
+      </div>
+
+      <div class="termino">
+        <h3>👕 Tallas</h3>
+        <p>Los polos y vestidos están disponibles en las siguientes tallas: 🌼 S · 🌼 M · 🌼 L · 🌼 XL</p>
+        <p>Te recomendamos revisar la guía de tallas antes de realizar tu compra.</p>
+      </div>
+
+      <div class="termino">
+        <h3>🔄 Cambios y devoluciones</h3>
+        <p>Muchos de nuestros productos se elaboran especialmente para cada pedido. Por ello, no aceptamos cambios ni devoluciones por errores en la elección de talla, color o por cambio de opinión.</p>
+        <p>Si tu pedido presenta algún defecto de fabricación o llega dañado durante el transporte, podrás comunicarte con nosotros dentro de las 48 horas posteriores a la entrega, adjuntando fotografías del producto y del empaque. Revisaremos tu caso y, si corresponde, realizaremos el cambio sin costo adicional.</p>
+      </div>
+
+      <div class="termino">
+        <h3>🎨 Colores</h3>
+        <p>Los colores pueden variar ligeramente dependiendo de la configuración de cada pantalla. Estas pequeñas diferencias no se consideran un defecto del producto.</p>
+      </div>
+
+      <div class="termino">
+        <h3>🌻 Propiedad intelectual</h3>
+        <p>Todos los diseños, ilustraciones, fotografías, logotipos, textos y elementos gráficos de Tienda Girasol son propiedad intelectual de Fergis Marrero.</p>
+        <p>Queda prohibida su reproducción, distribución, modificación, comercialización o utilización sin autorización previa y por escrito.</p>
+      </div>
+
+      <div class="termino">
+        <h3>📩 Atención al cliente</h3>
+        <p>Si tienes alguna duda sobre tu compra o tu pedido, puedes escribirnos a través de los canales oficiales de Mamá Girasol. Será un gusto ayudarte.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section texto-plano">
+    <h2 class="section-title">🌻 Gracias por apoyar este proyecto</h2>
+    <div class="card">
+      <p>Cada compra ayuda a que Mamá Girasol continúe creando contenido gratuito, recursos educativos y espacios de acompañamiento para personas que buscan comprender mejor su historia y su forma de experimentar el mundo.</p>
+      <p class="cierre">Gracias por llevar un pedacito de esta casita contigo. 💛🌻</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="firma">Fergis • Mamá Girasol</div>
+    <div class="rol">La Tiendita Girasol</div>
+    <div class="petalo">🌻 🌼 🌻</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
