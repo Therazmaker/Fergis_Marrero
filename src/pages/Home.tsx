@@ -37,12 +37,12 @@ const NAV_LINKS = [
 ];
 
 const FEATURES = [
-  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", isHeart: true },
+  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 64 },
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
-  { img: `${R}icono-taza-te.png`,         label: "Un poco de calma" },
+  { img: `${R}icono-taza-te.png`,         label: "Un poco de calma", size: 64 },
 ];
 
 const CATEGORIES = [
@@ -55,8 +55,7 @@ const CATEGORIES = [
   {
     title: "Tiendita Girasol",
     desc: "Artículos personalizados.",
-    img: `${R}totte bag.png`,
-    img2: `${R}Vestido.png`,
+    img: `${R}Vestido.png`,
     href: "/la-tiendita-girasolparalaweb.html",
   },
   {
@@ -115,7 +114,7 @@ const PRODUCTS = [
   {
     title: "Clases de inglés con Papá Girasol",
     badge: null,
-    img: `${R}papa-girasol.jpg`,
+    img: `${R}papa-girasol-saludando.jpeg`,
     href: "/clases-de-ingles.html",
   },
   {
@@ -327,7 +326,7 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 20, width: "100%", maxWidth: 1060 }} className="features-grid">
               {FEATURES.map((f, i) => (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
-                  <img src={f.img} alt={f.label} style={{ width: f.isHeart ? 64 : 44, height: f.isHeart ? 64 : 44, objectFit: "contain" }} />
+                  <img src={f.img} alt={f.label} style={{ width: f.size || 44, height: f.size || 44, objectFit: "contain" }} />
                   <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line" }}>{f.label}</p>
                 </div>
               ))}
@@ -393,12 +392,15 @@ export default function Home() {
             </a>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 14 }} className="products-grid">
+          <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingBottom: 20, scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }} className="products-carousel">
             {PRODUCTS.map((p, i) => (
               <a
                 key={i}
                 href={p.href || "#"}
-                style={{ background: CREAM, borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 8px rgba(44,31,14,0.08)", transition: "transform 0.2s, box-shadow 0.2s", position: "relative", cursor: "pointer", textDecoration: "none", display: "block" }}
+                style={{
+                  minWidth: 200, maxWidth: 220, flex: "0 0 auto", scrollSnapAlign: "start",
+                  background: CREAM, borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 8px rgba(44,31,14,0.08)", transition: "transform 0.2s, box-shadow 0.2s", position: "relative", cursor: "pointer", textDecoration: "none", display: "flex", flexDirection: "column"
+                }}
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 10px 28px rgba(44,31,14,0.14)"; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(44,31,14,0.08)"; }}
               >
@@ -636,15 +638,15 @@ export default function Home() {
             <div>
               <h4 style={{ color: BROWN, fontSize: "0.85rem", fontWeight: 700, marginBottom: 14 }}>Medios de pago</h4>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 8 }}>Perú</p>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
-                <img src={`${R}pago-yape.png`} alt="Yape" style={{ height: 28, objectFit: "contain" }} />
-                <img src={`${R}pago-plin.png`} alt="Plin" style={{ height: 28, objectFit: "contain" }} />
-                <img src={`${R}pago-banco.png`} alt="Banco / Depósito" style={{ height: 28, objectFit: "contain" }} />
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
+                <img src={`${R}pago-yape.png`} alt="Yape" style={{ height: 44, objectFit: "contain" }} />
+                <img src={`${R}pago-plin.png`} alt="Plin" style={{ height: 44, objectFit: "contain" }} />
+                <img src={`${R}pago-banco.png`} alt="Banco / Depósito" style={{ height: 44, objectFit: "contain" }} />
               </div>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 6 }}>Internacional</p>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                <img src={`${R}pago-paypal.png`} alt="PayPal" style={{ height: 28, objectFit: "contain" }} />
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <img src={`${R}pago-paypal.png`} alt="PayPal" style={{ height: 44, objectFit: "contain" }} />
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN, height: 44, boxSizing: "border-box" }}>
                   <CreditCard size={12} /> Tarjeta
                 </span>
               </div>
@@ -666,14 +668,13 @@ export default function Home() {
           .hamburger     { display: flex !important; }
           .hero-grid     { grid-template-columns: 1fr !important; }
           .cat-grid      { grid-template-columns: repeat(3, 1fr) !important; }
-          .products-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          .products-carousel { gap: 12px !important; }
           .features-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .bottom-grid   { grid-template-columns: 1fr !important; }
           .footer-grid   { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 640px) {
           .cat-grid      { grid-template-columns: repeat(2, 1fr) !important; }
-          .products-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .footer-grid   { grid-template-columns: 1fr !important; }
         }
       `}</style>
