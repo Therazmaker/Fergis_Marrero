@@ -32,7 +32,7 @@ const NAV_LINKS = [
   { label: "Biblioteca", href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html" },
   { label: "Tienda", href: "/la-tiendita-girasolparalaweb.html" },
   { label: "El diario de Mamá Girasol", href: "/el_diario_de_mama_girasol.html" },
-  { label: "Recursos Gratuitos", href: "/mama_girasol_kit_de_bienvenida.html" },
+  { label: "Recursos Gratuitos", href: "/recursos_de_regalo_mama_girasol.html" },
   { label: "Contacto", href: "https://wa.me/51907671044" },
 ];
 
@@ -62,7 +62,7 @@ const CATEGORIES = [
     desc: "Material descargable para cuidarte.",
     img: `${R}Regalo.png`,
     size: 150,
-    href: "/mama_girasol_kit_de_bienvenida.html",
+    href: "/recursos_de_regalo_mama_girasol.html",
   },
   {
     title: "El diario de Mamá Girasol",

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos de Regalo · Mamá Girasol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:wght@400;500;700&family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  /* Amarillos */
+  --vainilla:#FEE89E;
+  --crema:#FEDD89;
+  --limon-palido:#FEF1CE;
+  --mostacillon:#F8C84B;
+
+  /* Verdes */
+  --sal:#E4E5C1;
+  --verde-musgo:#B3B989;
+  --eucalipto:#888D5C;
+  --verde-gris:#C7C7AA;
+
+  /* Marrones */
+  --arena:#D4A56B;
+  --toffee:#C98D41;
+  --canela:#BD8347;
+  --chocolate:#7D5425;
+
+  /* Neutros */
+  --lino:#F0D9B7;
+  --arena-clara:#F0E0C8;
+
+  /* Rosados y rojos suaves */
+  --rosa:#EDC3B6;
+  --rosa-claro:#F5D7C7;
+  --terracota:#BC5535;
+
+  --tinta:#4A3B2A;
+  --tinta-suave:#7A6A54;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans', sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 0%, var(--limon-palido) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 15%, var(--rosa-claro) 0%, transparent 40%),
+    var(--arena-clara);
+  color:var(--tinta);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:0.3px;
+}
+
+em, i, .no-italic{ font-style:normal !important; }
+
+.wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:64px 0 48px;
+  text-align:center;
+}
+.hero .kicker{
+  display:inline-block;
+  font-size:13px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--eucalipto);
+  background:var(--sal);
+  padding:6px 16px;
+  border-radius:30px;
+  margin-bottom:22px;
+}
+.hero h1{
+  font-size:42px;
+  line-height:1.15;
+  color:var(--chocolate);
+  margin-bottom:16px;
+}
+.hero .sub{
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px;
+  color:var(--tinta-suave);
+  max-width:500px;
+  margin:0 auto;
+}
+
+.sunflower-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:34px 0;
+}
+.sunflower-divider span{ font-size:18px; }
+.sunflower-divider .line{
+  height:1px;
+  width:60px;
+  background:var(--verde-gris);
+}
+
+/* ---------- INTRO TEXT ---------- */
+.intro{ padding:8px 0 40px; }
+.intro p{
+  font-size:17px;
+  margin-bottom:18px;
+  color:var(--tinta);
+  text-align:center;
+}
+.intro p.destacado{
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px;
+  color:var(--chocolate);
+  text-align:center;
+  margin:30px 0 0;
+  padding:0 20px;
+}
+
+/* ---------- SECTION ---------- */
+.section{ margin:0 0 48px; }
+
+.section-title{
+  font-size:30px;
+  color:var(--chocolate);
+  margin-bottom:6px;
+  text-align:center;
+}
+.section-subtitle{
+  text-align:center;
+  font-family:'Cormorant Garamond', serif;
+  font-size:19px;
+  color:var(--tinta-suave);
+  margin-bottom:26px;
+}
+
+.card{
+  background:#fffdf8;
+  border:1px solid var(--lino);
+  border-radius:22px;
+  padding:34px 30px;
+  box-shadow:0 10px 30px -18px rgba(122,90,50,0.35);
+}
+
+.nota-legal{
+  margin-top:24px;
+  padding-top:22px;
+  border-top:1px dashed var(--verde-gris);
+  font-size:14px;
+  color:var(--tinta-suave);
+  text-align:center;
+}
+
+/* ---------- GRID DE RECURSOS ---------- */
+.recursos-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+@media (max-width:560px){
+  .recursos-grid{ grid-template-columns:1fr; }
+}
+
+.recurso-card{
+  background:#fffdf8;
+  border:1px solid var(--lino);
+  border-radius:20px;
+  padding:24px 20px;
+  box-shadow:0 10px 26px -18px rgba(122,90,50,0.35);
+  display:flex;
+  flex-direction:column;
+}
+.recurso-icono{
+  font-size:26px;
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:var(--vainilla);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:14px;
+}
+.recurso-card h3{
+  font-size:21px;
+  color:var(--chocolate);
+  margin-bottom:6px;
+}
+.recurso-card p{
+  font-size:14.5px;
+  color:var(--tinta-suave);
+  margin-bottom:16px;
+  flex-grow:1;
+}
+.recurso-botones{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:auto;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:'DM Sans', sans-serif;
+  font-size:13.5px;
+  font-weight:500;
+  padding:9px 14px;
+  border-radius:30px;
+  cursor:pointer;
+  border:1px solid transparent;
+  transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  text-decoration:none;
+}
+.btn-descarga{
+  background:var(--mostacillon);
+  color:#fff;
+  box-shadow:0 6px 16px -8px rgba(122,90,50,0.55);
+}
+.btn-descarga:hover{
+  background:var(--toffee);
+  transform:translateY(-1px);
+}
+.btn-imprimir{
+  background:var(--limon-palido);
+  border:1px solid var(--mostacillon);
+  color:var(--chocolate);
+}
+.btn-imprimir:hover{
+  background:var(--sal);
+  transform:translateY(-1px);
+}
+
+/* nota de material de impresión sugerido */
+.material-nota{
+  font-size:12.5px;
+  font-style:italic;
+  color:var(--eucalipto);
+  margin:-6px 0 14px;
+}
+
+/* ---------- PANEL DE GUÍAS (acordeón) ---------- */
+.panel-guias summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px;
+  font-weight:700;
+  color:var(--chocolate);
+}
+.panel-guias summary::-webkit-details-marker{ display:none; }
+.panel-guias summary .flecha{
+  margin-left:auto;
+  font-size:16px;
+  color:var(--eucalipto);
+  transition:transform 0.2s ease;
+}
+.panel-guias details[open] summary .flecha{ transform:rotate(180deg); }
+.panel-guias summary .recurso-icono{ margin-bottom:0; }
+
+.guias-lista{
+  margin-top:24px;
+  display:grid;
+  gap:14px;
+}
+.guia-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:var(--arena-clara);
+  border:1px solid var(--lino);
+  border-radius:16px;
+  padding:14px 16px;
+  flex-wrap:wrap;
+}
+.guia-item .guia-info{ flex:1; min-width:180px; }
+.guia-item h4{
+  font-family:'Cormorant Garamond', serif;
+  font-size:18px;
+  color:var(--chocolate);
+  margin-bottom:2px;
+}
+.guia-item p{
+  font-size:13.5px;
+  color:var(--tinta-suave);
+}
+.guia-item .recurso-botones{ margin-top:0; }
+
+/* paleta de colores: swatches */
+.paleta-swatches{
+  display:flex;
+  gap:6px;
+  margin-bottom:14px;
+}
+.swatch{
+  flex:1;
+  height:34px;
+  border-radius:8px;
+}
+
+/* pill de "incluye" */
+.incluye-list{
+  list-style:none;
+  display:grid;
+  gap:14px;
+  margin-bottom:6px;
+}
+.incluye-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  font-size:16px;
+}
+.incluye-list .emoji{ flex-shrink:0; font-size:19px; }
+
+.gran-divider{
+  text-align:center;
+  margin:60px 0 40px;
+  position:relative;
+}
+.gran-divider .line{
+  height:1px;
+  background:var(--verde-gris);
+  width:100%;
+  position:absolute;
+  top:50%;
+  left:0;
+}
+.gran-divider span{
+  position:relative;
+  background:var(--arena-clara);
+  padding:0 18px;
+  font-size:22px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{ padding:40px 0 60px; text-align:center; }
+footer .firma{
+  font-family:'Dancing Script', cursive;
+  font-weight:400;
+  font-style:normal;
+  font-size:38px;
+  color:var(--terracota);
+  margin-bottom:4px;
+}
+footer .rol{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:16px;
+  letter-spacing:1.5px;
+  color:var(--tinta-suave);
+  text-transform:uppercase;
+}
+footer .petalo{
+  margin-top:18px;
+  font-size:14px;
+  color:var(--verde-musgo);
+}
+
+@media print{
+  body{ background:#fff; }
+  .card, .recurso-card{ box-shadow:none; border-color:#ddd; }
+}
+
+@media (max-width:520px){
+  .hero h1{ font-size:32px; }
+  .hero .sub{ font-size:19px; }
+  .section-title{ font-size:26px; }
+  .card{ padding:26px 20px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="kicker">Recursos de regalo</span>
+    <h1>Un ramito de recursos<br>gratuitos para ti 🌻</h1>
+    <p class="sub">Pequeñas herramientas para acompañarte en tu día a día, con cariño y sin costo.</p>
+  </section>
+
+  <div class="sunflower-divider"><span class="line"></span><span>🌻</span><span class="line"></span></div>
+
+  <section class="intro">
+    <p>Aquí encontrarás guías cortitas, herramientas de organización y detalles bonitos para imprimir o guardar en tu celular.</p>
+    <p class="destacado">Descarga lo que necesites, imprímelo si así lo prefieres,<br>y vuelve por más cuando quieras.</p>
+  </section>
+
+  <!-- ============ GUÍAS Y ARTÍCULOS ============ -->
+  <!--
+    ✏️ CÓMO AGREGAR MÁS GUÍAS:
+    Este panel se abre con un clic y adentro se listan todas tus guías
+    (TDAH, autismo, AuDHD, y cualquier otro tema a futuro), sin límite de cantidad.
+
+    Para agregar una guía nueva:
+    1) Copia UN bloque <div class="guia-item"> ... </div> de aquí abajo (con todo su contenido).
+    2) Pégalo dentro de <div class="guias-lista"> ... </div>, antes del cierre.
+    3) Cambia el ícono (emoji), el título, la descripción y el "href" del botón de descarga
+       para que apunte a tu archivo PDF real (por ejemplo: recursos/guia-tdah.pdf).
+    4) Cambia también el texto dentro de imprimirRecurso('...') por el título de tu guía.
+  -->
+  <section class="section">
+    <h2 class="section-title">🌼 Guías y artículos</h2>
+    <p class="section-subtitle">Sobre neurodivergencia (TDAH, autismo, AuDHD) y más, sin tecnicismos</p>
+
+    <div class="card panel-guias">
+      <details>
+        <summary>
+          <span class="recurso-icono">📖</span>
+          Ver guías disponibles
+          <span class="flecha">▾</span>
+        </summary>
+
+        <div class="guias-lista">
+
+          <div class="guia-item">
+            <div class="guia-info">
+              <h4>Nombre de la guía 1</h4>
+              <p>Reemplaza este texto con una breve descripción de qué trata esta guía.</p>
+            </div>
+            <div class="recurso-botones">
+              <a class="btn btn-descarga" href="recursos/guia-1.pdf" download>📥 Descargar</a>
+              <button class="btn btn-imprimir" onclick="imprimirRecurso('Nombre de la guía 1')">🖨️ Imprimir</button>
+            </div>
+          </div>
+
+          <div class="guia-item">
+            <div class="guia-info">
+              <h4>Nombre de la guía 2</h4>
+              <p>Reemplaza este texto con una breve descripción de qué trata esta guía.</p>
+            </div>
+            <div class="recurso-botones">
+              <a class="btn btn-descarga" href="recursos/guia-2.pdf" download>📥 Descargar</a>
+              <button class="btn btn-imprimir" onclick="imprimirRecurso('Nombre de la guía 2')">🖨️ Imprimir</button>
+            </div>
+          </div>
+
+          <div class="guia-item">
+            <div class="guia-info">
+              <h4>Nombre de la guía 3</h4>
+              <p>Reemplaza este texto con una breve descripción de qué trata esta guía.</p>
+            </div>
+            <div class="recurso-botones">
+              <a class="btn btn-descarga" href="recursos/guia-3.pdf" download>📥 Descargar</a>
+              <button class="btn btn-imprimir" onclick="imprimirRecurso('Nombre de la guía 3')">🖨️ Imprimir</button>
+            </div>
+          </div>
+
+          <!-- 👉 Agrega aquí tantos bloques .guia-item como guías necesites -->
+
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ ORGANIZACIÓN Y BIENESTAR ============ -->
+  <section class="section">
+    <h2 class="section-title">🌻 Organización y bienestar</h2>
+    <p class="section-subtitle">Para ordenar tus días con más calma</p>
+
+    <div class="recursos-grid">
+
+      <div class="recurso-card">
+        <div class="recurso-icono">✅</div>
+        <h3>Checklist de organización</h3>
+        <p>Una lista imprimible para ir marcando tus pendientes sin agobiarte.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/checklist-organizacion.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Checklist de organización')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🔋</div>
+        <h3>Registro de energía</h3>
+        <p>Anota cómo va tu batería personal cada día, para conocerte mejor.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/registro-energia.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Registro de energía')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🗓️</div>
+        <h3>Planners</h3>
+        <p>Plantillas para organizar tu semana o tu mes, como prefieras.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/planners.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Planners')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🌸</div>
+        <h3>Seguimiento del ciclo menstrual</h3>
+        <p>Un registro sencillo para llevar el control de tu ciclo mes a mes.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/ciclo-menstrual.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Seguimiento del ciclo menstrual')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PARA DECORAR Y SONREÍR ============ -->
+  <section class="section">
+    <h2 class="section-title">🌼 Para decorar y sonreír</h2>
+    <p class="section-subtitle">Detalles bonitos para tu celu, tu compu o tu cuaderno</p>
+
+    <div class="recursos-grid">
+
+      <div class="recurso-card">
+        <div class="recurso-icono">📱</div>
+        <h3>Pack de wallpapers</h3>
+        <p>Fondos de pantalla suaves para celular y computadora.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/pack-wallpapers.zip" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Pack de wallpapers')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🌷</div>
+        <h3>Stickers cottagecore</h3>
+        <p>Un pack de stickers tiernos para tu diario, planner o donde tú quieras.</p>
+        <p class="material-nota">🖨️ Ideales para imprimir en papel adhesivo.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/stickers-cottagecore.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Stickers cottagecore')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🎨</div>
+        <h3>Paletas de colores</h3>
+        <div class="paleta-swatches">
+          <div class="swatch" style="background:var(--vainilla);"></div>
+          <div class="swatch" style="background:var(--sal);"></div>
+          <div class="swatch" style="background:var(--rosa);"></div>
+          <div class="swatch" style="background:var(--arena);"></div>
+          <div class="swatch" style="background:var(--terracota);"></div>
+        </div>
+        <p>Combinaciones de color suaves, listas para usar en tus proyectos.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/paletas-de-colores.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Paletas de colores')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🔖</div>
+        <h3>Marcapáginas florales</h3>
+        <p>Un set de marcapáginas imprimibles con ilustraciones cottagecore.</p>
+        <p class="material-nota">🖨️ Ideales en papel fotográfico, cartulina o couché.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/marcapaginas-florales.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Marcapáginas florales')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🍪</div>
+        <h3>Tarjetitas temáticas</h3>
+        <p>Tarjetitas para tu negocio, tus recordatorios o pequeños detalles.</p>
+        <p class="material-nota">🖨️ Ideales en papel fotográfico, cartulina o couché.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/tarjetitas-tematicas.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Tarjetitas temáticas')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icono">🖼️</div>
+        <h3>Escenas cottagecore</h3>
+        <p>Escenas para imprimir, enmarcar y colgar en casa como decoración.</p>
+        <p class="material-nota">🖨️ Ideales en papel fotográfico, cartulina o couché, para recortar y enmarcar.</p>
+        <div class="recurso-botones">
+          <a class="btn btn-descarga" href="recursos/escenas-cottagecore.pdf" download>📥 Descargar</a>
+          <button class="btn btn-imprimir" onclick="imprimirRecurso('Escenas cottagecore')">🖨️ Imprimir</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:26px;">
+      <ul class="incluye-list">
+        <li><span class="emoji">📄</span><span>Todos los archivos son de descarga inmediata.</span></li>
+        <li><span class="emoji">🖨️</span><span>Pensados para imprimirse en casa sin complicaciones.</span></li>
+        <li><span class="emoji">💛</span><span>Son gratuitos: nuestro pequeño regalo para ti.</span></li>
+      </ul>
+      <p class="nota-legal">🌼 Estos recursos son de uso personal y tienen fines de bienestar y organización; no sustituyen la orientación de un profesional de la salud.</p>
+    </div>
+  </section>
+
+  <div class="gran-divider"><span class="line"></span><span>🌻 🌼 🌻</span></div>
+
+  <footer>
+    <div class="firma">Fergis • Mamá Girasol</div>
+    <div class="rol">Acompañamiento neurodivergente</div>
+    <p class="petalo">🌻 Gracias por estar aquí</p>
+  </footer>
+
+</div>
+
+<script>
+function imprimirRecurso(nombre){
+  var ventana = window.open('', '_blank', 'width=650,height=800');
+  if(!ventana){ window.print(); return; }
+  ventana.document.write(
+    '<html><head><title>' + nombre + '</title>' +
+    '<style>' +
+    "body{font-family:'DM Sans',Arial,sans-serif;color:#4A3B2A;padding:48px 40px;line-height:1.6;}" +
+    "h1{font-family:'Cormorant Garamond',serif;color:#7D5425;font-size:28px;margin-bottom:16px;}" +
+    "p{font-size:14px;color:#7A6A54;}" +
+    '</style></head><body>' +
+    '<h1>' + nombre + '</h1>' +
+    '<p>Reemplaza este bloque con el contenido real de tu recurso antes de imprimir, ' +
+    'o enlaza el botón de descarga directamente a tu archivo PDF definitivo.</p>' +
+    '</body></html>'
+  );
+  ventana.document.close();
+  ventana.focus();
+  setTimeout(function(){ ventana.print(); }, 300);
+}
+</script>
+
+</body>
+</html>
