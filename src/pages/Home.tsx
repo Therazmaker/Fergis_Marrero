@@ -26,14 +26,14 @@ import {
 const R = "/Recursos/";
 
 const NAV_LINKS = [
-  "Inicio",
-  "Sobre mí",
-  "Acompañamiento",
-  "Biblioteca",
-  "Tienda",
-  "Blog",
-  "Recursos Gratuitos",
-  "Contacto",
+  { label: "Inicio", href: "/" },
+  { label: "Sobre mí", href: "#" },
+  { label: "Acompañamiento", href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html" },
+  { label: "Biblioteca", href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html" },
+  { label: "Tienda", href: "/la-tiendita-girasolparalaweb.html" },
+  { label: "El diario de Mamá Girasol", href: "/el_diario_de_mama_girasol.html" },
+  { label: "Recursos Gratuitos", href: "/mama_girasol_kit_de_bienvenida.html" },
+  { label: "Contacto", href: "https://wa.me/51907671044" },
 ];
 
 const FEATURES = [
@@ -48,34 +48,40 @@ const CATEGORIES = [
     title: "Acompañamiento emocional",
     desc: "Sesiones y espacios 1:1 para ti.",
     img: `${R}Abrazo.png`,
+    href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html",
   },
   {
     title: "Tienda de Mamá Girasol",
     desc: "Planners, guías y papelería.",
     img: `${R}totte bag.png`,
     img2: `${R}Vestido.png`,
+    href: "/la-tiendita-girasolparalaweb.html",
   },
   {
     title: "Recursos gratuitos",
     desc: "Material descargable para cuidarte.",
     img: `${R}Regalo.png`,
     size: 150,
+    href: "/mama_girasol_kit_de_bienvenida.html",
   },
   {
-    title: "Blog",
+    title: "El diario de Mamá Girasol",
     desc: "Artículos, reflexiones y más.",
     img: `${R}Cartas.png`,
+    href: "/el_diario_de_mama_girasol.html",
   },
   {
     title: "Biblioteca de recursos",
     desc: "Herramientas y talleres pasados.",
     img: `${R}Biblioteca de recursos.png`,
     size: 150,
+    href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
   {
     title: "Tu espacio cozy",
     desc: "Nuestra comunidad exclusiva.",
     img: `${R}Muebles.png`,
+    href: "/tu-espacio-cozy-interactivo-definitivo.html",
   },
 ];
 
@@ -84,26 +90,31 @@ const PRODUCTS = [
     title: "Acompañamiento emocional • Un camino para florecer",
     badge: "Más popular",
     img: `${R}Un camino para florecer2.png`,
+    href: "/un_camino_para_florecerrpara_compra_en_web.html",
   },
   {
     title: "Test de autoexploración neurodivergente",
     badge: null,
     img: `${R}Exploración neurodivergente2.png`,
+    href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html",
   },
   {
     title: "Papelería Mamá Girasol",
     badge: null,
     img: `${R}Papelería mamá girasol2.png`,
+    href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
   {
     title: "Biblioteca Mamá Girasol",
     badge: null,
     img: `${R}Biblioteca mamá girasol.png`,
+    href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
   {
     title: "Sesiones 1:1 • Un ratito con Mamá Girasol",
     badge: null,
     img: `${R}Un ratito con mamá girasol2.png`,
+    href: "/un_ratito_con_mama_girasolparacompra_en_web.html",
   },
 ];
 
@@ -167,15 +178,15 @@ export default function Home() {
           {/* Desktop nav */}
           <ul style={{ display: "flex", gap: 2, listStyle: "none", margin: 0, padding: 0, alignItems: "center" }} className="hidden-mobile">
             {NAV_LINKS.map((link) => (
-              <li key={link}>
+              <li key={link.label}>
                 <a
-                  href="#"
+                  href={link.href}
                   className="nav-link"
                   style={{ padding: "6px 10px", borderRadius: 6, fontSize: "0.82rem", fontWeight: 600, color: BROWN, textDecoration: "none", display: "block", transition: "color 0.2s" }}
                   onMouseEnter={e => (e.currentTarget.style.color = YELLOW)}
                   onMouseLeave={e => (e.currentTarget.style.color = BROWN)}
                 >
-                  {link}
+                  {link.label}
                 </a>
               </li>
             ))}
@@ -204,7 +215,7 @@ export default function Home() {
         {menuOpen && (
           <div style={{ background: CREAM, borderTop: `1px solid rgba(100,70,30,0.12)`, padding: "12px 20px 16px" }}>
             {NAV_LINKS.map((link) => (
-              <a key={link} href="#" style={{ display: "block", padding: "8px 0", fontSize: "0.9rem", fontWeight: 600, color: BROWN, textDecoration: "none", borderBottom: `1px solid rgba(100,70,30,0.08)` }}>{link}</a>
+              <a key={link.label} href={link.href} style={{ display: "block", padding: "8px 0", fontSize: "0.9rem", fontWeight: 600, color: BROWN, textDecoration: "none", borderBottom: `1px solid rgba(100,70,30,0.08)` }}>{link.label}</a>
             ))}
           </div>
         )}
@@ -313,7 +324,7 @@ export default function Home() {
             {CATEGORIES.map((cat, i) => (
               <a
                 key={i}
-                href="#"
+                href={cat.href || "#"}
                 style={{
                   background: CREAM, borderRadius: 12, display: "flex", flexDirection: "column",
                   alignItems: "center", textAlign: "center", padding: "16px 12px",
@@ -357,9 +368,10 @@ export default function Home() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 14 }} className="products-grid">
             {PRODUCTS.map((p, i) => (
-              <div
+              <a
                 key={i}
-                style={{ background: CREAM, borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 8px rgba(44,31,14,0.08)", transition: "transform 0.2s, box-shadow 0.2s", position: "relative", cursor: "pointer" }}
+                href={p.href || "#"}
+                style={{ background: CREAM, borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 8px rgba(44,31,14,0.08)", transition: "transform 0.2s, box-shadow 0.2s", position: "relative", cursor: "pointer", textDecoration: "none", display: "block" }}
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 10px 28px rgba(44,31,14,0.14)"; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(44,31,14,0.08)"; }}
               >
@@ -374,14 +386,14 @@ export default function Home() {
                   </span>
                 )}
                 {/* cart icon */}
-                <button style={{ position: "absolute", top: 10, right: 10, background: CREAM, border: "none", borderRadius: "50%", width: 28, height: 28, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 1px 4px rgba(0,0,0,0.12)" }}>
+                <span style={{ position: "absolute", top: 10, right: 10, background: CREAM, border: "none", borderRadius: "50%", width: 28, height: 28, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 1px 4px rgba(0,0,0,0.12)" }}>
                   <ShoppingBag size={13} style={{ color: GOLD }} />
-                </button>
+                </span>
                 {/* info */}
                 <div style={{ padding: "10px 12px 12px" }}>
                   <p style={{ fontSize: "0.77rem", fontWeight: 600, color: BROWN, lineHeight: 1.35, marginBottom: 0 }}>{p.title}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -568,10 +580,10 @@ export default function Home() {
             <div>
               <h4 style={{ color: BROWN, fontSize: "0.85rem", fontWeight: 700, marginBottom: 14 }}>Navega</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                {["Inicio", "Sobre mí", "Acompañamiento", "Biblioteca", "Tienda", "Blog", "Recursos Gratuitos", "Contacto"].map(link => (
-                  <li key={link}><a href="#" style={{ fontSize: "0.77rem", color: BROWN2, textDecoration: "none" }}
+                {NAV_LINKS.map(link => (
+                  <li key={link.label}><a href={link.href} style={{ fontSize: "0.77rem", color: BROWN2, textDecoration: "none" }}
                     onMouseEnter={e => (e.currentTarget.style.color = BROWN)}
-                    onMouseLeave={e => (e.currentTarget.style.color = BROWN2)}>{link}</a></li>
+                    onMouseLeave={e => (e.currentTarget.style.color = BROWN2)}>{link.label}</a></li>
                 ))}
               </ul>
             </div>
