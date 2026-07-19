@@ -253,13 +253,25 @@ export default function Home() {
           {/* Right – image collage */}
           <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
             {/* polaroid frame */}
-            <div style={{
+            {/* polaroid frame - clickable */}
+            <a href="/sobre-mi-mama-girasol.html" style={{
               background: "#fff",
               padding: "10px 10px 36px 10px",
               boxShadow: "6px 12px 32px rgba(44,31,14,0.22)",
               transform: "rotate(-2deg)",
               maxWidth: 420, width: "100%",
               position: "relative", zIndex: 2,
+              display: "block", textDecoration: "none", color: "inherit",
+              cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s"
+            }}
+            className="hero-polaroid"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "rotate(-2deg) translateY(-4px) scale(1.02)";
+              e.currentTarget.style.boxShadow = "6px 16px 40px rgba(44,31,14,0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "rotate(-2deg)";
+              e.currentTarget.style.boxShadow = "6px 12px 32px rgba(44,31,14,0.22)";
             }}>
               <div style={{ overflow: "hidden", width: "100%", height: 420 }}>
                 <img
@@ -268,7 +280,14 @@ export default function Home() {
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
               </div>
-            </div>
+              <div style={{
+                position: "absolute", bottom: 10, left: 0, width: "100%",
+                textAlign: "center", fontFamily: SCRIPT, fontSize: "1.1rem",
+                color: BROWN, fontWeight: "bold"
+              }}>
+                Haz clic para conocerme ♥
+              </div>
+            </a>
 
             {/* Sticky note top-right */}
             <div style={{

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre mí · Mamá Girasol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  /* Amarillos */
+  --vainilla:#FEE89E;
+  --crema:#FEDD89;
+  --limon-palido:#FEF1CE;
+  --mostacillon:#F8C84B;
+
+  /* Verdes */
+  --sal:#E4E5C1;
+  --verde-musgo:#B3B989;
+  --eucalipto:#888D5C;
+  --verde-gris:#C7C7AA;
+
+  /* Marrones */
+  --arena:#D4A56B;
+  --toffee:#C98D41;
+  --canela:#BD8347;
+  --chocolate:#7D5425;
+
+  /* Neutros */
+  --lino:#F0D9B7;
+  --arena-clara:#F0E0C8;
+
+  /* Rosados y rojos suaves */
+  --rosa:#EDC3B6;
+  --rosa-claro:#F5D7C7;
+  --terracota:#BC5535;
+
+  --tinta:#4A3B2A;
+  --tinta-suave:#7A6A54;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  padding:0;
+  background:
+    radial-gradient(ellipse at 15% 0%, var(--limon-palido) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 100%, var(--rosa-claro) 0%, transparent 50%),
+    var(--arena-clara);
+  color:var(--tinta);
+  font-family:'DM Sans', sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+.paper{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 24px 80px;
+  position:relative;
+}
+
+/* ---------- cinta superior de emojis ---------- */
+.cinta-superior{
+  width:100%;
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+  flex-wrap:nowrap;
+  font-size:1.2rem;
+  padding:18px 16px;
+  background:var(--vainilla);
+  border-bottom:1px solid var(--arena);
+}
+
+/* ---------- encabezado ---------- */
+header.hero{
+  text-align:center;
+  padding:56px 20px 34px;
+  position:relative;
+}
+.girasol-grande{
+  font-size:5rem;
+  line-height:1;
+  display:block;
+  margin-bottom:10px;
+  filter:drop-shadow(0 6px 10px rgba(125,84,37,.18));
+}
+.eyebrow{
+  font-family:'DM Sans', sans-serif;
+  font-size:.72rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--eucalipto);
+  font-weight:600;
+  margin-bottom:10px;
+}
+h1.titulo{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:600;
+  font-size:clamp(3rem, 9vw, 4.6rem);
+  color:var(--terracota);
+  margin:0 0 6px;
+  line-height:1;
+}
+.subtitulo{
+  font-family:'DM Sans', sans-serif;
+  font-style:normal;
+  font-size:1.05rem;
+  color:var(--tinta-suave);
+  margin:0;
+}
+.marca{
+  font-family:'Dancing Script', cursive;
+  font-size:1.6rem;
+  letter-spacing:.02em;
+  text-transform:none;
+  color:var(--canela);
+  margin-top:18px;
+  font-weight:700;
+}
+
+/* ---------- divisores botánicos ---------- */
+.divisor{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin:44px 0;
+  color:var(--eucalipto);
+}
+.divisor .linea{
+  flex:1;
+  max-width:150px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--arena), transparent);
+}
+.divisor .icono{ font-size:1.4rem; flex-shrink:0; }
+
+/* ---------- tarjeta pergamino ---------- */
+.pergamino{
+  background:linear-gradient(180deg, #FFFDF7 0%, var(--limon-palido) 100%);
+  border:1px solid var(--arena);
+  border-radius:18px;
+  padding:38px clamp(22px,5vw,52px);
+  box-shadow:0 18px 40px -22px rgba(125,84,37,.35), 0 2px 0 var(--vainilla) inset;
+  position:relative;
+}
+.pergamino::before,
+.pergamino::after{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  border:2px solid var(--mostacillon);
+  opacity:.55;
+}
+.pergamino::before{ top:14px; left:14px; border-right:none; border-bottom:none; border-radius:8px 0 0 0; }
+.pergamino::after{ bottom:14px; right:14px; border-left:none; border-top:none; border-radius:0 0 8px 0; }
+
+.pergamino h2{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:600;
+  font-size:1.9rem;
+  color:var(--chocolate);
+  margin:0 0 4px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+p{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.22rem;
+  color:var(--tinta);
+  margin:0 0 20px;
+}
+p:last-child{ margin-bottom:0; }
+p em, .destacado{
+  font-style:italic;
+  color:var(--terracota);
+}
+strong{ color:var(--chocolate); font-weight:600; }
+
+.saludo{
+  font-family:'Dancing Script', cursive;
+  font-size:2.1rem;
+  color:var(--terracota);
+  display:block;
+  margin-bottom:6px;
+}
+
+/* ---------- nota lateral / disclaimer ---------- */
+.nota{
+  margin-top:38px;
+  padding:24px 26px;
+  background:var(--sal);
+  border-left:4px solid var(--eucalipto);
+  border-radius:4px 14px 14px 4px;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.nota .icono{ font-size:1.5rem; flex-shrink:0; margin-top:2px; }
+.nota p{ font-size:1.05rem; color:#3F4630; margin:0; }
+
+/* ---------- sección "por qué" ---------- */
+.porque{
+  margin-top:56px;
+  text-align:center;
+  padding:44px 30px 40px;
+  background:radial-gradient(ellipse at 50% 0%, var(--vainilla) 0%, var(--crema) 60%, var(--mostacillon) 140%);
+  border-radius:22px;
+  box-shadow:0 22px 50px -28px rgba(125,84,37,.5);
+  position:relative;
+  overflow:hidden;
+}
+.porque .icono-grande{
+  font-size:3rem;
+  display:block;
+  margin-bottom:14px;
+}
+.porque h2{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-weight:600;
+  font-size:1.7rem;
+  color:var(--chocolate);
+  margin:0 0 18px;
+  position:relative;
+}
+.porque p{
+  max-width:52ch;
+  margin:0 auto;
+  color:var(--tinta);
+  position:relative;
+  font-size:1.24rem;
+}
+
+/* ---------- cierre / sello ---------- */
+.cierre{
+  text-align:center;
+  margin-top:60px;
+}
+.sello{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  padding:32px 44px;
+  background:#FFFDF7;
+  border:1px solid var(--arena);
+  border-radius:20px;
+  box-shadow:0 18px 40px -24px rgba(125,84,37,.4);
+  max-width:480px;
+}
+.sello .icono{ font-size:2.6rem; }
+.sello p{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:1.3rem;
+  color:var(--chocolate);
+  margin:0;
+}
+
+/* ---------- footer ---------- */
+footer{
+  text-align:center;
+  margin-top:56px;
+  padding-top:28px;
+}
+.firma{
+  font-family:'Dancing Script', cursive;
+  font-size:1.7rem;
+  color:var(--terracota);
+}
+.rol{
+  font-family:'DM Sans', sans-serif;
+  font-size:.78rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--tinta-suave);
+  margin-top:4px;
+}
+.petalo{ margin-top:16px; font-size:1.3rem; letter-spacing:10px; }
+
+/* ---------- responsive ---------- */
+@media (max-width:560px){
+  .pergamino{ padding:28px 20px; }
+  h1.titulo{ font-size:3rem; }
+  p{ font-size:1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="cinta-superior" aria-hidden="true"><span>🌾</span><span>🌻</span><span>🌿</span><span>🦋</span><span>🌼</span><span>☀️</span><span>🌾</span><span>🌻</span><span>🍃</span><span>🌿</span><span>🌼</span><span>🌾</span></div>
+
+<div class="paper">
+
+  <header class="hero">
+    <span class="girasol-grande">🌻</span>
+    <h1 class="titulo">Sobre mí</h1>
+    <p class="subtitulo">La historia detrás de este espacio</p>
+    <div class="marca">Mamá Girasol</div>
+  </header>
+
+  <div class="divisor" aria-hidden="true">
+    <div class="linea"></div>
+    <span class="icono">🌸</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="pergamino">
+    <span class="saludo">Holi, soy Fergis 🌻</span>
+    <p>✨ En el mundo digital me conocen como <strong>Mamá Girasol</strong>, y este es un rincón que nació para acompañar a mujeres que desean conocerse mejor y encontrar respuestas sobre su mundo interior.</p>
+
+    <p>A mis 30 y pico de años recibí mi diagnóstico de AuDHD (Autismo + TDAH). Muchas piezas de mi historia empezaron a encajar. Comprendí experiencias que me habían acompañado desde niña y descubrí una forma mucho más amable de relacionarme conmigo misma. Desde entonces, este espacio también se ha convertido en un lugar donde documento ese proceso de aprendizaje, con la esperanza de que otras mujeres se sientan un poco menos solas en el suyo.</p>
+
+    <p>Estudié Educación Especial, mención Retardo Mental y Dificultades del Aprendizaje (denominación oficial de la época). Con los años, mi camino me llevó a desempeñarme como acompañante emocional, creando espacios seguros para mujeres a quienes, con mucho cariño, llamo <em>girasoles</em>. Mi mayor alegría siempre ha sido acompañarlas mientras descubren nuevas formas de comprenderse y construir una vida que se sienta más auténtica para ellas.</p>
+
+    <p>🌱 Este proyecto existe para que, si alguna vez has sentido que tu forma de pensar, sentir o vivir no encaja del todo con lo que esperabas, encuentres un lugar donde aprender con calma, hacer preguntas sin miedo y descubrirte con curiosidad y cariño.</p>
+
+    <div class="nota">
+      <span class="icono">🌿</span>
+      <p>En Mamá Girasol no realizo diagnósticos ni reemplazo la atención de profesionales de la salud mental. Lo que sí hago es acompañarte en tu proceso de autoexploración a través de sesiones, herramientas, tests orientativos, guías digitales y otros recursos que pueden ayudarte a entender mejor tu forma de experimentar el mundo y decidir, si así lo deseas, cuándo dar el siguiente paso hacia una evaluación profesional.</p>
+    </div>
+  </section>
+
+  <div class="divisor" aria-hidden="true">
+    <div class="linea"></div>
+    <span class="icono">🍃</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="porque">
+    <span class="icono-grande">🌻</span>
+    <h2>¿Por qué Mamá Girasol?</h2>
+    <p>Porque creo profundamente que todas llevamos una luz interior. A veces la vida, el agotamiento o el simple hecho de no entendernos hacen que dejemos de verla. Mamá Girasol nació para acompañarte mientras vuelves a encontrar esa luz, a tu propio ritmo, con suavidad y sin dejar de ser tú.</p>
+  </section>
+
+  <div class="cierre">
+    <div class="sello">
+      <span class="icono">🌻</span>
+      <p>Bienvenida.<br>Este siempre será un lugar donde puedes florecer a tu manera.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="firma">Fergis • Mamá Girasol</div>
+    <div class="rol">Acompañamiento neurodivergente</div>
+    <div class="petalo">🌻 🌼 🌻</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
