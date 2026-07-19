@@ -545,7 +545,7 @@ export default function Home() {
               Planta tu semillita y ayúdanos a seguir floreciendo.
             </p>
             <a
-              href="/pago.html"
+              href="/campo"
               style={{
                 display: "block", textAlign: "center", width: "100%", padding: "11px",
                 borderRadius: 24, background: YELLOW, color: BROWN, fontWeight: 700,
