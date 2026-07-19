@@ -48,40 +48,40 @@ const FEATURES = [
 const CATEGORIES = [
   {
     title: "Acompañamiento emocional",
-    desc: "Sesiones y espacios 1:1 para ti.",
+    desc: "Sesiones 1:1 para ti.",
     img: `${R}Abrazo.png`,
     href: "/servicios.html",
   },
   {
-    title: "Tienda de Mamá Girasol",
-    desc: "Planners, guías y papelería.",
+    title: "Tiendita Girasol",
+    desc: "Artículos personalizados.",
     img: `${R}totte bag.png`,
     img2: `${R}Vestido.png`,
     href: "/la-tiendita-girasolparalaweb.html",
   },
   {
-    title: "Recursos gratuitos",
-    desc: "Material descargable para cuidarte.",
+    title: "Recursos de regalo",
+    desc: "Material descargable.",
     img: `${R}Regalo.png`,
     size: 150,
     href: "/recursos_de_regalo_mama_girasol.html",
   },
   {
-    title: "El diario de Mamá Girasol",
-    desc: "Artículos, reflexiones y más.",
+    title: "El Diario de Mamá Girasol",
+    desc: "Desahogo neurodivergente.",
     img: `${R}Cartas.png`,
     href: "/el_diario_de_mama_girasol.html",
   },
   {
     title: "Biblioteca de recursos",
-    desc: "Herramientas y talleres pasados.",
+    desc: "Guías y herramientas para aprender de ti y cuidarte.",
     img: `${R}Biblioteca de recursos.png`,
     size: 150,
     href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
   {
     title: "Tu espacio cozy",
-    desc: "Nuestra comunidad exclusiva.",
+    desc: "Un lugar para estar.",
     img: `${R}Muebles.png`,
     href: "/tu-espacio-cozy-interactivo-definitivo.html",
   },
@@ -101,12 +101,6 @@ const PRODUCTS = [
     href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html",
   },
   {
-    title: "Papelería Mamá Girasol",
-    badge: null,
-    img: `${R}Papelería mamá girasol2.png`,
-    href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
-  },
-  {
     title: "Biblioteca Mamá Girasol",
     badge: null,
     img: `${R}Biblioteca mamá girasol.png`,
@@ -117,6 +111,18 @@ const PRODUCTS = [
     badge: null,
     img: `${R}Un ratito con mamá girasol2.png`,
     href: "/un_ratito_con_mama_girasolparacompra_en_web.html",
+  },
+  {
+    title: "Clases de inglés con Papá Girasol",
+    badge: null,
+    img: `${R}papa-girasol.jpg`,
+    href: "/clases-de-ingles.html",
+  },
+  {
+    title: "Campo de Flores • Apoya el proyecto",
+    badge: null,
+    img: `${R}Un camino para florecer2.png`,
+    href: "/campo",
   },
 ];
 
@@ -579,10 +585,13 @@ export default function Home() {
               <p style={{ fontSize: "0.76rem", color: BROWN2, lineHeight: 1.7, marginBottom: 14 }}>
                 Acompañamiento y recursos para mujeres neurodivergentes (Autismo, TDAH y AuDHD).
               </p>
-              <div style={{ display: "flex", gap: 8 }}>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {[
                   { icon: Instagram, url: "https://www.instagram.com/fergismarrero/" },
-                  { icon: Music2, url: "https://www.tiktok.com/@fergismarrero" }
+                  { icon: Music2, url: "https://www.tiktok.com/@fergismarrero" },
+                  { icon: Youtube, url: "https://www.youtube.com/@fergismarrero" },
+                  { icon: CreditCard, url: "https://www.pinterest.com/fergismarrero/" },
+                  { icon: Landmark, url: "https://www.linkedin.com/in/fergismarrero/" },
                 ].map((s, i) => (
                   <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: "50%", background: YELLOW, display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.2s" }}
                     onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
@@ -609,10 +618,16 @@ export default function Home() {
             <div>
               <h4 style={{ color: BROWN, fontSize: "0.85rem", fontWeight: 700, marginBottom: 14 }}>Legal</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                {["Aviso legal", "Política de privacidad", "Términos y condiciones"].map(link => (
-                  <li key={link}><a href="#" style={{ fontSize: "0.77rem", color: BROWN2, textDecoration: "none" }}
+                {[
+                  { label: "Aviso legal", href: "#" },
+                  { label: "Política de privacidad", href: "#" },
+                  { label: "Términos y condiciones", href: "#" },
+                  { label: "Libro de reclamaciones", href: "#" },
+                  { label: "Testimonios", href: "#" },
+                ].map(link => (
+                  <li key={link.label}><a href={link.href} style={{ fontSize: "0.77rem", color: BROWN2, textDecoration: "none" }}
                     onMouseEnter={e => (e.currentTarget.style.color = BROWN)}
-                    onMouseLeave={e => (e.currentTarget.style.color = BROWN2)}>{link}</a></li>
+                    onMouseLeave={e => (e.currentTarget.style.color = BROWN2)}>{link.label}</a></li>
                 ))}
               </ul>
             </div>
@@ -622,26 +637,16 @@ export default function Home() {
               <h4 style={{ color: BROWN, fontSize: "0.85rem", fontWeight: 700, marginBottom: 14 }}>Medios de pago</h4>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 8 }}>Perú</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
-                {[
-                  { name: "Yape", icon: Smartphone },
-                  { name: "Plin", icon: Smartphone },
-                  { name: "Depósito", icon: Landmark }
-                ].map(m => (
-                  <span key={m.name} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
-                    <m.icon size={12} /> {m.name}
-                  </span>
-                ))}
+                <img src={`${R}pago-yape.png`} alt="Yape" style={{ height: 28, objectFit: "contain" }} />
+                <img src={`${R}pago-plin.png`} alt="Plin" style={{ height: 28, objectFit: "contain" }} />
+                <img src={`${R}pago-banco.png`} alt="Banco / Depósito" style={{ height: 28, objectFit: "contain" }} />
               </div>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 6 }}>Internacional</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {[
-                  { name: "PayPal", icon: DollarSign },
-                  { name: "Tarjeta", icon: CreditCard }
-                ].map(m => (
-                  <span key={m.name} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
-                    <m.icon size={12} /> {m.name}
-                  </span>
-                ))}
+                <img src={`${R}pago-paypal.png`} alt="PayPal" style={{ height: 28, objectFit: "contain" }} />
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN }}>
+                  <CreditCard size={12} /> Tarjeta
+                </span>
               </div>
             </div>
           </div>
