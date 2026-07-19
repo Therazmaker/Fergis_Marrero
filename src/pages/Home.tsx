@@ -42,6 +42,7 @@ const FEATURES = [
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
+  { img: `${R}icono-taza-te.png`,         label: "Tu espacio\nCozy", href: "/tu-espacio-cozy-interactivo-definitivo.html" },
 ];
 
 const CATEGORIES = [
@@ -298,12 +299,12 @@ export default function Home() {
             ¿Qué encontrarás aquí? <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 28, height: 28, objectFit: "contain" }} />
           </h2>
           <div style={{ display: "flex", justifyContent: "center", background: CREAM, borderRadius: 16, padding: "24px 20px", boxShadow: "0 2px 12px rgba(44,31,14,0.07)" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 20, width: "100%", maxWidth: 960 }} className="features-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 20, width: "100%", maxWidth: 1060 }} className="features-grid">
               {FEATURES.map((f, i) => (
-                <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
+                <a key={i} href={f.href || "#"} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10, textDecoration: "none" }}>
                   <img src={f.img} alt={f.label} style={{ width: 44, height: 44, objectFit: "contain" }} />
                   <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line" }}>{f.label}</p>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -480,13 +481,13 @@ export default function Home() {
             <div style={{ flex: 1, paddingRight: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                 <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain" }} />
-                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Sobre mí</h3>
+                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Sobre Papá Girasol</h3>
               </div>
-              <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Hola, soy Mamá Girasol 🌻</p>
+              <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Clases de inglés a tu ritmo 🌻</p>
               <p style={{ fontSize: "0.8rem", color: BROWN3, lineHeight: 1.7, marginBottom: 16 }}>
-                Mujer neurodivergente, acompañante y apasionada por ayudar a otras mujeres a comprenderse, aceptarse y vivir con más calma.
+                Acompañando a nuestra comunidad enseñando inglés de una forma tranquila, flexible y respetuosa con cada manera de aprender.
               </p>
-              <a href="#" style={{
+              <a href="/clases-de-ingles.html" style={{
                 display: "inline-flex", alignItems: "center", gap: 4,
                 color: GOLD, fontWeight: 700,
                 textDecoration: "none", fontFamily: SCRIPT, fontSize: "1.05rem"
@@ -506,8 +507,8 @@ export default function Home() {
             }}>
               <div style={{ width: "100%", height: 160, overflow: "hidden" }}>
                 <img
-                  src={`${R}lv_0_20260710193215.jpg.jpeg`}
-                  alt="Mamá Girasol"
+                  src={`${R}papa-girasol.jpg`}
+                  alt="Papá Girasol"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
               </div>
