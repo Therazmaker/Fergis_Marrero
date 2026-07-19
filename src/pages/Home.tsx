@@ -42,7 +42,7 @@ const FEATURES = [
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
-  { img: `${R}icono-taza-te.png`,         label: "Tu espacio\nCozy", href: "/tu-espacio-cozy-interactivo-definitivo.html" },
+  { img: `${R}icono-taza-te.png`,         label: "Un poco de calma" },
 ];
 
 const CATEGORIES = [
@@ -320,10 +320,10 @@ export default function Home() {
           <div style={{ display: "flex", justifyContent: "center", background: CREAM, borderRadius: 16, padding: "24px 20px", boxShadow: "0 2px 12px rgba(44,31,14,0.07)" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 20, width: "100%", maxWidth: 1060 }} className="features-grid">
               {FEATURES.map((f, i) => (
-                <a key={i} href={f.href || "#"} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10, textDecoration: "none" }}>
-                  <img src={f.img} alt={f.label} style={{ width: 44, height: 44, objectFit: "contain" }} />
+                <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
+                  <img src={f.img} alt={f.label} style={{ width: f.isHeart ? 64 : 44, height: f.isHeart ? 64 : 44, objectFit: "contain" }} />
                   <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line" }}>{f.label}</p>
-                </a>
+                </div>
               ))}
             </div>
           </div>
