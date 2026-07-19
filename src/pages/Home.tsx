@@ -49,7 +49,7 @@ const CATEGORIES = [
     title: "Acompañamiento emocional",
     desc: "Sesiones y espacios 1:1 para ti.",
     img: `${R}Abrazo.png`,
-    href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html",
+    href: "/servicios.html",
   },
   {
     title: "Tienda de Mamá Girasol",
