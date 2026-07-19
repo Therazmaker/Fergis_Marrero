@@ -37,12 +37,12 @@ const NAV_LINKS = [
 ];
 
 const FEATURES = [
-  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 50 },
+  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 55 },
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
-  { img: `${R}icono-taza-te.png`,         label: "Un poco de calma", size: 90 },
+  { img: `${R}icono-taza-te.png`,         label: "Un poco de\ncalma", size: 80 },
 ];
 
 const CATEGORIES = [
