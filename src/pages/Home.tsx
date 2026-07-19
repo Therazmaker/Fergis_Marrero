@@ -41,7 +41,7 @@ const FEATURES = [
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
-  { img: `${R}pila de libros.png`,        label: "Clases de\ninglés" },
+  { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
 ];
 
 const CATEGORIES = [
@@ -301,7 +301,7 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 20, width: "100%", maxWidth: 960 }} className="features-grid">
               {FEATURES.map((f, i) => (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
-                  <img src={f.img} alt={f.label} style={{ width: f.isHeart ? 34 : 44, height: f.isHeart ? 34 : 44, objectFit: "contain" }} />
+                  <img src={f.img} alt={f.label} style={{ width: 44, height: 44, objectFit: "contain" }} />
                   <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line" }}>{f.label}</p>
                 </div>
               ))}
