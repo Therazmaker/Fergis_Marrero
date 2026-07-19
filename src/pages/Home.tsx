@@ -27,7 +27,7 @@ const R = "/Recursos/";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/" },
-  { label: "Sobre mí", href: "#" },
+  { label: "Sobre mí", href: "/sobre-mi-mama-girasol.html" },
   { label: "Acompañamiento", href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html" },
   { label: "Biblioteca", href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html" },
   { label: "Tienda", href: "/la-tiendita-girasolparalaweb.html" },
