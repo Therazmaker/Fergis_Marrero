@@ -2,6 +2,12 @@
   "buildCommand": "npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/campo.html",    "destination": "/campo",   "permanent": true },
+    { "source": "/editor.html",   "destination": "/editor",  "permanent": true },
+    { "source": "/pagar.html",    "destination": "/pagar",   "permanent": true },
+    { "source": "/index.html",    "destination": "/",        "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
