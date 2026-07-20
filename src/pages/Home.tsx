@@ -217,17 +217,17 @@ export default function Home() {
               <User size={15} /> Mi cuenta
             </button>
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               style={{ background: "none", border: "none", cursor: "pointer", color: YELLOW, padding: 6, display: "none" }}
               className="hamburger"
             >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
 
         {/* Mobile menu */}
-        {menuOpen && (
+        {mobileMenuOpen && (
           <div style={{ background: CREAM, borderTop: `1px solid rgba(100,70,30,0.12)`, padding: "12px 20px 16px" }}>
             {NAV_LINKS.map((link) => (
               <a key={link.label} href={link.href} style={{ display: "block", padding: "8px 0", fontSize: "0.9rem", fontWeight: 600, color: BROWN, textDecoration: "none", borderBottom: `1px solid rgba(100,70,30,0.08)` }}>{link.label}</a>
