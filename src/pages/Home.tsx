@@ -551,18 +551,18 @@ export default function Home() {
             <div style={{ flex: 1, paddingRight: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                 <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain" }} />
-                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Sobre Papá Girasol</h3>
+                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Clases de inglés 🇧🇣</h3>
               </div>
-              <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Clases de inglés a tu ritmo 🌻</p>
+              <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Aprende a tu ritmo, sin presión 🌻</p>
               <p style={{ fontSize: "0.8rem", color: BROWN3, lineHeight: 1.7, marginBottom: 16 }}>
-                Acompañando a nuestra comunidad enseñando inglés de una forma tranquila, flexible y respetuosa con cada manera de aprender.
+                Con Papá Girasol: clases tranquilas, flexibles y respetuosas con cada manera de aprender. Para cerebritos diferentes que quieren sentirse cómodos con el idioma.
               </p>
               <a href="/clases-de-ingles.html" style={{
                 display: "inline-flex", alignItems: "center", gap: 4,
                 color: GOLD, fontWeight: 700,
                 textDecoration: "none", fontFamily: SCRIPT, fontSize: "1.05rem"
               }}>
-                Conóceme más →
+                Ver las clases →
               </a>
             </div>
 
