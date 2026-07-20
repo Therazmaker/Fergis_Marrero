@@ -125,6 +125,12 @@ const PRODUCTS = [
     img: `${R}campo_flores.png`,
     href: "/campo",
   },
+  {
+    title: "La Tiendita Girasol • Prendas con esencia",
+    badge: "Nuevo",
+    img: `${R}tiendita_cottagecore.png`,
+    href: "/la-tiendita-girasolparalaweb.html",
+  },
 ];
 
 /* ─── Estilos inline compartidos ─── */
