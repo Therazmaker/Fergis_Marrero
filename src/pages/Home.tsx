@@ -38,12 +38,12 @@ const NAV_LINKS = [
 ];
 
 const FEATURES = [
-  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 55 },
+  { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 38 },
   { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
   { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
-  { img: `${R}icono-taza-te.png`,         label: "Un poco de\ncalma", size: 80 },
+  { img: `${R}icono-taza-te.png`,         label: "Un poco de\ncalma", size: 54 },
 ];
 
 const CATEGORIES = [
@@ -89,6 +89,12 @@ const CATEGORIES = [
 
 const PRODUCTS = [
   {
+    title: "Sesiones 1:1 • Un ratito con Mamá Girasol",
+    badge: null,
+    img: `${R}Un ratito con mamá girasol2.png`,
+    href: "/un_ratito_con_mama_girasolparacompra_en_web.html",
+  },
+  {
     title: "Acompañamiento emocional • Un camino para florecer",
     badge: "Más popular",
     img: `${R}Un camino para florecer2.png`,
@@ -107,12 +113,6 @@ const PRODUCTS = [
     href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
   {
-    title: "Sesiones 1:1 • Un ratito con Mamá Girasol",
-    badge: null,
-    img: `${R}Un ratito con mamá girasol2.png`,
-    href: "/un_ratito_con_mama_girasolparacompra_en_web.html",
-  },
-  {
     title: "Clases de inglés con Papá Girasol",
     badge: null,
     img: `${R}inglés 2.png`,
@@ -121,7 +121,7 @@ const PRODUCTS = [
   {
     title: "Campo de Flores • Apoya el proyecto",
     badge: null,
-    img: `${R}Un camino para florecer2.png`,
+    img: `${R}campo_flores.png`,
     href: "/campo",
   },
 ];
@@ -209,6 +209,7 @@ export default function Home() {
 
           {/* Right icons */}
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            {/*
             <button style={{ position: "relative", background: "none", border: "none", cursor: "pointer", color: BROWN, padding: 6 }}>
               <ShoppingCart size={20} />
               <span style={{ position: "absolute", top: 0, right: 0, background: GOLD, color: "#fff", borderRadius: "50%", width: 14, height: 14, fontSize: "0.6rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>2</span>
@@ -216,6 +217,7 @@ export default function Home() {
             <button onClick={() => user ? setShowAccountModal(true) : setShowAuthModal(true)} className="btn-primary" style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 16px", borderRadius: 20, background: YELLOW, color: BROWN, border: "none", cursor: "pointer", fontSize: "0.82rem", fontWeight: 700 }}>
               <User size={15} /> Mi cuenta
             </button>
+            */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               style={{ background: "none", border: "none", cursor: "pointer", color: YELLOW, padding: 6, display: "none" }}
@@ -334,8 +336,8 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 20, width: "100%", maxWidth: 1060 }} className="features-grid">
               {FEATURES.map((f, i) => (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 10 }}>
-                  <div style={{ height: 90, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-                    <img src={f.img} alt={f.label} style={{ width: f.size || 54, height: f.size || 54, objectFit: "contain" }} />
+                  <div style={{ height: 60, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+                    <img src={f.img} alt={f.label} style={{ width: f.size || 40, height: f.size || 40, objectFit: "contain" }} />
                   </div>
                   <p style={{ fontSize: "0.8rem", fontWeight: 600, color: BROWN, lineHeight: 1.4, whiteSpace: "pre-line", margin: 0, flex: 1, display: "flex", alignItems: "flex-start", justifyContent: "center" }}>{f.label}</p>
                 </div>
