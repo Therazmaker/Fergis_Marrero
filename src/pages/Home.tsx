@@ -667,16 +667,14 @@ export default function Home() {
               <h4 style={{ color: BROWN, fontSize: "0.85rem", fontWeight: 700, marginBottom: 14 }}>Medios de pago</h4>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 8 }}>Perú</p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
-                <img src={`${R}pago-yape.png`} alt="Yape" style={{ height: 44, objectFit: "contain" }} />
-                <img src={`${R}pago-plin.png`} alt="Plin" style={{ height: 44, objectFit: "contain" }} />
-                <img src={`${R}pago-banco.png`} alt="Banco / Depósito" style={{ height: 44, objectFit: "contain" }} />
+                <img src={`${R}pago-yape.png`} alt="Yape" style={{ height: 64, objectFit: "contain" }} />
+                <img src={`${R}pago-plin.png`} alt="Plin" style={{ height: 64, objectFit: "contain" }} />
+                <img src={`${R}pago-banco.png`} alt="Banco / Depósito" style={{ height: 64, objectFit: "contain" }} />
               </div>
               <p style={{ fontSize: "0.73rem", color: BROWN2, marginBottom: 6 }}>Internacional</p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <img src={`${R}pago-paypal.png`} alt="PayPal" style={{ height: 44, objectFit: "contain" }} />
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.7rem", padding: "4px 10px", borderRadius: 6, background: CREAM, color: BROWN, height: 44, boxSizing: "border-box" }}>
-                  <CreditCard size={12} /> Tarjeta
-                </span>
+                <img src={`${R}pago-paypal.png`} alt="PayPal" style={{ height: 64, objectFit: "contain" }} />
+                <img src={`${R}tarjeta de débito.png`} alt="Tarjeta" style={{ height: 64, objectFit: "contain" }} />
               </div>
             </div>
           </div>
