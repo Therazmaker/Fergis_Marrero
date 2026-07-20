@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { User as SupabaseUser } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
 import AuthModal from '../components/AuthModal';
@@ -10,6 +10,7 @@ import {
   X,
   Heart,
   ChevronRight,
+  ChevronLeft,
   ArrowRight,
   Mail,
   Instagram,
@@ -114,7 +115,7 @@ const PRODUCTS = [
   {
     title: "Clases de inglés con Papá Girasol",
     badge: null,
-    img: `${R}papa-girasol-saludando.jpeg`,
+    img: `${R}inglés 2.png`,
     href: "/clases-de-ingles.html",
   },
   {
@@ -142,11 +143,18 @@ const GOLD    = "#c8891a";
 const GOLD2   = "#f5c842";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [email, setEmail]       = useState("");
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showAccountModal, setShowAccountModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -250 : 250;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -389,12 +397,28 @@ export default function Home() {
             <h2 style={{ fontFamily: SERIF, fontSize: "clamp(1.4rem, 3vw, 2rem)", color: BROWN, fontWeight: 700, display: "flex", alignItems: "center", gap: 10 }}>
               Lo más destacado <img src={`${R}icono-helecho.png`} alt="" style={{ width: 28, height: 28, objectFit: "contain" }} />
             </h2>
-            <a href="#" style={{ display: "flex", alignItems: "center", gap: 4, color: GOLD, fontWeight: 700, textDecoration: "none", fontFamily: SCRIPT, fontSize: "1rem" }}>
-              Ver todos los productos <ArrowRight size={15} />
-            </a>
+            <div style={{ display: "flex", gap: 8 }}>
+              <button 
+                onClick={() => scrollCarousel('left')}
+                style={{ background: CREAM, border: `1px solid ${GOLD}`, borderRadius: "50%", width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: GOLD, transition: "background 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.background = CREAM2}
+                onMouseLeave={e => e.currentTarget.style.background = CREAM}
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                onClick={() => scrollCarousel('right')}
+                style={{ background: CREAM, border: `1px solid ${GOLD}`, borderRadius: "50%", width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: GOLD, transition: "background 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.background = CREAM2}
+                onMouseLeave={e => e.currentTarget.style.background = CREAM}
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
 
-          <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingBottom: 20, scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }} className="products-carousel">
+          <style>{`.products-carousel::-webkit-scrollbar { display: none; }`}</style>
+          <div ref={carouselRef} style={{ display: "flex", gap: 16, overflowX: "auto", paddingBottom: 20, scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none" }} className="products-carousel">
             {PRODUCTS.map((p, i) => (
               <a
                 key={i}
