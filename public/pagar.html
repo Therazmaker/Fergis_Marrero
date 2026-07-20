@@ -600,12 +600,14 @@ footer .petalo{
         </div>
         <div class="monto-custom">
           <span>$</span>
-          <input type="number" id="monto-input" placeholder="Otro monto (o su equivalente en soles)">
+          <input type="number" placeholder="Otro monto (o su equivalente en soles)">
         </div>
         <p class="form-hint">El monto lo decides tú, según lo que tengas disponible y en tu corazón.</p>
       </div>
 
-      <div id="paypal-button-container" style="margin-top: 24px;"></div>
+      <button class="pago-btn pago-paypal">PayPal</button>
+      <button class="pago-btn pago-card">💳 Tarjeta de débito o crédito</button>
+      <p class="powered">Powered by PayPal</p>
 
       <p class="nota-legal">🌼 Tu semilla florecerá en el Campo dentro de las siguientes 24 horas.</p>
 
@@ -625,59 +627,7 @@ function seleccionar(el, grupo){
   var hermanos = contenedor.querySelectorAll('.selected');
   hermanos.forEach(function(h){ h.classList.remove('selected'); });
   el.classList.add('selected');
-  document.getElementById('monto-input').value = ''; // clear custom amount
 }
-
-// Escuchar input en campo custom para deseleccionar pastillas
-document.getElementById('monto-input').addEventListener('input', function() {
-  var hermanos = document.querySelectorAll('.monto-pill.selected');
-  hermanos.forEach(function(h){ h.classList.remove('selected'); });
-});
-
-function getDonationAmount() {
-  var inputVal = document.getElementById('monto-input').value;
-  if (inputVal && !isNaN(inputVal) && Number(inputVal) > 0) {
-    return Number(inputVal).toFixed(2);
-  }
-  var selected = document.querySelector('.monto-pill.selected');
-  if (selected) {
-    var txt = selected.querySelector('.monto-num').innerText.replace('$', '');
-    return Number(txt).toFixed(2);
-  }
-  return '1.00'; // fallback
-}
-
-const paypalClientId = 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2';
-const script = document.createElement('script');
-script.src = `https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD`;
-script.onload = function() {
-  if (window.paypal) {
-    paypal.Buttons({
-      createOrder: function(data, actions) {
-        var amount = getDonationAmount();
-        return actions.order.create({
-          purchase_units: [{
-            description: 'Donación Campo de Flores Mamá Girasol',
-            amount: {
-              value: amount,
-              currency_code: 'USD'
-            }
-          }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          alert('¡Gracias, ' + details.payer.name.given_name + '! Tu semilla ha sido plantada.');
-        });
-      },
-      onError: function(err) {
-        console.error('PayPal Error:', err);
-        alert('Hubo un error con el pago. Intenta nuevamente.');
-      }
-    }).render('#paypal-button-container');
-  }
-};
-document.body.appendChild(script);
 </script>
 
 </body>
