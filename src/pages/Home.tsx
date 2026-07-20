@@ -21,6 +21,7 @@ import {
   Smartphone,
   Landmark,
   DollarSign,
+  Linkedin,
 } from "lucide-react";
 
 /* ─── Paths a imágenes en /public/Recursos ─── */
@@ -141,6 +142,14 @@ const YELLOW  = "#F6D67C";
 const YELLOW2 = "#E5B64C";
 const GOLD    = "#c8891a";
 const GOLD2   = "#f5c842";
+
+const Pinterest = ({ size = 24, style = {} }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
+    <path d="M12 22v-9" />
+    <path d="M12 13a3 3 0 0 1 3-3 3 3 0 0 1 3 3c0 2-1 4-3 4s-3-1-3-1" />
+  </svg>
+);
 
 export default function Home() {
   const [user, setUser] = useState<SupabaseUser | null>(null);
@@ -620,8 +629,8 @@ export default function Home() {
                   { icon: Instagram, url: "https://www.instagram.com/fergismarrero/" },
                   { icon: Music2, url: "https://www.tiktok.com/@fergismarrero" },
                   { icon: Youtube, url: "https://www.youtube.com/@fergismarrero" },
-                  { icon: CreditCard, url: "https://www.pinterest.com/fergismarrero/" },
-                  { icon: Landmark, url: "https://www.linkedin.com/in/fergismarrero/" },
+                  { icon: Pinterest, url: "https://www.pinterest.com/fergismarrero/" },
+                  { icon: Linkedin, url: "https://www.linkedin.com/in/fergismarrero/" },
                 ].map((s, i) => (
                   <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: "50%", background: YELLOW, display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.2s" }}
                     onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
