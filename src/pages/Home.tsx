@@ -310,13 +310,6 @@ export default function Home() {
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
               </div>
-              <div style={{
-                position: "absolute", bottom: 10, left: 0, width: "100%",
-                textAlign: "center", fontFamily: SCRIPT, fontSize: "1.1rem",
-                color: BROWN, fontWeight: "bold"
-              }}>
-                Haz clic para conocerme ♥
-              </div>
             </a>
 
             {/* Sticky note top-right */}
@@ -326,7 +319,7 @@ export default function Home() {
               boxShadow: "2px 4px 10px rgba(0,0,0,0.12)", transform: "rotate(3deg)",
               fontFamily: SCRIPT, fontSize: "0.88rem", color: "#5a3e12", lineHeight: 1.4
             }}>
-              Hoy es un buen día para elegirte a ti. ♥
+              Si quieres conocerme haz clic en la foto.
             </div>
 
             {/* Mushroom decor bottom-right */}
@@ -551,7 +544,7 @@ export default function Home() {
             <div style={{ flex: 1, paddingRight: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                 <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain" }} />
-                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Clases de inglés 🇧🇣</h3>
+                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Clases de inglés con Papá Girasol</h3>
               </div>
               <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Aprende a tu ritmo, sin presión 🌻</p>
               <p style={{ fontSize: "0.8rem", color: BROWN3, lineHeight: 1.7, marginBottom: 16 }}>
