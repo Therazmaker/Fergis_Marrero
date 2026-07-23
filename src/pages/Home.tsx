@@ -542,9 +542,9 @@ export default function Home() {
 
             {/* Left: text */}
             <div style={{ flex: 1, paddingRight: 16 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
-                <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain" }} />
-                <h3 style={{ fontFamily: SERIF, fontSize: "1.3rem", color: BROWN, fontWeight: 700 }}>Clases de inglés con Papá Girasol</h3>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 14 }}>
+                <img src={`${R}icono-ramo-etiqueta.png`} alt="" style={{ width: 26, height: 26, objectFit: "contain", marginTop: 2 }} />
+                <h3 style={{ fontFamily: SERIF, fontSize: "1.25rem", color: BROWN, fontWeight: 700, lineHeight: 1.2 }}>Clases de inglés con Papá Girasol</h3>
               </div>
               <p style={{ fontSize: "0.92rem", color: BROWN, fontWeight: 700, marginBottom: 10 }}>Aprende a tu ritmo, sin presión 🌻</p>
               <p style={{ fontSize: "0.8rem", color: BROWN3, lineHeight: 1.7, marginBottom: 16 }}>
