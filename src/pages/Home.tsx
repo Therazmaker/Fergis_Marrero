@@ -315,7 +315,7 @@ export default function Home() {
                 <img
                   src={`${R}fergis-nueva.jpeg`}
                   alt="Mamá Girasol - acompañamiento neurodivergente"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block", transform: "scale(1.1) translateY(-10%)" }}
                 />
               </div>
             </a>
