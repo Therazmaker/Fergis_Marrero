@@ -372,12 +372,13 @@ export default function Home() {
               Rincón de Bienestar
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 12 }} className="cat-grid">
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 20 }}>
             {CATEGORIES.map((cat, i) => (
               <a
                 key={i}
                 href={cat.href || "#"}
                 style={{
+                  width: 200,
                   background: CREAM, borderRadius: 12, display: "flex", flexDirection: "column",
                   alignItems: "center", textAlign: "center", padding: "16px 12px",
                   textDecoration: "none", boxShadow: "0 2px 6px rgba(44,31,14,0.05)",
