@@ -31,10 +31,10 @@ const NAV_LINKS = [
   { label: "Inicio", href: "/" },
   { label: "Sobre mí", href: "/sobre-mi-mama-girasol.html" },
   { label: "Acompañamiento", href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html" },
-  { label: "Biblioteca", href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html" },
+  /* { label: "Biblioteca", href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html" }, */
   { label: "Tienda", href: "/la-tiendita-girasolparalaweb.html" },
   { label: "El diario de Mamá Girasol", href: "/el_diario_de_mama_girasol.html" },
-  { label: "Recursos Gratuitos", href: "/recursos_de_regalo_mama_girasol.html" },
+  /* { label: "Recursos Gratuitos", href: "/recursos_de_regalo_mama_girasol.html" }, */
   { label: "Contacto", href: "https://wa.me/51907671044" },
 ];
 
@@ -60,6 +60,7 @@ const CATEGORIES = [
     img: `${R}Vestido.png`,
     href: "/la-tiendita-girasolparalaweb.html",
   },
+  /*
   {
     title: "Recursos de regalo",
     desc: "Material descargable.",
@@ -67,12 +68,14 @@ const CATEGORIES = [
     size: 150,
     href: "/recursos_de_regalo_mama_girasol.html",
   },
+  */
   {
     title: "El Diario de Mamá Girasol",
     desc: "Desahogo neurodivergente.",
     img: `${R}Cartas.png`,
     href: "/el_diario_de_mama_girasol.html",
   },
+  /*
   {
     title: "Biblioteca de recursos",
     desc: "Guías y herramientas para aprender de ti y cuidarte.",
@@ -80,6 +83,7 @@ const CATEGORIES = [
     size: 150,
     href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
+  */
   {
     title: "Tu espacio cozy",
     desc: "Un lugar para estar.",
@@ -107,12 +111,14 @@ const PRODUCTS = [
     img: `${R}Exploración neurodivergente2.png`,
     href: "/guia_autoexploracion_neurodivergente_para_compra_en_web.html",
   },
+  /*
   {
     title: "Biblioteca Mamá Girasol",
     badge: null,
     img: `${R}Biblioteca mamá girasol.png`,
     href: "/biblioteca_y_papeleria_mama_girasolparacompra_en_web.html",
   },
+  */
   {
     title: "Clases de inglés con Papá Girasol",
     badge: null,
