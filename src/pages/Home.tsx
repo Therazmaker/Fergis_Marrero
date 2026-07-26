@@ -98,13 +98,13 @@ const PRODUCTS = [
   {
     title: "Sesiones 1:1 • Un ratito con Mamá Girasol",
     badge: null,
-    img: `${R}Un ratito con mamá girasol2.png`,
+    img: `${R}sesiones-1-1-nueva.png`,
     href: "/un_ratito_con_mama_girasolparacompra_en_web.html",
   },
   {
     title: "Acompañamiento emocional • Un camino para florecer",
     badge: "Más popular",
-    img: `${R}Un camino para florecer2.png`,
+    img: `${R}acompanamiento-emocional-nueva.png`,
     href: "/un_camino_para_florecerrpara_compra_en_web.html",
   },
   {
