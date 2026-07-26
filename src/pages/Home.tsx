@@ -40,11 +40,11 @@ const NAV_LINKS = [
 
 const FEATURES = [
   { img: `${R}icono-corazon.png`,        label: "Acompañamiento\npersonalizado", size: 38 },
-  { img: `${R}libro abierto.png`,         label: "Recursos creados\ncon amor" },
   { img: `${R}Cerebro.png`,               label: "Enfoque\nneuroafirmativo" },
-  { img: `${R}Casita.png`,               label: "Espacio seguro\ny sin juicios" },
+  { img: `${R}Casita.png`,               label: "Espacio seguro\ny amoroso" },
   { img: `${R}icono-libros.png`,          label: "Clases de\ninglés" },
-  { img: `${R}icono-taza-te.png`,         label: "Un poco de\ncalma", size: 54 },
+  { img: `${R}libro abierto.png`,         label: "Artículos\npersonalizados" },
+  { img: `${R}icono-taza-te.png`,         label: "Espiritualidad", size: 54 },
 ];
 
 const CATEGORIES = [
@@ -311,7 +311,7 @@ export default function Home() {
             }}>
               <div style={{ overflow: "hidden", width: "100%", height: 420 }}>
                 <img
-                  src={`${R}Fergis.jpeg`}
+                  src={`${R}fergis-nueva.jpeg`}
                   alt="Mamá Girasol - acompañamiento neurodivergente"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
