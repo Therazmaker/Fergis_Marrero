@@ -69,12 +69,14 @@ const CATEGORIES = [
     href: "/recursos_de_regalo_mama_girasol.html",
   },
   */
+  /*
   {
     title: "El Diario de Mamá Girasol",
     desc: "Desahogo neurodivergente.",
     img: `${R}Cartas.png`,
     href: "/el_diario_de_mama_girasol.html",
   },
+  */
   /*
   {
     title: "Biblioteca de recursos",
