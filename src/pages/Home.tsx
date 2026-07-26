@@ -92,6 +92,13 @@ const CATEGORIES = [
     img: `${R}Muebles.png`,
     href: "/tu-espacio-cozy-interactivo-definitivo.html",
   },
+  {
+    title: "Espiritualidad",
+    desc: "Lecturas del alma.",
+    img: `${R}icono-espiritualidad.png`,
+    size: 130,
+    href: "/espiritualidad.html",
+  },
 ];
 
 const PRODUCTS = [
