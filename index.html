@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fergis Marrero – Mamá Girasol | Astrología Evolutiva</title>
+  <title>Fergis Marrero – Fergirasol | Astrología Evolutiva</title>
   <meta name="description"
-    content="Astrología, tarot y acompañamiento emocional con Fergis Marrero – Mamá Girasol. Un espacio seguro para volver a ti." />
+    content="Astrología, tarot y acompañamiento emocional con Fergis Marrero – Fergirasol. Un espacio seguro para volver a ti." />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -539,14 +539,14 @@
     .carousel-track {
       display: flex;
       height: 100%;
-      /* 4 slides, cada uno ocupa el 100% del viewport */
-      width: 400%;
+      /* 2 slides, cada uno ocupa el 100% del viewport */
+      width: 200%;
       transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     .c-slide {
-      /* 25% del track = 100% del viewport */
-      width: 25%;
+      /* 50% del track = 100% del viewport */
+      width: 50%;
       height: 100%;
       flex-shrink: 0;
       display: flex;
@@ -1418,9 +1418,8 @@
       }
 
       .img-slide-fergis img {
-        object-fit: contain;
+        object-fit: cover;
         object-position: center top;
-        background: #a96250;
       }
 
       .c-slide.text-slide {
@@ -1586,29 +1585,24 @@
             <div class="carousel-track" id="carousel-track">
 
               <!-- Slide 1: Foto Fergis -->
-              <div class="c-slide img-slide img-slide-fergis" data-label="📷 Tu foto aquí">
+              <div class="c-slide img-slide img-slide-fergis" data-label="📷 Fergis">
                 <picture>
-                  <source media="(max-width: 520px)" srcset="Fotos/Fergis1.jpeg">
-                  <img src="Fotos/Fergis1.jpeg" alt="Foto de Fergis Marrero – Mamá Girasol"
+                  <source media="(max-width: 520px)" srcset="Fotos/fergirasol.webp">
+                  <img src="Fotos/fergirasol.webp" alt="Foto de Fergis Marrero – Fergirasol"
                     onerror="this.style.display='none'">
                 </picture>
               </div>
 
               <!-- Slide 2: Texto Fergis -->
               <div class="c-slide text-slide">
-                <h2>Soy Fergis… <em>una espiritual</em></h2>
-                <p>Soy Fergis, y tengo una misión muy clara: que ninguna mujer tenga que transitar sus procesos sola.<br><br>Sé lo que es necesitar a alguien que te sostenga sin juzgarte. Que te guíe con empatía y compasión, sin querer tener poder sobre ti. Que respete tus tiempos, tus procesos y lo que sientes.<br><br>Yo lo busqué. Y cuando lo encontré, entendí que era un regalo hermoso tener a esa persona en tu vida. Por eso creé este espacio.<br><br>Acompaño procesos emocionales con una mirada cálida y cercana. No creo en fórmulas mágicas ni en obligarte a "estar bien". Creo en entender lo que sientes, en sostener lo que estás viviendo y en ayudarte a tomar decisiones con más claridad. A tu ritmo, desde tu verdad.<br><br>Antes que guía, soy humana. Y desde ahí te brindo mi presencia. 🌻</p>
-              </div>
-
-              <!-- Slide 3: Foto Girasol -->
-              <div class="c-slide img-slide" data-label="📷 Tu segunda foto aquí">
-                <img src="Fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
-              </div>
-
-              <!-- Slide 4: Texto Mamá Girasol -->
-              <div class="c-slide text-slide">
-                <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
-                <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera… vive dentro de ti.<br><br>"Mamá Girasol" nace desde ese lugar: no para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
+                <h2>Soy Fergis… <em>Fergirasol</em> 🌻</h2>
+                <p>
+                  Soy Fergis, pero puedes llamarme <strong>Fergirasol</strong>.<br><br>
+                  Ese nombre me representa mucho porque siempre he sentido que quiero ser un poquito de luz para las personas que llegan a mí, especialmente cuando están atravesando momentos en los que no encuentran claridad.<br><br>
+                  Estudié Educación Especial, con formación en Discapacidad Intelectual y Dificultades del Aprendizaje. Pero en el camino la espiritualidad apareció en mi vida y terminé siguiendo un llamado que sentía muy mío: convertirme en tarotista, astróloga y acompañante emocional.<br><br>
+                  Hoy este espacio es una mezcla de todo lo que soy, lo que he aprendido y lo que sigo descubriendo.<br><br>
+                  🌻 Aquí puedes venir como eres. Sin máscaras, sin juicios y sin tener que tenerlo todo resuelto.
+                </p>
               </div>
 
             </div>
@@ -1617,8 +1611,6 @@
           <div class="carousel-dots" id="carousel-dots">
             <div class="dot active" onclick="goToSlide(0)"></div>
             <div class="dot" onclick="goToSlide(1)"></div>
-            <div class="dot" onclick="goToSlide(2)"></div>
-            <div class="dot" onclick="goToSlide(3)"></div>
           </div>
         </div>
 
@@ -1827,7 +1819,7 @@
           <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Camila R.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Con Mamá Girasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
+          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Con Fergirasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
           <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Lucía P.</p>
         </article>
         <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
@@ -1856,7 +1848,7 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ RRSS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <footer id="contacto" class="box box-warm social-box fade-up">
       <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
-        <div class="social-brand">Fergis Marrero — <span>Mamá Girasol</span></div>
+        <div class="social-brand">Fergis Marrero — <span>Fergirasol</span></div>
         <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
           🍪 Política de Cookies
         </a>
@@ -2183,7 +2175,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
         </div>
 
         <div style="font-size: 0.8rem; color: var(--wine); opacity:0.85; margin: 20px 0; line-height:1.5;">
-          <p>El proveedor (Fergis Marrero - Mamá Girasol) deberá dar respuesta a su reclamo o queja dentro del plazo legal aplicable. La formulación del reclamo no excluye la posibilidad de acudir a otras vías de resolución.</p>
+          <p>El proveedor (Fergis Marrero - Fergirasol) deberá dar respuesta a su reclamo or queja dentro del plazo legal aplicable. La formulación del reclamo no excluye la posibilidad de acudir a otras vías de resolución.</p>
           <label style="display:flex; gap:10px; margin-top:12px; cursor:pointer;">
             <input type="checkbox" required style="margin-top:2px;">
             <span>Declaro bajo juramento que los datos consignados son verdaderos y acepto las Políticas de Privacidad.</span>
@@ -2203,7 +2195,7 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
       <button type="button" class="modal-close" onclick="closeTerminos()" aria-label="Cerrar">✕</button>
       <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
       <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
-        <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
+        <p style="margin-bottom:20px; font-weight:600;">Fergis • Fergirasol</p>
 
         <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
         <p style="margin-bottom:16px;">Los servicios ofrecidos corresponden a acompañamientos de carácter astrológico, espiritual y de guía emocional. Están orientados a brindarte claridad, contención y acompañamiento en tu proceso personal.</p>
@@ -2501,12 +2493,12 @@ Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amo
 
     function goToSlide(n) {
       idx = n;
-      track.style.transform = `translateX(-${idx * 25}%)`;
+      track.style.transform = `translateX(-${idx * 50}%)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === idx));
     }
 
     function nextSlide() {
-      goToSlide((idx + 1) % 4);
+      goToSlide((idx + 1) % 2);
     }
 
     function startCarousel() {
