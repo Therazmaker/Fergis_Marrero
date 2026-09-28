@@ -526,6 +526,7 @@
       position: relative;
       background: var(--wine-deep);
       min-height: 560px;
+      height: 100%;
     }
 
     /* El viewport ocupa todo el espacio de la caja y oculta lo que sobresale */
@@ -652,6 +653,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--gap);
+      height: 100%;
     }
 
     .srv-btn {
@@ -1568,47 +1570,109 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <!-- ► QUIÉN SOY (CARRUSEL) -->
-    <div class="carousel-box fade-up delay-1">
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="carousel-track">
+    <!-- SECCIÓN: Sesiones individuales -->
+    <section id="servicios" class="fade-up" style="padding: 20px 0 0 0;">
+      <div class="box box-warm" style="padding: 40px; margin-bottom: var(--gap);">
+        <h2 class="box-heading">Sesiones individuales</h2>
+        <p class="box-body">A veces necesitas un espacio puntual — un momento para pausar, mirar lo que estás viviendo y entender qué está pasando dentro de ti. Estas sesiones son para eso. Un encuentro contigo misma, acompañado de herramientas como el tarot y la astrología, para ayudarte a ver con más luz lo que sientes y lo que necesitas.</p>
+        <h3 class="sdm-title" style="font-size: 1.5rem; margin-top: 20px;">El tarot y la astrología como herramientas de autoconocimiento</h3>
+        <p class="box-body">No los uso para predecir el futuro. Los uso como lenguajes simbólicos — espejos que te ayudan a ver lo que ya está dentro de ti pero que quizás todavía no has podido nombrar. Tus patrones. Tus miedos. Lo que repites sin darte cuenta. Lo que sientes pero no sabes cómo nombrar. Desde ahí trabajamos juntas.</p>
+      </div>
 
-          <!-- Slide 1: Foto Fergis -->
-          <div class="c-slide img-slide img-slide-fergis" data-label="📷 Tu foto aquí">
-            <picture>
-              <source media="(max-width: 520px)" srcset="Fotos/Fergis1.jpeg">
-              <img src="Fotos/Fergis1.jpeg" alt="Foto de Fergis Marrero – Mamá Girasol"
-                onerror="this.style.display='none'">
-            </picture>
+      <div class="bento-grid">
+        <!-- ► QUIÉN SOY (CARRUSEL) -->
+        <div class="carousel-box fade-up delay-1">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track">
+
+              <!-- Slide 1: Foto Fergis -->
+              <div class="c-slide img-slide img-slide-fergis" data-label="📷 Tu foto aquí">
+                <picture>
+                  <source media="(max-width: 520px)" srcset="Fotos/Fergis1.jpeg">
+                  <img src="Fotos/Fergis1.jpeg" alt="Foto de Fergis Marrero – Mamá Girasol"
+                    onerror="this.style.display='none'">
+                </picture>
+              </div>
+
+              <!-- Slide 2: Texto Fergis -->
+              <div class="c-slide text-slide">
+                <h2>Soy Fergis… <em>una espiritual</em></h2>
+                <p>Soy Fergis, y tengo una misión muy clara: que ninguna mujer tenga que transitar sus procesos sola.<br><br>Sé lo que es necesitar a alguien que te sostenga sin juzgarte. Que te guíe con empatía y compasión, sin querer tener poder sobre ti. Que respete tus tiempos, tus procesos y lo que sientes.<br><br>Yo lo busqué. Y cuando lo encontré, entendí que era un regalo hermoso tener a esa persona en tu vida. Por eso creé este espacio.<br><br>Acompaño procesos emocionales con una mirada cálida y cercana. No creo en fórmulas mágicas ni en obligarte a "estar bien". Creo en entender lo que sientes, en sostener lo que estás viviendo y en ayudarte a tomar decisiones con más claridad. A tu ritmo, desde tu verdad.<br><br>Antes que guía, soy humana. Y desde ahí te brindo mi presencia. 🌻</p>
+              </div>
+
+              <!-- Slide 3: Foto Girasol -->
+              <div class="c-slide img-slide" data-label="📷 Tu segunda foto aquí">
+                <img src="Fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
+              </div>
+
+              <!-- Slide 4: Texto Mamá Girasol -->
+              <div class="c-slide text-slide">
+                <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
+                <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera… vive dentro de ti.<br><br>"Mamá Girasol" nace desde ese lugar: no para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
+              </div>
+
+            </div>
           </div>
-
-          <!-- Slide 2: Texto Fergis -->
-          <div class="c-slide text-slide">
-            <h2>Soy Fergis… <em>una espiritual</em></h2>
-            <p>Soy Fergis, y tengo una misión muy clara: que ninguna mujer tenga que transitar sus procesos sola.<br><br>Sé lo que es necesitar a alguien que te sostenga sin juzgarte. Que te guíe con empatía y compasión, sin querer tener poder sobre ti. Que respete tus tiempos, tus procesos y lo que sientes.<br><br>Yo lo busqué. Y cuando lo encontré, entendí que era un regalo hermoso tener a esa persona en tu vida. Por eso creé este espacio.<br><br>Acompaño procesos emocionales con una mirada cálida y cercana. No creo en fórmulas mágicas ni en obligarte a "estar bien". Creo en entender lo que sientes, en sostener lo que estás viviendo y en ayudarte a tomar decisiones con más claridad. A tu ritmo, desde tu verdad.<br><br>Antes que guía, soy humana. Y desde ahí te brindo mi presencia. 🌻</p>
+          <!-- Indicadores -->
+          <div class="carousel-dots" id="carousel-dots">
+            <div class="dot active" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+            <div class="dot" onclick="goToSlide(3)"></div>
           </div>
+        </div>
 
-          <!-- Slide 3: Foto Girasol -->
-          <div class="c-slide img-slide" data-label="📷 Tu segunda foto aquí">
-            <img src="Fotos/Fergis%202.jpeg" alt="Girasol – símbolo de Mamá Girasol" onerror="this.style.display='none'">
-          </div>
+        <div class="services-stack">
+          <button class="srv-btn srv-btn-wine" onclick="showService('Tarot')">
+            <div class="srv-label">
+              <span class="srv-name">Tarot</span>
+              <span class="srv-sub">Para encontrar claridad</span>
+            </div>
+            <span class="srv-arrow">→</span>
+          </button>
 
-          <!-- Slide 4: Texto Mamá Girasol -->
-          <div class="c-slide text-slide">
-            <h2>¿Por qué <em>Mamá Girasol</em>?</h2>
-            <p>El girasol es una flor que sigue la luz. Y para mí, esa luz no viene de afuera… vive dentro de ti.<br><br>"Mamá Girasol" nace desde ese lugar: no para iluminarte, sino para acompañarte mientras vuelves a tu propia luz.<br><br>Recordarte que esa luz sigue ahí. Y caminar contigo mientras la vuelves a ver. 🌻</p>
-          </div>
+          <button class="srv-btn srv-btn-gold" onclick="showService('Carta Natal')">
+            <div class="srv-label">
+              <span class="srv-name">Carta Natal</span>
+              <span class="srv-sub">Tu mapa emocional</span>
+            </div>
+            <span class="srv-arrow">→</span>
+          </button>
 
+          <button class="srv-btn srv-btn-deep" onclick="showService('Revolución Solar')">
+            <div class="srv-label">
+              <span class="srv-name">Revolución Solar</span>
+              <span class="srv-sub">Tu año con dirección</span>
+            </div>
+            <span class="srv-arrow">→</span>
+          </button>
+
+          <button class="srv-btn srv-btn-rich" onclick="showService('Compatibilidad')">
+            <div class="srv-label">
+              <span class="srv-name">Compatibilidad de Pareja y Vínculos</span>
+              <span class="srv-sub">Tarot + Astrología para vínculos</span>
+            </div>
+            <span class="srv-arrow">→</span>
+          </button>
+
+          <button class="srv-btn srv-btn-wine" onclick="showService('Tránsitos')">
+            <div class="srv-label">
+              <span class="srv-name">Tránsitos Astrológicos</span>
+              <span class="srv-sub">Cómo influye en ti lo que está pasando en el cielo</span>
+            </div>
+            <span class="srv-arrow">→</span>
+          </button>
+
+          <button class="srv-btn srv-btn-gold" onclick="showService('Diosas Girasol')">
+            <div class="srv-label">
+              <span class="srv-name">Diosas Girasol</span>
+              <span class="srv-sub">Comunidad por suscripción en WhatsApp</span>
+            </div>
+            <span class="srv-arrow">→</span>
+          </button>
         </div>
       </div>
-      <!-- Indicadores -->
-      <div class="carousel-dots" id="carousel-dots">
-        <div class="dot active" onclick="goToSlide(0)"></div>
-        <div class="dot" onclick="goToSlide(1)"></div>
-        <div class="dot" onclick="goToSlide(2)"></div>
-        <div class="dot" onclick="goToSlide(3)"></div>
-      </div>
-    </div>
+    </section>
 
     <!-- SECCIÓN ACOMPAÑAMIENTOS
     <section id="acompanamientos" class="tarot-row fade-up">
@@ -1633,66 +1697,6 @@
       </article>
     </section>
     -->
-
-    <!-- SECCIÓN: Sesiones individuales -->
-    <section id="servicios" class="fade-up" style="padding: 40px 0;">
-      <div class="box box-warm" style="padding: 40px; margin-bottom: 20px;">
-        <h2 class="box-heading">Sesiones individuales</h2>
-        <p class="box-body">A veces necesitas un espacio puntual — un momento para pausar, mirar lo que estás viviendo y entender qué está pasando dentro de ti. Estas sesiones son para eso. Un encuentro contigo misma, acompañado de herramientas como el tarot y la astrología, para ayudarte a ver con más luz lo que sientes y lo que necesitas.</p>
-        <h3 class="sdm-title" style="font-size: 1.5rem; margin-top: 20px;">El tarot y la astrología como herramientas de autoconocimiento</h3>
-        <p class="box-body">No los uso para predecir el futuro. Los uso como lenguajes simbólicos — espejos que te ayudan a ver lo que ya está dentro de ti pero que quizás todavía no has podido nombrar. Tus patrones. Tus miedos. Lo que repites sin darte cuenta. Lo que sientes pero no sabes cómo nombrar. Desde ahí trabajamos juntas.</p>
-      </div>
-
-      <div class="services-stack">
-        <button class="srv-btn srv-btn-wine" onclick="showService('Tarot')">
-          <div class="srv-label">
-            <span class="srv-name">Tarot</span>
-            <span class="srv-sub">Para encontrar claridad</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
-
-        <button class="srv-btn srv-btn-gold" onclick="showService('Carta Natal')">
-          <div class="srv-label">
-            <span class="srv-name">Carta Natal</span>
-            <span class="srv-sub">Tu mapa emocional</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
-
-        <button class="srv-btn srv-btn-deep" onclick="showService('Revolución Solar')">
-          <div class="srv-label">
-            <span class="srv-name">Revolución Solar</span>
-            <span class="srv-sub">Tu año con dirección</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
-
-        <button class="srv-btn srv-btn-rich" onclick="showService('Compatibilidad')">
-          <div class="srv-label">
-            <span class="srv-name">Compatibilidad de Pareja y Vínculos</span>
-            <span class="srv-sub">Tarot + Astrología para vínculos</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
-
-        <button class="srv-btn srv-btn-wine" onclick="showService('Tránsitos')">
-          <div class="srv-label">
-            <span class="srv-name">Tránsitos Astrológicos</span>
-            <span class="srv-sub">Cómo influye en ti lo que está pasando en el cielo</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
-
-        <button class="srv-btn srv-btn-gold" onclick="showService('Diosas Girasol')">
-          <div class="srv-label">
-            <span class="srv-name">Diosas Girasol</span>
-            <span class="srv-sub">Comunidad por suscripción en WhatsApp</span>
-          </div>
-          <span class="srv-arrow">→</span>
-        </button>
-      </div>
-    </section>
 
     <!--
     <section id="tarot" class="tarot-row fade-up">
