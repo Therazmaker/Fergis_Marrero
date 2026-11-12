@@ -1,2580 +1,1229 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html class="smooth-scroll" lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fergis Marrero – Fergirasol | Astrología Evolutiva</title>
-  <meta name="description"
-    content="Astrología, tarot y acompañamiento emocional con Fergis Marrero – Fergirasol. Un espacio seguro para volver a ti." />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <title>FERGIS | Mamá Girasol 🌻 – Tu espacio personal de bienestar</title>
+  <meta name="description" content="Tu espacio personal de bienestar, autoconocimiento y cuidado corporal. Acompañamiento emocional neuroafirmativo, masoterapia en Adranna Spa y tienda Fergirasol." />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
-    rel="stylesheet" />
-  <style>
-    /* ═══════════════════════════════════════════════════════
-       DESIGN TOKENS
-    ═══════════════════════════════════════════════════════ */
-    :root {
-      /* Paleta principal */
-      --cream: #FAF4E8;
-      --parchment: #F2E8D0;
-      --gold-light: #F5E3A3;
-      --gold: #D4A847;
-      --gold-deep: #A87828;
-      --terracotta: #A50E0E;
-      --terracotta-d: #7D0404;
-      --wine: #7A0000;
-      --wine-deep: #520000;
-      --ink: #1F0A10;
 
-      /* Tipografía */
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-
-      /* Espaciados */
-      --gap: 20px;
-      --radius: 20px;
-      --radius-sm: 12px;
-
-      /* Sombras */
-      --shadow-sm: 0 2px 12px rgba(31, 10, 16, 0.08);
-      --shadow-md: 0 8px 40px rgba(31, 10, 16, 0.12);
-      --shadow-lg: 0 20px 80px rgba(31, 10, 16, 0.18);
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.65;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    .bento-page {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 32px 24px 80px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap);
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       BASE BOX
-    ═══════════════════════════════════════════════════════ */
-    .box {
-      border-radius: var(--radius);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* ── Warm box (crema) */
-    .box-warm {
-      background: var(--parchment);
-      border: 1px solid rgba(212, 168, 71, 0.25);
-    }
-
-    /* ── Dark box (fondo rico, tipografía clara) */
-    .box-rich {
-      background: linear-gradient(140deg, var(--terracotta) 0%, var(--wine) 100%);
-      color: var(--cream);
-    }
-
-    /* ── Gold box */
-    .box-gold {
-      background: linear-gradient(135deg, #F0C860 0%, #D4A847 100%);
-      color: var(--wine-deep);
-    }
-
-    /* ── Deep box */
-    .box-deep {
-      background: linear-gradient(140deg, var(--wine-deep) 0%, var(--ink) 100%);
-      color: var(--cream);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       HERO INTRO
-    ═══════════════════════════════════════════════════════ */
-    .hero-box {
-      padding: 72px 64px;
-      text-align: center;
-      background: var(--wine-deep);
-      color: var(--cream);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quick-nav {
-      position: sticky;
-      top: 12px;
-      z-index: 200;
-      padding: 14px 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background: rgba(201, 212, 177, 0.9);
-      border: 1px solid rgba(212, 168, 71, 0.35);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .quick-nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(125, 4, 4, 0.24);
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--wine-deep);
-      text-decoration: none;
-      font-size: 0.87rem;
-      font-weight: 600;
-      line-height: 1;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .quick-nav a:hover {
-      background: var(--gold-light);
-      border-color: rgba(168, 120, 40, 0.55);
-      transform: translateY(-1px);
-    }
-
-    .hero-box::before {
-      content: '🌻';
-      position: absolute;
-      font-size: 320px;
-      opacity: 0.04;
-      right: -60px;
-      top: -60px;
-      pointer-events: none;
-      line-height: 1;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(212, 168, 71, 0.4);
-      padding: 6px 18px;
-      border-radius: 99px;
-      margin-bottom: 32px;
-    }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 600;
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 28px;
-      letter-spacing: -0.5px;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    .hero-body {
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: rgba(250, 244, 232, 0.82);
-      max-width: 620px;
-      margin: 0 auto 12px;
-      line-height: 1.75;
-    }
-
-    .hero-sign {
-      margin-top: 32px;
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--gold-light);
-      letter-spacing: 0.3px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       BENTO GRID (centro)
-    ═══════════════════════════════════════════════════════ */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gap);
-      min-height: 580px;
-    }
-
-    .tarot-row {
-      margin: 0;
-      padding: 0;
-      display: grid;
-      /* Forzamos 2 columnas iguales para estas dos tarjetas */
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--gap);
-      /* Asegura que ambas tarjetas tengan la misma altura */
-      align-items: stretch;
-    }
-
-    .tarot-card {
-      background: linear-gradient(135deg, #d4af88 0%, #bc8f61 100%);
-      border: 1px solid #a97644;
-      border-radius: 24px;
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .tarot-card-featured {
-      background: linear-gradient(180deg, #bc8f61 0%, #d7a598 34%, #E2B4BD 100%);
-      border-color: #c8939e;
-    }
-
-    .tarot-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 246, 226, 0.72);
-      border: 1px solid rgba(107, 34, 54, 0.22);
-      border-radius: 999px;
-      padding: 5px 14px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--wine-deep);
-      letter-spacing: 0.02em;
-      text-transform: none;
-      margin-bottom: 12px;
-      width: fit-content;
-    }
-
-    .tarot-title {
-      font-family: var(--font-body);
-      font-size: clamp(1.6rem, 2.5vw, 2rem);
-      font-weight: 500;
-      font-style: italic;
-      color: #4b3108;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      min-height: 3.6rem;
-    }
-
-    .tarot-title-featured {
-      min-height: auto;
-    }
-
-    .tarot-title-script {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-style: italic;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--wine-deep);
-    }
-
-    .tarot-copy {
-      color: #7a5e34;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 24px;
-      flex-grow: 1;
-    }
-
-    .tarot-lead {
-      font-size: 1.14rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      flex-grow: 0;
-    }
-
-    .tarot-note {
-      font-size: 0.92rem;
-      opacity: 1;
-      color: rgba(78, 49, 8, 0.74);
-      margin-top: 0;
-      margin-bottom: 24px;
-      flex-grow: 0;
-      line-height: 1.5;
-    }
-
-    .tarot-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(90deg, #e4ba49 0%, #d9a93a 100%);
-      color: #4f3600;
-      font-weight: 700;
-      font-size: 1rem;
-      border: none;
-      border-radius: 999px;
-      padding: 13px 24px;
-      text-decoration: none;
-      width: fit-content;
-      align-self: flex-start;
-      margin-top: auto;
-    }
-
-    .tiendita-card {
-  /* 1. ACTIVAR FLEXBOX (Esto es lo que faltaba) */
-  display: flex;
-  flex-direction: column; /* Alinea los elementos uno debajo del otro */
-  justify-content: center; /* Centrado vertical */
-  align-items: center;    /* Centrado horizontal */
-
-  /* 2. FONDO Y ESTILO */
-  background:
-    linear-gradient(180deg, rgba(49, 57, 34, 0.34) 0%, rgba(34, 40, 24, 0.5) 100%),
-    url('./Fotos/tiendita-girasol-bg.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 24px;
-  color: #f3f0e6;
-
-  /* 3. ESPACIADO */
-  padding: 42px 48px;
-  min-height: 360px;
-  gap: 16px; /* Espacio automático entre el título, el texto y la línea */
-
-  /* 4. EXTRAS */
-  text-align: center;
-  isolation: isolate;
-  overflow: hidden;
-  border: none;
-}
-
-    .tiendita-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(16, 20, 11, 0.12) 0%, rgba(16, 20, 11, 0.28) 100%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .tiendita-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.12) 0 14%, transparent 15% 100%),
-        radial-gradient(circle at 85% 18%, rgba(246, 185, 56, 0.12) 0 10%, transparent 11% 100%);
-      pointer-events: none;
-    }
-
-    .tiendita-pill {
-      display: inline-flex;
-      align-items: center;
-      background: rgba(243, 240, 230, 0.14);
-      border: 1px solid rgba(243, 240, 230, 0.22);
-      border-radius: 999px;
-      padding: 7px 14px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: rgba(243, 240, 230, 0.9);
-      letter-spacing: 0.08em;
-      text-transform: none;
-      width: fit-content;
-      margin-bottom: 20px;
-      align-self: flex-start;
-    }
-
-    .tiendita-pill::before {
-      content: none;
-    }
-
-    .tiendita-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.95rem, 2.45vw, 2.4rem);
-      font-style: normal;
-      font-weight: 900;
-      color: #fff4cf;
-      line-height: 1;
-      margin-top: 28px;
-      margin-bottom: 0;
-      max-width: none;
-      text-align: center;
-      align-self: center;
-    }
-
-    .tiendita-title-accent {
-      font-style: normal;
-      display: block;
-      font-size: 1.56em;
-    }
-
-    .tiendita-state {
-      color: rgba(243, 240, 230, 0.78);
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 300;
-      font-style: italic;
-      letter-spacing: 0.04em;
-      line-height: 1.1;
-      margin: 0;
-      text-align: center;
-      order: 4;
-    }
-
-    .tiendita-accent {
-      width: 56px;
-      height: 4px;
-      border-radius: 999px;
-      background: #a991A7;
-      margin-top: auto;
-      margin-bottom: 10px;
-      align-self: center;
-      order: 3;
-    }
-
-    .tiendita-copy {
-      color: rgba(243, 240, 230, 0.72);
-      font-size: 1.02rem;
-      line-height: 1.5;
-      max-width: 30ch;
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 1024px) {
-      .bento-grid {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-box,
-      .blog-box,
-      .community-box,
-      .social-box {
-        padding-left: 28px;
-        padding-right: 28px;
-      }
-
-      .blog-box {
-        grid-template-columns: 1fr;
-        gap: 26px;
-      }
-
-      .carousel-box {
-        min-height: 470px;
-      }
-
-      .tarot-row {
-        grid-template-columns: 1fr;
-      }
-
-      .tiendita-card {
-        border-radius: 24px;
-        padding: 36px 28px;
-      }
-
-      .tiendita-title {
-        max-width: 100%;
-        white-space: normal;
-      }
-
-      .tiendita-cta {
-        margin-left: 0;
-        width: fit-content;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .tiendita-card {
-        justify-content: center;
-      }
-
-      .tiendita-pill {
-        align-self: center;
-        margin-bottom: 14px;
-      }
-
-      .tiendita-title {
-        margin-top: 5px;
-      }
-    }
-
-    /* ── CAROUSEL ────────────────────────────────────────── */
-    .carousel-box {
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      background: var(--wine-deep);
-      min-height: 560px;
-      height: 100%;
-    }
-
-    /* El viewport ocupa todo el espacio de la caja y oculta lo que sobresale */
-    .carousel-viewport {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-    }
-
-    .carousel-track {
-      display: flex;
-      height: 100%;
-      /* 2 slides, cada uno ocupa el 100% del viewport */
-      width: 200%;
-      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    .c-slide {
-      /* 50% del track = 100% del viewport */
-      width: 50%;
-      height: 100%;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .c-slide.img-slide {
-      padding: 0;
-      position: relative;
-    }
-
-    .c-slide.img-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 92%;
-      position: absolute;
-      inset: 0;
-      display: block;
-    }
-
-    /* Placeholder cuando no hay imagen */
-    .c-slide.img-slide {
-      background: linear-gradient(150deg, var(--wine) 0%, #1F0A10 100%);
-    }
-
-    .c-slide.img-slide::after {
-      content: attr(data-label);
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.35);
-      padding: 24px;
-      text-align: center;
-      z-index: 0;
-    }
-
-    .c-slide.img-slide img {
-      z-index: 1;
-    }
-
-    .c-slide.text-slide {
-      padding: 52px 44px;
-      background: linear-gradient(150deg, var(--terracotta) 0%, var(--wine-deep) 100%);
-      color: var(--cream);
-      text-align: center;
-      overflow-y: auto;
-    }
-
-    .c-slide.text-slide h2 {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .c-slide.text-slide h2 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    .c-slide.text-slide p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: rgba(250, 244, 232, 0.85);
-      font-weight: 300;
-    }
-
-    /* Dots */
-    .carousel-dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      transition: background 0.4s, transform 0.4s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .dot.active {
-      background: var(--gold);
-      transform: scale(1.3);
-    }
-
-    /* ── SERVICES STACK ──────────────────────────────────── */
-    .services-stack {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap);
-      height: 100%;
-    }
-
-    .srv-btn {
-      flex: 1;
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 28px;
-      cursor: pointer;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-      position: relative;
-      overflow: hidden;
-      border: none;
-      text-align: left;
-    }
-
-    .srv-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0);
-      transition: background 0.22s;
-    }
-
-    .srv-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .srv-btn:hover::before {
-      background: rgba(0, 0, 0, 0.06);
-    }
-
-    .srv-btn-rich {
-      background: linear-gradient(120deg, var(--terracotta) 0%, #8E0000 100%);
-      color: var(--cream);
-    }
-
-    .srv-btn-wine {
-      background: linear-gradient(120deg, var(--wine) 0%, #640000 100%);
-      color: var(--cream);
-    }
-
-    .srv-btn-gold {
-      background: linear-gradient(120deg, #E8B840 0%, var(--gold-deep) 100%);
-      color: var(--wine-deep);
-    }
-
-    .srv-btn-deep {
-      background: linear-gradient(120deg, var(--wine-deep) 0%, var(--ink) 100%);
-      color: var(--cream);
-    }
-
-    .srv-btn-parch {
-      background: var(--parchment);
-      border: 1px solid rgba(212, 168, 71, 0.3);
-      color: var(--ink);
-    }
-
-    .srv-label {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .srv-name {
-      font-family: var(--font-display);
-      font-size: 1.55rem;
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.2px;
-    }
-
-
-    .srv-sub {
-      font-size: 0.8rem;
-      font-weight: 400;
-      opacity: 0.75;
-      letter-spacing: 0.5px;
-    }
-
-    .srv-arrow {
-      font-size: 1.3rem;
-      opacity: 0.65;
-      flex-shrink: 0;
-      margin-left: 12px;
-      transition: transform 0.22s;
-    }
-
-    .srv-btn:hover .srv-arrow {
-      transform: translateX(4px);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       BLOG BOX
-    ═══════════════════════════════════════════════════════ */
-    .blog-box {
-      padding: 60px 64px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .box-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    .box-rich .box-label {
-      color: var(--gold-light);
-    }
-
-    .box-heading {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      color: var(--wine-deep);
-    }
-
-    .box-rich .box-heading,
-    .box-deep .box-heading {
-      color: #fff;
-    }
-
-    .box-body {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--wine);
-      line-height: 1.75;
-    }
-
-    .box-rich .box-body,
-    .box-deep .box-body {
-      color: rgba(250, 244, 232, 0.8);
-    }
-
-    .blog-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .blog-tag {
-      background: rgba(212, 168, 71, 0.15);
-      border: 1px solid rgba(212, 168, 71, 0.4);
-      color: var(--gold-deep);
-      padding: 8px 18px;
-      border-radius: 99px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: background 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .blog-tag:hover {
-      background: rgba(212, 168, 71, 0.28);
-    }
-
-    .box-rich .blog-tag {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-      color: var(--gold-light);
-    }
-
-    .box-rich .blog-tag:hover {
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    .blog-mobile {
-      display: none;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       COMMUNITY BOX
-    ═══════════════════════════════════════════════════════ */
-    .community-box {
-      padding: 64px;
-      text-align: center;
-    }
-
-    .community-box .box-heading {
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .community-box .box-body {
-      color: rgba(250, 244, 232, 0.82);
-      margin-bottom: 36px;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Botón principal */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: var(--wine-deep);
-      padding: 16px 42px;
-      border-radius: 99px;
-      border: none;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
-      box-shadow: 0 4px 20px rgba(212, 168, 71, 0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 40px rgba(212, 168, 71, 0.45);
-      background: #E8BE55;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       SOCIAL / FOOTER BOX
-    ═══════════════════════════════════════════════════════ */
-    .social-box {
-      padding: 36px 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .social-brand {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--wine-deep);
-      letter-spacing: -0.2px;
-    }
-
-    .social-brand span {
-      color: var(--terracotta);
-      font-style: italic;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-link {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(212, 168, 71, 0.12);
-      border: 1.5px solid rgba(212, 168, 71, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--wine-deep);
-      font-size: 20px;
-      text-decoration: none;
-      transition: background 0.22s, transform 0.22s, border-color 0.22s;
-    }
-
-    .social-link:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      transform: translateY(-3px);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       MODALS
-    ═══════════════════════════════════════════════════════ */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(31, 10, 16, 0.65);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 9998;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-panel {
-      background: var(--cream);
-      width: 90%;
-      max-width: 540px;
-      border-radius: 24px;
-      padding: 48px 44px;
-      position: relative;
-      transform: translateY(28px) scale(0.96);
-      transition: transform 0.38s cubic-bezier(0.34, 1.5, 0.64, 1);
-      box-shadow: var(--shadow-lg);
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .overlay.active .modal-panel {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(107, 34, 54, 0.08);
-      border: none;
-      color: var(--wine);
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, transform 0.2s;
-      z-index: 999;
-    }
-
-    .modal-close:hover {
-      background: rgba(107, 34, 54, 0.15);
-      transform: rotate(90deg);
-    }
-
-    /* Service modal */
-    .sdm-tag {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 12px;
-    }
-
-    .sdm-title {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      font-weight: 600;
-      line-height: 1.1;
-      color: var(--wine-deep);
-      margin-bottom: 20px;
-    }
-
-    .sdm-text {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: var(--wine);
-      white-space: pre-line;
-      margin-bottom: 28px;
-    }
-
-    /* Opción cards inside Compatibilidad modal */
-    .compat-option {
-      background: var(--parchment);
-      border: 1px solid rgba(212,168,71,0.25);
-      border-radius: var(--radius-sm);
-      padding: 24px;
-      margin-bottom: 8px;
-    }
-    .compat-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 8px;
-    }
-    .compat-name {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--wine-deep);
-      margin-bottom: 12px;
-    }
-    .compat-price {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--wine-deep);
-      margin-bottom: 12px;
-    }
-    .compat-option .sdm-text {
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-    .compat-divider {
-      height: 1px;
-      background: rgba(212,168,71,0.3);
-      margin: 16px 0;
-    }
-
-    /* Booking modal */
-    .bm-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--wine-deep);
-      margin-bottom: 6px;
-    }
-
-    .bm-sub {
-      font-size: 0.9rem;
-      color: var(--wine);
-      opacity: 0.75;
-      margin-bottom: 28px;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--wine);
-      margin-bottom: 6px;
-      letter-spacing: 0.3px;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 13px 16px;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid rgba(212, 168, 71, 0.3);
-      background: #fff;
-      font-family: var(--font-body);
-      font-size: 0.97rem;
-      color: var(--ink);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(212, 168, 71, 0.14);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .paypal-wrap {
-      margin-top: 24px;
-      background: #fff;
-      border-radius: var(--radius-sm);
-      padding: 20px;
-      border: 1.5px dashed rgba(212, 168, 71, 0.3);
-      text-align: center;
-    }
-
-    .paypal-label {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--wine);
-      margin-bottom: 12px;
-      letter-spacing: 0.3px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       FAB WHATSAPP
-    ═══════════════════════════════════════════════════════ */
-    .wa-fab-wrap {
-      position: fixed;
-      right: 28px;
-      bottom: 28px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 14px;
-    }
-
-    .wa-bubble {
-      max-width: min(280px, calc(100vw - 40px));
-      background: rgba(255, 251, 242, 0.96);
-      color: var(--wine-deep);
-      border: 1px solid rgba(212, 168, 71, 0.5);
-      border-radius: 18px;
-      padding: 12px 16px;
-      font-size: 0.93rem;
-      line-height: 1.45;
-      box-shadow: 0 12px 28px rgba(31, 10, 16, 0.14);
-      position: relative;
-      opacity: 0;
-      transform: translateY(10px) scale(0.96);
-      transform-origin: bottom right;
-      pointer-events: none;
-      animation: waBubbleCycle 10s ease-in-out infinite;
-    }
-
-    .wa-bubble::after {
-      content: '';
-      position: absolute;
-      right: 24px;
-      bottom: -9px;
-      width: 18px;
-      height: 18px;
-      background: rgba(255, 251, 242, 0.96);
-      border-right: 1px solid rgba(212, 168, 71, 0.5);
-      border-bottom: 1px solid rgba(212, 168, 71, 0.5);
-      transform: rotate(45deg);
-    }
-
-    #fab-wa {
-      position: relative;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #2ce171 0%, #21bf5d 100%);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.42);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-      isolation: isolate;
-    }
-
-    #fab-wa::before {
-      content: '';
-      position: absolute;
-      inset: 50%;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #f5d35f 0%, #d79c1c 100%);
-      transform: translate(-50%, -50%);
-      box-shadow:
-        0 -31px 0 2px #f3c64d,
-        22px -22px 0 2px #f0bb3d,
-        31px 0 0 2px #f3c64d,
-        22px 22px 0 2px #e5a62f,
-        0 31px 0 2px #f3c64d,
-        -22px 22px 0 2px #f0bb3d,
-        -31px 0 0 2px #f3c64d,
-        -22px -22px 0 2px #e5a62f;
-      z-index: -2;
-    }
-
-    #fab-wa::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 3px solid rgba(107, 34, 54, 0.12);
-      z-index: -1;
-    }
-
-    #fab-wa:hover,
-    .wa-fab-wrap:hover #fab-wa,
-    #fab-wa:focus-visible {
-      transform: scale(1.08);
-      box-shadow: 0 14px 38px rgba(37, 211, 102, 0.5);
-    }
-
-    .wa-fab-wrap:hover .wa-bubble,
-    .wa-fab-wrap:focus-within .wa-bubble {
-      animation-play-state: paused;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .fab-wa-icon {
-      width: 28px;
-      height: 28px;
-      display: block;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════════════════ */
-    @media (max-width: 860px) {
-      .bento-page {
-        padding: 16px 16px 60px;
-        gap: 14px;
-      }
-
-      .hero-box {
-        padding: 44px 24px;
-      }
-
-      .hero-title {
-        font-size: 2.4rem;
-      }
-
-      .hero-body {
-        font-size: 1.02rem;
-      }
-
-      .carousel-box {
-        min-height: 520px;
-      }
-
-      .quick-nav {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding: 12px;
-      }
-
-      .quick-nav a {
-        flex: 0 0 auto;
-        font-size: 0.8rem;
-      }
-
-      .c-slide.text-slide {
-        padding: 36px 28px 68px;
-      }
-
-      .c-slide.text-slide h2 {
-        font-size: 2rem;
-      }
-
-      .srv-btn {
-        padding: 18px 18px;
-      }
-
-      .srv-name {
-        font-size: 1.25rem;
-      }
-
-      .tarot-card {
-        padding: 28px 22px;
-      }
-
-      .tiendita-card {
-        min-height: 300px;
-      }
-
-      .blog-box,
-      .community-box,
-      .social-box {
-        padding: 34px 22px;
-      }
-
-      .blog-box {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .blog-desktop-only {
-        display: none;
-      }
-
-      .blog-mobile {
-        display: block;
-      }
-
-      .blog-mobile .box-heading {
-        font-size: 2rem;
-        margin-bottom: 10px;
-      }
-
-      .blog-mobile .box-body {
-        font-size: 0.96rem;
-        line-height: 1.55;
-        margin-bottom: 16px;
-      }
-
-      .blog-mobile .btn-primary {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        padding: 14px 20px;
-      }
-
-      #carta-natal {
-        padding: 40px 18px !important;
-      }
-
-      #carta-natal-form {
-        padding: 24px !important;
-      }
-
-      .wa-fab-wrap {
-        right: 16px;
-        bottom: 16px;
-      }
-
-      .wa-bubble {
-        max-width: min(240px, calc(100vw - 28px));
-      }
-
-      #fab-wa {
-        width: 56px;
-        height: 56px;
-      }
-
-      .fab-wa-icon {
-        width: 24px;
-        height: 24px;
-      }
-
-      .sdm-title {
-        font-size: 1.9rem;
-      }
-
-      .modal-panel {
-        padding: 36px 28px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      /* Evita solapamiento entre el banner de cookies y el FAB de WhatsApp */
-      #cookie-banner {
-        left: 12px !important;
-        right: 12px !important;
-        bottom: 140px !important;
-        max-width: none !important;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .carousel-box {
-        min-height: 680px;
-      }
-
-      /* Solo mobile: primera tarjeta del carrusel hero */
-      .hero-track .hero-card:first-child {
-        background-size: 110% auto;
-        background-position: center 15% !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-
-      /* Equivalente para la estructura actual del carrusel */
-      .carousel-track .c-slide:first-child {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .img-slide-fergis img {
-        object-fit: cover;
-        object-position: 50% 92%;
-      }
-
-      .c-slide.text-slide {
-        padding: 30px 20px 96px;
-      }
-
-      .c-slide.text-slide h2 {
-        font-size: 1.75rem;
-        line-height: 1.12;
-      }
-
-      .c-slide.text-slide p {
-        font-size: 0.95rem;
-        line-height: 1.65;
-      }
-
-      .wa-bubble {
-        display: none;
-      }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       ANIMATIONS
-    ═══════════════════════════════════════════════════════ */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes waBubbleCycle {
-      0%, 10%, 100% {
-        opacity: 0;
-        transform: translateY(10px) scale(0.96);
-      }
-
-      18%, 58% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .fade-up {
-      animation: fadeUp 0.7s ease both;
-    }
-
-    .delay-1 {
-      animation-delay: 0.1s;
-    }
-
-    .delay-2 {
-      animation-delay: 0.2s;
-    }
-
-    .delay-3 {
-      animation-delay: 0.3s;
-    }
-
-    .delay-4 {
-      animation-delay: 0.4s;
-    }
-
-    .delay-5 {
-      animation-delay: 0.5s;
-    }
-
-    /* Ajustes exclusivos para la primera tarjeta del carrusel hero */
-    .hero-track .hero-card:first-child {
-      background-size: 110% auto;
-      background-position: center 20%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    /* SCROLLBAR */
-    ::selection {
-      background: rgba(212, 168, 71, 0.3);
-    }
-
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--cream);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 99px;
-    }
-  </style>
-
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXNGBZK96C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-VXNGBZK96C');
   </script>
 
-</head>
-
-<body>
-
-  <!-- ▸ WhatsApp FAB -->
-  <div class="wa-fab-wrap">
-    <div class="wa-bubble">También podemos hablar por Whatsapp.</div>
-    <a id="fab-wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Ir a WhatsApp">
-      <svg class="fab-wa-icon" viewBox="0 0 32 32" aria-hidden="true">
-        <path fill="currentColor"
-          d="M27.3 15.5c0 6.1-5 11.1-11.1 11.1-2 0-4-.5-5.7-1.6l-6 1.6 1.6-5.8c-1.1-1.8-1.7-3.8-1.7-5.9C4.4 8.8 9.4 3.8 15.5 3.8s11.8 5.6 11.8 11.7Zm-11.8-9C10.2 6.5 6 10.7 6 15.9c0 1.9.6 3.7 1.6 5.2l.4.6-.9 3.2 3.3-.9.5.3c1.4.9 3 1.4 4.6 1.4 5.2 0 9.4-4.2 9.4-9.4S20.7 6.5 15.5 6.5Zm5.2 12c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-2-.9-3.3-2.8-3.4-3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.8-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.6s1.2 3 1.4 3.2c.2.2 2.3 3.5 5.5 4.8 3.2 1.4 3.2.9 3.8.9.6 0 1.8-.8 2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.2-.6-.4Z" />
-      </svg>
-    </a>
-  </div>
-
-  <main class="bento-page">
-
-    <nav class="box box-warm quick-nav fade-up" aria-label="Navegación rápida">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <!-- <a href="#tarot">Tarot</a> -->
-      <!-- <a href="#blog">Blog</a> -->
-      <a href="#comunidad">Comunidad</a>
-      <a href="#carta-natal">Carta natal</a>
-      <a href="#testimonios">Testimonios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ HERO INTRO ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="inicio" class="box hero-box fade-up">
-      <div class="hero-eyebrow">🌻 Tarot | Astrología | Acompañamiento emocional 🌻</div>
-      <h1 class="hero-title fade-up delay-1">No tienes que poder con <em>todo sola</em>.</h1>
-      <p class="hero-body fade-up delay-2">Te acompaño, te sostengo y te ayudo a transitar y a entender lo que estás viviendo. Te ofrezco un espacio seguro donde puedes bajar el ruido, ordenar lo que sientes y volver a ti. Sin presión y sin juicios.</p>
-      <p class="hero-sign fade-up delay-3">Aquí estoy para ti 💛</p>
-    </section>
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ BENTO GRID ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <!-- SECCIÓN: Sesiones individuales -->
-    <section id="servicios" class="fade-up" style="padding: 20px 0 0 0;">
-      <div class="box box-warm" style="padding: 40px; margin-bottom: var(--gap);">
-        <h2 class="box-heading">Sesiones individuales</h2>
-        <p class="box-body">A veces necesitas un espacio puntual — un momento para pausar, mirar lo que estás viviendo y entender qué está pasando dentro de ti. Estas sesiones son para eso. Un encuentro contigo misma, acompañado de herramientas como el tarot y la astrología, para ayudarte a ver con más luz lo que sientes y lo que necesitas.</p>
-        <h3 class="sdm-title" style="font-size: 1.5rem; margin-top: 20px;">El tarot y la astrología como herramientas de autoconocimiento</h3>
-        <p class="box-body">No las uso para predecir el futuro. Las uso como lenguaje simbólico. Espejos que te ayudan a ver lo que ya está dentro de ti pero que quizás todavía no has podido nombrar. Tus patrones, tus miedos, lo que repites sin darte cuenta y lo que sientes pero no sabes cómo describir. Desde ahí trabajamos juntas.</p>
-      </div>
-
-      <div class="bento-grid">
-        <!-- ► QUIÉN SOY (CARRUSEL) -->
-        <div class="carousel-box fade-up delay-1">
-          <div class="carousel-viewport">
-            <div class="carousel-track" id="carousel-track">
-
-              <!-- Slide 1: Foto Fergis -->
-              <div class="c-slide img-slide img-slide-fergis" data-label="📷 Fergis">
-                <picture>
-                  <source media="(max-width: 520px)" srcset="Fotos/fergirasol.webp">
-                  <img src="Fotos/fergirasol.webp" alt="Foto de Fergis Marrero – Fergirasol"
-                    onerror="this.style.display='none'">
-                </picture>
-              </div>
-
-              <!-- Slide 2: Texto Fergis -->
-              <div class="c-slide text-slide">
-                <p style="line-height: 1.55;">
-                  <strong>Soy Fergis Marrero, tarotista, astróloga y acompañante emocional.</strong><br><br>
-                  La espiritualidad se cruzó en mi vida y decidí seguir ese llamado tan propio que hoy define este espacio. Todo el proceso se nutre también de mi formación en Educación Especial, especializada en Discapacidad Intelectual y Dificultades del Aprendizaje.<br><br>
-                  Permítete habitar cada una de tus etapas sin prisa y a tu propio ritmo. Estoy aquí para ayudarte a ordenar tus piezas y a transitar tus experiencias con la luz que ya habita en ti.
-                </p>
-              </div>
-
-            </div>
-          </div>
-          <!-- Indicadores -->
-          <div class="carousel-dots" id="carousel-dots">
-            <div class="dot active" onclick="goToSlide(0)"></div>
-            <div class="dot" onclick="goToSlide(1)"></div>
-          </div>
-        </div>
-
-        <div class="services-stack">
-          <button class="srv-btn srv-btn-wine" onclick="showService('Tarot')">
-            <div class="srv-label">
-              <span class="srv-name">Tarot</span>
-              <span class="srv-sub">Para encontrar claridad</span>
-            </div>
-            <span class="srv-arrow">→</span>
-          </button>
-
-          <button class="srv-btn srv-btn-gold" onclick="showService('Carta Natal')">
-            <div class="srv-label">
-              <span class="srv-name">Carta Natal</span>
-              <span class="srv-sub">Tu mapa emocional</span>
-            </div>
-            <span class="srv-arrow">→</span>
-          </button>
-
-          <button class="srv-btn srv-btn-deep" onclick="showService('Revolución Solar')">
-            <div class="srv-label">
-              <span class="srv-name">Revolución Solar</span>
-              <span class="srv-sub">Tu año con dirección</span>
-            </div>
-            <span class="srv-arrow">→</span>
-          </button>
-
-          <button class="srv-btn srv-btn-rich" onclick="showService('Compatibilidad')">
-            <div class="srv-label">
-              <span class="srv-name">Compatibilidad de Pareja y Vínculos</span>
-              <span class="srv-sub">Tarot + Astrología para vínculos</span>
-            </div>
-            <span class="srv-arrow">→</span>
-          </button>
-
-          <button class="srv-btn srv-btn-wine" onclick="showService('Tránsitos')">
-            <div class="srv-label">
-              <span class="srv-name">Tránsitos Astrológicos</span>
-              <span class="srv-sub">Cómo influye en ti lo que está pasando en el cielo</span>
-            </div>
-            <span class="srv-arrow">→</span>
-          </button>
-
-          <button class="srv-btn srv-btn-gold" onclick="showService('Acompañamiento emocional')">
-            <div class="srv-label">
-              <span class="srv-name">Acompañamiento emocional</span>
-              <span class="srv-sub">4 Sesiones al mes</span>
-            </div>
-            <span class="srv-arrow">→</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN ACOMPAÑAMIENTOS
-    <section id="acompanamientos" class="tarot-row fade-up">
-      [ACOMPAÑAMIENTO EMOCIONAL]
-      <article id="diosa-en-guia-section" class="tarot-card">
-        <div class="tarot-pill">Acompañamiento emocional mensual</div>
-        <h2 class="tarot-title">Acompañamiento emocional</h2>
-        <p class="tarot-copy">A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.<br><br>Cada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.<br><br>Y no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.<br><br>Sesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.</p>
-        <p class="tarot-copy tarot-lead">¿Cómo funciona?</p>
-        <p class="tarot-copy tarot-note">4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones · Virtual · Se renueva mensualmente</p>
-        <a href="#" class="tarot-cta" onclick="showService('Acompañamiento emocional'); return false;">👉 Reserva tu lugar 🌻 — $45 USD · S/ 120</a>
-      </article>
-
-      [Tu guía en cualquier momento]
-      <article id="guia-whatsapp-section" class="tarot-card">
-        <div class="tarot-pill">Orientación por audio vía WhatsApp</div>
-        <h2 class="tarot-title">Tu guía en cualquier momento</h2>
-        <p class="tarot-copy">A veces la vida no espera. Algo pasa, lo sientes, y necesitas una respuesta lo más pronto posible — no la próxima semana en una sesión agendada. Y para eso existe esto.<br><br>Cada mes tienes 10 preguntas respondidas por audio, con orientación a través del tarot y la astrología, desde donde estés y cuando lo necesites. Sin horarios. Sin agendas. A tu ritmo.</p>
-        <p class="tarot-copy tarot-lead">Tiempo de respuesta: lo antes posible · máximo 24 horas · Se renueva mensualmente</p>
-        <p class="tarot-copy tarot-note">$45 USD · S/ 120</p>
-        <a href="https://wa.me/51907671044" class="tarot-cta" id="guia-whatsapp">👉 Quiero este acompañamiento 🎧</a>
-      </article>
-    </section>
-    -->
-
-    <!--
-    <section id="tarot" class="tarot-row fade-up">
-      <article class="tarot-card tarot-card-featured">
-        <div class="tarot-pill">🌻 Un regalito de mí para ti</div>
-        <h2 class="tarot-title tarot-title-featured">🌻 Un regalito de mí para ti</h2>
-        <p class="tarot-copy tarot-lead">A veces solo necesitas una respuesta. Una orientación. Alguien que te ayude a ver con más luz lo que estás viviendo en este momento.</p>
-        <p class="tarot-copy tarot-note">Hazme tus 3 preguntas gratis, hermana girasol. Estoy aquí.<br><br>Tus preguntitas se renuevan de forma mensual.</p>
-        <a href="tarot.html" class="tarot-cta">👉 Clic aquí</a>
-      </article>
-
-      <article class="tarot-card tiendita-card">
-        <div class="tiendita-pill">Artículos Astrológicos</div>
-        <h2 class="tarot-title tiendita-title">La tiendita<span class="tiendita-title-accent">girasol</span></h2>
-        <p class="tiendita-state">Próximamente</p>
-        <div class="tiendita-accent"></div>
-        <p class="tarot-copy tiendita-copy"></p>
-      </article>
-    </section>
-    -->
-
-    <!-- BLOG
-    <section id="blog" class="box box-rich blog-box fade-up">
-      <div>
-        <div class="box-label">Blog</div>
-        <h2 class="box-heading">Para cuando necesites un respiro</h2>
-        <p class="box-body">Un lugar donde puedes hacer pausa, leer con calma y sentirte acompañada sin tener que
-          explicar demasiado. Ideas, palabras y miradas que quizás te ayuden a ver lo que estás viviendo desde otro
-          ángulo… o simplemente a no sentirte tan sola en eso.</p>
-      </div>
-      <div class="blog-desktop-only">
-        <p class="box-body" style="margin-bottom: 20px;">A veces desde lo emocional, a veces desde la astrología y lo
-          espiritual… pero siempre con la intención de acercarte un poquito más a ti.</p>
-        <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary"
-          style="margin-bottom: 20px; display: inline-flex;">📖 Leer artículos en una nueva ventana</a>
-        <div class="blog-tags">
-          <a class="blog-tag" href="blog.html#astrologia" target="_blank" rel="noopener noreferrer">🌌 Astrología</a>
-          <a class="blog-tag" href="blog.html#tarot" target="_blank" rel="noopener noreferrer">🔮 Tarot</a>
-          <a class="blog-tag" href="blog.html#relaciones" target="_blank" rel="noopener noreferrer">💔 Relaciones y vínculos</a>
-          <a class="blog-tag" href="blog.html#emociones" target="_blank" rel="noopener noreferrer">🧠 Emociones y sistema nervioso</a>
-          <a class="blog-tag" href="blog.html#reflexiones" target="_blank" rel="noopener noreferrer">💡 Reflexiones</a>
-        </div>
-      </div>
-      <div class="blog-mobile">
-        <p class="box-body">Contenido breve para acompañarte con astrología, vínculos y emoción, en palabras simples.</p>
-        <a href="blog.html" target="_blank" rel="noopener noreferrer" class="btn-primary">📖 Leer artículos</a>
-      </div>
-    </section>
-    -->
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ COMUNIDAD ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="comunidad" class="box box-deep community-box fade-up">
-      <div class="box-label" style="color:var(--gold-light)">Comunidad</div>
-      <h2 class="box-heading">🌻 Entre Girasoles 🌻</h2>
-      <p class="box-body">Un espacio donde seguimos este proceso juntas. Reflexiones, guía cercana y acompañamiento más
-        directo para sostenerte en lo que estás viviendo.💛</p>
-      <a href="https://chat.whatsapp.com/IuwwkHwrhcnJ3jFmQKiwkC" target="_blank" rel="noopener" class="btn-primary">👉 Unirme a la comunidad 🌻</a>
-    </section>
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ CARTA NATAL EXTERNA ━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="carta-natal" class="box box-warm fade-up" style="padding: 64px 32px; text-align: center;">
-      <div class="box-label" style="color:var(--terracotta)">Herramienta Gratuita</div>
-      <h2 class="box-heading">Calcula tu Carta Natal</h2>
-      <p class="box-body" style="margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto;">
-        Ingresa tus datos básicos a continuación. Serás redirigida a nuestro portal aliado donde podrás indicar tu lugar de nacimiento para obtener tu mapa celestial exacto.
-      </p>
-
-      <form id="carta-natal-form" action="https://carta-natal.es/carta.php" method="POST" target="_blank" style="max-width: 540px; margin: 0 auto; text-align: left; background: #fff; padding: 40px; border-radius: var(--radius-sm); border: 1.5px dashed rgba(212, 168, 71, 0.4); box-shadow: var(--shadow-sm);">
-
-        <div class="form-group">
-          <label>Nombre o Seudónimo (Opcional)</label>
-          <input type="text" name="nombre" placeholder="Ej. Virginia" />
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Fecha de Nacimiento</label>
-            <input type="date" id="cn-date" required />
-            <input type="hidden" name="fecha" id="cn-fecha-real" />
-          </div>
-
-          <div class="form-group">
-            <label>Hora de Nacimiento</label>
-            <input type="time" name="hora" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>País de Nacimiento</label>
-          <select name="Pais" required>
-            <option value="">Selecciona un país...</option>
-            <option value="PE">Perú</option>
-            <option value="ES">España</option>
-            <option value="MX">México</option>
-            <option value="CO">Colombia</option>
-            <option value="AR">Argentina</option>
-            <option value="CL">Chile</option>
-            <option value="US">Estados Unidos</option>
-            <option disabled>──────────</option>
-            <option value='AF'>Afganistán</option><option value='AL'>Albania</option><option value='DE'>Alemania</option><option value='AD'>Andorra</option><option value='AO'>Angola</option><option value='AI'>Anguila</option><option value='AQ'>Antártida</option><option value='AG'>Antigua y Barbuda</option><option value='SA'>Arabia Saudita</option><option value='DZ'>Argelia</option><option value='AR'>Argentina</option><option value='AM'>Armenia</option><option value='AW'>Aruba</option><option value='AU'>Australia</option><option value='AT'>Austria</option><option value='AZ'>Azerbaiyán</option><option value='BH'>Bahréin</option><option value='BD'>Bangladés</option><option value='BB'>Barbados</option><option value='BE'>Bélgica</option><option value='BZ'>Belice</option><option value='BJ'>Benín</option><option value='BM'>Bermudas</option><option value='BY'>Bielorrusia</option><option value='MM'>Birmania</option><option value='BO'>Bolivia</option><option value='BA'>Bosnia y Herzegovina</option><option value='BW'>Botsuana</option><option value='BR'>Brasil</option><option value='BN'>Brunéi</option><option value='BG'>Bulgaria</option><option value='BF'>Burkina Faso</option><option value='BI'>Burundi</option><option value='BT'>Bután</option><option value='CV'>Cabo Verde</option><option value='KH'>Camboya</option><option value='CM'>Camerún</option><option value='CA'>Canadá</option><option value='QA'>Catar</option><option value='TD'>Chad</option><option value='CL'>Chile</option><option value='CN'>China</option><option value='CY'>Chipre</option><option value='VA'>Ciudad del Vaticano</option><option value='CO'>Colombia</option><option value='KM'>Comoras</option><option value='CG'>Congo</option><option value='KP'>Corea del Norte</option><option value='KR'>Corea del Sur</option><option value='CI'>Costa de Marfil</option><option value='CR'>Costa Rica</option><option value='HR'>Croacia</option><option value='CU'>Cuba</option><option value='CW'>Curazao</option><option value='DK'>Dinamarca</option><option value='DM'>Dominica</option><option value='EC'>Ecuador</option><option value='EG'>Egipto</option><option value='SV'>El Salvador</option><option value='AE'>Emiratos Árabes Unidos</option><option value='ER'>Eritrea</option><option value='SK'>Eslovaquia</option><option value='SI'>Eslovenia</option><option value='ES'>España</option><option value='US'>Estados Unidos</option><option value='EE'>Estonia</option><option value='ET'>Etiopía</option><option value='PH'>Filipinas</option><option value='FI'>Finlandia</option><option value='FJ'>Fiyi</option><option value='FR'>Francia</option><option value='GA'>Gabón</option><option value='GM'>Gambia</option><option value='GE'>Georgia</option><option value='GH'>Ghana</option><option value='GI'>Gibraltar</option><option value='GD'>Granada</option><option value='GR'>Grecia</option><option value='GL'>Groenlandia</option><option value='GP'>Guadalupe</option><option value='GU'>Guam</option><option value='GT'>Guatemala</option><option value='GF'>Guayana Francesa</option><option value='GG'>Guernsey</option><option value='GN'>Guinea</option><option value='GQ'>Guinea Ecuatorial</option><option value='GW'>Guinea-Bissau</option><option value='GY'>Guyana</option><option value='HT'>Haití</option><option value='HN'>Honduras</option><option value='HK'>Hong Kong</option><option value='HU'>Hungría</option><option value='IN'>India</option><option value='ID'>Indonesia</option><option value='IQ'>Irak</option><option value='IR'>Irán</option><option value='IE'>Irlanda</option><option value='BV'>Isla Bouvet</option><option value='IM'>Isla de Man</option><option value='CX'>Isla de Navidad</option><option value='NF'>Isla Norfolk</option><option value='IS'>Islandia</option><option value='KY'>Islas Caimán</option><option value='CC'>Islas Cocos</option><option value='CK'>Islas Cook</option><option value='FO'>Islas Feroe</option><option value='GS'>Islas Georgias del Sur y Sandwich del Sur</option><option value='HM'>Islas Heard y McDonald</option><option value='FK'>Islas Malvinas</option><option value='MP'>Islas Marianas del Norte</option><option value='MH'>Islas Marshall</option><option value='PN'>Islas Pitcairn</option><option value='SB'>Islas Salomón</option><option value='TC'>Islas Turcas y Caicos</option><option value='UM'>Islas Ultramarinas de Estados Unidos</option><option value='VG'>Islas Vírgenes Británicas</option><option value='VI'>Islas Vírgenes de los EEUU</option><option value='IL'>Israel</option><option value='IT'>Italia</option><option value='JM'>Jamaica</option><option value='JP'>Japón</option><option value='JE'>Jersey</option><option value='JO'>Jordania</option><option value='KZ'>Kazajistán</option><option value='KE'>Kenia</option><option value='KG'>Kirguistán</option><option value='KI'>Kiribati</option><option value='XK'>Kosovo</option><option value='KW'>Kuwait</option><option value='RE'>La Reunión</option><option value='LA'>Laos</option><option value='BS'>Las Bahamas</option><option value='LS'>Lesoto</option><option value='LV'>Letonia</option><option value='LB'>Líbano</option><option value='LR'>Liberia</option><option value='LY'>Libia</option><option value='LI'>Liechtenstein</option><option value='LT'>Lituania</option><option value='LU'>Luxemburgo</option><option value='MO'>Macao</option><option value='MK'>Macedonia</option><option value='MG'>Madagascar</option><option value='MY'>Malasia</option><option value='MW'>Malaui</option><option value='MV'>Maldivas</option><option value='ML'>Malí</option><option value='MT'>Malta</option><option value='MA'>Marruecos</option><option value='MQ'>Martinica</option><option value='MU'>Mauricio</option><option value='MR'>Mauritania</option><option value='YT'>Mayotte</option><option value='MX'>México</option><option value='FM'>Micronesia</option><option value='MD'>Moldavia</option><option value='MC'>Mónaco</option><option value='MN'>Mongolia</option><option value='ME'>Montenegro</option><option value='MS'>Montserrat</option><option value='MZ'>Mozambique</option><option value='NA'>Namibia</option><option value='NR'>Nauru</option><option value='NP'>Nepal</option><option value='NI'>Nicaragua</option><option value='NE'>Níger</option><option value='NG'>Nigeria</option><option value='NU'>Niue</option><option value='NO'>Noruega</option><option value='NC'>Nueva Caledonia</option><option value='NZ'>Nueva Zelanda</option><option value='OM'>Omán</option><option value='NL'>Países Bajos</option><option value='PK'>Pakistán</option><option value='PW'>Palaos</option><option value='PS'>Palestina</option><option value='PA'>Panamá</option><option value='PG'>Papúa Nueva Guinea</option><option value='PY'>Paraguay</option><option value='PE'>Perú</option><option value='PF'>Polinesia Francesa</option><option value='PL'>Polonia</option><option value='PT'>Portugal</option><option value='PR'>Puerto Rico</option><option value='GB'>Reino Unido</option><option value='CF'>República Centroafricana</option><option value='CZ'>República Checa</option><option value='CD'>República Democrática del Congo</option><option value='DO'>República Dominicana</option><option value='RW'>Ruanda</option><option value='RO'>Rumanía</option><option value='RU'>Rusia</option><option value='EH'>Sahara Occidental</option><option value='MF'>Saint Martin</option><option value='WS'>Samoa</option><option value='AS'>Samoa Americana</option><option value='KN'>San Cristóbal y Nieves</option><option value='SM'>San Marino</option><option value='PM'>San Pedro y Miguelón</option><option value='VC'>San Vicente y las Granadinas</option><option value='SH'>Santa Elena</option><option value='LC'>Santa Lucía</option><option value='ST'>Santo Tomé y Príncipe</option><option value='SN'>Senegal</option><option value='RS'>Serbia</option><option value='SC'>Seychelles</option><option value='SL'>Sierra Leona</option><option value='SG'>Singapur</option><option value='SX'>Sint Maarten</option><option value='SY'>Siria</option><option value='SO'>Somalia</option><option value='LK'>Sri Lanka</option><option value='SZ'>Suazilandia</option><option value='ZA'>Sudáfrica</option><option value='SD'>Sudán</option><option value='SS'>Sudán del Sur</option><option value='SE'>Suecia</option><option value='CH'>Suiza</option><option value='SR'>Surinam</option><option value='SJ'>Svalbard y Jan Mayen</option><option value='TH'>Tailandia</option><option value='TW'>Taiwán</option><option value='TZ'>Tanzania</option><option value='TJ'>Tayikistán</option><option value='IO'>Territorio Británico del Océano Índico</option><option value='TF'>Territorios Australes Franceses</option><option value='TL'>Timor Oriental</option><option value='TG'>Togo</option><option value='TK'>Tokelau</option><option value='TO'>Tonga</option><option value='TT'>Trinidad y Tobago</option><option value='TN'>Túnez</option><option value='TM'>Turkmenia</option><option value='TR'>Turquía</option><option value='TV'>Tuvalu</option><option value='UA'>Ucrania</option><option value='UG'>Uganda</option><option value='UY'>Uruguay</option><option value='UZ'>Uzbekistán</option><option value='VU'>Vanuatu</option><option value='VE'>Venezuela</option><option value='VN'>Vietnam</option><option value='WF'>Wallis y Futuna</option><option value='YE'>Yemen</option><option value='DJ'>Yibuti</option><option value='ZM'>Zambia</option><option value='ZW'>Zimbabue</option>
-          </select>
-        </div>
-
-        <div class="form-group" style="margin-top: 24px; margin-bottom: 0;">
-          <input type="hidden" name="ok" value="1" />
-          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-            ✨ Descubrir mi mapa
-          </button>
-        </div>
-      </form>
-    </section>
-
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section id="testimonios" class="box box-rich fade-up" style="padding: 56px 32px;">
-      <div class="box-label" style="color:var(--gold-light)">Testimonios</div>
-      <h2 class="box-heading" style="margin-bottom: 10px;">Lo que dicen mis chicas sobre sus sesiones</h2>
-      <p class="box-body" style="margin-bottom: 30px; max-width: 760px; color:rgba(250,244,232,0.88);">
-        Estos son algunos de los mensajitos que mis consultantes me envían para expresar cómo se<br>sintieron con sus lecturas.
-      </p>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Me sentí muy bien con Fer. Tiene una forma muy linda de contener, de dar paz y de ayudarte a ver todo con más claridad. Salí de la sesión mucho más tranquila.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Cataleya M.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Fergis me ayudó a entender lo que estaba viviendo sin sentirme juzgada. Su apoyo y su manera de explicarme las cosas me dieron mucha calma y muchísimo soporte emocional.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Camila R.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Con Fergirasol sentí algo muy especial, como si estuviera hablando con una hermana. Me dio luz, apoyo y palabras que realmente necesitaba escuchar en ese momento.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Lucía P.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Gracias por guiarme con tanta calidez. Todo se sintió humano, amoroso y muy claro. Me ayudaste a ordenarme por dentro y a sentirme sostenida de una manera muy bonita.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Daniela S.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Lo que más valoro es la contención que encontré contigo. No sentí solo una lectura, sentí compañía, paz y una presencia muy amorosa que me ayudó a atravesar lo que estaba pasando.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Valeria T.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“Mi sesión de tarot me dio una calma que necesitaba muchísimo. Llegué con ansiedad y me fui con más paz, respuestas claras y la sensación de que todo podía acomodarse dentro de mí.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Sofía L.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“La sesión de carta natal me ayudó muchísimo con temas del trabajo y de mi pareja. Todo cobró sentido. Sentí claridad, apoyo y una guía muy amorosa para saber por dónde seguir.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Yulimar G.</p>
-        </article>
-        <article style="background:rgba(250,244,232,0.1); border:1px solid rgba(245,227,163,0.25); border-radius:14px; padding:18px;">
-          <p style="font-size:0.95rem; line-height:1.55; color:rgba(250,244,232,0.95);">“El acompañamiento emocional ha sido un regalo para mí. Con tu soporte empecé a mirarme con más amor, a darme más paciencia y a sentirme acompañada en un proceso que antes vivía muy sola.”</p>
-          <p style="margin-top:12px; font-weight:600; color:var(--gold-light);">— Fernanda C.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━ RRSS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <footer id="contacto" class="box box-warm social-box fade-up">
-      <div style="display:flex; flex-direction:column; gap:12px; font-size:0.95rem; color:var(--wine-deep); line-height:1.5;">
-        <p><strong>Tarot | Astrología | Acompañamiento emocional</strong><br><a href="https://www.instagram.com/fergismarrero" target="_blank" rel="noopener" style="color:var(--wine); text-decoration:underline; font-weight:600;">@fergismarrero</a> • Instagram</p>
-        <p><strong>Estampados personalizados</strong><br><a href="https://www.instagram.com/bazardefergis" target="_blank" rel="noopener" style="color:var(--wine); text-decoration:underline; font-weight:600;">@bazardefergis</a> • Instagram</p>
-        <p><strong>WhatsApp:</strong><br><a href="https://wa.me/51907671044" target="_blank" rel="noopener" style="color:var(--wine); text-decoration:underline;">+51907671044</a></p>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
-        <div class="social-brand">Fergis Marrero</div>
-        <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:4px;">
-          🍪 Política de Cookies
-        </a>
-        <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
-          🌻 Términos y Condiciones
-        </a>
-        <a href="#" onclick="document.getElementById('reclamaciones-overlay').classList.add('active'); return false;" style="font-size:0.85rem; font-weight:600; color:var(--wine); text-decoration:underline; opacity:0.85; transition:opacity 0.2s; margin-top:-4px;">
-          📖 Libro de Reclamaciones
-        </a>
-      </div>
-    </footer>
-
-  </main>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     SERVICE DETAIL MODAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <!-- SERVICE DETAIL MODAL -->
-  <div class="overlay" id="service-overlay">
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeService()" aria-label="Cerrar">✕</button>
-
-      <!-- Panel estándar -->
-      <div id="sdm-standard">
-        <div class="sdm-tag" id="sdm-tag">Servicio</div>
-        <h3 class="sdm-title" id="sdm-title">Título</h3>
-        <div class="sdm-text" id="sdm-text">Descripción</div>
-        <div id="sdm-meta" style="margin:0 0 18px; font-size:0.92rem; line-height:1.5; color:var(--wine);"></div>
-        <div class="sdm-price" id="sdm-price" style="margin:0 0 18px; font-size:1rem; font-weight:700; color:var(--wine-deep);">Precio</div>
-        <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBooking()">
-          👉 Agenda tu sesión 🌻
-        </button>
-      </div>
-
-      <!-- Panel dual: Compatibilidad -->
-      <div id="sdm-compat" style="display:none">
-        <div class="sdm-tag">Compatibilidad de Pareja y Vínculos</div>
-        <h3 class="sdm-title">Entendiendo tu vínculo / Compatibilidad</h3>
-
-        <div class="compat-option">
-          <div class="compat-label">Opción 1</div>
-          <h4 class="compat-name">Tarot + Astrología para vínculos</h4>
-          <p class="sdm-text">Para comprender la dinámica entre tú y otra persona — pareja, madre, hijo, amistad. Qué los une, qué los desafía y qué está pasando realmente en esa relación.
-<br><br><strong>Duración:</strong> 1 hora
-<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
-          <p class="compat-price">Precio: $50 USD · S/ 150</p>
-          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Compatibilidad')">
-            👉 Agenda tu sesión 🌻
-          </button>
-        </div>
-
-        <div class="compat-divider"></div>
-
-        <div class="compat-option">
-          <div class="compat-label">Opción 2</div>
-          <h4 class="compat-name">Sinastría / Carta Compuesta</h4>
-          <p class="sdm-text">Un análisis más detallado de la conexión entre dos personas a nivel emocional y energético. Para entender el propósito del vínculo y lo que vienen a aprender juntos.
-<br><br><strong>Duración:</strong> 2 horas
-<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
-          <p class="compat-price">Precio: $110 USD · S/ 380</p>
-          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Sinastría')">
-            👉 Agenda tu sesión 🌻
-          </button>
-        </div>
-      </div>
-
-      <!-- Panel dual: Carta Natal -->
-      <div id="sdm-carta" style="display:none">
-        <div class="sdm-tag">Carta Natal</div>
-        <h3 class="sdm-title">Tu mapa personal / Carta natal</h3>
-
-        <div class="compat-option">
-          <div class="compat-label">Opción 1</div>
-          <h4 class="compat-name">Carta natal</h4>
-          <p class="sdm-text">Un análisis profundo de tu personalidad, tus emociones y tus patrones. Entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu propia energía a tu favor.
-<br><br><strong>Duración:</strong> 2 horas
-<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
-          <p class="compat-price">Precio: $90 USD · S/ 300</p>
-          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Carta Natal')">
-            👉 Agenda tu sesión 🌻
-          </button>
-        </div>
-
-        <div class="compat-divider"></div>
-
-        <div class="compat-option">
-          <div class="compat-label">Opción 2</div>
-          <h4 class="compat-name">Carta natal infantil</h4>
-          <p class="sdm-text">Para entender el mundo energético, emocional y mental de tu hijo/a.
-Te explico cómo siente, qué necesita y cómo acompañarle con más calma y amor.
-<br><br><strong>Duración:</strong> 2 horas
-<br><strong>Modalidad:</strong> Virtual • Google Meet</p>
-          <p class="compat-price">Precio: $90 USD · S/ 300</p>
-          <button class="btn-primary" style="width:100%; justify-content:center;" onclick="goToBookingWith('Carta Natal Infantil')">
-            👉 Agenda tu sesión 🌻
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     BOOKING MODAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="overlay" id="booking-overlay">
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeBookingModal()" aria-label="Cerrar">✕</button>
-      <h3 class="bm-title">Agendar Sesión</h3>
-      <p class="bm-sub">Completa tus datos de nacimiento para generar tu carta. Luego procede al pago seguro.</p>
-
-      <form id="booking-form" onsubmit="return false;">
-        <div class="form-group">
-          <label>Servicio a Reservar</label>
-          <select id="bf-service" required>
-            <option value="45.00">🌻 Acompañamiento emocional - $45 USD</option>
-            <option value="50.00">🔮 Tarot - $50 USD</option>
-            <option value="90.00">🌙 Carta Natal - $90 USD</option>
-            <option value="90.00">👶 Carta Natal Infantil - $90 USD</option>
-            <option value="90.00">🌞 Revolución Solar - $90 USD</option>
-            <option value="50.00">❤️ Compatibilidad de Pareja - $50 USD</option>
-            <option value="110.00">🪐 Sinastría o Carta Compuesta - $110 USD</option>
-            <option value="80.00">🌌 Tránsitos Astrológicos - $80 USD</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Nombre Completo</label>
-          <input type="text" id="bf-name" placeholder="Ej. Valeria López" required />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Fecha de nacimiento</label>
-            <input type="date" id="bf-date" required />
-          </div>
-          <div class="form-group">
-            <label>Hora exacta</label>
-            <input type="time" id="bf-time" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Lugar de nacimiento</label>
-          <input type="text" id="bf-place" placeholder="Ciudad, País" required />
-        </div>
-        <div class="form-group">
-          <label>WhatsApp</label>
-          <input type="tel" id="bf-phone" placeholder="+1 234 567 890" required />
-        </div>
-
-        <div class="form-group" style="margin-top: 16px;">
-          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
-            <input type="checkbox" id="bf-terms" required style="margin-top:2px;">
-            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
-          </label>
-        </div>
-      </form>
-
-      <div class="paypal-wrap">
-        <p class="paypal-label">Pago seguro con PayPal o Tarjeta de crédito</p>
-        <div id="paypal-button-container"></div>
-      </div>
-
-      <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 168, 71, 0.3); padding-top: 24px;">
-        <p class="bm-sub" style="margin-bottom: 12px; font-weight: 600; color:var(--wine-deep);">¿Deseas pagar con Yape? (Solo Perú)</p>
-        <button type="button" class="btn-primary" style="background: #742284; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(116, 34, 132, 0.35);" onclick="openYapeModal()">
-          📲 Haz click aquí
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     YAPE MODAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="overlay" id="yape-overlay">
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeYapeModal()" aria-label="Cerrar">✕</button>
-      <h3 class="bm-title">Agendar con Yape</h3>
-      <p class="bm-sub">Completa los mismos datos para generar tu carta y realiza pago en Soles.</p>
-
-      <form id="yape-form" onsubmit="return false;">
-        <div class="form-group">
-          <label>Servicio a Reservar</label>
-          <select id="yf-service" required>
-            <option value="120" data-name="Acompañamiento emocional">🌻 Acompañamiento emocional - S/ 120</option>
-            <option value="150" data-name="Tarot">🔮 Tarot - S/ 150</option>
-            <option value="300" data-name="Carta Natal">🌙 Carta Natal - S/ 300</option>
-            <option value="300" data-name="Carta Natal Infantil">👶 Carta Natal Infantil - S/ 300</option>
-            <option value="300" data-name="Revolución Solar">🌞 Revolución Solar - S/ 300</option>
-            <option value="150" data-name="Compatibilidad de Pareja">❤️ Compatibilidad de Pareja - S/ 150</option>
-            <option value="380" data-name="Sinastría o Carta Compuesta">🪐 Sinastría o Carta Compuesta - S/ 380</option>
-            <option value="250" data-name="Tránsitos Astrológicos">🌌 Tránsitos Astrológicos - S/ 250</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Nombre Completo</label>
-          <input type="text" id="yf-name" placeholder="Ej. Valeria López" required />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Fecha de nacimiento</label>
-            <input type="date" id="yf-date" required />
-          </div>
-          <div class="form-group">
-            <label>Hora exacta</label>
-            <input type="time" id="yf-time" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Lugar de nacimiento</label>
-          <input type="text" id="yf-place" placeholder="Ciudad, País" required />
-        </div>
-        <div class="form-group">
-          <label>WhatsApp</label>
-          <input type="tel" id="yf-phone" placeholder="+51 900 000 000" required />
-        </div>
-
-        <div class="form-group" style="margin-top: 16px;">
-          <label style="display:flex; gap:10px; align-items:start; cursor:pointer; font-size:0.85rem; font-weight:normal; line-height:1.4;">
-            <input type="checkbox" id="yf-terms" required style="margin-top:2px;">
-            <span>He leído y acepto los <a href="#" onclick="document.getElementById('terminos-overlay').classList.add('active'); return false;" style="color:var(--wine-deep); text-decoration:underline; font-weight:bold;">Términos y Condiciones</a> del servicio.</span>
-          </label>
-        </div>
-
-        <div class="paypal-wrap" style="border-color: #742284; margin-top:24px;">
-          <p class="paypal-label" style="color: #742284; margin-bottom:12px;">Realiza el Yapeo por el monto indicado al número 907671044 a nombre de Fergis Marrero y directamente podrás envíar la captura aquí 👇</p>
-          <button type="button" class="btn-primary" style="background: #25D366; color: #fff; width: 100%; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);" onclick="submitYapeBooking()">
-            💬 Enviar captura por WhatsApp
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     LIBRO DE RECLAMACIONES MODAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="overlay" id="reclamaciones-overlay">
-    <div class="modal-panel" style="max-width: 600px;">
-      <button type="button" class="modal-close" onclick="closeReclamaciones()" aria-label="Cerrar">✕</button>
-      <h3 class="bm-title" style="font-size: 1.8rem;">Libro de Reclamaciones</h3>
-      <p class="bm-sub" style="margin-bottom: 24px;">Conforme al Código de Protección y Defensa del Consumidor, contamos con un Libro de Reclamaciones Virtual.</p>
-
-      <form id="reclamaciones-form" onsubmit="submitReclamacion(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nombres</label>
-            <input type="text" id="rec-nombre" required />
-          </div>
-          <div class="form-group">
-            <label>Apellidos</label>
-            <input type="text" id="rec-apellidos" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Documento</label>
-            <select id="rec-doc-tipo">
-              <option value="DNI">DNI</option>
-              <option value="CE">CE</option>
-              <option value="Pasaporte">Pasaporte</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Número de Documento</label>
-            <input type="number" id="rec-doc-num" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Celular</label>
-            <input type="tel" id="rec-celular" required />
-          </div>
-          <div class="form-group">
-            <label>Correo Electrónico</label>
-            <input type="email" id="rec-correo" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>¿Qué deseas presentar?</label>
-          <select id="rec-tipo" required>
-            <option value="Reclamo">Reclamo (Desacuerdo relacionado al servicio)</option>
-            <option value="Queja">Queja (Malestar por la atención al público)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Detalle de tu solicitud</label>
-          <textarea id="rec-detalle" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:80px;" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Pedido concreto</label>
-          <textarea id="rec-pedido" style="width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(212,168,71,0.3); font-family:inherit; min-height:60px;" required></textarea>
-        </div>
-
-        <div style="font-size: 0.8rem; color: var(--wine); opacity:0.85; margin: 20px 0; line-height:1.5;">
-          <p>El proveedor (Fergis Marrero - Fergirasol) deberá dar respuesta a su reclamo or queja dentro del plazo legal aplicable. La formulación del reclamo no excluye la posibilidad de acudir a otras vías de resolución.</p>
-          <label style="display:flex; gap:10px; margin-top:12px; cursor:pointer;">
-            <input type="checkbox" required style="margin-top:2px;">
-            <span>Declaro bajo juramento que los datos consignados son verdaderos y acepto las Políticas de Privacidad.</span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Enviar Solicitud al WhatsApp</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     TERMINOS Y CONDICIONES MODAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="overlay" id="terminos-overlay">
-    <div class="modal-panel" style="max-width: 650px;">
-      <button type="button" class="modal-close" onclick="closeTerminos()" aria-label="Cerrar">✕</button>
-      <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 TÉRMINOS Y CONDICIONES</h3>
-      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
-        <p style="margin-bottom:20px; font-weight:600;">Fergis • Fergirasol</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ NATURALEZA DEL SERVICIO</h4>
-        <p style="margin-bottom:16px;">Los servicios ofrecidos corresponden a acompañamientos de carácter astrológico, espiritual y de guía emocional. Están orientados a brindarte claridad, contención y acompañamiento en tu proceso personal.</p>
-        <p style="margin-bottom:24px;">⚠️ Estos servicios no sustituyen la terapia psicológica, psiquiátrica ni médica, sino que pueden complementarla desde un enfoque emocional y espiritual.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 SOBRE LA RESERVA Y EL PAGO</h4>
-        <p style="margin-bottom:24px;">La sesión se considera agendada una vez realizado el pago correspondiente. Al reservar, estás separando un espacio exclusivo destinado para ti. Por ello, agradezco profundamente tu compromiso y respeto por el tiempo acordado.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⏰ PUNTUALIDAD</h4>
-        <p style="margin-bottom:24px;">Se considera un tiempo de espera máximo de 10 minutos desde la hora agendada. Pasado ese tiempo, la sesión se dará por realizada y no podrá ser recuperada.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔁 REPROGRAMACIONES</h4>
-        <p style="margin-bottom:24px;">Si necesitas reprogramar tu sesión, puedes hacerlo con un mínimo de 24 horas de anticipación. Esto permite reorganizar el espacio y ofrecer ese horario a otra persona. Las reprogramaciones están sujetas a disponibilidad dentro de la misma semana.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🚫 POLÍTICA DE NO DEVOLUCIÓN</h4>
-        <p style="margin-bottom:24px;">Todos los servicios realizados y pagos efectuados no son reembolsables. Esto se debe a que cada sesión implica una reserva de tiempo, energía y preparación previa. Agradezco tu comprensión y respeto por este espacio.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌙 SOBRE LOS SERVICIOS</h4>
-        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
-          <li style="margin-bottom:12px;"><strong>🔮 Tarot:</strong> Brinda una guía clara sobre situaciones actuales, decisiones y procesos emocionales. No predice el futuro de forma determinante, sino que orienta desde la energía disponible.</li>
-          <li style="margin-bottom:12px;"><strong>💞 Compatibilidad de vínculos:</strong> Análisis de la dinámica entre dos personas (pareja u otros vínculos). Se trabaja desde tarot y astrología para comprender la relación y sus aprendizajes.</li>
-          <li style="margin-bottom:12px;"><strong>🌙 Carta natal:</strong> Interpretación profunda de tu personalidad, emociones y propósito de vida. Es una herramienta de autoconocimiento e integración personal.</li>
-          <li style="margin-bottom:12px;"><strong>☀️ Revolución solar:</strong> Análisis de tu energía anual. Orienta sobre procesos, cambios y aprendizajes del año, sin carácter predictivo absoluto.</li>
-          <li style="margin-bottom:12px;"><strong>👶 Carta natal infantil:</strong> Guía para comprender la personalidad y necesidades emocionales del niño/a. No reemplaza orientación psicológica o pedagógica.</li>
-          <li style="margin-bottom:12px;"><strong>🧿 Sinastría:</strong> Estudio astrológico de compatibilidad entre dos personas. Permite entender dinámicas, desafíos y potencial del vínculo.</li>
-          <li style="margin-bottom:12px;"><strong>🪐 Carta compuesta:</strong> Análisis de la energía de la relación como unidad. Explora el propósito del vínculo y su evolución.</li>
-          <li style="margin-bottom:12px;"><strong>🌌 Tránsitos astrológicos:</strong> Análisis de los movimientos actuales del cielo y su impacto en tu carta natal. Orienta procesos emocionales y momentos de cambio desde una mirada consciente.</li>
-          <li style="margin-bottom:16px;"><strong>🌻 Acompañamiento emocional:</strong> Espacio de acompañamiento continuo (sesiones o preguntas). No reemplaza procesos terapéuticos clínicos. Es un soporte emocional y espiritual complementario.</li>
-        </ul>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌿 CONSIDERACIÓN FINAL</h4>
-        <p>Este es un espacio creado con amor, respeto, cuidado y presencia. Mi intención es acompañarte con claridad y contención, pero también es importante que asumas tu proceso personal con responsabilidad y apertura.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     POLÍTICA DE COOKIES MODAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="overlay" id="cookies-overlay">
-    <div class="modal-panel" style="max-width: 650px;">
-      <button type="button" class="modal-close" onclick="closeCookies()" aria-label="Cerrar">✕</button>
-      <h3 class="bm-title" style="font-size: 1.8rem; margin-bottom:20px;">🌻 POLÍTICA DE COOKIES</h3>
-      <div style="font-size: 0.95rem; line-height: 1.6; color: var(--wine); opacity:0.9;">
-        <p style="margin-bottom:20px; font-weight:600;">Fergis • Mamá Girasol</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">✨ ¿Qué son las cookies?</h4>
-        <p style="margin-bottom:16px;">Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas esta página. Su función es ayudarte a tener una experiencia más fluida, recordando ciertas preferencias y permitiendo que todo funcione de manera más armoniosa.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💛 ¿Para qué usamos cookies?</h4>
-        <p style="margin-bottom:8px;">En este espacio utilizamos cookies para:</p>
-        <ul style="margin-bottom:16px; padding-left:20px; list-style-type:disc;">
-          <li>Mejorar tu experiencia de navegación</li>
-          <li>Entender cómo interactúas con la web</li>
-          <li>Optimizar el contenido y los servicios ofrecidos</li>
-        </ul>
-        <p style="margin-bottom:24px;">Nada invasivo… solo lo necesario para que todo fluya mejor ✨</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌐 Tipos de cookies que podemos utilizar</h4>
-        <ul style="margin-bottom:24px; padding-left:20px; list-style-type:none;">
-          <li style="margin-bottom:8px;"><strong>Cookies técnicas:</strong> necesarias para el funcionamiento de la página</li>
-          <li style="margin-bottom:8px;"><strong>Cookies de análisis:</strong> nos ayudan a entender el uso del sitio (por ejemplo, herramientas como Google Analytics)</li>
-          <li style="margin-bottom:8px;"><strong>Cookies de terceros:</strong> pueden provenir de servicios externos integrados en la web</li>
-        </ul>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🔒 Sobre tu información</h4>
-        <p style="margin-bottom:24px;">Las cookies no acceden a información personal sensible ni permiten identificarte directamente como persona. Tu privacidad es importante y este espacio busca respetarla en todo momento.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">⚙️ Gestión de cookies</h4>
-        <p style="margin-bottom:24px;">Puedes aceptar, rechazar o eliminar las cookies desde la configuración de tu navegador en cualquier momento. Ten en cuenta que desactivarlas podría afectar el funcionamiento de algunas partes del sitio.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">🌻 Aceptación de cookies</h4>
-        <p style="margin-bottom:24px;">Al navegar en este sitio, aceptas el uso de cookies para mejorar tu experiencia.</p>
-
-        <h4 style="color:var(--wine-deep); margin-bottom:10px;">💌 Contacto</h4>
-        <p>Si tienes alguna duda sobre esta política, puedes escribirme directamente. Estoy aquí para acompañarte también en esto 💛</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- BANNER DE COOKIES -->
-  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:24px; right:24px; max-width:420px; background:rgba(255,255,255,0.98); border:2px solid rgba(212,168,71,0.25); border-radius:16px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:900;">
-    <h4 style="margin:0 0 10px 0; font-size:1.1rem; color:var(--wine-deep);">Quiero que te sientas cómoda aquí 🌻</h4>
-    <p style="margin:0 0 20px 0; font-size:0.9rem; line-height:1.5; color:var(--wine);">Usamos cookies para que tu experiencia sea más fluida y armoniosa. <a href="#" onclick="document.getElementById('cookies-overlay').classList.add('active'); return false;" style="color:var(--gold); font-weight:600; text-decoration:underline;">Ver política</a></p>
-    <button onclick="acceptCookies()" class="btn-primary" style="width:100%; justify-content:center; padding:12px;">Aceptar ✨</button>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     JAVASCRIPT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <script>
-    /* ── SERVICIOS DATA ──────────────────────────────────────── */
-    const SERVICES = {
-      'Acompañamiento emocional': {
-        tag: 'Acompañamiento emocional mensual',
-        title: 'Acompañamiento emocional',
-        text: 'A veces no sabes ni por dónde empezar. Solo sientes que algo no está bien y que necesitas a alguien que te escuche, te oriente y te ayude a encontrar claridad. Eso es exactamente lo que este espacio es para ti.\n\nCada mes tienes cuatro sesiones reservadas solo para ti. Un espacio fijo, seguro y continuo donde puedes llegar como estás. Sin filtros, sin máscaras, vulnerable.\n\nY no solo en sesión. Brindo presencia constante porque a veces la vida no espera, y tener a alguien que te sostenga en ese momento lo puede cambiar todo.\n\nSesión a sesión, vas reconociéndote, rompiendo patrones y construyendo una relación más amorosa contigo misma.',
-        duration: '4 sesiones al mes · 45 minutos cada una · Soporte entre sesiones',
-        modality: 'Virtual · Se renueva mensualmente',
-        price: '$45 USD · S/ 120',
-        match: 'Acompañamiento emocional'
-      },
-      'Tarot': {
-        tag: 'Para cuando necesitas orientación',
-        title: '🌙 Sesión de claridad / Tarot',
-        text: 'Para cuando necesitas orientación sobre una situación específica que estás viviendo — una decisión, una relación, un momento de quiebre. Saldrás con más claridad y con un lugar desde donde moverte.',
-        duration: '1 hora',
-        modality: 'Virtual • Google Meet',
-        price: '$50 USD · S/ 150',
-        match: 'Tarot'
-      },
-      'Carta Natal': {
-        tag: 'Tu mapa personal',
-        title: '🌟 Tu mapa personal / Carta natal',
-        text: 'Un análisis profundo de tu personalidad, tus emociones y tus patrones. Entendemos por qué sientes como sientes, cómo funciona tu mundo interno y cómo usar tu propia energía a tu favor.',
-        price: '$90 USD · S/ 300',
-        match: 'Carta Natal'
-      },
-      'Carta Natal Infantil': {
-        tag: 'Carta para infancia',
-        title: 'Carta natal infantil',
-        text: 'Para entender el mundo energético, emocional y mental de tu hijo/a.\n\nTe explico cómo siente, qué necesita y cómo acompañarle con más calma y amor.',
-        price: '$90 USD · S/ 300',
-        match: 'Carta Natal Infantil'
-      },
-      'Revolución Solar': {
-        tag: 'Tu año con dirección',
-        title: '☀️ Tu año con dirección / Revolución solar',
-        text: 'Para entender qué viene en este ciclo de tu vida — qué quiere moverse, qué quiere cerrarse y cómo acompañar ese proceso con más conciencia.',
-        duration: '2 horas',
-        modality: 'Virtual • Google Meet',
-        price: '$90 USD · S/ 300',
-        match: 'Revolución'
-      },
-      'Compatibilidad': {
-        tag: 'Entendiendo tu vínculo',
-        title: '💞 Entendiendo tu vínculo / Compatibilidad',
-        text: 'Para comprender la dinámica entre tú y otra persona — pareja, madre, hijo, amistad. Qué los une, qué los desafía y qué está pasando realmente en esa relación.',
-        match: 'Compatibilidad'
-      },
-      'Sinastría': {
-        tag: 'Estudio profundo del vínculo',
-        title: '🔭 Estudio profundo del vínculo / Sinastría',
-        text: 'Un análisis más detallado de la conexión entre dos personas a nivel emocional y energético. Para entender el propósito del vínculo y lo que vienen a aprender juntos.',
-        match: 'Sinastría'
-      },
-      'Tránsitos': {
-        tag: 'Lo que el momento te está diciendo',
-        title: '🌌 Lo que el momento te está diciendo / Tránsitos',
-        text: 'Para entender cómo lo que está pasando en el mundo influye en ti — en tus emociones, tus decisiones y tu proceso personal.',
-        duration: '1 hora',
-        modality: 'Virtual • Google Meet',
-        price: '$80 USD · S/ 250',
-        match: 'Tránsitos'
-      }
-    };
-
-    let activeMatch = '';
-
-    function showService(name) {
-      const s = SERVICES[name];
-      if (!s) return;
-      activeMatch = s.match || name;
-
-      const isCompat = name === 'Compatibilidad' || name === 'Sinastría';
-      const isCarta = name === 'Carta Natal' || name === 'Carta Natal Infantil';
-
-      document.getElementById('sdm-standard').style.display = (isCompat || isCarta) ? 'none' : 'block';
-      document.getElementById('sdm-compat').style.display = isCompat ? 'block' : 'none';
-      document.getElementById('sdm-carta').style.display = isCarta ? 'block' : 'none';
-
-      if (!isCompat && !isCarta) {
-        document.getElementById('sdm-tag').textContent = s.tag;
-        document.getElementById('sdm-title').textContent = s.title;
-        document.getElementById('sdm-text').textContent = s.text;
-        document.getElementById('sdm-price').textContent = s.price || '';
-        let meta = '';
-        if (s.duration) meta += '<strong>Duración:</strong> ' + s.duration + '<br>';
-        if (s.modality) meta += '<strong>Modalidad:</strong> ' + s.modality;
-        document.getElementById('sdm-meta').innerHTML = meta;
-      }
-
-      document.getElementById('service-overlay').classList.add('active');
-    }
-    function closeService() {
-      document.getElementById('service-overlay').classList.remove('active');
-    }
-    function closeBookingModal() {
-      document.getElementById('booking-overlay').classList.remove('active');
-    }
-    function goToBooking() {
-      closeService();
-      const sel = document.getElementById('bf-service');
-      [...sel.options].forEach(o => {
-        if (o.text.toLowerCase().includes(activeMatch.toLowerCase())) o.selected = true;
-      });
-      document.getElementById('booking-overlay').classList.add('active');
-    }
-    // Usado por los botones del panel dual
-    function goToBookingWith(match) {
-      activeMatch = match;
-      goToBooking();
-    }
-
-    function openYapeModal() {
-      closeBookingModal();
-      const sel = document.getElementById('yf-service');
-      [...sel.options].forEach(o => {
-        if (o.text.toLowerCase().includes(activeMatch.toLowerCase())) o.selected = true;
-      });
-      document.getElementById('yape-overlay').classList.add('active');
-    }
-
-    function closeYapeModal() {
-      document.getElementById('yape-overlay').classList.remove('active');
-    }
-
-    function submitYapeBooking() {
-      const form = document.getElementById('yape-form');
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      const sel = document.getElementById('yf-service');
-      const srvName = sel.options[sel.selectedIndex].dataset.name;
-      const srvPrice = sel.options[sel.selectedIndex].value;
-      const name = document.getElementById('yf-name').value;
-      const date = document.getElementById('yf-date').value;
-      const time = document.getElementById('yf-time').value;
-      const place = document.getElementById('yf-place').value;
-      const phone = document.getElementById('yf-phone').value;
-      const msg = `¡Hola Fergis! Quisiera agendar una sesión y de una vez hago el Yapeo 💛\n\nSERVICIO: ${srvName}\nMONTO: S/ ${srvPrice}\nNOMBRE: ${name}\nNACIMIENTO: ${date} a las ${time}\nLUGAR: ${place}\nWHATSAPP: ${phone}\n\nAquí envío mi captura 👇`;
-      closeYapeModal();
-      document.getElementById('yape-form').reset();
-      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function closeReclamaciones() {
-      document.getElementById('reclamaciones-overlay').classList.remove('active');
-    }
-
-    function closeTerminos() {
-      document.getElementById('terminos-overlay').classList.remove('active');
-    }
-
-    function closeCookies() {
-      document.getElementById('cookies-overlay').classList.remove('active');
-    }
-
-    function submitReclamacion(e) {
-      e.preventDefault();
-      const nombre = document.getElementById('rec-nombre').value;
-      const apel = document.getElementById('rec-apellidos').value;
-      const doc = document.getElementById('rec-doc-tipo').value + ' ' + document.getElementById('rec-doc-num').value;
-      const cel = document.getElementById('rec-celular').value;
-      const correo = document.getElementById('rec-correo').value;
-      const tipo = document.getElementById('rec-tipo').value;
-      const detalle = document.getElementById('rec-detalle').value;
-      const pedido = document.getElementById('rec-pedido').value;
-
-      let text = `*LIBRO DE RECLAMACIONES*\n\n`;
-      text += `*Nombre:* ${nombre} ${apel}\n`;
-      text += `*Doc:* ${doc}\n`;
-      text += `*Celular:* ${cel}\n`;
-      text += `*Correo:* ${correo}\n`;
-      text += `*Solicitud:* ${tipo}\n`;
-      text += `*Detalle:* ${detalle}\n`;
-      text += `*Pedido:* ${pedido}\n`;
-
-      const msg = encodeURIComponent(text);
-      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${msg}`, '_blank');
-
-      alert('Tu solicitud ha sido generada. Serás redirigida a WhatsApp para enviarla formalmente.');
-      closeReclamaciones();
-      document.getElementById('reclamaciones-form').reset();
-    }
-
-    /* Cerrar al hacer clic fuera */
-    ['service-overlay', 'booking-overlay', 'yape-overlay', 'reclamaciones-overlay', 'terminos-overlay', 'cookies-overlay'].forEach(id => {
-      document.getElementById(id).addEventListener('click', function (e) {
-        if (e.target === this) this.classList.remove('active');
-      });
-    });
-
-    /* ── CAROUSEL ────────────────────────────────────────────── */
-    const track = document.getElementById('carousel-track');
-    const dots = document.querySelectorAll('.dot');
-    let idx = 0, timer;
-
-    function goToSlide(n) {
-      idx = n;
-      track.style.transform = `translateX(-${idx * 50}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-
-    function nextSlide() {
-      goToSlide((idx + 1) % 2);
-    }
-
-    function startCarousel() {
-      timer = setInterval(nextSlide, 4800);
-    }
-
-    /* Pausar al hover */
-    document.getElementById('carousel-track').closest('.carousel-box')
-      .addEventListener('mouseenter', () => clearInterval(timer));
-    document.getElementById('carousel-track').closest('.carousel-box')
-      .addEventListener('mouseleave', startCarousel);
-
-    startCarousel();
-
-    /* ── CONFIGURACIÓN & PAYPAL ──────────────────────────────── */
-    let appConfig = {
-      whatsappNumber: '51907671044',
-      whatsappMessage: '¡Hola Fergis! Quisiera agendar una sesión.',
-      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
-      paypalCurrency: 'USD'
-    };
-
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch('config.json')
-        .then(r => r.json())
-        .then(d => { appConfig = { ...appConfig, ...d }; init(); })
-        .catch(() => init());
-
-      /* Intersection observer para fade-up on scroll */
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-up'); });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.bento-grid, .blog-box, .community-box, .social-box').forEach(el => io.observe(el));
-
-      /* Banner de Cookies */
-      if (!localStorage.getItem('cookies_accepted')) {
-        setTimeout(() => {
-          const banner = document.getElementById('cookie-banner');
-          if (banner) {
-            banner.style.display = 'block';
-            banner.classList.add('fade-up');
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background": "#231a0f",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#231a0f",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#f2e0cd",
+            "inverse-on-surface": "#ffeedd",
+            "on-secondary-fixed-variant": "#3a4c2c",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#f2e0cd",
+            "tertiary-container": "#e6a57c",
+            "surface-container": "#feebd8",
+            "tertiary-fixed": "#ffdbc7",
+            "inverse-surface": "#392f22",
+            "on-primary-fixed": "#281900",
+            "on-primary-container": "#5e4000",
+            "primary-fixed-dim": "#fabc4d",
+            "surface-bright": "#fff8f4",
+            "on-secondary-fixed": "#102005",
+            "surface-dim": "#e9d7c5",
+            "on-error": "#ffffff",
+            "outline": "#827563",
+            "primary-container": "#e5a93c",
+            "tertiary-fixed-dim": "#fbb88e",
+            "on-surface-variant": "#504535",
+            "secondary-fixed": "#d4eabe",
+            "background": "#fff8f4",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "inverse-primary": "#fabc4d",
+            "surface-tint": "#7e5700",
+            "on-tertiary-container": "#673a19",
+            "on-primary-fixed-variant": "#604100",
+            "on-secondary-container": "#576a48",
+            "secondary": "#516442",
+            "secondary-fixed-dim": "#b8cda4",
+            "on-error-container": "#93000a",
+            "outline-variant": "#d4c4b0",
+            "primary": "#7e5700",
+            "surface-container-high": "#f8e5d2",
+            "primary-fixed": "#ffdead",
+            "surface-container-low": "#fff1e5",
+            "tertiary": "#855230",
+            "on-tertiary-fixed": "#311300",
+            "secondary-container": "#d4eabe",
+            "on-tertiary-fixed-variant": "#693b1b",
+            "surface": "#fff8f4"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter-desktop": "2rem",
+            "gutter": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin": "1.25rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "margin-desktop": "3rem"
+          },
+          fontFamily: {
+            "headline-lg": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "display-lg": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"],
+            "display-lg-mobile": ["Glacial Indifference", "Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
           }
-        }, 1500);
-      }
-    });
-
-    function acceptCookies() {
-      localStorage.setItem('cookies_accepted', 'true');
-      const banner = document.getElementById('cookie-banner');
-      if (banner) {
-        banner.style.opacity = '0';
-        banner.style.transform = 'translateY(10px)';
-        banner.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        setTimeout(() => banner.style.display = 'none', 400);
-      }
-    }
-
-    function init() {
-      document.getElementById('fab-wa').href =
-        `https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(appConfig.whatsappMessage)}`;
-
-      if (!document.getElementById('pp-sdk')) {
-        const s = document.createElement('script');
-        s.id = 'pp-sdk';
-        s.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
-        s.onload = renderPayPal;
-        document.body.appendChild(s);
-      }
-    }
-
-    function renderPayPal() {
-      paypal.Buttons({
-        createOrder: (data, actions) => {
-          const form = document.getElementById('booking-form');
-          if (!form.checkValidity()) { form.reportValidity(); return actions.reject(); }
-          return actions.order.create({
-            purchase_units: [{ amount: { value: document.getElementById('bf-service').value } }]
-          });
-        },
-        onApprove: (data, actions) => actions.order.capture().then(det => {
-          const sel = document.getElementById('bf-service');
-          const srv = sel.options[sel.selectedIndex].text;
-          const name = document.getElementById('bf-name').value;
-          const date = document.getElementById('bf-date').value;
-          const time = document.getElementById('bf-time').value;
-          const place = document.getElementById('bf-place').value;
-          const phone = document.getElementById('bf-phone').value;
-          const msg = `¡Hola Fergis! Acabo de hacer el pago 💛 (ID: ${det.id})\n\nSERVICIO: ${srv}\nNOMBRE: ${name}\nNACIMIENTO: ${date} a las ${time}\nLUGAR: ${place}\nWHATSAPP: ${phone}`;
-          alert('¡Pago completado! Serás redirigida a WhatsApp para confirmar.');
-          closeBookingModal();
-          document.getElementById('booking-form').reset();
-          window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-        })
-      }).render('#paypal-button-container');
-    }
-
-    /* Interceptar form carta natal para formato de fecha */
-    const cnForm = document.getElementById('carta-natal-form');
-    if (cnForm) {
-      cnForm.addEventListener('submit', function(e) {
-        const d = document.getElementById('cn-date').value;
-        if (d) {
-          const parts = d.split('-');
-          document.getElementById('cn-fecha-real').value = `${parts[2]}-${parts[1]}-${parts[0]}`;
         }
-      });
-    }
+      }
+    };
   </script>
 
-</body>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+    main > :first-child {
+      margin-top: 0 !important;
+    }
+    main > :last-child {
+      margin-bottom: 0 !important;
+    }
+    @font-face {
+      font-family: 'Glacial Indifference';
+      src: url('https://fonts.cdnfonts.com/s/14299/GlacialIndifference-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Glacial Indifference';
+      src: url('https://fonts.cdnfonts.com/s/14299/GlacialIndifference-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    .font-glacial {
+      font-family: 'Glacial Indifference', 'Plus Jakarta Sans', sans-serif !important;
+    }
+    .sunflower-card-glow {
+      box-shadow: 0 10px 30px -4px rgba(229, 169, 60, 0.08), 0 4px 12px -2px rgba(133, 82, 48, 0.04);
+    }
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    /* Fix select chevron repetition from forms plugin */
+    select.custom-select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23504535' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.75' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+      background-position: right 0.85rem center !important;
+      background-repeat: no-repeat !important;
+      background-size: 1.25rem 1.25rem !important;
+      padding-right: 2.5rem !important;
+    }
+  </style>
+</head>
+<body class="bg-surface font-glacial text-on-surface antialiased relative min-h-screen">
+  <!-- Subtle Watercolor Sunflower Pattern Backdrop -->
+  <div
+    class="fixed inset-0 pointer-events-none z-0 opacity-15 bg-repeat bg-center"
+    style="background-image: url('/Fotos/stitch/bg-sunflowers.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkpEtywYdQWd6Jwjnr98Mx74wCP450i7C8gHL12s5e14oWOFn2toTSBT0ABLAzusCEqzyLO2PDvrn2NOs9NNemS1JYqFPW-NZRhEjDGs0X4_ULCTLDKO6uLrSVPCg79qnE984dTevRlbPD94TOpDzYwQZiUXMaNf0JzHUgA5tcNKUxZaBJAg-bJkRiDIpvNA-VstOndV5OBeRpNmtxt0jK6SbiBqYVvj6yWV6WwGN5mw4qUYdPgWN4Iw'); background-size: 320px auto;"
+  ></div>
 
+  <!-- HEADER / NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(140,88,53,0.06)]">
+    <div class="h-20 max-w-[1240px] mx-auto px-margin md:px-8 flex items-center justify-between gap-3">
+      <!-- Brand Logo -->
+      <div class="flex flex-col justify-center flex-shrink-0">
+        <a class="group flex flex-col" href="#inicio">
+          <span class="font-glacial text-xl md:text-2xl font-bold text-primary group-hover:text-primary-container transition-colors tracking-wide whitespace-nowrap">FERGIS 🌻</span>
+          <span class="font-glacial text-[11px] tracking-widest uppercase text-tertiary opacity-90 whitespace-nowrap">TU ESPACIO PERSONAL</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden xl:flex items-center gap-1" aria-label="Navegación principal">
+        <a class="font-glacial text-sm font-medium text-on-surface hover:text-primary px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#inicio">Inicio</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#quien-soy">Quién soy</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#mi-historia">Mi historia</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#acompanamiento">Acompañamiento</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#masoterapia">Masoterapia</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#tienda">Tienda Fergirasol</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#experiencias">Experiencias</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#terminos">Términos</a>
+        <a class="font-glacial text-sm font-medium text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap" href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- Actions & Mobile Menu Button -->
+      <div class="flex items-center gap-2.5 flex-shrink-0">
+        <a
+          class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary-container font-glacial font-bold text-sm px-4 py-2.5 rounded-lg shadow-[0_4px_12px_-2px_rgba(229,169,60,0.25)] hover:bg-primary hover:text-on-primary transition-all duration-200 whitespace-nowrap"
+          href="https://wa.me/51907671044"
+          rel="noopener noreferrer"
+          target="_blank"
+        >Agendar Sesión / Contactar</a>
+        <a
+          href="#quien-soy"
+          aria-label="Perfil de Fergis"
+          class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shadow-sm flex-shrink-0 hover:bg-primary-container transition-colors"
+        >
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          class="xl:hidden w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container/30 transition-colors"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="material-symbols-outlined text-[22px]" id="mobileMenuIcon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile / Tablet Navigation Drawer -->
+    <div id="mobileMenuDrawer" class="hidden xl:hidden bg-surface/95 backdrop-blur-xl border-t border-primary-container/20 px-margin py-4 shadow-lg">
+      <nav class="flex flex-col gap-1 max-w-[1200px] mx-auto" aria-label="Navegación móvil">
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#inicio">Inicio</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#quien-soy">Quién soy</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#mi-historia">Mi historia</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#acompanamiento">Acompañamiento</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#masoterapia">Masoterapia</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#tienda">Tienda Fergirasol</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#experiencias">Experiencias</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#terminos">Términos</a>
+        <a onclick="closeMobileMenu()" class="font-glacial text-sm font-medium text-on-surface-variant hover:bg-primary-container/20 px-3 py-2.5 rounded-lg transition-colors" href="#contacto">Contacto</a>
+        <a
+          class="sm:hidden mt-2 inline-flex items-center justify-center bg-primary-container text-on-primary-container font-glacial font-bold text-sm px-4 py-2.5 rounded-lg shadow-sm"
+          href="https://wa.me/51907671044"
+          rel="noopener noreferrer"
+          target="_blank"
+        >Agendar Sesión / Contactar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative z-10 w-full pt-20 max-w-[1200px] mx-auto px-margin md:px-margin-desktop">
+    <div class="flex flex-col w-full text-on-surface">
+
+      <!-- HERO / INICIO (#inicio) - Minimalista Neuroafirmativa & Serena -->
+      <section class="relative w-full pt-10 pb-16 md:pt-16 md:pb-24 flex flex-col items-center text-center" id="inicio">
+        <!-- Decorative Serene Warm Glow -->
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-full max-w-3xl h-80 bg-gradient-to-b from-primary-fixed/20 via-primary-container/10 to-transparent blur-3xl pointer-events-none -z-10 rounded-full"></div>
+
+        <div class="max-w-3xl mx-auto flex flex-col items-center gap-6">
+          <!-- Exact Badge: Espacio Neuroafirmativo -->
+          <div class="inline-flex items-center gap-2 bg-secondary-fixed/50 text-on-secondary-fixed-variant px-4 py-1.5 rounded-full text-sm font-glacial font-semibold tracking-wide">
+            <span>🌻</span>
+            <span>Espacio Neuroafirmativo</span>
+          </div>
+
+          <!-- Exact Title: FERGIS | Mamá Girasol 🌻 -->
+          <h1 class="font-glacial text-4xl sm:text-5xl md:text-6xl font-bold text-on-surface leading-tight tracking-tight">
+            FERGIS | <span class="text-primary underline decoration-primary-container/50 decoration-wavy decoration-2">Mamá Girasol 🌻</span>
+          </h1>
+
+          <p class="font-glacial text-xl sm:text-2xl text-tertiary font-medium max-w-2xl leading-relaxed">
+            Tu espacio personal de bienestar, autoconocimiento y cuidado corporal.
+          </p>
+
+          <p class="font-glacial text-lg text-on-surface-variant leading-relaxed max-w-xl">
+            Un refugio seguro, pensado para abrazar la sensibilidad, los ritmos propios y la maravilla de descubrir quién eres más allá de los moldes convencionales.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <a class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container font-glacial font-bold text-base px-8 py-3.5 rounded-xl shadow-sm hover:bg-primary hover:text-on-primary transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap" href="#quien-soy">
+              <span>Conóceme</span>
+              <span class="material-symbols-outlined text-lg">arrow_downward</span>
+            </a>
+            <a class="inline-flex items-center gap-2 bg-surface-container-lowest/90 text-tertiary border border-outline-variant/40 font-glacial font-bold text-base px-8 py-3.5 rounded-xl hover:bg-primary-container/20 transition-all duration-300 whitespace-nowrap" href="#acompanamiento">
+              <span>Ver Servicios</span>
+              <span class="material-symbols-outlined text-lg">spa</span>
+            </a>
+          </div>
+
+          <!-- Serene Micro Highlights Bar -->
+          <div class="grid grid-cols-3 gap-3 pt-6 w-full max-w-md">
+            <div class="bg-surface-container-lowest/80 backdrop-blur-md p-3.5 rounded-xl sunflower-card-glow text-center border border-primary-container/20">
+              <span class="block font-glacial font-bold text-primary text-xl">100%</span>
+              <span class="font-glacial text-xs text-on-surface-variant font-medium">Neuroafirmativo</span>
+            </div>
+            <div class="bg-surface-container-lowest/80 backdrop-blur-md p-3.5 rounded-xl sunflower-card-glow text-center border border-secondary-container/40">
+              <span class="block font-glacial font-bold text-secondary text-xl">Sensorial</span>
+              <span class="font-glacial text-xs text-on-surface-variant font-medium">Cuidado Corporal</span>
+            </div>
+            <div class="bg-surface-container-lowest/80 backdrop-blur-md p-3.5 rounded-xl sunflower-card-glow text-center border border-tertiary-container/30">
+              <span class="block font-glacial font-bold text-tertiary text-xl">Humano</span>
+              <span class="font-glacial text-xs text-on-surface-variant font-medium">Sin Juicios</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIÉN SOY (#quien-soy) - Fergis protagonista central destacada -->
+      <section class="relative w-full py-16 scroll-mt-24" id="quien-soy">
+        <div class="bg-surface-container-lowest/90 backdrop-blur-lg rounded-3xl p-8 sm:p-12 md:p-16 sunflower-card-glow border border-primary-container/20 max-w-4xl mx-auto flex flex-col items-center text-center">
+          <!-- Protagonist Portrait of Fergis -->
+          <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full overflow-hidden shadow-xl ring-4 ring-primary-container/40 bg-surface-container mb-8 flex-shrink-0 group">
+            <img
+              alt="Fergis | Mamá Girasol"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="/Fotos/stitch/fergis-portrait.png"
+              onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCLbmOkEipI_RRdvNHF6gqW36y4i_MwCx0lGcECLlor2XeNuVFzsAJd2xyrqHKBGnFswFIqetsPdtEPCM4a2RnL29uG8xePSN7qBNURNXFtVgphTu-_K6F63WaLs8D_Z4crGvWDjK0XJKVq5IwiIPTXui0nhfWPB8-4BQh-9XgtBlL_mCOBdH3mLzVOnodNuZ9ZcCpsLzeYejMfWxum9-P5lDScb3eKnGkCZN1JqFF11niBbrSpn6F55w';"
+            />
+            <div class="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(126,87,0,0.15)] pointer-events-none"></div>
+          </div>
+
+          <div class="flex items-center gap-3 mb-3">
+            <span class="px-4 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-glacial text-xs font-bold tracking-wider uppercase">Conóceme</span>
+          </div>
+
+          <h2 class="font-glacial text-3xl sm:text-4xl font-bold text-primary mb-6 flex items-center justify-center gap-2">
+            <span>Quién soy</span>
+            <span>🌻</span>
+          </h2>
+
+          <!-- Textual Content Centered and Warm -->
+          <div class="font-glacial text-base sm:text-lg text-on-surface leading-relaxed max-w-2xl flex flex-col gap-4">
+            <p class="font-bold text-xl sm:text-2xl text-tertiary">
+              Hola, soy Fergis. 🌻
+            </p>
+            <p class="font-semibold text-primary">
+              Me llaman Fergis | Mamá Girasol.
+            </p>
+            <p>
+              Soy creadora de contenido, acompañante emocional y masoterapeuta. Me interesan las personas, sus historias, el bienestar y las diferentes maneras que tenemos de experimentar el mundo.
+            </p>
+            <p>
+              Soy una mujer que está constantemente aprendiendo, cuestionándose y descubriendo nuevas formas de habitar su propia vida. Mi experiencia como mujer autista y con TDAH también forma parte de mi mirada y de la manera en que me relaciono con el mundo.
+            </p>
+            <p>
+              A través de mis proyectos, quiero crear espacios donde podamos aprender, sentirnos comprendidas, cuidar de nosotras mismas y descubrir que no tenemos que encajar en todos los moldes.
+            </p>
+            <p>
+              Este espacio reúne mis intereses, mi trabajo, mis experiencias y las cosas que me apasiona compartir.
+            </p>
+            <p class="font-bold text-xl text-primary mt-2">
+              ¡Qué bonito que estés aquí! 💛
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MI HISTORIA (#mi-historia) -->
+      <section class="relative w-full py-16 scroll-mt-24" id="mi-historia">
+        <div class="flex flex-col gap-8 max-w-4xl mx-auto">
+          <div class="text-center flex flex-col items-center gap-3">
+            <span class="px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-glacial text-xs font-bold tracking-wider uppercase">Trayectoria y Proceso</span>
+            <h2 class="font-glacial text-2xl sm:text-3xl md:text-4xl font-bold text-on-surface">
+              Mi historia: un camino en construcción 🌻
+            </h2>
+            <p class="font-glacial text-base text-on-surface-variant max-w-xl">
+              El proceso de desenmascarar, entender y abrazar la propia naturaleza humana con compasión.
+            </p>
+          </div>
+
+          <!-- Narrative Sequential Cards -->
+          <div class="relative flex flex-col gap-6">
+            <!-- Step 1: Formación en Educación Especial -->
+            <div class="bg-surface-container-lowest/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col md:flex-row gap-5 items-start">
+              <div class="w-12 h-12 rounded-xl bg-secondary-container/60 text-secondary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">school</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-glacial text-xs font-bold text-secondary tracking-wider uppercase">Paso 1 · Formación Académica</span>
+                <h3 class="font-glacial text-xl font-bold text-on-surface">Formación en Educación Especial</h3>
+                <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                  Inicié mi preparación académica en el área de <strong>Educación Especial con mención en Retardo Mental y Dificultades del Aprendizaje</strong>. Esta etapa consolidó mi respeto por las diversas formas de aprender y procesar la realidad, sentando las bases de una profunda sensibilidad pedagógica y empática.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2: La búsqueda personal & espiritual -->
+            <div class="bg-surface-container-lowest/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col md:flex-row gap-5 items-start">
+              <div class="w-12 h-12 rounded-xl bg-tertiary-container/50 text-tertiary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">explore</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-glacial text-xs font-bold text-tertiary tracking-wider uppercase">Paso 2 · Búsqueda Personal &amp; Preguntas Fundamentales</span>
+                <h3 class="font-glacial text-xl font-bold text-on-surface">El inicio de la búsqueda personal y espiritual</h3>
+                <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                  Durante mucho tiempo intenté comprenderme a profundidad. En ese trayecto viví una etapa conectada con la espiritualidad, el tarot y la astrología como herramientas de introspección y búsqueda de sentido. Fueron instrumentos que abrieron reflexiones sinceras sobre el sentir humano.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3: El puente al diagnóstico neurodivergente formal -->
+            <div class="bg-surface-container-lowest/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col md:flex-row gap-5 items-start">
+              <div class="w-12 h-12 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">psychology</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-glacial text-xs font-bold text-primary tracking-wider uppercase">Paso 3 · Claridad &amp; Diagnóstico</span>
+                <h3 class="font-glacial text-xl font-bold text-on-surface">Diagnóstico neurodivergente formal (Autismo &amp; TDAH)</h3>
+                <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                  Esa misma necesidad de respuestas concretas y científicas me impulsó a buscar evaluación médica, psicológica y neurológica especializada, llegando finalmente a mis <strong>diagnósticos de Autismo y TDAH (AuDHD)</strong>. Entender mi neurotipo fue el punto de inflexión que dio sentido a toda mi vivencia.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4: Cierre amoroso y resignificación integral -->
+            <div class="bg-surface-container-lowest/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col md:flex-row gap-5 items-start">
+              <div class="w-12 h-12 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">favorite</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-glacial text-xs font-bold text-secondary tracking-wider uppercase">Paso 4 · Síntesis &amp; Enfoque Actual</span>
+                <h3 class="font-glacial text-xl font-bold text-on-surface">Cierre amoroso y resignificación hacia el bienestar integral</h3>
+                <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                  Cerré con amor, respeto y total consciencia esa etapa previa vinculada al tarot y la astrología, integrando la riqueza de la escucha humana para abrir paso a proyectos con fundamento en el bienestar corporal, neurodivergente y emocional.
+                </p>
+              </div>
+            </div>
+
+            <!-- Concluding Statement Card -->
+            <div class="p-8 rounded-2xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high text-on-surface sunflower-card-glow flex flex-col items-center text-center gap-4 border border-primary-container/20">
+              <span class="text-3xl">🌻</span>
+              <p class="font-glacial font-medium text-lg md:text-xl italic max-w-2xl leading-relaxed text-on-surface">
+                "Hoy no pretendo tener todas las respuestas. Me interesa aprender, compartir lo que descubro y construir proyectos que tengan sentido para mí. Esta es mi historia, pero todavía se está escribiendo. 🌻"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACOMPAÑAMIENTO EMOCIONAL (#acompanamiento) -->
+      <section class="relative w-full py-16 scroll-mt-24" id="acompanamiento">
+        <div class="flex flex-col gap-10">
+          <!-- Section Header -->
+          <div class="flex flex-col gap-3 text-center max-w-3xl mx-auto">
+            <span class="px-3.5 py-1 rounded-full bg-primary-container/30 text-on-primary-container font-glacial text-xs font-bold tracking-wider uppercase self-center">Apoyo Personalizado</span>
+            <h2 class="font-glacial text-3xl sm:text-4xl font-bold text-on-surface">
+              Acompañamiento emocional 🌻
+            </h2>
+            <p class="font-glacial text-xl text-primary font-semibold">
+              Un espacio para comprenderte, explorar tu historia y encontrar nuevas maneras de acompañarte.
+            </p>
+            <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+              A veces necesitamos un espacio donde podamos hablar sin sentirnos juzgadas, expresar nuestras inquietudes y explorar nuestra forma de funcionar en el mundo. Este servicio está dirigido especialmente a mujeres que desean explorar su identidad, comprender sus procesos y contar con una escucha atenta y neuroafirmativa.
+            </p>
+          </div>
+
+          <!-- Topics Covered Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-primary mt-0.5">fingerprint</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Autoconocimiento e identidad</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Reconectar con quién eres cuando no tienes que fingir.</p>
+              </div>
+            </div>
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-secondary mt-0.5">diversity_1</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Neurodivergencia en mujeres</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Entender manifestaciones a menudo invisibilizadas.</p>
+              </div>
+            </div>
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-tertiary mt-0.5">neurology</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Autismo, TDAH y AuDHD</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Exploración de la doble excepcionalidad y sus matices.</p>
+              </div>
+            </div>
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-primary mt-0.5">battery_alert</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Enmascaramiento y agotamiento</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Identificar el masking y sanar el burnout crónico.</p>
+              </div>
+            </div>
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-secondary mt-0.5">favorite</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Autoestima y relaciones</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Vínculos seguros desde la autenticidad y el respeto.</p>
+              </div>
+            </div>
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-tertiary mt-0.5">security</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Límites y necesidades</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Validar tus ritmos sin culpa ni sobreexigencias.</p>
+              </div>
+            </div>
+            <div class="p-5 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md sunflower-card-glow border border-primary-container/20 flex items-start gap-3 sm:col-span-2 lg:col-span-2 xl:col-span-2 hover:translate-y-[-2px] transition-transform">
+              <span class="material-symbols-outlined text-primary mt-0.5">nest_cam_wired_stand</span>
+              <div>
+                <h4 class="font-glacial font-bold text-base text-on-surface">Maternidad y experiencias cotidianas</h4>
+                <p class="font-glacial text-xs text-on-surface-variant mt-1">Criar y vivir siendo una persona neurodivergente en un entorno demandante.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How it works card + Transparent Pricing -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            <div class="md:col-span-7 bg-surface-container-lowest/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-6">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary">videocam</span>
+                  <h3 class="font-glacial font-bold text-xl text-on-surface">¿Cómo funciona una sesión?</h3>
+                </div>
+                <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                  Son sesiones individuales realizadas de forma <strong>virtual (online)</strong>, de 50 a 60 minutos de duración. Nos adaptamos a tu necesidad sensorial: puedes encender o apagar tu cámara si lo requieres, tomar descansos o expresarte por escrito si resulta más accesible.
+                </p>
+                <!-- Empathetic Mandatory Disclaimer -->
+                <div class="p-4 rounded-xl bg-surface-variant/60 flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary mt-0.5 text-xl">info</span>
+                  <p class="font-glacial text-xs text-on-surface-variant leading-normal">
+                    <strong>Aclaración importante:</strong> No soy psicóloga ni psiquiatra. Este servicio no constituye psicoterapia, evaluación clínica ni diagnóstico. Es un espacio de acompañamiento emocional, psicoorientación y validación vivencial desde mi formación pedagógica y mi experiencia propia.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-4 pt-4 bg-surface-container-low/50 p-4 rounded-xl">
+                <div>
+                  <span class="font-glacial text-xs uppercase tracking-wider text-tertiary font-bold">Inversión por sesión</span>
+                  <div class="flex items-baseline gap-2 mt-0.5">
+                    <span class="font-glacial text-2xl font-bold text-on-surface">S/ 120 soles</span>
+                    <span class="font-glacial text-sm text-on-surface-variant">/ 45 USD (Internacional)</span>
+                  </div>
+                </div>
+                <a
+                  class="bg-primary text-on-primary font-glacial font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors inline-flex items-center gap-2 whitespace-nowrap"
+                  href="https://wa.me/51907671044?text=Hola%20Fergis,%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20de%20Acompa%C3%B1amiento%20Emocional"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span>Agendar sesión</span>
+                  <span class="material-symbols-outlined text-base">calendar_today</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Featured Digital Resource: Guía de Autoexploración Neurodivergente -->
+            <div class="md:col-span-5 bg-gradient-to-br from-primary-fixed/30 via-surface-container-low to-tertiary-fixed/20 backdrop-blur-md p-6 sm:p-8 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-6">
+              <div class="flex flex-col gap-3">
+                <span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-glacial text-xs font-bold tracking-wide w-fit">Recurso Digital Destacado 🌻</span>
+                <h3 class="font-glacial font-bold text-2xl text-on-surface">
+                  Guía de Autoexploración Neurodivergente
+                </h3>
+                <p class="font-glacial text-sm text-on-surface-variant leading-relaxed">
+                  ¿Te has preguntado si podrías ser autista, tener TDAH o AuDHD? Comienza tu camino de autoconocimiento con esta guía interactiva. Un recurso digital que combina información reflexiva y un test orientativo para explorar características relacionadas con la neurodivergencia.
+                </p>
+                <div class="p-3 bg-surface-container-lowest/80 rounded-lg">
+                  <p class="font-glacial text-xs text-tertiary font-medium">
+                    🌻 Formato digital descargable para leer a tus propios tiempos.
+                  </p>
+                  <div class="flex items-center gap-3 mt-1.5 font-glacial font-bold text-on-surface text-base">
+                    <span>Perú: S/ 40</span>
+                    <span class="text-xs text-on-surface-variant">|</span>
+                    <span>Internacional: USD 15</span>
+                  </div>
+                </div>
+                <p class="font-glacial text-[11px] text-on-surface-variant/80 italic">
+                  *Nota: Este material es educativo y orientativo. No constituye una evaluación clínica ni proporciona un diagnóstico formal.
+                </p>
+              </div>
+              <div class="flex flex-col gap-2 pt-2">
+                <a
+                  class="bg-primary-container text-on-primary-container font-glacial font-bold text-sm px-5 py-3 rounded-lg text-center hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+                  href="https://wa.me/51907671044?text=Hola%20Fergis,%20deseo%20comprar%20la%20Gu%C3%ADa%20de%20Autoexploraci%C3%B3n%20Neurodivergente"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span>Comprar ahora</span>
+                  <span class="material-symbols-outlined text-base">download</span>
+                </a>
+                <span class="font-glacial text-xs text-center text-tertiary font-medium">"No tienes que tener todo claro para comenzar. 💛"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MASOTERAPIA (#masoterapia) - Adranna Spa con imágenes reales -->
+      <section class="relative w-full py-16 scroll-mt-24" id="masoterapia">
+        <div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl p-6 sm:p-10 md:p-12 sunflower-card-glow border border-primary-container/20 flex flex-col gap-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <span class="px-3.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-glacial text-xs font-bold tracking-wider uppercase">Cuidado Corporal</span>
+              </div>
+              <h2 class="font-glacial text-2xl sm:text-3xl md:text-4xl font-bold text-on-surface leading-tight">
+                Bienestar a través del cuerpo 🌿 | <span class="text-tertiary">Adranna Spa</span>
+              </h2>
+              <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                El cuerpo acumula tensiones, sobrecargas y la fatiga del masking social constante. A través de la masoterapia, ofrezco un espacio seguro y respetuoso de regulación física, donde las necesidades sensoriales individuales son plenamente contempladas: intensidad de presión, temperatura, aromas y sonido a tu medida.
+              </p>
+              <div class="flex flex-col gap-2.5 pt-2">
+                <div class="flex items-start gap-2.5 text-on-surface font-glacial font-medium text-sm">
+                  <span class="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5">check_circle</span>
+                  <span>Masajes descontracturantes, relajantes y sensitivos adaptados.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-on-surface font-glacial font-medium text-sm">
+                  <span class="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5">check_circle</span>
+                  <span>Atención respetuosa y consentimiento continuo durante toda la sesión.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-on-surface font-glacial font-medium text-sm">
+                  <span class="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5">location_on</span>
+                  <span><strong>Ubicación:</strong> Calle Andrómeda 205 - 207, Urbanización Matellini, Chorrillos, Lima, Perú. 🌻</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-4 pt-3">
+                <a
+                  class="bg-secondary text-on-secondary font-glacial font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:bg-on-secondary-container transition-colors inline-flex items-center gap-2 whitespace-nowrap"
+                  href="https://wa.me/51907671044?text=Hola%20Fergis,%20deseo%20reservar%20una%20cita%20de%20Masoterapia%20en%20Adranna%20Spa"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span>Reservar mi cita</span>
+                  <span class="material-symbols-outlined text-base">spa</span>
+                </a>
+                <a
+                  class="bg-surface-container-high text-tertiary font-glacial font-bold text-sm px-6 py-3 rounded-lg hover:bg-surface-container-highest transition-colors inline-flex items-center gap-2 whitespace-nowrap"
+                  href="#contacto"
+                >
+                  <span>Ver redes y ubicación</span>
+                  <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Spa Location Real Photos Showcase -->
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+              <div class="flex flex-col gap-2">
+                <div class="aspect-[9/16] rounded-xl overflow-hidden shadow-md bg-surface-container border border-primary-container/20">
+                  <img
+                    alt="Recepción cálida de Adranna Spa"
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    src="/Fotos/stitch/adranna-recepcion.png"
+                    onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBlXAIQL6dj4uv6c7ipYCCyYTWCTsr9c9OWXlH95H3YTUEmwPSeu2BQmXdi0_sHVGVRFDQtZaqHlVd8XMtbNGzpWGB5LPJ1_kwzPOYQ4RHMrfrM9YpwFl9NeOkzGxu_hOTnJfQYxlj0najoSwrCzSPPqRsFHD7bjlGmpZP_wfhiAcOhBRVRiXAkyawo93-cM8bJibjsl_wwZqTnJl28BTAfvLcWmTpV3miJozKIFzITOw3bg4Kbf-g8TA';"
+                  />
+                </div>
+                <span class="font-glacial text-xs text-center text-on-surface-variant font-medium">Recepción cálida de Adranna Spa</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="aspect-[9/16] rounded-xl overflow-hidden shadow-md bg-surface-container border border-primary-container/20">
+                  <img
+                    alt="Cabina privada de masaje y relajación"
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    src="/Fotos/stitch/adranna-cabina.png"
+                    onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBghYJ0LgIeYokVAZOwhMCRQ_HqHcm6qKwFOApaDMLZjNd_F7NYg_JbD9IySkEZQwZSN8ngAKOd9JOCuXK_GgV2CDCdGBRQEgDG_m88ftmADTFK3rYqWep3D3Ln0SnmIAJEeuAfNKkAaP3_T2ZKDPSi4sqqJ1MBpPphXw_PO9Phwh7JP82KsX4pax1-DJ83TKeTJXyDjW_kRvi8_mv0jVdodNc7hK2aFqr21sD_DSTwck9mT8YoQEGRcQ';"
+                  />
+                </div>
+                <span class="font-glacial text-xs text-center text-on-surface-variant font-medium">Cabina privada y respetuosa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIENDA FERGIRASOL (#tienda) -->
+      <section class="relative w-full py-16 scroll-mt-24" id="tienda">
+        <div class="bg-gradient-to-br from-surface-container-low via-surface-container-lowest to-surface-container-low rounded-2xl p-6 sm:p-10 md:p-12 sunflower-card-glow border border-primary-container/20 flex flex-col gap-8">
+          <div class="flex flex-col gap-2 text-center max-w-2xl mx-auto">
+            <span class="px-3.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-glacial text-xs font-bold tracking-wider uppercase self-center">Identificadores</span>
+            <h2 class="font-glacial text-3xl sm:text-4xl font-bold text-on-surface">
+              Fergirasol 🌻
+            </h2>
+            <p class="font-glacial text-lg text-primary font-semibold">
+              Tienda de identificadores para personas neurodivergentes.
+            </p>
+            <p class="font-glacial text-base text-tertiary">
+              ¡Bienvenida a Fergirasol! 💛 Visibilidad, seguridad y empatía en cada paso cotidiano.
+            </p>
+          </div>
+
+          <!-- Product Spotlight -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-4xl mx-auto">
+            <div class="md:col-span-6 flex justify-center">
+              <div class="w-full rounded-2xl overflow-hidden shadow-xl bg-surface-container border border-primary-container/20">
+                <img
+                  alt="Lanyard oficial de girasoles con identificador para neurodivergencia"
+                  class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                  src="/Fotos/stitch/lanyard-fergirasol.png"
+                  onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAn-DFLSOjhxG9xiZZBqOU5lPt3h79mOqOYACc_xnH-PUnyNGlvnJMxMpDkorSthI-2h0_N_RAv6oYe-gXWusON-RYxtdawJs0dktD48ODZdXPnc2ulQLHZBm59zRbBnTFmfDTxrR9l_-xJJ-egU2lv9pBocfPVlZs9AcnlVgL2qFRUT6yP3-891kPByksp8IaSMhLjm73VEbGhdKuYsuZi8spMjaeAK0xGaqBwo_X7';"
+                />
+              </div>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col gap-4">
+              <div class="inline-flex items-center gap-2 bg-secondary-fixed/60 text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-glacial font-bold w-fit">
+                <span>Accesibilidad &amp; Seguridad</span>
+              </div>
+              <h3 class="font-glacial text-2xl font-bold text-on-surface">
+                Lanyard Oficial con Girasoles &amp; Portacredencial en Acrílico
+              </h3>
+
+              <!-- Highlighted Price Badge -->
+              <div class="bg-primary-container/20 border-2 border-primary-container p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-sm">
+                <div class="flex flex-col">
+                  <span class="font-glacial text-xs text-tertiary font-bold uppercase tracking-wider">Identificador Personalizado</span>
+                  <span class="font-glacial text-2xl font-bold text-primary whitespace-nowrap">S/ 35 + envío</span>
+                </div>
+                <span class="inline-flex items-center gap-1 font-glacial text-xs font-bold text-on-secondary-fixed-variant bg-secondary-fixed px-3 py-1.5 rounded-full whitespace-nowrap">
+                  <span class="material-symbols-outlined text-[15px]">local_shipping</span>
+                  <span>se realiza envío a todo Perú</span>
+                </span>
+              </div>
+
+              <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                Cinta de cuello suave y respetuosa con la piel sensible, estampada con el símbolo internacional del girasol para la visibilidad de condiciones invisibles y neurodivergencias.
+              </p>
+
+              <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary-container/20 flex flex-col gap-2.5">
+                <h4 class="font-glacial font-bold text-sm text-on-surface flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-base">verified</span>
+                  <span>Características del identificador:</span>
+                </h4>
+                <ul class="flex flex-col gap-2 font-glacial text-sm text-on-surface">
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary font-bold mt-0.5">✓</span>
+                    <span><strong>Material:</strong> Acrílico de alta resistencia y durabilidad, acabado fino y ligero.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary font-bold mt-0.5">✓</span>
+                    <span><strong>100% Personalizable:</strong> puede incluir el nombre de la persona, número(s) de contacto de emergencia, tipo de neurodivergencia / condición o cualquier información que la clienta desee personalizar.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary font-bold mt-0.5">✓</span>
+                    <span>Ideal para aeropuertos, transporte público, trámites, colegios, universidades y eventos cotidianos.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-2 flex flex-col gap-2">
+                <a
+                  class="bg-primary-container text-on-primary-container font-glacial font-bold text-sm px-6 py-3.5 rounded-lg shadow-sm hover:bg-primary hover:text-on-primary transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                  href="https://wa.me/51907671044?text=Hola%20Fergis,%20deseo%20personalizar%20y%20comprar%20el%20Lanyard%20e%20identificador%20en%20acr%C3%ADlico%20de%20Fergirasol"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span>Hacer pedido por WhatsApp (+51 907671044)</span>
+                  <span class="material-symbols-outlined text-base">chat</span>
+                </a>
+                <div class="flex items-center justify-center gap-2 text-xs font-glacial text-tertiary">
+                  <span>Síguenos en Instagram:</span>
+                  <a class="font-bold underline hover:text-primary transition-colors whitespace-nowrap" href="https://instagram.com/fergirasol_" rel="noopener noreferrer" target="_blank">@fergirasol_</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCIAS (#experiencias) - 10 testimonios reales preservados -->
+      <section class="relative w-full py-16 scroll-mt-24" id="experiencias">
+        <div class="flex flex-col gap-10">
+          <div class="flex flex-col gap-3 text-center max-w-3xl mx-auto">
+            <span class="px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-glacial text-xs font-bold tracking-wider uppercase self-center">Testimonios Reales</span>
+            <h2 class="font-glacial text-3xl sm:text-4xl font-bold text-on-surface">
+              Experiencias de acompañamiento 💛
+            </h2>
+            <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+              Palabras sinceras de mujeres que han compartido sesiones, reflexiones y momentos de relajación corporal en este espacio.
+            </p>
+          </div>
+
+          <!-- Grouped Testimonials Grid -->
+          <div class="flex flex-col gap-8">
+            <!-- Category A: Acompañamiento & Autoexploración -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary shrink-0">volunteer_activism</span>
+                <h3 class="font-glacial text-xl font-bold text-on-surface leading-snug">Acompañamiento Emocional &amp; Guía Neurodivergente</h3>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Testimonial 1 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Por primera vez sentí que no tenía que justificar por qué me canso tanto en reuniones o por qué mis ritmos son distintos. Fergis tiene una calidez que desarma cualquier miedo al juicio."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-primary-container/20 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Camila M.</span>
+                    <span class="font-glacial text-xs text-primary font-medium">Acompañamiento emocional</span>
+                  </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "La Guía de Autoexploración fue como un mapa para ordenar años de dudas. Las preguntas son precisas, respetuosas y me permitieron llegar a mi consulta psiquiátrica mucho más segura."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-primary-container/20 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Mariana A.</span>
+                    <span class="font-glacial text-xs text-primary font-medium">Test de Autoexploración</span>
+                  </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Descubrir el término AuDHD en las conversaciones con Fergis me devolvió la paz. Dejé de considerarme perezosa y comencé a cuidar mi energía sensorial."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-primary-container/20 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Gisell H.</span>
+                    <span class="font-glacial text-xs text-primary font-medium">Acompañamiento &amp; AuDHD</span>
+                  </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Identificar cuánta energía gastaba en enmascarar en el trabajo fue revelador. Aprender a poner límites sin culpa es el mayor regalo que me llevé de las sesiones."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-primary-container/20 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Valeria R.</span>
+                    <span class="font-glacial text-xs text-primary font-medium">Autoconocimiento y Masking</span>
+                  </div>
+                </div>
+                <!-- Testimonial 5 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-primary-container/20 flex flex-col justify-between gap-4 md:col-span-2 lg:col-span-1">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Un material hecho desde el corazón y con verdadera empatía neurodivergente. No te infantiliza ni te etiqueta, te da herramientas de autovalidación genuinas."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-primary-container/20 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Lucía P.</span>
+                    <span class="font-glacial text-xs text-primary font-medium">Guía y autoexploración</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category B: Masajes & Cuidado Corporal (Adranna Spa) -->
+            <div class="flex flex-col gap-4 pt-4">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary shrink-0">spa</span>
+                <h3 class="font-glacial text-xl font-bold text-on-surface leading-snug">Masoterapia &amp; Cuidados Corporales en Adranna Spa</h3>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Testimonial 6 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-secondary-container/40 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Tengo hipersensibilidad táctil y siempre le huía a los masajes. Fergis calibró la presión con infinito cuidado y el ambiente de baja luz me hizo relajar por completo."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-secondary-container/50 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Daniela S.</span>
+                    <span class="font-glacial text-xs text-secondary font-medium">Masoterapia sensorial</span>
+                  </div>
+                </div>
+                <!-- Testimonial 7 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-secondary-container/40 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Llegué con contracturas tremendas en el cuello por estrés frente a la computadora. Salí sintiendo que mi cuerpo respiraba de nuevo. Su técnica es maravillosa."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-secondary-container/50 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Andrea C.</span>
+                    <span class="font-glacial text-xs text-secondary font-medium">Masaje descontracturante</span>
+                  </div>
+                </div>
+                <!-- Testimonial 8 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-secondary-container/40 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "El espacio en Matellini es un remanso de paz en Chorrillos. Todo impecable, limpio, aromatizado suavemente y una atención que te hace sentir cuidada de verdad."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-secondary-container/50 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Claudia V.</span>
+                    <span class="font-glacial text-xs text-secondary font-medium">Experiencia Adranna Spa</span>
+                  </div>
+                </div>
+                <!-- Testimonial 9 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-secondary-container/40 flex flex-col justify-between gap-4">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Respetaron mis silencios durante la sesión sin forzar charlas incómodas. Pude conectar con mi respiración y soltar el peso de la semana."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-secondary-container/50 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Natalia B.</span>
+                    <span class="font-glacial text-xs text-secondary font-medium">Respeto sensorial</span>
+                  </div>
+                </div>
+                <!-- Testimonial 10 -->
+                <div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 rounded-2xl sunflower-card-glow border border-secondary-container/40 flex flex-col justify-between gap-4 md:col-span-2 lg:col-span-1">
+                  <p class="font-glacial text-sm text-on-surface-variant italic leading-relaxed">
+                    "Es el único spa donde no me he sentido abrumada ni juzgada por mis particularidades sensoriales. Fergis entiende a fondo lo que necesitamos."
+                  </p>
+                  <div class="flex items-center justify-between border-t border-secondary-container/50 pt-3">
+                    <span class="font-glacial font-bold text-sm text-on-surface">Sofia T.</span>
+                    <span class="font-glacial text-xs text-secondary font-medium">Bienestar neurodivergente</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mandatory Testimonial Legal Disclaimer -->
+            <p class="font-glacial text-xs text-center text-on-surface-variant/80 italic pt-2">
+              *Nota legal: Los testimonios se publican únicamente con autorización previa de sus autoras y representan experiencias individuales, no resultados garantizados de forma generalizada.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN DE TÉRMINOS Y CONDICIONES (#terminos) -->
+      <section class="relative w-full py-16 scroll-mt-24" id="terminos">
+        <div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl p-6 sm:p-10 md:p-12 sunflower-card-glow border border-primary-container/20 flex flex-col gap-8">
+          <div class="flex flex-col gap-2 text-center max-w-2xl mx-auto">
+            <span class="px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-glacial text-xs font-bold tracking-wider uppercase self-center">Transparencia y Claridad</span>
+            <h2 class="font-glacial text-3xl sm:text-4xl font-bold text-on-surface">
+              Términos y Condiciones 🌻
+            </h2>
+            <p class="font-glacial text-base text-on-surface-variant">
+              Para brindarte la mejor experiencia con respeto mutuo, seguridad y calidez, te comparto las pautas de funcionamiento de cada uno de mis servicios y productos.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+            <!-- Term 1: Acompañamiento -->
+            <div class="p-6 rounded-2xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary-container/30 text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">favorite</span>
+              </div>
+              <h3 class="font-glacial font-bold text-lg text-on-surface">Acompañamiento Emocional</h3>
+              <p class="font-glacial text-sm text-on-surface-variant leading-relaxed">
+                Es un espacio de escucha activa, educación vivencial y orientación neuroafirmativa. No constituye psicoterapia, evaluación psiquiátrica ni diagnóstico clínico formal. Se solicita puntualidad y cualquier reprogramación debe solicitarse con un mínimo de <strong>24 horas de anticipación</strong>.
+              </p>
+            </div>
+
+            <!-- Term 2: Fergirasol & Envíos -->
+            <div class="p-6 rounded-2xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-3">
+              <div class="w-10 h-10 rounded-xl bg-secondary-container/60 text-secondary flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">local_shipping</span>
+              </div>
+              <h3 class="font-glacial font-bold text-lg text-on-surface">Fergirasol &amp; Envíos a Perú</h3>
+              <p class="font-glacial text-sm text-on-surface-variant leading-relaxed">
+                Los identificadores en acrílico son elaborados bajo pedido personalizado. El tiempo de producción estimado es de <strong>2 a 4 días hábiles</strong> tras confirmar el diseño y pago, sumado al tiempo de tránsito según la ciudad destino en Perú mediante agencias courier seguras y confiables.
+              </p>
+            </div>
+
+            <!-- Term 3: Recursos Digitales -->
+            <div class="p-6 rounded-2xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-3">
+              <div class="w-10 h-10 rounded-xl bg-tertiary-container/50 text-tertiary flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">menu_book</span>
+              </div>
+              <h3 class="font-glacial font-bold text-lg text-on-surface">Recursos Digitales (Guía)</h3>
+              <p class="font-glacial text-sm text-on-surface-variant leading-relaxed">
+                La Guía de Autoexploración Neurodivergente se entrega inmediatamente vía enlace de descarga digital una vez verificado el comprobante. Por su naturaleza de archivo digital descargable de acceso inmediato, no se admiten cancelaciones ni devoluciones.
+              </p>
+            </div>
+
+            <!-- Term 4: Masoterapia -->
+            <div class="p-6 rounded-2xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-3">
+              <div class="w-10 h-10 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">spa</span>
+              </div>
+              <h3 class="font-glacial font-bold text-lg text-on-surface">Masoterapia (Adranna Spa)</h3>
+              <p class="font-glacial text-sm text-on-surface-variant leading-relaxed">
+                Las sesiones presenciales en el local de Chorrillos (Calle Andrómeda 205-207) se atienden exclusivamente con reserva y abono previo sujeto a disponibilidad de agenda. Si presentas algún síntoma infeccioso agudo o lesión dérmica, te pedimos reprogramar con anticipación.
+              </p>
+            </div>
+
+            <!-- Term 5: Privacidad -->
+            <div class="p-6 rounded-2xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-3 md:col-span-2 lg:col-span-2">
+              <div class="w-10 h-10 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">lock</span>
+              </div>
+              <h3 class="font-glacial font-bold text-lg text-on-surface">Privacidad, Datos y Confidencialidad</h3>
+              <p class="font-glacial text-sm text-on-surface-variant leading-relaxed">
+                Toda información personal, vivencial, médica o de contacto compartida en sesiones virtuales, compras de la tienda o formularios es tratada bajo estricta confidencialidad profesional. Jamás se comparte información sensible con terceros sin consentimiento previo expreso y por escrito.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO (#contacto) -->
+      <section class="relative w-full py-16 scroll-mt-24" id="contacto">
+        <div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl p-6 sm:p-10 md:p-12 sunflower-card-glow border border-primary-container/20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Contact Info Left Column -->
+          <div class="lg:col-span-6 flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <span class="px-3.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-glacial text-xs font-bold tracking-wider uppercase w-fit">Escríbeme</span>
+              <h2 class="font-glacial text-3xl font-bold text-on-surface">
+                Hablemos con calma 🌻
+              </h2>
+              <p class="font-glacial text-base text-on-surface-variant leading-relaxed">
+                ¿Tienes dudas sobre las sesiones virtuales, la guía digital, los identificadores en acrílico o los masajes en Chorrillos? Elige el canal que te resulte más cómodo.
+              </p>
+            </div>
+
+            <!-- Channel Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <!-- WhatsApp -->
+              <a class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container hover:bg-primary-container/20 transition-all group" href="https://wa.me/51907671044" rel="noopener noreferrer" target="_blank">
+                <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary group-hover:scale-105 transition-transform shrink-0">
+                  <span class="material-symbols-outlined text-xl">chat</span>
+                </div>
+                <div class="min-w-0">
+                  <span class="font-glacial text-xs text-on-surface-variant block">WhatsApp Directo</span>
+                  <p class="font-glacial font-bold text-sm text-on-surface truncate">+51 907671044</p>
+                </div>
+              </a>
+              <!-- Email -->
+              <a class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container hover:bg-primary-container/20 transition-all group" href="mailto:girasol@fergismarrero.com">
+                <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-105 transition-transform shrink-0">
+                  <span class="material-symbols-outlined text-xl">mail</span>
+                </div>
+                <div class="min-w-0">
+                  <span class="font-glacial text-xs text-on-surface-variant block">Correo Electrónico</span>
+                  <p class="font-glacial font-bold text-xs text-on-surface truncate">girasol@fergismarrero.com</p>
+                </div>
+              </a>
+            </div>
+
+            <!-- Redes Sociales de Fergis -->
+            <div class="p-4 rounded-xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-2.5">
+              <span class="font-glacial text-xs font-bold text-primary tracking-wider uppercase">Redes de Fergis (Contenido &amp; Reflexión)</span>
+              <div class="grid grid-cols-3 gap-2">
+                <a class="flex items-center justify-center gap-1.5 p-2.5 rounded-lg bg-surface-container hover:bg-primary-container/30 transition-colors text-xs font-glacial font-semibold text-on-surface whitespace-nowrap" href="https://instagram.com/fergismarrero" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-base text-tertiary shrink-0">photo_camera</span>
+                  <span>Instagram</span>
+                </a>
+                <a class="flex items-center justify-center gap-1.5 p-2.5 rounded-lg bg-surface-container hover:bg-primary-container/30 transition-colors text-xs font-glacial font-semibold text-on-surface whitespace-nowrap" href="https://tiktok.com/@fergismarrero" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-base text-secondary shrink-0">play_circle</span>
+                  <span>TikTok</span>
+                </a>
+                <a class="flex items-center justify-center gap-1.5 p-2.5 rounded-lg bg-surface-container hover:bg-primary-container/30 transition-colors text-xs font-glacial font-semibold text-on-surface whitespace-nowrap" href="https://youtube.com/@fergismarrero" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-base text-error shrink-0">smart_display</span>
+                  <span>YouTube</span>
+                </a>
+              </div>
+              <span class="text-[11px] font-glacial text-on-surface-variant text-center">@fergismarrero en todas las plataformas</span>
+            </div>
+
+            <!-- Sub-proyectos: Tienda y Spa -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">🌻</span>
+                  <span class="font-glacial text-xs font-bold text-on-surface uppercase">Tienda Fergirasol</span>
+                </div>
+                <a class="flex items-center gap-1.5 text-xs font-glacial font-semibold text-tertiary hover:underline whitespace-nowrap" href="https://instagram.com/fergirasol_" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-sm shrink-0">photo_camera</span>
+                  <span>@fergirasol_</span>
+                </a>
+              </div>
+              <div class="p-3.5 rounded-xl bg-surface-container-low/70 border border-primary-container/20 flex flex-col gap-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">🌿</span>
+                  <span class="font-glacial text-xs font-bold text-on-surface uppercase">Adranna Spa</span>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <a class="flex items-center gap-1.5 text-xs font-glacial font-semibold text-secondary hover:underline whitespace-nowrap" href="https://instagram.com/adrannaspa.pe" rel="noopener noreferrer" target="_blank">
+                    <span class="material-symbols-outlined text-sm shrink-0">photo_camera</span>
+                    <span>@adrannaspa.pe</span>
+                  </a>
+                  <a class="flex items-center gap-1.5 text-xs font-glacial font-semibold text-secondary hover:underline whitespace-nowrap" href="https://tiktok.com/@adrannaspa.pe" rel="noopener noreferrer" target="_blank">
+                    <span class="material-symbols-outlined text-sm shrink-0">play_circle</span>
+                    <span>TikTok: @adrannaspa.pe</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ubicación física -->
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container">
+              <div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-xl">pin_drop</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-glacial text-xs text-on-surface-variant font-medium">Ubicación Adranna Spa</span>
+                <p class="font-glacial font-bold text-xs text-on-surface">Calle Andrómeda 205 - 207, Urbanización Matellini, Chorrillos, Lima, Perú</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Right Column -->
+          <div class="lg:col-span-6 bg-surface-container-low/60 p-6 sm:p-8 rounded-2xl flex flex-col gap-5 border border-primary-container/20">
+            <h3 class="font-glacial text-xl font-bold text-on-surface">
+              Envíame un mensaje directo
+            </h3>
+            <form class="flex flex-col gap-4" id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="flex flex-col gap-1.5">
+                <label for="contactName" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tu Nombre</label>
+                <input id="contactName" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest/80 text-on-surface font-glacial text-sm placeholder:text-outline/70 focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/30" placeholder="¿Cómo te gustaría que te llame?" required type="text" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="contactEmail" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tu Correo Electrónico</label>
+                <input id="contactEmail" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest/80 text-on-surface font-glacial text-sm placeholder:text-outline/70 focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/30" placeholder="ejemplo@correo.com" required type="email" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="contactReason" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Motivo de contacto</label>
+                <select id="contactReason" class="custom-select w-full px-4 py-3 rounded-lg bg-surface-container-lowest/80 text-on-surface font-glacial text-sm focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/30">
+                  <option value="Acompañamiento Emocional (Sesión)">Acompañamiento Emocional (Sesión)</option>
+                  <option value="Guía de Autoexploración Neurodivergente">Guía de Autoexploración Neurodivergente</option>
+                  <option value="Masoterapia en Adranna Spa (Chorrillos)">Masoterapia en Adranna Spa (Chorrillos)</option>
+                  <option value="Identificadores Fergirasol en Acrílico (S/ 35)">Identificadores Fergirasol en Acrílico (S/ 35)</option>
+                  <option value="Otro motivo / Saludo">Otro motivo / Saludo</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="contactMessage" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tu Mensaje</label>
+                <textarea id="contactMessage" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest/80 text-on-surface font-glacial text-sm placeholder:text-outline/70 focus:outline-none focus:ring-2 focus:ring-primary-container resize-none border border-outline-variant/30" placeholder="Escribe aquí con total libertad y tranquilidad..." required rows="4"></textarea>
+              </div>
+              <button class="w-full bg-primary text-on-primary font-glacial font-bold text-base py-3.5 rounded-lg shadow-md hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 flex items-center justify-center gap-2 mt-2 whitespace-nowrap" type="submit">
+                <span>Enviar mensaje</span>
+                <span class="material-symbols-outlined text-lg">send</span>
+              </button>
+            </form>
+            <div class="hidden p-4 rounded-xl bg-secondary-fixed text-on-secondary-fixed-variant font-glacial text-sm text-center" id="formSuccess">
+              ¡Gracias por escribir! Tu mensaje ha sido preparado con éxito. Te responderé muy pronto con todo el cariño del mundo. 🌻
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 w-full mt-space-xl bg-surface-container-low/95 backdrop-blur-md shadow-[0_-4px_20px_-2px_rgba(140,88,53,0.04)]">
+    <div class="max-w-[1200px] mx-auto px-margin md:px-margin-desktop py-space-xl flex flex-col items-center text-center gap-space-lg">
+      <div class="flex items-center gap-space-xs whitespace-nowrap">
+        <span class="font-glacial text-xl font-bold text-primary">FERGIS</span>
+        <span class="text-primary-container text-xl">🌻</span>
+        <span class="font-glacial text-xl font-bold text-tertiary">Mamá Girasol</span>
+      </div>
+      <p class="max-w-2xl font-glacial text-sm text-on-surface-variant leading-relaxed">
+        Espacio amoroso, sensible y neuroafirmativo de autocuidado integral y acompañamiento. Este sitio brinda apoyo de bienestar humano y emocional con fines orientativos y educativos, complementario al cuidado médico especializado.
+      </p>
+
+      <!-- Redes Sociales Footer -->
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs font-glacial text-on-surface-variant">
+        <a aria-label="WhatsApp" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="https://wa.me/51907671044" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">chat</span>
+          <span>+51 907671044</span>
+        </a>
+        <a aria-label="Email" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="mailto:girasol@fergismarrero.com">
+          <span class="material-symbols-outlined text-[16px]">mail</span>
+          <span>girasol@fergismarrero.com</span>
+        </a>
+        <a aria-label="Instagram Fergis" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="https://instagram.com/fergismarrero" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">photo_camera</span>
+          <span>@fergismarrero</span>
+        </a>
+        <a aria-label="TikTok Fergis" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="https://tiktok.com/@fergismarrero" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">play_circle</span>
+          <span>TikTok</span>
+        </a>
+        <a aria-label="YouTube Fergis" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="https://youtube.com/@fergismarrero" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">smart_display</span>
+          <span>YouTube</span>
+        </a>
+        <a aria-label="Instagram Fergirasol" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="https://instagram.com/fergirasol_" rel="noopener noreferrer" target="_blank">
+          <span>🌻 @fergirasol_</span>
+        </a>
+        <a aria-label="Adranna Spa" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary-container transition-colors whitespace-nowrap" href="https://instagram.com/adrannaspa.pe" rel="noopener noreferrer" target="_blank">
+          <span>🌿 @adrannaspa.pe</span>
+        </a>
+      </div>
+
+      <div class="w-full max-w-xs h-[1px] bg-secondary-fixed-dim/40 rounded-full my-space-xs"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between w-full font-glacial text-xs text-on-surface-variant gap-space-xs">
+        <p>© 2025 Fergis | Mamá Girasol 🌻 (TU ESPACIO PERSONAL). Chorrillos, Lima, Perú. Todos los derechos reservados.</p>
+        <p class="text-tertiary">Hecho con calidez y luz dorada ☀️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileMenuDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      const btn = document.getElementById('mobileMenuBtn');
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        icon.textContent = 'close';
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        drawer.classList.add('hidden');
+        icon.textContent = 'menu';
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById('mobileMenuDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      const btn = document.getElementById('mobileMenuBtn');
+      if (drawer && !drawer.classList.contains('hidden')) {
+        drawer.classList.add('hidden');
+        icon.textContent = 'menu';
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const reason = document.getElementById('contactReason').value;
+      const message = document.getElementById('contactMessage').value.trim();
+
+      const successEl = document.getElementById('formSuccess');
+      if (successEl) {
+        successEl.classList.remove('hidden');
+      }
+
+      const waText = `Hola Fergis 🌻, mi nombre es ${name} (${email}).\nMotivo: ${reason}\n\n${message}`;
+      const waUrl = `https://wa.me/51907671044?text=${encodeURIComponent(waText)}`;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+</body>
 </html>
