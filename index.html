@@ -530,15 +530,14 @@
                     <span class="font-glacial text-sm text-on-surface-variant">/ 45 USD (Internacional)</span>
                   </div>
                 </div>
-                <a
-                  class="bg-primary text-on-primary font-glacial font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors inline-flex items-center gap-2 whitespace-nowrap"
-                  href="https://wa.me/51907671044?text=Hola%20Fergis,%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20de%20Acompa%C3%B1amiento%20Emocional"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <button
+                  type="button"
+                  onclick="openPaymentModal('acompanamiento')"
+                  class="bg-primary text-on-primary font-glacial font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors inline-flex items-center gap-2 whitespace-nowrap cursor-pointer"
                 >
                   <span>Agendar sesión</span>
                   <span class="material-symbols-outlined text-base">calendar_today</span>
-                </a>
+                </button>
               </div>
             </div>
 
@@ -567,15 +566,14 @@
                 </p>
               </div>
               <div class="flex flex-col gap-2 pt-2">
-                <a
-                  class="bg-primary-container text-on-primary-container font-glacial font-bold text-sm px-5 py-3 rounded-lg text-center hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
-                  href="https://wa.me/51907671044?text=Hola%20Fergis,%20deseo%20comprar%20la%20Gu%C3%ADa%20de%20Autoexploraci%C3%B3n%20Neurodivergente"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <button
+                  type="button"
+                  onclick="openPaymentModal('guia')"
+                  class="bg-primary-container text-on-primary-container font-glacial font-bold text-sm px-5 py-3 rounded-lg text-center hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
                 >
                   <span>Comprar ahora</span>
                   <span class="material-symbols-outlined text-base">download</span>
-                </a>
+                </button>
                 <span class="font-glacial text-xs text-center text-tertiary font-medium">"No tienes que tener todo claro para comenzar. 💛"</span>
               </div>
             </div>
@@ -1163,6 +1161,123 @@
     </div>
   </footer>
 
+  <!-- MODAL DE PAGO PAYPAL / TARJETA -->
+  <div id="booking-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center bg-on-surface/55 backdrop-blur-sm p-4 overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-surface-container-lowest rounded-3xl shadow-2xl border border-primary-container/30 p-6 sm:p-8 my-auto">
+      <button type="button" onclick="closeBookingModal()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-container hover:bg-primary-container/30 text-on-surface flex items-center justify-center transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+
+      <div class="flex flex-col gap-1 mb-5 pr-8">
+        <span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-glacial text-[11px] font-bold tracking-wider uppercase w-fit">Pago Seguro</span>
+        <h3 class="font-glacial text-2xl font-bold text-on-surface">Reservar o Comprar 🌻</h3>
+        <p class="font-glacial text-sm text-on-surface-variant">Completa tus datos y procede al pago seguro con PayPal, tarjeta o Yape.</p>
+      </div>
+
+      <form id="booking-form" onsubmit="return false;" class="flex flex-col gap-3.5">
+        <div class="flex flex-col gap-1">
+          <label for="bf-service" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Servicio o Recurso</label>
+          <select id="bf-service" required onchange="activeItemKey = this.selectedOptions[0].dataset.key || activeItemKey" class="custom-select w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary-container">
+            <option value="45.00" data-key="acompanamiento">🌻 Acompañamiento emocional (Sesión) - $45 USD</option>
+            <option value="15.00" data-key="guia">📘 Guía de Autoexploración Neurodivergente - $15 USD</option>
+          </select>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="bf-name" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Nombre Completo</label>
+          <input type="text" id="bf-name" placeholder="¿Cómo te gustaría que te llame?" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary-container" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="flex flex-col gap-1">
+            <label for="bf-email" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Correo Electrónico</label>
+            <input type="email" id="bf-email" placeholder="ejemplo@correo.com" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary-container" />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="bf-phone" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">WhatsApp</label>
+            <input type="tel" id="bf-phone" placeholder="+51 900 000 000" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary-container" />
+          </div>
+        </div>
+
+        <label class="flex items-start gap-2.5 cursor-pointer font-glacial text-xs text-on-surface-variant leading-relaxed mt-1">
+          <input type="checkbox" id="bf-terms" required class="mt-0.5 rounded border-outline-variant text-primary focus:ring-primary-container" />
+          <span>He leído y acepto los <a href="#terminos" onclick="closeBookingModal()" class="text-primary font-bold underline">Términos y Condiciones</a> del servicio.</span>
+        </label>
+      </form>
+
+      <div class="mt-5 p-4 rounded-2xl bg-surface-container-low/60 border border-primary-container/25">
+        <p class="font-glacial text-xs font-bold text-tertiary text-center mb-3">Pago seguro con PayPal o Tarjeta de crédito/débito</p>
+        <div id="paypal-button-container" class="min-h-[45px]"></div>
+      </div>
+
+      <div class="mt-5 pt-4 border-t border-outline-variant/30 text-center">
+        <p class="font-glacial text-xs font-semibold text-on-surface-variant mb-2.5">¿Deseas pagar con Yape? (Solo Perú · Soles)</p>
+        <button type="button" onclick="openYapeModal()" class="w-full bg-[#742284] hover:bg-[#5e1a6b] text-white font-glacial font-bold text-sm py-3 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer">
+          <span>📲 Pagar con Yape (Soles)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE PAGO YAPE (SOLO PERÚ) -->
+  <div id="yape-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center bg-on-surface/55 backdrop-blur-sm p-4 overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-surface-container-lowest rounded-3xl shadow-2xl border border-[#742284]/30 p-6 sm:p-8 my-auto">
+      <button type="button" onclick="closeYapeModal()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-container hover:bg-primary-container/30 text-on-surface flex items-center justify-center transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+
+      <div class="flex flex-col gap-1 mb-5 pr-8">
+        <span class="px-3 py-1 rounded-full bg-[#742284]/10 text-[#742284] font-glacial text-[11px] font-bold tracking-wider uppercase w-fit">Solo Perú · Soles</span>
+        <h3 class="font-glacial text-2xl font-bold text-on-surface">Pagar con Yape 💜</h3>
+        <p class="font-glacial text-sm text-on-surface-variant">Completa tus datos, realiza el Yapeo y envíame tu captura por WhatsApp.</p>
+      </div>
+
+      <form id="yape-form" onsubmit="return false;" class="flex flex-col gap-3.5">
+        <div class="flex flex-col gap-1">
+          <label for="yf-service" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Servicio o Producto</label>
+          <select id="yf-service" required class="custom-select w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-[#742284]">
+            <option value="120" data-key="acompanamiento" data-name="Acompañamiento emocional (Sesión)">🌻 Acompañamiento emocional (Sesión) - S/ 120</option>
+            <option value="40" data-key="guia" data-name="Guía de Autoexploración Neurodivergente">📘 Guía de Autoexploración Neurodivergente - S/ 40</option>
+            <option value="35" data-key="lanyard" data-name="Lanyard + Portacredencial Fergirasol (+ envío)">🪪 Lanyard + Portacredencial Fergirasol - S/ 35 (+ envío)</option>
+          </select>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="yf-name" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Nombre Completo</label>
+          <input type="text" id="yf-name" placeholder="¿Cómo te gustaría que te llame?" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-[#742284]" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="flex flex-col gap-1">
+            <label for="yf-email" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">Correo Electrónico</label>
+            <input type="email" id="yf-email" placeholder="ejemplo@correo.com" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-[#742284]" />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="yf-phone" class="font-glacial text-xs font-bold text-on-surface-variant uppercase tracking-wider">WhatsApp</label>
+            <input type="tel" id="yf-phone" placeholder="+51 900 000 000" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low/70 text-on-surface font-glacial text-sm border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-[#742284]" />
+          </div>
+        </div>
+
+        <label class="flex items-start gap-2.5 cursor-pointer font-glacial text-xs text-on-surface-variant leading-relaxed mt-1">
+          <input type="checkbox" id="yf-terms" required class="mt-0.5 rounded border-outline-variant text-[#742284] focus:ring-[#742284]" />
+          <span>He leído y acepto los <a href="#terminos" onclick="closeYapeModal()" class="text-primary font-bold underline">Términos y Condiciones</a> del servicio.</span>
+        </label>
+
+        <div class="mt-2 p-4 rounded-2xl bg-[#742284]/5 border border-[#742284]/30 text-center flex flex-col gap-3">
+          <p class="font-glacial text-xs text-on-surface leading-relaxed">
+            Realiza el Yapeo por el monto indicado al número <strong class="text-[#742284]">907671044</strong> a nombre de <strong>Fergis Marrero</strong> y envíame la captura aquí 👇
+          </p>
+          <button type="button" onclick="submitYapeBooking()" class="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-glacial font-bold text-sm py-3 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Enviar captura por WhatsApp</span>
+          </button>
+          <button type="button" onclick="backToPayPalModal()" class="font-glacial text-xs text-tertiary hover:underline cursor-pointer">
+            ← Volver a PayPal / Tarjeta
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileMenuDrawer');
@@ -1204,9 +1319,147 @@
       }
 
       const waText = `Hola Fergis 🌻, mi nombre es ${name} (${email}).\nMotivo: ${reason}\n\n${message}`;
-      const waUrl = `https://wa.me/51907671044?text=${encodeURIComponent(waText)}`;
+      const waUrl = `https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(waText)}`;
       window.open(waUrl, '_blank', 'noopener,noreferrer');
     }
+
+    /* ── CONFIGURACIÓN & PAYPAL / YAPE ───────────────────────── */
+    let appConfig = {
+      whatsappNumber: '51907671044',
+      whatsappMessage: '¡Hola Fergis! Quisiera agendar una sesión.',
+      paypalClientId: 'AeJ8uX9_o3dFqKvRHpojmxGAuCURA5yDhddR4Bv8TQmKy8Baeiz-SwG6I2KMtFRRzVyJxInXloFYsVp2',
+      paypalCurrency: 'USD'
+    };
+    let activeItemKey = 'acompanamiento';
+    let paypalRendered = false;
+
+    function openPaymentModal(itemKey) {
+      if (itemKey) activeItemKey = itemKey;
+      const sel = document.getElementById('bf-service');
+      if (sel) {
+        [...sel.options].forEach(o => {
+          if (o.dataset.key === activeItemKey) o.selected = true;
+        });
+      }
+      const overlay = document.getElementById('booking-overlay');
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      ensurePayPalLoaded();
+    }
+
+    function closeBookingModal() {
+      const overlay = document.getElementById('booking-overlay');
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function openYapeModal() {
+      closeBookingModal();
+      const sel = document.getElementById('yf-service');
+      if (sel) {
+        [...sel.options].forEach(o => {
+          if (o.dataset.key === activeItemKey) o.selected = true;
+        });
+      }
+      const overlay = document.getElementById('yape-overlay');
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeYapeModal() {
+      const overlay = document.getElementById('yape-overlay');
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function backToPayPalModal() {
+      closeYapeModal();
+      openPaymentModal(activeItemKey);
+    }
+
+    function submitYapeBooking() {
+      const form = document.getElementById('yape-form');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const sel = document.getElementById('yf-service');
+      const srvName = sel.options[sel.selectedIndex].dataset.name;
+      const srvPrice = sel.options[sel.selectedIndex].value;
+      const name = document.getElementById('yf-name').value.trim();
+      const email = document.getElementById('yf-email').value.trim();
+      const phone = document.getElementById('yf-phone').value.trim();
+
+      const msg = `¡Hola Fergis! Acabo de realizar mi Yapeo 💛\n\nSERVICIO / RECURSO: ${srvName}\nMONTO: S/ ${srvPrice}\nNOMBRE: ${name}\nCORREO: ${email}\nWHATSAPP: ${phone}\n\nAquí envío mi captura 👇`;
+      closeYapeModal();
+      form.reset();
+      window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    }
+
+    function ensurePayPalLoaded() {
+      if (paypalRendered) return;
+      if (window.paypal) {
+        renderPayPal();
+        return;
+      }
+      if (!document.getElementById('pp-sdk')) {
+        const s = document.createElement('script');
+        s.id = 'pp-sdk';
+        s.src = `https://www.paypal.com/sdk/js?client-id=${appConfig.paypalClientId}&currency=${appConfig.paypalCurrency}`;
+        s.onload = renderPayPal;
+        document.body.appendChild(s);
+      }
+    }
+
+    function renderPayPal() {
+      if (paypalRendered || !window.paypal) return;
+      paypalRendered = true;
+      paypal.Buttons({
+        createOrder: (data, actions) => {
+          const form = document.getElementById('booking-form');
+          if (!form.checkValidity()) { form.reportValidity(); return actions.reject(); }
+          return actions.order.create({
+            purchase_units: [{
+              description: document.getElementById('bf-service').selectedOptions[0].text,
+              amount: { value: document.getElementById('bf-service').value }
+            }]
+          });
+        },
+        onApprove: (data, actions) => actions.order.capture().then(det => {
+          const sel = document.getElementById('bf-service');
+          const srv = sel.options[sel.selectedIndex].text;
+          const name = document.getElementById('bf-name').value.trim();
+          const email = document.getElementById('bf-email').value.trim();
+          const phone = document.getElementById('bf-phone').value.trim();
+          const msg = `¡Hola Fergis! Acabo de hacer el pago por PayPal 💛 (ID: ${det.id})\n\nSERVICIO / RECURSO: ${srv}\nNOMBRE: ${name}\nCORREO: ${email}\nWHATSAPP: ${phone}`;
+          alert('¡Pago completado! Serás redirigida a WhatsApp para confirmar.');
+          closeBookingModal();
+          document.getElementById('booking-form').reset();
+          window.open(`https://wa.me/${appConfig.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+        })
+      }).render('#paypal-button-container');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('config.json')
+        .then(r => r.json())
+        .then(d => { appConfig = { ...appConfig, ...d }; ensurePayPalLoaded(); })
+        .catch(() => { ensurePayPalLoaded(); });
+
+      ['booking-overlay', 'yape-overlay'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', function (e) {
+            if (e.target === this) {
+              if (id === 'booking-overlay') closeBookingModal();
+              else closeYapeModal();
+            }
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
